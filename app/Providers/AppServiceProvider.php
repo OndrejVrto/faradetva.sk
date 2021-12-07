@@ -52,19 +52,15 @@ class AppServiceProvider extends ServiceProvider
 	private function RouteAutomat(Request $request) {
 
 		$path_array = $request->segments();
-        $admin_route = config('app.admin_route');
 
-        //https://locahost:8000/admin/anything
-        if (in_array($admin_route, $path_array)) {
-            config(['app.app_scope' => 'admin']);
-        }
+        $backend_route = config('app.backend_route');
+		$frontend_route = config('app.frontend_route');
 
-        $app_scope = config('app.app_scope');
-
-        if ($app_scope == 'admin') {
-            $path = resource_path('admin/views'); //resources/admin/views
+		//https://locahost:8000/admin/anything
+        if (in_array($backend_route, $path_array)) {
+            $path = resource_path($backend_route. '\views'); //resources/admin/views
         } else {
-            $path = resource_path('front/views');
+            $path = resource_path($frontend_route. '\views');
         }
 
 		View::addLocation($path);
