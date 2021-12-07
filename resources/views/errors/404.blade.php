@@ -10,8 +10,8 @@
 
 @section('contentBlank')
 
-		<div class="container error_title">
-			<div class="row">
+		<div class="container vh-100">
+			<div class="row position-absolute top-50 start-50 translate-middle">
 				<div class="col-lg-6 p-5 p-lg-0">
 					<img src="{{ URL::asset('images/404/page-not-found.svg') }}" class="mw-100" alt="Detektív s lupou hľadá chybu na stránke.">
 				</div>

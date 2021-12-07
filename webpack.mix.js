@@ -26,7 +26,8 @@ mix.sass('resources/asset/frontend-template-church/css/main.scss', 'public/css')
 	.sass('resources/asset/frontend-template-church/special.scss', 'public/css')
 	.combine([
 		'resources/asset/frontend-template-church/js/jquery.js',
-		'resources/asset/frontend-template-church/js/bootstrap.min.js',
+		// 'resources/asset/frontend-template-church/js/bootstrap.min.js',
+		'resources/asset/frontend-template-church/js/bootstrap-5.0.2/bootstrap.js',
 		'resources/asset/frontend-template-church/js/plugins/owl-crousel/owl.carousel.js',
 		'resources/asset/frontend-template-church/js/plugins/animation/wow.min.js',
 		'resources/asset/frontend-template-church/js/plugins/animation/jquery.appear.js',
