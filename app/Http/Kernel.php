@@ -14,6 +14,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+		\App\Http\Middleware\PreetyHtmlMiddleware::class,
+		// \App\Http\Middleware\MinifiHtmlMiddleware::class,
+
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,

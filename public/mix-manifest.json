@@ -1,4 +1,20 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/main.css": "/css/main.css",
+    "/css/app.css": "/css/app.css",
+    "/css/special.css": "/css/special.css",
+    "/css/admin_custom.css": "/css/admin_custom.css",
+    "/fonts/fontawesome-webfont.eot": "/fonts/fontawesome-webfont.eot",
+    "/fonts/fontawesome-webfont.svg": "/fonts/fontawesome-webfont.svg",
+    "/fonts/fontawesome-webfont.ttf": "/fonts/fontawesome-webfont.ttf",
+    "/fonts/fontawesome-webfont.woff": "/fonts/fontawesome-webfont.woff",
+    "/fonts/fontawesome-webfont.woff2": "/fonts/fontawesome-webfont.woff2",
+    "/fonts/FontAwesome.otf": "/fonts/FontAwesome.otf",
+    "/fonts/glyphicons-halflings-regular.eot": "/fonts/glyphicons-halflings-regular.eot",
+    "/fonts/glyphicons-halflings-regular.svg": "/fonts/glyphicons-halflings-regular.svg",
+    "/fonts/glyphicons-halflings-regular.ttf": "/fonts/glyphicons-halflings-regular.ttf",
+    "/fonts/glyphicons-halflings-regular.woff": "/fonts/glyphicons-halflings-regular.woff",
+    "/fonts/glyphicons-halflings-regular.woff2": "/fonts/glyphicons-halflings-regular.woff2",
+    "/js/jquery.googlemap.js": "/js/jquery.googlemap.js",
+    "/js/main.js": "/js/main.js"
 }

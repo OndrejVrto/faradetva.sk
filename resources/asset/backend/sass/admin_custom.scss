@@ -1,0 +1,12 @@
+.table-middle-align th, .table-middle-align td {
+    vertical-align: middle !important;
+}
+
+.table-hover tbody tr:hover {
+	background-color: rgba(255, 200, 100, 0.4);
+}
+
+.table-last-padding th:last-of-type,
+.table-last-padding td:last-of-type {
+	padding-right: 0.3rem !important;
+}

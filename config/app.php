@@ -56,6 +56,9 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'app_scope' => 'front',
+
+    'admin_route' => 'admin',
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -80,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'sk',
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +109,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'sk_SK',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +164,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Package Service Providers...
