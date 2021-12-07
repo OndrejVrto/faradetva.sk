@@ -6,7 +6,6 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -35,7 +34,7 @@ class News extends Model
 
 		$this->attributes['title'] = $value;
 		$this->attributes['slug'] = Str::slug( $value );
-		$this->attributes['user_id'] = Auth::user()->id;
+		// $this->attributes['user_id'] = Auth::user()->id;
 
 	}
 

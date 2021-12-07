@@ -34,8 +34,8 @@ class DatabaseSeeder extends Seeder
 			CategoriesTabSeeder::class,
 		]);
 
-		// News::factory(10)->create();
-		// NewsTags::factory(50)->create();
+		News::factory(10)->create();
+		NewsTags::factory(50)->create();
 
     }
 

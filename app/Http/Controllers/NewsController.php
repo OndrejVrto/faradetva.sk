@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\News;
 use App\Models\Category;
 use App\Models\NewsTags;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreNewsRequest;
 
 class NewsController extends Controller
@@ -54,6 +55,7 @@ class NewsController extends Controller
 		$news->category_id = $request->category_id;
 		$news->title = $request->title;
 		$news->content = $request->content;
+		$this->user_id = Auth::user()->id;
 		$news->save();
 
 		$tags = $request->input('tags');
@@ -92,6 +94,7 @@ class NewsController extends Controller
     {
 
 		$validated = $request->validated();
+		// TODO save with tags
 
 		News::findOrFail($id)->update($validated);
 
