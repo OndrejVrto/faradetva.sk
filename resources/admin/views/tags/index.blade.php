@@ -1,9 +1,15 @@
 @extends('_layouts.app')
 
+@extends('_layouts.app')
+
 @section('title', 'Tagy')
-@section('description', 'Administrácia - správa Tag-ov')
-@section('keywords', '')
-@section('mainTitle', 'Tagy')
+
+@section('content_header')
+    <h1>Tagy</h1>
+@stop
+
+{{-- @section('description', 'Administrácia - správa Tag-ov')
+@section('keywords', '') --}}
 
 @section('content')
 

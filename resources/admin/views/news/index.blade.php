@@ -1,9 +1,10 @@
 @extends('_layouts.app')
 
-@section('title', 'Článkky')
-@section('description', 'Administrácia - správa článkov')
-@section('keywords', '')
-@section('mainTitle', 'Články')
+@section('title', 'Články')
+
+@section('content_header')
+    <h1>Články</h1>
+@stop
 
 @section('content')
 
