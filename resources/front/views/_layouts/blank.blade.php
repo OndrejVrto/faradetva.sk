@@ -22,14 +22,14 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<!-- favicon-icon - realfavicongenerator.net-->
-	<link rel="apple-touch-icon" sizes="180x180" href="{{ URL::asset('icons/apple-touch-icon.png') }}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ URL::asset('icons/favicon-32x32.png') }}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('icons/favicon-16x16.png') }}">
-	<link rel="manifest" href="{{ URL::asset('icons/site.webmanifest') }}">
-	<link rel="mask-icon" href="{{ URL::asset('icons/safari-pinned-tab.svg') }}" color="#5bbad5">
-	<link rel="shortcut icon" href="{{ URL::asset('icons/favicon.ico') }}">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ URL::asset('favicons/apple-touch-icon.png') }}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ URL::asset('favicons/favicon-32x32.png') }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('favicons/favicon-16x16.png') }}">
+	<link rel="manifest" href="{{ URL::asset('favicons/site.webmanifest') }}">
+	<link rel="mask-icon" href="{{ URL::asset('favicons/safari-pinned-tab.svg') }}" color="#5bbad5">
+	<link rel="shortcut icon" href="{{ URL::asset('favicons/favicon.ico') }}">
 	<meta name="msapplication-TileColor" content="#ffc40d">
-	<meta name="msapplication-config" content="{{ URL::asset('icons/browserconfig.xml') }}">
+	<meta name="msapplication-config" content="{{ URL::asset('favicons/browserconfig.xml') }}">
 	<meta name="theme-color" content="#ffffff">
 	<!-- favicon-icon -->
 
