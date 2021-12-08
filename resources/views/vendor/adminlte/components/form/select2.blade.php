@@ -47,7 +47,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style>
 
     {{-- SM size setup --}}
     .input-group-sm .select2-selection--single {

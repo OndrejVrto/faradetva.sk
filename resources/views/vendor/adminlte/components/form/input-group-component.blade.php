@@ -38,7 +38,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style>
 
     {{-- Highlight invalid input groups with a box-shadow --}}
 

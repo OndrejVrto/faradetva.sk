@@ -35,7 +35,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style>
 
     {{-- SM size setup --}}
     .input-group-sm .custom-file-label:after {

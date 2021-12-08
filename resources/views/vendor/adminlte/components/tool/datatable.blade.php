@@ -50,7 +50,7 @@
 
 @isset($beautify)
     @push('css')
-    <style type="text/css">
+    <style>
         #{{ $id }} tr td,  #{{ $id }} tr th {
             vertical-align: middle;
             text-align: center;

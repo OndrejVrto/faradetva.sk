@@ -64,7 +64,7 @@
 {{-- NOTE: this may change with newer plugin versions --}}
 
 @push('css')
-<style type="text/css">
+<style>
 
     {{-- Setup plugin color --}}
 
@@ -105,7 +105,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style>
 
     .adminlte-invalid-islgroup .slider-track,
     .adminlte-invalid-islgroup > .input-group-prepend > *,

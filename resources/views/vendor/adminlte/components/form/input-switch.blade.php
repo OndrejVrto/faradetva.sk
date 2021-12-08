@@ -25,7 +25,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style>
 
     {{-- MD (default) size setup --}}
     .input-group .bootstrap-switch-handle-on,
