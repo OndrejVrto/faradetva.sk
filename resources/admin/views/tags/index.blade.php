@@ -1,15 +1,14 @@
 @extends('_layouts.app')
 
-@extends('_layouts.app')
-
 @section('title', 'Tagy')
+
+@section('meta-tags')
+	<meta name="description" content="Administrácia - správa Tag-ov" />
+@stop
 
 @section('content_header')
     <h1>Tagy</h1>
 @stop
-
-{{-- @section('description', 'Administrácia - správa Tag-ov')
-@section('keywords', '') --}}
 
 @section('content')
 
