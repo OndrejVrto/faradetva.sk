@@ -47,6 +47,7 @@ return [
 
     'logo' => '<b>Farnosť</b>Detva',
     'logo_img' => 'images/logo-farnost-detva.svg',
+    'logo_img_dark' => 'images/logo-farnost-detva-tmave.svg',
     'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -102,12 +103,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-warning',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_btn' => 'btn-flat btn-warning',
 
     /*
     |--------------------------------------------------------------------------
@@ -188,7 +189,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/admin',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -238,9 +239,9 @@ return [
 
         // Sidebar items:
 		[
-            'text'        => 'detva.fara.sk',
+            'text'        => 'Dashboard',
 			'icon_color'  => 'red',
-			'route'       => 'home',
+			'route'       => 'admin.dashboard',
 			'icon'        => 'fas fa-home',
         ],
         ['header' => 'Hlavná ponuka'],
