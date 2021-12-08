@@ -1,15 +1,14 @@
 @extends('_layouts.app')
 
-@extends('_layouts.app')
-
 @section('title', 'Kategórie správ')
+
+@section('meta-tags')
+	<meta name="description" content="Administrácia - správa Kategórií správ" />
+@stop
 
 @section('content_header')
     <h1>Kategórie správ</h1>
 @stop
-
-{{-- @section('description', 'Administrácia - správa Kategórií správ')
-@section('keywords', '') --}}
 
 @section('content')
 
