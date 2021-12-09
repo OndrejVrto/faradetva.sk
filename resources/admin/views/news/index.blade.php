@@ -2,6 +2,10 @@
 
 @section('title', 'Články')
 
+@section('meta-tags')
+	<meta name="description" content="Administrácia - správy" />
+@stop
+
 @section('content_header')
     <h1>Články</h1>
 @stop
