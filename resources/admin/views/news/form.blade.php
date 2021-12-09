@@ -1,23 +1,27 @@
 @section('plugins.Summernote', true)
 @php
 	$config_Sumernote = [
-		"height" => "100",
-		"toolbar" => [
+		'placeholder' => 'Sem vpíšte obsah článku...',
+		'height' => '400',                 // set editor height
+  		'minHeight' => 'null',             // set minimum height of editor
+  		'maxHeight' => 'null',             // set maximum height of editor
+  		'focus' => 'true',                  // set focus to editable area after initializing summernote
+		'toolbar' => [
 			// [groupName, [list of button]]
-			['style', ['bold', 'italic', 'underline', 'clear']],
-			['font', ['strikethrough', 'superscript', 'subscript']],
+			['misc', ['undo','redo']],
+			['style', ['style','paragraph']],
+			['fontstyle', ['bold', 'italic', 'underline', 'clear']],
 			['fontsize', ['fontsize']],
+			['font', ['strikethrough', 'superscript', 'subscript']],
 			['color', ['color']],
-			['para', ['ul', 'ol', 'paragraph']],
-			['height', ['height']],
-			['table', ['table']],
-			['insert', ['link', 'picture', 'video']],
+			['para', ['ul', 'ol']],
+			['insert', ['link', 'hr']],
 			['view', ['fullscreen', 'codeview', 'help']],
 		],
 	]
 @endphp
 
-<div class="row pt-xl-5">
+<div class="row">
 	<div class="col-12 m-auto">
 		<div class="card push-top">
 			<div class="card-body">
@@ -35,7 +39,7 @@
 						<div class="col-lg-9">
 							<x-adminlte-input name="title" label="Titulok článku" placeholder="Názov ..." value="{{ $news->title ?? '' }}" />
 
-							<x-adminlte-text-editor id="SummerNoreNews" name="content" label="Obsah článku" igroup-size="sm" placeholder="Text článku ..." :config="$config_Sumernote">
+							<x-adminlte-text-editor id="Summernote" name="content" label="Obsah článku" igroup-size="sm" placeholder="Text článku ..." :config="$config_Sumernote">
 								{{ $news->content ?? '' }}
 							</x-adminlte-text-editor>
 						</div>
