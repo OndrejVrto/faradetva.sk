@@ -245,7 +245,7 @@ return [
 			'text'  => 'Články',
 			'icon_color'  => 'orange',
 			'route' => 'news.index',
-            'icon'  => 'far fa-newspaper',
+            'icon'  => 'fas fa-book-open',
         ],
 		['header' => 'Nastavenia'],
         [

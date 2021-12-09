@@ -38,7 +38,7 @@
 								{{-- <td class="text-wrap text-break">{{$news->teaser}}</td> --}}
 								<td>
 									<a href="{{ route('news.edit', $news->slug)}}" class="btn btn-primary btn-sm my-1" title="Editovať"><i class="fas fa-edit"></i></a>
-									<form action="{{ route('news.destroy', $news->id)}}" method="post" style="display: inline-block">
+									<form id="delete-form" action="{{ route('news.destroy', $news->id)}}" method="post" style="display: inline-block">
 										@csrf
 										@method('DELETE')
 										<button class="btn btn-danger btn-sm my-1" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>

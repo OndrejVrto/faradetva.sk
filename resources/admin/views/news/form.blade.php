@@ -3,7 +3,7 @@
 		'height' => '250',                 // set editor height
   		'minHeight' => 'null',             // set minimum height of editor
   		'maxHeight' => 'null',             // set maximum height of editor
-  		'focus' => 'true',                  // set focus to editable area after initializing summernote
+  		// 'focus' => 'true',                  // set focus to editable area after initializing summernote
 		'toolbar' => [
 			// [groupName, [list of button]]
 			['misc', ['undo','redo']],
@@ -30,10 +30,10 @@
 			<div class="card-body">
 
 				@if ( $type == 'edit')
-					<form method="post" action="{{ route('news.update', $news->id) }}">
+					<form id="edit-form" method="post" action="{{ route('news.update', $news->id) }}">
 					@method('PATCH')
 				@else
-					<form method="post" action="{{ route('news.store') }}">
+					<form id="add-form" method="post" action="{{ route('news.store') }}">
 				@endif
 
 					@csrf

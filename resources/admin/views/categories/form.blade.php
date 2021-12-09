@@ -4,10 +4,10 @@
 			<div class="card-body">
 
 				@if ( $type == 'edit')
-					<form method="post" action="{{ route('categories.update', $category->id) }}">
+					<form id="edit-form" method="post" action="{{ route('categories.update', $category->id) }}">
 					@method('PATCH')
 				@else
-					<form method="post" action="{{ route('categories.store') }}">
+					<form id="add-form" method="post" action="{{ route('categories.store') }}">
 				@endif
 
 					@csrf
