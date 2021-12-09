@@ -13,12 +13,12 @@ class CreateNewsTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news_tags', function (Blueprint $table) {
+        Schema::create('news_tag', function (Blueprint $table) {
             $table->id();
 			$table->bigInteger('news_id')->unsigned();
-            $table->bigInteger('tags_id')->unsigned();
+            $table->bigInteger('tag_id')->unsigned();
             $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
-            $table->foreign('tags_id')->references('id')->on('tags')->onDelete('cascade');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
     }
 

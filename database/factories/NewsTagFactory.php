@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class NewsTagsFactory extends Factory
+class NewsTagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,7 +16,7 @@ class NewsTagsFactory extends Factory
 
 		return [
 			'news_id' =>  $this->faker->numberBetween(1, 10),
-			'tags_id' =>  $this->faker->numberBetween(1, 10)
+			'tag_id' =>  $this->faker->numberBetween(1, 10)
 		];
 
 	}

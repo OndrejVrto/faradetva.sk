@@ -27,7 +27,7 @@ class CreateNewsTable extends Migration
 					->onDelete('SET NULL');
 			$table->mediumText('title');
 			$table->mediumText('slug');
-			$table->longText('content');
+			$table->binary('content');
             $table->timestamps();
 			$table->softDeletes();
         });

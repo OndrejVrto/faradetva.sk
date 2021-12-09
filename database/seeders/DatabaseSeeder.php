@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\News;
 use App\Models\User;
-use App\Models\NewsTags;
+use App\Models\NewsTag;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Database\Seeders\TagTableSeeder;
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
 		]);
 
 		News::factory(10)->create();
-		NewsTags::factory(50)->create();
+		NewsTag::factory(50)->create();
 
     }
 

@@ -31,7 +31,8 @@ class StoreNewsRequest extends FormRequest
 				Rule::unique('news', 'title')->ignore($this->news)->whereNull('deleted_at')
 			],
 			'content' => 'required',
-			'category_id' => 'exists:categories,id'
+			'category_id' => 'required|exists:categories,id'
+			// 'tags' => 'required',
 		];
     }
 }

@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NewsTags extends Model
+class NewsTag extends Model
 {
     use HasFactory;
 
-	protected $table = 'news_tags';
+	protected $table = 'news_tag';
 
 	public $timestamps = false;
 
     protected $fillable = [
 		'news_id',
-		'tags_id'
+		'tag_id'
 	];
 
 }
