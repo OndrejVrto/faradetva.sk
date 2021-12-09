@@ -13,7 +13,7 @@
 @section('content')
 
 	<div class="row">
-		<div class="col-12 col-xl-9 m-auto">
+		<div class="col-12 col-xl-6 m-auto">
 			<div class="p-2 pb-3">
 				<a href="{{ route('categories.create')}}" class="btn btn-warning">Vytvoriť novú kategóriu správ</a>
 			</div>
@@ -22,7 +22,7 @@
 					<table class="table table-sm table-hover table-middle-align table-striped table-last-padding">
 						<thead>
 							<tr class="table-primary">
-								<th>ID</th>
+								{{-- <th>ID</th> --}}
 								<th>Názov Kategórie</th>
 								<th>Popis</th>
 								<th style="width: 5rem;">Akcie</th>
@@ -31,7 +31,7 @@
 						<tbody>
 							@foreach($categories as $category)
 							<tr>
-								<td>{{$category->id}}</td>
+								{{-- <td>{{$category->id}}</td> --}}
 								<td class="text-wrap text-break">{{$category->title}}</td>
 								<td class="text-wrap text-break">{{$category->description}}</td>
 								<td>

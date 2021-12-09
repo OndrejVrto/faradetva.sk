@@ -11,9 +11,9 @@
 				@endif
 
 					@csrf
-					<x-adminlte-input name="title" label="Titulok tagu" placeholder="Názov Tagu ..." value="{{ $tag->title ?? '' }}" />
+					<x-adminlte-input name="title" label="Kľúčové slovo" placeholder="Jediné slovo" value="{{ $tag->title ?? old('title') }}" />
 
-					<x-adminlte-input name="description" label="Popis tagu" placeholder="Popis ..." value="{{ $tag->description ?? '' }}" />
+					<x-adminlte-input name="description" label="Popis" placeholder="Stručný popis ..." value="{{ $tag->description ?? old('description') }}" />
 
 					<div class="row">
 						<div class="col-8">

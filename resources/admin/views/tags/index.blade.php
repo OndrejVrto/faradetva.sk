@@ -7,23 +7,23 @@
 @stop
 
 @section('content_header')
-    <h1>Tagy</h1>
+    <h1>Kľúčové slová</h1>
 @stop
 
 @section('content')
 
 	<div class="row">
-		<div class="col-12 col-xl-8 m-auto">
+		<div class="col-12 col-xl-6 m-auto">
 			<div class="p-2 pb-3">
-				<a href="{{ route('tags.create')}}" class="btn btn-warning">Vytvoriť nový Tag</a>
+				<a href="{{ route('tags.create')}}" class="btn btn-warning">Vytvoriť nové kľúčové slovo</a>
 			</div>
 			<div class="card">
 				<div class="card-body table-responsive p-0">
 					<table class="table table-sm table-hover table-middle-align table-striped table-last-padding">
 						<thead>
 							<tr class="table-primary">
-								<th>ID</th>
-								<th>Názov Tagu</th>
+								{{-- <th>ID</th> --}}
+								<th>Kľúčové slovo</th>
 								<th>Popis</th>
 								<th style="width: 5rem;">Akcia</th>
 							</tr>
@@ -31,7 +31,7 @@
 						<tbody>
 							@foreach($tags as $tag)
 							<tr>
-								<td>{{$tag->id}}</td>
+								{{-- <td>{{$tag->id}}</td> --}}
 								<td class="text-wrap text-break">{{$tag->title}}</td>
 								<td class="text-wrap text-break">{{$tag->description}}</td>
 								<td>

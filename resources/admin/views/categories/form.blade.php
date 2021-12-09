@@ -7,13 +7,13 @@
 					<form method="post" action="{{ route('categories.update', $category->id) }}">
 					@method('PATCH')
 				@else
-					<form method="post" action="{{ route('tags.store') }}">
+					<form method="post" action="{{ route('categories.store') }}">
 				@endif
 
 					@csrf
-					<x-adminlte-input name="title" label="Titulok kategórie" placeholder="Názov kategórie ..." value="{{ $category->title ?? '' }}" />
+					<x-adminlte-input name="title" label="Titulok kategórie" placeholder="Názov kategórie ..." value="{{ $category->title ?? old('title') }}" />
 
-					<x-adminlte-input name="description" label="Popis kategórie" placeholder="Popis ..." value="{{ $category->description ?? '' }}" />
+					<x-adminlte-input name="description" label="Popis kategórie" placeholder="Popis ..." value="{{ $category->description ?? old('description') }}" />
 
 					<div class="row">
 						<div class="col-8">
