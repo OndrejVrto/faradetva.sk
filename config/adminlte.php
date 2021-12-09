@@ -229,11 +229,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
+            'text'         => 'Hľadať ...',
             'topnav_right' => true,
         ],
 
@@ -258,11 +254,11 @@ return [
             'icon'    => 'fas fa-cog',
             'submenu' => [
                 [
-                    'text' => 'Kategórie',
+                    'text' => 'Kategórie článkov',
 					'route' => 'categories.index',
                 ],
                 [
-                    'text' => 'Tagy',
+                    'text' => 'Kľúčové slová',
 					'route' => 'tags.index',
                 ],
             ],
