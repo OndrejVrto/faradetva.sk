@@ -44,7 +44,12 @@ class CategoryController extends Controller
 
 		Category::create($validated);
 
-        return redirect()->route('categories.index')->with('success', 'Nová kategória bola uložená!');
+		$notification = array(
+			'message' => 'Nová kategória bola pridaná!',
+			'alert-type' => 'success'
+		);
+
+        return redirect()->route('categories.index')->with($notification);
     }
 
     /**
@@ -76,7 +81,12 @@ class CategoryController extends Controller
 
 		Category::findOrFail($id)->update($validated);
 
-        return redirect()->route('categories.index')->with('success', 'Kategória bola zmenená!');
+		$notification = array(
+			'message' => 'Kategória bola upravená!',
+			'alert-type' => 'success'
+		);
+
+        return redirect()->route('categories.index')->with($notification);
 
     }
 
@@ -91,7 +101,11 @@ class CategoryController extends Controller
 		$category = Category::findOrFail($id);
 		$category->delete();
 
-		return redirect()->route('categories.index')->with('success','Kategória bola úspešne odstránená.');
+		$notification = array(
+			'message' => 'Kategória bola odstránená!',
+			'alert-type' => 'success'
+		);
+		return redirect()->route('categories.index')->with($notification);
     }
 
 }

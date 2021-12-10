@@ -58,7 +58,11 @@ class NewsController extends Controller
 		$tags = $request->input('tags');
 		$news->tags()->sync($tags);
 
-        return redirect()->route('news.index')->with('success', 'Nový článok bol uložený!');
+		$notification = array(
+			'message' => 'Nový článok bol pridaný!',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('news.index')->with($notification);
     }
 
     /**
@@ -98,8 +102,12 @@ class NewsController extends Controller
 
 		$tags = $request->input('tags');
 		$news->tags()->sync($tags);
-// return $request;
-        return redirect()->route('news.index')->with('success', 'Článok bol úspešne zmenený!');
+
+		$notification = array(
+			'message' => 'Článok bol úspešne upravený.',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('news.index')->with($notification);
 
     }
 
@@ -114,7 +122,11 @@ class NewsController extends Controller
 		$news = News::findOrFail($id);
 		$news->delete();
 
-		return redirect()->route('news.index')->with('success','Článok bol úspešne odstránený.');
+		$notification = array(
+			'message' => 'Článok bol odstránený.',
+			'alert-type' => 'success'
+		);
+		return redirect()->route('news.index')->with($notification);
     }
 
 }

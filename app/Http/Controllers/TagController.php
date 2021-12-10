@@ -44,7 +44,11 @@ class TagController extends Controller
 
 		Tag::create($validated);
 
-        return redirect()->route('tags.index')->with('success', 'Nový Tag bol uložený!');
+		$notification = array(
+			'message' => 'Nové kľúčové slovo bolo pridané!',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('tags.index')->with($notification);
     }
 
     /**
@@ -74,7 +78,11 @@ class TagController extends Controller
 
 		Tag::findOrFail($id)->update($validated);
 
-        return redirect()->route('tags.index')->with('success', 'Tag bol zmenený!');
+		$notification = array(
+			'message' => 'Kľúčové slovo bolo upravené.',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('tags.index')->with($notification);
 
     }
 
@@ -89,7 +97,11 @@ class TagController extends Controller
 		$tag = Tag::findOrFail($id);
 		$tag->delete();
 
-		return redirect()->route('tags.index')->with('success','Tag bol úspešne odstránený.');
+		$notification = array(
+			'message' => 'Kľúčové slovo bolo odstránené!',
+			'alert-type' => 'success'
+		);
+		return redirect()->route('tags.index')->with($notification);
     }
 
 }

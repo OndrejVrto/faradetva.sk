@@ -19,19 +19,23 @@
 
 
 	/**
-	 * DELETE FORM
+	 * DELETE FORM submit
 	 */
-	$('#delete-form').on('submit', function() {
-		return confirm('Si si istý?');
+	$('#delete-form').on('submit', function(event) {
+		event.preventDefault();
+		Swal.fire({
+			title: 'Si si istý?',
+			text: "Už to nebudeš môcť vrátiť späť!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#dc3545',
+			cancelButtonColor: '#007BFF',
+			confirmButtonText: 'Áno, chcem to vymazať!'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				document.getElementById("delete-form").submit();
+			}
+		})
 	});
-
-
-	/**
-	 * Hide alerts
-	 */
-	$('.alert').find('.close').on('click', function() {
-		$(this).parent().fadeOut();
-	});
-
 
 }(jQuery));

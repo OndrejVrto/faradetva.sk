@@ -15,9 +15,10 @@ mix.disableNotifications()
 
 // backend
 mix.js('resources/asset/backend/js/app.js', 'public/js')
-	.js('resources/asset/backend/js/admin_custom.js', 'public/js')
-	.sass('resources/asset/backend/sass/app.scss', 'public/css')
-	.sass('resources/asset/backend/sass/admin_custom.scss', 'public/css');
+	.sass('resources/asset/backend/sass/admin_custom.scss', 'public/css')
+	.sass('resources/asset/backend/sass/app.scss', 'public/css');
+
+	// .js('resources/asset/backend/js/admin_custom.js', 'public/js')
 
 //frontend
 mix.copyDirectory('resources/asset/frontend-template-church/fonts','public/fonts')

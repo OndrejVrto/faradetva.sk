@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-12 col-xl-11 m-auto">
 			<div class="p-2 pb-3">
-				<a href="{{ route('news.create')}}" class="btn btn-warning">Vytvoriť nový článok</a>
+				<a href="{{ route('news.create')}}" class="btn btn-warning btn-flat">Vytvoriť nový článok</a>
 			</div>
 			<div class="card">
 				<div class="card-body table-responsive p-0">
@@ -37,11 +37,11 @@
 								<td class="text-wrap text-break">{{$news->title}}</td>
 								{{-- <td class="text-wrap text-break">{{$news->teaser}}</td> --}}
 								<td>
-									<a href="{{ route('news.edit', $news->slug)}}" class="btn btn-primary btn-sm my-1" title="Editovať"><i class="fas fa-edit"></i></a>
+									<a href="{{ route('news.edit', $news->slug)}}" class="btn btn-primary btn-sm btn-flat my-1" title="Editovať"><i class="fas fa-edit"></i></a>
 									<form id="delete-form" action="{{ route('news.destroy', $news->id)}}" method="post" style="display: inline-block">
 										@csrf
 										@method('DELETE')
-										<button class="btn btn-danger btn-sm my-1" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
+										<button class="btn btn-danger btn-flat btn-sm my-1" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
 									</form>
 								</td>
 							</tr>

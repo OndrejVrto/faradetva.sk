@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-12 col-xl-6 m-auto">
 			<div class="p-2 pb-3">
-				<a href="{{ route('categories.create')}}" class="btn btn-warning">Vytvoriť novú kategóriu správ</a>
+				<a href="{{ route('categories.create')}}" class="btn btn-warning btn-flat">Vytvoriť novú kategóriu správ</a>
 			</div>
 			<div class="card">
 				<div class="card-body table-responsive p-0">
@@ -35,11 +35,11 @@
 								<td class="text-wrap text-break">{{$category->title}}</td>
 								<td class="text-wrap text-break">{{$category->description}}</td>
 								<td>
-									<a href="{{ route('categories.edit', $category->slug)}}" class="btn btn-primary btn-sm" title="Editovať"><i class="fas fa-edit"></i></a>
+									<a href="{{ route('categories.edit', $category->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
 									<form id="delete-form" action="{{ route('categories.destroy', $category->id)}}" method="post" style="display: inline-block">
 										@csrf
 										@method('DELETE')
-										<button class="btn btn-danger btn-sm" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
+										<button class="btn btn-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
 									</form>
 								</td>
 							</tr>
