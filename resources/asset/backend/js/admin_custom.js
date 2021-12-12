@@ -38,4 +38,16 @@
 		})
 	});
 
+	/**
+	 * Hide alerts
+	 */
+	// $('.alert').find('.close').on('click', function() {
+	// 	$(this).parent().fadeOut();
+	// });
+
+
 }(jQuery));
+
+
+
+

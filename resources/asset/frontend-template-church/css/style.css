@@ -75,7 +75,7 @@ a:focus, input:focus, button:focus, textarea:focus {
     -webkit-box-shadow: none !important;
     text-decoration: none;
 }
-a:after, button:after, 
+a:after, button:after,
 a:before, button:before{
 	transition:all ease-in 0.25s;
 	-moz-transition:all ease-in 0.25s;
@@ -126,13 +126,13 @@ a:before, button:before{
     z-index: -9;
 }
 
-.read_btn:hover:before, 
+.read_btn:hover:before,
 .read_btn:focus:before {
   height: 100%;
   width: 135%;
 }
 
-.read_btn:hover, 
+.read_btn:hover,
 .read_btn:focus{
 	text-decoration:none;
 	color:#222222;
@@ -257,7 +257,7 @@ a:before, button:before{
     -moz-transition: all ease-in 0.25s;
     -webkit-transition: all ease-in 0.25s;
 }
-.search_dialog .model_content .search_btn:hover, 
+.search_dialog .model_content .search_btn:hover,
 .search_dialog .model_content .search_btn:focus{
 	background-color:transparent;
 	color:#ff7b33;
@@ -323,7 +323,7 @@ a:before, button:before{
     font-weight: 400;
     position: relative;
 }
-.header_right_menu > ul > li > a:after, 
+.header_right_menu > ul > li > a:after,
 .header_right_menu > ul > li > a:before {
     position: absolute;
     content: "";
@@ -352,7 +352,7 @@ a:before, button:before{
     -ms-transform: rotate(-45deg) translateY(-13px);
     -o-transform: rotate(-45deg) translateY(-13px);
 }
-.header_right_menu > ul > li > a:hover:after, 
+.header_right_menu > ul > li > a:hover:after,
 .header_right_menu > ul > li > a:hover:before {
     opacity: 1;
 	transform:none;
@@ -749,7 +749,7 @@ a:before, button:before{
     -moz-filter: sepia(50%);
     -ms-filter: sepia(50%);
     -o-filter: sepia(50%);
-	
+
 }
 .event_desc {
 	display: table-cell;
@@ -965,7 +965,7 @@ a:before, button:before{
 	text-decoration:none;
 }
 .breadcrumb li a:hover{
-	color:#ffffff;	
+	color:#ffffff;
 }
 .ch_about_wrap{
     float: left;
@@ -1032,7 +1032,7 @@ a:before, button:before{
     padding-left: 60px;
     font-size: 14px;
     font-weight: 400;
-    background-color: #fffff;
+    background-color: #fff;
     color: #919191;
 }
 .contact_form_wrap textarea {
@@ -1043,7 +1043,7 @@ a:before, button:before{
     font-size: 14px;
     font-weight: 400;
     color: #919191;
-    background-color: #fffff;
+    background-color: #fff;
     resize: none;
 }
 .contact_form_wrap .input_icon {
@@ -1083,7 +1083,7 @@ a:before, button:before{
     width:100%;
     margin-bottom: 30px;
 }
-.ch_address_details > li > span, 
+.ch_address_details > li > span,
 .ch_address_details > li > div {
     display: table-cell;
     vertical-align: middle;
@@ -1238,7 +1238,7 @@ div#err_msg p{
 ----------------------------------------------------------------------------------*/
 .ch_blog_page{
     padding-top: 80px;
-    padding-bottom: 30px;  
+    padding-bottom: 30px;
 }
 .ch_blog_page .blog_item_cover {
     border-bottom: 1px solid #EFEFEF;
@@ -1346,7 +1346,7 @@ div#err_msg p{
     -webkit-transition: all ease-in-out 0.3s;
     -moz-transition: all ease-in-out 0.3s;
 }
-.widget.widget_search form .search-submit:hover, 
+.widget.widget_search form .search-submit:hover,
 .widget.widget_search form .search-submit:focus{
     color: #ff7b33;
     border-left:1px solid;
@@ -1447,7 +1447,7 @@ div#err_msg p{
 /*==== Blog Pagination Start ====*/
 .blog_pagination{
     float:left;
-    width:100%; 
+    width:100%;
 }
 .blog_pagination .pagination{
     float:left;
@@ -1471,8 +1471,8 @@ div#err_msg p{
     margin-right: 7px;
     border: none;
 }
-.blog_pagination .pagination a:hover, 
-.blog_pagination .pagination a:focus, 
+.blog_pagination .pagination a:hover,
+.blog_pagination .pagination a:focus,
 .blog_pagination .pagination .current{
     background-color: #ff7b33;
     color:#ffffff;
@@ -1609,7 +1609,7 @@ blockquote cite {
     margin:20px 0 20px;
 }
 .comment-respond .comment-form{
-    
+
 }
 .comment-respond .comment-form p {
     margin-bottom: 20px;
@@ -1650,7 +1650,7 @@ blockquote cite {
     height: auto;
     display: inline-block;
 }
-.comment-form p .comment_submit:hover, 
+.comment-form p .comment_submit:hover,
 .comment-form p .comment_submit:focus{
     background-color:#777777;
     color:#ffffff;
@@ -1755,7 +1755,7 @@ blockquote cite {
     padding-left: 25px;
 }
 .newsletter_form form .news_btn{
-	
+
 }
 .ch_bottom_footer {
     float: left;
