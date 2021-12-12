@@ -24,15 +24,19 @@ class StoreNewsRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+
+		return [
             'title' => [
 				'required',
 				'string',
 				Rule::unique('news', 'title')->ignore($this->news)->whereNull('deleted_at')
 			],
 			'content' => 'required',
-			'category_id' => 'required|exists:categories,id'
+			'category_id' => 'required|exists:categories,id',
+			'file_news.*' => 'file|mimes:jpg,bmp,png',
 			// 'tags' => 'required',
 		];
-    }
+
+	}
+
 }

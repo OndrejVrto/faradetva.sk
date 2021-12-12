@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Tag;
+use App\Models\File;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -70,5 +71,13 @@ class News extends Model
 	public function tags(){
 
         return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * Get all the news's file's
+     */
+    public function file()
+    {
+        return $this->morphMany(File::class, 'fileable');
     }
 }

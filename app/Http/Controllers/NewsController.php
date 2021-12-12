@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\News;
-use App\Models\Category;
 use App\Models\NewsTag;
+use App\Models\Category;
+use App\Service\UploadFileService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use App\Http\Requests\StoreNewsRequest;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
+
+	protected $upload;
+
+	public function __construct(UploadFileService $upload)
+	{
+		$this->upload = $upload;
+	}
+
 
 	/**
      * Display a listing of the resource.
@@ -48,6 +59,7 @@ class NewsController extends Controller
     {
 		$request->validated();
 
+		// store news
 		$news = new News;
 		$news->category_id = $request->category_id;
 		$news->title = $request->title;
@@ -55,9 +67,14 @@ class NewsController extends Controller
 		$news->user_id = Auth::id();
 		$news->save();
 
+		// store tags
 		$tags = $request->input('tags');
 		$news->tags()->sync($tags);
 
+		//upload files
+		$this->upload->uploadFiles($news, $request->file('file_news'));
+
+		// notification and request
 		$notification = array(
 			'message' => 'Nový článok bol pridaný!',
 			'alert-type' => 'success'
