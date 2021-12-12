@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
 		]);
 
 		DB::listen(function ($query) {
-			File::append(
+			File::prepend(
 				storage_path('/logs/query.log'),
 				'[' . date('Y-m-d H:i:s') . '] [' . $query->time . ' ms]' . PHP_EOL . $query->sql . PHP_EOL . '{' . implode(', ', $query->bindings) . '}' . PHP_EOL . PHP_EOL
 			);
