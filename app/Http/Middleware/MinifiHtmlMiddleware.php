@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use BeautifyHtml;
 use Illuminate\Http\Request;
 
 class MinifiHtmlMiddleware
