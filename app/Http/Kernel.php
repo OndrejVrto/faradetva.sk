@@ -14,6 +14,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+		\App\Http\Middleware\QueryLogsSeparateMiddleware::class,
 		\App\Http\Middleware\PreetyHtmlMiddleware::class,
 		// \App\Http\Middleware\MinifiHtmlMiddleware::class,
 
