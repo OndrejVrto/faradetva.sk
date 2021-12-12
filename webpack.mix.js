@@ -14,18 +14,17 @@ mix.disableNotifications()
 	.sourceMaps();
 
 // backend
-mix.js('resources/asset/backend/js/app.js', 'public/js')
-	.sass('resources/asset/backend/sass/admin_custom.scss', 'public/css')
-	.sass('resources/asset/backend/sass/app.scss', 'public/css');
-
-	// .js('resources/asset/backend/js/admin_custom.js', 'public/js')
+mix.js('resources/asset/backend/js/app.js', 'public/asset/js')
+	.sass('resources/asset/backend/sass/admin_custom.scss', 'public/asset/css')
+	.sass('resources/asset/backend/sass/app.scss', 'public/asset/css')
+	.js('resources/asset/backend/js/admin_custom.js', 'public/asset/js');
 
 //frontend
-mix.copyDirectory('resources/asset/frontend-template-church/fonts','public/fonts')
-	.copy('resources/asset/frontend-template-church/js/jquery.googlemap.js', 'public/js');
+mix.copyDirectory('resources/asset/frontend-template-church/fonts','public/asset/fonts')
+	.copy('resources/asset/frontend-template-church/js/jquery.googlemap.js', 'public/asset/js');
 
-mix.sass('resources/asset/frontend-template-church/css/main.scss', 'public/css')
-	.sass('resources/asset/frontend-template-church/special.scss', 'public/css')
+mix.sass('resources/asset/frontend-template-church/css/main.scss', 'public/asset/css')
+	.sass('resources/asset/frontend-template-church/special.scss', 'public/asset/css')
 	.combine([
 		'resources/asset/frontend-template-church/js/jquery.js',
 		'resources/asset/frontend-template-church/js/bootstrap.min.js',
@@ -35,5 +34,5 @@ mix.sass('resources/asset/frontend-template-church/css/main.scss', 'public/css')
 		'resources/asset/frontend-template-church/js/plugins/animation/jquery.appear.js',
 		'resources/asset/frontend-template-church/js/plugins/counter/jquery.countTo.js',
 		'resources/asset/frontend-template-church/js/custom.js'
-	], 'public/js/main.js');
+	], 'public/asset/js/main.js');
 

@@ -9,16 +9,16 @@
 
 @php
 	$mainTitle = 'Kontakt';
-	// $scripts = ['js/jquery.js',
-	// 			'js/bootstrap.min.js',
-	// 			'js/plugins/animation/wow.min.js',
-	// 			'js/custom.js']
+	// $scripts = ['asset/js/jquery.js',
+	// 			'asset/js/bootstrap.min.js',
+	// 			'asset/js/plugins/animation/wow.min.js',
+	// 			'asset/js/custom.js']
 @endphp
 
 @push('scripts')
 <!-- map js -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNdePPJKYq0ptBV_AFi_4RnmUtMa1ZLFg&libraries=places"></script>
-	<script type="text/javascript" src="js/jquery.googlemap.js"></script>
+	<script type="text/javascript" src="asset/js/jquery.googlemap.js"></script>
 	<!-- google map script -->
 	<script>
 		$(document).ready(function() {

@@ -43,7 +43,7 @@
 <body class="{{ Request::segment(1) ?: 'home' }}">
 @yield('contentBlank')
 
-<script src="{{ mix('js/main.js') }}" defer></script>
+<script src="{{ mix('asset/js/main.js') }}" defer></script>
 @yield('third_party_scripts')
 
 @stack('scripts')

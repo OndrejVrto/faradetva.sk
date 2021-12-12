@@ -1,11 +1,13 @@
 @extends('adminlte::page')
 
 @section('css')
-    <link rel="stylesheet" href="{{ mix('css/admin_custom.css') }}">
+    <link rel="stylesheet" href="{{ mix('asset/css/admin_custom.css') }}">
+	<script src="{{ asset('vendor/debugbar.js') }}"></script>
 @stop
 
 @section('js')
-	<script src="{{ mix('js/admin_custom.js') }}"></script>
+	<script src="{{ mix('asset/js/admin_custom.js') }}"></script>
+
 @stop
 
 @if(session()->has('message'))
@@ -25,7 +27,7 @@
 			newestOnTop: true,
 			progressBar: true,
 			positionClass: "toast-top-right",
-			preventDuplicates: false,
+			// preventDuplicates: false,
 			onclick: null,
 			showDuration: "300",
 			hideDuration: "1000",
