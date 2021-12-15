@@ -20,7 +20,7 @@
 
 {{-- Add the plugin initialization code --}}
 
-@once
+{{-- @once
 @push('js')
 <script>
 
@@ -28,7 +28,7 @@
 
 </script>
 @endpush
-@endonce
+@endonce --}}
 
 {{-- Setup the height and font size of the plugin when using sm/lg sizes --}}
 {{-- NOTE: this may change with newer plugin or Bootstrap versions --}}

@@ -10,3 +10,11 @@
 .table-last-padding td:last-of-type {
 	padding-right: 0.3rem !important;
 }
+
+.custom-file-label::after {
+	color:#495057;
+	content:"Vložiť";
+	background-color:#e9ecef;
+	border-left:inherit;
+	border-radius:0 .25rem .25rem 0
+}

@@ -49,6 +49,12 @@ class News extends Model
 		return $this->created_at->format("j. M Y");
 	}
 
+	public function getModelAttribute (){
+
+		return Str::replace("\\", '-', get_class($this) );
+
+	}
+
     /**
      * Get the user write this news.
      */

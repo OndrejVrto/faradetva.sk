@@ -1,27 +1,19 @@
-(function($) {
-
+(function ($) {
 	/**
 	 * --------------------------------------
 	 * Move cursor to the end of input
 	 *
 	 */
-	$.fn.moveCursorToEnd = function() {
+	$.fn.moveCursorToEnd = function () {
 		var originalValue = this.val();
 		this.val('');
 		this.blur().focus().val(originalValue);
 	};
 
-
-	/**
-	 * ADD FORM, EDIT FORM
-	 */
-	$('#add-form, #edit-form').find('input[name=title]').moveCursorToEnd();
-
-
 	/**
 	 * DELETE FORM submit
 	 */
-	$('#delete-form').on('submit', function(event) {
+	$('#delete-form').on('submit', function (event) {
 		event.preventDefault();
 		Swal.fire({
 			title: 'Si si istý?',
@@ -31,23 +23,35 @@
 			confirmButtonColor: '#dc3545',
 			cancelButtonColor: '#007BFF',
 			confirmButtonText: 'Áno, chcem to vymazať!'
-		}).then((result) => {
+		}).then(function (result) {
 			if (result.isConfirmed) {
 				document.getElementById("delete-form").submit();
 			}
-		})
+		});
 	});
 
-	/**
-	 * Hide alerts
-	 */
-	// $('.alert').find('.close').on('click', function() {
-	// 	$(this).parent().fadeOut();
-	// });
+
+	$('#add-form, #edit-form').find('#addFileSubmit').on('click', function () {
+		var input = $('#addFileInput');
+		output = input.clone().insertAfter('.add-files-group .form-row:last');
+		output.removeAttr('id');
+		output.find('label').html('Nová príloha ...');
+	})
+	.end()
+	.find('input[name=title]').moveCursorToEnd();
 
 
-}(jQuery));
+	$('.add-files-group').on('change', 'input[type=file]', function () {
+		//get the file name
+		var fileName = $(this).val().split('\\').pop();
+		//replace the "Choose a file" label
+		$(this).next('.custom-file-label').html(fileName);
+	});
 
 
+	$('.add-files-group').on('click', 'button', function () {
+		$(this).closest('.form-row').remove();
+	});
 
 
+})(jQuery);

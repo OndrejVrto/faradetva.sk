@@ -10,8 +10,8 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.disableNotifications()
-	.sourceMaps();
+mix.disableNotifications();
+	// .sourceMaps();
 
 // backend
 mix.js('resources/asset/backend/js/app.js', 'public/asset/js')

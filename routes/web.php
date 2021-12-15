@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-// Auth
 use Illuminate\Support\Facades\Route;
-// BackEnd USE
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -37,6 +36,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 	Route::resource('/news', NewsController::class, ['except' => 'show', 'edit']);
 	Route::get('/news/editovat/{slug}', [NewsController::class, 'edit'])->name('news.edit');
 
+	Route::resource('/files', FileController::class, ['only' => 'store', 'update']);
+	Route::post('/files/{id}/{model}', [FileController::class, 'create'])->name('files.create');
 });
 
 
