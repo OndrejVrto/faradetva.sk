@@ -35,6 +35,7 @@
 		var input = $('#addFileInput');
 		output = input.clone().insertAfter('.add-files-group .form-row:last');
 		output.removeAttr('id');
+		output.removeClass("d-none");
 		output.find('label').html('Nová príloha ...');
 	})
 	.end()
