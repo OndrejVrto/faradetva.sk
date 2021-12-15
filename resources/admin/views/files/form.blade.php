@@ -23,12 +23,19 @@
 									<a 	download="{{ $file->name }}"
 										class="btn btn-btn-default bg-gradient-yellow w-100"
 										href="{{ $file->absolutePath }}"
-										title="@isset($file->description){{ $file->description }}@else Súbor: {{ $file->name }}@endisset">
+										title="@isset($file->description){{ $file->description }}@else Súbor: {{ $file->name }}@endisset"
+									>
 										{{ $file->name }}
 									</a>
 								</div>
 								<div class="col-10 col-md-7 pr-0 pr-md-1">
-									<x-adminlte-input name="fileDescription[{{ $file->id }}]" placeholder="Vložiť popis ..." value="{{ $file->description ?? old('title') }}" class="input-group-sm" fgroupClass="mb-0">
+									<x-adminlte-input
+										name="fileDescription_old[{{ $file->id }}]"
+										placeholder="Vložiť popis ..."
+										value="{{ $file->description ?? old('fileDescription_old[' .$file->id. ']') }}"
+										class="input-group-sm"
+										fgroupClass="mb-0"
+									>
 										<x-slot name="prependSlot">
 											<div class="input-group-text bg-gradient-gray" title="Popis súboru">
 												<i class="fas fa-comment"></i>
@@ -45,12 +52,16 @@
 						</div>
 					@endif
 
-
 					<div class="add-files-group">
 						<label>Nové súbory</label>
 						<div class="form-row pb-3 d-none" id="addFileInput">
 							<div class="col-12 col-md-4">
-								<x-adminlte-input-file name="file_news[]" placeholder="Nová príloha ..." errorKey="file_news.*" fgroupClass="mb-0">
+								<x-adminlte-input-file
+									name="files_new[]"
+									placeholder="Nová príloha ..."
+									errorKey="files_new.*"
+									fgroupClass="mb-0"
+								>
 									<x-slot name="prependSlot">
 										<div class="input-group-text bg-gradient-red">
 											<i class="fas fa-file-import"></i>
@@ -59,7 +70,13 @@
 								</x-adminlte-input-file>
 							</div>
 							<div class="col-10 col-md-7 pr-0 pr-md-1">
-								<x-adminlte-input name="fileDescriptionNew[]" placeholder="Vložiť popis ..." value="{{ $file->description ?? old('title') }}" class="input-group-sm" fgroupClass="mb-0">
+								<x-adminlte-input
+									name="filesDescription_new[]"
+									placeholder="Vložiť popis ..."
+									value="{{ $file->description ?? old('filesDescription_new.*') }}"
+									class="input-group-sm"
+									fgroupClass="mb-0"
+								>
 									<x-slot name="prependSlot">
 										<div class="input-group-text bg-gradient-gray" title="Popis súboru">
 											<i class="fas fa-comment"></i>
@@ -74,9 +91,7 @@
 					</div>
 
 					<div class="form-row">
-						{{-- <div class="col-2 col-lg-1"> --}}
-							<x-adminlte-button class="px-5 bg-gradient-blue" icon="fas fa-plus" title="Pridať ďalší súbor" id="addFileSubmit" />
-						{{-- </div> --}}
+						<x-adminlte-button class="px-5 bg-gradient-blue" icon="fas fa-plus" title="Pridať ďalší súbor" id="addFileSubmit" />
 					</div>
 
 

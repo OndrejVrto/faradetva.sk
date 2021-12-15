@@ -51,7 +51,20 @@
 
 
 	$('.add-files-group').on('click', 'button', function () {
-		$(this).closest('.form-row').remove();
+		var formRow = $(this);
+
+		Swal.fire({
+			title: 'Si si istý?',
+			icon: 'info',
+			showCancelButton: true,
+			confirmButtonColor: '#dc3545',
+			cancelButtonColor: '#007BFF',
+			confirmButtonText: 'Áno, chcem to vymazať!'
+		}).then(function (result) {
+			if (result.isConfirmed) {
+				formRow.closest('.form-row').remove();
+			}
+		});
 	});
 
 
