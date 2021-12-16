@@ -1,6 +1,6 @@
 <div class="row pt-xl-5">
 	<div class="col-12 col-xl-6 m-auto">
-		<div class="card push-top">
+		<div class="card">
 			<div class="card-body">
 
 				@if ( $type == 'edit')

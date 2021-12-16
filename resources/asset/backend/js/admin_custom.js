@@ -31,22 +31,32 @@
 	});
 
 
-	$('#add-form, #edit-form').find('#addFileSubmit').on('click', function () {
-		var input = $('#addFileInput');
-		output = input.clone().insertAfter('.add-files-group .form-row:last');
-		output.removeAttr('id');
-		output.removeClass("d-none");
-		output.find('label').html('Nová príloha ...');
-	})
-	.end()
-	.find('input[name=title]').moveCursorToEnd();
+	$("#add-form, #edit-form")
+		.find("#addFileSubmit")
+		.on("click", function () {
+			var input = $("#addFileInput");
+			output = input
+				.clone()
+				.insertAfter(".add-files-group .form-row:last");
+			output.removeAttr("id");
+			output.removeClass("d-none");
+			output.find("label").html("Nová príloha ...");
+		})
+		.end()
+		.find("input[name=title]")
+		.moveCursorToEnd();
 
+	$("#add-form, #edit-form")
+		.find("button[type=submit]")
+		.on("click", function () {
+			$("#addFileInput").remove();
+		});
 
-	$('.add-files-group').on('change', 'input[type=file]', function () {
+	$(".add-files-group, .custom-file").on("change", "input[type=file]", function () {
 		//get the file name
-		var fileName = $(this).val().split('\\').pop();
+		var fileName = $(this).val().split("\\").pop();
 		//replace the "Choose a file" label
-		$(this).next('.custom-file-label').html(fileName);
+		$(this).next(".custom-file-label").html(fileName);
 	});
 
 

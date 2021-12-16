@@ -32,7 +32,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
 		"files": [
-			"app/Http/Helpers/BeautifyHtml.php"
+			"app/Http/Helpers/BeautifyHtml.php",
+			"app/Http/Helpers/DataFormater.php"
 		]
     },
     "autoload-dev": {

@@ -55,7 +55,7 @@ class UploadFileService
 			'path' => $filePath,
 			'mime' => $file->getClientMimeType(),
 			'ext' => $file->getClientOriginalExtension(),
-			'size' => $file->getSize()
+			'size_file' => $file->getSize()
 		]);
 
 	}

@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use App\Http\Helpers\DataFormater;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Facades\Storage;
 
 class File extends Model
 {
     use HasFactory;
     use SoftDeletes;
+	// use DataFormater;
 
     // LINK THIS MODEL TO OUR DATABASE TABLE
     protected $table = 'files';
@@ -29,7 +31,7 @@ class File extends Model
         'path',
         'mime',
         'ext',
-        'size'
+        'size_file'
     ];
 
 
@@ -44,6 +46,13 @@ class File extends Model
 	public function getAbsolutePathAttribute(){
 
 		return asset(Storage::url($this->path . $this->filename));
+
+	}
+
+	public function getSizeFileHumanAttribute(): string
+	{
+
+		return DataFormater::formatBytes( $this->size_file );
 
 	}
 

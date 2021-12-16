@@ -1,6 +1,6 @@
 @php
 	$config_Sumernote = [
-		'height' => '150',                 // set editor height
+		'height' => '240',                 // set editor height
   		'minHeight' => 'null',             // set minimum height of editor
   		'maxHeight' => 'null',             // set maximum height of editor
   		// 'focus' => 'true',                  // set focus to editable area after initializing summernote
@@ -26,7 +26,7 @@
 
 <div class="row">
 	<div class="col-12 m-auto">
-		<div class="card push-top">
+		<div class="card">
 			<div class="card-body">
 
 				@if ( $type == 'edit')
@@ -59,7 +59,9 @@
 								@if ($categories->count())
 
 								@foreach($categories as $category)
-									<option value="{{ $category->id }}"
+									<option
+										value="{{ $category->id }}"
+										title="{{ $category->description }}"
 										@if( $category->id == ($news->category_id ?? '') OR $category->id == old('category_id'))
 										selected
 										@endif
@@ -71,16 +73,10 @@
 								@endif
 							</x-adminlte-select2>
 
-							{{-- TODO: Na miesto placeholder vložiť názov súborov z databazy --}}
-							<x-adminlte-input-file class="border-right-none" name="file_news[]" label="Prílohy článku" placeholder="Vlož prílohy článku ..." igroupClass="add-files" fgroupClass="add-files-group" errorKey="file_news.*">
+							<x-adminlte-input-file class="border-right-none" name="news_picture" label="Obrázok na titulku" placeholder="Vložiť obrázok ...">
 								<x-slot name="prependSlot">
 									<div class="input-group-text bg-gradient-red">
 										<i class="fas fa-file-import"></i>
-									</div>
-								</x-slot>
-								<x-slot name="appendSlot">
-									<div class="input-group-text bg-gradient-red" title="Pridať ďalší súbor">
-										<i class="fas fa-plus"></i>
 									</div>
 								</x-slot>
 							</x-adminlte-input-file>
@@ -96,14 +92,16 @@
 								@if ($tags->count())
 
 								@foreach($tags as $tag)
-								<option value="{{ $tag->id }}"
-										@if( in_array($tag->id, old("tags") ?: []) OR in_array($tag->id, $selectedTags) )
+								<option
+									value="{{ $tag->id }}"
+									title="{{ $tag->description }}"
+									@if( in_array($tag->id, old("tags") ?: []) OR in_array($tag->id, $selectedTags) )
 										selected
-										@endif
-										>
-										{{ $tag->title }}
-									</option>
-									@endforeach
+									@endif
+								>
+									{{ $tag->title }}
+								</option>
+								@endforeach
 
 								@endif
 							</x-adminlte-select2>
@@ -113,41 +111,95 @@
 							<x-adminlte-text-editor id="Summernote" name="content" label="Obsah článku" placeholder="Text článku ..." :config="$config_Sumernote">
 								{{ $news->content ?? old('content') }}
 							</x-adminlte-text-editor>
-
-							@isset($news->file)
-							<div class="form-group">
-								<label for="filesList">Zoznam priložených súborov</label>
-								<ul class="list-unstyled">
-								@foreach ($news->file as $file)
-									<li>
-										<a 	download="{{ $file->name }}"
-											href="{{ $file->absolutePath }}"
-											title="@isset($file->description){{ $file->description }}@else Súbor: {{ $file->name }}@endisset">
-											{{ $file->name }}
-										</a>
-
-										<x-adminlte-input name="fileDescription[{{ $file->id }}]" placeholder="Popis súboru ..." value="{{ $file->description ?? old('title') }}" class="input-group-sm" >
-											<x-slot name="prependSlot">
-												<div class="input-group-text bg-gradient-green" title="Popis súboru">
-													<i class="fas fa-comment"></i>
-												</div>
-											</x-slot>
-											<x-slot name="appendSlot">
-												<div class="input-group-text bg-gradient-red" title="Vymazať súbor">
-													<i class="fas fa-trash-alt"></i>
-												</div>
-											</x-slot>
-										</x-adminlte-input>
-
-										{{-- <input type="text" name="fileDescription[{{ $file->id }}]" class="form-control form-control-border" placeholder="Popis súboru"> --}}
-									</li>
-								@endforeach
-								</ul>
-							</div>
-							@endisset
 						</div>
 					</div>
-					<div class="row col-xl-6 m-auto">
+
+
+						@if ( count($news->file) > 0 )
+
+						<div class="add-files-group">
+							<label>Zoznam už vložených príloh</label>
+
+							@foreach ($news->file as $file)
+							<div class="form-row pb-3">
+								<div class="col-12 col-md-4">
+									<a 	download="{{ $file->name }}"
+										class="btn btn-default bg-gradient-yellow w-100"
+										href="{{ $file->absolutePath }}"
+										title="Stiahnuť súbor: {{ $file->name }}@isset($file->description) - {{ $file->description }}@endisset"
+									>
+										{{ $file->name }}
+										<span class="ml-2 text-muted">
+											({{ $file->sizeFileHuman }})
+										</span>
+									</a>
+								</div>
+								<div class="col-10 col-md-7 pr-0 pr-md-1">
+									<x-adminlte-input
+										name="fileDescription_old[{{ $file->id }}]"
+										placeholder="Vložiť popis ..."
+										value="{{ $file->description ?? old('fileDescription_old[' .$file->id. ']') }}"
+										class="input-group-sm"
+										fgroupClass="mb-0"
+									>
+										<x-slot name="prependSlot">
+											<div class="input-group-text bg-gradient-gray" title="Popis súboru">
+												<i class="fas fa-comment"></i>
+											</div>
+										</x-slot>
+									</x-adminlte-input>
+								</div>
+								<div class="col-2 col-md-1 pl-0 pl-md-1">
+									<x-adminlte-button class="buttonDelete bg-gradient-red w-100" icon="fas fa-trash-alt" title="Vymazať súbor" />
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					@endif
+
+					<div class="add-files-group">
+						<label>Nové prílohy</label>
+						<div class="form-row pb-3 d-none" id="addFileInput">
+							<div class="col-12 col-md-4">
+								<x-adminlte-input-file
+									name="files_new[]"
+									placeholder="Nová príloha ..."
+									errorKey="files_new.*"
+									fgroupClass="mb-0"
+								>
+									<x-slot name="prependSlot">
+										<div class="input-group-text bg-gradient-red">
+											<i class="fas fa-file-import"></i>
+										</div>
+									</x-slot>
+								</x-adminlte-input-file>
+							</div>
+							<div class="col-10 col-md-7 pr-0 pr-md-1">
+								<x-adminlte-input
+									name="filesDescription_new[]"
+									placeholder="Vložiť popis ..."
+									class="input-group-sm"
+									fgroupClass="mb-0"
+								>
+									<x-slot name="prependSlot">
+										<div class="input-group-text bg-gradient-gray" title="Popis súboru">
+											<i class="fas fa-comment"></i>
+										</div>
+									</x-slot>
+								</x-adminlte-input>
+							</div>
+							<div class="col-2 col-md-1 pl-0 pl-md-1">
+								<x-adminlte-button class="buttonDelete bg-gradient-red w-100" icon="fas fa-trash-alt" title="Vymazať súbor" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<x-adminlte-button class="px-5 bg-gradient-blue" icon="fas fa-plus" title="Pridať ďalší súbor" id="addFileSubmit" />
+					</div>
+
+					<div class="row col-xl-6 pt-4 m-auto">
 						<div class="col-7">
 							<x-adminlte-button class="btn-flat btn-block" type="submit" label="{{ $button_text }}" theme="success" icon="fas fa-lg fa-save mr-2"/>
 						</div>

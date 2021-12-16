@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-12 m-auto">
-		<div class="card push-top">
+		<div class="card">
 			<div class="card-body">
 
 			@if ( $type == 'edit')
@@ -23,9 +23,12 @@
 									<a 	download="{{ $file->name }}"
 										class="btn btn-btn-default bg-gradient-yellow w-100"
 										href="{{ $file->absolutePath }}"
-										title="@isset($file->description){{ $file->description }}@else Súbor: {{ $file->name }}@endisset"
+										title="Stiahnuť súbor: {{ $file->name }}@isset($file->description) - {{ $file->description }}@endisset"
 									>
 										{{ $file->name }}
+										<span class="ml-2 text-muted">
+											({{ $file->sizeFileHuman }})
+										</span>
 									</a>
 								</div>
 								<div class="col-10 col-md-7 pr-0 pr-md-1">
@@ -73,7 +76,6 @@
 								<x-adminlte-input
 									name="filesDescription_new[]"
 									placeholder="Vložiť popis ..."
-									value="{{ $file->description ?? old('filesDescription_new.*') }}"
 									class="input-group-sm"
 									fgroupClass="mb-0"
 								>
