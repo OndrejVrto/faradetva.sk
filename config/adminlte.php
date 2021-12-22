@@ -247,6 +247,12 @@ return [
 			'route' => 'news.index',
             'icon'  => 'fas fa-book-open',
         ],
+        [
+			'text'  => 'Kňazi',
+			// 'icon_color'  => 'orange',
+			'route' => 'priests.index',
+            'icon'  => 'fas fa-hands',
+        ],
 		['header' => 'Nastavenia'],
         [
 			'text'    => 'Tabuľky',

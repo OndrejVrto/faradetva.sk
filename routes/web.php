@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PriestController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 
@@ -38,6 +39,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 	Route::resource('/files', FileController::class, ['only' => 'store', 'update']);
 	Route::post('/files/{id}/{model}', [FileController::class, 'create'])->name('files.create');
+
+	Route::resource('/priests', PriestController::class);
+
+
 });
 
 
