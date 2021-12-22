@@ -33,7 +33,7 @@ class StoreNewsRequest extends FormRequest
 			],
 			'content' => 'required',
 			'category_id' => 'required|exists:categories,id',
-			'file_news.*' => 'file|mimes:jpg,bmp,png',
+			'files_new.*' => 'file|mimes:jpg,bmp,png',
 			// 'tags' => 'required',
 		];
 

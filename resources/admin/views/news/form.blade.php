@@ -114,8 +114,8 @@
 						</div>
 					</div>
 
-
-						@if ( count($news->file) > 0 )
+					@isset($news)
+					@if ( count($news->file) > 0 )
 
 						<div class="add-files-group">
 							<label>Zoznam už vložených príloh</label>
@@ -157,6 +157,7 @@
 
 						</div>
 					@endif
+					@endisset
 
 					<div class="add-files-group">
 						<label>Nové prílohy</label>
