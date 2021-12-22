@@ -6,6 +6,7 @@
 
 @push('style')
 	<link href="{{ mix('asset/css/main.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ mix('asset/css/special.css') }}" rel="stylesheet" type="text/css">
 @endpush
 
 @section('contentBlank')

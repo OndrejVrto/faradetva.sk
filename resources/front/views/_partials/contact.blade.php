@@ -2,41 +2,6 @@
 	<div class="section ch_contact_section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-12 order-lg-last">
-					<div class="contact_details">
-						<h2 class="contact_heading fromtop wow" data-wow-delay=".3s">Stretni nás</h2>
-						<p class="fromtop wow" data-wow-delay=".6s">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem tenetur consectetur doloribus delectus deleniti ullam sequi totam eligendi dignissimos minus ad, inventore provident nam deserunt aut voluptatem perspiciatis temporibus impedit, veniam reprehenderit pariatur ut. Tempora sed ab sunt sit aut odit facilis veniam id, eligendi possimus consectetur ipsa omnis ratione illum minus? Dignissimos voluptatem sint doloribus, eligendi at accusamus praesentium dolorem, totam, repellat laborum facilis voluptatum corrupti ipsam iure! Fuga incidunt sit expedita error doloribus autem eveniet, tenetur placeat corrupti molestiae vel amet voluptatibus porro, consequuntur est ipsum eum illum?
-						</p>
-						<div class="clearfix"></div>
-						<ul class="ch_address_details">
-							<li class="fromleft wow" data-wow-delay=".8s">
-								<span><i class="fa fa-phone" aria-hidden="true"></i></span>
-								<div>
-									<p>(+421) (045) 54 55 243</p>
-									<p>(+421) 0907 123 456</p>
-								</div>
-							</li>
-							<li class="fromleft wow" data-wow-delay="1.2s">
-								<span><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
-								<div>
-									<p>detva&#64;fara.sk</p>
-									<p>rkfudt&#64;stonline.sk</p>
-								</div>
-							</li>
-							<li class="fromleft wow" data-wow-delay="1.4s">
-								<span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-								<div>
-									<p><strong>Rímsko-katolícky farský úrad sv. Františka Assiského</strong><br>
-										Partizánska ul. 64<br>
-										962 12&nbsp;&nbsp;&nbsp;Detva<br>
-									</p>
-								</div>
-							</li>
-
-						</ul>
-					</div>
-				</div>
 				<div class="col-lg-6 col-12">
 					<div class="ch_contact_form fromleft wow">
 						<h2 class="contact_heading">Kontaktný formulár</h2>
@@ -56,7 +21,7 @@
 								</div>
 								<div class="form-group">
 									<input type="text" name="address" id="u_address" placeholder="Vaša adresa">
-									<span class="input_icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+									<span class="input_icon"><i class="fa fa-map-marker-alt" aria-hidden="true"></i></span>
 								</div>
 								<div class="form-group">
 									<textarea name="message" id="u_message" placeholder="Vaša správa"></textarea>
@@ -68,6 +33,63 @@
 								</div>
 							</form>
 						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-12 order-lg-last">
+					<div class="contact_details">
+
+						<ul class="ch_address_details mt-0">
+							<li class="fromright wow" data-wow-delay="0.2s">
+								<span><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+								<div>
+									<p>
+										<strong>Rímskokatolícka cirkev</strong><br>
+										<strong>Farnosť sv. Františka Assiského</strong><br>
+										Partizánska ul. 64<br>
+										962 12&nbsp;&nbsp;&nbsp;Detva<br>
+									</p>
+								</div>
+							</li>
+							<li class="fromright wow" data-wow-delay="0.4s">
+								<span><i class="fas fa-phone-volume" aria-hidden="true"></i></span>
+								<div>
+									<p>(+421) (045) 54 55 243</p>
+									{{-- <p>(+421) 0907 123 456</p> --}}
+								</div>
+							</li>
+							<li class="fromright wow" data-wow-delay="0.6s">
+								<span><i class="fas fa-envelope-open" aria-hidden="true"></i></span>
+								<div>
+									<p>detva&#64;fara.sk</p>
+								</div>
+							</li>
+							<li class="fromright wow" data-wow-delay="0.8s">
+								<span><i class="far fa-credit-card" aria-hidden="true"></i></span>
+								<div>
+									<span class="text-muted">IČO</span>
+									<p>32162135</p>
+								</div>
+							</li>
+							<li class="fromright wow" data-wow-delay="1s">
+								<span><i class="fas fa-university fa-lg" aria-hidden="true"></i></span>
+								<div>
+									<p>SK08 0900 000000 0123123123</p>
+								</div>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+
+						<h2 class="contact_heading fromright wow mt-4" data-wow-delay="1.2s">Náuky</h2>
+
+						<h5 class="fromright wow" data-wow-delay="1.4s">
+							Sobášne
+						</h5>
+						<p class="fromright wow" data-wow-delay="1.4s">Pondelok o 18.30 h. podľa <a href="#" class="read_m_link" target="_blank" rel="noopener noreferrer">rozpisu.</a></p>
+
+						<h5 class="fromright wow" data-wow-delay="1.6s">
+							Krstné
+						</h5>
+						<p class="fromright wow" data-wow-delay="1.6s">Streda o 18.30 h.</p>
 					</div>
 				</div>
 			</div>
