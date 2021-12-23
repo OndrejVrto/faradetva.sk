@@ -37,6 +37,6 @@
 
 	@include('_partials.testimonials')
 
-	@include('_partials.pasters')
+	{{-- @include('_partials.pasters') --}}
 
 @endsection

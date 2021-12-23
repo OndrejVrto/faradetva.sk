@@ -28,6 +28,6 @@
 
 	@include('_partials.skils')
 
-	@include('_partials.pasters')
+	{{-- @include('_partials.pasters') --}}
 
 @endsection

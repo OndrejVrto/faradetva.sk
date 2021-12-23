@@ -26,7 +26,7 @@
 
 	@include('_partials.eventExtend')
 
-	@include('_partials.pasters')
+	{{-- @include('_partials.pasters') --}}
 
 	@include('_partials.testimonials')
 
