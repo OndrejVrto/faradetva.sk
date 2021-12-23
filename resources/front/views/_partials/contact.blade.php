@@ -67,13 +67,14 @@
 								<span><i class="far fa-credit-card" aria-hidden="true"></i></span>
 								<div>
 									<span class="text-muted">IČO</span>
-									<p>32162135</p>
+									<p>31938779</p>
 								</div>
 							</li>
 							<li class="fromright wow" data-wow-delay="1s">
 								<span><i class="fas fa-university fa-lg" aria-hidden="true"></i></span>
 								<div>
-									<p>SK08 0900 000000 0123123123</p>
+									<span class="text-muted">IBAN</span>
+									<p>SK28 0900 0000 0000 7162 8858</p>
 								</div>
 							</li>
 						</ul>
