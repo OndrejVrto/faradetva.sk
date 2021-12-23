@@ -24,7 +24,7 @@ class StorePriestRequest extends FormRequest
     public function rules()
     {
         return [
-			// 'active' => 'accepted',
+			'active' => 'numeric|between:0,1',
 			'titles_before' => 'nullable|required|string|max:255',
 			'first_name' => 'required|string|max:255',
 			'last_name' => 'string|max:255',
@@ -34,4 +34,11 @@ class StorePriestRequest extends FormRequest
 			'photo' => 'nullable|file|mimes:jpg,bmp,png',
         ];
     }
+
+	protected function prepareForValidation()
+	{
+		$this->merge([
+			'active' => $this->active ? 1 : 0,
+		]);
+	}
 }

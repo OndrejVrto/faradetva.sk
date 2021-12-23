@@ -19,7 +19,7 @@
 								class="custom-control-input"
 								id="customSwitch3"
 								name="active"
-								{{ old('active') ? 'checked' : '' }}
+								{{ old('active', $priest->active == 1) ? 'checked' : '' }}
 							>
 							<label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
 						</div>
