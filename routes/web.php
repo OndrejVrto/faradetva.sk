@@ -8,8 +8,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PriestController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
-
-
+use App\Http\Controllers\Frontend\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,13 +46,16 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
 // FrontEnd route
+Route::get('/kontakt', [ContactController::class, 'index'] )->name('contact');
+
+
+
+
+
 Route::get('/', function () {
 	return view('home');
 })->name('home');
 
-Route::get('/kontakt', function () {
-    return view('contact');
-})->name('contact');
 
 Route::get('/spolocenstva', function () {
     return view('ministries');
