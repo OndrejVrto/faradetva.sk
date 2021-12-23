@@ -23,16 +23,15 @@ class StorePriestRequest extends FormRequest
      */
     public function rules()
     {
-		dd($this);
-
         return [
-			// 'active' => 'boolean',
-			'titles_before' => 'required|string|max:255',
+			// 'active' => 'accepted',
+			'titles_before' => 'nullable|required|string|max:255',
 			'first_name' => 'required|string|max:255',
 			'last_name' => 'string|max:255',
-			'titles_after' => 'string|max:255',
-			'function' => 'string|max:255',
-			'description' => 'string|max:255',
+			'titles_after' => 'nullable|string|max:255',
+			'function' => 'nullable|string|max:255',
+			'description' => 'nullable|string',
+			'photo' => 'nullable|file|mimes:jpg,bmp,png',
         ];
     }
 }

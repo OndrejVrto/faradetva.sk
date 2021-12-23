@@ -3,17 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
-use Spatie\MediaLibrary\HasMedia;
+use Spatie\Image\Manipulations;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use phpDocumentor\Reflection\Types\Void_;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\HasMedia;
 
-class Priest extends Model  // implements HasMedia
+
+class Priest extends Model implements HasMedia
 {
     use HasFactory;
 	use SoftDeletes;
-	// use InteractsWithMedia;
+	use InteractsWithMedia;
 
 
 	protected $fillable = [
@@ -25,7 +29,6 @@ class Priest extends Model  // implements HasMedia
 		'slug',
 		'function',
 		'description',
-		// 'working_history',
 	];
 
 
@@ -34,16 +37,21 @@ class Priest extends Model  // implements HasMedia
 
 		static::creating(function ($priest) {
 			$priest->slug = Str::slug( $priest->getFullNameWithTitles() );
-			// add other column as well
 		});
 
 		static::updating(function ($priest) {
 			$priest->slug = Str::slug( $priest->getFullNameWithTitles() );
-			 // add other column as well
 		});
 
 	}
 
+	public function registerMediaConversions( Media $media = null ) : void
+	{
+		$this->addMediaConversion('crop')
+			->width(270)
+			->height(230)
+			->crop('crop-center', 230, 270);
+	}
 
 	public function getFullNameTitlesAttribute ()
 	{
@@ -60,7 +68,7 @@ class Priest extends Model  // implements HasMedia
 	private function getFullNameWithTitles()
 	{
 		$name = isset($this->titles_before) ? $this->titles_before . ' ' : '';
-		$name .= $this->first_name . ' ' . $this->last_name;
+		$name .= $this->getFullName();
 		$name .= isset($this->titles_after) ? ', ' . $this->titles_after : '';
 
 		return trim($name);

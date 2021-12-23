@@ -7,6 +7,8 @@ use App\Http\Requests\StorePriestRequest;
 
 class PriestController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +20,7 @@ class PriestController extends Controller
 		return view('priests.index', compact('priests'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,6 +30,7 @@ class PriestController extends Controller
     {
         return view('priests.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -38,8 +42,14 @@ class PriestController extends Controller
     {
 
 		$validated = $request->validated();
+		$priest = Priest::create($validated);
 
-		Priest::create($validated);
+		// Spatie media-collection
+		if ($request->hasFile('photo')) {
+			$priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
+			$priest->addMediaFromRequest('photo')->toMediaCollection('priest');
+		}
+
 
 		$notification = array(
 			'message' => 'Nový kňaz bol pridaný!',
@@ -48,16 +58,6 @@ class PriestController extends Controller
         return redirect()->route('priests.index')->with($notification);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Priest  $priest
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Priest $priest)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -65,10 +65,13 @@ class PriestController extends Controller
      * @param  \App\Models\Priest  $priest
      * @return \Illuminate\Http\Response
      */
-    public function edit(Priest $priest)
+    public function edit($slug)
     {
-        //
+		$priest = Priest::whereSlug($slug)->firstOrFail();
+
+		return view('priests.edit', compact('priest'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -77,10 +80,26 @@ class PriestController extends Controller
      * @param  \App\Models\Priest  $priest
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePriestRequest $request, Priest $priest)
+    public function update(StorePriestRequest $request, $id)
     {
-        //
+		$validated = $request->validated();
+
+		$priest = Priest::findOrFail($id);
+		$priest->update($validated);
+
+		// Spatie media-collection
+		if ($request->hasFile('photo')) {
+			$priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
+			$priest->addMediaFromRequest('photo')->toMediaCollection('priest');
+		}
+
+		$notification = array(
+			'message' => 'Informácie o kňazovi boli upravené.',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('priests.index')->with($notification);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -88,8 +107,17 @@ class PriestController extends Controller
      * @param  \App\Models\Priest  $priest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Priest $priest)
+    public function destroy($id)
     {
-        //
+		$priest = Priest::findOrFail($id);
+		$priest->delete();
+		$priest->clearMediaCollection('priest');
+
+		$notification = array(
+			'message' => 'Informácia o kňazovi našej farnosti bola odstránená!',
+			'alert-type' => 'success'
+		);
+		return redirect()->route('priests.index')->with($notification);
     }
+
 }

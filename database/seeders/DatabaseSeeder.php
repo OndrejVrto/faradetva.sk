@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
 		$this->call([
 			TagTableSeeder::class,
 			CategoriesTabSeeder::class,
+			PriestTabSeeder::class,
 		]);
 
 		News::factory(10)->create();

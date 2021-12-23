@@ -35,8 +35,8 @@
 								<td class="text-wrap text-break">{{$priest->full_name_titles}}</td>
 								<td class="text-wrap text-break">{{$priest->function}}</td>
 								<td>
-									<a href="{{ route('categories.edit', $priest->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
-									<form id="delete-form" action="{{ route('categories.destroy', $priest->id)}}" method="post" style="display: inline-block">
+									<a href="{{ route('priests.edit', $priest->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
+									<form id="delete-form" action="{{ route('priests.destroy', $priest->id)}}" method="post" style="display: inline-block">
 										@csrf
 										@method('DELETE')
 										<button class="btn btn-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>

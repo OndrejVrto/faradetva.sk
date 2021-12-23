@@ -23,7 +23,6 @@ class CreatePriestsTable extends Migration
 			$table->string('slug');
 			$table->string('function')->nullable();
 			$table->text('description')->nullable();
-			// $table->json('working_history')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
