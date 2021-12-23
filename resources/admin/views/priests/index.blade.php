@@ -25,6 +25,7 @@
 								{{-- <th>ID</th> --}}
 								<th>Meno</th>
 								<th>Funkcia</th>
+								<th>Zobraziť</th>
 								<th style="width: 5rem;">Akcie</th>
 							</tr>
 						</thead>
@@ -34,6 +35,7 @@
 								{{-- <td>{{$priest->id}}</td> --}}
 								<td class="text-wrap text-break">{{$priest->full_name_titles}}</td>
 								<td class="text-wrap text-break">{{$priest->function}}</td>
+								<td class="text-wrap text-break">{!! $priest->active ? 'Áno' : '<span class="text-danger text-bold">Nie</span>' !!}</td>
 								<td>
 									<a href="{{ route('priests.edit', $priest->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
 									<form id="delete-form" action="{{ route('priests.destroy', $priest->id)}}" method="post" style="display: inline-block">
