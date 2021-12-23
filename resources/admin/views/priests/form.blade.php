@@ -66,20 +66,32 @@
 							/>
 						</div>
 					</div>
-
-					<x-adminlte-input
-						name="function"
-						label="Funkcia vo farnosti"
-						placeholder="Akú funkciu zastáva ..."
-						enableOldSupport="true"
-						:value="$priest->function ?? '' "
-					/>
+					<div class="form-row">
+						<div class="col-6">
+							<x-adminlte-input
+								name="function"
+								label="Funkcia vo farnosti"
+								placeholder="Akú funkciu zastáva ..."
+								enableOldSupport="true"
+								:value="$priest->function ?? '' "
+							/>
+						</div>
+						<div class="col-6">
+							<x-adminlte-input
+								name="phone"
+								label="Telefón"
+								placeholder="Zadaj telefónne číslo ..."
+								enableOldSupport="true"
+								value="{{ $priest->phone ?? '' }}"
+							/>
+						</div>
+					</div>
 
 					<x-adminlte-textarea
 						name="description"
 						label="Krátky životopis"
 						enableOldSupport="true">
-							{{ $priest->description ?? ''}}
+							{{ trim($priest->description) ?? ''}}
 					</x-adminlte-textarea>
 
 					<x-adminlte-input-file class="border-right-none" name="photo" label="Fotka" placeholder="Vložiť fotku ...">

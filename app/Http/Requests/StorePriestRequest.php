@@ -30,6 +30,7 @@ class StorePriestRequest extends FormRequest
 			'last_name' => 'string|max:255',
 			'titles_after' => 'nullable|string|max:255',
 			'function' => 'nullable|string|max:255',
+			'phone' => 'nullable|regex:/[\d\+\-\ ]+/',
 			'description' => 'nullable|string',
 			'photo' => 'nullable|file|mimes:jpg,bmp,png',
         ];

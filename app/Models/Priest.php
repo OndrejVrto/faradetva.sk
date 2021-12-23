@@ -27,6 +27,7 @@ class Priest extends Model implements HasMedia
 		'last_name',
 		'titles_after',
 		'slug',
+		'phone',
 		'function',
 		'description',
 	];
@@ -58,6 +59,12 @@ class Priest extends Model implements HasMedia
 		return $this->getFullNameWithTitles();
 	}
 
+
+	public function getPhoneDigitsAttribute ()
+	{
+		$remove_plus = preg_replace("/^\+/", "00", $this->phone );
+		return preg_replace("/[^0-9]/", "", $remove_plus );
+	}
 
 	public function getFullNameAttribute ()
 	{
