@@ -19,11 +19,17 @@
 								class="custom-control-input"
 								id="customSwitch3"
 								name="active"
-								@if( isset($priest))
-									{{ (old('active') == 'on' OR $priest->active == 1) ? 'checked' : '' }}
+
+								@if (!is_null(Session::get('_old_input_checkbox')))
+									{{ Session::get('_old_input_checkbox') == 1 ? 'checked' : '' }}
 								@else
-									{{ old('active') ? 'checked' : '' }}
+									@if( isset($priest) )
+										{{ $priest->active == 1 ? 'checked' : '' }}
+									@else
+										checked
+									@endif
 								@endif
+
 							>
 							<label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
 						</div>

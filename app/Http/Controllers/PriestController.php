@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Priest;
 use App\Http\Requests\StorePriestRequest;
+use Illuminate\Support\Facades\Session;
 
 class PriestController extends Controller
 {
@@ -16,6 +17,8 @@ class PriestController extends Controller
      */
     public function index()
 	{
+		Session::remove('_old_input_checkbox');
+
 		$priests = Priest::latest()->with('media')->paginate(10);
 		return view('priests.index', compact('priests'));
     }
@@ -40,9 +43,7 @@ class PriestController extends Controller
      */
     public function store(StorePriestRequest $request)
     {
-
 		$validated = $request->validated();
-		// dd($request);
 		$priest = Priest::create($validated);
 
 		// Spatie media-collection

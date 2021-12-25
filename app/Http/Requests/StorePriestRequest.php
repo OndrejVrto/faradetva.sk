@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Session;
 
 class StorePriestRequest extends FormRequest
 {
@@ -38,8 +39,12 @@ class StorePriestRequest extends FormRequest
 
 	protected function prepareForValidation()
 	{
+		$state = $this->active ? 1 : 0;
+
 		$this->merge([
-			'active' => $this->active ? 1 : 0,
+			'active' => $state,
 		]);
+
+        Session::put(['_old_input_checkbox' => $state]);
 	}
 }
