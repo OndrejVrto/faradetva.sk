@@ -19,7 +19,11 @@
 								class="custom-control-input"
 								id="customSwitch3"
 								name="active"
-								{{ old('active', $priest->active == 1) ? 'checked' : '' }}
+								@if( isset($priest))
+									{{ (old('active') == 'on' OR $priest->active == 1) ? 'checked' : '' }}
+								@else
+									{{ old('active') ? 'checked' : '' }}
+								@endif
 							>
 							<label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
 						</div>
@@ -73,7 +77,7 @@
 								label="Funkcia vo farnosti"
 								placeholder="Akú funkciu zastáva ..."
 								enableOldSupport="true"
-								:value="$priest->function ?? '' "
+								value="{{ $priest->function ?? '' }}"
 							/>
 						</div>
 						<div class="col-6">
@@ -91,7 +95,7 @@
 						name="description"
 						label="Krátky životopis"
 						enableOldSupport="true">
-							{{ trim($priest->description) ?? ''}}
+							{{ $priest->description ?? '' }}
 					</x-adminlte-textarea>
 
 					<x-adminlte-input-file class="border-right-none" name="photo" label="Fotka" placeholder="Vložiť fotku ...">

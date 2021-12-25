@@ -23,6 +23,7 @@
 						<thead>
 							<tr class="table-primary">
 								{{-- <th>ID</th> --}}
+								<th>Fotka</th>
 								<th>Meno</th>
 								<th>Funkcia</th>
 								<th>Zobraziť</th>
@@ -33,6 +34,12 @@
 							@foreach($priests as $priest)
 							<tr>
 								{{-- <td>{{$priest->id}}</td> --}}
+								<td>
+									<img src="{{ $priest->getFirstMediaUrl('priest', 'crop-thumb') ?: "http://via.placeholder.com/230x270" }}"
+										class="img-fluid"
+										alt="Fotografia: {{ $priest->full_name_titles }}, {{ $priest->function }}"
+									/>
+								</td>
 								<td class="text-wrap text-break">{{$priest->full_name_titles}}</td>
 								<td class="text-wrap text-break">{{$priest->function}}</td>
 								<td class="text-wrap text-break">{!! $priest->active ? 'Áno' : '<span class="text-danger text-bold">Nie</span>' !!}</td>

@@ -16,7 +16,7 @@ class PriestController extends Controller
      */
     public function index()
 	{
-		$priests = Priest::latest()->paginate(10);
+		$priests = Priest::latest()->with('media')->paginate(10);
 		return view('priests.index', compact('priests'));
     }
 
@@ -42,6 +42,7 @@ class PriestController extends Controller
     {
 
 		$validated = $request->validated();
+		// dd($request);
 		$priest = Priest::create($validated);
 
 		// Spatie media-collection

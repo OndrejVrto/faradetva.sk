@@ -13,7 +13,7 @@ class StorePriestRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+		return true;
     }
 
     /**
@@ -24,15 +24,15 @@ class StorePriestRequest extends FormRequest
     public function rules()
     {
         return [
-			'active' => 'numeric|between:0,1',
-			'titles_before' => 'nullable|required|string|max:255',
+			'active' => 'boolean',
+			'titles_before' => 'nullable|string|max:255',
 			'first_name' => 'required|string|max:255',
-			'last_name' => 'string|max:255',
+			'last_name' => 'required|string|max:255',
 			'titles_after' => 'nullable|string|max:255',
 			'function' => 'nullable|string|max:255',
 			'phone' => 'nullable|regex:/[\d\+\-\ ]+/',
 			'description' => 'nullable|string',
-			'photo' => 'nullable|file|mimes:jpg,bmp,png',
+			'photo' => 'nullable|file|mimes:jpg,bmp,png,jpeg',
         ];
     }
 

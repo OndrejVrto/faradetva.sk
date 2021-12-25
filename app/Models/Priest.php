@@ -49,9 +49,10 @@ class Priest extends Model implements HasMedia
 	public function registerMediaConversions( Media $media = null ) : void
 	{
 		$this->addMediaConversion('crop')
-			->width(270)
-			->height(230)
-			->crop('crop-center', 230, 270);
+			->fit("crop", 230, 270);
+
+		$this->addMediaConversion('crop-thumb')
+			->fit("crop", 60, 80);
 	}
 
 	public function getFullNameTitlesAttribute ()
