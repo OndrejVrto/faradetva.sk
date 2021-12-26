@@ -55,6 +55,11 @@ class Priest extends Model implements HasMedia
 			->fit("crop", 60, 80);
 	}
 
+	public function getMediaFileNameAttribute()
+	{
+		return $this->getFirstMedia('priest')->file_name ?? null;
+	}
+
 	public function getFullNameTitlesAttribute ()
 	{
 		return $this->getFullNameWithTitles();

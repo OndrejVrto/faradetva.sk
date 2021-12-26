@@ -104,7 +104,11 @@
 							{{ $priest->description ?? '' }}
 					</x-adminlte-textarea>
 
-					<x-adminlte-input-file class="border-right-none" name="photo" label="Fotka" placeholder="Vložiť fotku ...">
+					<x-adminlte-input-file
+						class="border-right-none"
+						name="photo"
+						label="Fotka"
+						placeholder="{{ $priest->media_file_name ?? 'Vložiť fotku ..' }}">
 						<x-slot name="prependSlot">
 							<div class="input-group-text bg-gradient-red">
 								<i class="fas fa-file-import"></i>

@@ -35,7 +35,7 @@
 							<tr>
 								{{-- <td>{{$priest->id}}</td> --}}
 								<td>
-									<img src="{{ $priest->getFirstMediaUrl('priest', 'crop-thumb') ?: "http://via.placeholder.com/230x270" }}"
+									<img src="{{ $priest->getFirstMediaUrl('priest', 'crop-thumb') ?: "http://via.placeholder.com/60x80" }}"
 										class="img-fluid"
 										alt="Fotografia: {{ $priest->full_name_titles }}, {{ $priest->function }}"
 									/>
