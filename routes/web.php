@@ -41,6 +41,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 	Route::resource('/priests', PriestController::class);
 
+	Route::resource('/testimonials', TestimonialController::class);
+
 
 });
 
