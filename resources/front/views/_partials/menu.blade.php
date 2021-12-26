@@ -80,6 +80,7 @@
 								<span data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></span>
 							</li> --}}
 							@auth
+								<li><a class="text-template" href="{{ route('debug.all') }}">Všetko</a></li>
 								<li><a class="text-template" href="{{ route('admin.dashboard') }}">Administrácia</a></li>
 							@else
 								{{-- <li><a class="text-template" href="{{ route('login') }}">Prihlásiť</a></li> --}}

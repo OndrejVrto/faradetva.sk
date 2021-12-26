@@ -189,7 +189,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/',
+    'dashboard_url' => '/all-sections',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -252,6 +252,12 @@ return [
 			// 'icon_color'  => 'orange',
 			'route' => 'priests.index',
             'icon'  => 'fas fa-hands',
+        ],
+        [
+			'text'  => 'Svedectvá',
+			// 'icon_color'  => 'orange',
+			'route' => 'testimonials.index',
+            'icon'  => 'fas fa-comment-medical',
         ],
 		['header' => 'Nastavenia'],
         [

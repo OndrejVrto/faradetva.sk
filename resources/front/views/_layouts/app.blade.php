@@ -7,7 +7,7 @@
 @push('style')
 	<link href="{{ mix('asset/css/main.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ mix('asset/css/special.css') }}" rel="stylesheet" type="text/css">
-	<script src="{{ asset('vendor/debugbar.js') }}"></script>
+	{{-- <script src="{{ asset('vendor/debugbar.js') }}"></script> --}}
 @endpush
 
 @section('contentBlank')

@@ -8,6 +8,8 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PriestController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Debug\DebugController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Frontend\ContactController;
 
 /*
@@ -45,6 +47,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
 });
+
+
+// only bebug
+Route::get('/all-sections', [DebugController::class, 'index'] )->name('debug.all');
+
 
 
 // FrontEnd route

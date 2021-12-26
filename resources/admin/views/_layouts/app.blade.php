@@ -2,7 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ mix('asset/css/admin_custom.css') }}">
-	<script src="{{ asset('vendor/debugbar.js') }}"></script>
+	{{-- <script src="{{ asset('vendor/debugbar.js') }}"></script> --}}
 @stop
 
 @section('js')
