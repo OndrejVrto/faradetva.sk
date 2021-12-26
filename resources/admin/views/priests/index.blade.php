@@ -57,10 +57,11 @@
 					</table>
 				</div>
 			</div>
-
+			<!-- Paginator Start-->
 			<div class="row justify-content-center py-2">
 				{{ $priests->onEachSide(1)->links() }}
 			</div>
+			<!-- Paginator end-->
 
 		</div>
 	</div>

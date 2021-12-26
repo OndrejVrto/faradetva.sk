@@ -45,6 +45,6 @@ class StorePriestRequest extends FormRequest
 			'active' => $state,
 		]);
 
-        Session::put(['_old_input_checkbox' => $state]);
+        Session::put(['priest_old_input_checkbox' => $state]);
 	}
 }

@@ -20,8 +20,8 @@
 								id="customSwitch3"
 								name="active"
 
-								@if (!is_null(Session::get('_old_input_checkbox')))
-									{{ Session::get('_old_input_checkbox') == 1 ? 'checked' : '' }}
+								@if (!is_null(Session::get('priest_old_input_checkbox')))
+									{{ Session::get('priest_old_input_checkbox') == 1 ? 'checked' : '' }}
 								@else
 									@if( isset($priest) )
 										{{ $priest->active == 1 ? 'checked' : '' }}
