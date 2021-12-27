@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
-    'title_prefix' => '',
-    'title_postfix' => '',
+    'title' => 'Administrácia',
+    'title_prefix' => '*',
+    'title_postfix' => '| Farnosť Detva',
 
     /*
     |--------------------------------------------------------------------------
@@ -210,8 +210,8 @@ return [
     */
 
     'enabled_laravel_mix' => false,
-    'laravel_mix_css_path' => 'asset/css/app.css',
-    'laravel_mix_js_path' => 'asset/js/app.js',
+    'laravel_mix_css_path' => 'asset/backend/css/admin-app.css',
+    'laravel_mix_js_path' => 'asset/backend/js/admin-app.js',
 
     /*
     |--------------------------------------------------------------------------

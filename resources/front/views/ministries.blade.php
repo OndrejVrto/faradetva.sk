@@ -1,33 +1,17 @@
-@extends('_layouts.app')
+@extends('_layouts.page')
 
-@section('title', 'Farnosť Detva - Spoločenstvá')
-@section('description', 'Popis')
-@section('keywords', 'Slová')
-
-@push('style')
-@endpush
-
-@php
-	$mainTitle = 'Spoločenstvá';
-	// $scripts = ['js/jquery.js',
-	// 			'js/bootstrap.min.js',
-	// 			'js/plugins/animation/wow.min.js',
-	// 			'js/plugins/animation/jquery.appear.js',
-	// 			'js/plugins/counter/jquery.countTo.js',
-	// 			'js/custom.js']
-@endphp
-
-@push('scripts')
-@endpush
+@section('title', 'Spoločenstvá')
+{{-- @section('description', 'Popis') --}}
+{{-- @section('keywords', 'Slová') --}}
 
 @section('content')
 
-	@include('_partials.banner')
+	@include('_sections.banner', ['mainTitle' => 'Spoločenstvá'])
 
-	@include('_partials.ministeriesExtend')
+	@include('_sections.ministeriesExtend')
 
-	@include('_partials.skils')
+	@include('_sections.skils')
 
-	{{-- @include('_partials.pasters') --}}
+	@include('_sections.pasters')
 
 @endsection

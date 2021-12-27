@@ -1,29 +1,17 @@
-@extends('_layouts.app')
+@extends('_layouts.page')
 
-@section('title', 'Farnosť Detva - Kontakt')
+@section('title', 'Kontakty')
 @section('description', 'Popis')
 @section('keywords', 'Slová')
 
-@push('style')
-@endpush
-
-@php
-	$mainTitle = 'Kontakt';
-	// $scripts = ['asset/js/jquery.js',
-	// 			'asset/js/bootstrap.min.js',
-	// 			'asset/js/plugins/animation/wow.min.js',
-	// 			'asset/js/custom.js']
-@endphp
-
 @section('content')
 
-	@include('_partials.pasters')
+	@include('_sections.banner', ['mainTitle' => 'Kontakt'])
 
-	@include('_partials.banner')
+	@include('_sections.contact')
 
-	@include('_partials.contact')
+	@include('_sections.map')
 
-	@include('_partials.map')
-
+	@include('_sections.pasters')
 
 @endsection

@@ -62,7 +62,9 @@ Route::get('/kontakt', [ContactController::class, 'index'] )->name('contact');
 
 
 Route::get('/', function () {
-	return view('home');
+
+	return redirect()->route('debug.all');  //for debuging
+	// return view('home');
 })->name('home');
 
 

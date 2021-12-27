@@ -1,42 +1,27 @@
-@extends('_layouts.app')
+@extends('_layouts.page')
 
+@section('title_prefix', '')
 @section('title', 'Farnosť Detva')
-@section('description', 'Popis')
-@section('keywords', 'Slová')
-
-@push('style')
-@endpush
-
-@php
-	$mainTitle = 'Domov';
-	// $scripts = ['js/jquery.js',
-	// 			'js/bootstrap.min.js',
-	// 			'js/plugins/owl-crousel/owl.carousel.js',
-	// 			'js/plugins/animation/wow.min.js',
-	// 			'js/plugins/animation/jquery.appear.js',
-	// 			'js/plugins/counter/jquery.countTo.js',
-	// 			'js/custom.js']
-@endphp
-
-@push('scripts')
-@endpush
+@section('title_postfix', '| Hlavná stránka')
+{{-- @section('description', 'Popis') --}}
+{{-- @section('keywords', 'Slová') --}}
 
 @section('content')
 
-	@include('_partials.slider')
+	@include('_sections.slider')
 
-	@include('_partials.about')
+	@include('_sections.about')
 
-	@include('_partials.ministeries')
+	@include('_sections.ministeries')
 
-	@include('_partials.event')
+	@include('_sections.event')
 
-	@include('_partials.pray')
+	@include('_sections.pray')
 
-	@include('_partials.skils')
+	@include('_sections.skils')
 
-	@include('_partials.testimonials')
+	@include('_sections.testimonials')
 
-	{{-- @include('_partials.pasters') --}}
+	@include('_sections.pasters')
 
 @endsection

@@ -1,48 +1,41 @@
-@extends('_layouts.app')
+@extends('_layouts.page')
 
-@section('title', 'DEBUG - ALL')
-@section('description', 'Popis')
-@section('keywords', 'Slová')
-
-@push('style')
-@endpush
-
-@php
-	$mainTitle = 'Kontakt';
-@endphp
+@section('title', 'DEBUG')
+@section('description', 'Stránka slúži výhradne pre vývoj Frontedovej časti')
+@section('keywords', 'DEBUG')
 
 @section('content')
 
-	@include('_partials.testimonials')
+	@include('_sections.banner', ['mainTitle' => 'DEBUG'])
 
-	@include('_partials.pasters')
+	@include('_sections.testimonials')
 
-	@include('_partials.banner')
+	@include('_sections.pasters')
 
-	@include('_partials.contact')
+	@include('_sections.contact')
 
-	@include('_partials.map')
-
-
-	@include('_partials.about')
-	@include('_partials.aboutPage')
-
-	@include('_partials.skils')
-
-	@include('_partials.event')
-	@include('_partials.eventExtend')
-
-	@include('_partials.slider')
-
-	@include('_partials.event')
-
-	@include('_partials.pray')
-
-	@include('_partials.ministeries')
-	@include('_partials.ministeriesExtend')
+	@include('_sections.map')
 
 
-	@include('_partials.news')
-	@include('_partials.one-news')
+	@include('_sections.about')
+	@include('_sections.aboutPage')
+
+	@include('_sections.skill')
+
+	@include('_sections.event')
+	@include('_sections.eventExtend')
+
+	@include('_sections.slider')
+
+	@include('_sections.event')
+
+	@include('_sections.pray')
+
+	@include('_sections.ministeries')
+	@include('_sections.ministeriesExtend')
+
+
+	@include('_sections.news')
+	@include('_sections.one-news')
 
 @endsection

@@ -1,15 +1,18 @@
 @extends('_layouts.master')
 
 @section('css_master')
-	{{-- <link href="{{ mix('asset/css/main.css') }}" rel="stylesheet" type="text/css"> --}}
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/font-awesome.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/custom_animation.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/flaticon.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/owl.carousel.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/bootstrap-5.0.2/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/style.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/responsive.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/special.css') }}">
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/fonts.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom_animation.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/flaticon.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/js//plugins/owl-crousel/owl.carousel.css') }}">
+	{{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/bootstrap-5.0.2/bootstrap.css') }}"> --}}
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/responsive.css') }}">
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom.css') }}">
 
 	{{-- Custom styles --}}
 	@stack('css')
@@ -20,6 +23,14 @@
 
 @section('js_master')
 	{{-- <script src="{{ mix('asset/js/main.js') }}" defer></script> --}}
+
+	<script type="text/javascript" src="{{ asset('asset/frontend/js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('asset/frontend/js/bootstrap.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/owl-crousel/owl.carousel.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/wow.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/jquery.appear.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/counter/jquery.countTo.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('asset/frontend/js/custom.js') }}"></script>
 
 	{{-- Custom Scripts --}}
     @stack('js')

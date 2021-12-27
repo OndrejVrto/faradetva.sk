@@ -1,29 +1,13 @@
-@extends('_layouts.app')
+@extends('_layouts.page')
 
-@section('title', 'Správy | Farnosť Detva')
-@section('description', 'Popis správy')
-@section('keywords', 'Slová')
-
-@push('style')
-@endpush
-
-@php
-	$mainTitle = 'Správy';
-	// $scripts = ['js/jquery.js',
-	// 			'js/bootstrap.min.js',
-	// 			'js/plugins/animation/wow.min.js',
-	// 			'js/plugins/animation/jquery.appear.js',
-	// 			'js/plugins/counter/jquery.countTo.js',
-	// 			'js/custom.js']
-@endphp
-
-@push('scripts')
-@endpush
+@section('title', 'Správy')
+{{-- @section('description', 'Popis') --}}
+{{-- @section('keywords', 'Slová') --}}
 
 @section('content')
 
-	@include('_partials.banner')
+	@include('_sections.banner', ['mainTitle' => 'Správy'])
 
-	@include('_partials.news')
+	@include('_sections.news')
 
 @endsection

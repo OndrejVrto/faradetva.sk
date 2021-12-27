@@ -1,36 +1,20 @@
-@extends('_layouts.app')
+@extends('_layouts.page')
 
-@section('title', 'Farnosť Detva - O nás')
+@section('title', 'O nás')
 @section('description', 'Popis')
 @section('keywords', 'Slová')
 
-@push('style')
-@endpush
-
-@php
-	$mainTitle = 'O nás';
-	// $scripts = ['js/jquery.js',
-	// 			'js/bootstrap.min.js',
-	// 			'js/plugins/owl-crousel/owl.carousel.js',
-	// 			'js/plugins/animation/wow.min.js',
-	// 			'js/plugins/animation/jquery.appear.js',
-	// 			'js/plugins/counter/jquery.countTo.js',
-	// 			'js/custom.js']
-@endphp
-
-@push('scripts')
-@endpush
-
 @section('content')
 
-	@include('_partials.banner')
+	@include('_sections.banner', ['mainTitle' => 'O nás'])
 
-	@include('_partials.aboutPage')
+	@include('_sections.aboutPage')
 
-	@include('_partials.skils')
+	@include('_sections.skill')
 
-	@include('_partials.testimonials')
+	@include('_sections.testimonials')
 
-	{{-- @include('_partials.pasters') --}}
+	@include('_sections.pasters')
 
 @endsection
+
