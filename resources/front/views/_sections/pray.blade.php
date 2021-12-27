@@ -10,7 +10,7 @@
 							Za bezpečie detí počas vojny a terorizmu vo svete.
 						</p>
 						<div class="frombottom wow" data-wow-delay=".6s">
-							<a href="#" class="read_btn">Darujte dar <i class="fa fa-long-arrow-right"></i></a>
+							<a href="#" class="read_btn">Darujte dar <i class="fas fa-long-arrow-alt-right"></i></a>
 						</div>
 					</div>
 				</div>

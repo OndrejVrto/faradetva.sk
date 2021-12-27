@@ -9,7 +9,7 @@
 				<form>
 					<div class="form_group">
 						<input type="search" name="search" class="search" placeholder="Hľadať ...">
-						<button type="submit" value="Search" class="search_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+						<button type="submit" value="Search" class="search_btn"><i class="fas fa-search" aria-hidden="true"></i></button>
 					</div>
 				</form>
 			</div>

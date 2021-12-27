@@ -10,7 +10,7 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="ministry_box frombottom wow">
 					<div class="ministry_thumb">
-						<img src="images/ministry/thumb_1.jpg" class="img-responsive" alt="">
+						<img src="images/ministry/thumb_1.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="ministry_desc">
 						<h4>Children’s Ministry</h4>
@@ -22,7 +22,7 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="ministry_box frombottom wow" data-wow-delay=".3s">
 					<div class="ministry_thumb">
-						<img src="images/ministry/thumb_2.jpg" class="img-responsive" alt="">
+						<img src="images/ministry/thumb_2.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="ministry_desc">
 						<h4>Women’s Ministry</h4>
@@ -34,7 +34,7 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="ministry_box frombottom wow" data-wow-delay=".6s">
 					<div class="ministry_thumb">
-						<img src="images/ministry/thumb_3.jpg" class="img-responsive" alt="">
+						<img src="images/ministry/thumb_3.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="ministry_desc">
 						<h4>Men’s Ministry</h4>
@@ -46,7 +46,7 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="ministry_box frombottom wow" data-wow-delay=".3s">
 					<div class="ministry_thumb">
-						<img src="images/ministry/thumb_4.jpg" class="img-responsive" alt="">
+						<img src="images/ministry/thumb_4.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="ministry_desc">
 						<h4>Music Ministry</h4>
@@ -58,7 +58,7 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="ministry_box frombottom wow" data-wow-delay=".6s">
 					<div class="ministry_thumb">
-						<img src="images/ministry/thumb_5.jpg" class="img-responsive" alt="">
+						<img src="images/ministry/thumb_5.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="ministry_desc">
 						<h4>Youth Ministry</h4>
@@ -70,7 +70,7 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="ministry_box frombottom wow" data-wow-delay=".9s">
 					<div class="ministry_thumb">
-						<img src="images/ministry/thumb_6.jpg" class="img-responsive" alt="">
+						<img src="images/ministry/thumb_6.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="ministry_desc">
 						<h4>Small Group Ministry</h4>

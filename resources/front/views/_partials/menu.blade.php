@@ -78,7 +78,7 @@
 
 							{{-- <li><a href="{{ route('contact') }}">Kontakty</a></li> --}}
 							{{-- <li class="search_icon">
-								<span data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></span>
+								<span data-toggle="modal" data-target="#myModal"><i class="fas fa-search"></i></span>
 							</li> --}}
 							<li><a class="text-template" href="{{ route('debug.all') }}">Všetko</a></li>
 							@auth

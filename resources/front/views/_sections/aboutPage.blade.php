@@ -7,10 +7,10 @@
 				<h1>Who We Are</h1>
 			</div>
 			<!-- heading End -->
-			<div class="ch_about_wrap">
+			<div class="row ch_about_wrap">
 				<div class="col-md-6 col-xs-12">
 					<div class="ch_about_thumb fromleft wow">
-						<img src="images/about/about-thumb2.jpg" alt="" class="img-responsive">
+						<img src="images/about/about-thumb2.jpg" alt="" class="img-fluid">
 					</div>
 				</div>
 				<div class="col-md-6 col-xs-12">
@@ -23,13 +23,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="about_box_wrap">
+			<div class="row about_box_wrap">
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="about_box_inner rotate wow">
 						<i class="flaticon flaticon-church"></i>
 						<h4>We Come To Serve</h4>
 						<p>It is a long established fact that a reader will be distracted by</p>
-						<a href="#" class="read_m_link">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+						<a href="#" class="read_m_link">Read More <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
@@ -37,7 +37,7 @@
 						<i class="flaticon flaticon-goal"></i>
 						<h4>Church Mission</h4>
 						<p>It is a long established fact that a reader will be distracted by</p>
-						<a href="#" class="read_m_link">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+						<a href="#" class="read_m_link">Read More <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
@@ -45,7 +45,7 @@
 						<i class="flaticon flaticon-cemetery-cross"></i>
 						<h4>Church Belife</h4>
 						<p>It is a long established fact that a reader will be distracted by</p>
-						<a href="#" class="read_m_link">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+						<a href="#" class="read_m_link">Read More <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
@@ -53,7 +53,7 @@
 						<i class="flaticon flaticon-multiple-users-silhouette"></i>
 						<h4>We Come To Serve</h4>
 						<p>It is a long established fact that a reader will be distracted by</p>
-						<a href="#" class="read_m_link">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+						<a href="#" class="read_m_link">Read More <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			</div>

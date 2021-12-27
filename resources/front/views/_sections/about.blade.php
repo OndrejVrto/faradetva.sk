@@ -20,7 +20,7 @@
 								<i class="flaticon flaticon-church"></i>
 								<h4>Prichádzame slúžiť</h4>
 								<p>It is a long established fact that a reader will be distracted by</p>
-								<a href="#" class="read_m_link">Čítať ďalej <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+								<a href="#" class="read_m_link">Čítať ďalej <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
 							</div>
 						</div>
 						<div class="about_box">
@@ -28,7 +28,7 @@
 								<i class="flaticon flaticon-goal"></i>
 								<h4>Misia našej farnosti</h4>
 								<p>It is a long established fact that a reader will be distracted by</p>
-								<a href="#" class="read_m_link">Čítať ďalej <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+								<a href="#" class="read_m_link">Čítať ďalej <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
 							</div>
 						</div>
 						<div class="about_box">
@@ -36,7 +36,7 @@
 								<i class="flaticon flaticon-cemetery-cross"></i>
 								<h4>O viere</h4>
 								<p>It is a long established fact that a reader will be distracted by</p>
-								<a href="#" class="read_m_link">Čítať ďalej <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+								<a href="#" class="read_m_link">Čítať ďalej <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
 							</div>
 						</div>
 						<div class="about_box">
@@ -44,7 +44,7 @@
 								<i class="flaticon flaticon-multiple-users-silhouette"></i>
 								<h4>Sme tu pre Vás</h4>
 								<p>It is a long established fact that a reader will be distracted by</p>
-								<a href="#" class="read_m_link">Čítať ďalej <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+								<a href="#" class="read_m_link">Čítať ďalej <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
 							</div>
 						</div>
 					</div>
