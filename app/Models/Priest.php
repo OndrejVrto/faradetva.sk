@@ -13,6 +13,49 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 
 
+/**
+ * App\Models\Priest
+ *
+ * @property int $id
+ * @property int $active
+ * @property string|null $titles_before
+ * @property string $first_name
+ * @property string $last_name
+ * @property string|null $titles_after
+ * @property string $slug
+ * @property string|null $phone
+ * @property string|null $function
+ * @property string|null $description
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read mixed $full_name
+ * @property-read mixed $full_name_titles
+ * @property-read mixed $media_file_name
+ * @property-read mixed $phone_digits
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|Media[] $media
+ * @property-read int|null $media_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Priest onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereFunction($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereTitlesAfter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereTitlesBefore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Priest whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Priest withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Priest withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Priest extends Model implements HasMedia
 {
     use HasFactory;
