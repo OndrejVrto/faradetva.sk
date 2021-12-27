@@ -20,15 +20,15 @@
 						<h2 class="widget-title">Spájajme sa</h2>
 						<ul class="footer_social">
 							<li class="facebook">
-								<a href="#"><i class="fab fa-facebook"></i></a>
+								<a href="#"><i class="fab fa-lg fa-facebook"></i></a>
 								<p>150<br>páčikov</p>
 							</li>
 							<li class="g_plus">
-								<a href="#"><i class="fab fa-google-plus"></i></a>
+								<a href="#"><i class="fab fa-lg fa-google-plus"></i></a>
 								<p>250<br>folowerov</p>
 							</li>
 							<li class="twitter">
-								<a href="#"><i class="fab fa-twitter"></i></a>
+								<a href="#"><i class="fab fa-lg fa-twitter"></i></a>
 								<p>300<br>foloverov</p>
 							</li>
 						</ul>

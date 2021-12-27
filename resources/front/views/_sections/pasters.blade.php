@@ -20,9 +20,12 @@
 							<h4>{{ $priest->full_name_titles }}</h4>
 							<h5>{{ $priest->function }}</h5>
 							@isset($priest->phone)
-								<a href="tel:{{ $priest->phone_digits }}">
-									<i class="fas fa-phone-alt pe-2"></i>{{ $priest->phone }}
+							<div class="mb-2">
+								<a class="link-secondary" href="tel:{{ $priest->phone_digits }}">
+									<i class="fas fa-phone-alt pe-2"></i>
+									{{ $priest->phone }}
 								</a>
+							</div>
 							@endisset
 							<p>{{ $priest->description }}</p>
 						</div>

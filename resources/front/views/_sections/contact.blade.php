@@ -13,7 +13,7 @@
 							</div>
 							<div class="form-group">
 								<input type="email" name="email" id="u_email" placeholder="Váš E-mail">
-								<span class="input_icon"><i class="far fa-envelope" aria-hidden="true"></i></span>
+								<span class="input_icon"><i class="fas fa-at" aria-hidden="true"></i></span>
 							</div>
 							<div class="form-group">
 								<input type="text" name="contact" id="u_phone" placeholder="Kontaktné číslo">
@@ -58,7 +58,7 @@
 							</div>
 						</li>
 						<li class="fromright wow" data-wow-delay="0.6s">
-							<span><i class="fas fa-envelope-open" aria-hidden="true"></i></span>
+							<span><i class="far fa-envelope" aria-hidden="true"></i></span>
 							<div>
 								<p>detva&#64;fara.sk</p>
 							</div>

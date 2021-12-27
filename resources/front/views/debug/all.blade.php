@@ -1,6 +1,6 @@
 @extends('_layouts.page')
 
-@section('title', 'DEBUG')
+@section('title', 'All')
 @section('description', 'Stránka slúži výhradne pre vývoj Frontedovej časti')
 @section('keywords', 'DEBUG')
 

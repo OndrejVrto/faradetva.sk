@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom_animation.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/flaticon.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/js//plugins/owl-crousel/owl.carousel.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/bootstrap-5.0.2/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/bootstrap-5.1.3/bootstrap.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/style.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/responsive.css') }}">
 
@@ -21,7 +21,8 @@
 
 @section('js_master')
 	<script type="text/javascript" src="{{ asset('asset/frontend/js/jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('asset/frontend/js/bootstrap.min.js') }}"></script>
+	{{-- <script type="text/javascript" src="{{ asset('asset/frontend/js/bootstrap.min.js') }}"></script> --}}
+	<script type="text/javascript" src="{{ asset('asset/frontend/js/bootstrap-5.1.3/bootstrap.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/owl-crousel/owl.carousel.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/wow.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/jquery.appear.js') }}"></script>
@@ -36,7 +37,7 @@
 
 @section('body')
 
-	{{-- @include('_partials.preload') --}}
+	@include('_partials.preload')
 
 	@include('_partials.search')
 
