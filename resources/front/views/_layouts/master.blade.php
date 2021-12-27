@@ -11,15 +11,24 @@
 
 <head>
 
-	<title>@yield('title', 'Farnosť Detva')</title>
+	{{-- Title --}}
+	<title>
+		@yield('title_prefix', config('farnost-detva.title_prefix', ''))
+		@yield('title', config('farnost-detva.title', 'Farnosť Detva'))
+		@yield('title_postfix', config('farnost-detva.title_postfix', ''))
+	</title>
 
+	<meta name="description" content="@yield('description', config('farnost-detva.description', 'Webové stránky farnosťi Detva.') ) ">
+	<meta name="keywords" content="@yield('keywords', config('farnost-detva.keywords', 'farnosť, Detva, svadba, krst, oznamy, predmanželská príprava, pohreb') ) ">
+
+	<meta name="author" content="Ing. Ondrej VRŤO, IWE">
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta name="description" content="@yield('description', 'Webové stránky farnosťi Detva.')">
-	<meta name="keywords" content="@yield('keywords', 'farnosť, Detva, svadba, krst, oznamy, kňaz, predmanželská príprava, pohreb')">
-	<meta name="author" content="Ing. Ondrej VRŤO, IWE">
 	<meta name="MobileOptimized" content="320">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+	{{-- Custom Meta Tags --}}
+	@yield('meta_tags')
 
 	<!-- favicon-icon - realfavicongenerator.net-->
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ URL::asset('favicons/apple-touch-icon.png') }}">
@@ -33,19 +42,20 @@
 	<meta name="theme-color" content="#ffffff">
 	<!-- favicon-icon -->
 
-	<!--srart theme style -->
-	@yield('third_party_stylesheets')
+	<!-- Style Start -->
+    {{-- Custom stylesheets - prepend --}}
+    @yield('css_master_prepend')
 
-	@stack('style')
-
+	@stack('css_master')
 </head>
 
 <body class="{{ Request::segment(1) ?: 'home' }}">
-@yield('contentBlank')
 
-<script src="{{ mix('asset/js/main.js') }}" defer></script>
-@yield('third_party_scripts')
+    {{-- Body Content --}}
+    @yield('body')
 
-@stack('scripts')
+
+	<!-- Scripts - Start-->
+	@stack('js_master')
 </body>
 </html>

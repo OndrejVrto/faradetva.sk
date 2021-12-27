@@ -6,11 +6,11 @@
 					<div class="col">
 						<div class="banner_heading">
 							<div class="page_heading">
-								<h2>{{ $mainTitle }}</h2>
+								{{-- <h2>{{ $mainTitle }}</h2> --}}
 							</div>
 							<ul class="breadcrumb">
 								<li><a href="{{ route('home') }}">Home</a></li>
-								<li>{{ $mainTitle }}</li>
+								{{-- <li>{{ $mainTitle }}</li> --}}
 							</ul>
 						</div>
 					</div>

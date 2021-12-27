@@ -5,7 +5,7 @@
 	<!-- Map section End -->
 
 
-@push('scripts')
+@push('js')
 	<!-- map js -->
 	<script>
       	// Initialize and add the map
