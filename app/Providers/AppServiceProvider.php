@@ -34,10 +34,10 @@ class AppServiceProvider extends ServiceProvider
 
 		$this->RouteAutomat($request);
 
-		Route::resourceVerbs([
-			'create' => 'vytvorit',
-			'edit' => 'editovat',
-		]);
+		// Route::resourceVerbs([
+		// 	'create' => 'vytvorit',
+		// 	'edit' => 'editovat',
+		// ]);
 
 		DB::listen(function ($query) {
 			File::prepend(

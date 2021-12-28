@@ -37,7 +37,7 @@
 								<td class="d-none d-xl-table-cell text-wrap text-break">{{ $news->user->name }}</td>
 								<td class="text-wrap text-break text-bold">{{ $news->title }}</td>
 								{{-- <td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</td> --}}
-								<td class="d-none d-md-table-cell text-wrap text-break text-center">{{ $news->file_count }}</td>
+								<td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</td>
 								<td class="text-center">
 									{{-- <form id="file-append-form" action="{{ route( 'files.create', [$news->id , $news->model]) }}" method="post" style="display: inline-block">
 										@csrf

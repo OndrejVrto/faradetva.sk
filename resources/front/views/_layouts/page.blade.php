@@ -37,7 +37,7 @@
 
 @section('body')
 
-	@include('_partials.preload')
+	{{-- @include('_partials.preload') --}}
 
 	@include('_partials.search')
 
