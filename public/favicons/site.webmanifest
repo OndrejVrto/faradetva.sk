@@ -1,0 +1,20 @@
+{
+    "name": "Fara Detva",
+    "short_name": "Fara Detva",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#e3b359",
+    "background_color": "#e3b359",
+    "start_url": "https://fara.detva.sk",
+    "display": "standalone"
+}

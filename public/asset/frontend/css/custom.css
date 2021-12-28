@@ -1,0 +1,14 @@
+.ch_contact_section .contact_details h5 {
+	color      : #ff7b33;
+	font-size  : 16px;
+	font-weight: 500;
+}
+
+.ch_pasters_section .ministry_desc a {
+	text-decoration: none;
+}
+
+.ch_pasters_section .ministry_desc a:hover {
+	color: #ff7b33;
+}
+
