@@ -21,6 +21,7 @@
 									class="img-fluid"
 									alt="Fotografia svedka viery: {{ $testimonial->name }}, {{ $testimonial->function }}"
 								/>
+								{{-- {!! $testimonial->getFirstMedia('testimonial')->img('crop') !!} --}}
 							</div>
 							<div class="test_paragraph">
 								<p>“{{ $testimonial->description }}”</p>

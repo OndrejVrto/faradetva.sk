@@ -13,7 +13,8 @@ class DebugController extends Controller
 	public function index()
     {
 		$priests = Priest::whereActive(1)->with('media')->get();
-		$testimonials = Testimonial::whereActive(1)->with('media')->get()->random(3);
+		$count = Testimonial::whereActive(1)->count();
+		$testimonials = Testimonial::whereActive(1)->with('media')->get()->random(min($count, 3));
 
 		return view('debug.all', compact(
 			'priests',
