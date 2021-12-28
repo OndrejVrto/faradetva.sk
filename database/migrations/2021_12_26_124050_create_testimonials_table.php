@@ -20,8 +20,7 @@ class CreateTestimonialsTable extends Migration
 			$table->string('slug');
 			$table->string('function')->nullable();
 			$table->text('description')->nullable();
-            $table->timestamp('created_at')->useCurrent();
-			$table->timestamp('updated_at')->useCurrent();
+            $table->timestamps();
             $table->softDeletes();
 			$table->bigInteger('created_by')->unsigned();
             $table->bigInteger('updated_by')->unsigned();

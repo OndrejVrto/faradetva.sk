@@ -28,10 +28,11 @@ class CreateNewsTable extends Migration
 			$table->mediumText('title');
 			$table->mediumText('slug');
 			$table->binary('content');
-            $table->timestamp('created_at')->useCurrent();
-			$table->timestamp('updated_at')->useCurrent();
+			$table->timestamp('published_at')->nullable();
+			$table->timestamp('unpublished_at')->nullable();
+            $table->timestamps();
 			$table->softDeletes();
-			$table->bigInteger('created_by')->unsigned();
+            $table->bigInteger('created_by')->unsigned();
             $table->bigInteger('updated_by')->unsigned();
         });
     }
