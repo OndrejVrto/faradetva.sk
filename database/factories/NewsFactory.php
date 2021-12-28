@@ -22,7 +22,9 @@ class NewsFactory extends Factory
 			'title' => $title,
 			'slug' => Str::slug($title),
 			'content' => $this->faker->paragraph(5),
-			'created_at'=> $this->faker->dateTimeBetween('-20 day', now())
+			'created_at'=> $this->faker->dateTimeBetween('-20 day', now()),
+			'created_by' => $this->faker->numberBetween(1,11),
+			'updated_by' => $this->faker->numberBetween(1,11),
         ];
     }
 }

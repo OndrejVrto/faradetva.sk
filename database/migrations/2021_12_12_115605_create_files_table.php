@@ -23,8 +23,11 @@ class CreateFilesTable extends Migration
             $table->string('mime');
             $table->string('ext', 16);
             $table->integer('size_file')->unsigned();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+			$table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
+			$table->bigInteger('created_by')->unsigned();
+            $table->bigInteger('updated_by')->unsigned();
         });
     }
 

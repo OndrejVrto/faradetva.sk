@@ -21,10 +21,14 @@ class CreatePriestsTable extends Migration
 			$table->string('last_name');
 			$table->string('titles_after')->nullable();
 			$table->string('slug');
+			$table->string('phone')->nullable();
 			$table->string('function')->nullable();
 			$table->text('description')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+			$table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
+			$table->bigInteger('created_by')->unsigned();
+            $table->bigInteger('updated_by')->unsigned();
         });
     }
 

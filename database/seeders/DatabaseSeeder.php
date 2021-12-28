@@ -5,10 +5,12 @@ namespace Database\Seeders;
 use App\Models\News;
 use App\Models\User;
 use App\Models\NewsTag;
+use App\Models\Testimonial;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Database\Seeders\TagTableSeeder;
 use Database\Seeders\CategoriesTabSeeder;
+use Database\Seeders\TestimonialTabSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -33,10 +35,12 @@ class DatabaseSeeder extends Seeder
 			TagTableSeeder::class,
 			CategoriesTabSeeder::class,
 			PriestTabSeeder::class,
+			// TestimonialTabSeeder::class,
 		]);
 
 		News::factory(10)->create();
 		NewsTag::factory(50)->create();
+		Testimonial::factory(15)->create();
 
     }
 
