@@ -82,7 +82,7 @@ return [
     ],
     'max'                  => [
         'array'   => 'The content may not have more than :max items.',
-        'file'    => 'The file size may not be greater than :max kilobytes.',
+        'file'    => 'Veľkosť súboru nesmie prekročiť :max kilobytov.',
         'numeric' => 'The value may not be greater than :max.',
         'string'  => 'Hodnota nemôže mať viac ako :max znakov.',
     ],
@@ -90,7 +90,7 @@ return [
     'mimetypes'            => 'Musí to byť typ súboru: :values.',
     'min'                  => [
         'array'   => 'The value must have at least :min items.',
-        'file'    => 'The file size must be at least :min kilobytes.',
+        'file'    => 'Veľkosť súboru musí byť minimálne :min kilobytov.',
         'numeric' => 'The value must be at least :min.',
         'string'  => 'The string must be at least :min characters.',
     ],
