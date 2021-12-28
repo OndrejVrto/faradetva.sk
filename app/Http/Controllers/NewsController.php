@@ -6,22 +6,11 @@ use App\Models\Tag;
 use App\Models\News;
 use App\Models\NewsTag;
 use App\Models\Category;
-use App\Service\UploadFileService;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
 use App\Http\Requests\StoreNewsRequest;
-use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
-
-	protected $upload;
-
-	public function __construct(UploadFileService $upload)
-	{
-		$this->upload = $upload;
-	}
-
 
 	/**
      * Display a listing of the resource.
@@ -30,7 +19,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-		$all_news = News::with('user')->withCount('file')->latest()->paginate(10);
+		$all_news = News::with('user')->latest()->paginate(10);
 
 		return view('news.index', compact('all_news'));
     }
@@ -71,8 +60,8 @@ class NewsController extends Controller
 		$tags = $request->input('tags');
 		$news->tags()->sync($tags);
 
-		//upload files
-		$this->upload->uploadFiles($news, $request->file('file_news'));
+
+
 
 		// notification and request
 		$notification = array(
@@ -120,8 +109,8 @@ class NewsController extends Controller
 		$tags = $request->input('tags');
 		$news->tags()->sync($tags);
 
-		//upload files
-		$this->upload->uploadFiles($news, $request->file('file_news'));
+
+
 
 		$notification = array(
 			'message' => 'Článok bol úspešne upravený.',

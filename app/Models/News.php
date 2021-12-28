@@ -70,10 +70,4 @@ class News extends Model
     }
 
 
-    public function file()
-    {
-        return $this->morphMany(File::class, 'fileable');
-    }
-
-
 }
