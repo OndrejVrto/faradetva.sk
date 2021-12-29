@@ -1,6 +1,7 @@
-<div class="row pt-xl-5">
+<div class="row pt-xl-2">
 	<div class="col-12 col-xl-7 m-auto">
 		<div class="card">
+
 			<div class="card-body">
 
 				@if ( $type == 'edit')
@@ -43,7 +44,13 @@
 								placeholder="Titul pred menom..."
 								enableOldSupport="true"
 								value="{{ $priest->titles_before ?? '' }}"
-							/>
+								>
+								<x-slot name="prependSlot">
+									<div class="input-group-text bg-gradient-orange">
+										<i class="fas fa-graduation-cap"></i>
+									</div>
+								</x-slot>
+							</x-adminlte-input>
 						</div>
 						<div class="col-6">
 							<x-adminlte-input
@@ -52,7 +59,13 @@
 								placeholder="Titul za menom..."
 								enableOldSupport="true"
 								value="{{ $priest->titles_after ?? '' }}"
-							/>
+								>
+								<x-slot name="prependSlot">
+									<div class="input-group-text bg-gradient-orange">
+										<i class="fas fa-microscope"></i>
+									</div>
+								</x-slot>
+							</x-adminlte-input>
 						</div>
 					</div>
 
@@ -64,7 +77,13 @@
 								placeholder="Krstné meno ..."
 								enableOldSupport="true"
 								value="{{ $priest->first_name ?? '' }}"
-							/>
+								>
+								<x-slot name="prependSlot">
+									<div class="input-group-text bg-gradient-orange">
+										<i class="fas fa-user-tag"></i>
+									</div>
+								</x-slot>
+							</x-adminlte-input>
 						</div>
 						<div class="col-6">
 							<x-adminlte-input
@@ -73,7 +92,13 @@
 								placeholder="Priezvisko ..."
 								enableOldSupport="true"
 								value="{{ $priest->last_name ?? '' }}"
-							/>
+								>
+								<x-slot name="prependSlot">
+									<div class="input-group-text bg-gradient-orange">
+										<i class="fas fa-signature"></i>
+									</div>
+								</x-slot>
+							</x-adminlte-input>
 						</div>
 					</div>
 					<div class="form-row">
@@ -84,7 +109,13 @@
 								placeholder="Akú funkciu zastáva ..."
 								enableOldSupport="true"
 								value="{{ $priest->function ?? '' }}"
-							/>
+								>
+								<x-slot name="prependSlot">
+									<div class="input-group-text bg-gradient-orange">
+										<i class="fas fa-pray"></i>
+									</div>
+								</x-slot>
+							</x-adminlte-input>
 						</div>
 						<div class="col-6">
 							<x-adminlte-input
@@ -93,14 +124,27 @@
 								placeholder="Zadaj telefónne číslo ..."
 								enableOldSupport="true"
 								value="{{ $priest->phone ?? '' }}"
-							/>
+								>
+								<x-slot name="prependSlot">
+									<div class="input-group-text bg-gradient-orange">
+										<i class="fas fa-mobile-alt"></i>
+									</div>
+								</x-slot>
+							</x-adminlte-input>
 						</div>
 					</div>
 
 					<x-adminlte-textarea
 						name="description"
 						label="Krátky životopis"
-						enableOldSupport="true">
+						enableOldSupport="true"
+						rows="5"
+						>
+						<x-slot name="prependSlot">
+							<div class="input-group-text bg-gradient-orange">
+								<i class="far fa-id-card"></i>
+							</div>
+						</x-slot>
 							{{ $priest->description ?? '' }}
 					</x-adminlte-textarea>
 
@@ -110,31 +154,40 @@
 						label="Fotka"
 						placeholder="{{ $priest->media_file_name ?? 'Vložiť fotku ..' }}">
 						<x-slot name="prependSlot">
-							<div class="input-group-text bg-gradient-red">
+							<div class="input-group-text bg-gradient-orange">
 								<i class="fas fa-file-import"></i>
 							</div>
 						</x-slot>
 					</x-adminlte-input-file>
 
-					<div class="row">
-						<div class="col-8">
-							<x-adminlte-button
-								class="btn-flat btn-block"
-								type="submit"
-								label="{{ $button_text }}"
-								theme="success"
-								icon="fas fa-lg fa-save mr-2"
-							/>
-						</div>
-						<div class="col-4">
-							<a 	href="{{ route('priests.index') }}"
-								class="btn btn-outline-secondary btn-flat btn-block">
-									Späť
-							</a>
-						</div>
+					<div class="vstack gap-2 col-md-5 col-xl-4 mx-auto mt-5">
+						<button type="submit" class="btn btn-primary btn-block">
+							<i class="far fa-lg fa-save mr-2"></i>
+							Uložiť
+						</button>
+						<a href="{{ route('priests.index') }}" class="btn btn-outline-secondary btn-block">
+							Späť
+						</a>
 					</div>
+
 				</form>
 			</div>
+
+			@if ( $type == 'edit' )
+				<div class="card-footer text-muted d-flex flex-column flex-sm-row small">
+					<div class="mr-auto">
+						<span class="small mr-2">Vytvorené:</span> {{ $priest->created_info }}
+						<br>
+						<span class="small mr-2">Vytvoril:</span> {{ $priest->created_by }}
+					</div>
+					<div class="mt-2 mt-sm-0">
+						<span class="small mr-2">Naposledy upravené:</span> {{ $priest->updated_info }}
+						<br>
+						<span class="small mr-2">Upravil:</span> {{ $priest->updated_by }}
+					</div>
+				</div>
+			@endif
+
 		</div>
 	</div>
 </div>

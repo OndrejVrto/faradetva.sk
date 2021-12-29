@@ -12,9 +12,6 @@
 
 @section('content')
 
-	@include('priests.form', [
-		'type' => 'create',
-		'button_text' => 'Pridať kňaza'
-	])
+	@include('priests.form', [ 'type' => 'create' ])
 
 @endsection

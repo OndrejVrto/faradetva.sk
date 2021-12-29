@@ -1,9 +1,9 @@
 @extends('_layouts.app')
 
-@section('title', 'Administrácia - vytvorenie novej Kategórie')
+@section('title', 'Kategória')
 
 @section('meta-tags')
-	<meta name="description" content="Administrácia - vytvorenie novej Kategórie" />
+	<meta name="description" content="Administrácia - Vytvorenie novej kategórie" />
 @stop
 
 @section('content_header')
@@ -12,9 +12,6 @@
 
 @section('content')
 
-	@include('categories.form', [
-		'type' => 'create',
-		'button_text' => 'Vytvoriť kategóriu'
-	])
+	@include('categories.form', [ 'type' => 'create' ])
 
 @endsection

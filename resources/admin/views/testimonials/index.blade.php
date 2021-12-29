@@ -48,7 +48,7 @@
 							</td>
 
 							<td class="text-center">
-								<img src="{{ $testimonial->getFirstMediaUrl('testimonial', 'crop-thumb') ?: "http://via.placeholder.com/60x80" }}"
+								<img src="{{ $testimonial->getFirstMediaUrl('testimonial', 'crop-thumb') ?: "http://via.placeholder.com/60x60" }}"
 									class="img-fluid"
 									alt="Fotografia: {{ $testimonial->full_name_titles }}, {{ $testimonial->function }}"
 								/>

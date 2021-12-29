@@ -108,6 +108,7 @@
 
 				</form>
 			</div>
+
 			@if ( $type == 'edit' )
 				<div class="card-footer text-muted d-flex flex-column flex-sm-row small">
 					<div class="mr-auto">
@@ -122,6 +123,7 @@
 					</div>
 				</div>
 			@endif
+
 		</div>
 	</div>
 </div>

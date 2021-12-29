@@ -12,9 +12,6 @@
 
 @section('content')
 
-	@include('priests.form', [
-		'type' => 'edit',
-		'button_text' => 'Upraviť kňaza'
-	])
+	@include('priests.form', [ 'type' => 'edit' ])
 
 @endsection

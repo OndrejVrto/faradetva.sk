@@ -1,20 +1,17 @@
 @extends('_layouts.app')
 
-@section('title', 'Tag - Editovanie')
+@section('title', 'Kľúčové slová')
 
 @section('meta-tags')
-	<meta name="description" content="Administrácia - Editácia Tagu" />
+	<meta name="description" content="Administrácia - Editácia Kľúčového slova (tagu)" />
 @stop
 
 @section('content_header')
-    <h1>Tagy - Editovanie</h1>
+    <h1>Úprava kľúčového slova</h1>
 @stop
 
 @section('content')
 
-	@include('tags.form', [
-		'type' => 'edit',
-		'button_text' => 'Upraviť Tag'
-	])
+	@include('tags.form', [ 'type' => 'edit' ])
 
 @endsection
