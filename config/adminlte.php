@@ -240,10 +240,9 @@ return [
 			'route'       => 'admin.dashboard',
 			'icon'        => 'fas fa-home',
         ],
-        ['header' => 'Hlavná ponuka'],
         [
 			'text'  => 'Články',
-			'icon_color'  => 'orange',
+			// 'icon_color'  => 'orange',
 			'route' => 'news.index',
             'icon'  => 'fas fa-book-open',
         ],

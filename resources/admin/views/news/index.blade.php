@@ -27,30 +27,28 @@
 								<th>Názov článku</th>
 								{{-- <th style="max-width: 20rem;" class="d-none d-xl-block">Obsah článku (skrátený)</th> --}}
 								<th style="width: 4rem;" class="text-center d-none d-md-table-cell">Prílohy</th>
-								<th style="width: 6rem;" class="text-center">Akcia</th>
+								<th style="width: 5rem;" class="text-center">Akcia</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach($all_news as $news)
 							<tr>
 								<td>{{$news->created}}</td>
+
 								<td class="d-none d-xl-table-cell text-wrap text-break">{{ $news->user->name }}</td>
+
 								<td class="text-wrap text-break text-bold">{{ $news->title }}</td>
+
 								{{-- <td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</td> --}}
+
 								<td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</td>
+
 								<td class="text-center">
-									{{-- <form id="file-append-form" action="{{ route( 'files.create', [$news->id , $news->model]) }}" method="post" style="display: inline-block">
-										@csrf
-										@method('POST')
-										<button class="btn btn-warning btn-flat btn-sm my-1 text-red" type="submit" title="Vložiť prílohy"><i class="far fa-file"></i></button>
-									</form> --}}
-									<a href="{{ route('news.edit', $news->slug)}}" class="btn bg-gradient-info btn-sm btn-flat mx-0 mx-md-2" title="Editovať">
-										<i class="fas fa-pencil-alt"></i>
-									</a>
+									<a href="{{ route('news.edit', $news->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
 									<form id="delete-form" action="{{ route('news.destroy', $news->id)}}" method="post" style="display: inline-block">
 										@csrf
 										@method('DELETE')
-										<button class="btn bg-gradient-red btn-flat btn-sm my-1" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
+										<button class="btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
 									</form>
 								</td>
 							</tr>
@@ -58,9 +56,7 @@
 						</tbody>
 					</table>
 				</div>
-				<!-- /.card-body -->
 			</div>
-			<!-- /.card -->
 			<!-- Paginator Start-->
 			<div class="row justify-content-center py-2">
 				{{ $all_news->onEachSide(1)->links() }}
