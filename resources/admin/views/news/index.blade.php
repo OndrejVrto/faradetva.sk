@@ -43,7 +43,7 @@
 
 								<td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</td>
 
-								<td class="text-center">
+								<td class="form-delete-wraper text-center">
 									<a href="{{ route('news.edit', $news->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
 									<form class="delete-form" action="{{ route('news.destroy', $news->id)}}" method="post" style="display: inline-block">
 										@csrf

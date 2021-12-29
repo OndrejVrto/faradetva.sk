@@ -13,22 +13,25 @@
 	/**
 	 * DELETE FORM submit
 	 */
-	$('.delete-form').on('submit', function (event) {
+	$('.form-delete-wraper').on('click', 'button[type=submit]', function (event) {
 		event.preventDefault();
+
+		var form = $(this).parent();
+
 		Swal.fire({
 			title: 'Si si istý?',
-			text: "Už to nebudeš môcť vrátiť späť!",
-			icon: 'warning',
+			icon: 'info',
 			showCancelButton: true,
 			confirmButtonColor: '#dc3545',
 			cancelButtonColor: '#007BFF',
 			confirmButtonText: 'Áno, chcem to vymazať!'
 		}).then(function (result) {
 			if (result.isConfirmed) {
-				document.getElementById("delete-form").submit();
+				form.submit();
 			}
 		});
 	});
+
 
 
 	$("#add-form, #edit-form")

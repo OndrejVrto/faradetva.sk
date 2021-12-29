@@ -36,7 +36,7 @@
 
 							<td class="text-wrap text-break">{{$category->description}}</td>
 
-							<td class="text-center">
+							<td class="form-delete-wraper text-center">
 								<a href="{{ route('categories.edit', $category->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
 								<form class="delete-form" action="{{ route('categories.destroy', $category->id)}}" method="post" style="display: inline-block">
 									@csrf

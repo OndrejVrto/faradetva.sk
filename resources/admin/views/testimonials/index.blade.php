@@ -58,7 +58,7 @@
 
 							<td class="text-wrap text-break">{{$testimonial->function}}</td>
 
-							<td class="text-center">
+							<td class="form-delete-wraper text-center">
 								<a href="{{ route('testimonials.edit', $testimonial->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
 								<form class="delete-form" action="{{ route('testimonials.destroy', $testimonial->id)}}" method="post" style="display: inline-block">
 									@csrf

@@ -63,5 +63,7 @@
 @endif
 
 @section('footer')
-	<div class="text-right"><small>Aplikáciu naprogramoval <span class="text-bold mx-2">Ing. Ondrej VRŤO</span> v roku pána 2022.</small></div>
+	<div class="text-right small">
+		Aplikáciu naprogramoval <span class="text-bold mx-2">Ing. Ondrej VRŤO</span> v roku pána 2022.
+	</div>
 @stop
