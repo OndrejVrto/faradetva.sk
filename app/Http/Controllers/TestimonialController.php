@@ -19,7 +19,7 @@ class TestimonialController extends Controller
 	{
 		Session::remove('testimonial_old_input_checkbox');
 
-		$testimonials = Testimonial::latest('updated_at')->with('media')->paginate(10);
+		$testimonials = Testimonial::latest('updated_at')->with('media')->paginate(6);
 		return view('testimonials.index', compact('testimonials'));
     }
 
