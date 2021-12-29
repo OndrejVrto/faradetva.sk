@@ -7,10 +7,13 @@ use App\Models\User;
 use App\Models\NewsTag;
 use App\Models\Testimonial;
 use Illuminate\Support\Str;
+use Database\Seeders\TagSeeder;
+
 use Illuminate\Database\Seeder;
-use Database\Seeders\TagTableSeeder;
-use Database\Seeders\CategoriesTabSeeder;
-use Database\Seeders\TestimonialTabSeeder;
+use Database\Seeders\MediaSeeder;
+use Database\Seeders\SliderSeeder;
+use Database\Seeders\CategoriesSeeder;
+use Database\Seeders\TestimonialSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,15 +35,18 @@ class DatabaseSeeder extends Seeder
 		User::factory(10)->create();
 
 		$this->call([
-			TagTableSeeder::class,
-			CategoriesTabSeeder::class,
-			PriestTabSeeder::class,
-			// TestimonialTabSeeder::class,
+			TagSeeder::class,
+			CategoriesSeeder::class,
+			PriestSeeder::class,
+			TestimonialSeeder::class,
+			SliderSeeder::class,
+
+			MediaSeeder::class,
 		]);
 
 		News::factory(10)->create();
 		NewsTag::factory(50)->create();
-		Testimonial::factory(15)->create();
+		Testimonial::factory(5)->create();
 
     }
 

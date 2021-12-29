@@ -6,7 +6,7 @@ use App\Models\Priest;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
-class PriestTabSeeder extends Seeder
+class PriestSeeder extends Seeder
 {
     /**
      * Run the database seeds.

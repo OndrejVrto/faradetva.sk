@@ -6,7 +6,7 @@ use App\Models\Testimonial;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
-class TestimonialTabSeeder extends Seeder
+class TestimonialSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -27,3 +27,4 @@ composer.lock
 /_ide_helper_models.php
 /package-lock.json
 /zmaz
+database/raw
