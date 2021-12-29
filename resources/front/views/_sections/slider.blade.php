@@ -22,9 +22,9 @@
 			<!-- item end -->
 
 @php
-	$extra_small_image = $slider->getFirstMediaUrl('slider', 'extra-small') ?: "http://via.placeholder.com/480x200";
-	$small_image = $slider->getFirstMediaUrl('slider', 'small') ?: "http://via.placeholder.com/720x300";
-	$medium_image = $slider->getFirstMediaUrl('slider', 'medium') ?: "http://via.placeholder.com/960x400";
+	$extra_small_image = $slider->getFirstMediaUrl('slider', 'extra-small') ?: "http://via.placeholder.com/720x300";
+	$small_image = $slider->getFirstMediaUrl('slider', 'small') ?: "http://via.placeholder.com/960x400";
+	$medium_image = $slider->getFirstMediaUrl('slider', 'medium') ?: "http://via.placeholder.com/1200x500";
 	$large_image = $slider->getFirstMediaUrl('slider', 'large') ?: "http://via.placeholder.com/1440x600";
 	$extra_large_image = $slider->getFirstMediaUrl('slider', 'extra-large') ?: "http://via.placeholder.com/1920x800";
 @endphp
