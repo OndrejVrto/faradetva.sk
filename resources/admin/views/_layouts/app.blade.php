@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('css')
+@push('css')
     <link rel="stylesheet" href="{{ asset('asset/backend/css/admin_custom.css') }}">
 	{{-- <script src="{{ asset('vendor/debugbar.js') }}"></script> --}}
-@stop
+@endpush
 
-@section('js')
+@push('js')
 	<script src="{{ asset('asset/backend/js/admin_custom.js') }}"></script>
-@stop
+@endpush
 
 @if(session()->has('message'))
 	@once

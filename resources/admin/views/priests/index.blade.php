@@ -55,7 +55,7 @@
 
 							<td class="text-center">
 								<a href="{{ route('priests.edit', $priest->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
-								<form id="delete-form" action="{{ route('priests.destroy', $priest->id)}}" method="post" style="display: inline-block">
+								<form class="delete-form" action="{{ route('priests.destroy', $priest->id)}}" method="post" style="display: inline-block">
 									@csrf
 									@method('DELETE')
 									<button class="btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
