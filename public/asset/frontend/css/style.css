@@ -517,7 +517,7 @@ a:before, button:before{
 .slider_bg{
 	background-size: cover;
     position: relative;
-    background-position: center center
+    background-position: center center;
 }
 .slider_bg .black_overlay {
     background-color: rgba(0, 0, 0, 0.61);

@@ -30,13 +30,21 @@ class Slider extends Model implements HasMedia
 
 	public function registerMediaConversions( Media $media = null ) : void
 	{
-		$this->addMediaConversion('crop')
+		$this->addMediaConversion('extralarge')
 			->fit("crop", 1920, 800)
-			->optimize()
-			->withResponsiveImages();
+			->optimize();
+		$this->addMediaConversion('large')
+			->fit("crop", 1440, 600)
+			->optimize();
+		$this->addMediaConversion('medium')
+			->fit("crop", 960, 400)
+			->optimize();
+		$this->addMediaConversion('small')
+			->fit("crop", 480, 200)
+			->optimize();
 
 		$this->addMediaConversion('crop-thumb')
-			->fit("crop", 240, 100);
+			->fit("crop", 192, 80);
 	}
 
 

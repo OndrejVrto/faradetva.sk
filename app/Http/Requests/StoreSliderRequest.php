@@ -33,7 +33,7 @@ class StoreSliderRequest extends FormRequest
 						'file',
 						'mimes:jpg,bmp,png,jpeg',
 						'dimensions:min_width=1920,min_height=800',
-						'max:5000'
+						'max:10000'
 						],
         ];
     }
