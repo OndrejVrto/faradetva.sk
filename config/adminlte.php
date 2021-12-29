@@ -258,6 +258,12 @@ return [
 			'route' => 'testimonials.index',
             'icon'  => 'fas fa-comment-medical',
         ],
+        [
+			'text'  => 'Obrázok s myšlienkou',
+			// 'icon_color'  => 'orange',
+			'route' => 'sliders.index',
+            'icon'  => 'fas fa-image',
+        ],
 		['header' => 'Nastavenia'],
         [
 			'text'    => 'Tabuľky',

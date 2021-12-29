@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
-use App\Http\Controllers\FileController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PriestController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Debug\DebugController;
@@ -41,6 +41,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 	Route::resource('/priests', PriestController::class);
 
 	Route::resource('/testimonials', TestimonialController::class);
+
+	Route::resource('/sliders', SliderController::class);
 
 
 });
