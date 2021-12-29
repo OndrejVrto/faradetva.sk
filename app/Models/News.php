@@ -46,12 +46,6 @@ class News extends Model
 	}
 
 
-	public function getModelAttribute ()
-	{
-		return Str::replace("\\", '-', get_class($this) );
-	}
-
-
 	public function user()
 	{
         return $this->belongsTo(User::class);
