@@ -7,7 +7,7 @@
 @stop
 
 @section('content_header')
-    <h1>Úprava obrázoku s myšlienkou</h1>
+    <h1>Úprava obrázku s myšlienkou</h1>
 @stop
 
 @section('content')

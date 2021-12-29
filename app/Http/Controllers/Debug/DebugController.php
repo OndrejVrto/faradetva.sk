@@ -14,9 +14,13 @@ class DebugController extends Controller
 	public function index()
     {
 		$priests = Priest::whereActive(1)->with('media')->get();
-		$count = Testimonial::whereActive(1)->count();
-		$testimonials = Testimonial::whereActive(1)->with('media')->get()->random(min($count, 3));
-		$sliders = Slider::whereActive(1)->with('media')->get()->random(min($count, 3));
+
+		$countTestimonial = Testimonial::whereActive(1)->count();
+		$testimonials = Testimonial::whereActive(1)->with('media')->get()->random(min($countTestimonial, 3));
+
+		$countSliders = Slider::whereActive(1)->count();
+		$sliders = Slider::whereActive(1)->with('media')->get()->random(min($countSliders, 3));
+
 
 		return view('debug.all', compact(
 			'priests',

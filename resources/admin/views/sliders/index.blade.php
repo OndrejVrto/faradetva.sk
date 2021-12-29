@@ -19,7 +19,12 @@
 				<a href="{{ route('sliders.create')}}" class="btn btn-warning btn-flat" title="Vytvoriť">Pridať nový obrázok s myšlienkou</a>
 			</div>
 			<div class="col-7 text-right">
-				<span class="px-2 py-1 text-info hoverDiv"><i class="mr-2 fas fa-info-circle"></i>Na stránke sa zobrazujú iba tri náhodné obrázky!</span>
+				<span class="px-2 py-1 text-info hoverDiv">
+					<i class="mr-2 fas fa-info-circle"></i>
+					Na stránke sa zobrazujú iba tri náhodné obrázky!
+					<br>
+					Pre fungovanie musia byť vložené minimálne dve.
+				</span>
 			</div>
 		</div>
 		<div class="card">
