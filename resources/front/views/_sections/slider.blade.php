@@ -22,43 +22,90 @@
 			<!-- item end -->
 
 @php
-	$small_image = $slider->getFirstMediaUrl('slider', 'small') ?: "http://via.placeholder.com/480x200";
+	$extra_small_image = $slider->getFirstMediaUrl('slider', 'extra-small') ?: "http://via.placeholder.com/480x200";
+	$small_image = $slider->getFirstMediaUrl('slider', 'small') ?: "http://via.placeholder.com/720x300";
 	$medium_image = $slider->getFirstMediaUrl('slider', 'medium') ?: "http://via.placeholder.com/960x400";
 	$large_image = $slider->getFirstMediaUrl('slider', 'large') ?: "http://via.placeholder.com/1440x600";
-	$extralarge_image = $slider->getFirstMediaUrl('slider', 'extralarge') ?: "http://via.placeholder.com/1920x800";
+	$extra_large_image = $slider->getFirstMediaUrl('slider', 'extra-large') ?: "http://via.placeholder.com/1920x800";
 @endphp
 
 @push('css')
-	<style>
+<style>
+	/* Responsive background images for Slider N.{{ $loop->iteration }} */
+
+	/* Extra small devices (portrait phones, less than 576px) */
+		.slider-img-{{ $loop->iteration }} {
+			background-image: url({{ $extra_small_image }});
+			background-image:
+				-webkit-image-set(
+				"{{ $extra_small_image }}" 1x,
+				"{{ $small_image }}" 2x,
+				);
+			background-image:
+				image-set(
+				"{{ $extra_small_image }}" 1x,
+				"{{ $small_image }}" 2x,
+				);
+		}
+
+	/* Small devices (landscape phones, 576px and up) */
+	@media (min-width: 576px) {
 		.slider-img-{{ $loop->iteration }}{
-		background-image: url({{ $small_image }});
-		background-image:
-			-webkit-image-set(
-			"{{ $small_image }}" 1x,
-			"{{ $medium_image }}" 2x,
-			);
-		background-image:
-			image-set(
-			"{{ $small_image }}" 1x,
-			"{{ $medium_image }}" 2x,
-			);
+			background-image: url({{ $small_image }});
+			background-image:
+				-webkit-image-set(
+				"{{ $small_image }}" 1x,
+				"{{ $medium_image }}" 2x,
+				);
+			background-image:
+				image-set(
+				"{{ $small_image }}" 1x,
+				"{{ $medium_image }}" 2x,
+				);
+		}
 	}
 
-	@media(min-width: 800px){
+	/* Medium devices (tablets, 768px and up) */
+	@media (min-width: 768px) {
+		.slider-img-{{ $loop->iteration }}{
+			background-image: url({{ $medium_image }});
+			background-image:
+				-webkit-image-set(
+				"{{ $medium_image }}" 1x,
+				"{{ $large_image }}" 2x,
+				);
+			background-image:
+				image-set(
+				"{{ $medium_image }}" 1x,
+				"{{ $large_image }}" 2x,
+				);
+		}
+	}
+
+	/* Large devices (desktops, 992px and up) */
+	@media (min-width: 992px) {
 		.slider-img-{{ $loop->iteration }} {
 			background-image: url({{ $large_image }});
 			background-image:
 			-webkit-image-set(
 				"{{ $large_image }}" 1x,
-				"{{ $extralarge_image }}" 2x,
+				"{{ $extra_large_image }}" 2x,
 			);
 			background-image:
 			image-set(
 				"{{ $large_image }}" 1x,
-				"{{ $extralarge_image }}" 2x,
+				"{{ $extra_large_image }}" 2x,
 			);
 		}
 	}
+
+	/* Extra large devices (large desktops, 1200px and up) */
+	@media (min-width: 1200px) {
+		.slider-img-{{ $loop->iteration }} {
+			background-image: url({{ $extra_large_image }});
+		}
+	}
+
 	</style>
 @endpush
 
