@@ -142,7 +142,7 @@
 						>
 						<x-slot name="prependSlot">
 							<div class="input-group-text bg-gradient-orange">
-								<i class="far fa-id-card"></i>
+								<i class="fas fa-pen-nib"></i>
 							</div>
 						</x-slot>
 							{{ $priest->description ?? '' }}

@@ -22,7 +22,7 @@
 						>
 						<x-slot name="prependSlot">
 							<div class="input-group-text bg-gradient-orange">
-								<i class="far fa-list-alt"></i>
+								<i class="fas fa-stream"></i>
 							</div>
 						</x-slot>
 					</x-adminlte-input>

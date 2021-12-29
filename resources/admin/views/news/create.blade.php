@@ -1,6 +1,6 @@
 @extends('_layouts.app')
 
-@section('title', 'Vytvorenie článku')
+@section('title', 'Článok')
 
 @section('meta-tags')
 	<meta name="description" content="Administrácia - vytvorenie nového článku" />
@@ -12,9 +12,6 @@
 
 @section('content')
 
-	@include('news.form', [
-		'type' => 'create',
-		'button_text' => 'Vytvoriť nový článok'
-	])
+	@include('news.form', [ 'type' => 'create' ])
 
 @endsection

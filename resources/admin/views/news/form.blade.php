@@ -27,6 +27,7 @@
 <div class="row">
 	<div class="col-12 m-auto">
 		<div class="card">
+
 			<div class="card-body">
 
 				@if ( $type == 'edit')
@@ -38,20 +39,29 @@
 
 					@csrf
 
-					<div class="row">
+					<div class="form-row">
 
 						<div class="col-xl-4 order-xl-2">
-							<x-adminlte-input name="title" label="Titulok článku" placeholder="Nadpis článku ..." value="{{ $news->title ?? old('title') }}" >
+							<x-adminlte-input
+								name="title"
+								label="Titulok článku"
+								placeholder="Nadpis článku ..."
+								enableOldSupport="true"
+								value="{{ $news->title ?? '' }}" >
 								<x-slot name="prependSlot">
-									<div class="input-group-text bg-gradient-red">
+									<div class="input-group-text bg-gradient-orange">
 										<i class="fas fa-font"></i>
 									</div>
 								</x-slot>
 							</x-adminlte-input>
 
-							<x-adminlte-select2 name="category_id" label="Kategória článku" data-placeholder="Vyber kategóriu článku ...">
+							<x-adminlte-select2
+								name="category_id"
+								label="Kategória článku"
+								data-placeholder="Vyber kategóriu článku ..."
+								>
 								<x-slot name="prependSlot">
-									<div class="input-group-text bg-gradient-red">
+									<div class="input-group-text bg-gradient-orange">
 										<i class="fas fa-stream"></i>
 									</div>
 								</x-slot>
@@ -63,7 +73,7 @@
 										value="{{ $category->id }}"
 										title="{{ $category->description }}"
 										@if( $category->id == ($news->category_id ?? '') OR $category->id == old('category_id'))
-										selected
+											selected
 										@endif
 										>
 										{{ $category->title }}
@@ -73,18 +83,29 @@
 								@endif
 							</x-adminlte-select2>
 
-							<x-adminlte-input-file class="border-right-none" name="news_picture" label="Obrázok na titulku" placeholder="Vložiť obrázok ...">
+							<x-adminlte-input-file
+								name="news_picture"
+								class="border-right-none"
+								label="Obrázok na titulku"
+								placeholder="Vložiť obrázok ..."
+								>
 								<x-slot name="prependSlot">
-									<div class="input-group-text bg-gradient-red">
+									<div class="input-group-text bg-gradient-orange">
 										<i class="fas fa-file-import"></i>
 									</div>
 								</x-slot>
 							</x-adminlte-input-file>
 
 							{{-- With multiple slots, and plugin config parameter --}}
-							<x-adminlte-select2 id="sel2Tag" name="tags[]" label="Kľúčové slová" :config="$config_select" multiple>
+							<x-adminlte-select2
+								name="tags[]"
+								id="sel2Tag"
+								label="Kľúčové slová"
+								:config="$config_select"
+								multiple
+								>
 								<x-slot name="prependSlot">
-									<div class="input-group-text bg-gradient-red">
+									<div class="input-group-text bg-gradient-orange">
 										<i class="fas fa-tag"></i>
 									</div>
 								</x-slot>
@@ -105,10 +126,17 @@
 
 								@endif
 							</x-adminlte-select2>
+
 						</div>
 
 						<div class="col-xl-8 order-xl-1">
-							<x-adminlte-text-editor id="Summernote" name="content" label="Obsah článku" placeholder="Text článku ..." :config="$config_Sumernote">
+							<x-adminlte-text-editor
+								name="content"
+								id="Summernote"
+								label="Obsah článku"
+								placeholder="Text článku ..."
+								:config="$config_Sumernote"
+								>
 								{{ $news->content ?? old('content') }}
 							</x-adminlte-text-editor>
 						</div>
@@ -168,9 +196,9 @@
 									placeholder="Nová príloha ..."
 									errorKey="files_new.*"
 									fgroupClass="mb-0"
-								>
+									>
 									<x-slot name="prependSlot">
-										<div class="input-group-text bg-gradient-red">
+										<div class="input-group-text bg-gradient-orange">
 											<i class="fas fa-file-import"></i>
 										</div>
 									</x-slot>
@@ -182,10 +210,11 @@
 									placeholder="Vložiť popis ..."
 									class="input-group-sm"
 									fgroupClass="mb-0"
-								>
+									enableOldSupport="true"
+									>
 									<x-slot name="prependSlot">
-										<div class="input-group-text bg-gradient-gray" title="Popis súboru">
-											<i class="fas fa-comment"></i>
+										<div class="input-group-text bg-gradient-orange" title="Popis súboru">
+											<i class="far fa-comment"></i>
 										</div>
 									</x-slot>
 								</x-adminlte-input>
@@ -197,19 +226,38 @@
 					</div>
 
 					<div class="form-row">
-						<x-adminlte-button class="px-5 bg-gradient-blue" icon="fas fa-plus" title="Pridať ďalší súbor" id="addFileSubmit" />
+						<x-adminlte-button class="px-5 bg-gradient-green" icon="fas fa-plus" title="Pridať ďalší súbor" id="addFileSubmit" />
 					</div>
 
-					<div class="row col-xl-6 pt-4 m-auto">
-						<div class="col-7">
-							<x-adminlte-button class="btn-flat btn-block" type="submit" label="{{ $button_text }}" theme="success" icon="fas fa-lg fa-save mr-2"/>
-						</div>
-						<div class="col-5">
-							<a href="{{ route('news.index') }}" class="btn btn-outline-secondary btn-flat btn-block">Späť</a>
-						</div>
+
+					<div class="vstack gap-2 col-md-5 col-xl-4 mx-auto mt-5">
+						<button type="submit" class="btn btn-primary btn-block">
+							<i class="far fa-lg fa-save mr-2"></i>
+							Uložiť
+						</button>
+						<a href="{{ route('news.index') }}" class="btn btn-outline-secondary btn-block">
+							Späť
+						</a>
 					</div>
+
 				</form>
 			</div>
+
+			@if ( $type == 'edit' )
+				<div class="card-footer text-muted d-flex flex-column flex-sm-row small">
+					<div class="mr-auto">
+						<span class="small mr-2">Vytvorené:</span> {{ $news->created_info }}
+						<br>
+						<span class="small mr-2">Vytvoril:</span> {{ $news->created_by }}
+					</div>
+					<div class="mt-2 mt-sm-0">
+						<span class="small mr-2">Naposledy upravené:</span> {{ $news->updated_info }}
+						<br>
+						<span class="small mr-2">Upravil:</span> {{ $news->updated_by }}
+					</div>
+				</div>
+			@endif
+
 		</div>
 	</div>
 </div>
