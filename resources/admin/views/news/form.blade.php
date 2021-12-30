@@ -1,6 +1,6 @@
 @php
 	$config_Sumernote = [
-		'height' => '240',                 // set editor height
+		'height' => '200',                 // set editor height
   		'minHeight' => 'null',             // set minimum height of editor
   		'maxHeight' => 'null',             // set maximum height of editor
   		// 'focus' => 'true',                  // set focus to editable area after initializing summernote
@@ -41,7 +41,34 @@
 
 					<div class="form-row">
 
-						<div class="col-xl-4 order-xl-2">
+						<div class="form-group">
+							<div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success"
+								title="Zaškrtni keď chceš aby sa zobrazovala správa na stránke.">
+								<input
+									name="active"
+									type="checkbox"
+									class="custom-control-input"
+									id="customSwitch3"
+
+									@if (!is_null(Session::get('news_old_input_checkbox')))
+										{{ Session::get('news_old_input_checkbox') == 1 ? 'checked' : '' }}
+									@else
+										@if( isset($news) )
+											{{ $news->active == 1 ? 'checked' : '' }}
+										@else
+											checked
+										@endif
+									@endif
+
+								>
+								<label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
+							</div>
+						</div>
+
+					</div>
+					<div class="form-row">
+
+						<div class="col-xl-6">
 							<x-adminlte-input
 								name="title"
 								label="Titulok článku"
@@ -54,6 +81,79 @@
 									</div>
 								</x-slot>
 							</x-adminlte-input>
+						</div>
+						<div class="col-md-6 col-xl-3">
+
+							<div class="form-group">
+								<label>Publikovať Od</label>
+								<div class="input-group date @error('published_at') adminlte-invalid-igroup @enderror" id="published_at" data-target-input="nearest">
+									<div class="input-group-prepend">
+										<div class="input-group-text bg-gradient-orange">
+											<i class="fas fa-play"></i>
+										</div>
+									</div>
+									<input
+										name="published_at"
+										type="text"
+										placeholder="Vyber dátum a čas ..."
+										class="form-control datetimepicker-input @error('published_at') is-invalid @enderror"
+										data-target="#published_at"
+										value="{{ $news->published_at ?? old('published_at') }}"
+									>
+									<div class="input-group-append" data-target="#published_at" data-toggle="datetimepicker">
+										<div class="input-group-text bg-gradient-green">
+											<i class="far fa-calendar-alt"></i>
+										</div>
+									</div>
+								</div>
+								{{-- Error feedback --}}
+								@error('published_at')
+									<span class="invalid-feedback d-block" role="alert">
+										<strong>{{ $errors->first('published_at') }}</strong>
+									</span>
+								@enderror
+							</div>
+
+						</div>
+						<div class="col-md-6 col-xl-3">
+
+							<div class="form-group">
+								<label>Publikovať Do</label>
+								<div class="input-group date @error('unpublished_at') adminlte-invalid-igroup @enderror" id="unpublished_at" data-target-input="nearest">
+									<div class="input-group-prepend">
+										<div class="input-group-text bg-gradient-orange">
+											<i class="fas fa-pause"></i>
+										</div>
+									</div>
+									<input
+										name="unpublished_at"
+										type="text"
+										placeholder="Vyber dátum a čas..."
+										class="form-control datetimepicker-input @error('unpublished_at') is-invalid @enderror"
+										data-target="#unpublished_at"
+										value="{{ $news->unpublished_at ?? old('unpublished_at') }}"
+									>
+									<div class="input-group-append" data-target="#unpublished_at" data-toggle="datetimepicker">
+										<div class="input-group-text bg-gradient-green">
+											<i class="far fa-calendar-alt"></i>
+										</div>
+									</div>
+								</div>
+								{{-- Error feedback --}}
+								@error('unpublished_at')
+									<span class="invalid-feedback d-block" role="alert">
+										<strong>{{ $errors->first('unpublished_at') }}</strong>
+									</span>
+								@enderror
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="form-row">
+
+						<div class="col-xl-4 order-xl-2">
 
 							<x-adminlte-select2
 								name="category_id"
@@ -93,6 +193,9 @@
 									<div class="input-group-text bg-gradient-orange">
 										<i class="fas fa-file-import"></i>
 									</div>
+								</x-slot>
+								<x-slot name="noteSlot">
+									Poznámka: veľkosť obrázka minimálne 848x460 px.
 								</x-slot>
 							</x-adminlte-input-file>
 
@@ -261,3 +364,70 @@
 		</div>
 	</div>
 </div>
+
+@push('js')
+<script type="text/javascript">
+
+	$(function ()
+	{
+		//Date and time pickers
+		var options = {
+			icons: {
+				time: 'far fa-clock'
+			},
+			locale: 'sk',
+			useCurrent: false,
+			buttons: {
+				showToday: true,
+				showClear: true,
+				showClose: true
+			},
+			tooltips: {
+
+				today: 'Choď na dnešný dátum',
+				clear: 'Vymazať výber',
+				close: 'Zavrieť',
+
+				selectTime: 'Vyber čas',
+				selectDate: 'Vyber dátum',
+
+				selectMonth: 'Vyber mesiac',
+				prevMonth: 'Predchádzajúci mesiac',
+				nextMonth: 'Nasledovný mesiac',
+
+				selectYear: 'Vyber rok',
+				prevYear: 'Predchádzajúci rok',
+				nextYear: 'Nasledovný rok',
+
+				selectDecade: 'Vyber dekádu',
+				prevDecade: 'Predchádzajúca dekáda',
+				nextDecade: 'Nasledovná dekáda',
+
+				prevCentury: 'Predchádzajúce storočie',
+				nextCentury: 'Nasledujúce storočie',
+
+				incrementHour: 'Pridať hodinu',
+				pickHour: 'Vybrať hodinu',
+				decrementHour:'Odobrať hodinu',
+				incrementMinute: 'Pridať minútu',
+				pickMinute: 'Vybrať minútu',
+				decrementMinute:'Odobrať minútu',
+				incrementSecond: 'Pridať sekundu',
+				pickSecond: 'Vybrať sekundu',
+				decrementSecond:'Odobrať sekundu'
+			},
+		};
+
+		$('#unpublished_at').datetimepicker(options);
+		$('#published_at').datetimepicker(options);
+
+        $("#published_at").on("change.datetimepicker", function (e) {
+            $('#unpublished_at').datetimepicker('minDate', e.date);
+        });
+        $("#unpublished_at").on("change.datetimepicker", function (e) {
+            $('#published_at').datetimepicker('maxDate', e.date);
+        });
+	})
+
+</script>
+@endpush

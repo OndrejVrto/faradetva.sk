@@ -27,10 +27,15 @@
 
     {{-- Error feedback --}}
     @if($isInvalid() && ! isset($disableFeedback))
-        <span class="invalid-feedback d-block" role="alert">
-            <strong>{{ $errors->first($errorKey) }}</strong>
-        </span>
+	<span class="invalid-feedback d-block" role="alert">
+		<strong>{{ $errors->first($errorKey) }}</strong>
+	</span>
     @endif
+
+	{{-- Input note slot --}}
+	@isset($noteSlot)
+		<small class="form-text text-muted">{{ $noteSlot }}</small>
+	@endisset
 
 </div>
 

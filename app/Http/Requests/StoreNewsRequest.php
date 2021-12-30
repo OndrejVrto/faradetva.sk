@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
+use App\Rules\DateTimeAfterOrEqual;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreNewsRequest extends FormRequest
@@ -26,6 +28,13 @@ class StoreNewsRequest extends FormRequest
     {
 
 		return [
+			'active' => 'boolean',
+			'published_at' => [
+				'nullable',
+				'date',
+				new DateTimeAfterOrEqual,
+			],
+			'unpublished_at' => 'nullable|date|after:published_at',
             'title' => [
 				'required',
 				'string',
@@ -33,10 +42,38 @@ class StoreNewsRequest extends FormRequest
 			],
 			'content' => 'required',
 			'category_id' => 'required|exists:categories,id',
-			'files_new.*' => 'file|mimes:jpg,bmp,png',
+			'news_picture' => [
+				'file',
+				'mimes:jpg,bmp,png,jpeg',
+				'dimensions:min_width=848,min_height=460',
+				'max:3000'
+			],
+			// 'files_new.*' => 'file|max:10000',
 			// 'tags' => 'required',
 		];
 
 	}
+
+
+	public function messages()
+	{
+		return [
+			'news_picture.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
+			'unpublished_at.after' => 'Dátum a čas musí byť väčší ako je v poli: Publikovať Od',
+		];
+	}
+
+
+	protected function prepareForValidation()
+	{
+		$state = $this->active ? 1 : 0;
+
+		$this->merge([
+			'active' => $state,
+		]);
+
+        Session::put(['news_old_input_checkbox' => $state]);
+	}
+
 
 }
