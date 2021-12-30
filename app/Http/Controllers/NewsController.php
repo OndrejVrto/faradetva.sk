@@ -8,6 +8,7 @@ use App\Models\NewsTag;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreNewsRequest;
+use Illuminate\Support\Facades\Session;
 
 class NewsController extends Controller
 {
@@ -19,8 +20,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-		$all_news = News::with('user')->latest()->paginate(10);
+		Session::remove('news_old_input_checkbox');
 
+		$all_news = News::latest('updated_at')->with('user')->with('media')->paginate(10);
 		return view('news.index', compact('all_news'));
     }
 
@@ -46,22 +48,32 @@ class NewsController extends Controller
      */
     public function store(StoreNewsRequest $request)
     {
-		$request->validated();
+		$validated = $request->validated();
+		$news = News::create($validated);
 
-		// store news
-		$news = new News;
-		$news->category_id = $request->category_id;
-		$news->title = $request->title;
-		$news->content = $request->content;
-		$news->user_id = Auth::id();
-		$news->save();
+		// dd($request);
+
+		// $request->validated();
+
+		// // store news
+		// $news = new News;
+		// $news->active = $request->active;
+		// $news->category_id = $request->category_id;
+		// $news->category_id = $request->category_id;
+		// $news->title = $request->title;
+		// $news->content = $request->content;
+		// $news->user_id = Auth::id();
+		// $news->save();
 
 		// store tags
 		$tags = $request->input('tags');
 		$news->tags()->sync($tags);
 
-
-
+		// Spatie media-collection
+		if ($request->hasFile('news_picture')) {
+			$news->clearMediaCollectionExcept('news_front_picture', $news->getFirstMedia());
+			$news->addMediaFromRequest('news_picture')->toMediaCollection('news_front_picture');
+		}
 
 		// notification and request
 		$notification = array(
@@ -79,7 +91,7 @@ class NewsController extends Controller
      */
     public function edit($slug)
     {
-		$news = News::whereSlug($slug)->firstOrFail();
+		$news = News::whereSlug($slug)->with('media')->firstOrFail();
 		$categories = Category::all();
 		$tags = Tag::all();
 		$selectedTags = NewsTag::where('news_id', $news->id )->pluck('tag_id')->toArray();
@@ -109,7 +121,11 @@ class NewsController extends Controller
 		$tags = $request->input('tags');
 		$news->tags()->sync($tags);
 
-
+		// Spatie media-collection
+		if ($request->hasFile('news_picture')) {
+			$news->clearMediaCollectionExcept('news_front_picture', $news->getFirstMedia());
+			$news->addMediaFromRequest('news_picture')->toMediaCollection('news_front_picture');
+		}
 
 
 		$notification = array(
@@ -130,6 +146,7 @@ class NewsController extends Controller
     {
 		$news = News::findOrFail($id);
 		$news->delete();
+		$news->clearMediaCollection('news_picture');
 
 		$notification = array(
 			'message' => 'Článok bol odstránený.',

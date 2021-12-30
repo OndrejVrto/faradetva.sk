@@ -8,6 +8,7 @@ trait CreatedUpdatedBy
 {
     public static function bootCreatedUpdatedBy()
     {
+		// parent::boot();
         // updating created_by and updated_by when model is created
         static::creating(function ($model) {
             if (!$model->isDirty('created_by')) {
