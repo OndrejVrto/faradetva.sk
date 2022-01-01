@@ -45,6 +45,11 @@ class News extends Model implements HasMedia
 		return Str::words($this->content, 30, '...');
 	}
 
+	public function getTeaserLightAttribute()
+	{
+		return Str::words($this->content, 7, '...');
+	}
+
 
 	public function getCreatedAttribute()
 	{
@@ -96,7 +101,10 @@ class News extends Model implements HasMedia
 			->optimize()
 			->withResponsiveImages();
 
-		$this->addMediaConversion('crop-thumb')
+		$this->addMediaConversion('thumb-latest-news')
+			->fit("crop", 80, 80);
+
+			$this->addMediaConversion('crop-thumb')
 			->fit("crop", 170, 92);
 	}
 

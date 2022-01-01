@@ -77,7 +77,13 @@ class NewsController extends Controller
      */
     public function show($slug)
     {
-        return 'TODO<br>' . $slug;
+		$one_news = News::whereSlug($slug)->with('media', 'category', 'tags', 'user')->firstOrFail();
+		$last_news = News::whereActive(1)->orderBy('updated_by', 'asc')->take(3)->with('media')->get();
+		$all_categories = Category::all();
+		$all_tags = Tag::all();
+
+		// dd($last_news);
+		return view('news.show', compact('one_news', 'last_news', 'all_categories', 'all_tags'));
     }
 
 

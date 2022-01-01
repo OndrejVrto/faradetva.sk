@@ -35,8 +35,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 	Route::resource('/categories', CategoryController::class, ['except' => 'show', 'edit']);
 	Route::get('/categories/editovat/{slug}', [CategoryController::class, 'edit'])->name('categories.edit');
 
-	Route::resource('/news', NewsController::class, ['except' => 'show', 'edit']);
-	Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
+	Route::resource('/news', NewsController::class, ['except' => 'edit']);
 	Route::get('/news/editovat/{slug}', [NewsController::class, 'edit'])->name('news.edit');
 
 	Route::resource('/priests', PriestController::class);
@@ -47,6 +46,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
 });
+
+	Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
 
 
 // only bebug
