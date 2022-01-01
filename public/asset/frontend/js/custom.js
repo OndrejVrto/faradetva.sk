@@ -217,4 +217,11 @@ Project: Church
 		}
 		console.log(slider_height);
 	});
+
+	$('#search-form').on('submit', function(event) {
+		event.preventDefault();
+		var search_frase = $('#search-form-q').val();
+		window.location.replace('/search/' + search_frase);
+	})
+
 })(jQuery);

@@ -9,19 +9,16 @@
 @stop --}}
 
 @section('content')
-	{{-- @dump($one_news) --}}
-
-<a class="btn btn-danger btn-flat w-100" href="{{ URL::previous() }}">Späť do administrácie</a>
+<a class="btn btn-danger btn-flat w-25 fixed-top mx-auto mt-4" href="{{ URL::previous() }}">Späť do administrácie</a>
 
 <!-- blog section Start -->
-<div class="section blog_single_page pad_t_80 pad_b_30">
+<div class="section blog_single_page pad_t_50 pad_b_30">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 col-md-8 col-xs-12">
-				<!-- Blog Item Start -->
+				<!-- Item Start -->
 				<div class="wh_new">
 					<div class="blog_thumb">
-						{{-- <img src="images/blog/big/blog1.jpg" alt="" class="w-100"> --}}
 						{!! $one_news->getFirstMedia('news_front_picture')->img('large', ['class' => 'w-100 img-fluid']) !!}
 					</div>
 					<div class="blog_desc">
@@ -31,9 +28,9 @@
 						</div>
 
 						<h3>{{ $one_news->title }}</h3>
-
-						{{$one_news->content}}
-
+						<div class="content">
+							{{$one_news->content}}
+						</div>
 						<ul class="tag-list">
 							<li><i class="fas fa-tag" aria-hidden="true"></i></li>
 							@foreach ($one_news->tags as $tag)
@@ -43,24 +40,23 @@
 
 					</div>
 				</div>
-				<!-- Blog Item End -->
+				<!-- Item End -->
 			</div>
-
-
-
 
 
 			<!-- sidebar Start -->
 			<div class="col-lg-3 col-md-4 col-xs-12">
 				<div class="ch_sidebar_area">
+
 					<div class="widget widget_search">
-						<form class="search-form">
+						<form id="search-form" class="search-form" method="POST" action="/search">
 							<label>
-								<input type="text" name="search" placeholder="Search" class="search-field">
+								<input type="text" id="search-form-q" name="search" placeholder="Hľadaná fráza ..." class="search-field">
 							</label>
-							<input type="submit" class="search-submit" value="Search">
+							<input type="submit" class="search-submit" value="Hľadať">
 						</form>
 					</div>
+
 					<div class="widget widget_categories">
 						<h3 class="widget-title">
 							Kategórie
@@ -85,7 +81,7 @@
 										alt="Malý obrázok článku: {{ $last_one_news->title }}."
 									/>
 									<div>
-										<a href="#">{{ $last_one_news->title }}</a>
+										<a href="{{ route('news.show', $last_one_news->slug)}}">{{ $last_one_news->title }}</a>
 										{{ $last_one_news->teaser_light }}
 									</div>
 								</li>
@@ -112,6 +108,5 @@
 	</div>
 </div>
 <!-- blog section End -->
-
 
 @endsection
