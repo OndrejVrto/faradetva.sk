@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PriestController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SliderController;
@@ -44,6 +45,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 	Route::resource('/testimonials', TestimonialController::class);
 
 	Route::resource('/sliders', SliderController::class);
+
+	Route::resource('/banners', BannerController::class);
 
 
 });

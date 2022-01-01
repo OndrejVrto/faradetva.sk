@@ -33,6 +33,14 @@ return [
 		'sliders_header_create'      => 'Nový obrázok s myšlienkou',
 		'sliders_header_edit'        => 'Úprava obrázku s myšlienkou',
 
+		'banners_title'              => 'Baner',
+		'banners_description'        => 'Administrácia - správa sekcie: Baner',
+		'banners_description_create' => 'Administrácia - pridanie nového Baner-u',
+		'banners_description_edit'   => 'Administrácia - Editácia Baner-u',
+		'banners_header'             => 'Baner',
+		'banners_header_create'      => 'Nový baner',
+		'banners_header_edit'        => 'Úprava baner-u',
+
 		'tags_title'              => 'Kľúčové slová',
 		'tags_description'        => 'Administrácia - správa sekcie: Kľúčové slová',
 		'tags_description_create' => 'Administrácia - vytvorenie nového Kľúčového slova (tagu)',

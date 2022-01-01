@@ -55,6 +55,7 @@ Breadcrumbs::resource('news', 'Články');
 Breadcrumbs::resource('tags', 'Kľúčové slová');
 Breadcrumbs::resource('categories', 'Kategórie článkov');
 Breadcrumbs::resource('sliders', 'Myšlienky');
+Breadcrumbs::resource('banners', 'Bannery');
 Breadcrumbs::resource('testimonials', 'Svedectvá');
 Breadcrumbs::resource('priests', 'Kňazi');
 

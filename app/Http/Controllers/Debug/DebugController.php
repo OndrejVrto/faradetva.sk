@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Debug;
 
+use App\Models\Banner;
 use App\Models\Priest;
 use App\Models\Slider;
 use App\Models\Testimonial;
@@ -20,12 +21,13 @@ class DebugController extends Controller
 
 		$countSliders = Slider::whereActive(1)->count();
 		$sliders = Slider::whereActive(1)->with('media')->get()->random(min($countSliders, 3));
-
+		$banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
 
 		return view('debug.all', compact(
 			'priests',
 			'testimonials',
 			'sliders',
+			'banner',
 		));
     }
 

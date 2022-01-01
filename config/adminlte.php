@@ -266,6 +266,12 @@ return [
 			'route' => 'sliders.index',
             'icon'  => 'fas fa-image',
         ],
+        [
+			'text'  => 'Baner',
+			'icon_color'  => 'orange',
+			'route' => 'banners.index',
+            'icon'  => 'far fa-flag',
+        ],
 		['header' => 'Nastavenia'],
 		[
 			'text' => 'Kategórie článkov',

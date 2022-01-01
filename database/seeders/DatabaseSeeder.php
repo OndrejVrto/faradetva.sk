@@ -11,6 +11,7 @@ use Database\Seeders\TagSeeder;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\MediaSeeder;
+use Database\Seeders\BannerSeeder;
 use Database\Seeders\SliderSeeder;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\TestimonialSeeder;
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
 			PriestSeeder::class,
 			TestimonialSeeder::class,
 			SliderSeeder::class,
+			BannerSeeder::class,
 
 			// raw sql
 			MediaSeeder::class,
