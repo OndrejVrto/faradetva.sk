@@ -37,10 +37,17 @@ Breadcrumbs::macro('resource', function (string $name, string $title) {
     });
 });
 
+Breadcrumbs::after(function (BreadcrumbTrail $trail) {
+    $page = (int) request('page', 1);
+
+    if ($page > 1) {
+        $trail->push("Stránka {$page}");
+    }
+});
 
 // Admin Home
 Breadcrumbs::for('admin.home', function (BreadcrumbTrail $trail) {
-    $trail->push('Dashboard', route('admin.dashboard'));
+    $trail->push('Dashboard', route('admin.dashboard'), ['icon' => 'fas fa-home']);
 });
 
 // Admin Home : Resource Models
