@@ -104,8 +104,12 @@ class News extends Model implements HasMedia
 		$this->addMediaConversion('thumb-latest-news')
 			->fit("crop", 80, 80);
 
-			$this->addMediaConversion('crop-thumb')
+		$this->addMediaConversion('thumb-all-news')
+			->fit("crop", 370, 248);
+
+		$this->addMediaConversion('crop-thumb')
 			->fit("crop", 170, 92);
+
 	}
 
 

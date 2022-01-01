@@ -20,7 +20,10 @@
 			<div class="col-lg-4 col-sm-6 col-xs-12">
 				<div class="blog_item_cover frombottom wow">
 					<div class="blog_thumb">
-						{!! $one_news->getFirstMedia('news_front_picture')->img('large', ['class' => 'w-100 img-fluid']) !!}
+						<img src="{{ $one_news->getFirstMediaUrl('news_front_picture', 'thumb-all-news') ?: "http://via.placeholder.com/370x248" }}"
+							class="w-100"
+							alt="Malý obrázok k článku: {{ $one_news->title }}."
+						/>
 						<!-- overlay -->
 						<div class="blog_overlay">
 							<a href="{{ route('news.show', $one_news->slug)}}" class="link_icon"><i class="fas fa-link"></i></a>

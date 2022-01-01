@@ -8,9 +8,9 @@
 	.footer_social li {
 		padding: 20px 12px;
 	}
-	.blog_item_cover .blog_thumb {
+	/* .blog_item_cover .blog_thumb {
 		display: inline-block;
-	}
+	} */
 }
 @media(max-width:1161px){
 	.testimonial_crousel .owl-nav
@@ -18,7 +18,7 @@
       display: none;
 	}
 }
-@media (min-width:991px) 
+@media (min-width:991px)
 {
 	.event_thumb img {
 		width: 100%;
@@ -142,7 +142,7 @@
 		margin: 0;
 		color: #243a4f;
 	}
-	.header_right_menu > ul > li > a:after, 
+	.header_right_menu > ul > li > a:after,
 	.header_right_menu > ul > li > a:before {
 		display:none;
 	}
@@ -224,7 +224,7 @@
 		padding-left: 23px;
 	}
 	/*== header search css ==*/
-	
+
 	/*=== about section ===*/
 	.ch_about_sec_wrap .ch_about_thumb {
 		margin-bottom: 50px;
@@ -299,7 +299,7 @@
 	}
 	/*=== header top css ===*/
 	/*== scrollbar css== */
-	.header_right_menu {	
+	.header_right_menu {
 		overflow-y: scroll;
 	}
 	.header_right_menu::-webkit-scrollbar-track{
@@ -428,7 +428,7 @@
 	/*== Event css ==*/
 }
 @media (max-width:320px){
-	.ch_address_details > li > span, 
+	.ch_address_details > li > span,
 	.ch_address_details > li > div {
 	    display: block;
 	    vertical-align: top;
@@ -506,14 +506,14 @@
 {
 	.event_thumb img
 	{
-	
+
     margin-top: 49px;
 	}
 	.event_desc
 	{
 		text-align: center;
     }
- .caret {    display: none;} 
+ .caret {    display: none;}
 
 
 }
