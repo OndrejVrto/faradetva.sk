@@ -48,7 +48,13 @@ class News extends Model implements HasMedia
 
 	public function getCreatedAttribute()
 	{
-		return $this->created_at->format("j. M Y");
+		return $this->created_at->format("d. M Y");
+	}
+
+
+	public function getUpdatedAttribute()
+	{
+		return $this->updated_at->format("d. M Y");
 	}
 
 
