@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Svedectvá')
+@section('title', config('farnost-detva.admin_texts.testimonials_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.testimonials_description_edit') )
+@section('content_header', config('farnost-detva.admin_texts.testimonials_header_edit' ))
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - Editácia svedectva" />
-@stop
-
-@section('content_header')
-    <h1>Úprava svedectva viery</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('testimonials.edit', $testimonial, $testimonial->name )}}
 @stop
 
 @section('content')
-
 	@include('testimonials.form', [ 'type' => 'edit' ])
-
 @endsection

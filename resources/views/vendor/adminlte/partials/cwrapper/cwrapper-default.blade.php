@@ -10,19 +10,30 @@
 <div class="content-wrapper {{ config('adminlte.classes_content_wrapper', '') }}">
 
     {{-- Content Header --}}
-    @hasSection('content_header')
-        <div class="content-header">
+    {{-- @hasSection('content_header') --}}
+        <section class="content-header">
             <div class="{{ config('adminlte.classes_content_header') ?: $def_container_class }}">
-                @yield('content_header')
+				<div class="row mb-2">
+					@hasSection('content_breadcrumb')
+						<div class="col-sm-5">
+							<h1>@yield('content_header')</h1>
+						</div>
+						<div class="col-sm-7">
+							@yield('content_breadcrumb')
+						</div>
+					@else
+						<h1>@yield('content_header')</h1>
+					@endif
+				</div>
             </div>
-        </div>
-    @endif
+        </section>
+    {{-- @endif --}}
 
     {{-- Main Content --}}
-    <div class="content">
+    <main class="content">
         <div class="{{ config('adminlte.classes_content') ?: $def_container_class }}">
             @yield('content')
         </div>
-    </div>
+    </main>
 
 </div>

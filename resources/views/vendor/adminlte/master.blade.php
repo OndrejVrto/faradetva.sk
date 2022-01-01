@@ -10,6 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Custom Meta Tags --}}
+	<meta name="description" content="@yield('meta_description', config('farnost-detva.description', 'Administrácia - Webové stránky farnosťi Detva.') ) ">
     @yield('meta_tags')
 
     {{-- Title --}}

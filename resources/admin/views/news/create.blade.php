@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Článok')
+@section('title', config('farnost-detva.admin_texts.news_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.news_description_create') )
+@section('content_header', config('farnost-detva.admin_texts.news_header_create') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - vytvorenie nového článku" />
-@stop
-
-@section('content_header')
-    <h1>Nový článok</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('news.create') }}
 @stop
 
 @section('content')
-
 	@include('news.form', [ 'type' => 'create' ])
-
 @endsection

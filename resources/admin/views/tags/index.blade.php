@@ -1,20 +1,18 @@
 @extends('_layouts.app')
 
-@section('title', 'Kľúčové slová')
+@section('title', config('farnost-detva.admin_texts.tags_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.tags_description') )
+@section('content_header', config('farnost-detva.admin_texts.tags_header') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - správa sekcie: Kľúčové slová" />
-@stop
-
-@section('content_header')
-    <h1>Kľúčové slová</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('tags.index') }}
 @stop
 
 @section('content')
 
 <div class="row">
-	<div class="col-12 col-xl-6 m-auto">
-		<div class="p-2 pb-3">
+	<div class="col-12 col-xl-6 mx-auto">
+		<div class="px-2 pb-3">
 			<a href="{{ route('tags.create')}}" class="btn btn-warning btn-flat">Pridať nové kľúčové slovo</a>
 		</div>
 		<div class="card">

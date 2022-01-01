@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Kategória')
+@section('title', config('farnost-detva.admin_texts.categories_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.categories_description_edit') )
+@section('content_header', config('farnost-detva.admin_texts.categories_header_edit' ))
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - Editácia Kategórie" />
-@stop
-
-@section('content_header')
-    <h1>Úprava kategórie</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('categories.edit', $category, $category->title )}}
 @stop
 
 @section('content')
-
 	@include('categories.form', [ 'type' => 'edit' ])
-
 @endsection

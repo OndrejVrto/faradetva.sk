@@ -83,6 +83,19 @@ class NewsController extends Controller
         return redirect()->route('news.index')->with($notification);
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($slug)
+    {
+        return 'TODO<br>' . $slug;
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *

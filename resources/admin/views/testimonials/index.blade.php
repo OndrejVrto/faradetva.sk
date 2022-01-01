@@ -1,20 +1,18 @@
 @extends('_layouts.app')
 
-@section('title', 'Svedectvá')
+@section('title', config('farnost-detva.admin_texts.testimonials_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.testimonials_description') )
+@section('content_header', config('farnost-detva.admin_texts.testimonials_header') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - správa sekcie: Svedectvá" />
-@stop
-
-@section('content_header')
-    <h1>Svedectvá viery</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('testimonials.index') }}
 @stop
 
 @section('content')
 
 <div class="row">
-	<div class="col-12 col-lg-8 col-xl-7 m-auto">
-		<div class="row p-2 pb-3">
+	<div class="col-12 col-lg-8 col-xl-7 mx-auto">
+		<div class="row px-2 pb-3">
 			<div class="col-5">
 				<a href="{{ route('testimonials.create')}}" class="btn btn-warning btn-flat" title="Vytvoriť">Pridať nové svedectvo</a>
 			</div>

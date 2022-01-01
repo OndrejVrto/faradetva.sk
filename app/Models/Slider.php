@@ -63,6 +63,12 @@ class Slider extends Model implements HasMedia
 	}
 
 
+	public function getBreadcrumbTeaserAttribute()
+	{
+		return Str::words($this->fullHeading(), 6, '...');
+	}
+
+
 	private function fullHeading()
 	{
 		return 	$this->heading_1

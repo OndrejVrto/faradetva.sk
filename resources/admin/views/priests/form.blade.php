@@ -1,5 +1,5 @@
-<div class="row pt-xl-2">
-	<div class="col-12 col-xl-7 m-auto">
+<div class="row">
+	<div class="col-12 col-xl-7 mx-auto">
 		<div class="card">
 
 			<div class="card-body">

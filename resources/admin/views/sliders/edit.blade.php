@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Slider')
+@section('title', config('farnost-detva.admin_texts.sliders_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.sliders_description_edit') )
+@section('content_header', config('farnost-detva.admin_texts.sliders_header_edit' ))
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - Editácia slider-u s myšlienkou" />
-@stop
-
-@section('content_header')
-    <h1>Úprava obrázku s myšlienkou</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('sliders.edit', $slider, $slider->breadcrumb_teaser )}}
 @stop
 
 @section('content')
-
 	@include('sliders.form', [ 'type' => 'edit' ])
-
 @endsection

@@ -1,20 +1,18 @@
 @extends('_layouts.app')
 
-@section('title', 'Články')
+@section('title', config('farnost-detva.admin_texts.news_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.news_description') )
+@section('content_header', config('farnost-detva.admin_texts.news_header') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - správy" />
-@stop
-
-@section('content_header')
-    <h1>Články</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('news.index') }}
 @stop
 
 @section('content')
 
 	<div class="row">
-		<div class="col-12 col-xl-11 m-auto">
-			<div class="p-2 pb-3">
+		<div class="col-12 col-xl-11 mx-auto">
+			<div class="px-2 pb-3">
 				<a href="{{ route('news.create')}}" class="btn btn-warning btn-flat">Vytvoriť nový článok</a>
 			</div>
 			<div class="card">
@@ -27,7 +25,7 @@
 								<th>Názov článku</th>
 								{{-- <th style="max-width: 20rem;" class="d-none d-xl-block">Obsah článku (skrátený)</th> --}}
 								<th style="width: 4rem;" class="text-center d-none d-md-table-cell">Prílohy</th>
-								<th style="width: 5rem;" class="text-center">Akcia</th>
+								<th style="width: 8rem;" class="text-center">Akcia</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -44,6 +42,7 @@
 								<td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</td>
 
 								<td class="form-delete-wraper text-center">
+									<a href="{{ route('news.show', $news->slug)}}" class="btn btn-warning btn-sm  btn-flat" title="Zobraziť"><i class="fas fa-eye"></i></a>
 									<a href="{{ route('news.edit', $news->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
 									<form class="delete-form" action="{{ route('news.destroy', $news->id)}}" method="post" style="display: inline-block">
 										@csrf

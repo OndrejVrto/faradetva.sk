@@ -1,20 +1,18 @@
 @extends('_layouts.app')
 
-@section('title', 'Kategórie správ')
+@section('title', config('farnost-detva.admin_texts.categories_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.categories_description') )
+@section('content_header', config('farnost-detva.admin_texts.categories_header') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - správa sekcie: Kategórie správ" />
-@stop
-
-@section('content_header')
-    <h1>Kategórie správ</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('categories.index') }}
 @stop
 
 @section('content')
 
 <div class="row">
-	<div class="col-12 col-xl-6 m-auto">
-		<div class="p-2 pb-3">
+	<div class="col-12 col-xl-6 mx-auto">
+		<div class="px-2 pb-3">
 			<a href="{{ route('categories.create')}}" class="btn btn-warning btn-flat">Pridať novú kategóriu správ</a>
 		</div>
 		<div class="card">

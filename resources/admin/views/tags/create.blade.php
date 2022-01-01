@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Kľúčové slová')
+@section('title', config('farnost-detva.admin_texts.tags_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.tags_description_create') )
+@section('content_header', config('farnost-detva.admin_texts.tags_header_create') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - vytvorenie nového Kľúčového slova (tagu)" />
-@stop
-
-@section('content_header')
-    <h1>Nové kľúčové slovo</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('tags.create') }}
 @stop
 
 @section('content')
-
 	@include('tags.form', [ 'type' => 'create' ])
-
 @endsection

@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Kľúčové slová')
+@section('title', config('farnost-detva.admin_texts.tags_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.tags_description_edit') )
+@section('content_header', config('farnost-detva.admin_texts.tags_header_edit' ))
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - Editácia Kľúčového slova (tagu)" />
-@stop
-
-@section('content_header')
-    <h1>Úprava kľúčového slova</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('tags.edit', $tag, $tag->title )}}
 @stop
 
 @section('content')
-
 	@include('tags.form', [ 'type' => 'edit' ])
-
 @endsection

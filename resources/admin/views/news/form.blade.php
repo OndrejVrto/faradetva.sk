@@ -25,7 +25,7 @@
 @endphp
 
 <div class="row">
-	<div class="col-12 m-auto">
+	<div class="col-12 mx-auto">
 		<div class="card">
 
 			<div class="card-body">

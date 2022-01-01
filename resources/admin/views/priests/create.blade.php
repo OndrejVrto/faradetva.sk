@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Administrácia - Pridanie nového kňaza')
+@section('title', config('farnost-detva.admin_texts.priests_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.priests_description_create') )
+@section('content_header', config('farnost-detva.admin_texts.priests_header_create') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - pridanie nového kňaza" />
-@stop
-
-@section('content_header')
-    <h1>Nový duchovný</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('priests.create') }}
 @stop
 
 @section('content')
-
 	@include('priests.form', [ 'type' => 'create' ])
-
 @endsection

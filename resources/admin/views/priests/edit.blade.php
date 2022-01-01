@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Kňaz - Editovanie')
+@section('title', config('farnost-detva.admin_texts.priests_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.priests_description_edit') )
+@section('content_header', config('farnost-detva.admin_texts.priests_header_edit' ))
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - Editácia kňaza" />
-@stop
-
-@section('content_header')
-    <h1>Duchovný - editovanie</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('priests.edit', $priest, $priest->full_name_titles )}}
 @stop
 
 @section('content')
-
 	@include('priests.form', [ 'type' => 'edit' ])
-
 @endsection

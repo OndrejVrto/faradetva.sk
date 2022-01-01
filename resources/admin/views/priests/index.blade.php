@@ -1,20 +1,18 @@
 @extends('_layouts.app')
 
-@section('title', 'Kňazi')
+@section('title', config('farnost-detva.admin_texts.priests_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.priests_description') )
+@section('content_header', config('farnost-detva.admin_texts.priests_header') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - správa sekcie: Kňazi" />
-@stop
-
-@section('content_header')
-    <h1>Kňazi našej farnosti</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('priests.index') }}
 @stop
 
 @section('content')
 
 <div class="row">
-	<div class="col-12 col-xl-6 m-auto">
-		<div class="p-2 pb-3">
+	<div class="col-12 col-xl-6 mx-auto">
+		<div class="px-2 pb-3">
 			<a href="{{ route('priests.create')}}" class="btn btn-warning btn-flat">Pridať nového kňaza</a>
 		</div>
 		<div class="card">

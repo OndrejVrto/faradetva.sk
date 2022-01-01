@@ -1,20 +1,18 @@
 @extends('_layouts.app')
 
-@section('title', 'Slider')
+@section('title', config('farnost-detva.admin_texts.sliders_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.sliders_description') )
+@section('content_header', config('farnost-detva.admin_texts.sliders_header') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - správa sekcie: Slider s myšlienkou" />
-@stop
-
-@section('content_header')
-    <h1>Obrázok s myšlienkou</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('sliders.index') }}
 @stop
 
 @section('content')
 
 <div class="row">
-	<div class="col-12 col-lg-8 col-xl-7 m-auto">
-		<div class="row p-2 pb-3">
+	<div class="col-12 col-lg-8 col-xl-7 mx-auto">
+		<div class="row px-2 pb-3">
 			<div class="col-5">
 				<a href="{{ route('sliders.create')}}" class="btn btn-warning btn-flat" title="Vytvoriť">Pridať nový obrázok s myšlienkou</a>
 			</div>

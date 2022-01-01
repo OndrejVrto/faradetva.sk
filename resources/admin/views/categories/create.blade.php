@@ -1,17 +1,13 @@
 @extends('_layouts.app')
 
-@section('title', 'Kategória')
+@section('title', config('farnost-detva.admin_texts.categories_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.categories_description_create') )
+@section('content_header', config('farnost-detva.admin_texts.categories_header_create') )
 
-@section('meta-tags')
-	<meta name="description" content="Administrácia - Vytvorenie novej kategórie" />
-@stop
-
-@section('content_header')
-    <h1>Nová kategória</h1>
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('categories.create') }}
 @stop
 
 @section('content')
-
 	@include('categories.form', [ 'type' => 'create' ])
-
 @endsection
