@@ -235,51 +235,66 @@ return [
 
         // Sidebar items:
 		[
-            'text'        => 'Dashboard',
+			'text'        => 'Dashboard',
 			'icon_color'  => 'red',
 			'route'       => 'admin.dashboard',
 			'icon'        => 'fas fa-home',
         ],
+		['header' => 'Sekcie'],
         [
 			'text'  => 'Články',
-			// 'icon_color'  => 'orange',
+			'icon_color'  => 'orange',
 			'route' => 'news.index',
-            'icon'  => 'fas fa-book-open',
+            // 'icon'  => 'fas fa-book-open',
+            'icon'  => 'fas fa-font',
         ],
         [
 			'text'  => 'Kňazi',
-			// 'icon_color'  => 'orange',
+			'icon_color'  => 'orange',
 			'route' => 'priests.index',
             'icon'  => 'fas fa-hands',
         ],
         [
 			'text'  => 'Svedectvá',
-			// 'icon_color'  => 'orange',
+			'icon_color'  => 'orange',
 			'route' => 'testimonials.index',
             'icon'  => 'fas fa-comment-medical',
         ],
         [
 			'text'  => 'Obrázok s myšlienkou',
-			// 'icon_color'  => 'orange',
+			'icon_color'  => 'orange',
 			'route' => 'sliders.index',
             'icon'  => 'fas fa-image',
         ],
 		['header' => 'Nastavenia'],
-        [
-			'text'    => 'Tabuľky',
+		[
+			'text' => 'Kategórie článkov',
 			'icon_color'  => 'green',
-            'icon'    => 'fas fa-cog',
-            'submenu' => [
-                [
-                    'text' => 'Kategórie článkov',
-					'route' => 'categories.index',
-                ],
-                [
-                    'text' => 'Kľúčové slová',
-					'route' => 'tags.index',
-                ],
-            ],
-        ],
+			'route' => 'categories.index',
+			'icon'  => 'fas fa-stream',
+		],
+		[
+			'text' => 'Kľúčové slová',
+			'icon_color'  => 'green',
+			'route' => 'tags.index',
+			'icon'  => 'fas fa-tag',
+		],
+
+        // [
+		// 	'text'    => 'Tabuľky',
+		// 	'icon_color'  => 'green',
+        //     'icon'    => 'fas fa-cog',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Kategórie článkov',
+		// 			'route' => 'categories.index',
+        //         ],
+        //         [
+        //             'text' => 'Kľúčové slová',
+		// 			'route' => 'tags.index',
+        //         ],
+        //     ],
+        // ],
     ],
 
     /*
