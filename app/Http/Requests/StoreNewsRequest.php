@@ -29,6 +29,7 @@ class StoreNewsRequest extends FormRequest
 
 		return [
 			'active' => 'boolean',
+			'user_id' => 'required',
 			'published_at' => [
 				'nullable',
 				'date',
@@ -70,10 +71,13 @@ class StoreNewsRequest extends FormRequest
 
 		$this->merge([
 			'active' => $state,
+			'user_id' => auth()->id(),
 		]);
+		is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s' ,strtotime($this->published_at))]);
+		is_null($this->unpublished_at) ?: $this->merge(['unpublished_at' => date('Y-m-d H:i:s' ,strtotime($this->unpublished_at))]);
 
         Session::put(['news_old_input_checkbox' => $state]);
-	}
 
+	}
 
 }

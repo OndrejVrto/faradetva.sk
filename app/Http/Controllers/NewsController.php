@@ -6,7 +6,6 @@ use App\Models\Tag;
 use App\Models\News;
 use App\Models\NewsTag;
 use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreNewsRequest;
 use Illuminate\Support\Facades\Session;
 
@@ -50,20 +49,6 @@ class NewsController extends Controller
     {
 		$validated = $request->validated();
 		$news = News::create($validated);
-
-		// dd($request);
-
-		// $request->validated();
-
-		// // store news
-		// $news = new News;
-		// $news->active = $request->active;
-		// $news->category_id = $request->category_id;
-		// $news->category_id = $request->category_id;
-		// $news->title = $request->title;
-		// $news->content = $request->content;
-		// $news->user_id = Auth::id();
-		// $news->save();
 
 		// store tags
 		$tags = $request->input('tags');
@@ -122,14 +107,9 @@ class NewsController extends Controller
     public function update(StoreNewsRequest $request, $id)
     {
 
-		$request->validated();
-
+		$validated = $request->validated();
 		$news = News::findOrFail($id);
-		$news->category_id = $request->category_id;
-		$news->title = $request->title;
-		$news->content = $request->content;
-		$news->user_id = Auth::id();
-		$news->save();
+		$news->update($validated);
 
 		$tags = $request->input('tags');
 		$news->tags()->sync($tags);

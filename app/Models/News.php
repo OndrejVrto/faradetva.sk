@@ -31,24 +31,13 @@ class News extends Model implements HasMedia
 
     protected $fillable = [
 		'active',
+		'user_id',
 		'published_at',
 		'unpublished_at',
 		'category_id',
 		'title',
 		'content'
     ];
-
-
-	// public static function boot()
-    // {
-	// 	// parent::boot();
-    //     // updating user_id  when model is created
-    //     // static::creating(function ($model) {
-    //     //     if (!$model->isDirty('user_id')) {
-    //     //         $model->user_id = auth()->user()->id;
-    //     //     }
-    //     // });
-    // }
 
 
 	public function getTeaserAttribute()
@@ -63,15 +52,16 @@ class News extends Model implements HasMedia
 	}
 
 
-	public function setPublishedAtAttribute()
+	public function getPublishedAtAttribute($value)
 	{
-		return strtotime($this->published_at);
+
+		return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
 	}
 
 
-	public function setUnpublishedAtAttribute()
+	public function getUnpublishedAtAttribute($value)
 	{
-		return strtotime($this->unpublished_at);
+		return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
 	}
 
 

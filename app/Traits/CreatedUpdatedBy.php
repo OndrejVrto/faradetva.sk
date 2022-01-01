@@ -29,13 +29,13 @@ trait CreatedUpdatedBy
 
 	public function getCreatedInfoAttribute()
 	{
-		return date('j. m. Y \o H:i', strtotime($this->created_at) );
+		return date('d. m. Y \o H:i', strtotime($this->created_at) );
 	}
 
 
 	public function getUpdatedInfoAttribute()
 	{
-		return date('j. m. Y \o H:i', strtotime($this->updated_at) );
+		return date('d. m. Y \o H:i', strtotime($this->updated_at) );
 	}
 
 
