@@ -41,7 +41,9 @@ class DatabaseSeeder extends Seeder
 			TestimonialSeeder::class,
 			SliderSeeder::class,
 
+			// raw sql
 			MediaSeeder::class,
+			NewsSeeder::class,
 		]);
 
 		News::factory(10)->create();

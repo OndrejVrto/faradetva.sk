@@ -15,6 +15,7 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
+			$table->boolean('active')->default(1);
 			$table->foreignId('user_id')
 					->nullable()
 					->constrained()
