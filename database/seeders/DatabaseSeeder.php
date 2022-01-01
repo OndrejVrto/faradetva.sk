@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
 			NewsSeeder::class,
 		]);
 
-		News::factory(10)->create();
+		News::factory(4)->create();
 		NewsTag::factory(50)->create();
 		Testimonial::factory(5)->create();
 
