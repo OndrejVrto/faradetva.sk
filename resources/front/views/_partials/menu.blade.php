@@ -26,6 +26,7 @@
 									<!-- Významné osobnosti  -->
 									<!-- Duchovné povolania  -->
 									<!-- Kňazi pochovaní v Detve  -->
+									<!-- Kňazi pôsobiaci v Detve  -->
 									<!-- Štatistiky od roku 2010  -->
 									<li><a href="#">Patrón farnosti</a></li>
 									<li><a href="#">Sakrálne objekty</a></li>

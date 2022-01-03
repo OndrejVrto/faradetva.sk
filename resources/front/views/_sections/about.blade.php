@@ -4,7 +4,7 @@
 		<div class="row">
 			<!-- heading Start -->
 			<div class="heading_section">
-				<h1>O nás</h1>
+				<h1>O nás alebo História 1</h1>
 			</div>
 			<!-- heading End -->
 			<div class="row ch_about_sec_wrap">

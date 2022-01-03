@@ -4,7 +4,7 @@
 		<div class="row">
 			<!-- heading Start -->
 			<div class="heading_section wh_headline">
-				<h1>Our Ministries</h1>
+				<h1>Spoločenstvá</h1>
 			</div>
 			<!-- heading End -->
 			<div class="col-md-4 col-sm-6 col-xs-12">

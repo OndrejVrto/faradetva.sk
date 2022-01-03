@@ -14,7 +14,7 @@
 				<div class="col-12">
 					<div class="banner_heading">
 						<div class="page_heading">
-							<h2>{{ $banner->title }}</h2>
+							<h2>{{ $mainTitle }}</h2>
 						</div>
 						<ul class="breadcrumb">
 							<li><a href="{{ route('home') }}">Domov</a></li>
