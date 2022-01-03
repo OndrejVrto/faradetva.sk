@@ -158,6 +158,9 @@
 								<i class="fas fa-file-import"></i>
 							</div>
 						</x-slot>
+						<x-slot name="noteSlot">
+							Poznámka: veľkosť obrázka minimálne 230x270 px.
+						</x-slot>
 					</x-adminlte-input-file>
 
 					<div class="vstack gap-2 col-md-5 col-xl-4 mx-auto mt-5">
