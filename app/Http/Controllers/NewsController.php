@@ -6,7 +6,7 @@ use App\Models\Tag;
 use App\Models\News;
 use App\Models\NewsTag;
 use App\Models\Category;
-use App\Http\Requests\NewsRequest;
+use App\Http\Requests\StoreNewsRequest;
 use Illuminate\Support\Facades\Session;
 
 class NewsController extends Controller
@@ -45,7 +45,7 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(NewsRequest $request)
+    public function store(StoreNewsRequest $request)
     {
 		$validated = $request->validated();
 		$news = News::create($validated);
@@ -110,7 +110,7 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(NewsRequest $request, $id)
+    public function update(StoreNewsRequest $request, $id)
     {
 
 		$validated = $request->validated();

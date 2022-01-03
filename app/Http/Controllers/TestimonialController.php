@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
-use App\Http\Requests\TestimonialRequest;
+use App\Http\Requests\StoreTestimonialRequest;
 use Illuminate\Support\Facades\Session;
 
 class TestimonialController extends Controller
@@ -38,10 +38,10 @@ class TestimonialController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\TestimonialRequest  $request
+     * @param  \App\Http\Requests\StoreTestimonialRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TestimonialRequest $request)
+    public function store(StoreTestimonialRequest $request)
     {
 		$validated = $request->validated();
 		$testimonial = Testimonial::create($validated);
@@ -78,11 +78,11 @@ class TestimonialController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\TestimonialRequest  $request
+     * @param  \App\Http\Requests\StoreTestimonialRequest  $request
      * @param  \App\Models\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function update(TestimonialRequest $request, $id)
+    public function update(StoreTestimonialRequest $request, $id)
     {
 		$validated = $request->validated();
 

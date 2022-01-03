@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Support\Facades\Session;
-use App\Http\Requests\BannerRequest;
+use App\Http\Requests\StoreBannerRequest;
 
 class BannerController extends Controller
 {
@@ -37,10 +37,10 @@ class BannerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\BannerRequest  $request
+     * @param  \App\Http\Requests\StoreBannerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BannerRequest $request)
+    public function store(StoreBannerRequest $request)
     {
 		$validated = $request->validated();
 		$banner = Banner::create($validated);
@@ -77,11 +77,11 @@ class BannerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\BannerRequest  $request
+     * @param  \App\Http\Requests\StoreBannerRequest  $request
      * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(BannerRequest $request, $id)
+    public function update(StoreBannerRequest $request, $id)
     {
 		$validated = $request->validated();
 

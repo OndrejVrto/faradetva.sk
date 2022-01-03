@@ -3,11 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
-use App\Rules\DateTimeAfterNow;
+use App\Rules\DateTimeAfterOrEqual;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewsRequest extends FormRequest
+class StoreNewsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,14 +33,9 @@ class NewsRequest extends FormRequest
 			'published_at' => [
 				'nullable',
 				'date',
-				new DateTimeAfterNow($this->timezone),
+				new DateTimeAfterOrEqual,
 			],
-			'unpublished_at' => [
-				'nullable',
-				'date',
-				'after:published_at',
-				new DateTimeAfterNow($this->timezone),
-			],
+			'unpublished_at' => 'nullable|date|after:published_at',
             'title' => [
 				'required',
 				'string',
