@@ -27,8 +27,14 @@ class NewsRequest extends FormRequest
     public function rules()
     {
 
+		if (request()->routeIs('news.store')) {
+			$imageRule = 'required';
+		} elseif (request()->routeIs('news.update')) {
+			$imageRule = 'sometimes|nullable';
+		}
+
 		return [
-			'active' => 'boolean',
+			'active' => 'boolean|required',
 			'user_id' => 'required',
 			'published_at' => [
 				'nullable',
@@ -49,6 +55,7 @@ class NewsRequest extends FormRequest
 			'content' => 'required',
 			'category_id' => 'required|exists:categories,id',
 			'news_picture' => [
+				$imageRule,
 				'file',
 				'mimes:jpg,bmp,png,jpeg',
 				'dimensions:min_width=848,min_height=460',

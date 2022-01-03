@@ -24,6 +24,12 @@ class PriestRequest extends FormRequest
      */
     public function rules()
     {
+		if (request()->routeIs('priests.store')) {
+			$photoRule = 'required';
+		} elseif (request()->routeIs('priests.update')) {
+			$photoRule = 'sometimes|nullable';
+		}
+
         return [
 			'active' => 'boolean',
 			'titles_before' => 'nullable|string|max:255',
@@ -32,10 +38,23 @@ class PriestRequest extends FormRequest
 			'titles_after' => 'nullable|string|max:255',
 			'function' => 'nullable|string|max:255',
 			'phone' => 'nullable|regex:/[\d\+\-\ ]+/',
-			'description' => 'nullable|string',
-			'photo' => 'nullable|file|mimes:jpg,bmp,png,jpeg',
+			'description' => 'required|string',
+			'photo' => [
+				$photoRule,
+				'file',
+				'mimes:jpg,bmp,png,jpeg',
+				'dimensions:min_width=230,min_height=270',
+				'max:2048',
+			],
         ];
     }
+
+	public function messages()
+	{
+		return [
+			'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
+		];
+	}
 
 	protected function prepareForValidation()
 	{

@@ -24,15 +24,23 @@ class BannerRequest extends FormRequest
      */
     public function rules()
     {
+
+		if (request()->routeIs('banners.store')) {
+			$photoRule = 'required';
+		} elseif (request()->routeIs('banners.update')) {
+			$photoRule = 'sometimes|nullable';
+		}
+
         return [
-			'active' => 'boolean',
+			'active' => 'boolean|required',
 			'title' => 'required|string|max:255',
-			'photo' => ['required',
-						'file',
-						'mimes:jpg,bmp,png,jpeg',
-						'dimensions:min_width=1920,min_height=480',
-						'max:10000'
-						],
+			'photo' => [
+				$photoRule,
+				'file',
+				'mimes:jpg,bmp,png,jpeg',
+				'dimensions:min_width=1920,min_height=480',
+				'max:10000'
+			],
         ];
     }
 

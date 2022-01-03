@@ -24,17 +24,25 @@ class TestimonialRequest extends FormRequest
      */
     public function rules()
     {
+
+		if (request()->routeIs('testimonials.store')) {
+			$photoRule = 'required';
+		} elseif (request()->routeIs('testimonials.update')) {
+			$photoRule = 'sometimes|nullable';
+		}
+
         return [
 			'active' => 'boolean',
 			'name' => 'required|string|max:255',
 			'function' => 'nullable|string|max:255',
 			'description' => 'nullable|string',
-			'photo' => ['nullable',
-						'file',
-						'mimes:jpg,bmp,png,jpeg',
-						'dimensions:min_width=100,min_height=100',
-						'max:3000'
-						],
+			'photo' => [
+				$photoRule,
+				'file',
+				'mimes:jpg,bmp,png,jpeg',
+				'dimensions:min_width=100,min_height=100',
+				'max:2048'
+			],
         ];
     }
 
