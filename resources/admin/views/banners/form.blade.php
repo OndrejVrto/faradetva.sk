@@ -39,7 +39,7 @@
 
 					<x-adminlte-input
 						fgroupClass="mb-1"
-						name="heading_1"
+						name="title"
 						label="Názov"
 						placeholder="Názov baneru ..."
 						enableOldSupport="true"

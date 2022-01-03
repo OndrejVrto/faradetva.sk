@@ -26,8 +26,8 @@ class BannerRequest extends FormRequest
     {
         return [
 			'active' => 'boolean',
-			'title' => 'nullable|string|max:255',
-			'photo' => ['nullable',
+			'title' => 'required|string|max:255',
+			'photo' => ['required',
 						'file',
 						'mimes:jpg,bmp,png,jpeg',
 						'dimensions:min_width=1920,min_height=480',
