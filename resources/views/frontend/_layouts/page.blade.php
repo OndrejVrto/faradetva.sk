@@ -42,7 +42,9 @@
 	@include('frontend._partials.menu')
 
 	<!-- section Content Start -->
+	@stack('content_prepend')
 	@yield('content')
+	@stack('content_append')
 	<!-- section Content End -->
 
 	@include('frontend._partials.footer')

@@ -12,3 +12,6 @@
 	color: #ff7b33;
 }
 
+.static-page p {
+	text-align: justify;
+}
