@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTagRequest;
+use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 
 class TagController extends Controller
@@ -36,7 +36,7 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTagRequest $request)
+    public function store(TagRequest $request)
     {
 
 		$validated = $request->validated();
@@ -66,11 +66,11 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\StoreTagRequest  $request
+     * @param  \Illuminate\Http\TagRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreTagRequest $request, $id)
+    public function update(TagRequest $request, $id)
     {
 
 		$validated = $request->validated();
