@@ -7,9 +7,9 @@ return [
 	 *
 	 */
 
-    'frontend_route' => 'front',
+    // 'frontend_route' => 'front',
 
-	'backend_route' => 'admin',
+	// 'backend_route' => 'admin',
 
 
     /*

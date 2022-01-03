@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
 
 		Paginator::useBootstrap();
 
-		$this->RouteAutomat($request);
+		// $this->RouteAutomat($request);
 
 		// Route::resourceVerbs([
 		// 	'create' => 'vytvorit',
@@ -49,21 +49,21 @@ class AppServiceProvider extends ServiceProvider
     }
 
 
-	private function RouteAutomat(Request $request) {
+	// private function RouteAutomat(Request $request) {
 
-		$path_array = $request->segments();
+	// 	$path_array = $request->segments();
 
-        $backend_route = config('app.backend_route');
-		$frontend_route = config('app.frontend_route');
+    //     $backend_route = config('app.backend_route');
+	// 	$frontend_route = config('app.frontend_route');
 
-		//https://locahost:8000/admin/anything
-        if (in_array($backend_route, $path_array)) {
-            $path = resource_path($backend_route. '\views'); //resources/admin/views
-        } else {
-            $path = resource_path($frontend_route. '\views');
-        }
+	// 	//https://locahost:8000/admin/anything
+    //     if (in_array($backend_route, $path_array)) {
+    //         $path = resource_path($backend_route. '\views'); //resources/admin/views
+    //     } else {
+    //         $path = resource_path($frontend_route. '\views');
+    //     }
 
-		View::addLocation($path);
-	}
+	// 	View::addLocation($path);
+	// }
 
 }
