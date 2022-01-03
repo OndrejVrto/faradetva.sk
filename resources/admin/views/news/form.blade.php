@@ -189,7 +189,7 @@
 								name="news_picture"
 								class="border-right-none"
 								label="Obrázok na titulku"
-								placeholder="Vložiť obrázok ..."
+								placeholder="{{ $news->media_file_name ?? 'Vložiť obrázok ...' }}"
 								>
 								<x-slot name="prependSlot">
 									<div class="input-group-text bg-gradient-orange">
