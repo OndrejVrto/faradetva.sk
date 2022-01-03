@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Support\Facades\Session;
-use App\Http\Requests\StoreSliderRequest;
+use App\Http\Requests\SliderRequest;
 
 class SliderController extends Controller
 {
@@ -37,10 +37,10 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSliderRequest  $request
+     * @param  \App\Http\Requests\SliderRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSliderRequest $request)
+    public function store(SliderRequest $request)
     {
 		$validated = $request->validated();
 		$slider = Slider::create($validated);
@@ -77,11 +77,11 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSliderRequest  $request
+     * @param  \App\Http\Requests\SliderRequest  $request
      * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreSliderRequest $request, $id)
+    public function update(SliderRequest $request, $id)
     {
 		$validated = $request->validated();
 

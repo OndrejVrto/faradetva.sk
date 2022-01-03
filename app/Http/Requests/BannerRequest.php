@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Session;
 
-class StorePriestRequest extends FormRequest
+class BannerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,16 +26,24 @@ class StorePriestRequest extends FormRequest
     {
         return [
 			'active' => 'boolean',
-			'titles_before' => 'nullable|string|max:255',
-			'first_name' => 'required|string|max:255',
-			'last_name' => 'required|string|max:255',
-			'titles_after' => 'nullable|string|max:255',
-			'function' => 'nullable|string|max:255',
-			'phone' => 'nullable|regex:/[\d\+\-\ ]+/',
-			'description' => 'nullable|string',
-			'photo' => 'nullable|file|mimes:jpg,bmp,png,jpeg',
+			'title' => 'nullable|string|max:255',
+			'photo' => ['nullable',
+						'file',
+						'mimes:jpg,bmp,png,jpeg',
+						'dimensions:min_width=1920,min_height=480',
+						'max:10000'
+						],
         ];
     }
+
+
+	public function messages()
+	{
+		return [
+			'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
+		];
+	}
+
 
 	protected function prepareForValidation()
 	{
@@ -45,6 +53,6 @@ class StorePriestRequest extends FormRequest
 			'active' => $state,
 		]);
 
-        Session::put(['priest_old_input_checkbox' => $state]);
+        Session::put(['banner_old_input_checkbox' => $state]);
 	}
 }

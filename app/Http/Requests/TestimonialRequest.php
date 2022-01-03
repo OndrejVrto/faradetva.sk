@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Session;
 
-class StoreSliderRequest extends FormRequest
+class TestimonialRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,14 +26,14 @@ class StoreSliderRequest extends FormRequest
     {
         return [
 			'active' => 'boolean',
-			'heading_1' => 'nullable|string|max:255',
-			'heading_2' => 'nullable|string|max:255',
-			'heading_3' => 'nullable|string|max:255',
+			'name' => 'required|string|max:255',
+			'function' => 'nullable|string|max:255',
+			'description' => 'nullable|string',
 			'photo' => ['nullable',
 						'file',
 						'mimes:jpg,bmp,png,jpeg',
-						'dimensions:min_width=1920,min_height=800',
-						'max:10000'
+						'dimensions:min_width=100,min_height=100',
+						'max:3000'
 						],
         ];
     }
@@ -55,6 +55,6 @@ class StoreSliderRequest extends FormRequest
 			'active' => $state,
 		]);
 
-        Session::put(['slider_old_input_checkbox' => $state]);
+        Session::put(['testimonial_old_input_checkbox' => $state]);
 	}
 }

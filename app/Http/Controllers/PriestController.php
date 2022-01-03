@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Priest;
-use App\Http\Requests\StorePriestRequest;
+use App\Http\Requests\PriestRequest;
 use Illuminate\Support\Facades\Session;
 
 class PriestController extends Controller
@@ -38,10 +38,10 @@ class PriestController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePriestRequest  $request
+     * @param  \App\Http\Requests\PriestRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePriestRequest $request)
+    public function store(PriestRequest $request)
     {
 		$validated = $request->validated();
 		$priest = Priest::create($validated);
@@ -78,11 +78,11 @@ class PriestController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\StorePriestRequest  $request
+     * @param  \App\Http\Requests\PriestRequest  $request
      * @param  \App\Models\Priest  $priest
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePriestRequest $request, $id)
+    public function update(PriestRequest $request, $id)
     {
 		$validated = $request->validated();
 
