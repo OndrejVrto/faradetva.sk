@@ -19,12 +19,21 @@ class User extends Authenticatable
 	use SoftDeletes;
 
     /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
         'name',
+		'nick',
         'email',
         'password',
     ];
