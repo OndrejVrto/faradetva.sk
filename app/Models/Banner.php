@@ -25,6 +25,12 @@ class Banner extends Model implements HasMedia
 	];
 
 
+	public function getMediaFileNameAttribute()
+	{
+		return $this->getFirstMedia('banner')->file_name ?? null;
+	}
+
+
 	public function registerMediaConversions( Media $media = null ) : void
 	{
 		//1920x480px (240*60)

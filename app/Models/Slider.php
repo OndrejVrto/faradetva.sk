@@ -28,6 +28,12 @@ class Slider extends Model implements HasMedia
 	];
 
 
+	public function getMediaFileNameAttribute()
+	{
+		return $this->getFirstMedia('slider')->file_name ?? null;
+	}
+
+
 	public function registerMediaConversions( Media $media = null ) : void
 	{
 		$this->addMediaConversion('extra-large')

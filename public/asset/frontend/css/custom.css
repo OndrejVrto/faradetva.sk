@@ -12,3 +12,10 @@
 	color: #ff7b33;
 }
 
+.static-page p {
+	text-align: justify;
+}
+
+.text-church-template {
+	color: #ff7b33 !important;
+}

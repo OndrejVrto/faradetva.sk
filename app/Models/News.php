@@ -45,9 +45,16 @@ class News extends Model implements HasMedia
 		return Str::words($this->content, 30, '...');
 	}
 
+
 	public function getTeaserLightAttribute()
 	{
 		return Str::words($this->content, 7, '...');
+	}
+
+
+	public function getMediaFileNameAttribute()
+	{
+		return $this->getFirstMedia('news_front_picture')->file_name ?? null;
 	}
 
 

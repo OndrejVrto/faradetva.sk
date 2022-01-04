@@ -2,18 +2,20 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TagController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\PriestController;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\SliderController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Debug\DebugController;
-use App\Http\Controllers\TestimonialController;
-use App\Http\Controllers\Frontend\ContactController;
 
+use App\Http\Controllers\Debug\DebugController;
+
+use App\Http\Controllers\Backend\TagController;
+use App\Http\Controllers\Backend\NewsController;
+use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\PriestController;
+use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\TestimonialController;
+
+use App\Http\Controllers\Frontend\SearchController;
+use App\Http\Controllers\Frontend\StaticPagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,8 +63,10 @@ Route::get('/all-sections', [DebugController::class, 'index'] )->name('debug.all
 
 
 // FrontEnd route
-Route::get('/kontakt', [ContactController::class, 'index'] )->name('contact');
+Route::get('/kontakt', [StaticPagesController::class, 'index'] )->name('static.contact');
+Route::get('/frantisek', [StaticPagesController::class, 'francisco'] )->name('static.francisco');
 
+// Route::view('/frantisek', 'frontend.static.patron-francisco-assisi');
 
 Route::get('/search/{search?}', [SearchController::class, 'search'] )->name('search');
 
