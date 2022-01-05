@@ -9,12 +9,15 @@
 @stop
 
 @section('content')
-	<h3 class="text-muted">(TODO) </h3>
-
-	@auth
-		@role('Super Admin')
-			<h1 class="text-danger text-center mark"> Ak vidíš tento text fungujú Gates a si Super-Admin.</h1>
-		@endrole
-	@endauth
+		@auth
+			@role('Super Admin')
+				<h1 class="text-danger text-center mark"> Ak vidíš tento text fungujú Gates správne a si Super-Admin.</h1>
+			@endrole
+		@endauth
+		<div class="row justify-content-center">
+			<div class="col-md-6 col-lg-5 col-xl-4">
+				<img src="{{ URL::asset('images/backend/dashboard-visual-data-amico.svg') }}" class="w-100" alt="Sketch obrázok vizualizácie grafov na tabuľu.">
+			</div>
+		</div>
 @stop
 
