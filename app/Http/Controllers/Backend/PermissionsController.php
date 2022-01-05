@@ -18,7 +18,7 @@ class PermissionsController extends Controller
     {
         $permissions = Permission::all();
 
-        return view('permissions.index', [
+        return view('backend.permissions.index', [
             'permissions' => $permissions
         ]);
     }
@@ -30,7 +30,7 @@ class PermissionsController extends Controller
      */
     public function create()
     {
-        return view('permissions.create');
+        return view('backend.permissions.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class PermissionsController extends Controller
      */
     public function edit(Permission $permission)
     {
-        return view('permissions.edit', [
+        return view('backend.permissions.edit', [
             'permission' => $permission
         ]);
     }

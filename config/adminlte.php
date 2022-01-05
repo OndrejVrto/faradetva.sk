@@ -285,6 +285,36 @@ return [
 			'route' => 'tags.index',
 			'icon'  => 'fas fa-tag',
 		],
+		[
+			'header' => 'Prístupové práva',
+			'can'  => [
+				'users.index',
+				'roles.index',
+				'permissions.index'
+			],
+		],
+		[
+			'text' => 'Uživatelia',
+			'icon_color'  => 'red',
+			'icon'  => 'fas fa-users',
+			'route' => 'users.index',
+			'can'  => 'users.index',
+		],
+		[
+			'text' => 'Role',
+			'icon_color'  => 'red',
+			'icon'  => 'fas fa-chess-queen',
+			'route' => 'roles.index',
+			'can'  => 'roles.index',
+		],
+		[
+			'text' => 'Povolenia',
+			'icon_color'  => 'red',
+			'icon'  => 'fas fa-key',
+			'route' => 'permissions.index',
+			'can'  => 'permissions.index',
+		],
+
 
         // [
 		// 	'text'    => 'Tabuľky',

@@ -26,7 +26,6 @@ class UserStoreRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email:rfc,dns|unique:users,email',
-            'username' => 'required|unique:users,username',
             'nick' => 'required|unique:users,nick',
         ];
     }
