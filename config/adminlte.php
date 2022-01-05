@@ -191,7 +191,7 @@ return [
     */
 
     'use_route_url' => true,
-    'dashboard_url' => 'admin.dashboard',
+    'dashboard_url' => 'home',
     'logout_url' => 'logout',
 	'logout_method' => 'POST',
     'login_url' => 'login',
