@@ -66,11 +66,13 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-backend',
+    'usermenu_image' => true,
+    'usermenu_desc' => true,
+
     'usermenu_profile_url' => false,
+	'profile_url' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -128,7 +130,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-light elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -188,14 +190,15 @@ return [
     |
     */
 
-    'use_route_url' => false,
-    'dashboard_url' => '/',
+    'use_route_url' => true,
+    'dashboard_url' => 'admin.dashboard',
     'logout_url' => 'logout',
+	'logout_method' => 'POST',
     'login_url' => 'login',
-    'register_url' => 'register',
-    'password_reset_url' => 'password/reset',
+    'register_url' => false,
+    'password_reset_url' => false,
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+
 
     /*
     |--------------------------------------------------------------------------

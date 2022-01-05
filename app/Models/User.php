@@ -68,4 +68,25 @@ class User extends Authenticatable
         return $this->hasMany(News::class);
     }
 
+
+
+    public function adminlte_image()
+    {
+		// TODO Add user avatar
+        return 'http://fara.detva.adminlte/images/avatars/'.$this->nick.'.svg';
+    }
+
+    public function adminlte_desc()
+    {
+        return $this->email;
+    }
+
+    public function adminlte_profile_url()
+    {
+		// TODO Route to user profil
+		// TODO Create Form - change user password
+
+        return 'admin.dashboard';
+    }
+
 }

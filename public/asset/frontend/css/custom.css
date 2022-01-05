@@ -19,3 +19,7 @@
 .text-church-template {
 	color: #ff7b33 !important;
 }
+
+.link-template:hover {
+	color: #ff7b33 !important;
+}
