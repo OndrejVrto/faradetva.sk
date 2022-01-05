@@ -15,7 +15,7 @@
 		<div class="container vh-100">
 			<div class="row position-absolute top-50 start-50 translate-middle">
 				<div class="col-md-5 col-lg-6 p-5 p-lg-0">
-					<img src="{{ URL::asset('images/404/page-not-found.svg') }}" class="mw-100" alt="Detektív s lupou hľadá chybu na stránke.">
+					<img src="{{ URL::asset('images/errors/404-page-not-found.svg') }}" class="mw-100" alt="Detektív s lupou hľadá chybu na stránke.">
 				</div>
 				<div class="col-md-7 col-lg-6 my-auto pb-5 pb-lg-0 text-center">
 					<h1 class="display-1">404</h1>
