@@ -58,6 +58,10 @@ Breadcrumbs::resource('banners', 'Bannery');
 Breadcrumbs::resource('testimonials', 'Svedectvá');
 Breadcrumbs::resource('priests', 'Kňazi');
 
+Breadcrumbs::resource('users', 'Uživatelia');
+Breadcrumbs::resource('roles', 'Role');
+Breadcrumbs::resource('permissions', 'Povolenia');
+
 
 
 // Home > Blog > [Category]
