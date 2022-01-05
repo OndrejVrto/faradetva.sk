@@ -6,14 +6,13 @@ use App\Models\News;
 use App\Models\User;
 use App\Models\NewsTag;
 use App\Models\Testimonial;
-use Illuminate\Support\Str;
 use Database\Seeders\TagSeeder;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
 use Database\Seeders\MediaSeeder;
 use Database\Seeders\BannerSeeder;
 use Database\Seeders\SliderSeeder;
-use Illuminate\Support\Facades\Hash;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\TestimonialSeeder;
 
@@ -27,14 +26,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-		User::create([
-			'name' => 'Ing. Ondrej VRŤO, IWE',
-			'nick' => 'ondrej',
-            'email' => 'ondrej@vrto.sk',
-            'email_verified_at' => now(),
-            'password' => Hash::make( 'password' ),
-            'remember_token' => Str::random(10)
-        ]);
+		$this->call(UserSeeder::class);
 		User::factory(10)->create();
 
 		$this->call([
