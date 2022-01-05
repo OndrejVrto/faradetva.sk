@@ -12,9 +12,9 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\StaticPagesController;
-use App\Http\Controllers\RolesController;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\Backend\RolesController;
+use App\Http\Controllers\Backend\UsersController;
+use App\Http\Controllers\Backend\PermissionsController;
 use App\Http\Controllers\Frontend\ArticleController;
 
 
@@ -61,7 +61,8 @@ Route::group(['middleware' => 'auth'], function()
 
 
 /** BackEnd Routes */
-Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
+// Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
+Route::middleware(['auth'])->prefix('admin')->group( function() {
 
 	Route::resource('users', UsersController::class);
 	Route::resource('roles', RolesController::class);
