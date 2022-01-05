@@ -19,6 +19,12 @@
 							<a class="btn btn-sm btn-outline-warning rounded-pill" href="{{ route('admin.dashboard') }}">
 								Administrácia
 							</a>
+							<a class="ms-2 btn btn-sm btn-outline-danger rounded-pill" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+								Odhlásiť
+							</a>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
 							@endguest
 						</div>
 					</div>

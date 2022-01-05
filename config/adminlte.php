@@ -189,7 +189,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/all-sections',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -236,9 +236,9 @@ return [
         // Sidebar items:
 		[
 			'text'        => 'Dashboard',
-			'icon_color'  => 'red',
+			'icon_color'  => 'blue',
 			'route'       => 'admin.dashboard',
-			'icon'        => 'fas fa-home',
+			'icon'        => 'fab fa-fort-awesome fa-lg',
         ],
 		['header' => 'Sekcie'],
         [
@@ -285,6 +285,36 @@ return [
 			'route' => 'tags.index',
 			'icon'  => 'fas fa-tag',
 		],
+		[
+			'header' => 'Prístupové práva',
+			'can'  => [
+				'users.index',
+				'roles.index',
+				'permissions.index'
+			],
+		],
+		[
+			'text' => 'Uživatelia',
+			'icon_color'  => 'red',
+			'icon'  => 'fas fa-users',
+			'route' => 'users.index',
+			'can'  => 'users.index',
+		],
+		[
+			'text' => 'Role',
+			'icon_color'  => 'red',
+			'icon'  => 'fas fa-chess-queen',
+			'route' => 'roles.index',
+			'can'  => 'roles.index',
+		],
+		[
+			'text' => 'Povolenia',
+			'icon_color'  => 'red',
+			'icon'  => 'fas fa-key',
+			'route' => 'permissions.index',
+			'can'  => 'permissions.index',
+		],
+
 
         // [
 		// 	'text'    => 'Tabuľky',

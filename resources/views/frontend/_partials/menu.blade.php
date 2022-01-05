@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-lg-12 col-12">
 					<div class="ch_logo">
-						<a href="{{ route('debug.all') }}">
+						<a href="{{ route('home') }}">
 							<img src="{{ URL::asset('images/church_logo.png') }}" alt="logo">
 						</a>
 					</div>
@@ -81,7 +81,7 @@
 							{{-- <li class="search_icon">
 								<span data-toggle="modal" data-target="#myModal"><i class="fas fa-search"></i></span>
 							</li> --}}
-							<li><a class="text-template" href="{{ route('debug.all') }}">Všetko</a></li>
+							<li><a class="text-template" href="{{ route('home') }}">Všetko</a></li>
 							@auth
 								<li><a class="text-template" href="{{ route('admin.dashboard') }}">Administrácia</a></li>
 							@else

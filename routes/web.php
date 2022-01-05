@@ -1,21 +1,24 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\Debug\DebugController;
-
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\NewsController;
+use App\Http\Controllers\Backend\RolesController;
+use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
-use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\TestimonialController;
-
 use App\Http\Controllers\Frontend\SearchController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Frontend\ArticleController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\PermissionsController;
+use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Frontend\StaticPagesController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,79 +30,42 @@ use App\Http\Controllers\Frontend\StaticPagesController;
 |
  */
 
-// BackEnd route
-Auth::routes();
-Route::middleware(['auth'])->prefix('admin')->group(function () {
-
-	Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-
-	Route::resource('/tags', TagController::class, ['except' => 'show', 'edit']);
-	Route::get('/tags/editovat/{slug}', [TagController::class, 'edit'])->name('tags.edit');
-
-	Route::resource('/categories', CategoryController::class, ['except' => 'show', 'edit']);
-	Route::get('/categories/editovat/{slug}', [CategoryController::class, 'edit'])->name('categories.edit');
-
-	Route::resource('/news', NewsController::class, ['except' => 'edit']);
-	Route::get('/news/editovat/{slug}', [NewsController::class, 'edit'])->name('news.edit');
-
-	Route::resource('/priests', PriestController::class);
-
-	Route::resource('/testimonials', TestimonialController::class);
-
-	Route::resource('/sliders', SliderController::class);
-
-	Route::resource('/banners', BannerController::class);
-
-
-});
-
-
-Route::get('/clanok/{slug}', [NewsController::class, 'show'])->name('news.show');
-
-
-// only bebug
-Route::get('/all-sections', [DebugController::class, 'index'] )->name('debug.all');
+// Auth::routes();  //Orginal routes for Authorisation
+/** Login Routes */
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+/**  Logout Route */
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
-// FrontEnd route
-Route::get('/kontakt', [StaticPagesController::class, 'index'] )->name('static.contact');
+/** Frontend Routes */
+Route::get('/', [StaticPagesController::class, 'home'] )->name('home');
 Route::get('/frantisek', [StaticPagesController::class, 'francisco'] )->name('static.francisco');
-
-// Route::view('/frantisek', 'frontend.static.patron-francisco-assisi');
-
+Route::get('/kontakt', [StaticPagesController::class, 'contact'] )->name('static.contact');
+/** News atricle */
+Route::get('/clanky', [ArticleController::class, 'index'])->name('article.index');
+Route::get('/clanok/{slug}', [ArticleController::class, 'show'])->name('article.show');
+/** Search routes */
 Route::get('/search/{search?}', [SearchController::class, 'search'] )->name('search');
 
 
 
+/** BackEnd Routes */
+Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
+// Route::middleware(['auth'])->prefix('admin')->group( function() {
 
+	Route::resource('users', UsersController::class);
+	Route::resource('roles', RolesController::class);
+	Route::resource('permissions', PermissionsController::class);
 
-Route::get('/', function () {
-
-	return redirect()->route('debug.all');  //for debuging
-	// return view('home');
-})->name('home');
-
-
-Route::get('/spolocenstva', function () {
-    return view('ministries');
-})->name('ministries');
-
-Route::get('/udalosti', function () {
-    return view('events');
-})->name('events');
-
-Route::get('/o-nas', function () {
-    return view('about-us');
-})->name('about-us');
-
-Route::get('/spravy', function () {
-    return view('news');
-})->name('news');
-
-Route::get('/sprava/{id?}', function ($id = 1) {
-    return view('one-news', ['id'=> $id]);
-})->name('one-news')->where('id', '[0-9]+');
-
-
+	Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+	Route::resource('tags', TagController::class, ['except' => 'show']);
+	Route::resource('categories', CategoryController::class, ['except' => 'show']);
+	Route::resource('news', NewsController::class, ['except' => 'show']);
+	Route::resource('priests', PriestController::class, ['except' => 'show']);
+	Route::resource('testimonials', TestimonialController::class, ['except' => 'show']);
+	Route::resource('sliders', SliderController::class, ['except' => 'show']);
+	Route::resource('banners', BannerController::class, ['except' => 'show']);
+});
 
