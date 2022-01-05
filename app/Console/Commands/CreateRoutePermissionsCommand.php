@@ -46,7 +46,7 @@ class CreateRoutePermissionsCommand extends Command
                 $permission = Permission::where('name', $route->getName())->first();
 
                 if (is_null($permission)) {
-                    permission::create(['name' => $route->getName()]);
+                    Permission::create(['name' => $route->getName()]);
                 }
             }
         }
