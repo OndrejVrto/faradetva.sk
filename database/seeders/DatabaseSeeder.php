@@ -15,6 +15,7 @@ use Database\Seeders\BannerSeeder;
 use Database\Seeders\SliderSeeder;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\TestimonialSeeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,6 +26,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+		Artisan::call('permission:create-permission-routes');
 
 		$this->call(UserSeeder::class);
 		User::factory(10)->create();
@@ -45,6 +48,7 @@ class DatabaseSeeder extends Seeder
 		News::factory(4)->create();
 		NewsTag::factory(50)->create();
 		Testimonial::factory(5)->create();
+
 
     }
 

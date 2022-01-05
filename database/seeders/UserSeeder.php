@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UserSeeder extends Seeder
 {
@@ -18,7 +19,11 @@ class UserSeeder extends Seeder
     {
 		$password = bcrypt('password');
 
-		User::create([
+		// Super Admin
+		$role = Role::create(['name' => 'Super Admin']);
+		$permissions = Permission::pluck('id','id')->all();
+		$role->syncPermissions($permissions);
+		$user = User::create([
 			'name' => 'Super Admin',
 			'nick' => 'super-admin',
             'email' => 'super@admin.sk',
@@ -26,8 +31,11 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
+		$user->assignRole([$role->id]);
 
-		User::create([
+		// Admin
+		$role = Role::create(['name' => 'Admin']);
+		$user = User::create([
 			'name' => 'Admin',
 			'nick' => 'admin',
             'email' => 'admin@admin.sk',
@@ -35,8 +43,11 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
+		$user->assignRole([$role->id]);
 
-		User::create([
+		// User
+		$role = Role::create(['name' => 'User']);
+		$user = User::create([
 			'name' => 'User',
 			'nick' => 'user',
             'email' => 'user@user.sk',
@@ -44,8 +55,11 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
+		$user->assignRole([$role->id]);
 
-		User::create([
+		// User
+		$role = Role::create(['name' => 'Guest']);
+		$user = User::create([
 			'name' => 'Guest',
 			'nick' => 'guest',
             'email' => 'guest@guest.sk',
@@ -53,6 +67,8 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
+		$user->assignRole([$role->id]);
+
 
 		User::create([
 			'name' => 'Ing. Ondrej VRŤO, IWE',

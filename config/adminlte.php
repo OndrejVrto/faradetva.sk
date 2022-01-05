@@ -236,9 +236,9 @@ return [
         // Sidebar items:
 		[
 			'text'        => 'Dashboard',
-			'icon_color'  => 'red',
+			'icon_color'  => 'blue',
 			'route'       => 'admin.dashboard',
-			'icon'        => 'fas fa-home',
+			'icon'        => 'fab fa-fort-awesome fa-lg',
         ],
 		['header' => 'Sekcie'],
         [
