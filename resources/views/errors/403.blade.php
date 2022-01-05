@@ -16,12 +16,14 @@
 		<div class="row w-100 justify-content-center align-self-center">
 
 			<div class="col-md-6 p-5 p-lg-0 my-auto">
-				<img src="{{ URL::asset('images/errors/403-error-forbidden-amico.svg') }}" class="mw-100" alt="Detektív s lupou hľadá chybu na stránke.">
+				<img src="{{ URL::asset('images/errors/403-error-forbidden-amico.svg') }}" class="mw-100" alt="Vrátnik stopuje pred dverami.">
 			</div>
 			<div class="col-md-7 col-lg-6 my-auto pb-5 pb-lg-0 text-center">
 				<h1 class="display-1">403</h1>
 
+				@auth
 				<h2>Dobrý deň <span class="text-church-template">{{ Auth::user()->name }}</span></h2>
+				@endauth
 				<h4>
 					Vyzerá to tak, že k tejto <a class="link-secondary link-template" href="{{ URL::current() }}">stránke</a>
 					<br>

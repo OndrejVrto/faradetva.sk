@@ -69,3 +69,8 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 	Route::resource('banners', BannerController::class, ['except' => 'show']);
 });
 
+
+// only for Debug
+Route::view('419', 'errors.419');
+Route::view('403', 'errors.403');
+Route::view('404', 'errors.404');
