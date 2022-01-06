@@ -52,21 +52,22 @@ Route::get('/search/{search?}', [SearchController::class, 'search'] )->name('sea
 
 
 /** BackEnd Routes */
-Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
-// Route::middleware(['auth'])->prefix('admin')->group( function() {
-
-	Route::resource('users', UsersController::class);
-	Route::resource('roles', RolesController::class);
-	Route::resource('permissions', PermissionsController::class);
-
+Route::middleware(['auth', 'permission'])->prefix('admin')->group( function()
+{
 	Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+	Route::resource('news', NewsController::class, ['except' => 'show']);
 	Route::resource('tags', TagController::class, ['except' => 'show']);
 	Route::resource('categories', CategoryController::class, ['except' => 'show']);
-	Route::resource('news', NewsController::class, ['except' => 'show']);
+
 	Route::resource('priests', PriestController::class, ['except' => 'show']);
 	Route::resource('testimonials', TestimonialController::class, ['except' => 'show']);
 	Route::resource('sliders', SliderController::class, ['except' => 'show']);
 	Route::resource('banners', BannerController::class, ['except' => 'show']);
+
+	Route::resource('users', UsersController::class);
+	Route::resource('roles', RolesController::class);
+	Route::resource('permissions', PermissionsController::class);
 });
 
 
