@@ -1,46 +1,40 @@
 @extends('backend._layouts.app')
 
+@section('title', config('farnost-detva.admin_texts.roles_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.roles_description') )
+@section('content_header', config('farnost-detva.admin_texts.roles_header') )
+
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('roles.index') }}
+@stop
+
 @section('content')
+	<x-admin-table
+		columns="3"
+		createTitle="Pridať rolu"
+		createLink="{{ route('roles.create') }}"
+		paginator="{{ $roles->onEachSide(1)->links() }}"
+		>
 
-    <div class="bg-light p-4 rounded">
-        <h1>Roles</h1>
-        <div class="lead">
-            Manage your roles here.
-            <a href="{{ route('roles.create') }}" class="btn btn-primary btn-sm float-right">Add role</a>
-        </div>
+		<x-slot name="table_header">
+			<x-admin-table.th width="1%">#</x-admin-table.th>
+			<x-admin-table.th>Meno</x-admin-table.th>
+			<x-admin-table.th-actions/>
+		</x-slot>
 
-        <div class="mt-2">
-            {{-- @include('layouts.partials.messages') --}}
-        </div>
+		<x-slot name="table_body">
+			@foreach($roles as $role)
+			<tr>
+				<x-admin-table.td>{{$role->id}}</x-admin-table.td>
+				<x-admin-table.td class="text-wrap text-break">{{$role->name}}</x-admin-table.td>
 
-        <table class="table table-bordered">
-          <tr>
-             <th width="1%">No</th>
-             <th>Name</th>
-             <th width="3%" colspan="3">Action</th>
-          </tr>
-            @foreach ($roles as $key => $role)
-            <tr>
-                <td>{{ $role->id }}</td>
-                <td>{{ $role->name }}</td>
-                <td>
-                    <a class="btn btn-info btn-sm" href="{{ route('roles.show', $role->id) }}">Show</a>
-                </td>
-                <td>
-                    <a class="btn btn-primary btn-sm" href="{{ route('roles.edit', $role->id) }}">Edit</a>
-                </td>
-                <td>
-                    {{-- {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                    {!! Form::close() !!} --}}
-                </td>
-            </tr>
-            @endforeach
-        </table>
+				<x-admin-table.td-actions
+					editLink="{{ route('roles.edit', $role->id)}}"
+					deleteLink="{{ route('roles.destroy', $role->id)}}"
+				/>
+			</tr>
+			@endforeach
+		</x-slot>
 
-        <div class="d-flex">
-            {!! $roles->links() !!}
-        </div>
-
-    </div>
+	</x-admin-table>
 @endsection

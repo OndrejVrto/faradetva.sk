@@ -39,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
 		// 	'edit' => 'editovat',
 		// ]);
 
+		// Loging all Querys to file
 		DB::listen(function ($query) {
 			File::prepend(
 				storage_path('/logs/query.log'),

@@ -66,11 +66,13 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-backend',
+    'usermenu_image' => true,
+    'usermenu_desc' => true,
+
     'usermenu_profile_url' => false,
+	'profile_url' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -125,12 +127,12 @@ return [
     'classes_body' => '',
     'classes_brand' => '',
     'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
+    'classes_content_wrapper' => 'bg-backend',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-light elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-gray navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -188,14 +190,15 @@ return [
     |
     */
 
-    'use_route_url' => false,
-    'dashboard_url' => '/',
+    'use_route_url' => true,
+    'dashboard_url' => 'home',
     'logout_url' => 'logout',
+	'logout_method' => 'POST',
     'login_url' => 'login',
-    'register_url' => 'register',
-    'password_reset_url' => 'password/reset',
+    'register_url' => false,
+    'password_reset_url' => false,
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+
 
     /*
     |--------------------------------------------------------------------------
@@ -240,50 +243,72 @@ return [
 			'route'       => 'admin.dashboard',
 			'icon'        => 'fab fa-fort-awesome fa-lg',
         ],
-		['header' => 'Sekcie'],
+		[
+			'header' => 'Sekcie',
+			'can'  => [
+				'news.index',
+				'priests.index',
+				'testimonials.index',
+				'sliders.index',
+				'banners.index',
+			],
+		],
         [
 			'text'  => 'Články',
 			'icon_color'  => 'orange',
 			'route' => 'news.index',
             // 'icon'  => 'fas fa-book-open',
             'icon'  => 'fas fa-font',
+			'can'  => 'news.index',
         ],
         [
 			'text'  => 'Kňazi',
 			'icon_color'  => 'orange',
 			'route' => 'priests.index',
             'icon'  => 'fas fa-hands',
+			'can'  => 'priests.index',
         ],
         [
 			'text'  => 'Svedectvá',
 			'icon_color'  => 'orange',
 			'route' => 'testimonials.index',
             'icon'  => 'fas fa-comment-medical',
+			'can'  => 'testimonials.index',
         ],
         [
 			'text'  => 'Obrázok s myšlienkou',
 			'icon_color'  => 'orange',
 			'route' => 'sliders.index',
             'icon'  => 'fas fa-image',
+			'can'  => 'sliders.index',
         ],
         [
 			'text'  => 'Baner',
 			'icon_color'  => 'orange',
 			'route' => 'banners.index',
             'icon'  => 'far fa-flag',
+			'can'  => 'banners.index',
         ],
-		['header' => 'Nastavenia'],
+		[
+			'header' => 'Nastavenia',
+			'can'  => [
+				'categories.index',
+				'tags.index',
+			],
+		],
 		[
 			'text' => 'Kategórie článkov',
 			'icon_color'  => 'green',
 			'route' => 'categories.index',
 			'icon'  => 'fas fa-stream',
+			'can'  => 'categories.index',
 		],
 		[
 			'text' => 'Kľúčové slová',
 			'icon_color'  => 'green',
 			'route' => 'tags.index',
 			'icon'  => 'fas fa-tag',
+			'can'  => 'tags.index',
 		],
 		[
 			'header' => 'Prístupové práva',

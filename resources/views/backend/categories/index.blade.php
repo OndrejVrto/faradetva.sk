@@ -9,51 +9,34 @@
 @stop
 
 @section('content')
+	<x-admin-table
+		columns="7"
+		createTitle="Pridať novú kategóriu"
+		createLink="{{ route('categories.create')}}"
+		paginator="{{ $categories->onEachSide(1)->links() }}"
+		>
 
-<div class="row">
-	<div class="col-12 col-xl-6 mx-auto">
-		<div class="px-2 pb-3">
-			<a href="{{ route('categories.create')}}" class="btn btn-warning btn-flat">Pridať novú kategóriu správ</a>
-		</div>
-		<div class="card">
-			<div class="card-body table-responsive p-0">
-				<table class="table table-sm table-hover table-middle-align table-striped table-last-padding">
-					<thead>
-						<tr class="table-primary">
-							{{-- <th>ID</th> --}}
-							<th>Názov Kategórie</th>
-							<th>Popis</th>
-							<th class="text-center" style="width: 5rem;">Akcie</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach($categories as $category)
-						<tr>
-							{{-- <td>{{$category->id}}</td> --}}
-							<td class="text-wrap text-break">{{$category->title}}</td>
+		<x-slot name="table_header">
+			{{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
+			<x-admin-table.th width="20%">Názov Kategórie</x-admin-table.th>
+			<x-admin-table.th>Popis</x-admin-table.th>
+			<x-admin-table.th-actions/>
+		</x-slot>
 
-							<td class="text-wrap text-break">{{$category->description}}</td>
+		<x-slot name="table_body">
+			@foreach($categories as $category)
+			<tr>
+				{{-- <x-admin-table.td>{{$category->id}}</x-admin-table.td> --}}
+				<x-admin-table.td class="text-wrap text-break">{{$category->title}}</x-admin-table.td>
+				<x-admin-table.td class="text-wrap text-break">{{$category->description}}</x-admin-table.td>
 
-							<td class="form-delete-wraper text-center">
-								<a href="{{ route('categories.edit', $category->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
-								<form class="delete-form" action="{{ route('categories.destroy', $category->id)}}" method="post" style="display: inline-block">
-									@csrf
-									@method('DELETE')
-									<button class="btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
-								</form>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<!-- Paginator Start-->
-		<div class="row justify-content-center py-2">
-			{{ $categories->onEachSide(1)->links() }}
-		</div>
-		<!-- Paginator End-->
-	</div>
-</div>
+				<x-admin-table.td-actions
+					editLink="{{ route('categories.edit', $category->slug)}}"
+					deleteLink="{{ route('categories.destroy', $category->id)}}"
+				/>
+			</tr>
+			@endforeach
+		</x-slot>
 
+	</x-admin-table>
 @endsection

@@ -9,96 +9,73 @@
 @stop
 
 @section('content')
+	<x-admin-table
+		columns="12"
+		createTitle="Vytvoriť nový článok"
+		createLink="{{ route('news.create') }}"
+		paginator="{{ $all_news->onEachSide(1)->links() }}"
+		>
 
-	<div class="row">
-		<div class="col-12 mx-auto">
-			<div class="px-2 pb-3">
-				<a href="{{ route('news.create')}}" class="btn btn-warning btn-flat">Vytvoriť nový článok</a>
-			</div>
-			<div class="card">
-				<div class="card-body table-responsive p-0">
-					<table class="table table-sm table-hover table-middle-align table-striped table-last-padding">
-						<thead>
-							<tr class="table-primary">
-								{{-- <th>ID</th> --}}
-								<th class="text-center" style="width: 1rem;">Zobraziť</th>
-								<th class="d-none d-md-table-cell text-center" style="width: 10rem;">Fotka</th>
-								<th class="d-none d-lg-table-cell">Autori</th>
-								<th class="d-none d-xl-table-cell">Dátumy</th>
-								<th>Názov článku</th>
-								{{-- <th style="max-width: 20rem;" class="d-none d-xl-block">Obsah článku (skrátený)</th> --}}
-								<th style="width: 4rem;" class="text-center d-none d-md-table-cell">Prílohy</th>
-								<th style="width: 8rem;" class="text-center">Akcia</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach($all_news as $news)
-							<tr>
-								{{-- <td>{{$news->id}}</td> --}}
-								<td class="text-center">
-									@if ($news->active == 1)
-										<i class="fas fa-check"></i>
-									@else
-										<i class="far fa-times-circle fa-lg text-danger"></i>
-									@endif
-								</td>
+		<x-slot name="table_header">
+			{{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
+			<x-admin-table.th-check-active/>
 
-								<td class="d-none d-md-table-cell">
-									<img src="{{ $news->getFirstMediaUrl('news_front_picture', 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"
-										class="img-fluid"
-										alt="Titulná fotka článku: {{ $news->title }}."
-									/>
-								</td>
+			<x-admin-table.th width="11%" class="d-none d-md-table-cell text-center">Fotka</x-admin-table.th>
+			<x-admin-table.th width="20%" class="d-none d-lg-table-cell">Autori</x-admin-table.th>
+			<x-admin-table.th width="20%" class="d-none d-xl-table-cell">Dátumy</x-admin-table.th>
+			<x-admin-table.th>Názov článku</x-admin-table.th>
+			{{-- <x-admin-table.th>Obsah článku (skrátený)</x-admin-table.th> --}}
+			<x-admin-table.th width="5%" class="text-center d-none d-md-table-cell">Prílohy</x-admin-table.th>
+			<x-admin-table.th-actions/>
+		</x-slot>
 
-								<td class="d-none d-lg-table-cell small">
-									<span class="text-muted mr-2">Vytvoril:</span>
-									<span class="text-bold">{{$news->created_by}}</span>
-									<br>
-									<span class="text-muted mr-2">Upravil:</span>
-									<span class="text-bold">{{$news->updated_by}}</span>
-								</td>
+		<x-slot name="table_body">
+			@foreach($all_news as $news)
+			<tr>
+				{{-- <x-admin-table.td>{{$news->id}}</x-admin-table.td> --}}
+				<x-admin-table.td-check-active check="{{ $news->active }}"/>
 
-								<td class="d-none d-xl-table-cell small">
-										<span class="text-muted mr-2">Upravené:</span>
-										<span class="text-bold">{{$news->updated_info}}</span>
-									<br>
-										<span class="text-muted mr-2">Vytvorené:</span>
-										{{$news->created_info}}
-									<br>
-										<span class="text-muted mr-2">Publikovať od:</span>
-										<span class="text-success">{{$news->published_at}}</span>
-									<br>
-										<span class="text-muted mr-2">Publikovať do:</span>
-										<span class="text-danger">{{$news->unpublished_at}}</span>
-								</td>
+				<x-admin-table.td class="d-none d-md-table-cell text-center">
+					<img src="{{ $news->getFirstMediaUrl('news_front_picture', 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"
+					class="img-fluid px-2"
+					alt="Titulná fotka článku: {{ $news->title }}."/>
+				</x-admin-table.td>
 
-								<td class="text-wrap text-break text-bold">{{ $news->title }}</td>
+				<x-admin-table.td class="d-none d-lg-table-cell small">
+					<span class="text-muted mr-2">Vytvoril:</span>
+					<span class="text-bold">{{$news->created_by}}</span>
+					<br>
+					<span class="text-muted mr-2">Upravil:</span>
+					<span class="text-bold">{{$news->updated_by}}</span>
+				</x-admin-table.td>
 
-								{{-- <td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</td> --}}
+				<x-admin-table.td class="d-none d-xl-table-cell small">
+						<span class="text-muted mr-2">Upravené:</span>
+						<span class="text-bold">{{$news->updated_info}}</span>
+					<br>
+						<span class="text-muted mr-2">Vytvorené:</span>
+						{{$news->created_info}}
+					<br>
+						<span class="text-muted mr-2">Publikovať od:</span>
+						<span class="text-success">{{$news->published_at}}</span>
+					<br>
+						<span class="text-muted mr-2">Publikovať do:</span>
+						<span class="text-danger">{{$news->unpublished_at}}</span>
+				</x-admin-table.td>
 
-								<td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</td>
+				<x-admin-table.td class="text-wrap text-break text-bold">{{ $news->title }}</x-admin-table.td>
 
-								<td class="form-delete-wraper text-center">
-									{{-- <a href="{{ route('news.show', $news->slug)}}" class="btn btn-warning btn-sm  btn-flat" title="Zobraziť"><i class="fas fa-eye"></i></a> --}}
-									<a href="{{ route('news.edit', $news->slug)}}" class="btn btn-primary btn-sm  btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
-									<form class="delete-form" action="{{ route('news.destroy', $news->id)}}" method="post" style="display: inline-block">
-										@csrf
-										@method('DELETE')
-										<button class="btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
-									</form>
-								</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<!-- Paginator Start-->
-			<div class="row justify-content-center py-2">
-				{{ $all_news->onEachSide(1)->links() }}
-			</div>
-			<!-- Paginator End-->
-		</div>
-	</div>
+				{{-- <x-admin-table.td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</x-admin-table.td> --}}
 
+				<x-admin-table.td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</x-admin-table.td>
+
+				<x-admin-table.td-actions
+					editLink="{{ route('news.edit', $news->slug)}}"
+					deleteLink="{{ route('news.destroy', $news->id)}}"
+				/>
+			</tr>
+			@endforeach
+		</x-slot>
+
+	</x-admin-table>
 @endsection

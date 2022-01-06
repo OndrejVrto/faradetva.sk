@@ -14,7 +14,7 @@ return [
     'sign_in'                     => 'Prihlásiť',
     'log_out'                     => 'Odhlásiť',
     'toggle_navigation'           => 'Navigácia',
-    'login_message'               => 'Prihlásiť pre pokračovanie do účtu.',
+    'login_message'               => 'Vstup do administrácie',
     'register_message'            => 'Registrovať nového uživateľa',
     'password_reset_message'      => 'Resetovať heslo',
     'reset_password'              => 'Resetovať heslo',
