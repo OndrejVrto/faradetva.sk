@@ -1,56 +1,62 @@
 @extends('backend._layouts.app')
 
+@section('title', config('farnost-detva.admin_texts.users_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.users_description') )
+@section('content_header', config('farnost-detva.admin_texts.users_header') )
+
+@section('content_breadcrumb')
+	{{ Breadcrumbs::render('users.index') }}
+@stop
+
 @section('content')
+	<x-admin-table
+		columns="10"
+		createTitle="Pridať uživateľa"
+		createLink="{{ route('users.create') }}"
+		paginator="{{ $users->onEachSide(1)->links() }}"
+		>
 
-    <div class="bg-light p-4 rounded">
-        <h1>Users</h1>
-        <div class="lead">
-            Manage your users here.
-            <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right">Add new user</a>
-        </div>
+		<x-slot name="table_header">
+			<x-admin-table.th width="1%">#</x-admin-table.th>
+			<x-admin-table.th width="15%" class="d-none d-lg-table-cell">Nick</x-admin-table.th>
+			{{-- <x-admin-table.th width="10%" class="text-center">Avatar</x-admin-table.th> --}}
+			<x-admin-table.th width="20%">Email</x-admin-table.th>
+			<x-admin-table.th width="25%">Meno užívateľa</x-admin-table.th>
+			<x-admin-table.th width="15%">Rola</x-admin-table.th>
+			<x-admin-table.th-actions/>
+		</x-slot>
 
-        <div class="mt-2">
-            {{-- @include('layouts.partials.messages') --}}
-        </div>
+		<x-slot name="table_body">
+			@foreach($users as $user)
+			<tr>
+				<x-admin-table.td>{{$user->id}}</x-admin-table.td>
+				<x-admin-table.td class="d-none d-lg-table-cell">{{$user->nick}}</x-admin-table.td>
+				{{-- <x-admin-table.td class="text-center">
+					<img src="{{ $user->getFirstMediaUrl('user', 'avatar-thumb') ?: "http://via.placeholder.com/60x60" }}"
+					class="img-fluid"
+					alt="Fotografia Avatara: {{ $user->name }}"/>
+				</x-admin-table.td> --}}
+				<x-admin-table.td class="text-wrap text-break">{{$user->email}}</x-admin-table.td>
+				<x-admin-table.td class="text-wrap text-break">{{$user->name}}</x-admin-table.td>
+				<x-admin-table.td>
+					@foreach($user->roles as $role)
+						@php
+							$colors = ['info', 'purple', 'warning', 'success', 'secondary', 'primary', 'indigo', 'pink'];
+							$color = $role->id == 1 ? 'danger' : $colors[(int)$role->id % count($colors)];
+						@endphp
+						<a href="{{ route('roles.edit', $role->id) }}">
+							<span class="badge bg-{{ $color }} px-2 py-1">{{ $role->name }}</span>
+						</a>
+					@endforeach
+				</x-admin-table.td>
+				<x-admin-table.td-actions
+					editLink="{{ route('users.edit', $user->id)}}"
+					deleteLink="{{ route('users.destroy', $user->id)}}"
+				/>
+			</tr>
+			@endforeach
+		</x-slot>
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col" width="1%">#</th>
-                <th scope="col" width="15%">Nick</th>
-                <th scope="col">Email</th>
-                <th scope="col" width="20%">Username</th>
-                <th scope="col" width="10%">Roles</th>
-                <th scope="col" width="1%" colspan="3"></th>
-            </tr>
-            </thead>
-            <tbody>
-                @foreach($users as $user)
-                    <tr>
-                        <th scope="row">{{ $user->id }}</th>
-                        <td>{{ $user->nick }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>
-                            @foreach($user->roles as $role)
-                                <span class="badge bg-primary">{{ $role->name }}</span>
-                            @endforeach
-                        </td>
-                        <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm">Show</a></td>
-                        <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a></td>
-                        <td>
-                            {{-- {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                            {!! Form::close() !!} --}}
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-        <div class="d-flex">
-            {!! $users->links() !!}
-        </div>
-
-    </div>
+	</x-admin-table>
 @endsection
+
