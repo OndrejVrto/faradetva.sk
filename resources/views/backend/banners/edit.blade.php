@@ -9,5 +9,5 @@
 @stop
 
 @section('content')
-	@include('backend.banners.form', [ 'type' => 'edit' ])
+	@include('backend.banners.form')
 @endsection

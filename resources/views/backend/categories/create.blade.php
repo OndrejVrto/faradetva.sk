@@ -9,5 +9,5 @@
 @stop
 
 @section('content')
-	@include('backend.categories.form', [ 'type' => 'create' ])
+	@include('backend.categories.form')
 @endsection

@@ -4,7 +4,8 @@
 	$linkBack = route('tags.index');
 	$linkActionCreate = route('tags.store');
 	$columns = 6;
-	$columnsSaveButton = 6;
+	$columnsSaveButton = 4;
+	$upload_files = true;
 
 	if ( isset( $tag ) ) {
 		$typeForm = 'edit';
@@ -16,7 +17,7 @@
 	}
 @endphp
 
-<x-admin-form 	columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}" typeForm="{{ $typeForm }}"
+<x-admin-form 	columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}"
 				linkActionCreate="{{ $linkActionCreate }}" linkBack="{{ $linkBack }}" linkActionEdit="{{ $linkActionEdit }}"
 				createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
 

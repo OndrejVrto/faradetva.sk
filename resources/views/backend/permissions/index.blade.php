@@ -24,8 +24,8 @@
 
 		<x-slot name="table_header">
 			<x-admin-table.th width="1%">#</x-admin-table.th>
-			<x-admin-table.th width="60%">Meno</x-admin-table.th>
-			<x-admin-table.th>Guard</x-admin-table.th>
+			<x-admin-table.th width="60%">Názov povolenia</x-admin-table.th>
+			<x-admin-table.th>Brána (pre info)</x-admin-table.th>
 			<x-admin-table.th-actions/>
 		</x-slot>
 

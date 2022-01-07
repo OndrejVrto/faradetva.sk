@@ -9,5 +9,5 @@
 @stop
 
 @section('content')
-	@include('backend.tags.form', [ 'type' => 'create' ])
+	@include('backend.tags.form')
 @endsection

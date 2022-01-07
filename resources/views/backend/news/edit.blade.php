@@ -5,9 +5,9 @@
 @section('content_header', config('farnost-detva.admin_texts.news_header_edit' ))
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('news.edit', $news, $news->title, true )}}
+	{{ Breadcrumbs::render('news.edit', $news, $news->title )}}
 @stop
 
 @section('content')
-	@include('backend.news.form', [ 'type' => 'edit' ])
+	@include('backend.news.form')
 @endsection
