@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.news_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.news_description') )
-@section('content_header', config('farnost-detva.admin_texts.news_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('news.index') }}
@@ -11,8 +10,8 @@
 @section('content')
 	<x-admin-table
 		columns="12"
-		createTitle="Vytvoriť nový článok"
-		createLink="{{ route('news.create') }}"
+		controlerName="news"
+		createBtn="Vytvoriť nový článok"
 		paginator="{{ $all_news->onEachSide(1)->links() }}"
 		>
 

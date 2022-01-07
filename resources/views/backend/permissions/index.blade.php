@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.permissions_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.permissions_description') )
-@section('content_header', config('farnost-detva.admin_texts.permissions_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('permissions.index') }}
@@ -10,10 +9,11 @@
 
 @section('content')
 	<x-admin-table
+		controlerName="permissions"
 		columns="6"
-		createTitle="Pridať povolenie"
-		createLink="{{ route('permissions.create') }}"
+		createBtn="Pridať povolenie"
 		>
+
 		<x-slot name="createNote">
 			Mená povolení priraďuj podľa názvov v route.php
 			<br>
@@ -25,7 +25,7 @@
 		<x-slot name="table_header">
 			<x-admin-table.th width="1%">#</x-admin-table.th>
 			<x-admin-table.th width="60%">Názov povolenia</x-admin-table.th>
-			<x-admin-table.th>Brána (pre info)</x-admin-table.th>
+			<x-admin-table.th>Brána</x-admin-table.th>
 			<x-admin-table.th-actions/>
 		</x-slot>
 

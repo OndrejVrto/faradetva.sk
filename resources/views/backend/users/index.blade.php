@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.users_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.users_description') )
-@section('content_header', config('farnost-detva.admin_texts.users_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('users.index') }}
@@ -11,8 +10,8 @@
 @section('content')
 	<x-admin-table
 		columns="10"
-		createTitle="Pridať uživateľa"
-		createLink="{{ route('users.create') }}"
+		controlerName="users"
+		createBtn="Pridať uživateľa"
 		paginator="{{ $users->onEachSide(1)->links() }}"
 		>
 

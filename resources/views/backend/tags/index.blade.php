@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.tags_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.tags_description') )
-@section('content_header', config('farnost-detva.admin_texts.tags_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('tags.index') }}
@@ -11,8 +10,8 @@
 @section('content')
 	<x-admin-table
 		columns="7"
-		createTitle="Pridať nové kľúčové slovo"
-		createLink="{{ route('tags.create')}}"
+		controlerName="tags"
+		createBtn="Pridať nové kľúčové slovo"
 		paginator="{{ $tags->onEachSide(1)->links() }}"
 		>
 

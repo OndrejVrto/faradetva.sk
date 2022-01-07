@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.testimonials_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.testimonials_description') )
-@section('content_header', config('farnost-detva.admin_texts.testimonials_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('testimonials.index') }}
@@ -11,9 +10,9 @@
 @section('content')
 	<x-admin-table
 		columns="7"
-		createTitle="Pridať nové svedectvo"
+		controlerName="testimonials"
+		createBtn="Pridať nové svedectvo"
 		createNote="Na stránke sa zobrazujú tri náhodné svedectvá!"
-		createLink="{{ route('testimonials.create') }}"
 		paginator="{{ $testimonials->onEachSide(1)->links() }}"
 		>
 
