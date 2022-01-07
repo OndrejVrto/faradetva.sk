@@ -1,6 +1,6 @@
 @props([
 	'columns' => 8,
-	'createLink' => null,
+	'createLink' => '#',
 	'createTitle' => null,
 	'createNote' => null,
 	'paginator' => null,
@@ -23,7 +23,7 @@
 				</div>
 			@endisset
 			<div class="col-5 text-right">
-				<a href="{{ $createLink }}" class="btn btn-warning btn-flat" title="Vytvoriť">{{ $createTitle }}</a>
+				<a href="{{ $createLink }}" class="btn bg-gradient-warning btn-flat" title="Vytvoriť">{{ $createTitle }}</a>
 			</div>
 		</div>
 		<div class="card">

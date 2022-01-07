@@ -66,8 +66,8 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function()
 	Route::resource('banners', BannerController::class, ['except' => 'show']);
 
 	Route::resource('users', UsersController::class);
-	Route::resource('roles', RolesController::class);
-	Route::resource('permissions', PermissionsController::class);
+	Route::resource('roles', RolesController::class, ['except' => 'show']);
+	Route::resource('permissions', PermissionsController::class, ['except' => 'show']);
 });
 
 

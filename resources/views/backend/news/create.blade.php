@@ -9,5 +9,5 @@
 @stop
 
 @section('content')
-	@include('backend.news.form', [ 'type' => 'create' ])
+	@include('backend.news.form')
 @endsection

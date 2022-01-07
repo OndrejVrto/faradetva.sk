@@ -9,5 +9,5 @@
 @stop
 
 @section('content')
-	@include('backend.sliders.form', [ 'type' => 'create' ])
+	@include('backend.sliders.form')
 @endsection

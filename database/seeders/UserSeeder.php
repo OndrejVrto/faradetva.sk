@@ -21,8 +21,9 @@ class UserSeeder extends Seeder
 
 		// Super Admin
 		$role = Role::create(['name' => 'Super Admin']);
-		$permissions = Permission::pluck('id','id')->all();
-		$role->syncPermissions($permissions);
+		$role->givePermissionTo(Permission::all());
+		// $permissions = Permission::pluck('id','id')->all();
+		// $role->syncPermissions($permissions);
 		$user = User::create([
 			'name' => 'Super Admin',
 			'nick' => 'super-admin',
@@ -35,6 +36,12 @@ class UserSeeder extends Seeder
 
 		// Admin
 		$role = Role::create(['name' => 'Admin']);
+		Permission::findOrCreate('news,tags,categories,priests,testimonials,sliders,banners.*');
+		$role->givePermissionTo([
+			'news,tags,categories,priests,testimonials,sliders,banners.*',
+			'users.index',
+			'admin.dashboard'
+		]);
 		$user = User::create([
 			'name' => 'Admin',
 			'nick' => 'admin',
@@ -47,6 +54,11 @@ class UserSeeder extends Seeder
 
 		// User
 		$role = Role::create(['name' => 'User']);
+		Permission::findOrCreate('news,tags,categories,priests,testimonials.*');
+		$role->givePermissionTo([
+			'news,tags,categories,priests,testimonials.*',
+			'admin.dashboard'
+		]);
 		$user = User::create([
 			'name' => 'User',
 			'nick' => 'user',
@@ -59,6 +71,11 @@ class UserSeeder extends Seeder
 
 		// User
 		$role = Role::create(['name' => 'Guest']);
+		Permission::findOrCreate('news,tags,categories,priests,testimonials.index');
+		$role->givePermissionTo([
+			'news,tags,categories,priests,testimonials.index',
+			'admin.dashboard'
+		]);
 		$user = User::create([
 			'name' => 'Guest',
 			'nick' => 'guest',
@@ -69,7 +86,8 @@ class UserSeeder extends Seeder
         ]);
 		$user->assignRole([$role->id]);
 
-
+		$role = Role::create(['name' => 'Akolyta']);
+		$role->givePermissionTo('admin.dashboard');
 		User::create([
 			'name' => 'Ing. Ondrej VRŤO, IWE',
 			'nick' => 'DonOndrej',
@@ -78,6 +96,7 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
+		$user->assignRole([$role->id]);
 
     }
 }

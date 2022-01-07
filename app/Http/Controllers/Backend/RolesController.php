@@ -39,7 +39,8 @@ class RolesController extends Controller
     public function create()
     {
         $permissions = Permission::get();
-        return view('backend.roles.create', compact('permissions'));
+		$rolePermissions = [];
+        return view('backend.roles.create', compact('permissions', 'rolePermissions'));
     }
 
     /**
@@ -60,20 +61,6 @@ class RolesController extends Controller
 
         return redirect()->route('roles.index')
                         ->with('success','Role created successfully');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Role $role)
-    {
-        $role = $role;
-        $rolePermissions = $role->permissions;
-
-        return view('backend.roles.show', compact('role', 'rolePermissions'));
     }
 
     /**

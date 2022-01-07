@@ -326,7 +326,7 @@ return [
 			'can'  => 'users.index',
 		],
 		[
-			'text' => 'Role',
+			'text' => 'Roly',
 			'icon_color'  => 'red',
 			'icon'  => 'fas fa-chess-queen',
 			'route' => 'roles.index',

@@ -19,7 +19,7 @@
 			<div class="col-md-6 my-auto pb-5 pb-lg-0 text-center">
 				<h1 class="display-1">419</h1>
 				<h4>
-					Vyzerá to tak, že ste boli automaticky ohlásený.
+					Vyzerá to tak, že ste už boli odhlásený.
 					<br>
 					Asi ste boli dlhšiu dobu neaktívny.
 				</h4>

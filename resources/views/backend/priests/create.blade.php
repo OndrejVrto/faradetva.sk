@@ -9,5 +9,5 @@
 @stop
 
 @section('content')
-	@include('backend.priests.form', [ 'type' => 'create' ])
+	@include('backend.priests.form')
 @endsection
