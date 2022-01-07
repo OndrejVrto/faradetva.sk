@@ -64,20 +64,6 @@ class RolesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Role $role)
-    {
-        $role = $role;
-        $rolePermissions = $role->permissions;
-
-        return view('backend.roles.show', compact('role', 'rolePermissions'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
