@@ -1,15 +1,13 @@
 @php
-	$typeForm = $linkActionEdit = $created_info = $created_by = $updated_info = $updated_by = null;
-
-	$linkBack = route('tags.index');
-	$linkActionCreate = route('tags.store');
-	$columns = 6;
+	$controlerName = 'tags';
+	$columns = 6
 	$columnsSaveButton = 4;
 	$upload_files = true;
 
+	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $tag ) ) {
 		$typeForm = 'edit';
-		$linkActionEdit = route('tags.update', $tag->id);
+		$identificatorEdit = $tag->id;
 		$created_info = $tag->created_info;
 		$created_by = $tag->created_by;
 		$updated_info = $tag->updated_info;
@@ -17,8 +15,8 @@
 	}
 @endphp
 
-<x-admin-form 	columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}"
-				linkActionCreate="{{ $linkActionCreate }}" linkBack="{{ $linkBack }}" linkActionEdit="{{ $linkActionEdit }}"
+<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}"
+				typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
 				createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
 
 	<x-adminlte-input

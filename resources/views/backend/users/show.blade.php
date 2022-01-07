@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="bg-light p-4 rounded">
-        <h1>Show user</h1>
+        <h1>TODO</h1>
+		<hr>
+		<h1>Show user</h1>
         <div class="lead">
 
         </div>

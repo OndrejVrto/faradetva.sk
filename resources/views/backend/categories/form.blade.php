@@ -1,15 +1,13 @@
 @php
-	$typeForm = $linkActionEdit = $created_info = $created_by = $updated_info = $updated_by = null;
-
-	$linkBack = route('categories.index');
-	$linkActionCreate = route('categories.store');
+	$controlerName = 'categories';
 	$columns = 6;
 	$columnsSaveButton = 4;
 	$upload_files = false;
 
+	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $category ) ) {
 		$typeForm = 'edit';
-		$linkActionEdit = route('categories.update', $category->id);
+		$identificatorEdit = $category->id;
 		$created_info = $category->created_info;
 		$created_by = $category->created_by;
 		$updated_info = $category->updated_info;
@@ -17,8 +15,8 @@
 	}
 @endphp
 
-<x-admin-form 	columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}"
-				linkActionCreate="{{ $linkActionCreate }}" linkBack="{{ $linkBack }}" linkActionEdit="{{ $linkActionEdit }}"
+<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}"
+				typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
 				createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
 
 	<x-adminlte-input

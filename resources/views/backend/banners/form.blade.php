@@ -1,15 +1,13 @@
 @php
-	$typeForm = $linkActionEdit = $created_info = $created_by = $updated_info = $updated_by = null;
-
-	$linkBack = route('banners.index');
-	$linkActionCreate = route('banners.store');
+	$controlerName = 'banners';
 	$columns = 7;
 	$columnsSaveButton = 4;
 	$upload_files = true;
 
+	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $banner ) ) {
 		$typeForm = 'edit';
-		$linkActionEdit = route('banners.update', $banner->id);
+		$identificatorEdit = $banner->id;
 		$created_info = $banner->created_info;
 		$created_by = $banner->created_by;
 		$updated_info = $banner->updated_info;
@@ -17,10 +15,9 @@
 	}
 @endphp
 
-<x-admin-form 	columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}"
-				linkActionCreate="{{ $linkActionCreate }}" linkBack="{{ $linkBack }}" linkActionEdit="{{ $linkActionEdit }}"
+<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}"
+				typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
 				createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
-
 
 	<div class="form-group">
 		<div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazoval banner na stránke.">

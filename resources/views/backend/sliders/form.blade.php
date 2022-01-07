@@ -1,15 +1,13 @@
 @php
-	$typeForm = $linkActionEdit = $created_info = $created_by = $updated_info = $updated_by = null;
-
-	$linkBack = route('sliders.index');
-	$linkActionCreate = route('sliders.store');
+	$controlerName = 'sliders';
 	$columns = 6;
-	$columnsSaveButton = 6;
+	$columnsSaveButton = 4;
 	$upload_files = true;
 
+	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $slider ) ) {
 		$typeForm = 'edit';
-		$linkActionEdit = route('sliders.update', $slider->id);
+		$identificatorEdit = $slider->id;
 		$created_info = $slider->created_info;
 		$created_by = $slider->created_by;
 		$updated_info = $slider->updated_info;
@@ -17,8 +15,8 @@
 	}
 @endphp
 
-<x-admin-form 	columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}"
-				linkActionCreate="{{ $linkActionCreate }}" linkBack="{{ $linkBack }}" linkActionEdit="{{ $linkActionEdit }}"
+<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}"
+				typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
 				createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
 
 	<div class="form-group">

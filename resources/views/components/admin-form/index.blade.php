@@ -1,25 +1,44 @@
 @props([
+	'controlerName' => '',
 	'columns' => 8,
 	'columnsSaveButton' => 4,
-	'typeForm' => '',
 	'files' => 'false',
-	'linkActionEdit' => '#',
-	'linkActionCreate' => '#',
-	'linkBack' => '#',
+	'typeForm' => '',
+	'identificatorEdit' => null,
 	'createdInfo' => '',
 	'createdBy' => '',
 	'updatedInfo' => '',
-	'updatedBy' => ''
+	'updatedBy' => '',
 ])
 @php
+	if($typeForm == '' OR is_null($typeForm)) $typeForm = 'create';
 	$card_max_xl = min($columns, 12);
 	$card_max_lg = min($columns + 1, 12);
 	$card_max_md = min($columns + 2, 12);
+	$headerTitle = config('farnost-detva.admin_texts.'.$controlerName.'_header_'.$typeForm );
+	$headerDescription = config('farnost-detva.admin_texts.'.$controlerName.'_description_'.$typeForm );
+	$linkActionEdit = route( $controlerName . '.update', $identificatorEdit);
+	$linkActionCreate = route( $controlerName . '.store');
+	$linkBack = route( $controlerName . '.index');
 @endphp
 
 <div class="row">
 	<div {{ $attributes->merge(['class' => "col-md-".$card_max_md." col-lg-".$card_max_lg." col-xl-".$card_max_xl." mx-auto"]) }}>
 		<div class="card">
+
+			@if( $headerTitle != '' )
+				<div class="card-header text-muted border-bottom-0 pb-0 ">
+					<a href="{{ $linkBack }}" type="button" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</a>
+					<h1>{{ $headerTitle }}</h1>
+					@if( $headerDescription != '' )
+						<div class="lead">
+							{{ $headerDescription }}
+						</div>
+					@endif
+				</div>
+			@endif
 
 			<div class="card-body">
 
