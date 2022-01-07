@@ -3,7 +3,7 @@
 	'deleteLink' => '#',
 ])
 <td>
-	<a href="{{ $editLink }}" class="btn btn-primary btn-sm btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
+	<a href="{{ $editLink }}" class="btn bg-gradient-primary btn-sm btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
 </td>
 
 <td class="form-delete-wraper text-center">
