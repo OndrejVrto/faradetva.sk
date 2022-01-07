@@ -1,7 +1,6 @@
 @props([
 	'controlerName' => '',
 	'columns' => 8,
-	'columnsSaveButton' => 4,
 	'files' => 'false',
 	'typeForm' => '',
 	'identificatorEdit' => null,
@@ -53,10 +52,7 @@
 
 					{{ $slot }}
 
-					<x-admin-form.save-button
-						linkBack="{{ $linkBack }}"
-						columnsSaveButton="{{ $columnsSaveButton }}"
-					/>
+					<x-admin-form.save-button linkBack="{{ $linkBack }}"/>
 
 				</form>
 			</div>

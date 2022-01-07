@@ -27,7 +27,6 @@
 @php
 	$controlerName = 'news';
 	$columns = 12;
-	$columnsSaveButton = 4;
 	$upload_files = true;
 
 	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
@@ -41,8 +40,7 @@
 	}
 @endphp
 
-<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}"
-				typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
+<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
 				createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
 
 	<input type="hidden" name="timezone" id="timezone">
@@ -337,7 +335,7 @@
 	</div>
 
 	<div class="form-row">
-		<x-adminlte-button class="px-5 bg-gradient-green" icon="fas fa-plus" title="Pridať ďalší súbor" id="addFileSubmit" />
+		<x-adminlte-button class="px-5 bg-gradient-red" icon="fas fa-plus" title="Pridať ďalší súbor" id="addFileSubmit" />
 	</div>
 
 </x-admin-form>
