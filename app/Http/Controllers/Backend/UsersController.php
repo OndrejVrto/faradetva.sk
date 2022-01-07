@@ -7,6 +7,7 @@ use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use Spatie\Permission\Models\Permission;
 
 class UsersController extends Controller
 {
@@ -29,7 +30,12 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('backend.users.create');
+		$roles = Role::all();
+		$userRoles = [];
+
+		$permissions = Permission::all();
+		$userPermissions = [];
+        return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
     /**
@@ -75,11 +81,11 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        return view('backend.users.edit', [
-            'user' => $user,
-            'userRole' => $user->roles->pluck('name')->toArray(),
-            'roles' => Role::latest()->get()
-        ]);
+		$roles = Role::all();
+		$userRoles = $user->roles->pluck('id')->toArray();
+		$permissions = Permission::all();
+		$userPermissions = $user->permissions->pluck('id')->toArray();
+        return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
     /**

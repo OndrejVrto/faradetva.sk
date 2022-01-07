@@ -24,7 +24,6 @@
 			<x-admin-table.th width="25%">Meno užívateľa</x-admin-table.th>
 			<x-admin-table.th width="10%">Roly</x-admin-table.th>
 			<x-admin-table.th width="10%" class="text-center">Povolenia</x-admin-table.th>
-			<x-admin-table.th width="1%"></x-admin-table.th>
 			<x-admin-table.th-actions/>
 		</x-slot>
 
@@ -54,9 +53,6 @@
 				<x-admin-table.td class="text-center">
 					{{-- TODO: počet rolí --}}
 					<span class="badge bg-orange px-2 py-1">Počet TODO</span>
-				</x-admin-table.td>
-				<x-admin-table.td class="text-center">
-					<a href="#" class="btn bg-gradient-secondary btn-sm btn-flat" title="Polovenia pre uživateľa {{ $user->name }}"><i class="fas fa-user"></i></a>
 				</x-admin-table.td>
 				<x-admin-table.td-actions
 					editLink="{{ route('users.edit', $user->id)}}"
