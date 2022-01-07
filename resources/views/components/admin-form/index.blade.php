@@ -1,14 +1,15 @@
 @props([
 	'columns' => 8,
 	'columnsSaveButton' => 4,
-	'typeForm' => null,
+	'typeForm' => '',
+	'files' => 'false',
 	'linkActionEdit' => '#',
 	'linkActionCreate' => '#',
 	'linkBack' => '#',
-	'createdInfo' => null,
-	'createdBy' => null,
-	'updatedInfo' => null,
-	'updatedBy' => null
+	'createdInfo' => '',
+	'createdBy' => '',
+	'updatedInfo' => '',
+	'updatedBy' => ''
 ])
 @php
 	$card_max_xl = min($columns, 12);
@@ -23,10 +24,10 @@
 			<div class="card-body">
 
 				@if ( $typeForm == 'edit')
-					<form id="edit-form" method="post" action="{{ $linkActionEdit }}">
+					<form id="edit-form" method="post" action="{{ $linkActionEdit }}" @if($files == 'true')enctype="multipart/form-data"@endif >
 					@method('PATCH')
 				@else
-					<form id="add-form" method="post" action="{{ $linkActionCreate }}">
+					<form id="add-form" method="post" action="{{ $linkActionCreate }}" @if($files == 'true')enctype="multipart/form-data"@endif >
 				@endif
 
 					@csrf
@@ -41,22 +42,30 @@
 				</form>
 			</div>
 
-			{{-- @isset($created_info AND $created_by AND $updated_info AND $updated_by) --}}
-				@if ( $typeForm == 'edit' )
+			@if( $createdInfo != '' OR $createdBy != '' OR $updatedInfo != '' OR $updatedBy != '' )
+				{{-- @if ( $typeForm == 'edit' ) --}}
 					<div class="card-footer text-muted d-flex flex-column flex-sm-row small">
 						<div class="mr-auto">
-							<span class="small mr-2">Vytvorené:</span> {{ $createdInfo }}
-							<br>
-							<span class="small mr-2">Vytvoril:</span> {{ $createdBy }}
+							@if( $createdInfo != '' )
+								<span class="small mr-2">Vytvorené:</span> {{ $createdInfo }}
+							@endif
+							@if( $createdBy != '' )
+								<br>
+								<span class="small mr-2">Vytvoril:</span> {{ $createdBy }}
+							@endif
 						</div>
 						<div class="mt-2 mt-sm-0">
-							<span class="small mr-2">Naposledy upravené:</span> {{ $updatedInfo }}
-							<br>
-							<span class="small mr-2">Upravil:</span> {{ $updatedBy }}
+							@if( $updatedInfo != '' )
+								<span class="small mr-2">Naposledy upravené:</span> {{ $updatedInfo }}
+							@endif
+							@if( $updatedBy != '' )
+								<br>
+								<span class="small mr-2">Upravil:</span> {{ $updatedBy }}
+							@endif
 						</div>
 					</div>
-				@endif
-			{{-- @endisset --}}
+				{{-- @endif --}}
+			@endif
 
 		</div>
 	</div>

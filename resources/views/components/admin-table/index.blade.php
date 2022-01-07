@@ -1,6 +1,6 @@
 @props([
 	'columns' => 8,
-	'createLink' => null,
+	'createLink' => '#',
 	'createTitle' => null,
 	'createNote' => null,
 	'paginator' => null,
