@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.roles_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.roles_description') )
-@section('content_header', config('farnost-detva.admin_texts.roles_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('roles.index') }}
@@ -10,9 +9,9 @@
 
 @section('content')
 	<x-admin-table
-		columns="3"
-		createTitle="Pridať rolu"
-		createLink="{{ route('roles.create') }}"
+		columns="4"
+		controlerName="roles"
+		createBtn="Pridať rolu"
 		paginator="{{ $roles->onEachSide(1)->links() }}"
 		>
 

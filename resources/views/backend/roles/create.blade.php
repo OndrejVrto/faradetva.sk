@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.roles_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.roles_description_create') )
-@section('content_header', config('farnost-detva.admin_texts.roles_header_create') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('roles.create') }}

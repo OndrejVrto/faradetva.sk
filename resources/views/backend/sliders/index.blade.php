@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.sliders_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.sliders_description') )
-@section('content_header', config('farnost-detva.admin_texts.sliders_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('sliders.index') }}
@@ -11,7 +10,8 @@
 @section('content')
 	<x-admin-table
 		columns="7"
-		createTitle="Pridať nový obrázok s myšlienkou"
+		controlerName="sliders"
+		createBtn="Pridať nový obrázok s myšlienkou"
 		createLink="{{ route('sliders.create') }}"
 		paginator="{{ $sliders->onEachSide(1)->links() }}"
 		>

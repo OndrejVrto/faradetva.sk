@@ -128,6 +128,7 @@ return [
     'classes_brand' => '',
     'classes_brand_text' => '',
     'classes_content_wrapper' => 'bg-backend',
+    'classes_content_main' => 'pt-4',
     'classes_content_header' => '',
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-light elevation-4',

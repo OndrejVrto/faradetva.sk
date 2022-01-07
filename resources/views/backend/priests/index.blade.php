@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.priests_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.priests_description') )
-@section('content_header', config('farnost-detva.admin_texts.priests_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('priests.index') }}
@@ -11,8 +10,8 @@
 @section('content')
 	<x-admin-table
 		columns="6"
-		createTitle="Pridať nového kňaza"
-		createLink="{{ route('priests.create') }}"
+		controlerName="priests"
+		createBtn="Pridať nového kňaza"
 		paginator="{{ $priests->onEachSide(1)->links() }}"
 		>
 

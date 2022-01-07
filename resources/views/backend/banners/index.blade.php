@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.banners_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.banners_description') )
-@section('content_header', config('farnost-detva.admin_texts.banners_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('banners.index') }}
@@ -11,10 +10,11 @@
 @section('content')
 	<x-admin-table
 		columns="7"
-		createTitle="Vytvoriť nový Baner"
-		createLink="{{ route('banners.create') }}"
+		controlerName="banners"
+		createBtn="Vytvoriť nový Baner"
 		paginator="{{ $banners->onEachSide(1)->links() }}"
 		>
+
 		<x-slot name="createNote">
 			Na stránke sa zobrazuje iba jeden náhodný baner pre každú stránku!
 			<br>

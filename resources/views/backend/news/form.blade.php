@@ -25,17 +25,15 @@
 @endphp
 
 @php
-	$typeForm = $linkActionEdit = $created_info = $created_by = $updated_info = $updated_by = null;
-
-	$linkBack = route('news.index');
-	$linkActionCreate = route('news.store');
+	$controlerName = 'news';
 	$columns = 12;
 	$columnsSaveButton = 4;
 	$upload_files = true;
 
+	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $news ) ) {
 		$typeForm = 'edit';
-		$linkActionEdit = route('news.update', $news->id);
+		$identificatorEdit = $news->id;
 		$created_info = $news->created_info;
 		$created_by = $news->created_by;
 		$updated_info = $news->updated_info;
@@ -43,8 +41,8 @@
 	}
 @endphp
 
-<x-admin-form 	columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}"
-				linkActionCreate="{{ $linkActionCreate }}" linkBack="{{ $linkBack }}" linkActionEdit="{{ $linkActionEdit }}"
+<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}"
+				typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
 				createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
 
 	<input type="hidden" name="timezone" id="timezone">

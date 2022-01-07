@@ -3,22 +3,22 @@
 
 <head>
 
-    {{-- Base Meta Tags --}}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    {{-- Custom Meta Tags --}}
-	<meta name="description" content="@yield('meta_description', config('farnost-detva.description', 'Administrácia - Webové stránky farnosťi Detva.') ) ">
-    @yield('meta_tags')
-
     {{-- Title --}}
     <title>
         @yield('title_prefix', config('adminlte.title_prefix', ''))
         @yield('title', config('adminlte.title', 'AdminLTE 3'))
         @yield('title_postfix', config('adminlte.title_postfix', ''))
     </title>
+	<meta name="description" content="@yield('meta_description', config('farnost-detva.description', 'Administrácia - Webové stránky farnosťi Detva.'))">
+
+	{{-- Base Meta Tags --}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- Custom Meta Tags --}}
+    @yield('meta_tags')
 
     {{-- Custom stylesheets (pre AdminLTE) --}}
     @yield('adminlte_css_pre')

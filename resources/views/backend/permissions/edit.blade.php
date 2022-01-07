@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.permissions_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.permissions_description_edit') )
-@section('content_header', config('farnost-detva.admin_texts.permissions_header_edit' ))
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('permissions.edit', $permission, $permission->title )}}

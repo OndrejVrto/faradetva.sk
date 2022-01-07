@@ -2,7 +2,6 @@
 
 @section('title', config('farnost-detva.admin_texts.categories_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.categories_description') )
-@section('content_header', config('farnost-detva.admin_texts.categories_header') )
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('categories.index') }}
@@ -11,8 +10,8 @@
 @section('content')
 	<x-admin-table
 		columns="7"
-		createTitle="Pridať novú kategóriu"
-		createLink="{{ route('categories.create')}}"
+		controlerName="categories"
+		createBtn="Pridať novú kategóriu"
 		paginator="{{ $categories->onEachSide(1)->links() }}"
 		>
 
