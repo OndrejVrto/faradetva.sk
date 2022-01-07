@@ -33,7 +33,7 @@
 
 	<label for="permissions" class="form-label">Udelené povolenia tejto roly</label>
 	<div class="form-group">
-		<div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazoval kňaz na stránke.">
+		<div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mala táto rola všetky oprávnenia">
 			<input
 				type="checkbox"
 				class="custom-control-input"

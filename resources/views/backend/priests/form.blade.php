@@ -86,7 +86,7 @@
 				>
 				<x-slot name="prependSlot">
 					<div class="input-group-text bg-gradient-orange">
-						<i class="fas fa-user-priest"></i>
+						<i class="fas fa-user"></i>
 					</div>
 				</x-slot>
 			</x-adminlte-input>
