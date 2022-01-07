@@ -58,7 +58,7 @@ Breadcrumbs::resource('banners', 'Bannery');
 Breadcrumbs::resource('testimonials', 'Svedectvá');
 Breadcrumbs::resource('priests', 'Kňazi');
 
-Breadcrumbs::resource('users', 'Uživatelia');
+Breadcrumbs::resource('users', 'Užívatelia');
 Breadcrumbs::resource('roles', 'Role');
 Breadcrumbs::resource('permissions', 'Povolenia');
 
