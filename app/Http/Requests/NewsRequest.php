@@ -30,7 +30,7 @@ class NewsRequest extends FormRequest
 		if (request()->routeIs('news.store')) {
 			$imageRule = 'required';
 		} elseif (request()->routeIs('news.update')) {
-			$imageRule = 'sometimes|nullable';
+			$imageRule = 'nullable';
 		}
 
 		return [
