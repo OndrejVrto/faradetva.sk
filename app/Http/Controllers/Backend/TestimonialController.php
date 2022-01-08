@@ -13,11 +13,7 @@ class TestimonialController extends Controller
 {
 
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
 	{
 		Session::remove('testimonial_old_input_checkbox');
@@ -27,23 +23,14 @@ class TestimonialController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('backend.testimonials.create');
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\TestimonialRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(TestimonialRequest $request)
     {
 		$validated = $request->validated();
@@ -66,12 +53,7 @@ class TestimonialController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($slug)
     {
 		$testimonial = Testimonial::whereSlug($slug)->firstOrFail();
@@ -80,13 +62,7 @@ class TestimonialController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\TestimonialRequest  $request
-     * @param  \App\Models\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(TestimonialRequest $request, $id)
     {
 		$validated = $request->validated();
@@ -110,12 +86,7 @@ class TestimonialController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
 		$testimonial = Testimonial::findOrFail($id);

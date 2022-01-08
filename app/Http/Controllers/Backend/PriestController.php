@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Session;
 class PriestController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
 	{
 		Session::remove('priest_old_input_checkbox');
@@ -26,23 +22,14 @@ class PriestController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('backend.priests.create');
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\PriestRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(PriestRequest $request)
     {
 		$validated = $request->validated();
@@ -65,12 +52,7 @@ class PriestController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Priest  $priest
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($slug)
     {
 		$priest = Priest::whereSlug($slug)->firstOrFail();
@@ -79,13 +61,7 @@ class PriestController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\PriestRequest  $request
-     * @param  \App\Models\Priest  $priest
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(PriestRequest $request, $id)
     {
 		$validated = $request->validated();
@@ -109,12 +85,7 @@ class PriestController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Priest  $priest
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
 		$priest = Priest::findOrFail($id);
