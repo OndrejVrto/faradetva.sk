@@ -16,9 +16,9 @@
 		>
 
 		<x-slot name="table_header">
-			<x-admin-table.th width="1%">#</x-admin-table.th>
+			{{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
+			<x-admin-table.th width="1%" class="text-center">Avatar</x-admin-table.th>
 			<x-admin-table.th width="15%" class="d-none d-lg-table-cell">Nick</x-admin-table.th>
-			<x-admin-table.th width="10%" class="text-center">Avatar</x-admin-table.th>
 			<x-admin-table.th width="20%">Email</x-admin-table.th>
 			<x-admin-table.th width="25%">Meno užívateľa</x-admin-table.th>
 			<x-admin-table.th width="10%">Roly</x-admin-table.th>
@@ -28,38 +28,38 @@
 
 		<x-slot name="table_body">
 			@foreach($users as $user)
-			<tr>
-				<x-admin-table.td>{{$user->id}}</x-admin-table.td>
-				<x-admin-table.td class="d-none d-lg-table-cell">{{$user->nick}}</x-admin-table.td>
-				<x-admin-table.td class="text-center">
-					<img src="{{ $user->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/40x40" }}"
-					class="img-fluid"
-					alt="Fotografia Avatara: {{ $user->name }}"/>
-				</x-admin-table.td>
-				<x-admin-table.td class="text-wrap text-break">{{$user->email}}</x-admin-table.td>
-				<x-admin-table.td class="text-wrap text-break">{{$user->name}}</x-admin-table.td>
-				<x-admin-table.td>
-					@foreach($user->roles as $role)
-						@php
-							$colors = ['info', 'purple', 'warning', 'success', 'secondary', 'primary', 'indigo', 'pink'];
-							$color = $role->id == 1 ? 'danger' : $colors[(int)$role->id % count($colors)];
-						@endphp
-						<a href="{{ route('roles.edit', $role->id) }}">
-							<span class="badge bg-{{ $color }} px-2 py-1">{{ $role->name }}</span>
-						</a>
-					@endforeach
-				</x-admin-table.td>
-				<x-admin-table.td class="text-center">
-					@if( $user->permissions_count != 0 )
-						<span class="badge bg-orange px-2 py-1">{{ $user->permissions_count }}</span>
-					@endif
-				</x-admin-table.td>
-				<x-admin-table.td-actions
-					showLink="{{ route('users.show', $user->id)}}"
-					editLink="{{ route('users.edit', $user->id)}}"
-					deleteLink="{{ route('users.destroy', $user->id)}}"
-				/>
-			</tr>
+				<tr>
+					{{-- <x-admin-table.td>{{$user->id}}</x-admin-table.td> --}}
+					<x-admin-table.td class="text-center">
+						<img src="{{ $user->getFirstMediaUrl('avatar', 'crop-thumb') ?: "http://via.placeholder.com/40x40" }}"
+						class="img-fluid"
+						alt="Fotografia Avatara: {{ $user->name }}"/>
+					</x-admin-table.td>
+					<x-admin-table.td class="d-none d-lg-table-cell">{{$user->nick}}</x-admin-table.td>
+					<x-admin-table.td class="text-wrap text-break">{{$user->email}}</x-admin-table.td>
+					<x-admin-table.td class="text-wrap text-break">{{$user->name}}</x-admin-table.td>
+					<x-admin-table.td>
+						@foreach($user->roles as $role)
+							@php
+								$colors = ['info', 'purple', 'warning', 'success', 'secondary', 'primary', 'indigo', 'pink'];
+								$color = $role->id == 1 ? 'danger' : $colors[(int)$role->id % count($colors)];
+							@endphp
+							<a href="{{ route('roles.edit', $role->id) }}">
+								<span class="badge bg-{{ $color }} px-2 py-1">{{ $role->name }}</span>
+							</a>
+						@endforeach
+					</x-admin-table.td>
+					<x-admin-table.td class="text-center">
+						@if( $user->permissions_count != 0 )
+							<span class="badge bg-orange px-2 py-1">{{ $user->permissions_count }}</span>
+						@endif
+					</x-admin-table.td>
+					<x-admin-table.td-actions
+						showLink="{{ route('users.show', $user->id)}}"
+						editLink="{{ route('users.edit', $user->id)}}"
+						deleteLink="{{ route('users.destroy', $user->id)}}"
+					/>
+				</tr>
 			@endforeach
 		</x-slot>
 

@@ -5,9 +5,7 @@ namespace App\Models;
 use App\Models\News;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Support\Facades\Auth;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -60,6 +58,8 @@ class User extends Authenticatable implements HasMedia
 	{
 		$this->addMediaConversion('crop')
 			->fit("crop", 100, 100);
+		$this->addMediaConversion('crop-thumb')
+			->fit("crop", 40, 40);
 	}
 
 
@@ -75,10 +75,7 @@ class User extends Authenticatable implements HasMedia
 
     public function adminlte_profile_url()
     {
-		// TODO Route to user profil
-		// TODO Create Form - change user password
-
-        return 'admin.dashboard';
+        return route('users.show', $this->id);
     }
 
 }
