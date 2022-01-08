@@ -4,16 +4,17 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
 use Illuminate\Support\Arr;
+use App\Http\Helpers\DataFormater;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use Spatie\Permission\Models\Permission;
 
 class UsersController extends Controller
 {
-    /**
+
+	/**
      * Display all users
      *
      * @return \Illuminate\Http\Response
@@ -63,7 +64,9 @@ class UsersController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo_avatar')) {
 			$user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
-			$user->addMediaFromRequest('photo_avatar')->toMediaCollection('avatar');
+			$user->addMediaFromRequest('photo_avatar')
+				->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
+				->toMediaCollection('avatar');
 		}
 
 		// notification and request
@@ -82,9 +85,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        return view('backend.users.show', compact( 'user' ) );
+		$user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
+
+		return view('backend.users.show', compact( 'user' ) );
     }
 
     /**
@@ -135,7 +140,9 @@ class UsersController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo_avatar')) {
 			$user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
-			$user->addMediaFromRequest('photo_avatar')->toMediaCollection('avatar');
+			$user->addMediaFromRequest('photo_avatar')
+				->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
+				->toMediaCollection('avatar');
 		}
 
 		// notification and request

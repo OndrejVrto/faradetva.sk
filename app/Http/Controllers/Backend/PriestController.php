@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-
 use App\Models\Priest;
+
+use App\Http\Helpers\DataFormater;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\PriestRequest;
 use Illuminate\Support\Facades\Session;
 
 class PriestController extends Controller
 {
-
 
     /**
      * Display a listing of the resource.
@@ -51,7 +51,9 @@ class PriestController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo')) {
 			$priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
-			$priest->addMediaFromRequest('photo')->toMediaCollection('priest');
+			$priest->addMediaFromRequest('photo')
+					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+					->toMediaCollection('priest');
 		}
 
 
@@ -94,7 +96,9 @@ class PriestController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo')) {
 			$priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
-			$priest->addMediaFromRequest('photo')->toMediaCollection('priest');
+			$priest->addMediaFromRequest('photo')
+					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+					->toMediaCollection('priest');
 		}
 
 		$notification = array(

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-
 use App\Models\Banner;
+
+use App\Http\Helpers\DataFormater;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\BannerRequest;
 use Illuminate\Support\Facades\Session;
 
@@ -50,7 +51,9 @@ class BannerController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo')) {
 			$banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
-			$banner->addMediaFromRequest('photo')->toMediaCollection('banner');
+			$banner->addMediaFromRequest('photo')
+					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+					->toMediaCollection('banner');
 		}
 
 
@@ -93,7 +96,9 @@ class BannerController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo')) {
 			$banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
-			$banner->addMediaFromRequest('photo')->toMediaCollection('banner');
+			$banner->addMediaFromRequest('photo')
+					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+					->toMediaCollection('banner');
 		}
 
 		$notification = array(
