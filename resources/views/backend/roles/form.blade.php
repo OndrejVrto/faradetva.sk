@@ -1,7 +1,7 @@
 @php
 	$controlerName = 'roles';
 	$columns = 10;
-	$upload_files = false;
+	$upload_files = 'false';
 
 	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $role ) ) {

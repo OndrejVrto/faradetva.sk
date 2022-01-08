@@ -1,7 +1,7 @@
 @php
 	$controlerName = 'banners';
 	$columns = 7;
-	$upload_files = true;
+	$upload_files = 'true';
 
 	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $banner ) ) {

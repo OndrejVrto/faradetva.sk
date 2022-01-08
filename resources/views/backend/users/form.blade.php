@@ -7,7 +7,7 @@
 @php
 	$controlerName = 'users';
 	$columns = 10;
-	$upload_files = true;
+	$upload_files = 'true';
 
 	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $user ) ) {
@@ -82,7 +82,7 @@
 		<div class="col-6">
 
 			<x-adminlte-input
-				name="password_confirm"
+				name="password_confirmed"
 				label="Heslo potvrdenie"
 				{{-- type="password" --}}
 				placeholder="Zopakuj heslo ..."
@@ -121,7 +121,7 @@
 
 			<x-adminlte-input-file
 				class="border-right-none"
-				name="avatar"
+				name="photo_avatar"
 				label="Avatar"
 				placeholder="{{ $user->media_file_name ?? 'Vložiť avatara ..' }}">
 				<x-slot name="prependSlot">
