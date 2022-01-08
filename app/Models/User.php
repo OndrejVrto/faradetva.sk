@@ -44,6 +44,12 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
     ];
 
+
+	public function setPasswordAttribute($value){
+		$this->attributes['password'] = bcrypt($value);
+	}
+
+
     public function news()
     {
         return $this->hasMany(News::class);
@@ -57,15 +63,8 @@ class User extends Authenticatable implements HasMedia
 	}
 
 
-	public function getMediaFileNameAttribute()
-	{
-		return $this->getFirstMedia('avatar')->file_name ?? null;
-	}
-
-
     public function adminlte_image()
     {
-		// TODO   N+1 Query
 		return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
     }
 

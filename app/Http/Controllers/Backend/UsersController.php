@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
+use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use Spatie\Permission\Models\Permission;
@@ -18,8 +20,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::with('roles')->paginate(10);
-
+        $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);
         return view('backend.users.index', compact('users'));
     }
 
@@ -106,13 +107,21 @@ class UsersController extends Controller
      * Update user data
      *
      * @param User $user
-     * @param UUserUpdateRequest $request
+     * @param UserUpdateRequest $request
      *
      * @return \Illuminate\Http\Response
      */
     public function update(User $user, UserUpdateRequest $request)
     {
+		// validation
 		$validated = $request->validated();
+
+		// if no password is entered, it is removed from the request
+		if( ! $request->filled('password') )
+		{
+			$validated = Arr::except($validated, ['password']);
+		}
+
 		$user->update($validated);
 
 		// store rols to user

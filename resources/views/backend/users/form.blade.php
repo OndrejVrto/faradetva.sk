@@ -82,7 +82,7 @@
 		<div class="col-6">
 
 			<x-adminlte-input
-				name="password_confirmed"
+				name="password_confirmation"
 				label="Heslo potvrdenie"
 				{{-- type="password" --}}
 				placeholder="Zopakuj heslo ..."
@@ -123,7 +123,8 @@
 				class="border-right-none"
 				name="photo_avatar"
 				label="Avatar"
-				placeholder="{{ $user->media_file_name ?? 'Vložiť avatara ..' }}">
+				placeholder="Vložiť avatara .."
+				>
 				<x-slot name="prependSlot">
 					<div class="input-group-text bg-gradient-orange">
 						<i class="fas fa-file-import"></i>

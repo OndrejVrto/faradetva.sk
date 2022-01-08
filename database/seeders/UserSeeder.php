@@ -17,7 +17,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-		$password = bcrypt('password');
+		// $password = bcrypt('password');
+		$password = 'password';
 
 		// Super Admin
 		$role = Role::create(['name' => 'Super Admin']);

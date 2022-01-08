@@ -30,7 +30,7 @@ class UserUpdateRequest extends FormRequest
 			'nick' => ['required', 'unique:users,nick,'.$user->id],
 			'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
-            // 'password' => ['string', 'min:8', 'confirmed'],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
 			'photo_avatar' => [
 				'nullable',
 				'file',
