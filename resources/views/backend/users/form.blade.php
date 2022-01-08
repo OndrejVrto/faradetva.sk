@@ -186,8 +186,8 @@
 		@foreach($permissions as $permission)
 			<div class="col text-break">
 				<input type="checkbox"
-					name="permission[{{ $permission->name }}]"
-					value="{{ $permission->name }}"
+					name="permission[{{ $permission->id }}]"
+					value="{{ $permission->id }}"
 					class='d-inline permission m-2'
 					{{ in_array($permission->id, $userPermissions)
 						? 'checked'

@@ -32,9 +32,9 @@ class UsersController extends Controller
     {
 		$roles = Role::all();
 		$userRoles = [];
-
 		$permissions = Permission::all();
 		$userPermissions = [];
+
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
@@ -48,15 +48,31 @@ class UsersController extends Controller
      */
     public function store(User $user, UserStoreRequest $request)
     {
-        //For demo purposes only. When creating user or inviting a user
-        // you should create a generated random password and email it to the user
-        $user->create(array_merge($request->validated(), [
-            'password' => 'test'
-        ]));
+		$validated = $request->validated();
+		$user->create($validated);
 
-        return redirect()->route('users.index')
-            ->withSuccess(__('User created successfully.'));
+		// store rols to user
+		$role = $request->input('role');
+		$user->roles()->sync($role);
+
+		// store permissions to user
+		$permissions = $request->input('permission');
+		$user->permissions()->sync($permissions);
+
+		// Spatie media-collection
+		if ($request->hasFile('photo_avatar')) {
+			$user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
+			$user->addMediaFromRequest('photo_avatar')->toMediaCollection('avatar');
+		}
+
+		// notification and request
+		$notification = array(
+			'message' => 'Uživateľ bol pridaný!',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('users.index')->with($notification);
     }
+
 
     /**
      * Show user data
@@ -67,9 +83,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        return view('backend.users.show', [
-            'user' => $user
-        ]);
+        return view('backend.users.show', compact( 'user' ) );
     }
 
     /**
@@ -98,12 +112,29 @@ class UsersController extends Controller
      */
     public function update(User $user, UserUpdateRequest $request)
     {
-        $user->update($request->validated());
+		$validated = $request->validated();
+		$user->update($validated);
 
-        $user->syncRoles($request->get('role'));
+		// store rols to user
+		$role = $request->input('role');
+		$user->roles()->sync($role);
 
-        return redirect()->route('users.index')
-            ->withSuccess(__('User updated successfully.'));
+		// store permissions to user
+		$permissions = $request->input('permission');
+		$user->permissions()->sync($permissions);
+
+		// Spatie media-collection
+		if ($request->hasFile('photo_avatar')) {
+			$user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
+			$user->addMediaFromRequest('photo_avatar')->toMediaCollection('avatar');
+		}
+
+		// notification and request
+		$notification = array(
+			'message' => 'Uživateľ bol upravený!',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('users.index')->with($notification);
     }
 
     /**
@@ -117,66 +148,11 @@ class UsersController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index')
-            ->withSuccess(__('User deleted successfully.'));
+		$notification = array(
+			'message' => 'Uživateľ bol odstránený!',
+			'alert-type' => 'success'
+		);
+
+        return redirect()->route('users.index')->with($notification);
     }
 }
-
-
-/*
-
-git clone https://github.com/codeanddeploy/laravel8-authentication-example.git
-
-if your using my previous tutorial navigate your project folder and run composer update
-
-
-
-install packages
-
-composer require spatie/laravel-permission
-composer require laravelcollective/html
-
-then run php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
-
-php artisan migrate
-
-php artisan make:migration create_posts_table
-
-php artisan migrate
-
-models
-php artisan make:model Post
-
-middleware
-- create custom middleware
-php artisan make:middleware PermissionMiddleware
-
-register middleware
--
-
-routes
-
-controllers
-
-- php artisan make:controller UsersController
-- php artisan make:controller PostsController
-- php artisan make:controller RolesController
-- php artisan make:controller PermissionsController
-
-requests
-- php artisan make:request StoreUserRequest
-- php artisan make:request UpdateUserRequest
-
-blade files
-
-create command to lookup all routes
-- php artisan make:command CreateRoutePermissionsCommand
-- php artisan permission:create-permission-routes
-
-seeder for default roles and create admin user
-php artisan make:seeder CreateAdminUserSeeder
-php artisan db:seed --class=CreateAdminUserSeeder
-
-
-
-*/

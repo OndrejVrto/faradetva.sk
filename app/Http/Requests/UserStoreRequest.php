@@ -24,9 +24,25 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users,email',
-            'nick' => 'required|unique:users,nick',
+            'nick' => ['required', 'unique:users,nick'],
+			'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+			'photo_avatar' => [
+				'required',
+				'file',
+				'mimes:jpg,bmp,png,jpeg,svg',
+				'dimensions:min_width=100,min_height=100',
+				'max:3000'
+			],
         ];
     }
+
+	public function messages()
+	{
+		return [
+			'photo_avatar.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
+		];
+	}
+
 }

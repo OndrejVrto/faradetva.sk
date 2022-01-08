@@ -4,36 +4,30 @@ namespace App\Models;
 
 use App\Models\News;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Support\Facades\Auth;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens;
 	use HasFactory;
 	use Notifiable;
 	use SoftDeletes;
 	use HasRoles;
+	use InteractsWithMedia;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
+	protected $table = 'users';
 
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
     protected $fillable = [
 		'nick',
         'email',
@@ -41,39 +35,38 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
-    protected $hidden = [
+	protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Get the News for the User.
-     */
     public function news()
     {
         return $this->hasMany(News::class);
     }
 
 
+	public function registerMediaConversions( Media $media = null ) : void
+	{
+		$this->addMediaConversion('crop')
+			->fit("crop", 100, 100);
+	}
+
+
+	public function getMediaFileNameAttribute()
+	{
+		return $this->getFirstMedia('avatar')->file_name ?? null;
+	}
+
 
     public function adminlte_image()
     {
-		// TODO Add user avatar
-        return 'http://fara.detva.adminlte/images/avatars/'.$this->nick.'.svg';
+		// TODO   N+1 Query
+		return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
     }
 
     public function adminlte_desc()
