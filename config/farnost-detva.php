@@ -93,9 +93,11 @@ return [
 		'users_description'        => 'Administrácia - správa sekcie: Užívateľ.',
 		'users_description_create' => 'Administrácia - Vytvorenie nového užívateľa',
 		'users_description_edit'   => 'Administrácia - Editácia užívateľa',
+		'users_description_show'   => 'Môžete si pozrieť detailné informácie uživateľa',
 		'users_header'             => 'Užívateľ',
 		'users_header_create'      => 'Nový užívateľ',
 		'users_header_edit'        => 'Úprava užívateľa',
+		'users_header_show'        => 'Profil',
 
 		//'s_title' => '',
 		//'s_description' => '',

@@ -70,9 +70,8 @@ return [
     'usermenu_header_class' => 'bg-backend',
     'usermenu_image' => true,
     'usermenu_desc' => true,
+    'usermenu_profile_url' => true,
 
-    'usermenu_profile_url' => false,
-	'profile_url' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -191,8 +190,9 @@ return [
     |
     */
 
-    'use_route_url' => true,
-    'dashboard_url' => 'home',
+    'use_route_url' => false,
+	'profile_url' => 'users.show',
+	'dashboard_url' => 'home',
     'logout_url' => 'logout',
 	'logout_method' => 'POST',
     'login_url' => 'login',

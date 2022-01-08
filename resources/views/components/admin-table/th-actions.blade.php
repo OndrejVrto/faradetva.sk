@@ -1,1 +1,4 @@
-<th scope="col" colspan="2" width="1%" class="text-center"></th>
+@props([
+	'colspan'=>"2",
+])
+<th scope="col" colspan="{{ $colspan }}" width="1%" class="text-center"></th>

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-
 use App\Models\Tag;
+
 use App\Models\News;
 use App\Models\NewsTag;
 use App\Models\Category;
+use App\Http\Helpers\DataFormater;
 use App\Http\Requests\NewsRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
 class NewsController extends Controller
@@ -59,7 +60,9 @@ class NewsController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('news_picture')) {
 			$news->clearMediaCollectionExcept('news_front_picture', $news->getFirstMedia());
-			$news->addMediaFromRequest('news_picture')->toMediaCollection('news_front_picture');
+			$news->addMediaFromRequest('news_picture')
+				->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+				->toMediaCollection('news_front_picture');
 		}
 
 		// notification and request
@@ -125,7 +128,9 @@ class NewsController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('news_picture')) {
 			$news->clearMediaCollectionExcept('news_front_picture', $news->getFirstMedia());
-			$news->addMediaFromRequest('news_picture')->toMediaCollection('news_front_picture');
+			$news->addMediaFromRequest('news_picture')
+					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+					->toMediaCollection('news_front_picture');
 		}
 
 

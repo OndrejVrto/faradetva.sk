@@ -1,7 +1,6 @@
 @props([
 	'controlerName' => '',
 	'columns' => 8,
-	'columnsSaveButton' => 4,
 	'files' => 'false',
 	'typeForm' => '',
 	'identificatorEdit' => null,
@@ -20,6 +19,7 @@
 	$linkActionEdit = route( $controlerName . '.update', $identificatorEdit);
 	$linkActionCreate = route( $controlerName . '.store');
 	$linkBack = route( $controlerName . '.index');
+	$linkEdit = route( $controlerName . '.edit', $identificatorEdit);
 @endphp
 
 <div class="row">
@@ -53,10 +53,25 @@
 
 					{{ $slot }}
 
-					<x-admin-form.save-button
-						linkBack="{{ $linkBack }}"
-						columnsSaveButton="{{ $columnsSaveButton }}"
-					/>
+					<div class="mt-3 d-flex justify-content-end">
+						<a href="{{ $linkBack }}" class="btn btn-outline-secondary px-5">
+							<i class="fas fa-reply mr-2"></i>
+							Späť
+						</a>
+						@if ( $typeForm == 'show')
+							@can('users.edit')
+								<a href="{{ $linkEdit }}" class="btn bg-gradient-primary px-5 ml-2">
+									<i class="fas fa-edit mr-2"></i>
+									Editovať
+								</a>
+							@endcan
+						@else
+							<button type="submit" class="btn bg-gradient-success px-5 ml-2">
+								<i class="fas fa-save mr-2"></i>
+								Uložiť
+							</button>
+						@endif
+					</div>
 
 				</form>
 			</div>

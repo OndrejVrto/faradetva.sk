@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-
 use App\Models\Testimonial;
-use App\Http\Requests\TestimonialRequest;
+
+use App\Http\Helpers\DataFormater;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\TestimonialRequest;
 
 class TestimonialController extends Controller
 {
@@ -51,7 +52,9 @@ class TestimonialController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo')) {
 			$testimonial->clearMediaCollectionExcept('testimonial', $testimonial->getFirstMedia());
-			$testimonial->addMediaFromRequest('photo')->toMediaCollection('testimonial');
+			$testimonial->addMediaFromRequest('photo')
+						->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+						->toMediaCollection('testimonial');
 		}
 
 
@@ -94,7 +97,9 @@ class TestimonialController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo')) {
 			$testimonial->clearMediaCollectionExcept('testimonial', $testimonial->getFirstMedia());
-			$testimonial->addMediaFromRequest('photo')->toMediaCollection('testimonial');
+			$testimonial->addMediaFromRequest('photo')
+						->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+						->toMediaCollection('testimonial');
 		}
 
 		$notification = array(

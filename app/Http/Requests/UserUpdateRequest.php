@@ -27,10 +27,25 @@ class UserUpdateRequest extends FormRequest
         $user = request()->route('user');
 
         return [
-            'name' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users,email,'.$user->id,
-            // 'username' => 'required|unique:users,username,'.$user->id,
-            'nick' => 'required|unique:users,nick,'.$user->id,
+			'nick' => ['required', 'unique:users,nick,'.$user->id],
+			'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+			'photo_avatar' => [
+				'nullable',
+				'file',
+				'mimes:jpg,bmp,png,jpeg,svg',
+				'dimensions:min_width=100,min_height=100',
+				'max:3000'
+			],
         ];
     }
+
+	public function messages()
+	{
+		return [
+			'photo_avatar.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
+		];
+	}
+
 }

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-
 use App\Models\Slider;
-use Illuminate\Support\Facades\Session;
+
+use App\Http\Helpers\DataFormater;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
+use Illuminate\Support\Facades\Session;
 
 class SliderController extends Controller
 {
@@ -50,7 +51,9 @@ class SliderController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo')) {
 			$slider->clearMediaCollectionExcept('slider', $slider->getFirstMedia());
-			$slider->addMediaFromRequest('photo')->toMediaCollection('slider');
+			$slider->addMediaFromRequest('photo')
+					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+					->toMediaCollection('slider');
 		}
 
 
@@ -93,7 +96,9 @@ class SliderController extends Controller
 		// Spatie media-collection
 		if ($request->hasFile('photo')) {
 			$slider->clearMediaCollectionExcept('slider', $slider->getFirstMedia());
-			$slider->addMediaFromRequest('photo')->toMediaCollection('slider');
+			$slider->addMediaFromRequest('photo')
+					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+					->toMediaCollection('slider');
 		}
 
 		$notification = array(

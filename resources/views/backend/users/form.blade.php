@@ -7,8 +7,7 @@
 @php
 	$controlerName = 'users';
 	$columns = 10;
-	$columnsSaveButton = 4;
-	$upload_files = true;
+	$upload_files = 'true';
 
 	$typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
 	if ( isset( $user ) ) {
@@ -21,8 +20,7 @@
 	}
 @endphp
 
-<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" columnsSaveButton="{{ $columnsSaveButton }}"
-				typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
+<x-admin-form 	controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
 				createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
 
 	<div class="form-row">
@@ -62,6 +60,45 @@
 		</div>
 	</div>
 
+
+	<div class="form-row">
+		<div class="col-6">
+
+			<x-adminlte-input
+				name="password"
+				label="Heslo"
+				{{-- type="password" --}}
+				placeholder="Vlož heslo ..."
+				enableOldSupport="false"
+				>
+				<x-slot name="prependSlot">
+					<div class="input-group-text bg-gradient-orange">
+						<i class="fas fa-unlock-alt"></i>
+					</div>
+				</x-slot>
+			</x-adminlte-input>
+
+		</div>
+		<div class="col-6">
+
+			<x-adminlte-input
+				name="password_confirmation"
+				label="Heslo potvrdenie"
+				{{-- type="password" --}}
+				placeholder="Zopakuj heslo ..."
+				enableOldSupport="false"
+				>
+				<x-slot name="prependSlot">
+					<div class="input-group-text bg-gradient-orange">
+						<i class="fas fa-unlock"></i>
+					</div>
+				</x-slot>
+			</x-adminlte-input>
+
+		</div>
+	</div>
+
+
 	<div class="form-row">
 		<div class="col-6">
 
@@ -84,9 +121,10 @@
 
 			<x-adminlte-input-file
 				class="border-right-none"
-				name="avatar"
+				name="photo_avatar"
 				label="Avatar"
-				placeholder="{{ $user->media_file_name ?? 'Vložiť avatara ..' }}">
+				placeholder="Vložiť avatara .."
+				>
 				<x-slot name="prependSlot">
 					<div class="input-group-text bg-gradient-orange">
 						<i class="fas fa-file-import"></i>
@@ -149,8 +187,8 @@
 		@foreach($permissions as $permission)
 			<div class="col text-break">
 				<input type="checkbox"
-					name="permission[{{ $permission->name }}]"
-					value="{{ $permission->name }}"
+					name="permission[{{ $permission->id }}]"
+					value="{{ $permission->id }}"
 					class='d-inline permission m-2'
 					{{ in_array($permission->id, $userPermissions)
 						? 'checked'

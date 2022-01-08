@@ -4,36 +4,28 @@ namespace App\Models;
 
 use App\Models\News;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Traits\HasRoles;
+use Spatie\MediaLibrary\HasMedia;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens;
 	use HasFactory;
 	use Notifiable;
 	use SoftDeletes;
 	use HasRoles;
+	use InteractsWithMedia;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
+	protected $table = 'users';
 
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
     protected $fillable = [
 		'nick',
         'email',
@@ -41,39 +33,39 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
-    protected $hidden = [
+	protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Get the News for the User.
-     */
+
+	public function setPasswordAttribute($value){
+		$this->attributes['password'] = bcrypt($value);
+	}
+
+
     public function news()
     {
         return $this->hasMany(News::class);
     }
 
 
+	public function registerMediaConversions( Media $media = null ) : void
+	{
+		$this->addMediaConversion('crop')
+			->fit("crop", 100, 100);
+		$this->addMediaConversion('crop-thumb')
+			->fit("crop", 40, 40);
+	}
+
 
     public function adminlte_image()
     {
-		// TODO Add user avatar
-        return 'http://fara.detva.adminlte/images/avatars/'.$this->nick.'.svg';
+		return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
     }
 
     public function adminlte_desc()
@@ -83,10 +75,7 @@ class User extends Authenticatable
 
     public function adminlte_profile_url()
     {
-		// TODO Route to user profil
-		// TODO Create Form - change user password
-
-        return 'admin.dashboard';
+        return route('users.show', $this->id);
     }
 
 }
