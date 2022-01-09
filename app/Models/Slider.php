@@ -75,5 +75,4 @@ class Slider extends Model implements HasMedia {
                 . ' '
                 .$this->heading_3;
     }
-
 }

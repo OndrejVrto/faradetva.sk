@@ -13,7 +13,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Priest extends Model implements HasMedia
 {
-
     use HasFactory;
     use SoftDeletes;
     use InteractsWithMedia;
@@ -87,6 +86,5 @@ class Priest extends Model implements HasMedia
     {
         return $this->first_name . ' ' . $this->last_name;
     }
-
 }
 

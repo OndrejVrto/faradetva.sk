@@ -46,5 +46,4 @@ class MinifiHtmlMiddleware
         return preg_replace($search, $replace, $htmlString);
 
     }
-
 }

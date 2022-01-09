@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Session;
 
 class BannerController extends Controller
 {
-
     public function index()
     {
         Session::remove('banner_old_input_checkbox');
@@ -86,5 +85,4 @@ class BannerController extends Controller
         );
         return redirect()->route('banners.index')->with($notification);
     }
-
 }

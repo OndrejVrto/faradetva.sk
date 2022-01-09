@@ -10,7 +10,6 @@ use App\Models\Category;
 
 class ArticleController extends Controller
 {
-
     public function index()
     {
         $articles = News::with('media', 'user')->get()->paginate(5);
@@ -26,5 +25,4 @@ class ArticleController extends Controller
 
         return view('frontend.articles.show', compact('one_news', 'last_news', 'all_categories', 'all_tags'));
     }
-
 }

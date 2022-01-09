@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsTag extends Model
 {
-
     use HasFactory;
 
     protected $table = 'news_tag';

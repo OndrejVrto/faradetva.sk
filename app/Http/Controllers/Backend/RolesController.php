@@ -11,7 +11,6 @@ use Spatie\Permission\Models\Permission;
 
 class RolesController extends Controller
 {
-
     public function index(Request $request)
     {
         $roles = Role::paginate(10);

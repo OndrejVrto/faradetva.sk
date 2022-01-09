@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Session;
 
 class PriestController extends Controller
 {
-
     public function index()
     {
         Session::remove('priest_old_input_checkbox');
@@ -86,5 +85,4 @@ class PriestController extends Controller
         );
         return redirect()->route('priests.index')->with($notification);
     }
-
 }

@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Session;
 
 class NewsController extends Controller
 {
-
     public function index()
     {
         Session::remove('news_old_input_checkbox');
@@ -116,5 +115,4 @@ class NewsController extends Controller
         );
         return redirect()->route('news.index')->with($notification);
     }
-
 }

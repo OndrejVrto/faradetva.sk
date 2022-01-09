@@ -12,7 +12,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Banner extends Model implements HasMedia
 {
-
     use HasFactory;
     use SoftDeletes;
     use InteractsWithMedia;
@@ -50,5 +49,4 @@ class Banner extends Model implements HasMedia
         $this->addMediaConversion('crop-thumb')
             ->fit("crop", 360, 90);
     }
-
 }

@@ -50,5 +50,4 @@ class DatabaseSeeder extends Seeder
         Testimonial::factory(5)->create();
 
     }
-
 }

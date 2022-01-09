@@ -17,7 +17,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class News extends Model implements HasMedia
 {
-
     use HasFactory;
     use SoftDeletes;
     use CreatedUpdatedBy;
@@ -105,5 +104,4 @@ class News extends Model implements HasMedia
             ->fit("crop", 170, 92);
 
     }
-
 }

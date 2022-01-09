@@ -11,7 +11,6 @@ use App\Http\Requests\TestimonialRequest;
 
 class TestimonialController extends Controller
 {
-
     public function index()
     {
         Session::remove('testimonial_old_input_checkbox');
@@ -86,5 +85,4 @@ class TestimonialController extends Controller
         );
         return redirect()->route('testimonials.index')->with($notification);
     }
-
 }

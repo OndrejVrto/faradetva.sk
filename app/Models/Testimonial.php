@@ -13,7 +13,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Testimonial extends Model implements HasMedia
 {
-
     use HasFactory;
     use SoftDeletes;
     use InteractsWithMedia;
@@ -44,6 +43,5 @@ class Testimonial extends Model implements HasMedia
     {
         return $this->getFirstMedia('testimonial')->file_name ?? null;
     }
-
 }
 

@@ -67,5 +67,4 @@ trait DataFormater {
         $filename = trim($filename, '.-');
         return $filename;
     }
-
 }

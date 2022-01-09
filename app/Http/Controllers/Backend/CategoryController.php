@@ -9,7 +9,6 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-
     public function index()
     {
 
@@ -73,5 +72,4 @@ class CategoryController extends Controller
         );
         return redirect()->route('categories.index')->with($notification);
     }
-
 }

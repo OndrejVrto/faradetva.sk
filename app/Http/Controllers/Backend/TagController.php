@@ -9,7 +9,6 @@ use App\Http\Requests\TagRequest;
 
 class TagController extends Controller
 {
-
     public function index()
     {
 
@@ -69,5 +68,4 @@ class TagController extends Controller
         );
         return redirect()->route('tags.index')->with($notification);
     }
-
 }

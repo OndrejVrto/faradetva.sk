@@ -62,5 +62,4 @@ class UserRequest extends FormRequest
             'photo_avatar.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
         ];
     }
-
 }

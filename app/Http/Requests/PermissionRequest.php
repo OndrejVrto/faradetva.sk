@@ -37,5 +37,4 @@ class PermissionRequest extends FormRequest
 
         return $rules;
     }
-
 }

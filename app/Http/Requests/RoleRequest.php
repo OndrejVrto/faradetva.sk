@@ -41,5 +41,4 @@ class RoleRequest extends FormRequest
 
         return $rules;
     }
-
 }

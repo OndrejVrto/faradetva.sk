@@ -48,5 +48,4 @@ trait CreatedUpdatedBy
         $user = User::whereId($value)->first();
         return $user->name;
     }
-
 }

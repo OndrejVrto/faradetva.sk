@@ -89,5 +89,4 @@ class NewsRequest extends FormRequest
         Session::put(['news_old_input_checkbox' => $state]);
 
     }
-
 }

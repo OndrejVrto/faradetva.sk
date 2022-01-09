@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tag extends Model
 {
-
     use HasFactory;
     use SoftDeletes;
     use CreatedUpdatedBy;
@@ -26,5 +25,4 @@ class Tag extends Model
     {
         return $this->belongsToMany(News::class);
     }
-
 }

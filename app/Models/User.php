@@ -72,5 +72,4 @@ class User extends Authenticatable implements HasMedia
     {
         return route('users.show', $this->id);
     }
-
 }

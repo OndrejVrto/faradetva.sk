@@ -65,5 +65,4 @@ class AppServiceProvider extends ServiceProvider
 
     //     View::addLocation($path);
     // }
-
 }

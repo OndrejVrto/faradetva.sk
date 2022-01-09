@@ -12,7 +12,6 @@ use Spatie\Permission\Models\Permission;
 
 class UsersController extends Controller
 {
-
     public function index()
     {
         $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);

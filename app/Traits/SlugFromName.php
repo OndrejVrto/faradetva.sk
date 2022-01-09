@@ -6,7 +6,6 @@ use Illuminate\Support\Str;
 
 trait SlugFromName
 {
-
     protected static function boot()
     {
         parent::boot();
@@ -19,5 +18,4 @@ trait SlugFromName
             $model->slug = Str::slug($model->name);
         });
     }
-
 }

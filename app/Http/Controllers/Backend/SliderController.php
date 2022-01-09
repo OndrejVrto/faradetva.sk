@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Session;
 
 class SliderController extends Controller
 {
-
     public function index()
     {
         Session::remove('slider_old_input_checkbox');
@@ -86,5 +85,4 @@ class SliderController extends Controller
         );
         return redirect()->route('sliders.index')->with($notification);
     }
-
 }
