@@ -28,14 +28,14 @@
 					createdInfo="{{ $created_info }}" updatedInfo="{{ $updated_info }}">
 
 		<div class="row d-flex justify-content-between">
-			<div class="col-md-4">
-				<dt>Avatar</dt>
+			<div class="col-4">
+				{{-- <dt>Avatar</dt> --}}
 					<dd>
 						<img class="profile-user-img img-fluid img-circle w-100" src="{{ $user->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100" }}" alt="Avatar: {{ $user->name }}">
 					</dd>
 
 			</div>
-			<div class="col-md-7">
+			<div class="col-7">
 
 				<dt>Meno</dt>
 					<dd>{{ $user->name }}</dd>
@@ -54,7 +54,7 @@
 						</ul>
 					</dd>
 				<dt>Povolenia:</dt>
-					<dd>{{ $user->permissions_count }}</dd>
+					<dd>{{ $user->permissions_count != 0 ? $user->permissions_count : 'žiadne' }}</dd>
 			</div>
 		</div>
 		@can('user.edit')

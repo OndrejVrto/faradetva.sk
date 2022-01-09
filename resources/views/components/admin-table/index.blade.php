@@ -39,13 +39,13 @@
 		<div class="row justify-content-end mb-3">
 
 			@isset($createNote)
-				<div class="col-7 mt-3 d-flex justify-content-start align-items-start">
+				<div class="col-md-8 mt-3 d-flex justify-content-start align-items-start">
 					<span class="pr-2 py-1 text-info hoverDiv"><i class="mr-2 fas fa-info-circle"></i>{{ $createNote }}</span>
 				</div>
 			@endisset
 
-			<div class="col-5 mt-n5 d-flex justify-content-end align-items-end">
-				<a href="{{ $createLink }}" class="btn bg-gradient-warning btn-flat" title="Vytvoriť">{{ $createBtn }}</a>
+			<div class="col-md-4 mt-lg-n5 d-flex justify-content-end align-items-end">
+				<a href="{{ $createLink }}" class="btn bg-gradient-warning btn-flat flex-fill flex-lg-grow-0" title="Vytvoriť">{{ $createBtn }}</a>
 			</div>
 		</div>
 
