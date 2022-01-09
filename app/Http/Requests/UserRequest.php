@@ -18,8 +18,7 @@ class UserRequest extends FormRequest
                 'nick' => ['required', 'unique:users,nick'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             ];
-        }
-        elseif (request()->routeIs('users.update')) {
+        } else if (request()->routeIs('users.update')) {
             // Let's get the route param by name to get the User object value
             $user = request()->route('user');
             $rules = [

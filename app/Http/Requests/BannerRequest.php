@@ -15,7 +15,7 @@ class BannerRequest extends FormRequest
 
         if (request()->routeIs('banners.store')) {
             $photoRule = 'required';
-        } elseif (request()->routeIs('banners.update')) {
+        } else if (request()->routeIs('banners.update')) {
             $photoRule = 'sometimes|nullable';
         }
 

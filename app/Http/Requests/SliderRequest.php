@@ -14,7 +14,7 @@ class SliderRequest extends FormRequest
     public function rules() {
         if (request()->routeIs('sliders.store')) {
             $photoRule = 'required';
-        } elseif (request()->routeIs('sliders.update')) {
+        } else if (request()->routeIs('sliders.update')) {
             $photoRule = 'sometimes|nullable';
         }
 
