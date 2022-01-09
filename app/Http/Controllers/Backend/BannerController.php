@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Session;
 class BannerController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
 	{
 		Session::remove('banner_old_input_checkbox');
@@ -26,23 +22,14 @@ class BannerController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('backend.banners.create');
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\BannerRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(BannerRequest $request)
     {
 		$validated = $request->validated();
@@ -65,12 +52,7 @@ class BannerController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Banner  $banner
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
 		$banner = Banner::whereId($id)->firstOrFail();
@@ -79,13 +61,7 @@ class BannerController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\BannerRequest  $request
-     * @param  \App\Models\Banner  $banner
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(BannerRequest $request, $id)
     {
 		$validated = $request->validated();
@@ -109,12 +85,7 @@ class BannerController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Banner  $banner
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
 		$banner = Banner::findOrFail($id);

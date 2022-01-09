@@ -15,11 +15,7 @@ use Illuminate\Support\Facades\Session;
 class NewsController extends Controller
 {
 
-	/**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
 		Session::remove('news_old_input_checkbox');
@@ -28,11 +24,7 @@ class NewsController extends Controller
 		return view('backend.news.index', compact('all_news'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
 		$categories = Category::all();
@@ -42,12 +34,7 @@ class NewsController extends Controller
 		return view('backend.news.create', compact('categories', 'tags', 'selectedTags'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(NewsRequest $request)
     {
 		$validated = $request->validated();
@@ -74,12 +61,7 @@ class NewsController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($slug)
     {
 		$one_news = News::whereSlug($slug)->with('media', 'category', 'tags', 'user')->firstOrFail();
@@ -92,12 +74,7 @@ class NewsController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($slug)
     {
 		$news = News::whereSlug($slug)->with('media')->firstOrFail();
@@ -108,13 +85,7 @@ class NewsController extends Controller
 		return view('backend.news.edit', compact('news', 'categories', 'tags', 'selectedTags'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\StoreTagRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(NewsRequest $request, $id)
     {
 
@@ -142,12 +113,7 @@ class NewsController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
 		$news = News::findOrFail($id);

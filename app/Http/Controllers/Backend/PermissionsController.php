@@ -2,98 +2,75 @@
 
 namespace App\Http\Controllers\Backend;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Route;
+use App\Http\Requests\PermissionRequest;
 use Spatie\Permission\Models\Permission;
 
 class PermissionsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+	public function index()
     {
         $permissions = Permission::all();
 
-        return view('backend.permissions.index', [
-            'permissions' => $permissions
-        ]);
+        return view( 'backend.permissions.index', compact( 'permissions' ) );
     }
 
-    /**
-     * Show form for creating permissions
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('backend.permissions.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+	public function store(PermissionRequest $request)
     {
-        $request->validate([
-            'name' => 'required|unique:users,name'
-        ]);
+		$validated = $request->validated();
+		$data = Arr::only($validated, ['name']);
 
-        Permission::create($request->only('name'));
+		Permission::create($data);
 
-        return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission created successfully.'));
+		$notification = array(
+			'message' => 'Nový typ povolenia bolo pridané!',
+			'alert-type' => 'success'
+		);
+
+		return redirect()->route('permissions.index')->with($notification);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  Permission  $post
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Permission $permission)
     {
-        return view('backend.permissions.edit', [
-            'permission' => $permission
-        ]);
+        return view( 'backend.permissions.edit', compact( 'permission' ) );
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Permission  $permission
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Permission $permission)
+
+    public function update(PermissionRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required|unique:permissions,name,'.$permission->id
-        ]);
+		$validated = $request->validated();
+		$data = Arr::only($validated, ['name']);
 
-        $permission->update($request->only('name'));
+		Permission::findOrFail($id)->update($data);
 
-        return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission updated successfully.'));
+		$notification = array(
+			'message' => 'Povolenie bolo upravené!',
+			'alert-type' => 'success'
+		);
+
+        return redirect()->route('permissions.index')->with($notification);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Permission $permission)
+
+    public function destroy($id)
     {
+		$permission = Permission::findOrFail($id);
         $permission->delete();
 
-        return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission deleted successfully.'));
+		$notification = array(
+			'message' => 'Povolenie bolo zmazané!',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('permissions.index')->with($notification);
     }
 }

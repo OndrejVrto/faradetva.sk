@@ -7,29 +7,21 @@ use Illuminate\Support\Arr;
 use App\Http\Helpers\DataFormater;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserStoreRequest;
-use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Permission;
 
 class UsersController extends Controller
 {
 
-	/**
-     * Display all users
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function index()
     {
         $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);
         return view('backend.users.index', compact('users'));
     }
 
-    /**
-     * Show form for creating user
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
 		$roles = Role::all();
@@ -40,15 +32,8 @@ class UsersController extends Controller
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    /**
-     * Store a newly created user
-     *
-     * @param User $user
-     * @param UserStoreRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(User $user, UserStoreRequest $request)
+
+    public function store(User $user, UserRequest $request)
     {
 		$validated = $request->validated();
 		$user->create($validated);
@@ -78,13 +63,7 @@ class UsersController extends Controller
     }
 
 
-    /**
-     * Show user data
-     *
-     * @param User $user
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
 		$user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
@@ -92,13 +71,7 @@ class UsersController extends Controller
 		return view('backend.users.show', compact( 'user' ) );
     }
 
-    /**
-     * Edit user data
-     *
-     * @param User $user
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(User $user)
     {
 		$roles = Role::all();
@@ -108,15 +81,8 @@ class UsersController extends Controller
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    /**
-     * Update user data
-     *
-     * @param User $user
-     * @param UserUpdateRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update(User $user, UserUpdateRequest $request)
+
+    public function update(User $user, UserRequest $request)
     {
 		// validation
 		$validated = $request->validated();
@@ -153,13 +119,7 @@ class UsersController extends Controller
         return redirect()->route('users.index')->with($notification);
     }
 
-    /**
-     * Delete user data
-     *
-     * @param User $user
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(User $user)
     {
         $user->delete();
