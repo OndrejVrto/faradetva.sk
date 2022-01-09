@@ -51,6 +51,13 @@
             @endforeach
 
         </div>
+
+        <!-- Paginator Start-->
+        <div class="row pt-2">
+            {{ $articles->onEachSide(1)->links() }}
+        </div>
+        <!-- Paginator end-->
+
     </div>
 </div>
 <!-- blog section End -->

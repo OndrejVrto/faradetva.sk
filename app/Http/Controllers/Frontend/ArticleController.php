@@ -11,7 +11,7 @@ use App\Models\Category;
 class ArticleController extends Controller
 {
     public function index() {
-        $articles = News::with('media', 'user')->paginate(5);
+        $articles = News::with('media', 'user')->paginate(9);
         return view('frontend.news.index', compact('articles'));
     }
 
