@@ -36,54 +36,44 @@ class News extends Model implements HasMedia
         'content'
     ];
 
-    public function getTeaserAttribute()
-    {
+    public function getTeaserAttribute() {
         return Str::words($this->content, 30, '...');
     }
 
-    public function getTeaserLightAttribute()
-    {
+    public function getTeaserLightAttribute() {
         return Str::words($this->content, 7, '...');
     }
 
-    public function getMediaFileNameAttribute()
-    {
+    public function getMediaFileNameAttribute() {
         return $this->getFirstMedia('news_front_picture')->file_name ?? null;
     }
 
-    public function getCreatedAttribute()
-    {
+    public function getCreatedAttribute() {
         return $this->created_at->format("d. M Y");
     }
 
-    public function getUpdatedAttribute()
-    {
+    public function getUpdatedAttribute() {
         return $this->updated_at->format("d. M Y");
     }
 
-    public function getPublishedAtAttribute($value)
-    {
+    public function getPublishedAtAttribute($value) {
 
         return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
     }
 
-    public function getUnpublishedAtAttribute($value)
-    {
+    public function getUnpublishedAtAttribute($value) {
         return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
     }
 
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function category()
-    {
+    public function category() {
         return $this->belongsTo(Category::class);
     }
 
-    public function tags()
-    {
+    public function tags() {
         return $this->belongsToMany(Tag::class);
     }
 

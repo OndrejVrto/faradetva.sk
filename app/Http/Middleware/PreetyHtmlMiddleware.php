@@ -15,8 +15,7 @@ class PreetyHtmlMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
-    {
+    public function handle(Request $request, Closure $next) {
         $response = $next($request);
 
         $code = $response->getStatusCode();

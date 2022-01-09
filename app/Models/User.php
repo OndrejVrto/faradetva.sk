@@ -45,8 +45,7 @@ class User extends Authenticatable implements HasMedia
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function news()
-    {
+    public function news() {
         return $this->hasMany(News::class);
     }
 
@@ -58,18 +57,15 @@ class User extends Authenticatable implements HasMedia
             ->fit("crop", 40, 40);
     }
 
-    public function adminlte_image()
-    {
+    public function adminlte_image() {
         return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
     }
 
-    public function adminlte_desc()
-    {
+    public function adminlte_desc() {
         return $this->email;
     }
 
-    public function adminlte_profile_url()
-    {
+    public function adminlte_profile_url() {
         return route('users.show', $this->id);
     }
 }

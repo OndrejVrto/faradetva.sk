@@ -59,8 +59,7 @@ class BeautifyHtml
     //for tags that need a line of whitespace before them
     private $extra_liners = array('head', 'body', '/html');
 
-    public function __construct($options = array(), $css_beautify = null, $js_beautify = null)
-    {
+    public function __construct($options = array(), $css_beautify = null, $js_beautify = null) {
         $this->set_options($options);
 
         $this->css_beautify = ($css_beautify && is_callable($css_beautify)) ? $css_beautify : false;
@@ -87,8 +86,7 @@ class BeautifyHtml
         $this->indent_string = str_repeat($this->options['indent_char'], $this->options['indent_size']);
     }
 
-    public function set_options($options)
-    {
+    public function set_options($options) {
         if (isset($options['indent_inner_html'])) {
             $this->options['indent_inner_html'] = (bool) $options['indent_inner_html'];
         } else {
@@ -142,8 +140,7 @@ class BeautifyHtml
         }
     }
 
-    private function traverse_whitespace()
-    {
+    private function traverse_whitespace() {
         $input_char = isset($this->input[$this->pos]) ? $this->input[$this->pos] : '';
         if ($input_char && in_array($input_char, $this->whitespace)) {
 
@@ -165,8 +162,7 @@ class BeautifyHtml
     }
 
     //function to capture regular content between tags
-    private function get_content()
-    {
+    private function get_content() {
         $input_char = '';
         $content = array();
         $space = false; //if a space is needed
@@ -205,8 +201,7 @@ class BeautifyHtml
     }
 
     //get the full content of a script or style to pass to js_beautify
-    private function get_contents_to($name)
-    {
+    private function get_contents_to($name) {
         if ($this->pos === $this->input_length) {
             return array('', 'TK_EOF');
         }
@@ -226,8 +221,7 @@ class BeautifyHtml
     }
 
     //function to record a tag and its parent in this.tags Object
-    private function record_tag($tag)
-    {
+    private function record_tag($tag) {
         if (isset($this->tags[$tag . 'count'])) { //check for the existence of this tag type
             $this->tags[$tag . 'count']++;
             $this->tags[$tag . $this->tags[$tag . 'count']] = $this->indent_level; //and record the present indent level
@@ -240,8 +234,7 @@ class BeautifyHtml
     }
 
     //function to retrieve the opening tag to the corresponding closer
-    private function retrieve_tag($tag)
-    {
+    private function retrieve_tag($tag) {
         if (isset($this->tags[$tag . 'count'])) { //if the openener is not in the Object we ignore it
             $temp_parent = $this->tags['parent']; //check to see if it's a closable tag.
             while ($temp_parent) { //till we reach '' (the initial value);
@@ -264,8 +257,7 @@ class BeautifyHtml
         }
     }
 
-    private function indent_to_tag($tag)
-    {
+    private function indent_to_tag($tag) {
         // Match the indentation level to the last use of this tag, but don't remove it.
         if (!$this->tags[$tag . 'count']) {
             return;
@@ -283,8 +275,7 @@ class BeautifyHtml
     }
 
     //function to get a full tag and parse its type
-    private function get_tag($peek = false)
-    {
+    private function get_tag($peek = false) {
         $input_char = '';
         $content = array();
         $comment = '';
@@ -438,8 +429,7 @@ class BeautifyHtml
     }
 
     //function to return comment content in its entirety
-    private function get_comment($start_pos)
-    {
+    private function get_comment($start_pos) {
         // this is will have very poor perf, but will work for now.
         $comment = '';
         $delimiter = '>';
@@ -483,8 +473,7 @@ class BeautifyHtml
     }
 
     //function to return unformatted content in its entirety
-    private function get_unformatted($delimiter, $orig_tag = false)
-    {
+    private function get_unformatted($delimiter, $orig_tag = false) {
         if ($orig_tag && strpos(strtolower($orig_tag), $delimiter) !== false) {
             return '';
         }
@@ -546,8 +535,7 @@ class BeautifyHtml
     }
 
     //initial handler for token-retrieval
-    private function get_token()
-    {
+    private function get_token() {
         if ($this->last_token === 'TK_TAG_SCRIPT' || $this->last_token === 'TK_TAG_STYLE') { //check if we need to format javascript
             $type = substr($this->last_token, 7);
             $token = $this->get_contents_to($type);
@@ -578,8 +566,7 @@ class BeautifyHtml
         }
     }
 
-    private function get_full_indent($level)
-    {
+    private function get_full_indent($level) {
         $level = $this->indent_level + $level || 0;
         if ($level < 1) {
             return '';
@@ -588,8 +575,7 @@ class BeautifyHtml
         return str_repeat($this->indent_string, $level);
     }
 
-    private function is_unformatted($tag_check)
-    {
+    private function is_unformatted($tag_check) {
         //is this an HTML5 block-level link?
         if (!in_array($tag_check, $this->options['unformatted'])) {
             return false;
@@ -617,8 +603,7 @@ class BeautifyHtml
         }
     }
 
-    private function print_newline($force, &$arr)
-    {
+    private function print_newline($force, &$arr) {
         $this->line_char_count = 0;
         if (!$arr || !count($arr)) {
             return;
@@ -628,16 +613,14 @@ class BeautifyHtml
         }
     }
 
-    private function print_indentation(&$arr)
-    {
+    private function print_indentation(&$arr) {
         for ($i = 0; $i < $this->indent_level; $i++) {
             $arr[] = $this->indent_string;
             $this->line_char_count += strlen($this->indent_string);
         }
     }
 
-    private function print_token($text)
-    {
+    private function print_token($text) {
         if ($text || $text !== '') {
             if (count($this->output) && $this->output[count($this->output) - 1] === "\n") {
                 $this->print_indentation($this->output);
@@ -647,8 +630,7 @@ class BeautifyHtml
         $this->print_token_raw($text);
     }
 
-    private function print_token_raw($text)
-    {
+    private function print_token_raw($text) {
         if ($text && $text !== '') {
             if (strlen($text) > 1 && $text[strlen($text) - 1] === "\n") {
                 // unformatted tags can grab newlines as their last character
@@ -665,20 +647,17 @@ class BeautifyHtml
         $this->newlines = 0;
     }
 
-    private function indent()
-    {
+    private function indent() {
         $this->indent_level++;
     }
 
-    private function unindent()
-    {
+    private function unindent() {
         if ($this->indent_level > 0) {
             $this->indent_level--;
         }
     }
 
-    public function beautify($input)
-    {
+    public function beautify($input) {
         $this->input = $input; //gets the input for the Parser
         $this->input_length = strlen($this->input);
         $this->output = array();

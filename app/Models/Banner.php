@@ -22,8 +22,7 @@ class Banner extends Model implements HasMedia
         'title',
     ];
 
-    public function getMediaFileNameAttribute()
-    {
+    public function getMediaFileNameAttribute() {
         return $this->getFirstMedia('banner')->file_name ?? null;
     }
 

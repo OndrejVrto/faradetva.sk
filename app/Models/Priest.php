@@ -30,8 +30,7 @@ class Priest extends Model implements HasMedia
         'description',
     ];
 
-    protected static function boot()
-    {
+    protected static function boot() {
         parent::boot();
 
         static::creating(function ($priest) {
@@ -52,29 +51,24 @@ class Priest extends Model implements HasMedia
             ->fit("crop", 60, 80);
     }
 
-    public function getMediaFileNameAttribute()
-    {
+    public function getMediaFileNameAttribute() {
         return $this->getFirstMedia('priest')->file_name ?? null;
     }
 
-    public function getFullNameTitlesAttribute ()
-    {
+    public function getFullNameTitlesAttribute () {
         return $this->getFullNameWithTitles();
     }
 
-    public function getPhoneDigitsAttribute ()
-    {
+    public function getPhoneDigitsAttribute () {
         $remove_plus = preg_replace("/^\+/", "00", $this->phone );
         return preg_replace("/[^0-9]/", "", $remove_plus );
     }
 
-    public function getFullNameAttribute ()
-    {
+    public function getFullNameAttribute () {
         return $this->getFullName();
     }
 
-    private function getFullNameWithTitles()
-    {
+    private function getFullNameWithTitles() {
         $name = isset($this->titles_before) ? $this->titles_before . ' ' : '';
         $name .= $this->getFullName();
         $name .= isset($this->titles_after) ? ', ' . $this->titles_after : '';
@@ -82,8 +76,7 @@ class Priest extends Model implements HasMedia
         return trim($name);
     }
 
-    private function getFullName()
-    {
+    private function getFullName() {
         return $this->first_name . ' ' . $this->last_name;
     }
 }

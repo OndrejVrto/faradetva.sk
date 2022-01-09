@@ -11,8 +11,7 @@ class SingleWord implements Rule
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         //
     }
 
@@ -23,8 +22,7 @@ class SingleWord implements Rule
      * @param  mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
-    {
+    public function passes($attribute, $value) {
         return is_string($value) && ! preg_match('/\s/u', $value);
     }
 
@@ -33,8 +31,7 @@ class SingleWord implements Rule
      *
      * @return string
      */
-    public function message()
-    {
+    public function message() {
         return 'Pole môže obsahovať len jediné slovo.';
     }
 }

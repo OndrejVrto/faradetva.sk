@@ -12,8 +12,7 @@ class UserRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -22,8 +21,7 @@ class UserRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
         if (request()->routeIs('users.store'))
         {
             $rules = [
@@ -31,8 +29,7 @@ class UserRequest extends FormRequest
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             ];
         }
-        elseif (request()->routeIs('users.update'))
-        {
+        elseif (request()->routeIs('users.update')) {
             // Let's get the route param by name to get the User object value
             $user = request()->route('user');
             $rules = [
@@ -56,8 +53,7 @@ class UserRequest extends FormRequest
         return $rules;
     }
 
-    public function messages()
-    {
+    public function messages() {
         return [
             'photo_avatar.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
         ];

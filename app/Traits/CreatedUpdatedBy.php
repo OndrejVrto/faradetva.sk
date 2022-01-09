@@ -6,8 +6,7 @@ use App\Models\User;
 
 trait CreatedUpdatedBy
 {
-    public static function bootCreatedUpdatedBy()
-    {
+    public static function bootCreatedUpdatedBy() {
         // parent::boot();
         // updating created_by and updated_by when model is created
         static::creating(function ($model) {
@@ -27,24 +26,20 @@ trait CreatedUpdatedBy
         });
     }
 
-    public function getCreatedInfoAttribute()
-    {
+    public function getCreatedInfoAttribute() {
         return date('d. m. Y \o H:i', strtotime($this->created_at) );
     }
 
-    public function getUpdatedInfoAttribute()
-    {
+    public function getUpdatedInfoAttribute() {
         return date('d. m. Y \o H:i', strtotime($this->updated_at) );
     }
 
-    public function getCreatedByAttribute($value)
-    {
+    public function getCreatedByAttribute($value) {
         $user = User::whereId($value)->first();
         return $user->name;
     }
 
-    public function getUpdatedByAttribute($value)
-    {
+    public function getUpdatedByAttribute($value) {
         $user = User::whereId($value)->first();
         return $user->name;
     }

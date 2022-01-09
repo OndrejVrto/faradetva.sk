@@ -11,22 +11,19 @@ use Spatie\Permission\Models\Permission;
 
 class RolesController extends Controller
 {
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         $roles = Role::paginate(10);
 
         return view('backend.roles.index', compact( 'roles' ) );
     }
 
-    public function create()
-    {
+    public function create() {
         $permissions = Permission::all();
         $rolePermissions = [];
         return view('backend.roles.create', compact('permissions', 'rolePermissions'));
     }
 
-    public function store(RoleRequest $request)
-    {
+    public function store(RoleRequest $request) {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
@@ -41,16 +38,14 @@ class RolesController extends Controller
         return redirect()->route('roles.index')->with($notification);
     }
 
-    public function edit(Role $role)
-    {
+    public function edit(Role $role) {
         $rolePermissions = $role->permissions->pluck('name')->toArray();
         $permissions = Permission::get();
 
         return view('backend.roles.edit', compact('role', 'rolePermissions', 'permissions'));
     }
 
-    public function update(RoleRequest $request, $id)
-    {
+    public function update(RoleRequest $request, $id) {
 
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
@@ -67,8 +62,7 @@ class RolesController extends Controller
         return redirect()->route('roles.index')->with($notification);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $role = Role::findOrFail($id);
         $role->delete();
 

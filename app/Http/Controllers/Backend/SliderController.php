@@ -11,21 +11,18 @@ use Illuminate\Support\Facades\Session;
 
 class SliderController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         Session::remove('slider_old_input_checkbox');
 
         $sliders = Slider::latest('updated_at')->with('media')->paginate(5);
         return view('backend.sliders.index', compact('sliders'));
     }
 
-    public function create()
-    {
+    public function create() {
         return view('backend.sliders.create');
     }
 
-    public function store(SliderRequest $request)
-    {
+    public function store(SliderRequest $request) {
         $validated = $request->validated();
         $slider = Slider::create($validated);
 
@@ -44,15 +41,13 @@ class SliderController extends Controller
         return redirect()->route('sliders.index')->with($notification);
     }
 
-    public function edit($id)
-    {
+    public function edit($id) {
         $slider = Slider::whereId($id)->firstOrFail();
 
         return view('backend.sliders.edit', compact('slider'));
     }
 
-    public function update(SliderRequest $request, $id)
-    {
+    public function update(SliderRequest $request, $id) {
         $validated = $request->validated();
 
         $slider = Slider::findOrFail($id);
@@ -73,8 +68,7 @@ class SliderController extends Controller
         return redirect()->route('sliders.index')->with($notification);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $slider = Slider::findOrFail($id);
         $slider->delete();
         $slider->clearMediaCollection('slider');

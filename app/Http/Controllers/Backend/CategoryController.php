@@ -9,20 +9,17 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    public function index()
-    {
+    public function index() {
 
         $categories = Category::latest()->paginate(10);
         return view('backend.categories.index', compact('categories'));
     }
 
-    public function create()
-    {
+    public function create() {
         return view('backend.categories.create');
     }
 
-    public function store(CategoryRequest $request)
-    {
+    public function store(CategoryRequest $request) {
 
         $validated = $request->validated();
 
@@ -36,8 +33,7 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with($notification);
     }
 
-    public function edit( $slug )
-    {
+    public function edit( $slug ) {
 
         $category = Category::whereSlug($slug)->firstOrFail();
 
@@ -45,8 +41,7 @@ class CategoryController extends Controller
 
     }
 
-    public function update(CategoryRequest $request, $id)
-    {
+    public function update(CategoryRequest $request, $id) {
 
         $validated = $request->validated();
 
@@ -61,8 +56,7 @@ class CategoryController extends Controller
 
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $category = Category::findOrFail($id);
         $category->delete();
 

@@ -11,21 +11,18 @@ use Illuminate\Support\Facades\Session;
 
 class BannerController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         Session::remove('banner_old_input_checkbox');
 
         $banners = Banner::latest('updated_at')->with('media')->paginate(5);
         return view('backend.banners.index', compact('banners'));
     }
 
-    public function create()
-    {
+    public function create() {
         return view('backend.banners.create');
     }
 
-    public function store(BannerRequest $request)
-    {
+    public function store(BannerRequest $request) {
         $validated = $request->validated();
         $banner = Banner::create($validated);
 
@@ -44,15 +41,13 @@ class BannerController extends Controller
         return redirect()->route('banners.index')->with($notification);
     }
 
-    public function edit($id)
-    {
+    public function edit($id) {
         $banner = Banner::whereId($id)->firstOrFail();
 
         return view('backend.banners.edit', compact('banner'));
     }
 
-    public function update(BannerRequest $request, $id)
-    {
+    public function update(BannerRequest $request, $id) {
         $validated = $request->validated();
 
         $banner = Banner::findOrFail($id);
@@ -73,8 +68,7 @@ class BannerController extends Controller
         return redirect()->route('banners.index')->with($notification);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $banner = Banner::findOrFail($id);
         $banner->delete();
         $banner->clearMediaCollection('banner');

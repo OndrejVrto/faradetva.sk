@@ -46,8 +46,7 @@ Route::get('/clanok/{slug}', [ArticleController::class, 'show'])->name('article.
 Route::get('/search/{search?}', [SearchController::class, 'search'] )->name('search');
 
 /** BackEnd Routes */
-Route::middleware(['auth', 'permission'])->prefix('admin')->group( function()
-{
+Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::resource('news', NewsController::class, ['except' => 'show']);

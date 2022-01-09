@@ -14,8 +14,7 @@ class NewsRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -24,8 +23,7 @@ class NewsRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
 
         if (request()->routeIs('news.store')) {
             $imageRule = 'required';
@@ -67,16 +65,14 @@ class NewsRequest extends FormRequest
 
     }
 
-    public function messages()
-    {
+    public function messages() {
         return [
             'news_picture.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
             'unpublished_at.after' => 'Dátum a čas musí byť väčší ako je v poli: Publikovať Od',
         ];
     }
 
-    protected function prepareForValidation()
-    {
+    protected function prepareForValidation() {
         $state = $this->active ? 1 : 0;
 
         $this->merge([

@@ -25,8 +25,7 @@ class Slider extends Model implements HasMedia {
         'heading_3',
     ];
 
-    public function getMediaFileNameAttribute()
-    {
+    public function getMediaFileNameAttribute() {
         return $this->getFirstMedia('slider')->file_name ?? null;
     }
 
@@ -52,23 +51,19 @@ class Slider extends Model implements HasMedia {
             ->fit("crop", 192, 80);
     }
 
-    public function getFullHeadingAttribute()
-    {
+    public function getFullHeadingAttribute() {
         return $this->fullHeading();
     }
 
-    public function getTeaserAttribute()
-    {
+    public function getTeaserAttribute() {
         return Str::words($this->fullHeading(), 30, '...');
     }
 
-    public function getBreadcrumbTeaserAttribute()
-    {
+    public function getBreadcrumbTeaserAttribute() {
         return Str::words($this->fullHeading(), 6, '...');
     }
 
-    private function fullHeading()
-    {
+    private function fullHeading() {
         return     $this->heading_1
                 . ' '
                 .$this->heading_2

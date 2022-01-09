@@ -12,8 +12,7 @@ class PermissionRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -22,14 +21,11 @@ class PermissionRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-        if (request()->routeIs('permissions.store'))
+    public function rules() {) {f (request()->routeIs('permissions.store'))
         {
             $rules = ['name' => 'required|unique:users_permissions,name'];
         }
-        elseif (request()->routeIs('permissions.update'))
-        {
+        elseif (request()->routeIs('permissions.update')) {
             $rules = ['name' => 'required',
                         Rule::unique('users_permissions', 'name')->ignore($this->permission)
                     ];

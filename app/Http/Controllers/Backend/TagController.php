@@ -9,20 +9,17 @@ use App\Http\Requests\TagRequest;
 
 class TagController extends Controller
 {
-    public function index()
-    {
+    public function index() {
 
         $tags = Tag::latest()->paginate(10);
         return view('backend.tags.index', compact('tags'));
     }
 
-    public function create()
-    {
+    public function create() {
         return view('backend.tags.create');
     }
 
-    public function store(TagRequest $request)
-    {
+    public function store(TagRequest $request) {
 
         $validated = $request->validated();
 
@@ -35,15 +32,13 @@ class TagController extends Controller
         return redirect()->route('tags.index')->with($notification);
     }
 
-    public function edit($slug)
-    {
+    public function edit($slug) {
         $tag = Tag::whereSlug($slug)->firstOrFail();
 
         return view('backend.tags.edit', compact('tag'));
     }
 
-    public function update(TagRequest $request, $id)
-    {
+    public function update(TagRequest $request, $id) {
 
         $validated = $request->validated();
 
@@ -57,8 +52,7 @@ class TagController extends Controller
 
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $tag = Tag::findOrFail($id);
         $tag->delete();
 

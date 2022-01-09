@@ -12,8 +12,7 @@ class RoleRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -22,8 +21,7 @@ class RoleRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
         if (request()->routeIs('roles.store'))
         {
             $rules = [
@@ -31,8 +29,7 @@ class RoleRequest extends FormRequest
                 'permission' => 'required',
             ];
         }
-        elseif (request()->routeIs('roles.update'))
-        {
+        elseif (request()->routeIs('roles.update')) {
             $rules = [
                 'name' => ['required',    Rule::unique('users_roles', 'name')->ignore($this->role)],
                 'permission' => 'required',

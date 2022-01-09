@@ -12,14 +12,12 @@ use Spatie\Permission\Models\Permission;
 
 class UsersController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);
         return view('backend.users.index', compact('users'));
     }
 
-    public function create()
-    {
+    public function create() {
         $roles = Role::all();
         $userRoles = [];
         $permissions = Permission::all();
@@ -28,8 +26,7 @@ class UsersController extends Controller
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function store(User $user, UserRequest $request)
-    {
+    public function store(User $user, UserRequest $request) {
         $validated = $request->validated();
         $user->create($validated);
 
@@ -57,15 +54,13 @@ class UsersController extends Controller
         return redirect()->route('users.index')->with($notification);
     }
 
-    public function show($id)
-    {
+    public function show($id) {
         $user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
 
         return view('backend.users.show', compact( 'user' ) );
     }
 
-    public function edit(User $user)
-    {
+    public function edit(User $user) {
         $roles = Role::all();
         $userRoles = $user->roles->pluck('id')->toArray();
         $permissions = Permission::all();
@@ -73,14 +68,12 @@ class UsersController extends Controller
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function update(User $user, UserRequest $request)
-    {
+    public function update(User $user, UserRequest $request) {
         // validation
         $validated = $request->validated();
 
         // if no password is entered, it is removed from the request
-        if( ! $request->filled('password') )
-        {
+        if( ! $request->filled('password') ) {
             $validated = Arr::except($validated, ['password']);
         }
 
@@ -110,8 +103,7 @@ class UsersController extends Controller
         return redirect()->route('users.index')->with($notification);
     }
 
-    public function destroy(User $user)
-    {
+    public function destroy(User $user) {
         $user->delete();
 
         $notification = array(

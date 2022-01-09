@@ -11,21 +11,18 @@ use Illuminate\Support\Facades\Session;
 
 class PriestController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         Session::remove('priest_old_input_checkbox');
 
         $priests = Priest::latest()->with('media')->paginate(5);
         return view('backend.priests.index', compact('priests'));
     }
 
-    public function create()
-    {
+    public function create() {
         return view('backend.priests.create');
     }
 
-    public function store(PriestRequest $request)
-    {
+    public function store(PriestRequest $request) {
         $validated = $request->validated();
         $priest = Priest::create($validated);
 
@@ -44,15 +41,13 @@ class PriestController extends Controller
         return redirect()->route('priests.index')->with($notification);
     }
 
-    public function edit($slug)
-    {
+    public function edit($slug) {
         $priest = Priest::whereSlug($slug)->firstOrFail();
 
         return view('backend.priests.edit', compact('priest'));
     }
 
-    public function update(PriestRequest $request, $id)
-    {
+    public function update(PriestRequest $request, $id) {
         $validated = $request->validated();
 
         $priest = Priest::findOrFail($id);
@@ -73,8 +68,7 @@ class PriestController extends Controller
         return redirect()->route('priests.index')->with($notification);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $priest = Priest::findOrFail($id);
         $priest->delete();
         $priest->clearMediaCollection('priest');

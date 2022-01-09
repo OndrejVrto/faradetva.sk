@@ -16,8 +16,7 @@ class DateTimeAfterNow implements Rule
      *
      * @return void
      */
-    public function __construct($timezone)
-    {
+    public function __construct($timezone) {
         $this->user_timezone = $timezone;
     }
 
@@ -28,8 +27,7 @@ class DateTimeAfterNow implements Rule
      * @param  mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
-    {
+    public function passes($attribute, $value) {
         $app_timezone = Config::get('app.timezone');
 
         $nowInPrague = Carbon::now(new DateTimeZone($app_timezone));
@@ -44,8 +42,7 @@ class DateTimeAfterNow implements Rule
      *
      * @return string
      */
-    public function message()
-    {
+    public function message() {
         return 'Zvolený čas musí byť v "budúcnosti".';
     }
 }

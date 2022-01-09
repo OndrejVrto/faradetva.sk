@@ -15,8 +15,7 @@ class PermissionMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $permission = null, $guard = null)
-    {
+    public function handle($request, Closure $next, $permission = null, $guard = null) {
         $authGuard = app('auth')->guard($guard);
 
         if ($authGuard->guest()) {

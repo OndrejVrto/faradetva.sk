@@ -11,9 +11,7 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function search(Request $request, $search = null)
-    {
-        if ( is_null($search) )
+    public function search(Request $request, $search = null) {) {f ( is_null($search) )
         {
             $news = News::with('media', 'user')->get();
         } else {

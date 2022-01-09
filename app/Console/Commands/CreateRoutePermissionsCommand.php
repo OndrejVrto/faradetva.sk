@@ -27,8 +27,7 @@ class CreateRoutePermissionsCommand extends Command
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
     }
 
@@ -37,20 +36,16 @@ class CreateRoutePermissionsCommand extends Command
      *
      * @return int
      */
-    public function handle()
-    {
+    public function handle() {
         $routes = Route::getRoutes()->getRoutes();
 
-        foreach ($routes as $route)
-        {
+        foreach ($routes as $route) {
             $routeName = $route->getName();
-            if ($routeName != '')
-            {
-                foreach ($route->getAction()['middleware'] as $midleware)
-                {
 
-                    if($midleware == 'permission')
-                    {
+            if ($routeName != '') {
+                foreach ($route->getAction()['middleware'] as $midleware) {
+
+                    if($midleware == 'permission') {
                         $permission = Permission::where('name', $routeName)->first();
                         if (is_null($permission)) {
                             $this->line('Create permissions: '.$routeName);

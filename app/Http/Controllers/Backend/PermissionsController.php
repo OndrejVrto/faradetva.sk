@@ -9,20 +9,17 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionsController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         $permissions = Permission::all();
 
         return view( 'backend.permissions.index', compact( 'permissions' ) );
     }
 
-    public function create()
-    {
+    public function create() {
         return view('backend.permissions.create');
     }
 
-    public function store(PermissionRequest $request)
-    {
+    public function store(PermissionRequest $request) {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
@@ -36,13 +33,11 @@ class PermissionsController extends Controller
         return redirect()->route('permissions.index')->with($notification);
     }
 
-    public function edit(Permission $permission)
-    {
+    public function edit(Permission $permission) {
         return view( 'backend.permissions.edit', compact( 'permission' ) );
     }
 
-    public function update(PermissionRequest $request, $id)
-    {
+    public function update(PermissionRequest $request, $id) {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
@@ -56,8 +51,7 @@ class PermissionsController extends Controller
         return redirect()->route('permissions.index')->with($notification);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $permission = Permission::findOrFail($id);
         $permission->delete();
 

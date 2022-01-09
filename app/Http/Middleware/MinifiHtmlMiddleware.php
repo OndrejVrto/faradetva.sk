@@ -14,8 +14,7 @@ class MinifiHtmlMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
-    {
+    public function handle(Request $request, Closure $next) {
         $response = $next($request);
         $content = $response->getContent();
 
@@ -27,8 +26,7 @@ class MinifiHtmlMiddleware
 
     }
 
-    private function minifi($htmlString)
-    {
+    private function minifi($htmlString) {
         $search = array(
             '/\>[^\S ]+/s',     // strip whitespaces after tags, except space
             '/[^\S ]+\</s',     // strip whitespaces before tags, except space

@@ -11,8 +11,7 @@ use App\Models\Testimonial;
 
 class StaticPagesController extends Controller
 {
-    public function home()
-    {
+    public function home() {
         $priests = Priest::whereActive(1)->with('media')->get();
 
         $countTestimonial = Testimonial::whereActive(1)->count();
@@ -30,14 +29,12 @@ class StaticPagesController extends Controller
         ));
     }
 
-    public function contact()
-    {
+    public function contact() {
         $priests = Priest::whereActive(1)->with('media')->get();
         return view('frontend.contact.index', compact('priests'));
     }
 
-    public function francisco()
-    {
+    public function francisco() {
         $banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
         return view('frontend.static.patron-francisco-assisi', compact('banner'));
     }

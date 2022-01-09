@@ -6,8 +6,7 @@ use Illuminate\Support\Str;
 
 trait SlugFromName
 {
-    protected static function boot()
-    {
+    protected static function boot() {
         parent::boot();
 
         static::creating(function ($model) {

@@ -39,8 +39,7 @@ class Testimonial extends Model implements HasMedia
             ->fit("crop", 60, 60);
     }
 
-    public function getMediaFileNameAttribute()
-    {
+    public function getMediaFileNameAttribute() {
         return $this->getFirstMedia('testimonial')->file_name ?? null;
     }
 }

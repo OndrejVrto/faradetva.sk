@@ -11,21 +11,18 @@ use App\Http\Requests\TestimonialRequest;
 
 class TestimonialController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         Session::remove('testimonial_old_input_checkbox');
 
         $testimonials = Testimonial::latest('updated_at')->with('media')->paginate(6);
         return view('backend.testimonials.index', compact('testimonials'));
     }
 
-    public function create()
-    {
+    public function create() {
         return view('backend.testimonials.create');
     }
 
-    public function store(TestimonialRequest $request)
-    {
+    public function store(TestimonialRequest $request) {
         $validated = $request->validated();
         $testimonial = Testimonial::create($validated);
 
@@ -44,15 +41,13 @@ class TestimonialController extends Controller
         return redirect()->route('testimonials.index')->with($notification);
     }
 
-    public function edit($slug)
-    {
+    public function edit($slug) {
         $testimonial = Testimonial::whereSlug($slug)->firstOrFail();
 
         return view('backend.testimonials.edit', compact('testimonial'));
     }
 
-    public function update(TestimonialRequest $request, $id)
-    {
+    public function update(TestimonialRequest $request, $id) {
         $validated = $request->validated();
 
         $testimonial = Testimonial::findOrFail($id);
@@ -73,8 +68,7 @@ class TestimonialController extends Controller
         return redirect()->route('testimonials.index')->with($notification);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $testimonial = Testimonial::findOrFail($id);
         $testimonial->delete();
         $testimonial->clearMediaCollection('testimonial');

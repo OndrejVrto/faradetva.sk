@@ -12,8 +12,7 @@ class PriestRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -22,8 +21,7 @@ class PriestRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
         if (request()->routeIs('priests.store')) {
             $photoRule = 'required';
         } elseif (request()->routeIs('priests.update')) {
@@ -49,15 +47,13 @@ class PriestRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
+    public function messages() {
         return [
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];
     }
 
-    protected function prepareForValidation()
-    {
+    protected function prepareForValidation() {
         $state = $this->active ? 1 : 0;
 
         $this->merge([

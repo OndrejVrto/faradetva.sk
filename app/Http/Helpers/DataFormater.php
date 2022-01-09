@@ -9,8 +9,7 @@ trait DataFormater {
      * @param int $precision
      * @return string
      */
-    public static function formatBytes($size, $precision = 2)
-    {
+    public static function formatBytes($size, $precision = 2) {
         if ($size === 0 || $size === null) {
             return "0B";
         }

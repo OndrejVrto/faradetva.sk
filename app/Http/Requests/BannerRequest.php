@@ -12,8 +12,7 @@ class BannerRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -22,8 +21,7 @@ class BannerRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
 
         if (request()->routeIs('banners.store')) {
             $photoRule = 'required';
@@ -44,15 +42,13 @@ class BannerRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
+    public function messages() {
         return [
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];
     }
 
-    protected function prepareForValidation()
-    {
+    protected function prepareForValidation() {
         $state = $this->active ? 1 : 0;
 
         $this->merge([
