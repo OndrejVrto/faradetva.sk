@@ -16,13 +16,13 @@
                     <div class="header_right_menu" id="header_right_menu">
                         <ul class="menu">
 
-                            {{-- <li><a href="{{ route('events') }}">Oznamy</a></li> --}}
-                            {{-- <li><a href="{{ route('news') }}">Články</a></li> --}}
+                            <li><a href="#">Oznamy</a></li>
+                            <li><a href="{{ route('articles.index') }}">Články</a></li>
 
-                            {{-- <li>
+                            <li>
                                 <a href="#">O nás</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{{ route('about-us') }}">História</a></li>
+                                    <li><a href="#">História</a></li>
                                     <!-- Významné osobnosti  -->
                                     <!-- Duchovné povolania  -->
                                     <!-- Kňazi pochovaní v Detve  -->
@@ -41,18 +41,18 @@
                                     <!-- (Akolyti, lektori, miništranti, kostolníci, organisti, detský spevokol, mládežnícky spevokol, dychovka)  -->
                                     <!-- Vyučovanie náboženstva  -->
                                 </ul>
-                            </li> --}}
+                            </li>
 
-                            {{-- <li><a href="{{ route('ministries') }}">Spoločenstvá</a></li>
+                            <li><a href="#">Spoločenstvá</a></li>
                                 <!-- Bosé karmelitánky  -->
                                 <!-- Tretí rád OCD  -->
                                 <!-- Tretí rád OFM  -->
                                 <!-- Ružencové bratstvo  -->
                                 <!-- Faustínum  -->
                                 <!-- Modlitby za kňazov  -->
-                                <!-- Deti a mládež  --> --}}
+                                <!-- Deti a mládež  -->
 
-                            {{-- <li>
+                            <li>
                                 <a href="#">Duchovný život</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Sviatosti</a></li>
@@ -75,17 +75,18 @@
                                     <!-- Cirkevné prikázania  -->
                                     <!-- Modlitba  -->
                                 </ul>
-                            </li> --}}
+                            </li>
 
-                            {{-- <li><a href="{{ route('contact') }}">Kontakty</a></li> --}}
-                            {{-- <li class="search_icon">
-                                <span data-toggle="modal" data-target="#myModal"><i class="fas fa-search"></i></span>
-                            </li> --}}
-                            <li><a class="text-template" href="{{ route('home') }}">Všetko</a></li>
+                            <li><a href="{{ route('contact') }}">Kontakty</a></li>
+                            <li class="search_icon">
+                                <!-- Button trigger modal -->
+                                <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fas fa-search"></i></span>
+                            </li>
+                            <li><a class="text-template text-muted" href="{{ route('home') }}">Všetko</a></li>
                             @auth
-                                <li><a class="text-template" href="{{ route('admin.dashboard') }}">Administrácia</a></li>
+                                <li><a class="text-template text-muted" href="{{ route('admin.dashboard') }}">Administrácia</a></li>
                             @else
-                                <li><a class="text-template" href="{{ route('login') }}">Prihlásiť</a></li>
+                                <li><a class="text-template text-muted" href="{{ route('login') }}">Prihlásiť</a></li>
                                 {{-- @if (Route::has('register'))
                                 <li><a class="text-template" href="{{ route('register') }}">Registrovať</a></li>
                                 @endif --}}

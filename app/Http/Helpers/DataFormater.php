@@ -3,7 +3,6 @@
 namespace App\Http\Helpers;
 
 trait DataFormater {
-
     /**
      * @param string $size
      * @param int $precision
@@ -23,7 +22,7 @@ trait DataFormater {
         return $sign . round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
     }
 
-    public static function filter_filename($filename, $beautify=true) {
+    public static function filterFilename($filename, $beautify=true) {
         // sanitize filename
         $filename = preg_replace(
             '~
@@ -37,14 +36,14 @@ trait DataFormater {
         // avoids ".", ".." or ".hiddenFiles"
         $filename = ltrim($filename, '.-');
         // optional beautification
-        if ($beautify) return Self::beautify_filename($filename);
+        if ($beautify) return Self::beautifyFilename($filename);
         // maximize filename length to 255 bytes http://serverfault.com/a/9548/44086
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         $filename = mb_strcut(pathinfo($filename, PATHINFO_FILENAME), 0, 255 - ($ext ? strlen($ext) + 1 : 0), mb_detect_encoding($filename)) . ($ext ? '.' . $ext : '');
         return $filename;
     }
 
-    public static function beautify_filename($filename) {
+    public static function beautifyFilename($filename) {
         // reduce consecutive characters
         $filename = preg_replace(array(
             // "file   name.zip" becomes "file-name.zip"

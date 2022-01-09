@@ -1,19 +1,19 @@
 @php
     $controlerName = 'roles';
     $columns = 10;
-    $upload_files = 'false';
+    $uploadFiles = 'false';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $role ) ) {
         $typeForm = 'edit';
         $identificatorEdit = $role->id;
-        $created_info = $role->created_at;
-        $updated_info = $role->updated_at;
+        $createdInfo = $role->created_at;
+        $updatedInfo = $role->updated_at;
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
+<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
+                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
 
     <x-adminlte-input
         name="name"

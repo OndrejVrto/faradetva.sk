@@ -9,9 +9,9 @@
     'table_footer',
 ])
 @php
-    $max_xl = min($columns, 12);
-    $max_lg = min($columns + 1, 12);
-    $max_md = min($columns + 2, 12);
+    $maxXL = min($columns, 12);
+    $maxLG = min($columns + 1, 12);
+    $maxMD = min($columns + 2, 12);
     $headerTitle = config('farnost-detva.admin_texts.'.$controlerName.'_header' );
     $headerDescription = config('farnost-detva.admin_texts.'.$controlerName.'_description' );
     $createLink = route( $controlerName . '.create');
@@ -20,7 +20,7 @@
 
 <div class="row justify-content-center">
 
-    <div {{ $attributes->merge(['class' => "col-md-".$max_md." col-lg-".$max_lg." col-xl-".$max_xl." bg-light pt-2 px-2 px-lg-3 mb-2 rounded"]) }}>
+    <div {{ $attributes->merge(['class' => "col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL." bg-light pt-2 px-2 px-lg-3 mb-2 rounded"]) }}>
 
         @if( isset($headerTitle) AND $headerTitle != '' )
             <span class="text-muted">

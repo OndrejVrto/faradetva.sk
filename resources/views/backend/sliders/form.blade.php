@@ -1,21 +1,21 @@
 @php
     $controlerName = 'sliders';
     $columns = 6;
-    $upload_files = 'true';
+    $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $slider ) ) {
         $typeForm = 'edit';
         $identificatorEdit = $slider->id;
-        $created_info = $slider->created_info;
-        $created_by = $slider->created_by;
-        $updated_info = $slider->updated_info;
-        $updated_by = $slider->updated_by;
+        $createdInfo = $slider->createdInfo;
+        $createdBy = $slider->createdBy;
+        $updatedInfo = $slider->updatedInfo;
+        $updatedBy = $slider->updatedBy;
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
+<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
+                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
 
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazoval obrázok na stránke.">

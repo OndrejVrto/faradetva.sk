@@ -2,24 +2,17 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Tag;
-use App\Models\News;
-use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-    public function search(Request $request, $search = null) {
-        if ( is_null($search) ) {
-            $news = News::with('media', 'user')->get();
-        } else {
-            $news = News::with('media', 'user')->get()->random(2);
-        }
-        // $last_news = News::whereActive(1)->orderBy('updated_by', 'asc')->take(3)->with('media')->get();
-        $all_categories = Category::all();
-        $all_tags = Tag::all();
+    public function searchAll($search = null ) {
+        // TODO: search in all pages
+        return 'Hľadať všade: '. $search;
+    }
 
-        return view('frontend.news.search', compact('news', 'all_categories', 'all_tags'));
+    public function searchNews($search = null) {
+        // TODO: search in news
+        return 'Hľadať v správach: '. $search;
     }
 }

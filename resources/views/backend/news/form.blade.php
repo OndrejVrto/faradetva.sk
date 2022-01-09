@@ -27,21 +27,22 @@
 @php
     $controlerName = 'news';
     $columns = 12;
-    $upload_files = 'true';
+    $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $news ) ) {
         $typeForm = 'edit';
         $identificatorEdit = $news->id;
-        $created_info = $news->created_info;
-        $created_by = $news->created_by;
-        $updated_info = $news->updated_info;
-        $updated_by = $news->updated_by;
+        $createdInfo = $news->createdInfo;
+        $createdBy = $news->createdBy;
+        $updatedInfo = $news->updatedInfo;
+        $updatedBy = $news->updatedBy;
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
+<x-admin-form controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}"
+    files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
+    createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
 
     <input type="hidden" name="timezone" id="timezone">
 

@@ -221,7 +221,13 @@ Project: Church
 	$('#search-form').on('submit', function(event) {
 		event.preventDefault();
 		var search_frase = $('#search-form-q').val();
-		window.location.replace('/search/' + search_frase);
+		window.location.replace('/hladat-clanok/' + search_frase);
+	})
+
+    $('#search-form-all').on('submit', function(event) {
+		event.preventDefault();
+		var search_frase_B = $('#inputSearch').val();
+		window.location.replace('/hladat/' + search_frase_B);
 	})
 
 })(jQuery);

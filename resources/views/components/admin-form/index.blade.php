@@ -11,9 +11,9 @@
 ])
 @php
     if($typeForm == '' OR is_null($typeForm)) $typeForm = 'create';
-    $card_max_xl = min($columns, 12);
-    $card_max_lg = min($columns + 1, 12);
-    $card_max_md = min($columns + 2, 12);
+    $maxXL = min($columns, 12);
+    $maxLG = min($columns + 1, 12);
+    $maxMD = min($columns + 2, 12);
     $headerTitle = config('farnost-detva.admin_texts.'.$controlerName.'_header_'.$typeForm );
     $headerDescription = config('farnost-detva.admin_texts.'.$controlerName.'_description_'.$typeForm );
     $linkActionEdit = route( $controlerName . '.update', $identificatorEdit);
@@ -23,7 +23,7 @@
 @endphp
 
 <div class="row">
-    <div {{ $attributes->merge(['class' => "col-md-".$card_max_md." col-lg-".$card_max_lg." col-xl-".$card_max_xl." mx-auto"]) }}>
+    <div {{ $attributes->merge(['class' => "col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL." mx-auto"]) }}>
         <div class="card">
 
             @if( $headerTitle != '' )
@@ -66,7 +66,7 @@
                                 </a>
                             @endcan
                         @else
-                            <button type="submit" class="btn bg-gradient-success px-5 ml-2">
+                            <button id="btnSave" type="submit" class="btn bg-gradient-success px-5 ml-2">
                                 <i class="fas fa-save mr-2"></i>
                                 Uložiť
                             </button>
@@ -104,3 +104,13 @@
         </div>
     </div>
 </div>
+
+@push('js')
+    <script>
+        $('#btnSave').click(function() {
+            $('#btnSave')
+                .html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Ukladám...')
+                .addClass('disabled');
+        });
+    </script>
+@endpush

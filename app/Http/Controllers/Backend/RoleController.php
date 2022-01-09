@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
 
-class RolesController extends Controller
+class RoleController extends Controller
 {
     public function index(Request $request) {
         $roles = Role::paginate(10);

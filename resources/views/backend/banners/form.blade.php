@@ -1,21 +1,21 @@
 @php
     $controlerName = 'banners';
     $columns = 7;
-    $upload_files = 'true';
+    $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $banner ) ) {
         $typeForm = 'edit';
         $identificatorEdit = $banner->id;
-        $created_info = $banner->created_info;
-        $created_by = $banner->created_by;
-        $updated_info = $banner->updated_info;
-        $updated_by = $banner->updated_by;
+        $createdInfo = $banner->createdInfo;
+        $createdBy = $banner->createdBy;
+        $updatedInfo = $banner->updatedInfo;
+        $updatedBy = $banner->updatedBy;
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
+<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
+                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
 
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazoval banner na stránke.">

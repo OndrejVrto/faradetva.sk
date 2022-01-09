@@ -12,7 +12,7 @@
         columns="12"
         controlerName="news"
         createBtn="Vytvoriť nový článok"
-        paginator="{{ $all_news->onEachSide(1)->links() }}"
+        paginator="{{ $allNews->onEachSide(1)->links() }}"
         >
 
         <x-slot name="table_header">
@@ -29,7 +29,7 @@
         </x-slot>
 
         <x-slot name="table_body">
-            @foreach($all_news as $news)
+            @foreach($allNews as $news)
             <tr>
                 {{-- <x-admin-table.td>{{$news->id}}</x-admin-table.td> --}}
                 <x-admin-table.td-check-active check="{{ $news->active }}"/>
@@ -42,18 +42,18 @@
 
                 <x-admin-table.td class="d-none d-lg-table-cell small">
                     <span class="text-muted mr-2">Vytvoril:</span>
-                    <span class="text-bold">{{$news->created_by}}</span>
+                    <span class="text-bold">{{$news->createdBy}}</span>
                     <br>
                     <span class="text-muted mr-2">Upravil:</span>
-                    <span class="text-bold">{{$news->updated_by}}</span>
+                    <span class="text-bold">{{$news->updatedBy}}</span>
                 </x-admin-table.td>
 
                 <x-admin-table.td class="d-none d-xl-table-cell small">
                         <span class="text-muted mr-2">Upravené:</span>
-                        <span class="text-bold">{{$news->updated_info}}</span>
+                        <span class="text-bold">{{$news->updatedInfo}}</span>
                     <br>
                         <span class="text-muted mr-2">Vytvorené:</span>
-                        {{$news->created_info}}
+                        {{$news->createdInfo}}
                     <br>
                         <span class="text-muted mr-2">Publikovať od:</span>
                         <span class="text-success">{{$news->published_at}}</span>

@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     public function index() {
         $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);
@@ -42,7 +42,7 @@ class UsersController extends Controller
         if ($request->hasFile('photo_avatar')) {
             $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
             $user->addMediaFromRequest('photo_avatar')
-                ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
+                ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true)  )
                 ->toMediaCollection('avatar');
         }
 
@@ -91,7 +91,7 @@ class UsersController extends Controller
         if ($request->hasFile('photo_avatar')) {
             $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
             $user->addMediaFromRequest('photo_avatar')
-                ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
+                ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true)  )
                 ->toMediaCollection('avatar');
         }
 

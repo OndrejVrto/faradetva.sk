@@ -29,7 +29,7 @@ class TestimonialController extends Controller
         if ($request->hasFile('photo')) {
             $testimonial->clearMediaCollectionExcept('testimonial', $testimonial->getFirstMedia());
             $testimonial->addMediaFromRequest('photo')
-                        ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                        ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                         ->toMediaCollection('testimonial');
         }
 
@@ -56,7 +56,7 @@ class TestimonialController extends Controller
         if ($request->hasFile('photo')) {
             $testimonial->clearMediaCollectionExcept('testimonial', $testimonial->getFirstMedia());
             $testimonial->addMediaFromRequest('photo')
-                        ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                        ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                         ->toMediaCollection('testimonial');
         }
 
