@@ -19,10 +19,10 @@
 			{{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
 			<x-admin-table.th width="1%" class="text-center">Avatar</x-admin-table.th>
 			<x-admin-table.th width="15%" class="d-none d-lg-table-cell">Nick</x-admin-table.th>
-			<x-admin-table.th width="20%">Email</x-admin-table.th>
+			<x-admin-table.th width="20%" class="d-none d-md-table-cell">Email</x-admin-table.th>
 			<x-admin-table.th width="25%">Meno užívateľa</x-admin-table.th>
 			<x-admin-table.th width="10%">Roly</x-admin-table.th>
-			<x-admin-table.th width="10%" class="text-center">Povolenia</x-admin-table.th>
+			<x-admin-table.th width="10%" class="text-center d-none d-md-table-cell">Povolenia</x-admin-table.th>
 			<x-admin-table.th-actions colspan="3"/>
 		</x-slot>
 
@@ -32,11 +32,11 @@
 					{{-- <x-admin-table.td>{{$user->id}}</x-admin-table.td> --}}
 					<x-admin-table.td class="text-center">
 						<img src="{{ $user->getFirstMediaUrl('avatar', 'crop-thumb') ?: "http://via.placeholder.com/40x40" }}"
-						class="img-fluid"
+						class="img-fluid img-circle"
 						alt="Fotografia Avatara: {{ $user->name }}"/>
 					</x-admin-table.td>
 					<x-admin-table.td class="d-none d-lg-table-cell">{{$user->nick}}</x-admin-table.td>
-					<x-admin-table.td class="text-wrap text-break">{{$user->email}}</x-admin-table.td>
+					<x-admin-table.td class="text-wrap text-break d-none d-md-table-cell">{{$user->email}}</x-admin-table.td>
 					<x-admin-table.td class="text-wrap text-break">{{$user->name}}</x-admin-table.td>
 					<x-admin-table.td>
 						@foreach($user->roles as $role)
@@ -49,7 +49,7 @@
 							</a>
 						@endforeach
 					</x-admin-table.td>
-					<x-admin-table.td class="text-center">
+					<x-admin-table.td class="text-center d-none d-md-table-cell">
 						@if( $user->permissions_count != 0 )
 							<span class="badge bg-orange px-2 py-1">{{ $user->permissions_count }}</span>
 						@endif
