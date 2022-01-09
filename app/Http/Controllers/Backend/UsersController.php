@@ -7,8 +7,7 @@ use Illuminate\Support\Arr;
 use App\Http\Helpers\DataFormater;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserStoreRequest;
-use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Permission;
 
 class UsersController extends Controller
@@ -34,7 +33,7 @@ class UsersController extends Controller
     }
 
 
-    public function store(User $user, UserStoreRequest $request)
+    public function store(User $user, UserRequest $request)
     {
 		$validated = $request->validated();
 		$user->create($validated);
@@ -83,7 +82,7 @@ class UsersController extends Controller
     }
 
 
-    public function update(User $user, UserUpdateRequest $request)
+    public function update(User $user, UserRequest $request)
     {
 		// validation
 		$validated = $request->validated();

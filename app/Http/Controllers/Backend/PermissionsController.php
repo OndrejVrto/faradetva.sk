@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PermissionRequest;
 use Spatie\Permission\Models\Permission;
@@ -40,33 +39,38 @@ class PermissionsController extends Controller
 		return redirect()->route('permissions.index')->with($notification);
     }
 
+
     public function edit(Permission $permission)
     {
-        return view('backend.permissions.edit', [
-            'permission' => $permission
-        ]);
+        return view( 'backend.permissions.edit', compact( 'permission' ) );
     }
 
 
-    public function update(Request $request, Permission $permission)
+    public function update(PermissionRequest $request, $id)
     {
-        // TODO: Problem with name database table
-		// $request->validate([
-        //     'name' => 'required|unique:permissions,name,'.$permission->id
-        // ]);
+		$validated = $request->validated();
+		$data = Arr::only($validated, ['name']);
 
-        $permission->update($request->only('name'));
+		Permission::findOrFail($id)->update($data);
 
-        return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission updated successfully.'));
+		$notification = array(
+			'message' => 'Povolenie bolo upravené!',
+			'alert-type' => 'success'
+		);
+
+        return redirect()->route('permissions.index')->with($notification);
     }
 
 
-    public function destroy(Permission $permission)
+    public function destroy($id)
     {
+		$permission = Permission::findOrFail($id);
         $permission->delete();
 
-        return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission deleted successfully.'));
+		$notification = array(
+			'message' => 'Povolenie bolo zmazané!',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('permissions.index')->with($notification);
     }
 }

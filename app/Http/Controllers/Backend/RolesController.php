@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use App\Http\Requests\RoleRequest;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
@@ -10,41 +12,41 @@ use Spatie\Permission\Models\Permission;
 class RolesController extends Controller
 {
 
-
     public function index(Request $request)
     {
-        $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('backend.roles.index',compact('roles'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $roles = Role::paginate(10);
+
+		return view('backend.roles.index', compact( 'roles' ) );
     }
 
 
     public function create()
     {
-        $permissions = Permission::get();
+        $permissions = Permission::all();
 		$rolePermissions = [];
         return view('backend.roles.create', compact('permissions', 'rolePermissions'));
     }
 
 
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
-        ]);
+		$validated = $request->validated();
+		$data = Arr::only($validated, ['name']);
 
-        $role = Role::create(['name' => $request->get('name')]);
+		$role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-        return redirect()->route('roles.index')
-                        ->with('success','Role created successfully');
+		$notification = array(
+			'message' => 'Nová rola bola pridané!',
+			'alert-type' => 'success'
+		);
+
+		return redirect()->route('roles.index')->with($notification);
     }
 
 
     public function edit(Role $role)
     {
-        $role = $role;
         $rolePermissions = $role->permissions->pluck('name')->toArray();
         $permissions = Permission::get();
 
@@ -52,27 +54,34 @@ class RolesController extends Controller
     }
 
 
-    public function update(Role $role, Request $request)
+    public function update(RoleRequest $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'permission' => 'required',
-        ]);
 
-        $role->update($request->only('name'));
+		$validated = $request->validated();
+		$data = Arr::only($validated, ['name']);
 
-        $role->syncPermissions($request->get('permission'));
+		$role = Role::findOrFail($id);
+		$role->update($data);
+		$role->syncPermissions($request->get('permission'));
 
-        return redirect()->route('roles.index')
-                        ->with('success','Role updated successfully');
+		$notification = array(
+			'message' => 'Rola bola uprtavená!',
+			'alert-type' => 'success'
+		);
+
+        return redirect()->route('roles.index')->with($notification);
     }
 
 
-    public function destroy(Role $role)
+    public function destroy($id)
     {
+		$role = Role::findOrFail($id);
         $role->delete();
 
-        return redirect()->route('roles.index')
-                        ->with('success','Role deleted successfully');
+		$notification = array(
+			'message' => 'Rola bola zmazaná!',
+			'alert-type' => 'success'
+		);
+        return redirect()->route('roles.index')->with($notification);
     }
 }
