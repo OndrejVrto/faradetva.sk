@@ -10,7 +10,6 @@ use App\Http\Requests\TagRequest;
 class TagController extends Controller
 {
 
-
     public function index()
     {
 
@@ -18,12 +17,10 @@ class TagController extends Controller
         return view('backend.tags.index', compact('tags'));
     }
 
-
     public function create()
     {
         return view('backend.tags.create');
     }
-
 
     public function store(TagRequest $request)
     {
@@ -39,14 +36,12 @@ class TagController extends Controller
         return redirect()->route('tags.index')->with($notification);
     }
 
-
     public function edit($slug)
     {
         $tag = Tag::whereSlug($slug)->firstOrFail();
 
         return view('backend.tags.edit', compact('tag'));
     }
-
 
     public function update(TagRequest $request, $id)
     {
@@ -62,7 +57,6 @@ class TagController extends Controller
         return redirect()->route('tags.index')->with($notification);
 
     }
-
 
     public function destroy($id)
     {

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 
-
 class DashboardController extends Controller
 {
 
@@ -12,7 +11,6 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
     }
-
 
     public function index()
     {

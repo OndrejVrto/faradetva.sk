@@ -19,14 +19,12 @@ class RolesController extends Controller
         return view('backend.roles.index', compact( 'roles' ) );
     }
 
-
     public function create()
     {
         $permissions = Permission::all();
         $rolePermissions = [];
         return view('backend.roles.create', compact('permissions', 'rolePermissions'));
     }
-
 
     public function store(RoleRequest $request)
     {
@@ -44,7 +42,6 @@ class RolesController extends Controller
         return redirect()->route('roles.index')->with($notification);
     }
 
-
     public function edit(Role $role)
     {
         $rolePermissions = $role->permissions->pluck('name')->toArray();
@@ -52,7 +49,6 @@ class RolesController extends Controller
 
         return view('backend.roles.edit', compact('role', 'rolePermissions', 'permissions'));
     }
-
 
     public function update(RoleRequest $request, $id)
     {
@@ -71,7 +67,6 @@ class RolesController extends Controller
 
         return redirect()->route('roles.index')->with($notification);
     }
-
 
     public function destroy($id)
     {

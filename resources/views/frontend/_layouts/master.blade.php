@@ -65,7 +65,6 @@
     {{-- Body Content --}}
     @yield('body')
 
-
     <!-- Scripts - Start-->
     @yield('js_master')
 </body>

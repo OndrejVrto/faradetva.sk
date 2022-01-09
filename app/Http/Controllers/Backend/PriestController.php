@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Session;
 class PriestController extends Controller
 {
 
-
     public function index()
     {
         Session::remove('priest_old_input_checkbox');
@@ -21,14 +20,10 @@ class PriestController extends Controller
         return view('backend.priests.index', compact('priests'));
     }
 
-
-
     public function create()
     {
         return view('backend.priests.create');
     }
-
-
 
     public function store(PriestRequest $request)
     {
@@ -43,7 +38,6 @@ class PriestController extends Controller
                     ->toMediaCollection('priest');
         }
 
-
         $notification = array(
             'message' => 'Nový kňaz bol pridaný!',
             'alert-type' => 'success'
@@ -51,16 +45,12 @@ class PriestController extends Controller
         return redirect()->route('priests.index')->with($notification);
     }
 
-
-
     public function edit($slug)
     {
         $priest = Priest::whereSlug($slug)->firstOrFail();
 
         return view('backend.priests.edit', compact('priest'));
     }
-
-
 
     public function update(PriestRequest $request, $id)
     {
@@ -83,8 +73,6 @@ class PriestController extends Controller
         );
         return redirect()->route('priests.index')->with($notification);
     }
-
-
 
     public function destroy($id)
     {

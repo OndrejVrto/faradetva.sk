@@ -18,7 +18,6 @@ class Slider extends Model implements HasMedia {
     use InteractsWithMedia;
     use CreatedUpdatedBy;
 
-
     protected $fillable = [
         'active',
         'heading_1',
@@ -26,12 +25,10 @@ class Slider extends Model implements HasMedia {
         'heading_3',
     ];
 
-
     public function getMediaFileNameAttribute()
     {
         return $this->getFirstMedia('slider')->file_name ?? null;
     }
-
 
     public function registerMediaConversions( Media $media = null ) : void
     {
@@ -55,24 +52,20 @@ class Slider extends Model implements HasMedia {
             ->fit("crop", 192, 80);
     }
 
-
     public function getFullHeadingAttribute()
     {
         return $this->fullHeading();
     }
-
 
     public function getTeaserAttribute()
     {
         return Str::words($this->fullHeading(), 30, '...');
     }
 
-
     public function getBreadcrumbTeaserAttribute()
     {
         return Str::words($this->fullHeading(), 6, '...');
     }
-
 
     private function fullHeading()
     {
@@ -82,6 +75,5 @@ class Slider extends Model implements HasMedia {
                 . ' '
                 .$this->heading_3;
     }
-
 
 }

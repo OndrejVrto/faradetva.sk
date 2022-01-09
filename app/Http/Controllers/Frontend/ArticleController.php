@@ -11,23 +11,12 @@ use App\Models\Category;
 class ArticleController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $articles = News::with('media', 'user')->get()->paginate(5);
         return view('frontend.articles.show', compact('articles'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($slug)
     {
         $one_news = News::whereSlug($slug)->with('media', 'category', 'tags', 'user')->firstOrFail();
@@ -35,10 +24,7 @@ class ArticleController extends Controller
         $all_categories = Category::all();
         $all_tags = Tag::all();
 
-        // dd($last_news);
         return view('frontend.articles.show', compact('one_news', 'last_news', 'all_categories', 'all_tags'));
     }
-
-
 
 }

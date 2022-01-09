@@ -67,7 +67,6 @@ class NewsRequest extends FormRequest
 
     }
 
-
     public function messages()
     {
         return [
@@ -75,7 +74,6 @@ class NewsRequest extends FormRequest
             'unpublished_at.after' => 'Dátum a čas musí byť väčší ako je v poli: Publikovať Od',
         ];
     }
-
 
     protected function prepareForValidation()
     {

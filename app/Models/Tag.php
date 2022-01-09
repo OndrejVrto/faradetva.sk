@@ -17,17 +17,14 @@ class Tag extends Model
     use CreatedUpdatedBy;
     use SlugFromTitle;
 
-
     protected $fillable = [
         'title',
         'description'
     ];
 
-
     public function news()
     {
         return $this->belongsToMany(News::class);
     }
-
 
 }

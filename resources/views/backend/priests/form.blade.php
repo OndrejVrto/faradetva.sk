@@ -167,5 +167,4 @@
         </x-slot>
     </x-adminlte-input-file>
 
-
 </x-admin-form>

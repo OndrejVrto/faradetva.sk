@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Session;
 class SliderController extends Controller
 {
 
-
     public function index()
     {
         Session::remove('slider_old_input_checkbox');
@@ -21,14 +20,10 @@ class SliderController extends Controller
         return view('backend.sliders.index', compact('sliders'));
     }
 
-
-
     public function create()
     {
         return view('backend.sliders.create');
     }
-
-
 
     public function store(SliderRequest $request)
     {
@@ -43,7 +38,6 @@ class SliderController extends Controller
                     ->toMediaCollection('slider');
         }
 
-
         $notification = array(
             'message' => 'Nový obrázok s myšlienkou bol pridaný!',
             'alert-type' => 'success'
@@ -51,16 +45,12 @@ class SliderController extends Controller
         return redirect()->route('sliders.index')->with($notification);
     }
 
-
-
     public function edit($id)
     {
         $slider = Slider::whereId($id)->firstOrFail();
 
         return view('backend.sliders.edit', compact('slider'));
     }
-
-
 
     public function update(SliderRequest $request, $id)
     {
@@ -84,8 +74,6 @@ class SliderController extends Controller
         return redirect()->route('sliders.index')->with($notification);
     }
 
-
-
     public function destroy($id)
     {
         $slider = Slider::findOrFail($id);
@@ -98,6 +86,5 @@ class SliderController extends Controller
         );
         return redirect()->route('sliders.index')->with($notification);
     }
-
 
 }

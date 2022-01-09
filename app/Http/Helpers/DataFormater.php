@@ -2,7 +2,6 @@
 
 namespace App\Http\Helpers;
 
-
 trait DataFormater {
 
     /**
@@ -25,7 +24,6 @@ trait DataFormater {
         return $sign . round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
     }
 
-
     public static function filter_filename($filename, $beautify=true) {
         // sanitize filename
         $filename = preg_replace(
@@ -46,7 +44,6 @@ trait DataFormater {
         $filename = mb_strcut(pathinfo($filename, PATHINFO_FILENAME), 0, 255 - ($ext ? strlen($ext) + 1 : 0), mb_detect_encoding($filename)) . ($ext ? '.' . $ext : '');
         return $filename;
     }
-
 
     public static function beautify_filename($filename) {
         // reduce consecutive characters

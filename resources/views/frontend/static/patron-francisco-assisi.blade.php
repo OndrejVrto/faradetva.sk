@@ -21,7 +21,6 @@
 <div class="section static-page pad_t_50 pad_b_50">
     <div class="container">
 
-
         <!-- heading Start -->
         <div class="heading_section wh_headline">
             <h1>Svätý František z Assisi</h1>
@@ -38,7 +37,6 @@
                 </p>
             </x-sections-page.text>
         </x-sections-page>
-
 
         <x-sections-page title="Mladosť">
             <x-sections-page.img columns="5" type="right" alt="" url="{{ URL::asset('images/only-for-debug/sv-francisco/602199.jpg') }}" />
@@ -61,7 +59,6 @@
             </x-sections-page.text>
         </x-sections-page>
 
-
         <x-sections-page title="Povolanie">
             <x-sections-page.img columns="4" type="right" alt="" url="{{ URL::asset('images/only-for-debug/sv-francisco/Saint_Francis_of_Assisi_by_Jusepe_de_Ribera.jpg') }}" />
             <x-sections-page.text type="left">
@@ -77,7 +74,6 @@
                 </p>
             </x-sections-page.text>
         </x-sections-page>
-
 
         <x-sections-page title="Františkánske spoločenstvo">
             <x-sections-page.img columns="4" type="left" alt="aaa" url="{{ URL::asset('images/only-for-debug/sv-francisco/StFrancis_part.jpg') }}" />
@@ -97,7 +93,6 @@
             </x-sections-page.text>
         </x-sections-page>
 
-
         <x-sections-page title="Apoštolát">
             <x-sections-page.img columns="4" type="right" alt="" url="{{ URL::asset('images/only-for-debug/sv-francisco/st_francis_of_assisi_receiving_the_stigmata-12701.jpg') }}" />
             <x-sections-page.text type="left">
@@ -116,7 +111,6 @@
             </x-sections-page.text>
         </x-sections-page>
 
-
         <x-sections-page title="Posledné roky života">
             <x-sections-page.img columns="4" type="left" alt="" url="{{ URL::asset('images/only-for-debug/sv-francisco/1627905656-porciunkula (1).jpg') }}" />
             <x-sections-page.text type="right">
@@ -134,7 +128,6 @@
                 </p>
             </x-sections-page.text>
         </x-sections-page>
-
 
         <x-sections-page title="Dianie po smrti">
             <x-sections-page.img columns="4" type="right" alt="" url="{{ URL::asset('images/only-for-debug/sv-francisco/francis_and_first_followers_690.jpg') }}" />
@@ -162,7 +155,6 @@
                 </p>
             </x-sections-page.text>
         </x-sections-page>
-
 
         <div class="row text-muted ps-5">
             Zdroje:

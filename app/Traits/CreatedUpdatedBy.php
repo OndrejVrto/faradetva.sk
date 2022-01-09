@@ -32,19 +32,16 @@ trait CreatedUpdatedBy
         return date('d. m. Y \o H:i', strtotime($this->created_at) );
     }
 
-
     public function getUpdatedInfoAttribute()
     {
         return date('d. m. Y \o H:i', strtotime($this->updated_at) );
     }
-
 
     public function getCreatedByAttribute($value)
     {
         $user = User::whereId($value)->first();
         return $user->name;
     }
-
 
     public function getUpdatedByAttribute($value)
     {

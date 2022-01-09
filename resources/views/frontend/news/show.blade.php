@@ -43,7 +43,6 @@
                 <!-- Item End -->
             </div>
 
-
             <!-- sidebar Start -->
             <div class="col-lg-3 col-md-4 col-xs-12">
                 <div class="ch_sidebar_area">

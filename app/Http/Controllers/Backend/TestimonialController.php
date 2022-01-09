@@ -12,8 +12,6 @@ use App\Http\Requests\TestimonialRequest;
 class TestimonialController extends Controller
 {
 
-
-
     public function index()
     {
         Session::remove('testimonial_old_input_checkbox');
@@ -22,14 +20,10 @@ class TestimonialController extends Controller
         return view('backend.testimonials.index', compact('testimonials'));
     }
 
-
-
     public function create()
     {
         return view('backend.testimonials.create');
     }
-
-
 
     public function store(TestimonialRequest $request)
     {
@@ -44,7 +38,6 @@ class TestimonialController extends Controller
                         ->toMediaCollection('testimonial');
         }
 
-
         $notification = array(
             'message' => 'Nové svedectvo bolo pridané!',
             'alert-type' => 'success'
@@ -52,16 +45,12 @@ class TestimonialController extends Controller
         return redirect()->route('testimonials.index')->with($notification);
     }
 
-
-
     public function edit($slug)
     {
         $testimonial = Testimonial::whereSlug($slug)->firstOrFail();
 
         return view('backend.testimonials.edit', compact('testimonial'));
     }
-
-
 
     public function update(TestimonialRequest $request, $id)
     {
@@ -84,8 +73,6 @@ class TestimonialController extends Controller
         );
         return redirect()->route('testimonials.index')->with($notification);
     }
-
-
 
     public function destroy($id)
     {

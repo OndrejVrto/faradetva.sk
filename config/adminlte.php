@@ -72,7 +72,6 @@ return [
     'usermenu_desc' => true,
     'usermenu_profile_url' => true,
 
-
     /*
     |--------------------------------------------------------------------------
     | Layout
@@ -199,7 +198,6 @@ return [
     'register_url' => false,
     'password_reset_url' => false,
     'password_email_url' => 'password/email',
-
 
     /*
     |--------------------------------------------------------------------------
@@ -340,7 +338,6 @@ return [
             'route' => 'permissions.index',
             'can'  => 'permissions.index',
         ],
-
 
         // [
         //     'text'    => 'Tabuľky',

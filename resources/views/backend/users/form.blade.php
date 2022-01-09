@@ -60,7 +60,6 @@
         </div>
     </div>
 
-
     <div class="form-row">
         <div class="col-6">
 
@@ -97,7 +96,6 @@
 
         </div>
     </div>
-
 
     <div class="form-row">
         <div class="col-6">
@@ -138,7 +136,6 @@
         </div>
     </div>
 
-
     <hr class="bg-orange">
 
     {{-- With multiple slots, and plugin config parameter --}}
@@ -170,7 +167,6 @@
         @endif
     </x-adminlte-select2>
 
-
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mal užívateľ všetky oprávnenia.">
             <input
@@ -201,9 +197,7 @@
         @endforeach
     </div>
 
-
 </x-admin-form>
-
 
 @push('js')
     <script type="text/javascript">

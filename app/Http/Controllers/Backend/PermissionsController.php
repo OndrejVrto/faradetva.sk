@@ -17,12 +17,10 @@ class PermissionsController extends Controller
         return view( 'backend.permissions.index', compact( 'permissions' ) );
     }
 
-
     public function create()
     {
         return view('backend.permissions.create');
     }
-
 
     public function store(PermissionRequest $request)
     {
@@ -39,12 +37,10 @@ class PermissionsController extends Controller
         return redirect()->route('permissions.index')->with($notification);
     }
 
-
     public function edit(Permission $permission)
     {
         return view( 'backend.permissions.edit', compact( 'permission' ) );
     }
-
 
     public function update(PermissionRequest $request, $id)
     {
@@ -60,7 +56,6 @@ class PermissionsController extends Controller
 
         return redirect()->route('permissions.index')->with($notification);
     }
-
 
     public function destroy($id)
     {

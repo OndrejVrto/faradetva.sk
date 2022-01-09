@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
 class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens;
@@ -42,17 +41,14 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
     ];
 
-
     public function setPasswordAttribute($value){
         $this->attributes['password'] = bcrypt($value);
     }
-
 
     public function news()
     {
         return $this->hasMany(News::class);
     }
-
 
     public function registerMediaConversions( Media $media = null ) : void
     {
@@ -62,18 +58,15 @@ class User extends Authenticatable implements HasMedia
             ->fit("crop", 40, 40);
     }
 
-
     public function adminlte_image()
     {
         return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
     }
 
-
     public function adminlte_desc()
     {
         return $this->email;
     }
-
 
     public function adminlte_profile_url()
     {

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-
 class Category extends Model
 {
     use HasFactory;
@@ -19,12 +18,10 @@ class Category extends Model
     // LINK THIS MODEL TO OUR DATABASE TABLE
     protected $table = 'categories';
 
-
     protected $fillable = [
         'title',
         'description'
     ];
-
 
     public function news()
     {

@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Session;
 class BannerController extends Controller
 {
 
-
     public function index()
     {
         Session::remove('banner_old_input_checkbox');
@@ -21,14 +20,10 @@ class BannerController extends Controller
         return view('backend.banners.index', compact('banners'));
     }
 
-
-
     public function create()
     {
         return view('backend.banners.create');
     }
-
-
 
     public function store(BannerRequest $request)
     {
@@ -43,7 +38,6 @@ class BannerController extends Controller
                     ->toMediaCollection('banner');
         }
 
-
         $notification = array(
             'message' => 'Nový baner bol pridaný!',
             'alert-type' => 'success'
@@ -51,16 +45,12 @@ class BannerController extends Controller
         return redirect()->route('banners.index')->with($notification);
     }
 
-
-
     public function edit($id)
     {
         $banner = Banner::whereId($id)->firstOrFail();
 
         return view('backend.banners.edit', compact('banner'));
     }
-
-
 
     public function update(BannerRequest $request, $id)
     {
@@ -84,8 +74,6 @@ class BannerController extends Controller
         return redirect()->route('banners.index')->with($notification);
     }
 
-
-
     public function destroy($id)
     {
         $banner = Banner::findOrFail($id);
@@ -98,6 +86,5 @@ class BannerController extends Controller
         );
         return redirect()->route('banners.index')->with($notification);
     }
-
 
 }

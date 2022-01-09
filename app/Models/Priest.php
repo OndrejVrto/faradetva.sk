@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-
 class Priest extends Model implements HasMedia
 {
 
@@ -19,7 +18,6 @@ class Priest extends Model implements HasMedia
     use SoftDeletes;
     use InteractsWithMedia;
     use CreatedUpdatedBy;
-
 
     protected $fillable = [
         'active',
@@ -32,7 +30,6 @@ class Priest extends Model implements HasMedia
         'function',
         'description',
     ];
-
 
     protected static function boot()
     {
@@ -47,7 +44,6 @@ class Priest extends Model implements HasMedia
         });
     }
 
-
     public function registerMediaConversions( Media $media = null ) : void
     {
         $this->addMediaConversion('crop')
@@ -57,18 +53,15 @@ class Priest extends Model implements HasMedia
             ->fit("crop", 60, 80);
     }
 
-
     public function getMediaFileNameAttribute()
     {
         return $this->getFirstMedia('priest')->file_name ?? null;
     }
 
-
     public function getFullNameTitlesAttribute ()
     {
         return $this->getFullNameWithTitles();
     }
-
 
     public function getPhoneDigitsAttribute ()
     {
@@ -76,12 +69,10 @@ class Priest extends Model implements HasMedia
         return preg_replace("/[^0-9]/", "", $remove_plus );
     }
 
-
     public function getFullNameAttribute ()
     {
         return $this->getFullName();
     }
-
 
     private function getFullNameWithTitles()
     {
@@ -92,12 +83,10 @@ class Priest extends Model implements HasMedia
         return trim($name);
     }
 
-
     private function getFullName()
     {
         return $this->first_name . ' ' . $this->last_name;
     }
-
 
 }
 

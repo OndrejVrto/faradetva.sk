@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-
 class Testimonial extends Model implements HasMedia
 {
 
@@ -21,7 +20,6 @@ class Testimonial extends Model implements HasMedia
     use CreatedUpdatedBy;
     use SlugFromName;
 
-
     protected $fillable = [
         'active',
         'name',
@@ -30,7 +28,6 @@ class Testimonial extends Model implements HasMedia
         'function',
         'description',
     ];
-
 
     public function registerMediaConversions( Media $media = null ) : void
     {
@@ -43,13 +40,10 @@ class Testimonial extends Model implements HasMedia
             ->fit("crop", 60, 60);
     }
 
-
     public function getMediaFileNameAttribute()
     {
         return $this->getFirstMedia('testimonial')->file_name ?? null;
     }
 
-
 }
-
 

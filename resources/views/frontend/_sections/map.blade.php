@@ -4,7 +4,6 @@
 </div>
 <!-- Map section End -->
 
-
 @push('js')
     <!-- map js -->
     <script>

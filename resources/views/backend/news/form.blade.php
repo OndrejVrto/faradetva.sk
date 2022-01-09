@@ -340,8 +340,6 @@
 
 </x-admin-form>
 
-
-
 @push('js')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
@@ -413,6 +411,5 @@
     })
 
 </script>
-
 
 @endpush

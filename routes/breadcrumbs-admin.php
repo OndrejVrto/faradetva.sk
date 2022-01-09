@@ -9,7 +9,6 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
-
 Breadcrumbs::macro('resource', function (string $name, string $title) {
     // Home > Blog
     Breadcrumbs::for("{$name}.index", function (BreadcrumbTrail $trail) use ($name, $title) {
@@ -61,8 +60,6 @@ Breadcrumbs::resource('priests', 'Kňazi');
 Breadcrumbs::resource('users', 'Užívatelia');
 Breadcrumbs::resource('roles', 'Role');
 Breadcrumbs::resource('permissions', 'Povolenia');
-
-
 
 // Home > Blog > [Category]
 // Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {

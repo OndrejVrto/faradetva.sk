@@ -55,5 +55,4 @@
 </div>
 <!-- blog section End -->
 
-
 @endsection

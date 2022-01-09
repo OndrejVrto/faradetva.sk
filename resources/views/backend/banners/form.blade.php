@@ -40,7 +40,6 @@
         </div>
     </div>
 
-
     <x-adminlte-input
         fgroupClass="mb-1"
         name="title"
@@ -70,7 +69,6 @@
             Poznámka: veľkosť obrázka minimálne 1920x480 px.
         </x-slot>
     </x-adminlte-input-file>
-
 
 </x-admin-form>
 

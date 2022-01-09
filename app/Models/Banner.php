@@ -18,18 +18,15 @@ class Banner extends Model implements HasMedia
     use InteractsWithMedia;
     use CreatedUpdatedBy;
 
-
     protected $fillable = [
         'active',
         'title',
     ];
 
-
     public function getMediaFileNameAttribute()
     {
         return $this->getFirstMedia('banner')->file_name ?? null;
     }
-
 
     public function registerMediaConversions( Media $media = null ) : void
     {

@@ -49,7 +49,6 @@ class AppServiceProvider extends ServiceProvider
 
     }
 
-
     // private function RouteAutomat(Request $request) {
 
     //     $path_array = $request->segments();

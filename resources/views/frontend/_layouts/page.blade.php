@@ -32,7 +32,6 @@
     @yield('js')
 @stop
 
-
 @section('body')
 
     {{-- @include('frontend._partials.preload') --}}

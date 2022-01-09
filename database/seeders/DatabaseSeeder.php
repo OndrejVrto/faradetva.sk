@@ -49,7 +49,6 @@ class DatabaseSeeder extends Seeder
         NewsTag::factory(50)->create();
         Testimonial::factory(5)->create();
 
-
     }
 
 }

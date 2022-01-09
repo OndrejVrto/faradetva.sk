@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\TagController;
@@ -17,7 +16,6 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionsController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Frontend\StaticPagesController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -37,8 +35,6 @@ Route::post('login', [LoginController::class, 'login']);
 /**  Logout Route */
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
-
 /** Frontend Routes */
 Route::get('/', [StaticPagesController::class, 'home'] )->name('home');
 Route::get('/frantisek', [StaticPagesController::class, 'francisco'] )->name('static.francisco');
@@ -48,8 +44,6 @@ Route::get('/clanky', [ArticleController::class, 'index'])->name('article.index'
 Route::get('/clanok/{slug}', [ArticleController::class, 'show'])->name('article.show');
 /** Search routes */
 Route::get('/search/{search?}', [SearchController::class, 'search'] )->name('search');
-
-
 
 /** BackEnd Routes */
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function()
@@ -69,7 +63,6 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function()
     Route::resource('roles', RolesController::class, ['except' => 'show']);
     Route::resource('permissions', PermissionsController::class, ['except' => 'show']);
 });
-
 
 // only for Debug
 Route::view('419', 'errors.419');

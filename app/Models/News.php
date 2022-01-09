@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-
 class News extends Model implements HasMedia
 {
 
@@ -28,7 +27,6 @@ class News extends Model implements HasMedia
     // LINK THIS MODEL TO OUR DATABASE TABLE
     protected $table = 'news';
 
-
     protected $fillable = [
         'active',
         'user_id',
@@ -39,36 +37,30 @@ class News extends Model implements HasMedia
         'content'
     ];
 
-
     public function getTeaserAttribute()
     {
         return Str::words($this->content, 30, '...');
     }
-
 
     public function getTeaserLightAttribute()
     {
         return Str::words($this->content, 7, '...');
     }
 
-
     public function getMediaFileNameAttribute()
     {
         return $this->getFirstMedia('news_front_picture')->file_name ?? null;
     }
-
 
     public function getCreatedAttribute()
     {
         return $this->created_at->format("d. M Y");
     }
 
-
     public function getUpdatedAttribute()
     {
         return $this->updated_at->format("d. M Y");
     }
-
 
     public function getPublishedAtAttribute($value)
     {
@@ -76,30 +68,25 @@ class News extends Model implements HasMedia
         return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
     }
 
-
     public function getUnpublishedAtAttribute($value)
     {
         return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
     }
-
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
     }
-
 
     public function registerMediaConversions( Media $media = null ) : void
     {
@@ -118,6 +105,5 @@ class News extends Model implements HasMedia
             ->fit("crop", 170, 92);
 
     }
-
 
 }

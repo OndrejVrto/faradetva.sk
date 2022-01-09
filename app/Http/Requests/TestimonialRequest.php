@@ -46,14 +46,12 @@ class TestimonialRequest extends FormRequest
         ];
     }
 
-
     public function messages()
     {
         return [
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];
     }
-
 
     protected function prepareForValidation()
     {

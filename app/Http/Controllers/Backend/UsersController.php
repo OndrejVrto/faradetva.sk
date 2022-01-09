@@ -13,14 +13,11 @@ use Spatie\Permission\Models\Permission;
 class UsersController extends Controller
 {
 
-
-
     public function index()
     {
         $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);
         return view('backend.users.index', compact('users'));
     }
-
 
     public function create()
     {
@@ -31,7 +28,6 @@ class UsersController extends Controller
 
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
-
 
     public function store(User $user, UserRequest $request)
     {
@@ -62,15 +58,12 @@ class UsersController extends Controller
         return redirect()->route('users.index')->with($notification);
     }
 
-
-
     public function show($id)
     {
         $user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
 
         return view('backend.users.show', compact( 'user' ) );
     }
-
 
     public function edit(User $user)
     {
@@ -80,7 +73,6 @@ class UsersController extends Controller
         $userPermissions = $user->permissions->pluck('id')->toArray();
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
-
 
     public function update(User $user, UserRequest $request)
     {
@@ -118,7 +110,6 @@ class UsersController extends Controller
         );
         return redirect()->route('users.index')->with($notification);
     }
-
 
     public function destroy(User $user)
     {

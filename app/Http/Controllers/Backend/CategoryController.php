@@ -10,7 +10,6 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
 
-
     public function index()
     {
 
@@ -18,12 +17,10 @@ class CategoryController extends Controller
         return view('backend.categories.index', compact('categories'));
     }
 
-
     public function create()
     {
         return view('backend.categories.create');
     }
-
 
     public function store(CategoryRequest $request)
     {
@@ -40,7 +37,6 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with($notification);
     }
 
-
     public function edit( $slug )
     {
 
@@ -49,7 +45,6 @@ class CategoryController extends Controller
         return view('backend.categories.edit', compact('category'));
 
     }
-
 
     public function update(CategoryRequest $request, $id)
     {
@@ -66,7 +61,6 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with($notification);
 
     }
-
 
     public function destroy($id)
     {
