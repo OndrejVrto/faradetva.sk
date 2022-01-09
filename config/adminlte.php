@@ -192,7 +192,7 @@ return [
 
     'use_route_url' => false,
 	'profile_url' => 'users.show',
-	'dashboard_url' => 'home',
+	'dashboard_url' => '/',
     'logout_url' => 'logout',
 	'logout_method' => 'POST',
     'login_url' => 'login',

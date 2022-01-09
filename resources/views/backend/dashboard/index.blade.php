@@ -2,7 +2,7 @@
 
 @section('title', config('farnost-detva.admin_texts.dashboard_title', 'Administrácia') )
 @section('meta_description', config('farnost-detva.admin_texts.dashboard_description') )
-@section('content_header', config('farnost-detva.admin_texts.dashboard_header') )
+{{-- @section('content_header', config('farnost-detva.admin_texts.dashboard_header') ) --}}
 
 @section('content_breadcrumb')
 	{{ Breadcrumbs::render('admin.home') }}
