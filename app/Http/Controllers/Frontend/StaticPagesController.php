@@ -31,8 +31,9 @@ class StaticPagesController extends Controller
     }
 
     public function contact() {
+        $banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
         $priests = Priest::whereActive(1)->with('media')->get();
-        return view('frontend.contact.index', compact('priests'));
+        return view('frontend.contact.index', compact('priests', 'banner'));
     }
 
     public function francisco() {

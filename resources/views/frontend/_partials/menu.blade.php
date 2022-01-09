@@ -82,11 +82,11 @@
                                 <!-- Button trigger modal -->
                                 <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fas fa-search"></i></span>
                             </li>
-                            <li><a class="text-template" href="{{ route('home') }}">Všetko</a></li>
+                            <li><a class="text-template text-muted" href="{{ route('home') }}">Všetko</a></li>
                             @auth
-                                <li><a class="text-template" href="{{ route('admin.dashboard') }}">Administrácia</a></li>
+                                <li><a class="text-template text-muted" href="{{ route('admin.dashboard') }}">Administrácia</a></li>
                             @else
-                                <li><a class="text-template" href="{{ route('login') }}">Prihlásiť</a></li>
+                                <li><a class="text-template text-muted" href="{{ route('login') }}">Prihlásiť</a></li>
                                 {{-- @if (Route::has('register'))
                                 <li><a class="text-template" href="{{ route('register') }}">Registrovať</a></li>
                                 @endif --}}
