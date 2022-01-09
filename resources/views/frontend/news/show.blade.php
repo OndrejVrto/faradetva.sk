@@ -1,15 +1,15 @@
 @extends('frontend._layouts.page')
 
-@section('title', $one_news->title )
-@section('meta_description', $one_news->title . ' --> '. $one_news->teaser )
-@section('content_header', $one_news->title )
+@section('title', $oneNews->title )
+@section('meta_description', $oneNews->title . ' --> '. $oneNews->teaser )
+@section('content_header', $oneNews->title )
 
 {{-- @section('content_breadcrumb')
-    {{ Breadcrumbs::render('news.show', $one_news, $one_news->title )}}
+    {{ Breadcrumbs::render('article.show', $oneNews, $oneNews->title )}}
 @stop --}}
 
 @section('content')
-<a class="btn btn-danger btn-flat w-25 fixed-top mx-auto mt-4" href="{{ URL::previous() }}">Späť do administrácie</a>
+{{-- <a class="btn btn-danger btn-flat w-25 fixed-top mx-auto mt-4" href="{{ URL::previous() }}">Späť do administrácie</a> --}}
 
 <!-- blog section Start -->
 <div class="section blog_single_page pad_t_50 pad_b_30">
@@ -19,21 +19,21 @@
                 <!-- Item Start -->
                 <div class="wh_new">
                     <div class="blog_thumb">
-                        {!! $one_news->getFirstMedia('news_front_picture')->img('large', ['class' => 'w-100 img-fluid']) !!}
+                        {!! $oneNews->getFirstMedia('news_front_picture')->img('large', ['class' => 'w-100 img-fluid']) !!}
                     </div>
                     <div class="blog_desc">
                         <div class="blog_info">
-                            <span><a href="#"><i class="fas fa-user-tie" aria-hidden="true"></i>{{ $one_news->created_by }}</a></span>
-                            <span><a href="#"><i class="fas fa-calendar-alt" aria-hidden="true"></i>{{ $one_news->created_info }}</a></span>
+                            <span><a href="#"><i class="fas fa-user-tie" aria-hidden="true"></i>{{ $oneNews->createdBy }}</a></span>
+                            <span><a href="#"><i class="fas fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->createdInfo }}</a></span>
                         </div>
 
-                        <h3>{{ $one_news->title }}</h3>
+                        <h3>{{ $oneNews->title }}</h3>
                         <div class="content">
-                            {{$one_news->content}}
+                            {{$oneNews->content}}
                         </div>
                         <ul class="tag-list">
                             <li><i class="fas fa-tag" aria-hidden="true"></i></li>
-                            @foreach ($one_news->tags as $tag)
+                            @foreach ($oneNews->tags as $tag)
                                 <li><a href="#">{{ $tag->title }}</a></li>
                             @endforeach
                         </ul>
@@ -48,9 +48,9 @@
                 <div class="ch_sidebar_area">
 
                     <div class="widget widget_search">
-                        <form id="search-form" class="search-form" method="POST" action="/search">
+                        <form id="search-form" class="search-form" action="{{ route('search.news') }}">
                             <label>
-                                <input type="text" id="search-form-q" name="search" placeholder="Hľadaná fráza ..." class="search-field">
+                                <input type="text" id="search-form-q" name="searchNews" placeholder="Hľadať v článkoch ..." class="search-field">
                             </label>
                             <input type="submit" class="search-submit" value="Hľadať">
                         </form>
@@ -61,7 +61,7 @@
                             Kategórie
                         </h3>
                         <ul>
-                            @foreach ($all_categories as $category)
+                            @foreach ($allCategories as $category)
                                 <li><a href="#">{{ $category->title }}</a></li>
                             @endforeach
                         </ul>
@@ -71,17 +71,17 @@
                             Posledné články
                         </h3>
                         <ul>
-                            @foreach ($last_news as $last_one_news)
+                            @foreach ($lastNews as $lastOneNews)
 
                                 <li>
                                     {{-- <img src="images/blog/post_1.jpg" alt="Recent blog"> --}}
-                                    <img src="{{ $last_one_news->getFirstMediaUrl('news_front_picture', 'thumb-latest-news') ?: "http://via.placeholder.com/80x80" }}"
+                                    <img src="{{ $lastOneNews->getFirstMediaUrl('news_front_picture', 'thumb-latest-news') ?: "http://via.placeholder.com/80x80" }}"
                                         class="img-fluid"
-                                        alt="Malý obrázok článku: {{ $last_one_news->title }}."
+                                        alt="Malý obrázok článku: {{ $lastOneNews->title }}."
                                     />
                                     <div>
-                                        <a href="{{ route('news.show', $last_one_news->slug)}}">{{ $last_one_news->title }}</a>
-                                        {{ $last_one_news->teaser_light }}
+                                        <a href="{{ route('article.show', $lastOneNews->slug)}}">{{ $lastOneNews->title }}</a>
+                                        {{ $lastOneNews->teaser_light }}
                                     </div>
                                 </li>
 
@@ -94,7 +94,7 @@
                         </h3>
                         <div class="tagcloud">
 
-                            @foreach ( $all_tags as $tag )
+                            @foreach ( $allTags as $tag )
                                 <a href="#">{{ $tag->title }}</a>
                             @endforeach
 

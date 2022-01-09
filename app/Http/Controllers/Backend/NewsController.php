@@ -53,23 +53,15 @@ class NewsController extends Controller
         return redirect()->route('news.index')->with($notification);
     }
 
-    public function show($slug) {
-        $one_news = News::whereSlug($slug)->with('media', 'category', 'tags', 'user')->firstOrFail();
-        $last_news = News::whereActive(1)->orderBy('updated_by', 'asc')->take(3)->with('media')->get();
-        $all_categories = Category::all();
-        $all_tags = Tag::all();
-
-        // dd($last_news);
-        return view('frontend.news.show', compact('one_news', 'last_news', 'all_categories', 'all_tags'));
-    }
-
     public function edit($slug) {
         $news = News::whereSlug($slug)->with('media')->firstOrFail();
         $categories = Category::all();
         $tags = Tag::all();
-        $selectedTags = NewsTag::where('news_id', $news->id )->pluck('tag_id')->toArray();
 
-        return view('backend.news.edit', compact('news', 'categories', 'tags', 'selectedTags'));
+        // TODO: Chýba model NewsTag - zmazal som ho
+        // $selectedTags = NewsTag::where('news_id', $news->id )->pluck('tag_id')->toArray();
+        return 'TODO !!!';
+        // return view('backend.news.edit', compact('news', 'categories', 'tags', 'selectedTags'));
     }
 
     public function update(NewsRequest $request, $id) {
