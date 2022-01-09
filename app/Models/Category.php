@@ -12,10 +12,9 @@ class Category extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use SlugFromTitle;
+    use CreatedUpdatedBy;
 
-    // LINK THIS MODEL TO OUR DATABASE TABLE
     protected $table = 'categories';
 
     protected $fillable = [

@@ -15,8 +15,8 @@ class Priest extends Model implements HasMedia
 {
     use HasFactory;
     use SoftDeletes;
-    use InteractsWithMedia;
     use CreatedUpdatedBy;
+    use InteractsWithMedia;
 
     protected $fillable = [
         'active',

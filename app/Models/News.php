@@ -19,11 +19,10 @@ class News extends Model implements HasMedia
 {
     use HasFactory;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use SlugFromTitle;
+    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
-    // LINK THIS MODEL TO OUR DATABASE TABLE
     protected $table = 'news';
 
     protected $fillable = [

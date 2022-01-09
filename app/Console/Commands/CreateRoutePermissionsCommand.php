@@ -41,10 +41,8 @@ class CreateRoutePermissionsCommand extends Command
 
         foreach ($routes as $route) {
             $routeName = $route->getName();
-
             if ($routeName != '') {
                 foreach ($route->getAction()['middleware'] as $midleware) {
-
                     if($midleware == 'permission') {
                         $permission = Permission::where('name', $routeName)->first();
                         if (is_null($permission)) {
@@ -55,6 +53,7 @@ class CreateRoutePermissionsCommand extends Command
                 }
             }
         }
+
         $this->newLine();
         $this->info('Permission routes added successfully.');
     }

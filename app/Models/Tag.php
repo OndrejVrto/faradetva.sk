@@ -13,8 +13,8 @@ class Tag extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use SlugFromTitle;
+    use CreatedUpdatedBy;
 
     protected $fillable = [
         'title',

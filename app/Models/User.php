@@ -3,24 +3,24 @@
 namespace App\Models;
 
 use App\Models\News;
-use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens;
+    use HasRoles;
     use HasFactory;
     use Notifiable;
     use SoftDeletes;
-    use HasRoles;
+    use HasApiTokens;
     use InteractsWithMedia;
 
     protected $table = 'users';
