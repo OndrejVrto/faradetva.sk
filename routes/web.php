@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\NewsController;
-use App\Http\Controllers\Backend\RolesController;
-use App\Http\Controllers\Backend\UsersController;
+use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
@@ -13,23 +13,12 @@ use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\PermissionsController;
+use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Frontend\StaticPagesController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
- */
-
-// Auth::routes();  //Orginal routes for Authorisation
 /** Login Routes */
+// Auth::routes();  // All routes for Authorisation
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 /**  Logout Route */
@@ -58,9 +47,9 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::resource('sliders', SliderController::class, ['except' => 'show']);
     Route::resource('banners', BannerController::class, ['except' => 'show']);
 
-    Route::resource('users', UsersController::class);
-    Route::resource('roles', RolesController::class, ['except' => 'show']);
-    Route::resource('permissions', PermissionsController::class, ['except' => 'show']);
+    Route::resource('users', UserController::class);
+    Route::resource('roles', RoleController::class, ['except' => 'show']);
+    Route::resource('permissions', PermissionController::class, ['except' => 'show']);
 });
 
 // only for Debug

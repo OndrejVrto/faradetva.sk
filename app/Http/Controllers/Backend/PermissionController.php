@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PermissionRequest;
 use Spatie\Permission\Models\Permission;
 
-class PermissionsController extends Controller
+class PermissionController extends Controller
 {
     public function index() {
         $permissions = Permission::all();
