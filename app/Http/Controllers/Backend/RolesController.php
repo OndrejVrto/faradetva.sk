@@ -16,32 +16,32 @@ class RolesController extends Controller
     {
         $roles = Role::paginate(10);
 
-		return view('backend.roles.index', compact( 'roles' ) );
+        return view('backend.roles.index', compact( 'roles' ) );
     }
 
 
     public function create()
     {
         $permissions = Permission::all();
-		$rolePermissions = [];
+        $rolePermissions = [];
         return view('backend.roles.create', compact('permissions', 'rolePermissions'));
     }
 
 
     public function store(RoleRequest $request)
     {
-		$validated = $request->validated();
-		$data = Arr::only($validated, ['name']);
+        $validated = $request->validated();
+        $data = Arr::only($validated, ['name']);
 
-		$role = Role::create($data);
+        $role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-		$notification = array(
-			'message' => 'Nová rola bola pridané!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Nová rola bola pridané!',
+            'alert-type' => 'success'
+        );
 
-		return redirect()->route('roles.index')->with($notification);
+        return redirect()->route('roles.index')->with($notification);
     }
 
 
@@ -57,17 +57,17 @@ class RolesController extends Controller
     public function update(RoleRequest $request, $id)
     {
 
-		$validated = $request->validated();
-		$data = Arr::only($validated, ['name']);
+        $validated = $request->validated();
+        $data = Arr::only($validated, ['name']);
 
-		$role = Role::findOrFail($id);
-		$role->update($data);
-		$role->syncPermissions($request->get('permission'));
+        $role = Role::findOrFail($id);
+        $role->update($data);
+        $role->syncPermissions($request->get('permission'));
 
-		$notification = array(
-			'message' => 'Rola bola uprtavená!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Rola bola uprtavená!',
+            'alert-type' => 'success'
+        );
 
         return redirect()->route('roles.index')->with($notification);
     }
@@ -75,13 +75,13 @@ class RolesController extends Controller
 
     public function destroy($id)
     {
-		$role = Role::findOrFail($id);
+        $role = Role::findOrFail($id);
         $role->delete();
 
-		$notification = array(
-			'message' => 'Rola bola zmazaná!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Rola bola zmazaná!',
+            'alert-type' => 'success'
+        );
         return redirect()->route('roles.index')->with($notification);
     }
 }

@@ -6,12 +6,12 @@
 
 @section('content')
 
-	@include('frontend._sections.banner', ['mainTitle' => 'Kontakt'])
+    @include('frontend._sections.banner', ['mainTitle' => 'Kontakt'])
 
-	@include('frontend._sections.contact')
+    @include('frontend._sections.contact')
 
-	@include('frontend._sections.map')
+    @include('frontend._sections.map')
 
-	@include('frontend._sections.pasters')
+    @include('frontend._sections.pasters')
 
 @endsection

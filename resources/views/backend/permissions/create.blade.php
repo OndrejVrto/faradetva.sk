@@ -4,9 +4,9 @@
 @section('meta_description', config('farnost-detva.admin_texts.permissions_description_create') )
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('permissions.create') }}
+    {{ Breadcrumbs::render('permissions.create') }}
 @stop
 
 @section('content')
-	@include('backend.permissions.form')
+    @include('backend.permissions.form')
 @endsection

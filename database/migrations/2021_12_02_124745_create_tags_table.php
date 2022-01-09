@@ -15,12 +15,12 @@ class CreateTagsTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-			$table->string('title');
-			$table->string('slug')->unique();
-			$table->string('description');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('description');
             $table->timestamps();
-			$table->softDeletes();
-			$table->bigInteger('created_by')->unsigned();
+            $table->softDeletes();
+            $table->bigInteger('created_by')->unsigned();
             $table->bigInteger('updated_by')->unsigned();
         });
     }

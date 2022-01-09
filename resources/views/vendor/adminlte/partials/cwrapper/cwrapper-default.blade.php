@@ -13,9 +13,9 @@
     @hasSection('content_header')
         <section class="content-header">
             <div class="{{ config('adminlte.classes_content_header') ?: $def_container_class }}">
-				<div class="row">
-					<h1>@yield('content_header')</h1>
-				</div>
+                <div class="row">
+                    <h1>@yield('content_header')</h1>
+                </div>
             </div>
         </section>
     @endif

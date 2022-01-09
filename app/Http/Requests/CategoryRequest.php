@@ -26,11 +26,11 @@ class CategoryRequest extends FormRequest
     {
         return [
             'title' => [
-				'required',
-				'max:30',
-				Rule::unique('categories', 'title')->ignore($this->category)->whereNull('deleted_at')
-			],
-			'description' => 'required|max:255'
+                'required',
+                'max:30',
+                Rule::unique('categories', 'title')->ignore($this->category)->whereNull('deleted_at')
+            ],
+            'description' => 'required|max:255'
         ];
     }
 }

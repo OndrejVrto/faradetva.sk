@@ -42,25 +42,25 @@ class CreateRoutePermissionsCommand extends Command
         $routes = Route::getRoutes()->getRoutes();
 
         foreach ($routes as $route)
-		{
-			$routeName = $route->getName();
-			if ($routeName != '')
-			{
-				foreach ($route->getAction()['middleware'] as $midleware)
-				{
+        {
+            $routeName = $route->getName();
+            if ($routeName != '')
+            {
+                foreach ($route->getAction()['middleware'] as $midleware)
+                {
 
-					if($midleware == 'permission')
-					{
-						$permission = Permission::where('name', $routeName)->first();
-						if (is_null($permission)) {
-							$this->line('Create permissions: '.$routeName);
-							Permission::create(['name' => $routeName]);
-						}
-					}
-				}
-			}
+                    if($midleware == 'permission')
+                    {
+                        $permission = Permission::where('name', $routeName)->first();
+                        if (is_null($permission)) {
+                            $this->line('Create permissions: '.$routeName);
+                            Permission::create(['name' => $routeName]);
+                        }
+                    }
+                }
+            }
         }
-		$this->newLine();
+        $this->newLine();
         $this->info('Permission routes added successfully.');
     }
 }

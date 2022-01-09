@@ -6,8 +6,8 @@
 
 @section('content')
 
-	@include('frontend._sections.banner', ['mainTitle' => 'Správa'])
+    @include('frontend._sections.banner', ['mainTitle' => 'Správa'])
 
-	@include('frontend._sections.one-news')
+    @include('frontend._sections.one-news')
 
 @endsection

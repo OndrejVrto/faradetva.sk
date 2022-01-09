@@ -20,104 +20,104 @@ class News extends Model implements HasMedia
 {
 
     use HasFactory;
-	use SoftDeletes;
-	use CreatedUpdatedBy;
-	use SlugFromTitle;
-	use InteractsWithMedia;
+    use SoftDeletes;
+    use CreatedUpdatedBy;
+    use SlugFromTitle;
+    use InteractsWithMedia;
 
-	// LINK THIS MODEL TO OUR DATABASE TABLE
-	protected $table = 'news';
+    // LINK THIS MODEL TO OUR DATABASE TABLE
+    protected $table = 'news';
 
 
     protected $fillable = [
-		'active',
-		'user_id',
-		'published_at',
-		'unpublished_at',
-		'category_id',
-		'title',
-		'content'
+        'active',
+        'user_id',
+        'published_at',
+        'unpublished_at',
+        'category_id',
+        'title',
+        'content'
     ];
 
 
-	public function getTeaserAttribute()
-	{
-		return Str::words($this->content, 30, '...');
-	}
+    public function getTeaserAttribute()
+    {
+        return Str::words($this->content, 30, '...');
+    }
 
 
-	public function getTeaserLightAttribute()
-	{
-		return Str::words($this->content, 7, '...');
-	}
+    public function getTeaserLightAttribute()
+    {
+        return Str::words($this->content, 7, '...');
+    }
 
 
-	public function getMediaFileNameAttribute()
-	{
-		return $this->getFirstMedia('news_front_picture')->file_name ?? null;
-	}
+    public function getMediaFileNameAttribute()
+    {
+        return $this->getFirstMedia('news_front_picture')->file_name ?? null;
+    }
 
 
-	public function getCreatedAttribute()
-	{
-		return $this->created_at->format("d. M Y");
-	}
+    public function getCreatedAttribute()
+    {
+        return $this->created_at->format("d. M Y");
+    }
 
 
-	public function getUpdatedAttribute()
-	{
-		return $this->updated_at->format("d. M Y");
-	}
+    public function getUpdatedAttribute()
+    {
+        return $this->updated_at->format("d. M Y");
+    }
 
 
-	public function getPublishedAtAttribute($value)
-	{
+    public function getPublishedAtAttribute($value)
+    {
 
-		return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
-	}
-
-
-	public function getUnpublishedAtAttribute($value)
-	{
-		return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
-	}
+        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
+    }
 
 
-	public function user()
-	{
+    public function getUnpublishedAtAttribute($value)
+    {
+        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
+    }
+
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
 
     public function category()
-	{
+    {
         return $this->belongsTo(Category::class);
     }
 
 
-	public function tags()
-	{
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class);
     }
 
 
-	public function registerMediaConversions( Media $media = null ) : void
-	{
-		$this->addMediaConversion('large')
-			->fit("crop", 848, 460)
-			->optimize()
-			->withResponsiveImages();
+    public function registerMediaConversions( Media $media = null ) : void
+    {
+        $this->addMediaConversion('large')
+            ->fit("crop", 848, 460)
+            ->optimize()
+            ->withResponsiveImages();
 
-		$this->addMediaConversion('thumb-latest-news')
-			->fit("crop", 80, 80);
+        $this->addMediaConversion('thumb-latest-news')
+            ->fit("crop", 80, 80);
 
-		$this->addMediaConversion('thumb-all-news')
-			->fit("crop", 370, 248);
+        $this->addMediaConversion('thumb-all-news')
+            ->fit("crop", 370, 248);
 
-		$this->addMediaConversion('crop-thumb')
-			->fit("crop", 170, 92);
+        $this->addMediaConversion('crop-thumb')
+            ->fit("crop", 170, 92);
 
-	}
+    }
 
 
 }

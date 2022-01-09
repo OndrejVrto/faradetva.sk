@@ -1,6 +1,6 @@
 @props([
-	'type' => 'right'
+    'type' => 'right'
 ])
 <div class="from{{ $type }} wow">
-	{{ $slot }}
+    {{ $slot }}
 </div>

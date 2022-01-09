@@ -5,5 +5,5 @@
 @stop
 
 @section('js')
-	<script src="{{ mix('asset/js/admin_custom.js') }}"></script>
+    <script src="{{ mix('asset/js/admin_custom.js') }}"></script>
 @stop

@@ -4,9 +4,9 @@
 @section('meta_description', config('farnost-detva.admin_texts.tags_description_create') )
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('tags.create') }}
+    {{ Breadcrumbs::render('tags.create') }}
 @stop
 
 @section('content')
-	@include('backend.tags.form')
+    @include('backend.tags.form')
 @endsection

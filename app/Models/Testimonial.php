@@ -16,38 +16,38 @@ class Testimonial extends Model implements HasMedia
 {
 
     use HasFactory;
-	use SoftDeletes;
-	use InteractsWithMedia;
-	use CreatedUpdatedBy;
-	use SlugFromName;
+    use SoftDeletes;
+    use InteractsWithMedia;
+    use CreatedUpdatedBy;
+    use SlugFromName;
 
 
-	protected $fillable = [
-		'active',
-		'name',
-		'slug',
-		'phone',
-		'function',
-		'description',
-	];
+    protected $fillable = [
+        'active',
+        'name',
+        'slug',
+        'phone',
+        'function',
+        'description',
+    ];
 
 
-	public function registerMediaConversions( Media $media = null ) : void
-	{
-		$this->addMediaConversion('crop')
-			->fit("crop", 800, 800);
-			// ->optimize();
-			// ->withResponsiveImages();
+    public function registerMediaConversions( Media $media = null ) : void
+    {
+        $this->addMediaConversion('crop')
+            ->fit("crop", 800, 800);
+            // ->optimize();
+            // ->withResponsiveImages();
 
-		$this->addMediaConversion('crop-thumb')
-			->fit("crop", 60, 60);
-	}
+        $this->addMediaConversion('crop-thumb')
+            ->fit("crop", 60, 60);
+    }
 
 
-	public function getMediaFileNameAttribute()
-	{
-		return $this->getFirstMedia('testimonial')->file_name ?? null;
-	}
+    public function getMediaFileNameAttribute()
+    {
+        return $this->getFirstMedia('testimonial')->file_name ?? null;
+    }
 
 
 }

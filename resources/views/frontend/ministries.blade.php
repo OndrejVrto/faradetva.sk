@@ -6,12 +6,12 @@
 
 @section('content')
 
-	@include('frontend._sections.banner', ['mainTitle' => 'Spoločenstvá'])
+    @include('frontend._sections.banner', ['mainTitle' => 'Spoločenstvá'])
 
-	@include('frontend._sections.ministeriesExtend')
+    @include('frontend._sections.ministeriesExtend')
 
-	@include('frontend._sections.skils')
+    @include('frontend._sections.skils')
 
-	@include('frontend._sections.pasters')
+    @include('frontend._sections.pasters')
 
 @endsection

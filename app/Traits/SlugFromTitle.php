@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 trait SlugFromTitle
 {
 
-	protected static function boot()
+    protected static function boot()
     {
         parent::boot();
 

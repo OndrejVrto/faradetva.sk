@@ -16,17 +16,17 @@ class CreatePriestsTable extends Migration
         Schema::create('priests', function (Blueprint $table) {
             $table->id();
             $table->boolean('active')->default(1);
-			$table->string('titles_before')->nullable();
-			$table->string('first_name');
-			$table->string('last_name');
-			$table->string('titles_after')->nullable();
-			$table->string('slug');
-			$table->string('phone')->nullable();
-			$table->string('function')->nullable();
-			$table->text('description')->nullable();
+            $table->string('titles_before')->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('titles_after')->nullable();
+            $table->string('slug');
+            $table->string('phone')->nullable();
+            $table->string('function')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
-			$table->bigInteger('created_by')->unsigned();
+            $table->bigInteger('created_by')->unsigned();
             $table->bigInteger('updated_by')->unsigned();
         });
     }

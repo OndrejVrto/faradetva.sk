@@ -14,9 +14,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-		\App\Http\Middleware\QueryLogsSeparateMiddleware::class,
-		\App\Http\Middleware\PreetyHtmlMiddleware::class,
-		// \App\Http\Middleware\MinifiHtmlMiddleware::class,
+        \App\Http\Middleware\QueryLogsSeparateMiddleware::class,
+        \App\Http\Middleware\PreetyHtmlMiddleware::class,
+        // \App\Http\Middleware\MinifiHtmlMiddleware::class,
 
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -67,7 +67,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-		'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \App\Http\Middleware\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
     ];

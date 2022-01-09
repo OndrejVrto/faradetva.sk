@@ -6,12 +6,12 @@
 
 @section('content')
 
-	@include('frontend._sections.banner', ['mainTitle' => 'Udalosti'])
+    @include('frontend._sections.banner', ['mainTitle' => 'Udalosti'])
 
-	@include('frontend._sections.eventExtend')
+    @include('frontend._sections.eventExtend')
 
-	@include('frontend._sections.pasters')
+    @include('frontend._sections.pasters')
 
-	@include('frontend._sections.testimonials')
+    @include('frontend._sections.testimonials')
 
 @endsection

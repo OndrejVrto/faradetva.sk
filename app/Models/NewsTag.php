@@ -11,16 +11,16 @@ class NewsTag extends Model
 
     use HasFactory;
 
-	protected $table = 'news_tag';
+    protected $table = 'news_tag';
 
 
-	public $timestamps = false;
+    public $timestamps = false;
 
 
     protected $fillable = [
-		'news_id',
-		'tag_id'
-	];
+        'news_id',
+        'tag_id'
+    ];
 
 
 }

@@ -4,9 +4,9 @@
 @section('meta_description', config('farnost-detva.admin_texts.news_description_create') )
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('news.create') }}
+    {{ Breadcrumbs::render('news.create') }}
 @stop
 
 @section('content')
-	@include('backend.news.form')
+    @include('backend.news.form')
 @endsection

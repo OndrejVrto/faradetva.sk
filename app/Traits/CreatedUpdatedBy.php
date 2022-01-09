@@ -8,7 +8,7 @@ trait CreatedUpdatedBy
 {
     public static function bootCreatedUpdatedBy()
     {
-		// parent::boot();
+        // parent::boot();
         // updating created_by and updated_by when model is created
         static::creating(function ($model) {
             if (!$model->isDirty('created_by')) {
@@ -27,29 +27,29 @@ trait CreatedUpdatedBy
         });
     }
 
-	public function getCreatedInfoAttribute()
-	{
-		return date('d. m. Y \o H:i', strtotime($this->created_at) );
-	}
+    public function getCreatedInfoAttribute()
+    {
+        return date('d. m. Y \o H:i', strtotime($this->created_at) );
+    }
 
 
-	public function getUpdatedInfoAttribute()
-	{
-		return date('d. m. Y \o H:i', strtotime($this->updated_at) );
-	}
+    public function getUpdatedInfoAttribute()
+    {
+        return date('d. m. Y \o H:i', strtotime($this->updated_at) );
+    }
 
 
-	public function getCreatedByAttribute($value)
-	{
-		$user = User::whereId($value)->first();
-		return $user->name;
-	}
+    public function getCreatedByAttribute($value)
+    {
+        $user = User::whereId($value)->first();
+        return $user->name;
+    }
 
 
-	public function getUpdatedByAttribute($value)
-	{
-		$user = User::whereId($value)->first();
-		return $user->name;
-	}
+    public function getUpdatedByAttribute($value)
+    {
+        $user = User::whereId($value)->first();
+        return $user->name;
+    }
 
 }

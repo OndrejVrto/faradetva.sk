@@ -24,10 +24,10 @@ class UsersController extends Controller
 
     public function create()
     {
-		$roles = Role::all();
-		$userRoles = [];
-		$permissions = Permission::all();
-		$userPermissions = [];
+        $roles = Role::all();
+        $userRoles = [];
+        $permissions = Permission::all();
+        $userPermissions = [];
 
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
@@ -35,30 +35,30 @@ class UsersController extends Controller
 
     public function store(User $user, UserRequest $request)
     {
-		$validated = $request->validated();
-		$user->create($validated);
+        $validated = $request->validated();
+        $user->create($validated);
 
-		// store rols to user
-		$role = $request->input('role');
-		$user->roles()->sync($role);
+        // store rols to user
+        $role = $request->input('role');
+        $user->roles()->sync($role);
 
-		// store permissions to user
-		$permissions = $request->input('permission');
-		$user->permissions()->sync($permissions);
+        // store permissions to user
+        $permissions = $request->input('permission');
+        $user->permissions()->sync($permissions);
 
-		// Spatie media-collection
-		if ($request->hasFile('photo_avatar')) {
-			$user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
-			$user->addMediaFromRequest('photo_avatar')
-				->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
-				->toMediaCollection('avatar');
-		}
+        // Spatie media-collection
+        if ($request->hasFile('photo_avatar')) {
+            $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
+            $user->addMediaFromRequest('photo_avatar')
+                ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
+                ->toMediaCollection('avatar');
+        }
 
-		// notification and request
-		$notification = array(
-			'message' => 'Uživateľ bol pridaný!',
-			'alert-type' => 'success'
-		);
+        // notification and request
+        $notification = array(
+            'message' => 'Uživateľ bol pridaný!',
+            'alert-type' => 'success'
+        );
         return redirect()->route('users.index')->with($notification);
     }
 
@@ -66,56 +66,56 @@ class UsersController extends Controller
 
     public function show($id)
     {
-		$user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
+        $user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
 
-		return view('backend.users.show', compact( 'user' ) );
+        return view('backend.users.show', compact( 'user' ) );
     }
 
 
     public function edit(User $user)
     {
-		$roles = Role::all();
-		$userRoles = $user->roles->pluck('id')->toArray();
-		$permissions = Permission::all();
-		$userPermissions = $user->permissions->pluck('id')->toArray();
+        $roles = Role::all();
+        $userRoles = $user->roles->pluck('id')->toArray();
+        $permissions = Permission::all();
+        $userPermissions = $user->permissions->pluck('id')->toArray();
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
 
     public function update(User $user, UserRequest $request)
     {
-		// validation
-		$validated = $request->validated();
+        // validation
+        $validated = $request->validated();
 
-		// if no password is entered, it is removed from the request
-		if( ! $request->filled('password') )
-		{
-			$validated = Arr::except($validated, ['password']);
-		}
+        // if no password is entered, it is removed from the request
+        if( ! $request->filled('password') )
+        {
+            $validated = Arr::except($validated, ['password']);
+        }
 
-		$user->update($validated);
+        $user->update($validated);
 
-		// store rols to user
-		$role = $request->input('role');
-		$user->roles()->sync($role);
+        // store rols to user
+        $role = $request->input('role');
+        $user->roles()->sync($role);
 
-		// store permissions to user
-		$permissions = $request->input('permission');
-		$user->permissions()->sync($permissions);
+        // store permissions to user
+        $permissions = $request->input('permission');
+        $user->permissions()->sync($permissions);
 
-		// Spatie media-collection
-		if ($request->hasFile('photo_avatar')) {
-			$user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
-			$user->addMediaFromRequest('photo_avatar')
-				->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
-				->toMediaCollection('avatar');
-		}
+        // Spatie media-collection
+        if ($request->hasFile('photo_avatar')) {
+            $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
+            $user->addMediaFromRequest('photo_avatar')
+                ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
+                ->toMediaCollection('avatar');
+        }
 
-		// notification and request
-		$notification = array(
-			'message' => 'Uživateľ bol upravený!',
-			'alert-type' => 'success'
-		);
+        // notification and request
+        $notification = array(
+            'message' => 'Uživateľ bol upravený!',
+            'alert-type' => 'success'
+        );
         return redirect()->route('users.index')->with($notification);
     }
 
@@ -124,10 +124,10 @@ class UsersController extends Controller
     {
         $user->delete();
 
-		$notification = array(
-			'message' => 'Uživateľ bol odstránený!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Uživateľ bol odstránený!',
+            'alert-type' => 'success'
+        );
 
         return redirect()->route('users.index')->with($notification);
     }

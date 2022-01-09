@@ -27,13 +27,13 @@ class TagRequest extends FormRequest
     {
         return [
             'title' => [
-				'required',
-				new SingleWord,
-				'max:30',
-				'alpha',
-				Rule::unique('tags', 'title')->ignore($this->tag)->whereNull('deleted_at')
-			],
-			'description' => 'required|max:255'
+                'required',
+                new SingleWord,
+                'max:30',
+                'alpha',
+                Rule::unique('tags', 'title')->ignore($this->tag)->whereNull('deleted_at')
+            ],
+            'description' => 'required|max:255'
         ];
     }
 }

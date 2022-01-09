@@ -4,9 +4,9 @@
 @section('meta_description', config('farnost-detva.admin_texts.categories_description_create') )
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('categories.create') }}
+    {{ Breadcrumbs::render('categories.create') }}
 @stop
 
 @section('content')
-	@include('backend.categories.form')
+    @include('backend.categories.form')
 @endsection

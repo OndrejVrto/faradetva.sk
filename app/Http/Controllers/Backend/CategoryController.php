@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
 
-		$categories = Category::latest()->paginate(10);
+        $categories = Category::latest()->paginate(10);
         return view('backend.categories.index', compact('categories'));
     }
 
@@ -28,14 +28,14 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
 
-		$validated = $request->validated();
+        $validated = $request->validated();
 
-		Category::create($validated);
+        Category::create($validated);
 
-		$notification = array(
-			'message' => 'Nová kategória bola pridaná!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Nová kategória bola pridaná!',
+            'alert-type' => 'success'
+        );
 
         return redirect()->route('categories.index')->with($notification);
     }
@@ -44,9 +44,9 @@ class CategoryController extends Controller
     public function edit( $slug )
     {
 
-		$category = Category::whereSlug($slug)->firstOrFail();
+        $category = Category::whereSlug($slug)->firstOrFail();
 
-		return view('backend.categories.edit', compact('category'));
+        return view('backend.categories.edit', compact('category'));
 
     }
 
@@ -54,14 +54,14 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, $id)
     {
 
-		$validated = $request->validated();
+        $validated = $request->validated();
 
-		Category::findOrFail($id)->update($validated);
+        Category::findOrFail($id)->update($validated);
 
-		$notification = array(
-			'message' => 'Kategória bola upravená!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Kategória bola upravená!',
+            'alert-type' => 'success'
+        );
 
         return redirect()->route('categories.index')->with($notification);
 
@@ -70,14 +70,14 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-		$category = Category::findOrFail($id);
-		$category->delete();
+        $category = Category::findOrFail($id);
+        $category->delete();
 
-		$notification = array(
-			'message' => 'Kategória bola odstránená!',
-			'alert-type' => 'success'
-		);
-		return redirect()->route('categories.index')->with($notification);
+        $notification = array(
+            'message' => 'Kategória bola odstránená!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('categories.index')->with($notification);
     }
 
 }

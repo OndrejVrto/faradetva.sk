@@ -191,10 +191,10 @@ return [
     */
 
     'use_route_url' => false,
-	'profile_url' => 'users.show',
-	'dashboard_url' => '/',
+    'profile_url' => 'users.show',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
-	'logout_method' => 'POST',
+    'logout_method' => 'POST',
     'login_url' => 'login',
     'register_url' => false,
     'password_reset_url' => false,
@@ -238,122 +238,122 @@ return [
         ],
 
         // Sidebar items:
-		[
-			'text'        => 'Dashboard',
-			'icon_color'  => 'blue',
-			'route'       => 'admin.dashboard',
-			'icon'        => 'fab fa-fort-awesome fa-lg',
-        ],
-		[
-			'header' => 'Sekcie',
-			'can'  => [
-				'news.index',
-				'priests.index',
-				'testimonials.index',
-				'sliders.index',
-				'banners.index',
-			],
-		],
         [
-			'text'  => 'Články',
-			'icon_color'  => 'orange',
-			'route' => 'news.index',
+            'text'        => 'Dashboard',
+            'icon_color'  => 'blue',
+            'route'       => 'admin.dashboard',
+            'icon'        => 'fab fa-fort-awesome fa-lg',
+        ],
+        [
+            'header' => 'Sekcie',
+            'can'  => [
+                'news.index',
+                'priests.index',
+                'testimonials.index',
+                'sliders.index',
+                'banners.index',
+            ],
+        ],
+        [
+            'text'  => 'Články',
+            'icon_color'  => 'orange',
+            'route' => 'news.index',
             // 'icon'  => 'fas fa-book-open',
             'icon'  => 'fas fa-font',
-			'can'  => 'news.index',
+            'can'  => 'news.index',
         ],
         [
-			'text'  => 'Kňazi',
-			'icon_color'  => 'orange',
-			'route' => 'priests.index',
+            'text'  => 'Kňazi',
+            'icon_color'  => 'orange',
+            'route' => 'priests.index',
             'icon'  => 'fas fa-hands',
-			'can'  => 'priests.index',
+            'can'  => 'priests.index',
         ],
         [
-			'text'  => 'Svedectvá',
-			'icon_color'  => 'orange',
-			'route' => 'testimonials.index',
+            'text'  => 'Svedectvá',
+            'icon_color'  => 'orange',
+            'route' => 'testimonials.index',
             'icon'  => 'fas fa-comment-medical',
-			'can'  => 'testimonials.index',
+            'can'  => 'testimonials.index',
         ],
         [
-			'text'  => 'Obrázok s myšlienkou',
-			'icon_color'  => 'orange',
-			'route' => 'sliders.index',
+            'text'  => 'Obrázok s myšlienkou',
+            'icon_color'  => 'orange',
+            'route' => 'sliders.index',
             'icon'  => 'fas fa-image',
-			'can'  => 'sliders.index',
+            'can'  => 'sliders.index',
         ],
         [
-			'text'  => 'Baner',
-			'icon_color'  => 'orange',
-			'route' => 'banners.index',
+            'text'  => 'Baner',
+            'icon_color'  => 'orange',
+            'route' => 'banners.index',
             'icon'  => 'far fa-flag',
-			'can'  => 'banners.index',
+            'can'  => 'banners.index',
         ],
-		[
-			'header' => 'Nastavenia',
-			'can'  => [
-				'categories.index',
-				'tags.index',
-			],
-		],
-		[
-			'text' => 'Kategórie článkov',
-			'icon_color'  => 'green',
-			'route' => 'categories.index',
-			'icon'  => 'fas fa-stream',
-			'can'  => 'categories.index',
-		],
-		[
-			'text' => 'Kľúčové slová',
-			'icon_color'  => 'green',
-			'route' => 'tags.index',
-			'icon'  => 'fas fa-tag',
-			'can'  => 'tags.index',
-		],
-		[
-			'header' => 'Prístupové práva',
-			'can'  => [
-				'users.index',
-				'roles.index',
-				'permissions.index'
-			],
-		],
-		[
-			'text' => 'Uživatelia',
-			'icon_color'  => 'red',
-			'icon'  => 'fas fa-users',
-			'route' => 'users.index',
-			'can'  => 'users.index',
-		],
-		[
-			'text' => 'Roly',
-			'icon_color'  => 'red',
-			'icon'  => 'fas fa-chess-queen',
-			'route' => 'roles.index',
-			'can'  => 'roles.index',
-		],
-		[
-			'text' => 'Povolenia',
-			'icon_color'  => 'red',
-			'icon'  => 'fas fa-key',
-			'route' => 'permissions.index',
-			'can'  => 'permissions.index',
-		],
+        [
+            'header' => 'Nastavenia',
+            'can'  => [
+                'categories.index',
+                'tags.index',
+            ],
+        ],
+        [
+            'text' => 'Kategórie článkov',
+            'icon_color'  => 'green',
+            'route' => 'categories.index',
+            'icon'  => 'fas fa-stream',
+            'can'  => 'categories.index',
+        ],
+        [
+            'text' => 'Kľúčové slová',
+            'icon_color'  => 'green',
+            'route' => 'tags.index',
+            'icon'  => 'fas fa-tag',
+            'can'  => 'tags.index',
+        ],
+        [
+            'header' => 'Prístupové práva',
+            'can'  => [
+                'users.index',
+                'roles.index',
+                'permissions.index'
+            ],
+        ],
+        [
+            'text' => 'Uživatelia',
+            'icon_color'  => 'red',
+            'icon'  => 'fas fa-users',
+            'route' => 'users.index',
+            'can'  => 'users.index',
+        ],
+        [
+            'text' => 'Roly',
+            'icon_color'  => 'red',
+            'icon'  => 'fas fa-chess-queen',
+            'route' => 'roles.index',
+            'can'  => 'roles.index',
+        ],
+        [
+            'text' => 'Povolenia',
+            'icon_color'  => 'red',
+            'icon'  => 'fas fa-key',
+            'route' => 'permissions.index',
+            'can'  => 'permissions.index',
+        ],
 
 
         // [
-		// 	'text'    => 'Tabuľky',
-		// 	'icon_color'  => 'green',
+        //     'text'    => 'Tabuľky',
+        //     'icon_color'  => 'green',
         //     'icon'    => 'fas fa-cog',
         //     'submenu' => [
         //         [
         //             'text' => 'Kategórie článkov',
-		// 			'route' => 'categories.index',
+        //             'route' => 'categories.index',
         //         ],
         //         [
         //             'text' => 'Kľúčové slová',
-		// 			'route' => 'tags.index',
+        //             'route' => 'tags.index',
         //         ],
         //     ],
         // ],
@@ -416,22 +416,22 @@ return [
         ],
         'Select2' => [
             'active' => true,
-			'files' => [
-				[
-					'type' => 'js',
-					'asset' => true,
-					'location' => 'vendor/select2/js/select2.full.min.js',
-				],
-				[
-					'type' => 'css',
-					'asset' => true,
-					'location' => 'vendor/select2/css/select2.min.css',
-				],
-				[
-					'type' => 'css',
-					'asset' => true,
-					'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
-				],
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/select2/js/select2.full.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/select2/css/select2.min.css',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
+                ],
             ],
         ],
         'Chartjs' => [
@@ -457,12 +457,12 @@ return [
         'Sweetalert2' => [
             'active' => true,
             'files' => [
-				[
+                [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/sweetalert2/sweetalert2.min.css',
                 ],
-				[
+                [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css',
@@ -529,21 +529,21 @@ return [
                 ],
             ],
         ],
-		'Summernote' => [
-			'active' => true,
-			'files' => [
-				[
-					'type' => 'js',
-					'asset' => true,
-					'location' => 'vendor/summernote/summernote-bs4.min.js',
-				],
-				[
-					'type' => 'css',
-					'asset' => true,
-					'location' => 'vendor/summernote/summernote-bs4.min.css',
-				],
-			],
-		],
+        'Summernote' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/summernote/summernote-bs4.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/summernote/summernote-bs4.min.css',
+                ],
+            ],
+        ],
     ],
 
     /*

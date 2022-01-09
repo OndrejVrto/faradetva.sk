@@ -14,11 +14,11 @@ class BannerController extends Controller
 
 
     public function index()
-	{
-		Session::remove('banner_old_input_checkbox');
+    {
+        Session::remove('banner_old_input_checkbox');
 
-		$banners = Banner::latest('updated_at')->with('media')->paginate(5);
-		return view('backend.banners.index', compact('banners'));
+        $banners = Banner::latest('updated_at')->with('media')->paginate(5);
+        return view('backend.banners.index', compact('banners'));
     }
 
 
@@ -32,22 +32,22 @@ class BannerController extends Controller
 
     public function store(BannerRequest $request)
     {
-		$validated = $request->validated();
-		$banner = Banner::create($validated);
+        $validated = $request->validated();
+        $banner = Banner::create($validated);
 
-		// Spatie media-collection
-		if ($request->hasFile('photo')) {
-			$banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
-			$banner->addMediaFromRequest('photo')
-					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
-					->toMediaCollection('banner');
-		}
+        // Spatie media-collection
+        if ($request->hasFile('photo')) {
+            $banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
+            $banner->addMediaFromRequest('photo')
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->toMediaCollection('banner');
+        }
 
 
-		$notification = array(
-			'message' => 'Nový baner bol pridaný!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Nový baner bol pridaný!',
+            'alert-type' => 'success'
+        );
         return redirect()->route('banners.index')->with($notification);
     }
 
@@ -55,32 +55,32 @@ class BannerController extends Controller
 
     public function edit($id)
     {
-		$banner = Banner::whereId($id)->firstOrFail();
+        $banner = Banner::whereId($id)->firstOrFail();
 
-		return view('backend.banners.edit', compact('banner'));
+        return view('backend.banners.edit', compact('banner'));
     }
 
 
 
     public function update(BannerRequest $request, $id)
     {
-		$validated = $request->validated();
+        $validated = $request->validated();
 
-		$banner = Banner::findOrFail($id);
-		$banner->update($validated);
+        $banner = Banner::findOrFail($id);
+        $banner->update($validated);
 
-		// Spatie media-collection
-		if ($request->hasFile('photo')) {
-			$banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
-			$banner->addMediaFromRequest('photo')
-					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
-					->toMediaCollection('banner');
-		}
+        // Spatie media-collection
+        if ($request->hasFile('photo')) {
+            $banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
+            $banner->addMediaFromRequest('photo')
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->toMediaCollection('banner');
+        }
 
-		$notification = array(
-			'message' => 'Baner bol upravený.',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Baner bol upravený.',
+            'alert-type' => 'success'
+        );
         return redirect()->route('banners.index')->with($notification);
     }
 
@@ -88,15 +88,15 @@ class BannerController extends Controller
 
     public function destroy($id)
     {
-		$banner = Banner::findOrFail($id);
-		$banner->delete();
-		$banner->clearMediaCollection('banner');
+        $banner = Banner::findOrFail($id);
+        $banner->delete();
+        $banner->clearMediaCollection('banner');
 
-		$notification = array(
-			'message' => 'Baner bol odstránený!',
-			'alert-type' => 'success'
-		);
-		return redirect()->route('banners.index')->with($notification);
+        $notification = array(
+            'message' => 'Baner bol odstránený!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('banners.index')->with($notification);
     }
 
 

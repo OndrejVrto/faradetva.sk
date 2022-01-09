@@ -27,27 +27,27 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-		Artisan::call('permission:create-permission-routes');
+        Artisan::call('permission:create-permission-routes');
 
-		$this->call(UserSeeder::class);
-		User::factory(10)->create();
+        $this->call(UserSeeder::class);
+        User::factory(10)->create();
 
-		$this->call([
-			TagSeeder::class,
-			CategoriesSeeder::class,
-			PriestSeeder::class,
-			TestimonialSeeder::class,
-			SliderSeeder::class,
-			BannerSeeder::class,
+        $this->call([
+            TagSeeder::class,
+            CategoriesSeeder::class,
+            PriestSeeder::class,
+            TestimonialSeeder::class,
+            SliderSeeder::class,
+            BannerSeeder::class,
 
-			// raw sql
-			MediaSeeder::class,
-			NewsSeeder::class,
-		]);
+            // raw sql
+            MediaSeeder::class,
+            NewsSeeder::class,
+        ]);
 
-		News::factory(4)->create();
-		NewsTag::factory(50)->create();
-		Testimonial::factory(5)->create();
+        News::factory(4)->create();
+        NewsTag::factory(50)->create();
+        Testimonial::factory(5)->create();
 
 
     }

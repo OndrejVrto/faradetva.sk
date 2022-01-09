@@ -3,13 +3,13 @@
 return [
 
 
-	/**
-	 *
-	 */
+    /**
+     *
+     */
 
     // 'frontend_route' => 'front',
 
-	// 'backend_route' => 'admin',
+    // 'backend_route' => 'admin',
 
 
     /*
@@ -173,11 +173,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-		* Package Service Providers...
-		*/
-		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-		Barryvdh\Debugbar\ServiceProvider::class,
-		Intervention\Image\ImageServiceProvider::class,
+        * Package Service Providers...
+        */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -242,8 +242,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-		'Image' => Intervention\Image\Facades\Image::class,
-		'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 

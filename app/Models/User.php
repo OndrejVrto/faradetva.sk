@@ -18,22 +18,22 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens;
-	use HasFactory;
-	use Notifiable;
-	use SoftDeletes;
-	use HasRoles;
-	use InteractsWithMedia;
+    use HasFactory;
+    use Notifiable;
+    use SoftDeletes;
+    use HasRoles;
+    use InteractsWithMedia;
 
-	protected $table = 'users';
+    protected $table = 'users';
 
     protected $fillable = [
-		'nick',
+        'nick',
         'email',
         'name',
         'password',
     ];
 
-	protected $hidden = [
+    protected $hidden = [
         'password',
         'remember_token',
     ];
@@ -43,9 +43,9 @@ class User extends Authenticatable implements HasMedia
     ];
 
 
-	public function setPasswordAttribute($value){
-		$this->attributes['password'] = bcrypt($value);
-	}
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
 
 
     public function news()
@@ -54,24 +54,26 @@ class User extends Authenticatable implements HasMedia
     }
 
 
-	public function registerMediaConversions( Media $media = null ) : void
-	{
-		$this->addMediaConversion('crop')
-			->fit("crop", 100, 100);
-		$this->addMediaConversion('crop-thumb')
-			->fit("crop", 40, 40);
-	}
+    public function registerMediaConversions( Media $media = null ) : void
+    {
+        $this->addMediaConversion('crop')
+            ->fit("crop", 100, 100);
+        $this->addMediaConversion('crop-thumb')
+            ->fit("crop", 40, 40);
+    }
 
 
     public function adminlte_image()
     {
-		return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
+        return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
     }
+
 
     public function adminlte_desc()
     {
         return $this->email;
     }
+
 
     public function adminlte_profile_url()
     {

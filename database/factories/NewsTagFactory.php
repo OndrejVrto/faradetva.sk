@@ -14,10 +14,10 @@ class NewsTagFactory extends Factory
     public function definition()
     {
 
-		return [
-			'news_id' =>  $this->faker->numberBetween(1, 10),
-			'tag_id' =>  $this->faker->numberBetween(1, 10)
-		];
+        return [
+            'news_id' =>  $this->faker->numberBetween(1, 10),
+            'tag_id' =>  $this->faker->numberBetween(1, 10)
+        ];
 
-	}
+    }
 }

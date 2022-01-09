@@ -4,9 +4,9 @@
 @section('meta_description', config('farnost-detva.admin_texts.sliders_description_create') )
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('sliders.create') }}
+    {{ Breadcrumbs::render('sliders.create') }}
 @stop
 
 @section('content')
-	@include('backend.sliders.form')
+    @include('backend.sliders.form')
 @endsection

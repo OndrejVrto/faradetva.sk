@@ -24,7 +24,7 @@ return [
     */
 
     // 'view' => 'breadcrumbs::bootstrap5',
-	'view' => 'partials.breadcrumbs',
+    'view' => 'partials.breadcrumbs',
 
     /*
     |--------------------------------------------------------------------------
@@ -39,10 +39,10 @@ return [
     */
 
     // 'files' => base_path('routes/breadcrumbs.php'),
-	'files' => [
-		base_path('routes/breadcrumbs-admin.php'),
-		base_path('routes/breadcrumbs-frontend.php'),
-	],
+    'files' => [
+        base_path('routes/breadcrumbs-admin.php'),
+        base_path('routes/breadcrumbs-frontend.php'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

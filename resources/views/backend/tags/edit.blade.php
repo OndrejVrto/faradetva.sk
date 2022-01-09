@@ -4,9 +4,9 @@
 @section('meta_description', config('farnost-detva.admin_texts.tags_description_edit') )
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('tags.edit', $tag, $tag->title )}}
+    {{ Breadcrumbs::render('tags.edit', $tag, $tag->title )}}
 @stop
 
 @section('content')
-	@include('backend.tags.form')
+    @include('backend.tags.form')
 @endsection

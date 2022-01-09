@@ -16,13 +16,13 @@ class CreateTestimonialsTable extends Migration
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->boolean('active')->default(1);
-			$table->string('name');
-			$table->string('slug');
-			$table->string('function')->nullable();
-			$table->text('description')->nullable();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('function')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
-			$table->bigInteger('created_by')->unsigned();
+            $table->bigInteger('created_by')->unsigned();
             $table->bigInteger('updated_by')->unsigned();
         });
     }

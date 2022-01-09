@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Permission;
 class PermissionsController extends Controller
 {
 
-	public function index()
+    public function index()
     {
         $permissions = Permission::all();
 
@@ -24,19 +24,19 @@ class PermissionsController extends Controller
     }
 
 
-	public function store(PermissionRequest $request)
+    public function store(PermissionRequest $request)
     {
-		$validated = $request->validated();
-		$data = Arr::only($validated, ['name']);
+        $validated = $request->validated();
+        $data = Arr::only($validated, ['name']);
 
-		Permission::create($data);
+        Permission::create($data);
 
-		$notification = array(
-			'message' => 'Nový typ povolenia bolo pridané!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Nový typ povolenia bolo pridané!',
+            'alert-type' => 'success'
+        );
 
-		return redirect()->route('permissions.index')->with($notification);
+        return redirect()->route('permissions.index')->with($notification);
     }
 
 
@@ -48,15 +48,15 @@ class PermissionsController extends Controller
 
     public function update(PermissionRequest $request, $id)
     {
-		$validated = $request->validated();
-		$data = Arr::only($validated, ['name']);
+        $validated = $request->validated();
+        $data = Arr::only($validated, ['name']);
 
-		Permission::findOrFail($id)->update($data);
+        Permission::findOrFail($id)->update($data);
 
-		$notification = array(
-			'message' => 'Povolenie bolo upravené!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Povolenie bolo upravené!',
+            'alert-type' => 'success'
+        );
 
         return redirect()->route('permissions.index')->with($notification);
     }
@@ -64,13 +64,13 @@ class PermissionsController extends Controller
 
     public function destroy($id)
     {
-		$permission = Permission::findOrFail($id);
+        $permission = Permission::findOrFail($id);
         $permission->delete();
 
-		$notification = array(
-			'message' => 'Povolenie bolo zmazané!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Povolenie bolo zmazané!',
+            'alert-type' => 'success'
+        );
         return redirect()->route('permissions.index')->with($notification);
     }
 }

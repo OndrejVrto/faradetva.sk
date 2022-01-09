@@ -14,11 +14,11 @@ class PriestController extends Controller
 
 
     public function index()
-	{
-		Session::remove('priest_old_input_checkbox');
+    {
+        Session::remove('priest_old_input_checkbox');
 
-		$priests = Priest::latest()->with('media')->paginate(5);
-		return view('backend.priests.index', compact('priests'));
+        $priests = Priest::latest()->with('media')->paginate(5);
+        return view('backend.priests.index', compact('priests'));
     }
 
 
@@ -32,22 +32,22 @@ class PriestController extends Controller
 
     public function store(PriestRequest $request)
     {
-		$validated = $request->validated();
-		$priest = Priest::create($validated);
+        $validated = $request->validated();
+        $priest = Priest::create($validated);
 
-		// Spatie media-collection
-		if ($request->hasFile('photo')) {
-			$priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
-			$priest->addMediaFromRequest('photo')
-					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
-					->toMediaCollection('priest');
-		}
+        // Spatie media-collection
+        if ($request->hasFile('photo')) {
+            $priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
+            $priest->addMediaFromRequest('photo')
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->toMediaCollection('priest');
+        }
 
 
-		$notification = array(
-			'message' => 'Nový kňaz bol pridaný!',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Nový kňaz bol pridaný!',
+            'alert-type' => 'success'
+        );
         return redirect()->route('priests.index')->with($notification);
     }
 
@@ -55,32 +55,32 @@ class PriestController extends Controller
 
     public function edit($slug)
     {
-		$priest = Priest::whereSlug($slug)->firstOrFail();
+        $priest = Priest::whereSlug($slug)->firstOrFail();
 
-		return view('backend.priests.edit', compact('priest'));
+        return view('backend.priests.edit', compact('priest'));
     }
 
 
 
     public function update(PriestRequest $request, $id)
     {
-		$validated = $request->validated();
+        $validated = $request->validated();
 
-		$priest = Priest::findOrFail($id);
-		$priest->update($validated);
+        $priest = Priest::findOrFail($id);
+        $priest->update($validated);
 
-		// Spatie media-collection
-		if ($request->hasFile('photo')) {
-			$priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
-			$priest->addMediaFromRequest('photo')
-					->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
-					->toMediaCollection('priest');
-		}
+        // Spatie media-collection
+        if ($request->hasFile('photo')) {
+            $priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
+            $priest->addMediaFromRequest('photo')
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->toMediaCollection('priest');
+        }
 
-		$notification = array(
-			'message' => 'Informácie o kňazovi boli upravené.',
-			'alert-type' => 'success'
-		);
+        $notification = array(
+            'message' => 'Informácie o kňazovi boli upravené.',
+            'alert-type' => 'success'
+        );
         return redirect()->route('priests.index')->with($notification);
     }
 
@@ -88,15 +88,15 @@ class PriestController extends Controller
 
     public function destroy($id)
     {
-		$priest = Priest::findOrFail($id);
-		$priest->delete();
-		$priest->clearMediaCollection('priest');
+        $priest = Priest::findOrFail($id);
+        $priest->delete();
+        $priest->clearMediaCollection('priest');
 
-		$notification = array(
-			'message' => 'Informácia o kňazovi našej farnosti bola odstránená!',
-			'alert-type' => 'success'
-		);
-		return redirect()->route('priests.index')->with($notification);
+        $notification = array(
+            'message' => 'Informácia o kňazovi našej farnosti bola odstránená!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('priests.index')->with($notification);
     }
 
 }

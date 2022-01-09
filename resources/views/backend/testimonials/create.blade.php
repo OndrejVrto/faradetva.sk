@@ -4,9 +4,9 @@
 @section('meta_description', config('farnost-detva.admin_texts.testimonials_description_create') )
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('testimonials.create') }}
+    {{ Breadcrumbs::render('testimonials.create') }}
 @stop
 
 @section('content')
-	@include('backend.testimonials.form')
+    @include('backend.testimonials.form')
 @endsection

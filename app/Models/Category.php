@@ -12,17 +12,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory;
-	use SoftDeletes;
-	use CreatedUpdatedBy;
-	use SlugFromTitle;
+    use SoftDeletes;
+    use CreatedUpdatedBy;
+    use SlugFromTitle;
 
-	// LINK THIS MODEL TO OUR DATABASE TABLE
-	protected $table = 'categories';
+    // LINK THIS MODEL TO OUR DATABASE TABLE
+    protected $table = 'categories';
 
 
     protected $fillable = [
         'title',
-		'description'
+        'description'
     ];
 
 

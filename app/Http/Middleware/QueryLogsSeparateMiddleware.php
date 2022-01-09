@@ -17,10 +17,10 @@ class QueryLogsSeparateMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-		File::prepend(
-			storage_path('/logs/query.log'),
-			PHP_EOL . '---------------------------------------------------------------------------' . PHP_EOL
-		);
+        File::prepend(
+            storage_path('/logs/query.log'),
+            PHP_EOL . '---------------------------------------------------------------------------' . PHP_EOL
+        );
 
         return $next($request);
     }

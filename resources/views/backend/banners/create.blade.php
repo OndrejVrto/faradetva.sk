@@ -4,9 +4,9 @@
 @section('meta_description', config('farnost-detva.admin_texts.banners_description_create') )
 
 @section('content_breadcrumb')
-	{{ Breadcrumbs::render('banners.create') }}
+    {{ Breadcrumbs::render('banners.create') }}
 @stop
 
 @section('content')
-	@include('backend.banners.form')
+    @include('backend.banners.form')
 @endsection
