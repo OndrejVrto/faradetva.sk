@@ -30,7 +30,7 @@ class SliderController extends Controller
         if ($request->hasFile('photo')) {
             $slider->clearMediaCollectionExcept('slider', $slider->getFirstMedia());
             $slider->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                     ->toMediaCollection('slider');
         }
 
@@ -57,7 +57,7 @@ class SliderController extends Controller
         if ($request->hasFile('photo')) {
             $slider->clearMediaCollectionExcept('slider', $slider->getFirstMedia());
             $slider->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                     ->toMediaCollection('slider');
         }
 

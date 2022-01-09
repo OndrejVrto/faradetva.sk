@@ -7,21 +7,21 @@
 @php
     $controlerName = 'users';
     $columns = 10;
-    $upload_files = 'true';
+    $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $user ) ) {
         $typeForm = 'edit';
         $identificatorEdit = $user->id;
-        $created_info = $user->created_info;
-        $created_by = $user->created_by;
-        $updated_info = $user->updated_info;
-        $updated_by = $user->updated_by;
+        $createdInfo = $user->createdInfo;
+        $createdBy = $user->createdBy;
+        $updatedInfo = $user->updatedInfo;
+        $updatedBy = $user->updatedBy;
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
+<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
+                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
 
     <div class="form-row">
         <div class="col-6">

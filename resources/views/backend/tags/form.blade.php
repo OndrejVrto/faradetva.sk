@@ -1,21 +1,21 @@
 @php
     $controlerName = 'tags';
     $columns = 6
-    $upload_files = 'true';
+    $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $tag ) ) {
         $typeForm = 'edit';
         $identificatorEdit = $tag->id;
-        $created_info = $tag->created_info;
-        $created_by = $tag->created_by;
-        $updated_info = $tag->updated_info;
-        $updated_by = $tag->updated_by;
+        $createdInfo = $tag->createdInfo;
+        $createdBy = $tag->createdBy;
+        $updatedInfo = $tag->updatedInfo;
+        $updatedBy = $tag->updatedBy;
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
+<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
+                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
 
     <x-adminlte-input
         name="title"

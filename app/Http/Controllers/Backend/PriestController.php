@@ -30,7 +30,7 @@ class PriestController extends Controller
         if ($request->hasFile('photo')) {
             $priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
             $priest->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                     ->toMediaCollection('priest');
         }
 
@@ -57,7 +57,7 @@ class PriestController extends Controller
         if ($request->hasFile('photo')) {
             $priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
             $priest->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                     ->toMediaCollection('priest');
         }
 

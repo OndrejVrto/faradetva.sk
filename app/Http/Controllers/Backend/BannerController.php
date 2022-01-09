@@ -30,7 +30,7 @@ class BannerController extends Controller
         if ($request->hasFile('photo')) {
             $banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
             $banner->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                     ->toMediaCollection('banner');
         }
 
@@ -57,7 +57,7 @@ class BannerController extends Controller
         if ($request->hasFile('photo')) {
             $banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
             $banner->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                     ->toMediaCollection('banner');
         }
 

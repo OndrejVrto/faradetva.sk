@@ -1,21 +1,21 @@
 @php
     $controlerName = 'testimonials';
     $columns = 7;
-    $upload_files = 'true';
+    $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $testimonial ) ) {
         $typeForm = 'edit';
         $identificatorEdit = $testimonial->id;
-        $created_info = $testimonial->created_info;
-        $created_by = $testimonial->created_by;
-        $updated_info = $testimonial->updated_info;
-        $updated_by = $testimonial->updated_by;
+        $createdInfo = $testimonial->createdInfo;
+        $createdBy = $testimonial->createdBy;
+        $updatedInfo = $testimonial->updatedInfo;
+        $updatedBy = $testimonial->updatedBy;
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
+<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
+                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
 
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazovalo svedectvo na stránke.">

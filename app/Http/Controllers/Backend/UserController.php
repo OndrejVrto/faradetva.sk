@@ -42,7 +42,7 @@ class UserController extends Controller
         if ($request->hasFile('photo_avatar')) {
             $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
             $user->addMediaFromRequest('photo_avatar')
-                ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
+                ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true)  )
                 ->toMediaCollection('avatar');
         }
 
@@ -91,7 +91,7 @@ class UserController extends Controller
         if ($request->hasFile('photo_avatar')) {
             $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
             $user->addMediaFromRequest('photo_avatar')
-                ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true)  )
+                ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true)  )
                 ->toMediaCollection('avatar');
         }
 

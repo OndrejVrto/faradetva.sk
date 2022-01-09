@@ -23,7 +23,6 @@ class MinifiHtmlMiddleware
         $response->setContent($minifi);
 
         return $response;
-
     }
 
     private function minifi($htmlString) {
@@ -42,6 +41,5 @@ class MinifiHtmlMiddleware
         );
 
         return preg_replace($search, $replace, $htmlString);
-
     }
 }

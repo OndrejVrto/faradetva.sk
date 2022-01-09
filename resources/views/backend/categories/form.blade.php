@@ -1,21 +1,21 @@
 @php
     $controlerName = 'categories';
     $columns = 6;
-    $upload_files = 'false';
+    $uploadFiles = 'false';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $category ) ) {
         $typeForm = 'edit';
         $identificatorEdit = $category->id;
-        $created_info = $category->created_info;
-        $created_by = $category->created_by;
-        $updated_info = $category->updated_info;
-        $updated_by = $category->updated_by;
+        $createdInfo = $category->createdInfo;
+        $createdBy = $category->createdBy;
+        $updatedInfo = $category->updatedInfo;
+        $updatedBy = $category->updatedBy;
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $upload_files }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $created_info }}"  createdBy="{{ $created_by }}" updatedInfo="{{ $updated_info }}" updatedBy="{{ $updated_by }}">
+<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
+                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
 
     <x-adminlte-input
         name="title"

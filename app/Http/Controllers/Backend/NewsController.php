@@ -17,8 +17,8 @@ class NewsController extends Controller
     public function index() {
         Session::remove('news_old_input_checkbox');
 
-        $all_news = News::latest('updated_at')->with('user', 'media')->paginate(5);
-        return view('backend.news.index', compact('all_news'));
+        $allNews = News::latest('updated_at')->with('user', 'media')->paginate(5);
+        return view('backend.news.index', compact('allNews'));
     }
 
     public function create() {
@@ -41,7 +41,7 @@ class NewsController extends Controller
         if ($request->hasFile('news_picture')) {
             $news->clearMediaCollectionExcept('news_front_picture', $news->getFirstMedia());
             $news->addMediaFromRequest('news_picture')
-                ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                 ->toMediaCollection('news_front_picture');
         }
 
@@ -85,7 +85,7 @@ class NewsController extends Controller
         if ($request->hasFile('news_picture')) {
             $news->clearMediaCollectionExcept('news_front_picture', $news->getFirstMedia());
             $news->addMediaFromRequest('news_picture')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filter_filename($fileName, true) )
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
                     ->toMediaCollection('news_front_picture');
         }
 

@@ -10,14 +10,14 @@
 @php
     $controlerName = 'users';
     $columns = 5;
-    $upload_files = 'true';
+    $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $created_info = $created_by = $updated_info = $updated_by = null;
+    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $user ) ) {
         $typeForm = 'show';
         $identificatorEdit = $user->id;
-        $created_info = $user->created_at;
-        $updated_info = $user->updated_at;
+        $createdInfo = $user->created_at;
+        $updatedInfo = $user->updated_at;
     }
 @endphp
 
@@ -25,7 +25,7 @@
 
     <x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
                     typeForm="{{ $typeForm }}"  identificatorEdit="{{ $identificatorEdit }}"
-                    createdInfo="{{ $created_info }}" updatedInfo="{{ $updated_info }}">
+                    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
         <div class="row d-flex justify-content-between">
             <div class="col-4">
