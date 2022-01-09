@@ -9,22 +9,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class NewsRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize() {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules() {
-
         if (request()->routeIs('news.store')) {
             $imageRule = 'required';
         } elseif (request()->routeIs('news.update')) {
@@ -62,7 +51,6 @@ class NewsRequest extends FormRequest
             // 'files_new.*' => 'file|max:10000',
             // 'tags' => 'required',
         ];
-
     }
 
     public function messages() {
@@ -83,6 +71,5 @@ class NewsRequest extends FormRequest
         is_null($this->unpublished_at) ?: $this->merge(['unpublished_at' => date('Y-m-d H:i:s' ,strtotime($this->unpublished_at))]);
 
         Session::put(['news_old_input_checkbox' => $state]);
-
     }
 }

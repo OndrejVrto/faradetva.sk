@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
 use Illuminate\Support\Arr;
+use App\Http\Requests\UserRequest;
 use App\Http\Helpers\DataFormater;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Permission;
 
 class UsersController extends Controller

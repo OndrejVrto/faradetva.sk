@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-
 use App\Models\Banner;
 use App\Models\Priest;
 use App\Models\Slider;
 use App\Models\Testimonial;
+use App\Http\Controllers\Controller;
 
 class StaticPagesController extends Controller
 {

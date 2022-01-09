@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Testimonial;
-
 use App\Http\Helpers\DataFormater;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
