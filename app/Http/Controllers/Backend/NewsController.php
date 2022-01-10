@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Session;
 class NewsController extends Controller
 {
     public function index() {
+        $allNews = News::latest('updated_at')->with('user', 'media')->paginate(5);
+
         Session::remove('news_old_input_checkbox');
 
-        $allNews = News::latest('updated_at')->with('user', 'media')->paginate(5);
         return view('backend.news.index', compact('allNews'));
     }
 
@@ -45,10 +46,8 @@ class NewsController extends Controller
                 ->toMediaCollection('news_front_picture');
         }
 
-        return redirect()->route('news.index')->with([
-            'message' => 'Nový článok bol pridaný!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Nový článok bol pridaný!');
+        return redirect()->route('news.index');
     }
 
     public function edit($slug) {
@@ -78,10 +77,8 @@ class NewsController extends Controller
                     ->toMediaCollection('news_front_picture');
         }
 
-        return redirect()->route('news.index')->with([
-            'message' => 'Článok bol úspešne upravený.',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Článok bol úspešne upravený.');
+        return redirect()->route('news.index');
 
     }
 
@@ -89,9 +86,7 @@ class NewsController extends Controller
         $news->delete();
         $news->clearMediaCollection('news_picture');
 
-        return redirect()->route('news.index')->with([
-            'message' => 'Článok bol odstránený.',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Článok bol odstránený.');
+        return redirect()->route('news.index');
     }
 }

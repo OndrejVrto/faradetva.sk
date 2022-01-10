@@ -35,10 +35,8 @@ class SliderController extends Controller
                     ->toMediaCollection('slider');
         }
 
-        return redirect()->route('sliders.index')->with([
-            'message' => 'Nový obrázok s myšlienkou bol pridaný!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Nový obrázok s myšlienkou bol pridaný!');
+        return redirect()->route('sliders.index');
     }
 
     public function edit(Slider $slider) {
@@ -59,19 +57,15 @@ class SliderController extends Controller
                     ->toMediaCollection('slider');
         }
 
-        return redirect()->route('sliders.index')->with([
-            'message' => 'Obrázok s myšlienkou bol upravený.',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Obrázok s myšlienkou bol upravený.');
+        return redirect()->route('sliders.index');
     }
 
     public function destroy(Slider $slider) {
         $slider->delete();
         $slider->clearMediaCollection('slider');
 
-        return redirect()->route('sliders.index')->with([
-            'message' => 'Obrázok s myšlienkou bol odstránený!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Obrázok s myšlienkou bol odstránený!');
+        return redirect()->route('sliders.index');
     }
 }

@@ -31,10 +31,8 @@ class RoleController extends Controller
         $role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-        return redirect()->route('roles.index')->with([
-            'message' => 'Nová rola bola pridaná!',
-            'alert-type' => 'success'
-        ]);
+        toastr()->success('Nová rola bola pridaná!');
+        return redirect()->route('roles.index');
     }
 
     public function edit(Role $role) {
@@ -52,18 +50,14 @@ class RoleController extends Controller
         $role->update($data);
         $role->syncPermissions($request->get('permission'));
 
-        return redirect()->route('roles.index')->with([
-            'message' => 'Rola bola uprtavená!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Rola bola upravená!');
+        return redirect()->route('roles.index');
     }
 
     public function destroy(Role $role) {
         $role->delete();
 
-        return redirect()->route('roles.index')->with([
-            'message' => 'Rola bola zmazaná!',
-            'alert-type' => 'success'
-        ]);
+        toastr()->success('Rola bola zmazaná!');
+        return redirect()->route('roles.index');
     }
 }

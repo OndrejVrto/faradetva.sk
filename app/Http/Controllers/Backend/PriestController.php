@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Session;
 class PriestController extends Controller
 {
     public function index() {
+        $priests = Priest::latest()->with('media')->paginate(5);
+
         Session::remove('priest_old_input_checkbox');
 
-        $priests = Priest::latest()->with('media')->paginate(5);
         return view('backend.priests.index', compact('priests'));
     }
 
@@ -34,10 +35,8 @@ class PriestController extends Controller
                     ->toMediaCollection('priest');
         }
 
-        return redirect()->route('priests.index')->with([
-            'message' => 'Nový kňaz bol pridaný!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Nový kňaz bol pridaný!');
+        return redirect()->route('priests.index');
     }
 
     public function edit($slug) {
@@ -60,19 +59,15 @@ class PriestController extends Controller
                     ->toMediaCollection('priest');
         }
 
-        return redirect()->route('priests.index')->with([
-            'message' => 'Informácie o kňazovi boli upravené.',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Informácie o kňazovi boli upravené.');
+        return redirect()->route('priests.index');
     }
 
     public function destroy(Priest $priest) {
         $priest->delete();
         $priest->clearMediaCollection('priest');
 
-        return redirect()->route('priests.index')->with([
-            'message' => 'Informácia o kňazovi našej farnosti bola odstránená!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Informácia o kňazovi našej farnosti bola odstránená!');
+        return redirect()->route('priests.index');
     }
 }

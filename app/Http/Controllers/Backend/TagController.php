@@ -22,10 +22,8 @@ class TagController extends Controller
         $validated = $request->validated();
         Tag::create($validated);
 
-        return redirect()->route('tags.index')->with([
-            'message' => 'Nové kľúčové slovo bolo pridané!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Nové kľúčové slovo bolo pridané!');
+        return redirect()->route('tags.index');
     }
 
     public function edit($slug) {
@@ -38,19 +36,14 @@ class TagController extends Controller
         $validated = $request->validated();
         Tag::findOrFail($id)->update($validated);
 
-        return redirect()->route('tags.index')->with([
-            'message' => 'Kľúčové slovo bolo upravené.',
-            'alert-type' => 'success'
-		]);
-
+        toastr()->success('Kľúčové slovo bolo upravené.');
+        return redirect()->route('tags.index');
     }
 
     public function destroy(Tag $tag) {
         $tag->delete();
 
-        return redirect()->route('tags.index')->with([
-            'message' => 'Kľúčové slovo bolo odstránené!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Kľúčové slovo bolo odstránené!');
+        return redirect()->route('tags.index');
     }
 }

@@ -23,10 +23,8 @@ class StaticPageController extends Controller
         $validated = $request->validated();
         StaticPage::create($validated);
 
-        return redirect()->route('static-pages.index')->with([
-            'message' => 'Nová statická stránka bola pridaná!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Nová statická stránka bola pridaná!');
+        return redirect()->route('static-pages.index');
     }
 
     public function edit($slug) {
@@ -40,19 +38,15 @@ class StaticPageController extends Controller
         $page = StaticPage::findOrFail($id);
         $page->update($validated);
 
-        return redirect()->route('static-pages.index')->with([
-            'message' => 'Statická stránka bola upravená!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Statická stránka bola upravená!');
+        return redirect()->route('static-pages.index');
     }
 
     public function destroy($id) {
         $page = StaticPage::findOrFail($id);
         $page->delete();
 
-        return redirect()->route('static-pages.index')->with([
-            'message' => 'Statická stránka bola odstránená!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Statická stránka bola odstránená!');
+        return redirect()->route('static-pages.index');
     }
 }

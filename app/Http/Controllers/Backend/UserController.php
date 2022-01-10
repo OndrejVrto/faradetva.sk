@@ -47,10 +47,8 @@ class UserController extends Controller
                 ->toMediaCollection('avatar');
         }
 
-        return redirect()->route('users.index')->with([
-            'message' => 'Uživateľ bol pridaný!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Uživateľ bol pridaný!');
+        return redirect()->route('users.index');
     }
 
     public function show($id) {
@@ -95,18 +93,14 @@ class UserController extends Controller
                 ->toMediaCollection('avatar');
         }
 
-        return redirect()->route('users.index')->with([
-            'message' => 'Uživateľ bol upravený!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Uživateľ bol upravený!');
+        return redirect()->route('users.index');
     }
 
     public function destroy(User $user) {
         $user->delete();
 
-        return redirect()->route('users.index')->with([
-            'message' => 'Uživateľ bol odstránený!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Uživateľ bol odstránený!');
+        return redirect()->route('users.index');
     }
 }

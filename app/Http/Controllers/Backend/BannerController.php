@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Session;
 class BannerController extends Controller
 {
     public function index() {
+        $banners = Banner::latest('updated_at')->with('media')->paginate(5);
+
         Session::remove('banner_old_input_checkbox');
 
-        $banners = Banner::latest('updated_at')->with('media')->paginate(5);
         return view('backend.banners.index', compact('banners'));
     }
 
@@ -34,10 +35,8 @@ class BannerController extends Controller
                     ->toMediaCollection('banner');
         }
 
-        return redirect()->route('banners.index')->with([
-            'message' => 'Nový baner bol pridaný!',
-                        'alert-type' => 'success'
-		]);
+        toastr()->success('Nový baner bol pridaný!');
+        return redirect()->route('banners.index');
     }
 
     public function edit(Banner $banner) {
@@ -58,19 +57,15 @@ class BannerController extends Controller
                     ->toMediaCollection('banner');
         }
 
-        return redirect()->route('banners.index')->with([
-            'message' => 'Baner bol upravený.',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Baner bol upravený.');
+        return redirect()->route('banners.index');
     }
 
     public function destroy(Banner $banner) {
         $banner->delete();
         $banner->clearMediaCollection('banner');
 
-        return redirect()->route('banners.index')->with([
-            'message' => 'Baner bol odstránený!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Baner bol odstránený!');
+        return redirect()->route('banners.index');
     }
 }

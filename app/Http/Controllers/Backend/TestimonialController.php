@@ -34,10 +34,8 @@ class TestimonialController extends Controller
                         ->toMediaCollection('testimonial');
         }
 
-        return redirect()->route('testimonials.index')->with([
-            'message' => 'Nové svedectvo bolo pridané!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Nové svedectvo bolo pridané!');
+        return redirect()->route('testimonials.index');
     }
 
     public function edit($slug) {
@@ -59,19 +57,15 @@ class TestimonialController extends Controller
                         ->toMediaCollection('testimonial');
         }
 
-        return redirect()->route('testimonials.index')->with([
-            'message' => 'Svedectvo bolo upravené.',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Svedectvo bolo upravené.');
+        return redirect()->route('testimonials.index');
     }
 
     public function destroy(Testimonial $testimonial) {
         $testimonial->delete();
         $testimonial->clearMediaCollection('testimonial');
 
-        return redirect()->route('testimonials.index')->with([
-            'message' => 'Svedectvo bolo odstránené!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Svedectvo bolo odstránené!');
+        return redirect()->route('testimonials.index');
     }
 }

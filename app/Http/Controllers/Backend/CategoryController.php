@@ -9,8 +9,8 @@ use App\Http\Requests\CategoryRequest;
 class CategoryController extends Controller
 {
     public function index() {
-
         $categories = Category::latest()->paginate(10);
+
         return view('backend.categories.index', compact('categories'));
     }
 
@@ -22,10 +22,8 @@ class CategoryController extends Controller
         $validated = $request->validated();
         Category::create($validated);
 
-        return redirect()->route('categories.index')->with([
-            'message' => 'Nová kategória bola pridaná!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Nová kategória bola pridaná!');
+        return redirect()->route('categories.index');
     }
 
     public function edit($slug) {
@@ -38,18 +36,14 @@ class CategoryController extends Controller
         $validated = $request->validated();
         Category::findOrFail($id)->update($validated);
 
-        return redirect()->route('categories.index')->with([
-            'message' => 'Kategória bola upravená!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Kategória bola upravená!');
+        return redirect()->route('categories.index');
     }
 
     public function destroy(Category $category) {
         $category->delete();
 
-        return redirect()->route('categories.index')->with([
-            'message' => 'Kategória bola odstránená!',
-            'alert-type' => 'success'
-		]);
+        toastr()->success('Kategória bola odstránená!');
+        return redirect()->route('categories.index');
     }
 }
