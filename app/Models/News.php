@@ -76,21 +76,16 @@ class News extends Model implements HasMedia
         return $this->belongsToMany(Tag::class);
     }
 
-    public function registerMediaConversions( Media $media = null ) : void
-    {
+    public function registerMediaConversions( Media $media = null ) : void {
         $this->addMediaConversion('large')
             ->fit("crop", 848, 460)
             ->optimize()
             ->withResponsiveImages();
-
         $this->addMediaConversion('thumb-latest-news')
             ->fit("crop", 80, 80);
-
         $this->addMediaConversion('thumb-all-news')
             ->fit("crop", 370, 248);
-
         $this->addMediaConversion('crop-thumb')
             ->fit("crop", 170, 92);
-
     }
 }

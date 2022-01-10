@@ -18,6 +18,8 @@ class Priest extends Model implements HasMedia
     use CreatedUpdatedBy;
     use InteractsWithMedia;
 
+    protected $table = 'priests';
+
     protected $fillable = [
         'active',
         'titles_before',
@@ -42,11 +44,9 @@ class Priest extends Model implements HasMedia
         });
     }
 
-    public function registerMediaConversions( Media $media = null ) : void
-    {
+    public function registerMediaConversions( Media $media = null ) : void {
         $this->addMediaConversion('crop')
             ->fit("crop", 230, 270);
-
         $this->addMediaConversion('crop-thumb')
             ->fit("crop", 60, 80);
     }

@@ -19,6 +19,8 @@ class Testimonial extends Model implements HasMedia
     use CreatedUpdatedBy;
     use InteractsWithMedia;
 
+    protected $table = 'testimonials';
+
     protected $fillable = [
         'active',
         'name',
@@ -28,13 +30,11 @@ class Testimonial extends Model implements HasMedia
         'description',
     ];
 
-    public function registerMediaConversions( Media $media = null ) : void
-    {
+    public function registerMediaConversions( Media $media = null ) : void {
         $this->addMediaConversion('crop')
             ->fit("crop", 800, 800);
             // ->optimize();
             // ->withResponsiveImages();
-
         $this->addMediaConversion('crop-thumb')
             ->fit("crop", 60, 60);
     }

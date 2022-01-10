@@ -22,7 +22,7 @@ class StaticPagesController extends Controller
         $sliders = Slider::whereActive(1)->with('media')->get()->random(min($countSliders, 3));
         $banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
 
-        return view('frontend.debug.all', compact(
+        return view('frontend.home.index', compact(
             'priests',
             'testimonials',
             'sliders',

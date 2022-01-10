@@ -16,6 +16,8 @@ class Tag extends Model
     use SlugFromTitle;
     use CreatedUpdatedBy;
 
+    protected $table = 'tags';
+
     protected $fillable = [
         'title',
         'description'
