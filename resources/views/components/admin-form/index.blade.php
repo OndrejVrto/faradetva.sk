@@ -1,7 +1,7 @@
 @props([
     'controlerName' => '',
     'columns' => 8,
-    'files' => 'false',
+    'uploadFiles' => 'false',
     'typeForm' => '',
     'identificatorEdit' => null,
     'createdInfo' => '',
@@ -43,10 +43,10 @@
             <div class="card-body">
 
                 @if ( $typeForm == 'edit')
-                    <form id="edit-form" method="post" action="{{ $linkActionEdit }}" @if($files == 'true')enctype="multipart/form-data"@endif >
+                    <form id="edit-form" method="post" action="{{ $linkActionEdit }}" @if($uploadFiles == 'true')enctype="multipart/form-data"@endif >
                     @method('PATCH')
                 @else
-                    <form id="add-form" method="post" action="{{ $linkActionCreate }}" @if($files == 'true')enctype="multipart/form-data"@endif >
+                    <form id="add-form" method="post" action="{{ $linkActionCreate }}" @if($uploadFiles == 'true')enctype="multipart/form-data"@endif >
                 @endif
 
                     @csrf

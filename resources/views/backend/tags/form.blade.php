@@ -1,6 +1,6 @@
 @php
     $controlerName = 'tags';
-    $columns = 6
+    $columns = 6;
     $uploadFiles = 'true';
 
     $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
@@ -14,8 +14,13 @@
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
+<x-admin-form
+    controlerName="{{ $controlerName }}" columns="{{ $columns }}"
+    typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
+    identificatorEdit="{{ $identificatorEdit }}"
+    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
+    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+>
 
     <x-adminlte-input
         name="title"
