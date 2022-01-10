@@ -46,7 +46,7 @@ class NewsController extends Controller
                 ->toMediaCollection('news_front_picture');
         }
 
-        toastr()->success('Nový článok bol pridaný!');
+        toastr()->success(__('app.news.store'));
         return redirect()->route('news.index');
     }
 
@@ -77,7 +77,7 @@ class NewsController extends Controller
                     ->toMediaCollection('news_front_picture');
         }
 
-        toastr()->success('Článok bol úspešne upravený.');
+        toastr()->success(__('app.news.update'));
         return redirect()->route('news.index');
 
     }
@@ -86,7 +86,7 @@ class NewsController extends Controller
         $news->delete();
         $news->clearMediaCollection('news_picture');
 
-        toastr()->success('Článok bol odstránený.');
+        toastr()->success(__('app.news.delete'));
         return redirect()->route('news.index');
     }
 }

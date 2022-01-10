@@ -35,7 +35,7 @@ class BannerController extends Controller
                     ->toMediaCollection('banner');
         }
 
-        toastr()->success('Nový baner bol pridaný!');
+        toastr()->success(__('app.banner.store'));
         return redirect()->route('banners.index');
     }
 
@@ -57,7 +57,7 @@ class BannerController extends Controller
                     ->toMediaCollection('banner');
         }
 
-        toastr()->success('Baner bol upravený.');
+        toastr()->success(__('app.banner.update'));
         return redirect()->route('banners.index');
     }
 
@@ -65,7 +65,7 @@ class BannerController extends Controller
         $banner->delete();
         $banner->clearMediaCollection('banner');
 
-        toastr()->success('Baner bol odstránený!');
+        toastr()->success(__('app.banner.delete'));
         return redirect()->route('banners.index');
     }
 }

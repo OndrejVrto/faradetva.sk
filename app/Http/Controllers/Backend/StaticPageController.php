@@ -23,7 +23,7 @@ class StaticPageController extends Controller
         $validated = $request->validated();
         StaticPage::create($validated);
 
-        toastr()->success('Nová statická stránka bola pridaná!');
+        toastr()->success(__('app.static-page.store'));
         return redirect()->route('static-pages.index');
     }
 
@@ -38,7 +38,7 @@ class StaticPageController extends Controller
         $page = StaticPage::findOrFail($id);
         $page->update($validated);
 
-        toastr()->success('Statická stránka bola upravená!');
+        toastr()->success(__('app.static-page.update'));
         return redirect()->route('static-pages.index');
     }
 
@@ -46,7 +46,7 @@ class StaticPageController extends Controller
         $page = StaticPage::findOrFail($id);
         $page->delete();
 
-        toastr()->success('Statická stránka bola odstránená!');
+        toastr()->success(__('app.static-page.delete'));
         return redirect()->route('static-pages.index');
     }
 }

@@ -24,7 +24,7 @@ class PermissionController extends Controller
         $data = Arr::only($validated, ['name']);
         Permission::create($data);
 
-        toastr()->success('Nový typ povolenia bolo pridané!');
+        toastr()->success(__('app.permission.store'));
         return redirect()->route('permissions.index');
     }
 
@@ -37,14 +37,14 @@ class PermissionController extends Controller
         $data = Arr::only($validated, ['name']);
         Permission::findOrFail($id)->update($data);
 
-        toastr()->success('Povolenie bolo upravené!');
+        toastr()->success(__('app.permission.update'));
         return redirect()->route('permissions.index');
     }
 
     public function destroy(Permission $permission) {
         $permission->delete();
 
-        toastr()->success('Povolenie bolo zmazané!');
+        toastr()->success(__('app.permission.delete'));
         return redirect()->route('permissions.index');
     }
 }

@@ -34,7 +34,7 @@ class TestimonialController extends Controller
                         ->toMediaCollection('testimonial');
         }
 
-        toastr()->success('Nové svedectvo bolo pridané!');
+        toastr()->success(__('app.testimonia.store'));
         return redirect()->route('testimonials.index');
     }
 
@@ -57,7 +57,7 @@ class TestimonialController extends Controller
                         ->toMediaCollection('testimonial');
         }
 
-        toastr()->success('Svedectvo bolo upravené.');
+        toastr()->success(__('app.testimonia.update'));
         return redirect()->route('testimonials.index');
     }
 
@@ -65,7 +65,7 @@ class TestimonialController extends Controller
         $testimonial->delete();
         $testimonial->clearMediaCollection('testimonial');
 
-        toastr()->success('Svedectvo bolo odstránené!');
+        toastr()->success(__('app.testimonia.delete'));
         return redirect()->route('testimonials.index');
     }
 }

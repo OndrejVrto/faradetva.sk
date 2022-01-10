@@ -35,7 +35,7 @@ class SliderController extends Controller
                     ->toMediaCollection('slider');
         }
 
-        toastr()->success('Nový obrázok s myšlienkou bol pridaný!');
+        toastr()->success(__('app.slider.store'));
         return redirect()->route('sliders.index');
     }
 
@@ -57,7 +57,7 @@ class SliderController extends Controller
                     ->toMediaCollection('slider');
         }
 
-        toastr()->success('Obrázok s myšlienkou bol upravený.');
+        toastr()->success(__('app.slider.update'));
         return redirect()->route('sliders.index');
     }
 
@@ -65,7 +65,7 @@ class SliderController extends Controller
         $slider->delete();
         $slider->clearMediaCollection('slider');
 
-        toastr()->success('Obrázok s myšlienkou bol odstránený!');
+        toastr()->success(__('app.slider.delete'));
         return redirect()->route('sliders.index');
     }
 }
