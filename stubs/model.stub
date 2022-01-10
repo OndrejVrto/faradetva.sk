@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types = 1);
+
+namespace {{ namespace }};
+
+use App\Traits\SlugFromTitle;
+use App\Traits\CreatedUpdatedBy;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class {{ class }} extends Model
+{
+    use HasFactory;
+    use SoftDeletes;
+    use SlugFromTitle;
+    use CreatedUpdatedBy;
+
+    protected $table = '';
+
+    protected $fillable = [
+
+    ];
+}
