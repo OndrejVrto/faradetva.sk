@@ -20,7 +20,15 @@ class StaticPageController extends Controller
     }
 
     public function store(StaticPageRequest $request) {
-        //
+        $validated = $request->validated();
+        StaticPage::create($validated);
+
+        // notification and request
+        $notification = array(
+            'message' => 'Nová statická stránka bola pridaná!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('static-pages.index')->with($notification);
     }
 
     public function edit($slug) {
@@ -29,11 +37,28 @@ class StaticPageController extends Controller
         return view('backend.static-pages.edit', compact('page'));
     }
 
-    public function update($id, StaticPageRequest $request) {
-        //
+    public function update(StaticPageRequest $request, $id) {
+        $validated = $request->validated();
+        $page = StaticPage::findOrFail($id);
+        $page->update($validated);
+
+        // notification and request
+        $notification = array(
+            'message' => 'Statická stránka bola upravená!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('static-pages.index')->with($notification);
     }
 
     public function destroy($id) {
-        //
+        $page = StaticPage::findOrFail($id);
+        $page->delete();
+
+        // notification and request
+        $notification = array(
+            'message' => 'Statická stránka bola odstránená!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('static-pages.index')->with($notification);
     }
 }

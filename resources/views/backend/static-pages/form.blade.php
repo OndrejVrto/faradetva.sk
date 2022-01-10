@@ -81,13 +81,16 @@
                         <i class="fas fa-font"></i>
                     </div>
                 </x-slot>
+                <x-slot name="noteSlot">
+                    Štýl: snake-case Oddeľovač: spätné lomítko Jazyk: Slovenčina (napr: o-nas/duchovne-povolania)
+                </x-slot>
             </x-adminlte-input>
         </div>
 
         <div class="col-xl-6">
             <x-adminlte-input
                 name="route_name"
-                label="Route.name vnútorná cesta Laravel-u"
+                label="Vnútorná cesta Laravel-u k šablone (route)"
                 placeholder="Vlož route.name ..."
                 enableOldSupport="true"
                 value="{{ $page->route_name ?? '' }}" >
@@ -95,6 +98,9 @@
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-font"></i>
                     </div>
+                </x-slot>
+                <x-slot name="noteSlot">
+                    Štýl: snake-case Oddeľovač: bodka Jazyk: angličtina (napr: about.spiritual-vocations )
                 </x-slot>
             </x-adminlte-input>
         </div>
