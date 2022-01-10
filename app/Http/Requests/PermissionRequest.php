@@ -12,15 +12,11 @@ class PermissionRequest extends FormRequest
     }
 
     public function rules() {
-        if (request()->routeIs('permissions.store')) {
-            $rules = ['name' => 'required|unique:users_permissions,name'];
-        } else if (request()->routeIs('permissions.update')) {
-            $rules = [
-                'name' => 'required',
+        return [
+            'name' => [
+                'required',
                 Rule::unique('users_permissions', 'name')->ignore($this->permission)
-            ];
-        }
-
-        return $rules;
+            ]
+        ];
     }
 }
