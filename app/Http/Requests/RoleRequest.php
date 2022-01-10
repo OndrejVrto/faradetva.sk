@@ -20,4 +20,10 @@ class RoleRequest extends FormRequest
             'permission' => 'required',
         ];
     }
+
+    public function messages() {
+        return [
+            'permission.required' => 'Musíte vybrať aspoň jedno povolenie s nasledovného zoznamu.',
+        ];
+    }
 }

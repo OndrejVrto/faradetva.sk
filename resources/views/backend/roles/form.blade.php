@@ -40,6 +40,11 @@
             >
             <label class="custom-control-label" for="customSwitch3">Všetko</label>
         </div>
+        @error('permission')
+            <span class="invalid-feedback d-block" role="alert">
+                <strong>{{ $errors->first('permission') }}</strong>
+            </span>
+        @enderror
     </div>
 
     <div class="row no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
