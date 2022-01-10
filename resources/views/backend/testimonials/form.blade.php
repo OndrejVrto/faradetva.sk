@@ -14,8 +14,13 @@
     }
 @endphp
 
-<x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}" typeForm="{{ $typeForm }}" files="{{ $uploadFiles }}" identificatorEdit="{{ $identificatorEdit }}"
-                createdInfo="{{ $createdInfo }}"  createdBy="{{ $createdBy }}" updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}">
+<x-admin-form
+    controlerName="{{ $controlerName }}" columns="{{ $columns }}"
+    typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
+    identificatorEdit="{{ $identificatorEdit }}"
+    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
+    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+>
 
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazovalo svedectvo na stránke.">
