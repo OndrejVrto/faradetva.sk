@@ -242,6 +242,7 @@ return [
             'route'       => 'admin.dashboard',
             'icon'        => 'fab fa-fort-awesome fa-lg',
         ],
+
         [
             'header' => 'Sekcie',
             'can'  => [
@@ -249,7 +250,6 @@ return [
                 'priests.index',
                 'testimonials.index',
                 'sliders.index',
-                'banners.index',
             ],
         ],
         [
@@ -281,13 +281,7 @@ return [
             'icon'  => 'fas fa-image',
             'can'  => 'sliders.index',
         ],
-        [
-            'text'  => 'Baner',
-            'icon_color'  => 'orange',
-            'route' => 'banners.index',
-            'icon'  => 'far fa-flag',
-            'can'  => 'banners.index',
-        ],
+
         [
             'header' => 'Nastavenia',
             'can'  => [
@@ -309,6 +303,29 @@ return [
             'icon'  => 'fas fa-tag',
             'can'  => 'tags.index',
         ],
+
+        [
+            'header' => 'Statické stránky',
+            'can'  => [
+                'staticpages.index',
+                'banners.index',
+            ],
+        ],
+        [
+            'text' => 'Stránky',
+            'icon_color'  => 'cyan',
+            'icon'  => 'fab fa-pagelines',
+            'route' => 'static-pages.index',
+            'can'  => 'static-pages.index',
+        ],
+        [
+            'text'  => 'Baner',
+            'icon_color'  => 'cyan',
+            'icon'  => 'far fa-flag',
+            'route' => 'banners.index',
+            'can'  => 'banners.index',
+        ],
+
         [
             'header' => 'Prístupové práva',
             'can'  => [

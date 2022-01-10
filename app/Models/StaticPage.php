@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -28,6 +29,18 @@ class StaticPage extends Model implements HasMedia
         'author',
         'header'
     ];
+
+    protected static function boot() {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->slug = Str::slug(Str::replace('/','-',$model->url));
+        });
+
+        static::updating(function ($model) {
+            $model->slug = Str::slug(Str::replace('/','-',$model->url));
+        });
+    }
 
     public function registerMediaCollections( Media $media = null ) : void {
         $this->addMediaCollection('banner')

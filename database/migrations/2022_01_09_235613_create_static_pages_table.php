@@ -11,6 +11,7 @@ class CreateStaticPagesTable extends Migration
         Schema::create('static_pages', function (Blueprint $table) {
             $table->id();
             $table->string('url');
+            $table->string('slug');
             $table->string('route_name')->unique();
             $table->string('title')->nullable();
             $table->string('description')->nullable();

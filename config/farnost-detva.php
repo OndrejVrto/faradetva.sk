@@ -97,6 +97,14 @@ return [
         'users_header_edit'        => 'Úprava užívateľa',
         'users_header_show'        => 'Profil',
 
+        'static-pages_title'              => 'Statické stránky',
+        'static-pages_description'        => 'Tu môžete zakladať nové stránky a ich mediálny obsah',
+        'static-pages_description_create' => 'Vytvorenie novej statickej stránky',
+        'static-pages_description_edit'   => 'Editácia statickej stránky',
+        'static-pages_header'             => 'Statické stránky',
+        'static-pages_header_create'      => 'Nová statická stránka',
+        'static-pages_header_edit'        => 'Úprava statickej stránky',
+
         //'s_title' => '',
         //'s_description' => '',
         //'s_description_create' => '',

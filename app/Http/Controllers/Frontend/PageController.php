@@ -8,9 +8,8 @@ use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Request;
 
-class StaticPagesController extends Controller
+class PageController extends Controller
 {
     public function home() {
         $priests = Priest::whereActive(1)->with('media')->get();
