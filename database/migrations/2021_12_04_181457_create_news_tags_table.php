@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateNewsTagsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('news_tag', function (Blueprint $table) {
@@ -22,11 +18,7 @@ class CreateNewsTagsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('news_tags');
