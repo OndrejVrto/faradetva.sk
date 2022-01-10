@@ -20,6 +20,7 @@ class RoleController extends Controller
     public function create() {
         $permissions = Permission::all();
         $rolePermissions = [];
+
         return view('backend.roles.create', compact('permissions', 'rolePermissions'));
     }
 
@@ -30,12 +31,10 @@ class RoleController extends Controller
         $role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-        $notification = array(
-            'message' => 'Nová rola bola pridané!',
+        return redirect()->route('roles.index')->with([
+            'message' => 'Nová rola bola pridaná!',
             'alert-type' => 'success'
-        );
-
-        return redirect()->route('roles.index')->with($notification);
+        ]);
     }
 
     public function edit(Role $role) {
@@ -46,7 +45,6 @@ class RoleController extends Controller
     }
 
     public function update(RoleRequest $request, $id) {
-
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
@@ -54,22 +52,18 @@ class RoleController extends Controller
         $role->update($data);
         $role->syncPermissions($request->get('permission'));
 
-        $notification = array(
+        return redirect()->route('roles.index')->with([
             'message' => 'Rola bola uprtavená!',
             'alert-type' => 'success'
-        );
-
-        return redirect()->route('roles.index')->with($notification);
+		]);
     }
 
-    public function destroy($id) {
-        $role = Role::findOrFail($id);
+    public function destroy(Role $role) {
         $role->delete();
 
-        $notification = array(
+        return redirect()->route('roles.index')->with([
             'message' => 'Rola bola zmazaná!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('roles.index')->with($notification);
+        ]);
     }
 }

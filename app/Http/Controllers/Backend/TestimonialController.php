@@ -11,9 +11,10 @@ use App\Http\Requests\TestimonialRequest;
 class TestimonialController extends Controller
 {
     public function index() {
+        $testimonials = Testimonial::latest('updated_at')->with('media')->paginate(6);
+
         Session::remove('testimonial_old_input_checkbox');
 
-        $testimonials = Testimonial::latest('updated_at')->with('media')->paginate(6);
         return view('backend.testimonials.index', compact('testimonials'));
     }
 
@@ -33,11 +34,10 @@ class TestimonialController extends Controller
                         ->toMediaCollection('testimonial');
         }
 
-        $notification = array(
+        return redirect()->route('testimonials.index')->with([
             'message' => 'Nové svedectvo bolo pridané!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('testimonials.index')->with($notification);
+		]);
     }
 
     public function edit($slug) {
@@ -48,7 +48,6 @@ class TestimonialController extends Controller
 
     public function update(TestimonialRequest $request, $id) {
         $validated = $request->validated();
-
         $testimonial = Testimonial::findOrFail($id);
         $testimonial->update($validated);
 
@@ -60,22 +59,19 @@ class TestimonialController extends Controller
                         ->toMediaCollection('testimonial');
         }
 
-        $notification = array(
+        return redirect()->route('testimonials.index')->with([
             'message' => 'Svedectvo bolo upravené.',
             'alert-type' => 'success'
-        );
-        return redirect()->route('testimonials.index')->with($notification);
+		]);
     }
 
-    public function destroy($id) {
-        $testimonial = Testimonial::findOrFail($id);
+    public function destroy(Testimonial $testimonial) {
         $testimonial->delete();
         $testimonial->clearMediaCollection('testimonial');
 
-        $notification = array(
+        return redirect()->route('testimonials.index')->with([
             'message' => 'Svedectvo bolo odstránené!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('testimonials.index')->with($notification);
+		]);
     }
 }

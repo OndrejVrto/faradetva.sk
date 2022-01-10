@@ -9,8 +9,8 @@ use App\Http\Controllers\Controller;
 class TagController extends Controller
 {
     public function index() {
-
         $tags = Tag::latest()->paginate(10);
+
         return view('backend.tags.index', compact('tags'));
     }
 
@@ -19,16 +19,13 @@ class TagController extends Controller
     }
 
     public function store(TagRequest $request) {
-
         $validated = $request->validated();
-
         Tag::create($validated);
 
-        $notification = array(
+        return redirect()->route('tags.index')->with([
             'message' => 'Nové kľúčové slovo bolo pridané!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('tags.index')->with($notification);
+		]);
     }
 
     public function edit($slug) {
@@ -38,27 +35,22 @@ class TagController extends Controller
     }
 
     public function update(TagRequest $request, $id) {
-
         $validated = $request->validated();
-
         Tag::findOrFail($id)->update($validated);
 
-        $notification = array(
+        return redirect()->route('tags.index')->with([
             'message' => 'Kľúčové slovo bolo upravené.',
             'alert-type' => 'success'
-        );
-        return redirect()->route('tags.index')->with($notification);
+		]);
 
     }
 
-    public function destroy($id) {
-        $tag = Tag::findOrFail($id);
+    public function destroy(Tag $tag) {
         $tag->delete();
 
-        $notification = array(
+        return redirect()->route('tags.index')->with([
             'message' => 'Kľúčové slovo bolo odstránené!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('tags.index')->with($notification);
+		]);
     }
 }

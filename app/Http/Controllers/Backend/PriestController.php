@@ -34,11 +34,10 @@ class PriestController extends Controller
                     ->toMediaCollection('priest');
         }
 
-        $notification = array(
+        return redirect()->route('priests.index')->with([
             'message' => 'Nový kňaz bol pridaný!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('priests.index')->with($notification);
+		]);
     }
 
     public function edit($slug) {
@@ -61,22 +60,19 @@ class PriestController extends Controller
                     ->toMediaCollection('priest');
         }
 
-        $notification = array(
+        return redirect()->route('priests.index')->with([
             'message' => 'Informácie o kňazovi boli upravené.',
             'alert-type' => 'success'
-        );
-        return redirect()->route('priests.index')->with($notification);
+		]);
     }
 
-    public function destroy($id) {
-        $priest = Priest::findOrFail($id);
+    public function destroy(Priest $priest) {
         $priest->delete();
         $priest->clearMediaCollection('priest');
 
-        $notification = array(
+        return redirect()->route('priests.index')->with([
             'message' => 'Informácia o kňazovi našej farnosti bola odstránená!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('priests.index')->with($notification);
+		]);
     }
 }

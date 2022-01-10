@@ -19,50 +19,37 @@ class CategoryController extends Controller
     }
 
     public function store(CategoryRequest $request) {
-
         $validated = $request->validated();
-
         Category::create($validated);
 
-        $notification = array(
+        return redirect()->route('categories.index')->with([
             'message' => 'Nová kategória bola pridaná!',
             'alert-type' => 'success'
-        );
-
-        return redirect()->route('categories.index')->with($notification);
+		]);
     }
 
-    public function edit( $slug ) {
-
+    public function edit($slug) {
         $category = Category::whereSlug($slug)->firstOrFail();
 
         return view('backend.categories.edit', compact('category'));
-
     }
 
     public function update(CategoryRequest $request, $id) {
-
         $validated = $request->validated();
-
         Category::findOrFail($id)->update($validated);
 
-        $notification = array(
+        return redirect()->route('categories.index')->with([
             'message' => 'Kategória bola upravená!',
             'alert-type' => 'success'
-        );
-
-        return redirect()->route('categories.index')->with($notification);
-
+		]);
     }
 
-    public function destroy($id) {
-        $category = Category::findOrFail($id);
+    public function destroy(Category $category) {
         $category->delete();
 
-        $notification = array(
+        return redirect()->route('categories.index')->with([
             'message' => 'Kategória bola odstránená!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('categories.index')->with($notification);
+		]);
     }
 }

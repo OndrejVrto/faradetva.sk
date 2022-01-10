@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Session;
 class SliderController extends Controller
 {
     public function index() {
+        $sliders = Slider::latest('updated_at')->with('media')->paginate(5);
+
         Session::remove('slider_old_input_checkbox');
 
-        $sliders = Slider::latest('updated_at')->with('media')->paginate(5);
         return view('backend.sliders.index', compact('sliders'));
     }
 
@@ -34,16 +35,13 @@ class SliderController extends Controller
                     ->toMediaCollection('slider');
         }
 
-        $notification = array(
+        return redirect()->route('sliders.index')->with([
             'message' => 'Nový obrázok s myšlienkou bol pridaný!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('sliders.index')->with($notification);
+		]);
     }
 
-    public function edit($id) {
-        $slider = Slider::whereId($id)->firstOrFail();
-
+    public function edit(Slider $slider) {
         return view('backend.sliders.edit', compact('slider'));
     }
 
@@ -61,22 +59,19 @@ class SliderController extends Controller
                     ->toMediaCollection('slider');
         }
 
-        $notification = array(
+        return redirect()->route('sliders.index')->with([
             'message' => 'Obrázok s myšlienkou bol upravený.',
             'alert-type' => 'success'
-        );
-        return redirect()->route('sliders.index')->with($notification);
+		]);
     }
 
-    public function destroy($id) {
-        $slider = Slider::findOrFail($id);
+    public function destroy(Slider $slider) {
         $slider->delete();
         $slider->clearMediaCollection('slider');
 
-        $notification = array(
+        return redirect()->route('sliders.index')->with([
             'message' => 'Obrázok s myšlienkou bol odstránený!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('sliders.index')->with($notification);
+		]);
     }
 }

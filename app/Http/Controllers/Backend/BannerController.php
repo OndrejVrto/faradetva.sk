@@ -34,16 +34,13 @@ class BannerController extends Controller
                     ->toMediaCollection('banner');
         }
 
-        $notification = array(
+        return redirect()->route('banners.index')->with([
             'message' => 'Nový baner bol pridaný!',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('banners.index')->with($notification);
+                        'alert-type' => 'success'
+		]);
     }
 
-    public function edit($id) {
-        $banner = Banner::whereId($id)->firstOrFail();
-
+    public function edit(Banner $banner) {
         return view('backend.banners.edit', compact('banner'));
     }
 
@@ -61,22 +58,19 @@ class BannerController extends Controller
                     ->toMediaCollection('banner');
         }
 
-        $notification = array(
+        return redirect()->route('banners.index')->with([
             'message' => 'Baner bol upravený.',
             'alert-type' => 'success'
-        );
-        return redirect()->route('banners.index')->with($notification);
+		]);
     }
 
-    public function destroy($id) {
-        $banner = Banner::findOrFail($id);
+    public function destroy(Banner $banner) {
         $banner->delete();
         $banner->clearMediaCollection('banner');
 
-        $notification = array(
+        return redirect()->route('banners.index')->with([
             'message' => 'Baner bol odstránený!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('banners.index')->with($notification);
+		]);
     }
 }

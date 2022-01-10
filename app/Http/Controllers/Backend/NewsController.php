@@ -45,12 +45,10 @@ class NewsController extends Controller
                 ->toMediaCollection('news_front_picture');
         }
 
-        // notification and request
-        $notification = array(
+        return redirect()->route('news.index')->with([
             'message' => 'Nový článok bol pridaný!',
             'alert-type' => 'success'
-        );
-        return redirect()->route('news.index')->with($notification);
+		]);
     }
 
     public function edit($slug) {
@@ -65,7 +63,6 @@ class NewsController extends Controller
     }
 
     public function update(NewsRequest $request, $id) {
-
         $validated = $request->validated();
         $news = News::findOrFail($id);
         $news->update($validated);
@@ -81,23 +78,20 @@ class NewsController extends Controller
                     ->toMediaCollection('news_front_picture');
         }
 
-        $notification = array(
+        return redirect()->route('news.index')->with([
             'message' => 'Článok bol úspešne upravený.',
             'alert-type' => 'success'
-        );
-        return redirect()->route('news.index')->with($notification);
+		]);
 
     }
 
-    public function destroy($id) {
-        $news = News::findOrFail($id);
+    public function destroy(News $news) {
         $news->delete();
         $news->clearMediaCollection('news_picture');
 
-        $notification = array(
+        return redirect()->route('news.index')->with([
             'message' => 'Článok bol odstránený.',
             'alert-type' => 'success'
-        );
-        return redirect()->route('news.index')->with($notification);
+		]);
     }
 }
