@@ -31,7 +31,7 @@ class RoleController extends Controller
         $role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success('Nová rola bola pridaná!');
+        toastr()->success(__('app.role.store'));
         return redirect()->route('roles.index');
     }
 
@@ -50,14 +50,14 @@ class RoleController extends Controller
         $role->update($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success('Rola bola upravená!');
+        toastr()->success(__('app.role.update'));
         return redirect()->route('roles.index');
     }
 
     public function destroy(Role $role) {
         $role->delete();
 
-        toastr()->success('Rola bola zmazaná!');
+        toastr()->success(__('app.role.delete'));
         return redirect()->route('roles.index');
     }
 }

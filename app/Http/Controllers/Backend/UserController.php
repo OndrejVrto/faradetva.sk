@@ -47,7 +47,7 @@ class UserController extends Controller
                 ->toMediaCollection('avatar');
         }
 
-        toastr()->success('Uživateľ bol pridaný!');
+        toastr()->success(__('app.user.store'));
         return redirect()->route('users.index');
     }
 
@@ -93,14 +93,14 @@ class UserController extends Controller
                 ->toMediaCollection('avatar');
         }
 
-        toastr()->success('Uživateľ bol upravený!');
+        toastr()->success(__('app.user.update'));
         return redirect()->route('users.index');
     }
 
     public function destroy(User $user) {
         $user->delete();
 
-        toastr()->success('Uživateľ bol odstránený!');
+        toastr()->success(__('app.user.delete'));
         return redirect()->route('users.index');
     }
 }

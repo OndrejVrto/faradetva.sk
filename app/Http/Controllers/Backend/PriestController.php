@@ -35,7 +35,7 @@ class PriestController extends Controller
                     ->toMediaCollection('priest');
         }
 
-        toastr()->success('Nový kňaz bol pridaný!');
+        toastr()->success(__('app.priest.store'));
         return redirect()->route('priests.index');
     }
 
@@ -59,7 +59,7 @@ class PriestController extends Controller
                     ->toMediaCollection('priest');
         }
 
-        toastr()->success('Informácie o kňazovi boli upravené.');
+        toastr()->success(__('app.priest.update'));
         return redirect()->route('priests.index');
     }
 
@@ -67,7 +67,7 @@ class PriestController extends Controller
         $priest->delete();
         $priest->clearMediaCollection('priest');
 
-        toastr()->success('Informácia o kňazovi našej farnosti bola odstránená!');
+        toastr()->success(__('app.priest.delete'));
         return redirect()->route('priests.index');
     }
 }

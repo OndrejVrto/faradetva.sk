@@ -22,7 +22,7 @@ class TagController extends Controller
         $validated = $request->validated();
         Tag::create($validated);
 
-        toastr()->success('Nové kľúčové slovo bolo pridané!');
+        toastr()->success(__('app.tag.store'));
         return redirect()->route('tags.index');
     }
 
@@ -36,14 +36,14 @@ class TagController extends Controller
         $validated = $request->validated();
         Tag::findOrFail($id)->update($validated);
 
-        toastr()->success('Kľúčové slovo bolo upravené.');
+        toastr()->success(__('app.tag.update'));
         return redirect()->route('tags.index');
     }
 
     public function destroy(Tag $tag) {
         $tag->delete();
 
-        toastr()->success('Kľúčové slovo bolo odstránené!');
+        toastr()->success(__('app.tag.delete'));
         return redirect()->route('tags.index');
     }
 }

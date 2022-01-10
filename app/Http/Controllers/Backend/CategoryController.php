@@ -22,7 +22,7 @@ class CategoryController extends Controller
         $validated = $request->validated();
         Category::create($validated);
 
-        toastr()->success('Nová kategória bola pridaná!');
+        toastr()->success(__('app.category.store'));
         return redirect()->route('categories.index');
     }
 
@@ -36,14 +36,14 @@ class CategoryController extends Controller
         $validated = $request->validated();
         Category::findOrFail($id)->update($validated);
 
-        toastr()->success('Kategória bola upravená!');
+        toastr()->success(__('app.category.update'));
         return redirect()->route('categories.index');
     }
 
     public function destroy(Category $category) {
         $category->delete();
 
-        toastr()->success('Kategória bola odstránená!');
+        toastr()->success(__('app.category.delete'));
         return redirect()->route('categories.index');
     }
 }
