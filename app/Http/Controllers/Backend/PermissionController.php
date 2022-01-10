@@ -22,15 +22,10 @@ class PermissionController extends Controller
     public function store(PermissionRequest $request) {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
-
         Permission::create($data);
 
-        $notification = array(
-            'message' => 'Nový typ povolenia bolo pridané!',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->route('permissions.index')->with($notification);
+        toastr()->success('Nový typ povolenia bolo pridané!');
+        return redirect()->route('permissions.index');
     }
 
     public function edit(Permission $permission) {
@@ -40,25 +35,16 @@ class PermissionController extends Controller
     public function update(PermissionRequest $request, $id) {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
-
         Permission::findOrFail($id)->update($data);
 
-        $notification = array(
-            'message' => 'Povolenie bolo upravené!',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->route('permissions.index')->with($notification);
+        toastr()->success('Povolenie bolo upravené!');
+        return redirect()->route('permissions.index');
     }
 
-    public function destroy($id) {
-        $permission = Permission::findOrFail($id);
+    public function destroy(Permission $permission) {
         $permission->delete();
 
-        $notification = array(
-            'message' => 'Povolenie bolo zmazané!',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('permissions.index')->with($notification);
+        toastr()->success('Povolenie bolo zmazané!');
+        return redirect()->route('permissions.index');
     }
 }

@@ -35,10 +35,10 @@ trait CreatedUpdatedBy
     }
 
     public function getCreatedByAttribute() {
-        return User::whereId($this->attributes['created_by'])->first()->name;
+        return User::whereId($this->attributes['created_by'])->value('name');
     }
 
     public function getUpdatedByAttribute() {
-        return User::whereId($this->attributes['updated_by'])->first()->name;
+        return User::whereId($this->attributes['updated_by'])->value('name');
     }
 }

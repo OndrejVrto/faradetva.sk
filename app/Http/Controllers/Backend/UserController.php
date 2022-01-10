@@ -14,6 +14,7 @@ class UserController extends Controller
 {
     public function index() {
         $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);
+
         return view('backend.users.index', compact('users'));
     }
 
@@ -46,12 +47,8 @@ class UserController extends Controller
                 ->toMediaCollection('avatar');
         }
 
-        // notification and request
-        $notification = array(
-            'message' => 'Uživateľ bol pridaný!',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('users.index')->with($notification);
+        toastr()->success('Uživateľ bol pridaný!');
+        return redirect()->route('users.index');
     }
 
     public function show($id) {
@@ -65,11 +62,11 @@ class UserController extends Controller
         $userRoles = $user->roles->pluck('id')->toArray();
         $permissions = Permission::all();
         $userPermissions = $user->permissions->pluck('id')->toArray();
+
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
     public function update(UserRequest $request, $id) {
-        // validation
         $validated = $request->validated();
         $user = User::findOrFail($id);
 
@@ -96,22 +93,14 @@ class UserController extends Controller
                 ->toMediaCollection('avatar');
         }
 
-        // notification and request
-        $notification = array(
-            'message' => 'Uživateľ bol upravený!',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('users.index')->with($notification);
+        toastr()->success('Uživateľ bol upravený!');
+        return redirect()->route('users.index');
     }
 
     public function destroy(User $user) {
         $user->delete();
 
-        $notification = array(
-            'message' => 'Uživateľ bol odstránený!',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->route('users.index')->with($notification);
+        toastr()->success('Uživateľ bol odstránený!');
+        return redirect()->route('users.index');
     }
 }

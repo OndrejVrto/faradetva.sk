@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Session;
 class NewsController extends Controller
 {
     public function index() {
+        $allNews = News::latest('updated_at')->with('user', 'media')->paginate(5);
+
         Session::remove('news_old_input_checkbox');
 
-        $allNews = News::latest('updated_at')->with('user', 'media')->paginate(5);
         return view('backend.news.index', compact('allNews'));
     }
 
@@ -45,12 +46,8 @@ class NewsController extends Controller
                 ->toMediaCollection('news_front_picture');
         }
 
-        // notification and request
-        $notification = array(
-            'message' => 'Nový článok bol pridaný!',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('news.index')->with($notification);
+        toastr()->success('Nový článok bol pridaný!');
+        return redirect()->route('news.index');
     }
 
     public function edit($slug) {
@@ -65,7 +62,6 @@ class NewsController extends Controller
     }
 
     public function update(NewsRequest $request, $id) {
-
         $validated = $request->validated();
         $news = News::findOrFail($id);
         $news->update($validated);
@@ -81,23 +77,16 @@ class NewsController extends Controller
                     ->toMediaCollection('news_front_picture');
         }
 
-        $notification = array(
-            'message' => 'Článok bol úspešne upravený.',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('news.index')->with($notification);
+        toastr()->success('Článok bol úspešne upravený.');
+        return redirect()->route('news.index');
 
     }
 
-    public function destroy($id) {
-        $news = News::findOrFail($id);
+    public function destroy(News $news) {
         $news->delete();
         $news->clearMediaCollection('news_picture');
 
-        $notification = array(
-            'message' => 'Článok bol odstránený.',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('news.index')->with($notification);
+        toastr()->success('Článok bol odstránený.');
+        return redirect()->route('news.index');
     }
 }
