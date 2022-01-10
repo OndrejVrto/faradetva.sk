@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Permission;
 class PermissionController extends Controller
 {
     public function index() {
-        $permissions = Permission::all();
+        $permissions = Permission::paginate(9);
 
         return view( 'backend.permissions.index', compact( 'permissions' ) );
     }

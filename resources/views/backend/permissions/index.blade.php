@@ -12,6 +12,7 @@
         controlerName="permissions"
         columns="6"
         createBtn="Pridať povolenie"
+        paginator="{{ $permissions->onEachSide(2)->links() }}"
         >
 
         <x-slot name="createNote">
@@ -24,8 +25,8 @@
 
         <x-slot name="table_header">
             <x-admin-table.th width="1%">#</x-admin-table.th>
-            <x-admin-table.th width="60%">Názov povolenia</x-admin-table.th>
-            <x-admin-table.th>Brána</x-admin-table.th>
+            <x-admin-table.th>Názov povolenia</x-admin-table.th>
+            {{-- <x-admin-table.th>Brána</x-admin-table.th> --}}
             <x-admin-table.th-actions/>
         </x-slot>
 
@@ -34,7 +35,7 @@
             <tr>
                 <x-admin-table.td>{{$permission->id}}</x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$permission->name}}</x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{$permission->guard_name}}</x-admin-table.td>
+                {{-- <x-admin-table.td class="text-wrap text-break">{{$permission->guard_name}}</x-admin-table.td> --}}
 
                 <x-admin-table.td-actions
                     editLink="{{ route('permissions.edit', $permission->id)}}"
