@@ -19,11 +19,7 @@ use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+
     public function run()
     {
 
@@ -38,11 +34,14 @@ class DatabaseSeeder extends Seeder
             PriestSeeder::class,
             TestimonialSeeder::class,
             SliderSeeder::class,
+            StaticPageSeeder::class,
+
+            //after StaticPages
             BannerSeeder::class,
 
             // raw sql
-            MediaSeeder::class,
             NewsSeeder::class,
+            MediaSeeder::class,
         ]);
 
         News::factory(4)->create();

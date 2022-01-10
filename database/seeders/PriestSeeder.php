@@ -8,11 +8,7 @@ use Illuminate\Database\Seeder;
 
 class PriestSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
 

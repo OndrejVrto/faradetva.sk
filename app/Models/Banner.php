@@ -17,6 +17,8 @@ class Banner extends Model implements HasMedia
     use CreatedUpdatedBy;
     use InteractsWithMedia;
 
+    protected $table = 'banners';
+
     protected $fillable = [
         'active',
         'title',
@@ -26,8 +28,7 @@ class Banner extends Model implements HasMedia
         return $this->getFirstMedia('banner')->file_name ?? null;
     }
 
-    public function registerMediaConversions( Media $media = null ) : void
-    {
+    public function registerMediaConversions( Media $media = null ) : void {
         //1920x480px (240*60)
         $this->addMediaConversion('extra-large')
             ->fit("crop", 1920, 480)    // 1200px and up
@@ -44,7 +45,6 @@ class Banner extends Model implements HasMedia
         $this->addMediaConversion('extra-small')
             ->fit("crop", 720, 180)        // less than 576px
             ->optimize();
-
         $this->addMediaConversion('crop-thumb')
             ->fit("crop", 360, 90);
     }

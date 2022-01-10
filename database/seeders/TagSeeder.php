@@ -8,11 +8,7 @@ use Illuminate\Support\Str;
 
 class TagSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         Tag::create([

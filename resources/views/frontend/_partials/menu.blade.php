@@ -28,7 +28,7 @@
                                     <!-- Kňazi pochovaní v Detve  -->
                                     <!-- Kňazi pôsobiaci v Detve  -->
                                     <!-- Štatistiky od roku 2010  -->
-                                    <li><a href="#">Patrón farnosti</a></li>
+                                    <li><a href="{{ route('static.francisco') }}">Patrón farnosti</a></li>
                                     <li><a href="#">Sakrálne objekty</a></li>
                                     <!-- Kostoly  -->
                                     <!-- Kaplnky  -->
@@ -82,11 +82,10 @@
                                 <!-- Button trigger modal -->
                                 <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fas fa-search"></i></span>
                             </li>
-                            <li><a class="text-template text-muted" href="{{ route('home') }}">Všetko</a></li>
                             @auth
-                                <li><a class="text-template text-muted" href="{{ route('admin.dashboard') }}">Administrácia</a></li>
+                                <li><a class="text-template text-muted ms-5" href="{{ route('admin.dashboard') }}"><small>Admin</small></a></li>
                             @else
-                                <li><a class="text-template text-muted" href="{{ route('login') }}">Prihlásiť</a></li>
+                                <li><a class="text-template text-muted ms-5" href="{{ route('login') }}"><small>Login</small></a></li>
                                 {{-- @if (Route::has('register'))
                                 <li><a class="text-template" href="{{ route('register') }}">Registrovať</a></li>
                                 @endif --}}

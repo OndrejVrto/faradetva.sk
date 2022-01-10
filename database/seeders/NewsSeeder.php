@@ -8,11 +8,7 @@ use Illuminate\Support\Facades\File;
 
 class NewsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         //path to sql file

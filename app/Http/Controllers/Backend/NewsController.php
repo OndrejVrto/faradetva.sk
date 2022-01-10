@@ -58,10 +58,10 @@ class NewsController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
 
-        // TODO: Chýba model NewsTag - zmazal som ho
-        // $selectedTags = NewsTag::where('news_id', $news->id )->pluck('tag_id')->toArray();
-        return 'TODO !!!';
-        // return view('backend.news.edit', compact('news', 'categories', 'tags', 'selectedTags'));
+        // TODO: Treba model NewsTag ?? - zmazať ??  - Zatial asi potrebný pre seeder
+        $selectedTags = NewsTag::where('news_id', $news->id )->pluck('tag_id')->toArray();
+
+        return view('backend.news.edit', compact('news', 'categories', 'tags', 'selectedTags'));
     }
 
     public function update(NewsRequest $request, $id) {

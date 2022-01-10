@@ -12,18 +12,12 @@ class RoleRequest extends FormRequest
     }
 
     public function rules() {
-        if (request()->routeIs('roles.store')) {
-            $rules = [
-                'name' => 'required|unique:users_roles,name',
-                'permission' => 'required',
-            ];
-        } else if (request()->routeIs('roles.update')) {
-            $rules = [
-                'name' => ['required',    Rule::unique('users_roles', 'name')->ignore($this->role)],
-                'permission' => 'required',
-            ];
-        }
-
-        return $rules;
+        return [
+            'name' => [
+                'required',
+                Rule::unique('users_roles', 'name')->ignore($this->role)
+            ],
+            'permission' => 'required',
+        ];
     }
 }

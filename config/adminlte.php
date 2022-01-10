@@ -129,8 +129,8 @@ return [
     'classes_content_main' => 'pt-4',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-light elevation-4',
-    'classes_sidebar_nav' => '',
+    'classes_sidebar' => 'sidebar-dark-light elevation-4 lh-sm',
+    'classes_sidebar_nav' => '', // text-sm
     'classes_topnav' => 'navbar-gray navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
@@ -242,6 +242,7 @@ return [
             'route'       => 'admin.dashboard',
             'icon'        => 'fab fa-fort-awesome fa-lg',
         ],
+
         [
             'header' => 'Sekcie',
             'can'  => [
@@ -249,7 +250,6 @@ return [
                 'priests.index',
                 'testimonials.index',
                 'sliders.index',
-                'banners.index',
             ],
         ],
         [
@@ -281,13 +281,7 @@ return [
             'icon'  => 'fas fa-image',
             'can'  => 'sliders.index',
         ],
-        [
-            'text'  => 'Baner',
-            'icon_color'  => 'orange',
-            'route' => 'banners.index',
-            'icon'  => 'far fa-flag',
-            'can'  => 'banners.index',
-        ],
+
         [
             'header' => 'Nastavenia',
             'can'  => [
@@ -309,6 +303,53 @@ return [
             'icon'  => 'fas fa-tag',
             'can'  => 'tags.index',
         ],
+
+        [
+            'header' => 'Statické stránky',
+            'can'  => [
+                'staticpages.index',
+                'banners.index',
+            ],
+        ],
+        [
+            'text' => 'Dáta stránky',
+            'icon_color'  => 'cyan',
+            'icon'  => 'fab fa-pagelines fa-lg',
+            'route' => 'static-pages.index',
+            'can'  => 'static-pages.index',
+        ],
+        [
+            'text'  => 'Banner',
+            'icon_color'  => 'cyan',
+            'icon'  => 'far fa-flag',
+            'route' => 'banners.index',
+            'can'  => 'banners.index',
+        ],
+        [
+            'text'  => 'Obrázky',
+            'icon_color'  => 'cyan',
+            'icon'  => 'fas fa-camera-retro',
+            'url'  => '#',
+            // 'route' => 'pictures.index',
+            // 'can'  => 'pictures.index',
+        ],
+        [
+            'text'  => 'Dokumenty',
+            'icon_color'  => 'cyan',
+            'icon'  => 'fas fa-file-import',
+            'url'  => '#',
+            // 'route' => 'documents.index',
+            // 'can'  => 'documents.index',
+        ],
+        [
+            'text'  => 'Galérie',
+            'icon_color'  => 'cyan',
+            'icon'  => 'fas fa-photo-video',
+            'url'  => '#',
+            // 'route' => 'galeries.index',
+            // 'can'  => 'galeries.index',
+        ],
+
         [
             'header' => 'Prístupové práva',
             'can'  => [

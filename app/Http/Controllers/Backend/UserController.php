@@ -68,9 +68,10 @@ class UserController extends Controller
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function update(User $user, UserRequest $request) {
+    public function update(UserRequest $request, $id) {
         // validation
         $validated = $request->validated();
+        $user = User::findOrFail($id);
 
         // if no password is entered, it is removed from the request
         if( ! $request->filled('password') ) {

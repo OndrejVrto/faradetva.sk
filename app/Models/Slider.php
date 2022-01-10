@@ -18,6 +18,8 @@ class Slider extends Model implements HasMedia {
     use CreatedUpdatedBy;
     use InteractsWithMedia;
 
+    protected $table = 'sliders';
+
     protected $fillable = [
         'active',
         'heading_1',
@@ -29,8 +31,7 @@ class Slider extends Model implements HasMedia {
         return $this->getFirstMedia('slider')->file_name ?? null;
     }
 
-    public function registerMediaConversions( Media $media = null ) : void
-    {
+    public function registerMediaConversions( Media $media = null ) : void {
         $this->addMediaConversion('extra-large')
             ->fit("crop", 1920, 800)    // 1200px and up
             ->optimize();
@@ -46,7 +47,6 @@ class Slider extends Model implements HasMedia {
         $this->addMediaConversion('extra-small')
             ->fit("crop", 720, 300)        // less than 576px
             ->optimize();
-
         $this->addMediaConversion('crop-thumb')
             ->fit("crop", 192, 80);
     }
