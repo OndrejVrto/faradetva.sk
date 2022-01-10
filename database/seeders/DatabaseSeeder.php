@@ -34,11 +34,14 @@ class DatabaseSeeder extends Seeder
             PriestSeeder::class,
             TestimonialSeeder::class,
             SliderSeeder::class,
+            StaticPageSeeder::class,
+
+            //after StaticPages
             BannerSeeder::class,
 
             // raw sql
-            MediaSeeder::class,
             NewsSeeder::class,
+            MediaSeeder::class,
         ]);
 
         News::factory(4)->create();
