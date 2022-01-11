@@ -105,6 +105,22 @@ return [
         'static-pages_header_create'      => 'Nová statická stránka',
         'static-pages_header_edit'        => 'Úprava statickej stránky',
 
+        'files_title' => 'Súbory',
+        'files_description' => 'Sem môžete vkladať rôzne súbory na statické stránky',
+        'files_description_create' => 'Pridanie ďalšieho súboru',
+        'files_description_edit' => 'Zmena súboru alebo jeho vlastností',
+        'files_header' => 'Súbory',
+        'files_header_create' => 'Vložiť súbor',
+        'files_header_edit' => 'Upraviť súbor',
+
+        'file-types_title' => 'Typy súborov',
+        'file-types_description' => 'Kategorizácia súborov',
+        'file-types_description_create' => 'Vytvorenie novej kategórie pre súbory',
+        'file-types_description_edit' => 'Zmena údajov v kategórii pre súbory',
+        'file-types_header' => 'Typy vkladaných súborov',
+        'file-types_header_create' => 'Nová kategória',
+        'file-types_header_edit' => 'Úprava kategórie',
+
         //'s_title' => '',
         //'s_description' => '',
         //'s_description_create' => '',

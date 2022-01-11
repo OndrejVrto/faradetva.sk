@@ -7,7 +7,7 @@ return [
     'options' => [
         'closeButton'       => true,
         'closeClass'        => 'toast-close-button',
-        'closeDuration'     => 300,
+        'closeDuration'     => 500,
         'closeEasing'       => 'swing',
         'closeHtml'         => '<button><i class="icon-off"></i></button>',
         // 'closeHtml'         => '<button><i class="fas fa-times"></i></button>',
@@ -41,7 +41,7 @@ return [
         'showMethod'        => 'fadeIn',
         'tapToDismiss'      => true,
         'target'            => 'body',
-        'timeOut'           => 10000,
+        'timeOut'           => 8000,
         'titleClass'        => 'toast-title',
         'toastClass'        => 'toast',
     ],

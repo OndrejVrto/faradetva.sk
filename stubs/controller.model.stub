@@ -1,0 +1,56 @@
+<?php
+
+declare(strict_types = 1);
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+//use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\{{ model }}Request;
+use {{ rootNamespace }}Http\Controllers\Controller;
+
+class {{ class }} extends Controller
+{
+    public function index(): View {
+        ${{ modelVariable }}s = {{ model }}::latest()->paginate(10);
+
+        return view('backend.{{ modelVariable }}s.index', compact('{{ modelVariable }}s'));
+    }
+
+    public function create(): View {
+        return view('backend.{{ modelVariable }}s.create');
+    }
+
+    public function store({{ model }}Request $request): RedirectResponse {
+        $validated = $request->validated();
+        {{ model }}::create($validated);
+
+        toastr()->success(__('app.{{ modelVariable }}.store'));
+        return redirect()->route('{{ modelVariable }}s.index');
+    }
+
+    public function show({{ model }} ${{ modelVariable }}): View {
+        return view('backend.{{ modelVariable }}s.show', compact('{{ modelVariable }}'));
+    }
+
+    public function edit({{ model }} ${{ modelVariable }}): View {
+        return view('backend.{{ modelVariable }}s.edit', compact('{{ modelVariable }}'));
+    }
+
+    public function update( {{ model }}Request $request, {{ model }} ${{ modelVariable }}): RedirectResponse {
+        $validated = $request->validated();
+        ${{ modelVariable }}->update($validated);
+
+        toastr()->success(__('app.{{ modelVariable }}.update'));
+        return redirect()->route('{{ modelVariable }}s.index');
+    }
+
+    public function destroy({{ model }} ${{ modelVariable }}): RedirectResponse {
+        ${{ modelVariable }}->delete();
+
+        toastr()->success(__('app.{{ modelVariable }}.delete'));
+        return redirect()->route('{{ modelVariable }}s.index');
+    }
+}

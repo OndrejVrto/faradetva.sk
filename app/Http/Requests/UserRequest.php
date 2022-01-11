@@ -32,6 +32,7 @@ class UserRequest extends FormRequest
                 'nullable',
                 'string',
                 'min:8',
+                'max:255',
                 'confirmed'
             ],
             'photo_avatar' => [

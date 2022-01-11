@@ -62,4 +62,14 @@ return [
         'update' => 'Uživateľ bol upravený!',
         'delete' => 'Uživateľ bol odstránený!',
     ],
+    'file'   => [
+        'store' => 'Súbor bol pridaný!',
+        'update' => 'Súbor bol upravený!',
+        'delete' => 'Súbor bol odstránený!',
+    ],
+    'file-type'   => [
+        'store' => 'Typ dokumentu bol pridaný!',
+        'update' => 'Typ dokumentu bol upravený!',
+        'delete' => 'Typ dokumentu bol odstránený!',
+    ],
 ];

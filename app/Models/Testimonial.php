@@ -24,7 +24,6 @@ class Testimonial extends Model implements HasMedia
     protected $fillable = [
         'active',
         'name',
-        'slug',
         'phone',
         'function',
         'description',
