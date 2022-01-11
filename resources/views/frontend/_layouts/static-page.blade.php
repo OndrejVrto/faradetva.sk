@@ -1,12 +1,16 @@
 @extends('frontend._layouts.page')
 
-@section('title', 'TODO')
-@section('description', 'TODO')
-@section('keywords', 'TODO')
+@section('title', $pageData->title )
+@section('description', $pageData->description)
+@section('keywords', $pageData->keywords)
+@section('author', $pageData->author)
 
 @prepend('content_header')
     {{-- Begin of the all static pages --}}
+    {{-- @dd($pageData) --}}
+
     {{-- @include('frontend._sections.banner', ['mainTitle' => 'TODO']) --}}
+    {{-- TODO:  Banner --}}
 @endprepend
 
 @push('content_footer')
@@ -19,7 +23,7 @@
         <div class="container">
 
             <div class="heading_section wh_headline">
-                <h1>TODO</h1>
+                <h1>{{ $pageData->header }}</h1>
             </div>
 @endprepend
 

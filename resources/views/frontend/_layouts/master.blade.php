@@ -18,10 +18,11 @@
         @yield('title_postfix', config('farnost-detva.title_postfix', ''))
     </title>
 
-    <meta name="description" content="@yield('description', config('farnost-detva.description', 'Webové stránky farnosťi Detva.') ) ">
-    <meta name="keywords" content="@yield('keywords', config('farnost-detva.keywords', 'farnosť, Detva, svadba, krst, oznamy, predmanželská príprava, pohreb') ) ">
+    <meta name="description" content="@yield('description', config('farnost-detva.description', 'Webové stránky farnosťi Detva.'))">
+    <meta name="keywords" content="@yield('keywords', config('farnost-detva.keywords', 'farnosť, Detva, svadba, krst, oznamy, predmanželská príprava, pohreb'))">
 
-    <meta name="author" content="Ing. Ondrej VRŤO, IWE">
+    <meta name="author" content="@yield('author', 'Ing. Ondrej VRŤO, IWE')">
+    <meta name="author-aplication" content="Ing. Ondrej VRŤO, IWE">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="MobileOptimized" content="320">

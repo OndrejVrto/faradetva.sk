@@ -19,7 +19,7 @@ class PageController extends Controller
         $route = config('preppend_route_static_pages','frontend.pages') . '.' . $pageData->route_name;
 
         if (View::exists($route)) {
-            return view($route, compact($pageData) );
+            return view($route, compact('pageData') );
         } else {
             abort(404);
         }

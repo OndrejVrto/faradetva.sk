@@ -1,6 +1,6 @@
 @extends('frontend._layouts.static-page')
 @push('content_header')
-    {{-- Prepend content Footer --}}
+    {{-- Prepend content Header --}}
 @endpush
 @prepend('content_footer')
     {{-- After content Footer --}}
