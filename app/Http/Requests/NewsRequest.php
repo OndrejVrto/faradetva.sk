@@ -40,7 +40,10 @@ class NewsRequest extends FormRequest
                 Rule::unique('news', 'title')->ignore($this->news)->whereNull('deleted_at')
             ],
             'content' => 'required',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => [
+                'required',
+                'exists:categories,id'
+            ],
             'news_picture' => [
                 $imageRule,
                 'file',
