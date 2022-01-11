@@ -40,11 +40,13 @@
 
     @include('frontend._partials.menu')
 
+    @stack('content_header')
     <!-- section Content Start -->
     @stack('content_prepend')
     @yield('content')
     @stack('content_append')
     <!-- section Content End -->
+    @stack('content_footer')
 
     @include('frontend._partials.footer')
 

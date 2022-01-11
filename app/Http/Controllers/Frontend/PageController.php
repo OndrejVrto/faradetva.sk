@@ -38,7 +38,7 @@ class PageController extends Controller
     public function francisco() {
         // TODO: eloquent best querry
         $banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
-        return view('frontend.static.patron-francisco-assisi', compact('banner'));
+        return view('frontend.pages.about-us.patron-francisco-assisi', compact('banner'));
     }
 
     public function getPageByName($pageName) {
