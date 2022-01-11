@@ -10,7 +10,7 @@ use App\Http\Requests\StaticPageRequest;
 class StaticPageController extends Controller
 {
     public function index() {
-        $pages = StaticPage::with('media')->paginate(5);
+        $pages = StaticPage::paginate(5);
 
         return view('backend.static-pages.index', compact('pages'));
     }

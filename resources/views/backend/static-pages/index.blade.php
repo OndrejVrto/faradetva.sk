@@ -36,13 +36,9 @@
                 </x-admin-table.td>
 
                 <x-admin-table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-admin-table.td>
-
                 <x-admin-table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->url }}</x-admin-table.td>
-
                 <x-admin-table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->route_name }}</x-admin-table.td>
-
                 <x-admin-table.td class="d-none d-lg-table-cell text-wrap text-break text-center">{{-- $page->file_count --}}</x-admin-table.td>
-
                 <x-admin-table.td-actions
                     editLink="{{ route('static-pages.edit', $page->slug)}}"
                     deleteLink="{{ route('static-pages.destroy', $page->id)}}"

@@ -58,6 +58,8 @@ Breadcrumbs::resource('priests', 'Kňazi');
 
 Breadcrumbs::resource('banners', 'Bannery');
 Breadcrumbs::resource('static-pages', 'Statické stránky');
+Breadcrumbs::resource('files', 'Súbory');
+Breadcrumbs::resource('file-types', 'Typy súborov');
 
 Breadcrumbs::resource('users', 'Užívatelia');
 Breadcrumbs::resource('roles', 'Role');
