@@ -16,27 +16,27 @@ class {{ class }} extends Controller
     public function index(): View {
         ${{ modelVariable }}s = {{ model }}::latest()->paginate(10);
 
-        return view('{{ modelVariable }}s.index', compact('{{ modelVariable }}s'));
+        return view('backend.{{ modelVariable }}s.index', compact('{{ modelVariable }}s'));
     }
 
     public function create(): View {
-        return view('{{ modelVariable }}s.create');
+        return view('backend.{{ modelVariable }}s.create');
     }
 
     public function store({{ model }}Request $request): RedirectResponse {
         $validated = $request->validated();
         {{ model }}::create($validated);
 
-        toastr()->success(__('app.{{ modelVariable }.store'));
+        toastr()->success(__('app.{{ modelVariable }}.store'));
         return redirect()->route('{{ modelVariable }}s.index');
     }
 
     public function show({{ model }} ${{ modelVariable }}): View {
-        return view('{{ modelVariable }}s.show', compact('{{ modelVariable }}'));
+        return view('backend.{{ modelVariable }}s.show', compact('{{ modelVariable }}'));
     }
 
     public function edit({{ model }} ${{ modelVariable }}): View {
-        return view('{{ modelVariable }}s.edit', compact('{{ modelVariable }}'));
+        return view('backend.{{ modelVariable }}s.edit', compact('{{ modelVariable }}'));
     }
 
     public function update( {{ model }}Request $request, {{ model }} ${{ modelVariable }}): RedirectResponse {
