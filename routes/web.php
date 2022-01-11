@@ -75,6 +75,4 @@ Route::get('/hladat-clanok/{search?}', [SearchController::class, 'searchNews'] )
 Route::get('/kontakt', [ContactController::class, 'index'] )->name('contact');
 
 //! Section - ALL others websites
-Route::get('/frantisek', [PageController::class, 'francisco'] )->name('static.francisco');
-//todo One controler to all static page
 Route::get('{First}/{Second?}/{Third?}/{Fourth?}', [PageController::class, 'getPageFromUrl']);

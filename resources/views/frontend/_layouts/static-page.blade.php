@@ -6,7 +6,7 @@
 
 @prepend('content_header')
     {{-- Begin of the all static pages --}}
-    @include('frontend._sections.banner', ['mainTitle' => 'TODO'])
+    {{-- @include('frontend._sections.banner', ['mainTitle' => 'TODO']) --}}
 @endprepend
 
 @push('content_footer')

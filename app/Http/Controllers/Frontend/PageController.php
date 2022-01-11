@@ -2,35 +2,26 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Banner;
+use App\Models\StaticPage;
+use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
-    //todo: Delete francisco when development static pages is complete
-    public function francisco() {
-        $banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
-        return view('frontend.pages.about-us.patron-francisco-assisi', compact('banner'));
-    }
-
     public function getPageFromUrl($pageUrlFirst, $pageUrlSecond = null, $pageUrlThird = null, $pageUrlFourth = null) {
+        $fullpath = collect([$pageUrlFirst, $pageUrlSecond, $pageUrlThird, $pageUrlFourth])
+            ->whereNotNull()
+            ->implode('/');
 
-        dump($pageUrlFirst, $pageUrlSecond, $pageUrlThird, $pageUrlFourth);
-        return ;
+        $pageData = StaticPage::whereUrl($fullpath)->with('files.fileType', 'files.media')->firstOrFail();
 
+        //* create full path to template
+        $route = config('preppend_route_static_pages','frontend.pages') . '.' . $pageData->route_name;
 
-        // dd($page);
-        // $pageName = $request->path();
-        //since your url does not begin with the page but with 'first',
-        //best is to turn this into an array.
-        // $parsedPath = explode("/",$page);
-        // $data = [];
-
-        // if( View::exists($pageName[0])) {
-        //     return view($pageName[0], compact($data) );
-        // } else {
-        //     // abort(404);
-        //     dd($pageName, $data );
-        // }
+        if (View::exists($route)) {
+            return view($route, compact($pageData) );
+        } else {
+            abort(404);
+        }
     }
 }

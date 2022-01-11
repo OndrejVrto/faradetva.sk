@@ -9,6 +9,8 @@ return [
     'keywords' => 'farnosť, Detva, svadba, krst, oznamy, predmanželská príprava, pohreb',
     'description' => 'Webové stránky farnosťi Detva.',
 
+    'preppend_route_static_pages' => 'frontend.pages',
+
     'admin_texts' => [
 
         'dashboard_title'       => 'Dashboard',
