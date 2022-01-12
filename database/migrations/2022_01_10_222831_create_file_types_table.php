@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFileTypesTable extends Migration
+return new class extends Migration
 {
     public function up(): void {
         Schema::create('file_types', function (Blueprint $table) {
@@ -24,4 +24,4 @@ class CreateFileTypesTable extends Migration
     public function down(): void {
         Schema::dropIfExists('file_types');
     }
-}
+};
