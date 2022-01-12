@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
 use App\Models\News;
 use App\Models\User;
-use App\Models\NewsTag;
 use App\Models\Testimonial;
 use Database\Seeders\TagSeeder;
-
 use Illuminate\Database\Seeder;
 use Database\Seeders\FileSeeder;
 use Database\Seeders\UserSeeder;
@@ -28,7 +27,7 @@ class DatabaseSeeder extends Seeder
         Artisan::call('permission:create-permission-routes');
 
         $this->call(UserSeeder::class);
-        User::factory(10)->create();
+        // User::factory(10)->create();
 
         $this->call([
             TagSeeder::class,
@@ -49,8 +48,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         News::factory(4)->create();
-        NewsTag::factory(50)->create();
         Testimonial::factory(5)->create();
 
+        //* Pivot table news_tag seeder
+        // give each News some Tags
+        foreach(News::all() as $news) {
+            foreach(Tag::all() as $tag) {
+                if (rand(1, 100) > 70) {
+                    $news->tags()->attach($tag->id);
+                }
+            }
+            $news->save();
+        }
     }
 }

@@ -51,14 +51,12 @@ class NewsController extends Controller
     }
 
     public function edit(News $news) {
-        // TODO: media support in news
-        $news->load('media');
+        // TODO: support media in news
+        $news->load('media', 'tags');
 
         $categories = Category::all();
         $tags = Tag::all();
-
-        // TODO: Treba model NewsTag ?? - zmazať ??  - Zatial asi potrebný pre seeder
-        $selectedTags = NewsTag::where('news_id', $news->id )->pluck('tag_id')->toArray();
+        $selectedTags = $news->tags->pluck('id')->unique()->toArray();
 
         return view('backend.news.edit', compact('news', 'categories', 'tags', 'selectedTags'));
     }

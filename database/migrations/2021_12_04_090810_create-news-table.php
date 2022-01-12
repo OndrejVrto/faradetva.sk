@@ -23,7 +23,7 @@ class CreateNewsTable extends Migration
                     ->onUpdate('SET NULL')
                     ->onDelete('SET NULL');
             $table->mediumText('title');
-            $table->mediumText('slug')->unique();
+            $table->string('slug')->unique();
             $table->binary('content');
             $table->timestamp('published_at')->nullable();
             $table->timestamp('unpublished_at')->nullable();
