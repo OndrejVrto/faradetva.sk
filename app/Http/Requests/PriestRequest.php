@@ -15,7 +15,7 @@ class PriestRequest extends FormRequest
         if (request()->routeIs('priests.store')) {
             $photoRule = 'required';
         } else if (request()->routeIs('priests.update')) {
-            $photoRule = 'sometimes|nullable';
+            $photoRule = 'nullable';
         }
 
         return [

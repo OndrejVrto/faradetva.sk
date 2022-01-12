@@ -16,7 +16,7 @@ class TestimonialRequest extends FormRequest
         if (request()->routeIs('testimonials.store')) {
             $photoRule = 'required';
         } else if (request()->routeIs('testimonials.update')) {
-            $photoRule = 'sometimes|nullable';
+            $photoRule = 'nullable';
         }
 
         return [
