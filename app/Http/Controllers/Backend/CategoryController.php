@@ -26,15 +26,13 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
     }
 
-    public function edit($slug) {
-        $category = Category::whereSlug($slug)->firstOrFail();
-
+    public function edit(Category $category) {
         return view('backend.categories.edit', compact('category'));
     }
 
-    public function update(CategoryRequest $request, $id) {
+    public function update(CategoryRequest $request, Category $category) {
         $validated = $request->validated();
-        Category::findOrFail($id)->update($validated);
+        $category->update($validated);
 
         toastr()->success(__('app.category.update'));
         return redirect()->route('categories.index');

@@ -4,13 +4,13 @@
     $uploadFiles = 'false';
 
     $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $page ) ) {
+    if ( isset( $staticPage ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $page->id;
-        $createdInfo = $page->createdInfo;
-        $createdBy = $page->createdBy;
-        $updatedInfo = $page->updatedInfo;
-        $updatedBy = $page->updatedBy;
+        $identificatorEdit = $staticPage->slug;
+        $createdInfo = $staticPage->createdInfo;
+        $createdBy = $staticPage->createdBy;
+        $updatedInfo = $staticPage->updatedInfo;
+        $updatedBy = $staticPage->updatedBy;
     }
 @endphp
 
@@ -30,7 +30,7 @@
                 label="Titulok záložky prehliadača"
                 placeholder="Záložka prehliadača ..."
                 enableOldSupport="true"
-                value="{{ $page->title ?? '' }}" >
+                value="{{ $staticPage->title ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fab fa-pagelines fa-lg"></i>
@@ -45,7 +45,7 @@
                 label="Nadpis stránky"
                 placeholder="Vlož nadpis stránky"
                 enableOldSupport="true"
-                value="{{ $page->header ?? '' }}" >
+                value="{{ $staticPage->header ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-font"></i>
@@ -60,7 +60,7 @@
                 label="Autor obsahu stránky"
                 placeholder="Vlož celé meno autora obsahu"
                 enableOldSupport="true"
-                value="{{ $page->author ?? '' }}" >
+                value="{{ $staticPage->author ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-user-astronaut fa-lg"></i>
@@ -79,7 +79,7 @@
                 label="URL adresa ktorú uvidí uživateľ"
                 placeholder="Vlož url ..."
                 enableOldSupport="true"
-                value="{{ $page->url ?? '' }}" >
+                value="{{ $staticPage->url ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-road"></i>
@@ -97,7 +97,7 @@
                 label="Vnútorná cesta Laravel-u k šablone (route)"
                 placeholder="Vlož route.name ..."
                 enableOldSupport="true"
-                value="{{ $page->route_name ?? '' }}" >
+                value="{{ $staticPage->route_name ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-route"></i>
@@ -119,7 +119,7 @@
                 label="Popis obsahu stránky"
                 placeholder="Jedna rozvinutá veta."
                 enableOldSupport="true"
-                value="{{ $page->description ?? '' }}" >
+                value="{{ $staticPage->description ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-scroll"></i>
@@ -134,7 +134,7 @@
                 label="Kľúčové slová"
                 placeholder="Vlož slová súvisiace s obsahom oddelené čiarkou"
                 enableOldSupport="true"
-                value="{{ $page->keywords ?? '' }}" >
+                value="{{ $staticPage->keywords ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-keyboard fa-lg"></i>

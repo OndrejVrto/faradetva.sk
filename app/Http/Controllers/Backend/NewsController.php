@@ -50,8 +50,10 @@ class NewsController extends Controller
         return redirect()->route('news.index');
     }
 
-    public function edit($slug) {
-        $news = News::whereSlug($slug)->with('media')->firstOrFail();
+    public function edit(News $news) {
+        // TODO: media support in news
+        $news->load('media');
+
         $categories = Category::all();
         $tags = Tag::all();
 
@@ -61,9 +63,8 @@ class NewsController extends Controller
         return view('backend.news.edit', compact('news', 'categories', 'tags', 'selectedTags'));
     }
 
-    public function update(NewsRequest $request, $id) {
+    public function update(NewsRequest $request, News $news) {
         $validated = $request->validated();
-        $news = News::findOrFail($id);
         $news->update($validated);
 
         $tags = $request->input('tags');
@@ -79,7 +80,6 @@ class NewsController extends Controller
 
         toastr()->success(__('app.news.update'));
         return redirect()->route('news.index');
-
     }
 
     public function destroy(News $news) {

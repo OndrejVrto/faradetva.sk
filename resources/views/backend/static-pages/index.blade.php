@@ -44,7 +44,7 @@
                 </x-admin-table.td>
                 <x-admin-table.td-actions
                     editLink="{{ route('static-pages.edit', $page->slug)}}"
-                    deleteLink="{{ route('static-pages.destroy', $page->id)}}"
+                    deleteLink="{{ route('static-pages.destroy', $page->slug)}}"
                 />
             </tr>
             @endforeach

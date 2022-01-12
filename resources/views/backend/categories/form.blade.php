@@ -6,7 +6,7 @@
     $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $category ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $category->id;
+        $identificatorEdit = $category->slug;
         $createdInfo = $category->createdInfo;
         $createdBy = $category->createdBy;
         $updatedInfo = $category->updatedInfo;

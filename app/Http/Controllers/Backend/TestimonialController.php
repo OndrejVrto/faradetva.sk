@@ -38,15 +38,12 @@ class TestimonialController extends Controller
         return redirect()->route('testimonials.index');
     }
 
-    public function edit($slug) {
-        $testimonial = Testimonial::whereSlug($slug)->firstOrFail();
-
+    public function edit(Testimonial $testimonial) {
         return view('backend.testimonials.edit', compact('testimonial'));
     }
 
-    public function update(TestimonialRequest $request, $id) {
+    public function update(TestimonialRequest $request, Testimonial $testimonial) {
         $validated = $request->validated();
-        $testimonial = Testimonial::findOrFail($id);
         $testimonial->update($validated);
 
         // Spatie media-collection

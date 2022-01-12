@@ -34,9 +34,7 @@ class FileTypeController extends Controller
         return view('backend.file-types.show', compact('fileType'));
     }
 
-    public function edit($slug): View {
-        $fileType = FileType::whereSlug($slug)->firstOrFail();
-
+    public function edit(FileType $fileType): View {
         return view('backend.file-types.edit', compact('fileType'));
     }
 

@@ -25,6 +25,10 @@ class FileType extends Model
         'description',
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function files() {
         return $this->hasMany(File::class);
     }

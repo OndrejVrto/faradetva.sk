@@ -70,7 +70,7 @@
 
                 <x-admin-table.td-actions
                     editLink="{{ route('news.edit', $news->slug)}}"
-                    deleteLink="{{ route('news.destroy', $news->id)}}"
+                    deleteLink="{{ route('news.destroy', $news->slug)}}"
                 />
             </tr>
             @endforeach

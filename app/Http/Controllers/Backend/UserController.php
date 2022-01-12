@@ -27,7 +27,7 @@ class UserController extends Controller
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function store(User $user, UserRequest $request) {
+    public function store(UserRequest $request, User $user) {
         $validated = $request->validated();
         $user->create($validated);
 
@@ -66,9 +66,8 @@ class UserController extends Controller
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function update(UserRequest $request, $id) {
+    public function update(UserRequest $request, User $user) {
         $validated = $request->validated();
-        $user = User::findOrFail($id);
 
         // if no password is entered, it is removed from the request
         if( ! $request->filled('password') ) {

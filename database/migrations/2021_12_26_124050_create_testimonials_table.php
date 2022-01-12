@@ -13,7 +13,7 @@ class CreateTestimonialsTable extends Migration
             $table->id();
             $table->boolean('active')->default(1);
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('function')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

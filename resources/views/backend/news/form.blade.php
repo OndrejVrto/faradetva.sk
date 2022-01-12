@@ -32,7 +32,7 @@
     $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $news ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $news->id;
+        $identificatorEdit = $news->slug;
         $createdInfo = $news->createdInfo;
         $createdBy = $news->createdBy;
         $updatedInfo = $news->updatedInfo;

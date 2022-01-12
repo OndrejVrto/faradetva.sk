@@ -43,10 +43,8 @@ class SliderController extends Controller
         return view('backend.sliders.edit', compact('slider'));
     }
 
-    public function update(SliderRequest $request, $id) {
+    public function update(SliderRequest $request, Slider $slider) {
         $validated = $request->validated();
-
-        $slider = Slider::findOrFail($id);
         $slider->update($validated);
 
         // Spatie media-collection

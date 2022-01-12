@@ -32,7 +32,7 @@
                 <x-admin-table.td-check-active check="{{ $testimonial->active }}"/>
                 <x-admin-table.td class="text-center">
                     <img src="{{ $testimonial->getFirstMediaUrl('testimonial', 'crop-thumb') ?: "http://via.placeholder.com/60x60" }}"
-                    class="img-fluid"
+                    class="img-fluid" style="width: 60px;"
                     alt="Fotografia: {{ $testimonial->full_name_titles }}, {{ $testimonial->function }}"/>
                 </x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$testimonial->name}}</x-admin-table.td>
@@ -40,7 +40,7 @@
 
                 <x-admin-table.td-actions
                     editLink="{{ route('testimonials.edit', $testimonial->slug)}}"
-                    deleteLink="{{ route('testimonials.destroy', $testimonial->id)}}"
+                    deleteLink="{{ route('testimonials.destroy', $testimonial->slug)}}"
                 />
             </tr>
             @endforeach

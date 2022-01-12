@@ -39,16 +39,12 @@ class PriestController extends Controller
         return redirect()->route('priests.index');
     }
 
-    public function edit($slug) {
-        $priest = Priest::whereSlug($slug)->firstOrFail();
-
+    public function edit(Priest $priest) {
         return view('backend.priests.edit', compact('priest'));
     }
 
-    public function update(PriestRequest $request, $id) {
+    public function update(PriestRequest $request, Priest $priest) {
         $validated = $request->validated();
-
-        $priest = Priest::findOrFail($id);
         $priest->update($validated);
 
         // Spatie media-collection
