@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Priest;
 
-use App\Http\Helpers\DataFormater;
+use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PriestRequest;
 use Illuminate\Support\Facades\Session;
@@ -23,16 +23,13 @@ class PriestController extends Controller
         return view('backend.priests.create');
     }
 
-    public function store(PriestRequest $request) {
+    public function store(PriestRequest $request, MediaStoreService $mediaService) {
         $validated = $request->validated();
         $priest = Priest::create($validated);
 
         // Spatie media-collection
         if ($request->hasFile('photo')) {
-            $priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
-            $priest->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                    ->toMediaCollection('priest');
+            $mediaService->storeMediaPriest($priest);
         }
 
         toastr()->success(__('app.priest.store'));
@@ -43,16 +40,13 @@ class PriestController extends Controller
         return view('backend.priests.edit', compact('priest'));
     }
 
-    public function update(PriestRequest $request, Priest $priest) {
+    public function update(PriestRequest $request, Priest $priest, MediaStoreService $mediaService) {
         $validated = $request->validated();
         $priest->update($validated);
 
         // Spatie media-collection
         if ($request->hasFile('photo')) {
-            $priest->clearMediaCollectionExcept('priest', $priest->getFirstMedia());
-            $priest->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                    ->toMediaCollection('priest');
+            $mediaService->storeMediaPriest($priest);
         }
 
         toastr()->success(__('app.priest.update'));
