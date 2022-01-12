@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\StaticPage;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
 
 class PageController extends Controller
 {
@@ -16,10 +17,12 @@ class PageController extends Controller
         $pageData = StaticPage::whereUrl($fullpath)->with('files.fileType', 'files.media')->firstOrFail();
 
         //* create full path to template
-        $route = config('preppend_route_static_pages','frontend.pages') . '.' . $pageData->route_name;
+        $route = config('farnost-detva.preppend_route_static_pages','frontend') . '.' . $pageData->route_name;
+        //* remove first dot
+        $routeClear = (! Str::startsWith($route, '.')) ? $route : substr($route, 1);
 
-        if (View::exists($route)) {
-            return view($route, compact('pageData') );
+        if (View::exists($routeClear)) {
+            return view($routeClear, compact('pageData') );
         } else {
             abort(404);
         }
