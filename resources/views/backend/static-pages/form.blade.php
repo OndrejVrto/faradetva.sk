@@ -33,7 +33,7 @@
                 value="{{ $page->title ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-font"></i>
+                        <i class="fab fa-pagelines fa-lg"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -63,7 +63,7 @@
                 value="{{ $page->author ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-font"></i>
+                        <i class="fas fa-user-astronaut fa-lg"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -82,7 +82,7 @@
                 value="{{ $page->url ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-font"></i>
+                        <i class="fas fa-road"></i>
                     </div>
                 </x-slot>
                 <x-slot name="noteSlot">
@@ -100,7 +100,7 @@
                 value="{{ $page->route_name ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-font"></i>
+                        <i class="fas fa-route"></i>
                     </div>
                 </x-slot>
                 <x-slot name="noteSlot">
@@ -122,7 +122,7 @@
                 value="{{ $page->description ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-font"></i>
+                        <i class="fas fa-scroll"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -137,7 +137,7 @@
                 value="{{ $page->keywords ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-font"></i>
+                        <i class="fas fa-keyboard fa-lg"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>

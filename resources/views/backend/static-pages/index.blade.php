@@ -17,12 +17,12 @@
 
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th width="11%" class="d-none d-md-table-cell text-center">Banner</x-admin-table.th>
-            <x-admin-table.th width="20%">Titulok záložky</x-admin-table.th>
-            <x-admin-table.th width="20%" class="d-none d-xl-table-cell">Url <small>(cesta ktorú vidí uživateľ)</small></x-admin-table.th>
+            <x-admin-table.th width="10%" class="d-none d-md-table-cell text-center">Banner</x-admin-table.th>
+            <x-admin-table.th width="15%">Titulok záložky</x-admin-table.th>
+            <x-admin-table.th width="35%">Url <small>(cesta ktorú vidí uživateľ)</small></x-admin-table.th>
             <x-admin-table.th class="d-none d-xl-table-cell">Route <small>(vnútorná cesta aplikácie)</small></x-admin-table.th>
-            <x-admin-table.th width="5%" class="text-center d-none d-lg-table-cell">Počet príloh</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            <x-admin-table.th width="7%" class="text-center d-none d-lg-table-cell">Prílohy</x-admin-table.th>
+            <x-admin-table.th-actions colspan="3"/>
         </x-slot>
 
         <x-slot name="table_body">
@@ -36,9 +36,12 @@
                 </x-admin-table.td>
 
                 <x-admin-table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->url }}</x-admin-table.td>
+                <x-admin-table.td class="text-wrap text-break"><span class="small text-info">{{ env('APP_URL') }}/</span>{{ $page->url }}</x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->route_name }}</x-admin-table.td>
                 <x-admin-table.td class="d-none d-lg-table-cell text-wrap text-break text-center">{{-- $page->file_count --}}</x-admin-table.td>
+                <x-admin-table.td>
+                    <a href="{{ route('files.index').'/page/'.$page->id }}" class="btn btn-outline-success btn-sm btn-flat" title="Súbory"><i class="fas fa-paperclip"></i></a>
+                </x-admin-table.td>
                 <x-admin-table.td-actions
                     editLink="{{ route('static-pages.edit', $page->slug)}}"
                     deleteLink="{{ route('static-pages.destroy', $page->id)}}"

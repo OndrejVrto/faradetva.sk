@@ -16,17 +16,43 @@
     identificatorEdit="{{ $identificatorEdit }}"
     >
 
+    <x-adminlte-select2
+        name="static_page_id"
+        label="Stránka ku ktorej je tento súbor priradený"
+        data-placeholder="Vyber stránku ..."
+        >
+        <x-slot name="prependSlot">
+            <div class="input-group-text bg-gradient-orange">
+                <i class="fab fa-pagelines fa-lg"></i>
+            </div>
+        </x-slot>
+        <option/>
+        @if ($pages->count())
+            @foreach($pages as $page)
+                <option
+                    value="{{ $page->id }}"
+                    title="{{ $page->description }}"
+                    @if( $page->id == ($file->static_page_id ?? '') OR $page->id == old('static_page_id'))
+                        selected
+                    @endif
+                    >
+                    {{ $page->title }}
+                </option>
+            @endforeach
+        @endif
+    </x-adminlte-select2>
+
     <div class="form-row">
         <div class="col-xl-6">
 
             <x-adminlte-select2
                 name="file_type_id"
                 label="Typ dokumentu"
-                data-placeholder="Vyber typ dokumrntu ..."
+                data-placeholder="Vyber typ dokumentu ..."
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-stream"></i>
+                        <i class="fas fa-shapes"></i>
                     </div>
                 </x-slot>
                 <option/>
@@ -35,7 +61,7 @@
                         <option
                             value="{{ $typ->id }}"
                             title="{{ $typ->description }}"
-                            @if( $typ->id == ($file->file_types_id ?? '') OR $typ->id == old('file_types_id'))
+                            @if( $typ->id == ($file->file_type_id ?? '') OR $typ->id == old('file_type_id'))
                                 selected
                             @endif
                             >
@@ -58,7 +84,7 @@
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-flag"></i>
+                        <i class="far fa-registered"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -73,13 +99,13 @@
                 fgroupClass=""
                 name="author"
                 label="Autor dokumentu"
-                placeholder="Celé meno  ..."
+                placeholder="Meno autora ..."
                 enableOldSupport="true"
                 value="{{ $file->author ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-flag"></i>
+                        <i class="fas fa-user-astronaut fa-lg"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -97,7 +123,7 @@
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-flag"></i>
+                        <i class="far fa-copyright"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -115,7 +141,7 @@
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-flag"></i>
+                <i class="fas fa-scroll"></i>
             </div>
         </x-slot>
     </x-adminlte-input>

@@ -19,6 +19,10 @@ class FileRequest extends FormRequest
             $fileRule = 'sometimes|nullable';
         }
         return [
+            'static_page_id' => [
+                'required',
+                'exists:static_pages,id'
+            ],
             'file_type_id' => [
                 'required',
                 'exists:file_types,id'

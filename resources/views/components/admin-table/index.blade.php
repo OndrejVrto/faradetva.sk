@@ -4,6 +4,7 @@
     'createBtn' => null,
     'createNote' => null,
     'paginator' => null,
+    'headerSpecial' => '',
     'table_header',
     'table_body',
     'table_footer',
@@ -27,7 +28,13 @@
                 <a href="{{ $linkBack }}" type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </a>
-                <h1>{{ $headerTitle }}</h1>
+                <h1>
+                    @if(isset($headerSpecial) AND $headerSpecial != '')
+                        {{ $headerSpecial }}
+                    @else
+                        {{ $headerTitle }}
+                    @endif
+                </h1>
                 @if( $headerDescription != '' )
                     <div class="lead">
                         {{ $headerDescription }}
