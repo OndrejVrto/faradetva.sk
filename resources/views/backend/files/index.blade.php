@@ -7,11 +7,16 @@
     {{ Breadcrumbs::render('files.index') }}
 @stop
 
+@php
+    $headerSpecial = (is_null($page)) ? null : "Súbory pre stránku: $page->title";
+@endphp
+
 @section('content')
     <x-admin-table
         columns="11"
         controlerName="files"
         createBtn="Pridať nový dokument"
+        headerSpecial="{{ $headerSpecial }}"
         paginator="{{ $files->onEachSide(1)->links() }}"
         >
 

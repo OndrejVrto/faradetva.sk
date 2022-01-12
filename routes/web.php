@@ -42,10 +42,12 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('users', UserController::class);
 
+    Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
+    Route::resource('files', FileController::class, ['except' => 'show', 'index']);
+
     Route::resources([
         'tags'         => TagController::class,
         'news'         => NewsController::class,
-        'files'        => FileController::class,
         'roles'        => RoleController::class,
         'banners'      => BannerController::class,
         'priests'      => PriestController::class,
