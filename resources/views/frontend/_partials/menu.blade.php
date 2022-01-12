@@ -5,7 +5,7 @@
                 <div class="col-lg-12 col-12">
                     <div class="ch_logo">
                         <a href="{{ route('home') }}">
-                            <img src="{{ URL::asset('images/church_logo.png') }}" alt="logo">
+                            <img src="{{ asset('images/church_logo.png') }}" alt="logo">
                         </a>
                     </div>
                     <div class="nav_toggle" id="nav_toggle">
@@ -28,7 +28,7 @@
                                     <!-- Kňazi pochovaní v Detve  -->
                                     <!-- Kňazi pôsobiaci v Detve  -->
                                     <!-- Štatistiky od roku 2010  -->
-                                    <li><a href="{{ route('static.francisco') }}">Patrón farnosti</a></li>
+                                    <li><a href="{{ url('o-nas/patron-farnosti') }}">Patrón farnosti</a></li>
                                     <li><a href="#">Sakrálne objekty</a></li>
                                     <!-- Kostoly  -->
                                     <!-- Kaplnky  -->

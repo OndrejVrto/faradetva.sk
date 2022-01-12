@@ -86,7 +86,7 @@
                     </div>
                 </x-slot>
                 <x-slot name="noteSlot">
-                    Štýl: snake-case Oddeľovač: spätné lomítko Jazyk: Slovenčina (napr: o-nas/duchovne-povolania)
+                    Maximálne 3x lomítko Štýl: snake-case Oddeľovač: spätné lomítko Jazyk: Slovenčina (napr: o-nas/duchovne-povolania)
                 </x-slot>
             </x-adminlte-input>
         </div>

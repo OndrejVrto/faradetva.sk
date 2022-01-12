@@ -12,7 +12,7 @@ class ArticleController extends Controller
 {
     public function index() {
         $articles = News::with('media', 'user')->paginate(9);
-        return view('frontend.news.index', compact('articles'));
+        return view('frontend.article.index', compact('articles'));
     }
 
     public function show($slug) {
@@ -21,6 +21,6 @@ class ArticleController extends Controller
         $allCategories = Category::all();
         $allTags = Tag::all();
 
-        return view('frontend.news.show', compact('oneNews', 'lastNews', 'allCategories', 'allTags'));
+        return view('frontend.article.show', compact('oneNews', 'lastNews', 'allCategories', 'allTags'));
     }
 }

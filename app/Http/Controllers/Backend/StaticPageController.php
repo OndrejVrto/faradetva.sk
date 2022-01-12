@@ -28,7 +28,7 @@ class StaticPageController extends Controller
     }
 
     public function edit($slug) {
-        $page = StaticPage::whereSlug($slug)->with('media')->firstOrFail();
+        $page = StaticPage::whereSlug($slug)->firstOrFail();
 
         return view('backend.static-pages.edit', compact('page'));
     }
