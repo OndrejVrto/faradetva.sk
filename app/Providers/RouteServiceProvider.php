@@ -34,6 +34,11 @@ class RouteServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot() {
+        // Route::resourceVerbs([
+        //     'create' => 'vytvorit',
+        //     'edit' => 'editovat',
+        // ]);
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
