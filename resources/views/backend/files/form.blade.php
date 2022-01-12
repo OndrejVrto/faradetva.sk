@@ -23,7 +23,7 @@
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-stream"></i>
+                <i class="fab fa-pagelines fa-lg"></i>
             </div>
         </x-slot>
         <option/>
@@ -52,7 +52,7 @@
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-stream"></i>
+                        <i class="fas fa-shapes"></i>
                     </div>
                 </x-slot>
                 <option/>
@@ -84,7 +84,7 @@
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-flag"></i>
+                        <i class="far fa-registered"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -99,13 +99,13 @@
                 fgroupClass=""
                 name="author"
                 label="Autor dokumentu"
-                placeholder="Celé meno  ..."
+                placeholder="Meno autora ..."
                 enableOldSupport="true"
                 value="{{ $file->author ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-flag"></i>
+                        <i class="fas fa-user-astronaut fa-lg"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -123,7 +123,7 @@
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-flag"></i>
+                        <i class="far fa-copyright"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -141,7 +141,7 @@
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-flag"></i>
+                <i class="fas fa-scroll"></i>
             </div>
         </x-slot>
     </x-adminlte-input>

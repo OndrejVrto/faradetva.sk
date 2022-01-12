@@ -19,14 +19,14 @@
     <x-adminlte-input
         fgroupClass=""
         name="name"
-        label="Typ dokumentu"
+        label="Typ súboru"
         placeholder="Typ ..."
         enableOldSupport="true"
         value="{{ $fileType->name ?? '' }}"
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-flag"></i>
+                <i class="fas fa-toilet-paper"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -41,7 +41,7 @@
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-flag"></i>
+                <i class="fas fa-scroll"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
