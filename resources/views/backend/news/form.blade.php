@@ -256,28 +256,29 @@
         </div>
     </div>
 
-    {{-- @isset($news)
-    @if ( count($news->file) > 0 )
+    @isset($news)
+    @if ( count($files) > 0 )
 
         <div class="add-files-group">
             <label>Zoznam už vložených príloh</label>
 
-            @foreach ($news->file as $file)
+            @foreach ($files as $file)
             <div class="form-row pb-3">
                 <div class="col-12 col-md-4">
-                    <a     download="{{ $file->name }}"
+                    <a download="{{ $file->file_name }}"
                         class="btn btn-default bg-gradient-yellow w-100"
-                        href="{{ $file->absolutePath }}"
-                        title="Stiahnuť súbor: {{ $file->name }}@isset($file->description) - {{ $file->description }}@endisset"
+                        href="{{ $file->getFullUrl() }}"
+                        title="Stiahnuť súbor: {{ $file->file_name }}@isset($file->description) - {{ $file->description }}@endisset"
                     >
-                        {{ $file->name }}
+                        {{ $file->file_name }}
                         <span class="ml-2 text-muted">
-                            ({{ $file->sizeFileHuman }})
+                            ({{ $file->human_readable_size }})
                         </span>
                     </a>
                 </div>
                 <div class="col-10 col-md-7 pr-0 pr-md-1">
-                    <x-adminlte-input
+                    {{-- TODO: description in SpatieMedia --}}
+                    {{-- <x-adminlte-input
                         name="fileDescription_old[{{ $file->id }}]"
                         placeholder="Vložiť popis ..."
                         value="{{ $file->description ?? old('fileDescription_old[' .$file->id. ']') }}"
@@ -289,7 +290,7 @@
                                 <i class="fas fa-comment"></i>
                             </div>
                         </x-slot>
-                    </x-adminlte-input>
+                    </x-adminlte-input> --}}
                 </div>
                 <div class="col-2 col-md-1 pl-0 pl-md-1">
                     <x-adminlte-button class="buttonDelete bg-gradient-red w-100" icon="fas fa-trash-alt" title="Vymazať súbor" />
@@ -299,16 +300,16 @@
 
         </div>
     @endif
-    @endisset --}}
+    @endisset
 
     <div class="add-files-group">
         <label>Nové prílohy</label>
         <div class="form-row pb-3 d-none" id="addFileInput">
             <div class="col-12 col-md-4">
                 <x-adminlte-input-file
-                    name="files_new[]"
+                    name="files[]"
                     placeholder="Nová príloha ..."
-                    errorKey="files_new.*"
+                    errorKey="files.*"
                     fgroupClass="mb-0"
                     >
                     <x-slot name="prependSlot">
