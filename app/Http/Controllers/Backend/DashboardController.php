@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
-    public function index() {
+    public function __invoke() {
         return view('backend.dashboard.index');
     }
 }
