@@ -27,9 +27,8 @@ class PriestController extends Controller
         $validated = $request->validated();
         $priest = Priest::create($validated);
 
-        // Spatie media-collection
         if ($request->hasFile('photo')) {
-            $mediaService->storeMediaPriest($priest);
+            $mediaService->storeMediaOneFile($priest, 'priest', 'photo');
         }
 
         toastr()->success(__('app.priest.store'));
@@ -46,7 +45,7 @@ class PriestController extends Controller
 
         // Spatie media-collection
         if ($request->hasFile('photo')) {
-            $mediaService->storeMediaPriest($priest);
+            $mediaService->storeMediaOneFile($priest, 'priest', 'photo');
         }
 
         toastr()->success(__('app.priest.update'));

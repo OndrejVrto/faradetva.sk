@@ -37,11 +37,11 @@ class NewsController extends Controller
         $news->tags()->sync($tags);
 
         if ($request->hasFile('news_picture')) {
-            $mediaService->storeMediaOneFile($news, 'news_front_picture', 'news_picture' );
+            $mediaService->storeMediaOneFile($news, 'news_front_picture', 'news_picture');
         }
 
         if ($request->hasFile('files')) {
-            $mediaService->storeMediaFiles($news, 'news_file', $request->file('files'),  $request->filesDescription_new );
+            $mediaService->storeMediaFiles($news, 'news_file', $request->file('files'),  $request->filesDescription_new);
         }
 
         toastr()->success(__('app.news.store'));
@@ -70,7 +70,7 @@ class NewsController extends Controller
         }
 
         if ($request->hasFile('files')) {
-            $mediaService->storeMediaFiles($news, 'news_file', $request->file('files'),  $request->filesDescription_new );
+            $mediaService->storeMediaFiles($news, 'news_file', $request->file('files'),  $request->filesDescription_new);
         }
 
         toastr()->success(__('app.news.update'));

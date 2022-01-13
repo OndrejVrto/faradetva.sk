@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Slider;
 
-use App\Http\Helpers\DataFormater;
+use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
 use Illuminate\Support\Facades\Session;
@@ -23,16 +23,13 @@ class SliderController extends Controller
         return view('backend.sliders.create');
     }
 
-    public function store(SliderRequest $request) {
+    public function store(SliderRequest $request, MediaStoreService $mediaService) {
         $validated = $request->validated();
         $slider = Slider::create($validated);
 
         // Spatie media-collection
         if ($request->hasFile('photo')) {
-            $slider->clearMediaCollectionExcept('slider', $slider->getFirstMedia());
-            $slider->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                    ->toMediaCollection('slider');
+            $mediaService->storeMediaOneFile($slider, 'slidert', 'photo');
         }
 
         toastr()->success(__('app.slider.store'));
@@ -43,16 +40,13 @@ class SliderController extends Controller
         return view('backend.sliders.edit', compact('slider'));
     }
 
-    public function update(SliderRequest $request, Slider $slider) {
+    public function update(SliderRequest $request, Slider $slider, MediaStoreService $mediaService) {
         $validated = $request->validated();
         $slider->update($validated);
 
         // Spatie media-collection
         if ($request->hasFile('photo')) {
-            $slider->clearMediaCollectionExcept('slider', $slider->getFirstMedia());
-            $slider->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                    ->toMediaCollection('slider');
+            $mediaService->storeMediaOneFile($slider, 'slidert', 'photo');
         }
 
         toastr()->success(__('app.slider.update'));
