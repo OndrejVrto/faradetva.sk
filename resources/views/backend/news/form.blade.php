@@ -278,10 +278,10 @@
                 </div>
                 <div class="col-10 col-md-7 pr-0 pr-md-1">
                     {{-- TODO: description in SpatieMedia --}}
-                    {{-- <x-adminlte-input
+                    <x-adminlte-input
                         name="fileDescription_old[{{ $file->id }}]"
                         placeholder="Vložiť popis ..."
-                        value="{{ $file->description ?? old('fileDescription_old[' .$file->id. ']') }}"
+                        value="{{ $file->getCustomProperty('filesDescription') ?? old('fileDescription_old[' .$file->id. ']') }}"
                         class="input-group-sm"
                         fgroupClass="mb-0"
                     >
@@ -290,7 +290,7 @@
                                 <i class="fas fa-comment"></i>
                             </div>
                         </x-slot>
-                    </x-adminlte-input> --}}
+                    </x-adminlte-input>
                 </div>
                 <div class="col-2 col-md-1 pl-0 pl-md-1">
                     <x-adminlte-button class="buttonDelete bg-gradient-red w-100" icon="fas fa-trash-alt" title="Vymazať súbor" />
