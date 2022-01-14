@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Testimonial;
-use App\Http\Helpers\DataFormater;
+use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\TestimonialRequest;
@@ -22,39 +22,29 @@ class TestimonialController extends Controller
         return view('backend.testimonials.create');
     }
 
-    public function store(TestimonialRequest $request) {
+    public function store(TestimonialRequest $request, MediaStoreService $mediaService) {
         $validated = $request->validated();
         $testimonial = Testimonial::create($validated);
 
         // Spatie media-collection
         if ($request->hasFile('photo')) {
-            $testimonial->clearMediaCollectionExcept('testimonial', $testimonial->getFirstMedia());
-            $testimonial->addMediaFromRequest('photo')
-                        ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                        ->toMediaCollection('testimonial');
+            $mediaService->storeMediaOneFile($testimonial, 'testimonial', 'photo');
         }
 
         toastr()->success(__('app.testimonia.store'));
         return redirect()->route('testimonials.index');
     }
 
-    public function edit($slug) {
-        $testimonial = Testimonial::whereSlug($slug)->firstOrFail();
-
+    public function edit(Testimonial $testimonial) {
         return view('backend.testimonials.edit', compact('testimonial'));
     }
 
-    public function update(TestimonialRequest $request, $id) {
+    public function update(TestimonialRequest $request, Testimonial $testimonial, MediaStoreService $mediaService) {
         $validated = $request->validated();
-        $testimonial = Testimonial::findOrFail($id);
         $testimonial->update($validated);
 
-        // Spatie media-collection
         if ($request->hasFile('photo')) {
-            $testimonial->clearMediaCollectionExcept('testimonial', $testimonial->getFirstMedia());
-            $testimonial->addMediaFromRequest('photo')
-                        ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                        ->toMediaCollection('testimonial');
+            $mediaService->storeMediaOneFile($testimonial, 'testimonial', 'photo');
         }
 
         toastr()->success(__('app.testimonia.update'));

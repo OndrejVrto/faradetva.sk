@@ -6,7 +6,7 @@
     $typeForm = $identificatorEdit = null;
     if ( isset( $fileType ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $fileType->id;
+        $identificatorEdit = $fileType->slug;
     }
 @endphp
 

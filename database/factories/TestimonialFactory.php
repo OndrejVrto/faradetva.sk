@@ -19,8 +19,8 @@ class TestimonialFactory extends Factory
             'slug'  => Str::slug($name),
             'function'  => $faker->jobTitle(),
             'description'  =>  $this->faker->words(25, true),
-            'created_by' => $this->faker->numberBetween(1,11),
-            'updated_by' => $this->faker->numberBetween(1,11),
+            'created_by' => $this->faker->numberBetween(1,5),
+            'updated_by' => $this->faker->numberBetween(1,5),
         ];
 
     }

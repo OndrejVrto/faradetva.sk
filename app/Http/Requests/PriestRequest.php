@@ -15,7 +15,7 @@ class PriestRequest extends FormRequest
         if (request()->routeIs('priests.store')) {
             $photoRule = 'required';
         } else if (request()->routeIs('priests.update')) {
-            $photoRule = 'sometimes|nullable';
+            $photoRule = 'nullable';
         }
 
         return [
@@ -30,7 +30,7 @@ class PriestRequest extends FormRequest
             'photo' => [
                 $photoRule,
                 'file',
-                'mimes:jpg,bmp,png,jpeg',
+                'mimes:jpg,bmp,png,jpeg,svg',
                 'dimensions:min_width=230,min_height=270',
                 'max:2048',
             ],

@@ -15,16 +15,14 @@
         paginator="{{ $fileTypes->onEachSide(1)->links() }}"
         >
 
-        {{-- <x-slot name="createNote">
-            Na stránke sa zobrazuje iba jeden náhodný baner pre každú stránku!
-            <br>
-            Pre fungovanie musí byť vložený aspoň jeden obrázok.
-        </x-slot> --}}
+        <x-slot name="createNote">
+            Po vložení súboru do kategórie, nebude možné zmeniť názov ani vymazať.
+        </x-slot>
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
             <x-admin-table.th width="30%">Typ dokumentu</x-admin-table.th>
             <x-admin-table.th>Popis typu</x-admin-table.th>
+            {{-- <x-admin-table.th width="1%">Počet súborov</x-admin-table.th> --}}
             <x-admin-table.th-actions/>
         </x-slot>
 
@@ -32,12 +30,12 @@
             @foreach($fileTypes as $fileType)
             <tr>
                 {{-- <x-admin-table.td>{{$fileType->id}}</x-admin-table.td> --}}
-                {{-- TODO: Filetypes --}}
                 <x-admin-table.td class="text-wrap text-break">{{$fileType->name}}</x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$fileType->description}}</x-admin-table.td>
+                {{-- TODO: Count Files in this filetype --}}
                 <x-admin-table.td-actions
                     editLink="{{ route('file-types.edit', $fileType->slug)}}"
-                    deleteLink="{{ route('file-types.destroy', $fileType->id)}}"
+                    deleteLink="{{ route('file-types.destroy', $fileType->slug)}}"
                 />
             </tr>
             @endforeach

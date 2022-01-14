@@ -27,24 +27,20 @@ class StaticPageController extends Controller
         return redirect()->route('static-pages.index');
     }
 
-    public function edit($slug) {
-        $page = StaticPage::whereSlug($slug)->firstOrFail();
-
-        return view('backend.static-pages.edit', compact('page'));
+    public function edit(StaticPage $staticPage) {
+        return view('backend.static-pages.edit', compact('staticPage'));
     }
 
-    public function update(StaticPageRequest $request, $id) {
+    public function update(StaticPageRequest $request, StaticPage $staticPage) {
         $validated = $request->validated();
-        $page = StaticPage::findOrFail($id);
-        $page->update($validated);
+        $staticPage->update($validated);
 
         toastr()->success(__('app.static-page.update'));
         return redirect()->route('static-pages.index');
     }
 
-    public function destroy($id) {
-        $page = StaticPage::findOrFail($id);
-        $page->delete();
+    public function destroy(StaticPage $staticPage) {
+        $staticPage->delete();
 
         toastr()->success(__('app.static-page.delete'));
         return redirect()->route('static-pages.index');

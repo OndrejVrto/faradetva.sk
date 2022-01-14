@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Tag;
 
 use App\Models\News;
-use App\Models\NewsTag;
 use App\Models\Category;
-use App\Http\Helpers\DataFormater;
 use App\Http\Requests\NewsRequest;
+use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
@@ -30,56 +29,52 @@ class NewsController extends Controller
         return view('backend.news.create', compact('categories', 'tags', 'selectedTags'));
     }
 
-    public function store(NewsRequest $request) {
+    public function store(NewsRequest $request, MediaStoreService $mediaService) {
         $validated = $request->validated();
         $news = News::create($validated);
 
-        // store tags
         $tags = $request->input('tags');
         $news->tags()->sync($tags);
 
-        // Spatie media-collection
         if ($request->hasFile('news_picture')) {
-            $news->clearMediaCollectionExcept('news_front_picture', $news->getFirstMedia());
-            $news->addMediaFromRequest('news_picture')
-                ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                ->toMediaCollection('news_front_picture');
+            $mediaService->storeMediaOneFile($news, 'news_front_picture', 'news_picture');
+        }
+
+        if ($request->hasFile('files')) {
+            $mediaService->storeMediaFiles($news, 'news_file', $request->file('files'),  $request->filesDescription_new);
         }
 
         toastr()->success(__('app.news.store'));
         return redirect()->route('news.index');
     }
 
-    public function edit($slug) {
-        $news = News::whereSlug($slug)->with('media')->firstOrFail();
+    public function edit(News $news) {
+        $news->load('media', 'tags');
+        $files = $news->getMedia('news_file');
         $categories = Category::all();
         $tags = Tag::all();
+        $selectedTags = $news->tags->pluck('id')->unique()->toArray();
 
-        // TODO: Treba model NewsTag ?? - zmazať ??  - Zatial asi potrebný pre seeder
-        $selectedTags = NewsTag::where('news_id', $news->id )->pluck('tag_id')->toArray();
-
-        return view('backend.news.edit', compact('news', 'categories', 'tags', 'selectedTags'));
+        return view('backend.news.edit', compact('news', 'files', 'categories', 'tags', 'selectedTags'));
     }
 
-    public function update(NewsRequest $request, $id) {
+    public function update(NewsRequest $request, News $news, MediaStoreService $mediaService) {
         $validated = $request->validated();
-        $news = News::findOrFail($id);
         $news->update($validated);
 
         $tags = $request->input('tags');
         $news->tags()->sync($tags);
 
-        // Spatie media-collection
         if ($request->hasFile('news_picture')) {
-            $news->clearMediaCollectionExcept('news_front_picture', $news->getFirstMedia());
-            $news->addMediaFromRequest('news_picture')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                    ->toMediaCollection('news_front_picture');
+            $mediaService->storeMediaOneFile($news, 'news_front_picture', 'news_picture');
+        }
+
+        if ($request->hasFile('files')) {
+            $mediaService->storeMediaFiles($news, 'news_file', $request->file('files'),  $request->filesDescription_new);
         }
 
         toastr()->success(__('app.news.update'));
         return redirect()->route('news.index');
-
     }
 
     public function destroy(News $news) {

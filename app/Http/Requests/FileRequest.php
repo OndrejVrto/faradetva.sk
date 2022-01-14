@@ -16,7 +16,7 @@ class FileRequest extends FormRequest
         if (request()->routeIs('files.store')) {
             $fileRule = 'required';
         } else if (request()->routeIs('files.update')) {
-            $fileRule = 'sometimes|nullable';
+            $fileRule = 'nullable';
         }
         return [
             'static_page_id' => [

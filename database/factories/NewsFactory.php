@@ -11,7 +11,7 @@ class NewsFactory extends Factory
     public function definition()
     {
         $title = Str::ucfirst($this->faker->words(6, true));
-        $user_id = $this->faker->numberBetween(1,11);
+        $user_id = $this->faker->numberBetween(1,5);
         return [
             'active' => $this->faker->numberBetween(0,1),
             'user_id' => $user_id,
@@ -21,7 +21,7 @@ class NewsFactory extends Factory
             'content' => $this->faker->paragraph(5),
             'created_at'=> $this->faker->dateTimeBetween('-20 day', now()),
             'created_by' => $user_id,
-            'updated_by' => $this->faker->numberBetween(1,11),
+            'updated_by' => $this->faker->numberBetween(1,5),
         ];
     }
 }

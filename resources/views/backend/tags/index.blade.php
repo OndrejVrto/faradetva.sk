@@ -31,7 +31,7 @@
 
                 <x-admin-table.td-actions
                     editLink="{{ route('tags.edit', $tag->slug)}}"
-                    deleteLink="{{ route('tags.destroy', $tag->id)}}"
+                    deleteLink="{{ route('tags.destroy', $tag->slug)}}"
                 />
             </tr>
             @endforeach

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePriestsTable extends Migration
+return new class extends Migration
 {
 
     public function up()
@@ -16,7 +16,7 @@ class CreatePriestsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('titles_after')->nullable();
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('phone')->nullable();
             $table->string('function')->nullable();
             $table->text('description')->nullable();
@@ -32,4 +32,4 @@ class CreatePriestsTable extends Migration
     {
         Schema::dropIfExists('priests');
     }
-}
+};

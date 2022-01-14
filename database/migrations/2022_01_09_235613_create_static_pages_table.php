@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStaticPagesTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -13,7 +13,7 @@ class CreateStaticPagesTable extends Migration
             $table->string('title');
             $table->string('url');
             $table->string('route_name')->unique();
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();
             $table->string('author')->nullable();
@@ -29,4 +29,4 @@ class CreateStaticPagesTable extends Migration
     {
         Schema::dropIfExists('static_pages');
     }
-}
+};

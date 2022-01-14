@@ -35,6 +35,10 @@ class News extends Model implements HasMedia
         'content'
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function getTeaserAttribute() {
         return Str::words($this->content, 30, '...');
     }

@@ -31,7 +31,7 @@
 
                 <x-admin-table.td-actions
                     editLink="{{ route('categories.edit', $category->slug)}}"
-                    deleteLink="{{ route('categories.destroy', $category->id)}}"
+                    deleteLink="{{ route('categories.destroy', $category->slug)}}"
                 />
             </tr>
             @endforeach

@@ -6,7 +6,7 @@
     $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $testimonial ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $testimonial->id;
+        $identificatorEdit = $testimonial->slug;
         $createdInfo = $testimonial->createdInfo;
         $createdBy = $testimonial->createdBy;
         $updatedInfo = $testimonial->updatedInfo;

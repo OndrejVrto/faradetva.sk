@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTestimonialsTable extends Migration
+return new class extends Migration
 {
 
     public function up()
@@ -13,7 +13,7 @@ class CreateTestimonialsTable extends Migration
             $table->id();
             $table->boolean('active')->default(1);
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('function')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
@@ -28,4 +28,4 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::dropIfExists('testimonials');
     }
-}
+};

@@ -51,7 +51,7 @@ class NewsRequest extends FormRequest
                 'dimensions:min_width=848,min_height=460',
                 'max:3000'
             ],
-            // 'files_new.*' => 'file|max:10000',
+            'files.*' => 'file|max:10000',
             // 'tags' => 'required',
         ];
     }

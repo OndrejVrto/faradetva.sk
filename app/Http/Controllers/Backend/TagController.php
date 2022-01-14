@@ -26,15 +26,13 @@ class TagController extends Controller
         return redirect()->route('tags.index');
     }
 
-    public function edit($slug) {
-        $tag = Tag::whereSlug($slug)->firstOrFail();
-
+    public function edit(Tag $tag) {
         return view('backend.tags.edit', compact('tag'));
     }
 
-    public function update(TagRequest $request, $id) {
+    public function update(TagRequest $request, Tag $tag) {
         $validated = $request->validated();
-        Tag::findOrFail($id)->update($validated);
+        $tag->update($validated);
 
         toastr()->success(__('app.tag.update'));
         return redirect()->route('tags.index');

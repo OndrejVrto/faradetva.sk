@@ -29,6 +29,10 @@ class Testimonial extends Model implements HasMedia
         'description',
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function registerMediaConversions( Media $media = null ) : void {
         $this->addMediaConversion('crop')
             ->fit("crop", 800, 800);

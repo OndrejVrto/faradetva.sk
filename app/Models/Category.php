@@ -22,6 +22,10 @@ class Category extends Model
         'description'
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function news() {
         return $this->hasMany(News::class);
     }

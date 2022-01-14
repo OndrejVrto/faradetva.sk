@@ -31,6 +31,10 @@ class Priest extends Model implements HasMedia
         'description',
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     protected static function boot() {
         parent::boot();
 

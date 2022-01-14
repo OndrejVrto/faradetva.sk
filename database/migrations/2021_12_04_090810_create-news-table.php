@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsTable extends Migration
+return new class extends Migration
 {
 
     public function up()
@@ -23,7 +23,7 @@ class CreateNewsTable extends Migration
                     ->onUpdate('SET NULL')
                     ->onDelete('SET NULL');
             $table->mediumText('title');
-            $table->mediumText('slug');
+            $table->string('slug')->unique();
             $table->binary('content');
             $table->timestamp('published_at')->nullable();
             $table->timestamp('unpublished_at')->nullable();
@@ -39,4 +39,4 @@ class CreateNewsTable extends Migration
     {
         Schema::dropIfExists('news');
     }
-}
+};
