@@ -43,7 +43,6 @@ class PriestController extends Controller
         $validated = $request->validated();
         $priest->update($validated);
 
-        // Spatie media-collection
         if ($request->hasFile('photo')) {
             $mediaService->storeMediaOneFile($priest, 'priest', 'photo');
         }

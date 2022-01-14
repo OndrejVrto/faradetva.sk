@@ -27,7 +27,6 @@ class SliderController extends Controller
         $validated = $request->validated();
         $slider = Slider::create($validated);
 
-        // Spatie media-collection
         if ($request->hasFile('photo')) {
             $mediaService->storeMediaOneFile($slider, 'slidert', 'photo');
         }
@@ -44,7 +43,6 @@ class SliderController extends Controller
         $validated = $request->validated();
         $slider->update($validated);
 
-        // Spatie media-collection
         if ($request->hasFile('photo')) {
             $mediaService->storeMediaOneFile($slider, 'slidert', 'photo');
         }
