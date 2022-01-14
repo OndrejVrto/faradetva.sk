@@ -30,7 +30,7 @@
             @foreach($pages as $page)
                 @php
                     //** Check if the Url works
-                    $url = env('APP_URL').'/'.$page->url;
+                    $url = config('app.url') . '/' . $page->url;
                     $headers = @get_headers($url);
                     $exists = ($headers && strpos( $headers[0], '200')) ? true : false;
                 @endphp
@@ -47,7 +47,7 @@
                     <x-admin-table.td-check-active check="{{ $exists }}"/>
                     <x-admin-table.td class="text-wrap text-break">
                         <a href="{{ $url }}" target="_blank" rel="noopener noreferrer">
-                            <span class="small text-info">{{ env('APP_URL').'/'}}</span>{{ $page->url }}
+                            <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}
                         </a>
                     </x-admin-table.td>
                     <x-admin-table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->route_name }}</x-admin-table.td>
