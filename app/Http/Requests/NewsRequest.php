@@ -60,7 +60,7 @@ class NewsRequest extends FormRequest
                 'file',
                 'mimes:jpg,bmp,png,jpeg',
                 'dimensions:min_width=848,min_height=460',
-                'max:3000'
+                'max:5000'
             ],
             'files.*' => [
                 'file',

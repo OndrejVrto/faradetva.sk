@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Session;
 class NewsController extends Controller
 {
     public function index() {
-        $allNews = News::latest('updated_at')->with('user', 'media')->paginate(5);
+        $allNews = News::latest()->with('user', 'media')->paginate(5);
 
         Session::remove('news_old_input_checkbox');
 
