@@ -8,6 +8,7 @@ use App\Models\File;
 use App\Models\FileType;
 use App\Models\StaticPage;
 use App\Http\Requests\FileRequest;
+use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -32,10 +33,14 @@ class FileController extends Controller
         return view('backend.files.create', compact('pages', 'fileTypes'));
     }
 
-    public function store(FileRequest $request): RedirectResponse {
+    public function store(FileRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        File::create($validated);
-        //! TODO: Medialibrary and Statis-page_id
+        $file = File::create($validated);
+
+        if ($request->hasFile('file')) {
+            $mediaService->storeMediaOneFile($file, $file->filetype->slug, 'file');
+        }
+
         toastr()->success(__('app.file.store'));
         return redirect()->route('files.index');
     }
@@ -47,17 +52,23 @@ class FileController extends Controller
         return view('backend.files.edit', compact('file', 'pages', 'fileTypes'));
     }
 
-    public function update( FileRequest $request, File $file): RedirectResponse {
+    public function update( FileRequest $request, File $file, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $file->update($validated);
-        //! TODO: Medialibrary and Statis-page_id
+
+        if ($request->hasFile('file')) {
+            $mediaService->storeMediaOneFile($file, $file->filetype->slug, 'file');
+        }
+
         toastr()->success(__('app.file.update'));
         return redirect()->route('files.index');
     }
 
     public function destroy(File $file): RedirectResponse {
         $file->delete();
-        //! TODO: Medialibrary
+
+        $file->clearMediaCollection($file->filetype->slug);
+
         toastr()->success(__('app.file.delete'));
         return redirect()->route('files.index');
     }
