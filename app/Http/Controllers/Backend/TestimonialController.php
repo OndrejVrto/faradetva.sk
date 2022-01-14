@@ -26,7 +26,6 @@ class TestimonialController extends Controller
         $validated = $request->validated();
         $testimonial = Testimonial::create($validated);
 
-        // Spatie media-collection
         if ($request->hasFile('photo')) {
             $mediaService->storeMediaOneFile($testimonial, 'testimonial', 'photo');
         }

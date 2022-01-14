@@ -22,8 +22,9 @@ return new class extends Migration
                     ->constrained()
                     ->onUpdate('SET NULL')
                     ->onDelete('SET NULL');
-            $table->mediumText('title');
-            $table->string('slug')->unique();
+            $table->string('title', 200);
+            $table->string('slug', 200);
+            $table->string('teaser', 400);
             $table->binary('content');
             $table->timestamp('published_at')->nullable();
             $table->timestamp('unpublished_at')->nullable();

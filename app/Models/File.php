@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Models\StaticPage;
-use App\Traits\SlugFromName;
 use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -17,7 +16,7 @@ class File extends Model implements HasMedia
 {
     use HasFactory;
     use SoftDeletes;
-    use SlugFromName;
+    // use SlugFromName;
     use CreatedUpdatedBy;
     use InteractsWithMedia;
 
@@ -25,10 +24,12 @@ class File extends Model implements HasMedia
 
     protected $fillable = [
         'file_type_id',
+        'static_page_id',
         'name',
+        'slug',
         'author',
         'description',
-        'copywright',
+        'source',
     ];
 
     public function fileType() {

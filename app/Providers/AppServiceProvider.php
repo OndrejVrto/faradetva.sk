@@ -28,6 +28,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Request $request) {
 
+        // for Develop
+        // url adres in Nqrock
+        if (!empty( env('NGROK_URL') ) && $request->server->has('HTTP_X_ORIGINAL_HOST')) {
+            $this->app['url']->forceRootUrl(env('NGROK_URL'));
+        }
+
         Paginator::useBootstrap();
 
         // Loging all Querys to file

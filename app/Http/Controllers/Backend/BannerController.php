@@ -27,7 +27,6 @@ class BannerController extends Controller
         $validated = $request->validated();
         $banner = Banner::create($validated);
 
-        // Spatie media-collection
         if ($request->hasFile('photo')) {
             $banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
             $banner->addMediaFromRequest('photo')
@@ -49,7 +48,6 @@ class BannerController extends Controller
         $banner = Banner::findOrFail($id);
         $banner->update($validated);
 
-        // Spatie media-collection
         if ($request->hasFile('photo')) {
             $banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
             $banner->addMediaFromRequest('photo')

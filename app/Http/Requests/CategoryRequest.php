@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryRequest extends FormRequest
 {
@@ -16,9 +17,20 @@ class CategoryRequest extends FormRequest
             'title' => [
                 'required',
                 'max:30',
-                Rule::unique('categories', 'title')->ignore($this->category)->whereNull('deleted_at')
             ],
-            'description' => 'required|max:255'
+            'slug' => [
+                Rule::unique('categories', 'slug')->ignore($this->category)->whereNull('deleted_at')
+            ],
+            'description' => [
+                'required',
+                'max:255',
+            ],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'slug' => Str::slug($this->title)
+        ]);
     }
 }

@@ -811,7 +811,7 @@ button:before {
 	font-weight   : 500;
 	margin-top    : 30px;
 	margin-bottom : 12px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .ministry_desc p {
@@ -883,7 +883,7 @@ button:before {
 	font-weight   : 500;
 	margin-top    : 0px;
 	margin-bottom : 12px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .event_meta span i {
@@ -1001,7 +1001,7 @@ button:before {
 .counter_box p {
 	margin-bottom : 0;
 	font-size     : 18px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 /*----------------------------------------------------------------------------------
@@ -1126,7 +1126,7 @@ button:before {
 
 .page_heading h2 {
 	color         : #ffffff;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	font-weight   : 700;
 }
 
@@ -1453,7 +1453,7 @@ div#err_msg p {
 	font-weight   : 500;
 	margin-top    : 10px;
 	margin-bottom : 15px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .blog_desc h3 a {
@@ -1520,7 +1520,7 @@ div#err_msg p {
 	padding-bottom: 15px;
 	font-size     : 21px;
 	position      : relative;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom : 25px;
 }
 
@@ -1656,7 +1656,7 @@ div#err_msg p {
 
 .ch_sidebar_area .widget_recent_post ul li div a {
 	font-size     : 15px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	display       : block;
 	margin-bottom : 6px;
 	font-weight   : 500;
@@ -1939,7 +1939,7 @@ blockquote cite {
 	color         : #777777;
 	font-weight   : normal;
 	margin-bottom : 10px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .comment-form p input {
@@ -1968,7 +1968,7 @@ blockquote cite {
 
 .comment-form p .comment_submit {
 	font-size     : 15px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	padding       : 13px 15px;
 	height        : auto;
 	display       : inline-block;
@@ -2069,7 +2069,7 @@ blockquote cite {
 	color         : #ffffff;
 	line-height   : 20px;
 	margin-bottom : 0;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	font-size     : 13px;
 }
 

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Traits\SlugFromName;
 use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +14,6 @@ class Testimonial extends Model implements HasMedia
 {
     use HasFactory;
     use SoftDeletes;
-    use SlugFromName;
     use CreatedUpdatedBy;
     use InteractsWithMedia;
 
@@ -24,6 +22,7 @@ class Testimonial extends Model implements HasMedia
     protected $fillable = [
         'active',
         'name',
+        'slug',
         'phone',
         'function',
         'description',

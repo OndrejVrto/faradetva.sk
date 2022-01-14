@@ -11,13 +11,13 @@ use App\Models\Category;
 class ArticleController extends Controller
 {
     public function index() {
-        $articles = News::with('media', 'user')->paginate(9);
+        $articles = News::with('media', 'user')->latest()->paginate(9);
         return view('frontend.article.index', compact('articles'));
     }
 
     public function show($slug) {
         $oneNews = News::whereSlug($slug)->with('media', 'category', 'tags', 'user')->firstOrFail();
-        $lastNews = News::whereActive(1)->orderBy('updated_by', 'asc')->take(3)->with('media')->get();
+        $lastNews = News::whereActive(1)->latest()->take(3)->with('media')->get();
         $allCategories = Category::all();
         $allTags = Tag::all();
 

@@ -22,10 +22,10 @@ return new class extends Migration
                     ->onUpdate('SET NULL')
                     ->onDelete('SET NULL');
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->string('author')->nullable();
             $table->string('description')->nullable();
-            $table->string('copywright')->nullable();
+            $table->string('source', 512)->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->bigInteger('created_by')->unsigned();

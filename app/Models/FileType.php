@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Models\File;
-use App\Traits\SlugFromName;
 use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,13 +14,13 @@ class FileType extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    use SlugFromName;
     use CreatedUpdatedBy;
 
     protected $table = 'file_types';
 
     protected $fillable = [
         'name',
+        'slug',
         'description',
     ];
 

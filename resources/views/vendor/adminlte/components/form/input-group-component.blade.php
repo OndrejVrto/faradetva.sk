@@ -32,6 +32,13 @@
     </span>
     @endif
 
+    {{-- Input Manual error slot --}}
+    @isset($errorManual)
+    <span class="invalid-feedback d-block" role="alert">
+        <strong>{{ $errorManual }}</strong>
+    </span>
+    @endisset
+
     {{-- Input note slot --}}
     @isset($noteSlot)
         <small class="form-text text-muted">{{ $noteSlot }}</small>

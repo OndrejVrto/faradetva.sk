@@ -29,6 +29,11 @@
                 <i class="fas fa-toilet-paper"></i>
             </div>
         </x-slot>
+        @error('slug')
+            <x-slot name="errorManual">
+                {{ $errors->first('slug') }}
+            </x-slot>
+        @enderror
     </x-adminlte-input>
 
     <x-adminlte-input

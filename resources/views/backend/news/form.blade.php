@@ -91,6 +91,11 @@
                         <i class="fas fa-font"></i>
                     </div>
                 </x-slot>
+                @error('slug')
+                    <x-slot name="errorManual">
+                        {{ $errors->first('slug') }}
+                    </x-slot>
+                @enderror
             </x-adminlte-input>
         </div>
         <div class="col-md-6 col-xl-3">
@@ -244,6 +249,19 @@
         </div>
 
         <div class="col-xl-8 order-xl-1">
+            <x-adminlte-textarea
+                name="teaser"
+                label="Upútavka (Dve, tri vety)"
+                enableOldSupport="true"
+                rows="2"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fab fa-diaspora"></i>
+                    </div>
+                </x-slot>
+                    {{ $news->teaser ?? '' }}
+            </x-adminlte-textarea>
             <x-adminlte-text-editor
                 name="content"
                 id="Summernote"
