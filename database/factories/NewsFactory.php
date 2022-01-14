@@ -18,6 +18,7 @@ class NewsFactory extends Factory
             'category_id' =>  $this->faker->numberBetween(1,7),
             'title' => $title,
             'slug' => Str::slug($title),
+            'teaser' => $this->faker->paragraph(1),
             'content' => $this->faker->paragraph(5),
             'created_at'=> $this->faker->dateTimeBetween('-20 day', now()),
             'created_by' => $user_id,

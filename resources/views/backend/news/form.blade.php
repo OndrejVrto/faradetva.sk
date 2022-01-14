@@ -244,6 +244,19 @@
         </div>
 
         <div class="col-xl-8 order-xl-1">
+            <x-adminlte-textarea
+                name="teaser"
+                label="Upútavka (Dve, tri vety)"
+                enableOldSupport="true"
+                rows="2"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fab fa-diaspora"></i>
+                    </div>
+                </x-slot>
+                    {{ $news->teaser ?? '' }}
+            </x-adminlte-textarea>
             <x-adminlte-text-editor
                 name="content"
                 id="Summernote"

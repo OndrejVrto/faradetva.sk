@@ -37,9 +37,17 @@ class NewsRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
+                'max:200',
                 Rule::unique('news', 'title')->ignore($this->news)->whereNull('deleted_at')
             ],
-            'content' => 'required',
+            'content' => [
+                'required',
+            ],
+            'teaser' => [
+                'required',
+                'string',
+                'max:400',
+            ],
             'category_id' => [
                 'required',
                 'exists:categories,id'

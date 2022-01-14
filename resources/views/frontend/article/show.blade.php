@@ -29,7 +29,9 @@
 
                         <h3>{{ $oneNews->title }}</h3>
                         <div class="content">
-                            {{$oneNews->content}}
+                            {{-- from Sumernote --}}
+                                {!! $oneNews->content !!}
+                            {{-- from Sumernote --}}
                         </div>
                         <ul class="tag-list">
                             <li><i class="fas fa-tag" aria-hidden="true"></i></li>

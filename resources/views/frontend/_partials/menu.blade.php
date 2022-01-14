@@ -34,7 +34,7 @@
                                     <!-- Kaplnky  -->
                                     <!-- Detvianske kríže  -->
                                     <!-- Prícestné sochy  -->
-                                    <li><a href="#">Pastorácia</a></li>
+                                    <li><a href="{{ url('o-nas/pastoracia/farska-rada') }}">Pastorácia</a></li>
                                     <!-- Kňazi  -->
                                     <!-- Farská rada  -->
                                     <!-- Liturgické služby  -->

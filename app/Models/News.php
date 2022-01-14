@@ -32,19 +32,22 @@ class News extends Model implements HasMedia
         'unpublished_at',
         'category_id',
         'title',
-        'content'
+        'content',
+        'teaser'
     ];
 
     public function getRouteKeyName() {
         return 'slug';
     }
 
-    public function getTeaserAttribute() {
-        return Str::words($this->content, 30, '...');
+    public function getTeaserAttribute($value) {
+        // return Str::words($value, 10, '...');
+        return Str::limit($value,200, '...');
     }
 
     public function getTeaserLightAttribute() {
-        return Str::words($this->content, 7, '...');
+        // return Str::words($this->teaser, 9, '...');
+        return Str::limit($this->teaser, 55, '...');
     }
 
     public function getMediaFileNameAttribute() {
