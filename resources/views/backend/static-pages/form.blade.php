@@ -88,6 +88,11 @@
                 <x-slot name="noteSlot">
                     Maximálne 3x lomítko Štýl: snake-case Oddeľovač: spätné lomítko Jazyk: Slovenčina (napr: o-nas/duchovne-povolania)
                 </x-slot>
+                @error('slug')
+                    <x-slot name="errorManual">
+                        {{ $errors->first('slug') }}
+                    </x-slot>
+                @enderror
             </x-adminlte-input>
         </div>
 

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\File;
-use Illuminate\Support\Str;
 use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,27 +19,16 @@ class StaticPage extends Model
     protected $fillable = [
         'title',
         'url',
+        'slug',
         'route_name',
         'description',
         'keywords',
         'author',
-        'header'
+        'header',
     ];
 
     public function getRouteKeyName() {
         return 'slug';
-    }
-
-    protected static function boot() {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->slug = Str::slug(Str::replace('/','-',$model->url));
-        });
-
-        static::updating(function ($model) {
-            $model->slug = Str::slug(Str::replace('/','-',$model->url));
-        });
     }
 
     public function files() {

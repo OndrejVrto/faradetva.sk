@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FileRequest extends FormRequest
@@ -32,6 +34,9 @@ class FileRequest extends FormRequest
                 'string',
                 'max:255',
             ],
+            'slug' => [
+                Rule::unique('files', 'slug')->ignore($this->file)->whereNull('deleted_at')
+            ],
             'author' => [
                 'nullable',
                 'string',
@@ -42,7 +47,7 @@ class FileRequest extends FormRequest
                 'string',
                 'max:255',
             ],
-            'copywright' => [
+            'source' => [
                 'nullable',
                 'string',
                 'max:255',
@@ -53,5 +58,11 @@ class FileRequest extends FormRequest
                 'max:10000'
             ],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'slug' => Str::slug($this->name)
+        ]);
     }
 }

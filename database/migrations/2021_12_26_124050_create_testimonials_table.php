@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('active')->default(1);
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->string('function')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

@@ -6,7 +6,6 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Str;
-use App\Traits\SlugFromTitle;
 use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -19,7 +18,6 @@ class News extends Model implements HasMedia
 {
     use HasFactory;
     use SoftDeletes;
-    use SlugFromTitle;
     use CreatedUpdatedBy;
     use InteractsWithMedia;
 
@@ -32,8 +30,9 @@ class News extends Model implements HasMedia
         'unpublished_at',
         'category_id',
         'title',
+        'slug',
         'content',
-        'teaser'
+        'teaser',
     ];
 
     public function getRouteKeyName() {

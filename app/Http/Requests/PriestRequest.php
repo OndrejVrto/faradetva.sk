@@ -20,13 +20,39 @@ class PriestRequest extends FormRequest
 
         return [
             'active' => 'boolean',
-            'titles_before' => 'nullable|string|max:255',
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'titles_after' => 'nullable|string|max:255',
-            'function' => 'nullable|string|max:255',
-            'phone' => 'nullable|regex:/[\d\+\-\ ]+/',
-            'description' => 'required|string',
+            'titles_before' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'first_name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'last_name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'titles_after' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'function' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'phone' => [
+                'nullable',
+                'regex:/[\d\+\-\ ]+/',
+            ],
+            'description' => [
+                'required',
+                'string',
+            ],
             'photo' => [
                 $photoRule,
                 'file',
@@ -53,3 +79,4 @@ class PriestRequest extends FormRequest
         Session::put(['priest_old_input_checkbox' => $state]);
     }
 }
+

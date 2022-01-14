@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('url');
             $table->string('route_name')->unique();
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();
             $table->string('author')->nullable();

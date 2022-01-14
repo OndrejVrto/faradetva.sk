@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 use App\Rules\DateTimeAfterNow;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -38,7 +39,9 @@ class NewsRequest extends FormRequest
                 'required',
                 'string',
                 'max:200',
-                Rule::unique('news', 'title')->ignore($this->news)->whereNull('deleted_at')
+            ],
+            'slug' => [
+                Rule::unique('news', 'slug')->ignore($this->news)->whereNull('deleted_at')
             ],
             'content' => [
                 'required',
@@ -59,7 +62,10 @@ class NewsRequest extends FormRequest
                 'dimensions:min_width=848,min_height=460',
                 'max:3000'
             ],
-            'files.*' => 'file|max:10000',
+            'files.*' => [
+                'file',
+                'max:10000',
+            ],
             // 'tags' => 'required',
         ];
     }
@@ -77,7 +83,9 @@ class NewsRequest extends FormRequest
         $this->merge([
             'active' => $state,
             'user_id' => auth()->id(),
+            'slug' => Str::slug($this->title),
         ]);
+
         is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s' ,strtotime($this->published_at))]);
         is_null($this->unpublished_at) ?: $this->merge(['unpublished_at' => date('Y-m-d H:i:s' ,strtotime($this->unpublished_at))]);
 

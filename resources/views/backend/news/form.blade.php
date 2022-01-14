@@ -91,6 +91,11 @@
                         <i class="fas fa-font"></i>
                     </div>
                 </x-slot>
+                @error('slug')
+                    <x-slot name="errorManual">
+                        {{ $errors->first('slug') }}
+                    </x-slot>
+                @enderror
             </x-adminlte-input>
         </div>
         <div class="col-md-6 col-xl-3">

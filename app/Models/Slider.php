@@ -64,7 +64,7 @@ class Slider extends Model implements HasMedia {
     }
 
     private function fullHeading() {
-        return     $this->heading_1
+        return  $this->heading_1
                 . ' '
                 .$this->heading_2
                 . ' '
