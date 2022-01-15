@@ -4,16 +4,25 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-
 use App\Models\Tag;
+
 use App\Models\News;
+use App\Models\User;
 use App\Models\Category;
+use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
     public function index() {
         $articles = News::with('media', 'user')->latest()->paginate(9);
+        return view('frontend.article.index', compact('articles'));
+    }
+
+    public function author($userSlug) {
+        $articles = News::whereHas('user', function($query) use ($userSlug) {
+            $query->whereSlug($userSlug);
+        })->with('media', 'user')->latest()->paginate(9);
+
         return view('frontend.article.index', compact('articles'));
     }
 

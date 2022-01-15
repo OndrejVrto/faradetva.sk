@@ -41,9 +41,9 @@ class News extends Model implements HasMedia
         return 'slug';
     }
 
-    public function getTeaserAttribute($value) {
+    public function getTeaserMediumAttribute() {
         // return Str::words($value, 10, '...');
-        return Str::limit($value,200, '...');
+        return Str::limit($this->teaser,200, '...');
     }
 
     public function getTeaserLightAttribute() {
@@ -56,11 +56,11 @@ class News extends Model implements HasMedia
     }
 
     public function getCreatedAttribute() {
-        return $this->created_at->format("d. M Y");
+        return $this->created_at->format("d. m. Y");
     }
 
     public function getUpdatedAttribute() {
-        return $this->updated_at->format("d. M Y");
+        return $this->updated_at->format("d. m. Y");
     }
 
     public function getPublishedAtAttribute($value) {
@@ -87,6 +87,10 @@ class News extends Model implements HasMedia
     public function registerMediaConversions( Media $media = null ) : void {
         $this->addMediaConversion('large')
             ->fit("crop", 848, 460)
+            ->optimize()
+            ->withResponsiveImages();
+        $this->addMediaConversion('large-thin')
+            ->fit("crop", 650, 300)
             ->optimize()
             ->withResponsiveImages();
         $this->addMediaConversion('thumb-latest-news')

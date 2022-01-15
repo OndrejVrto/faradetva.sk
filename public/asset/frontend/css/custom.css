@@ -23,3 +23,7 @@
 .link-template:hover {
 	color: #ff7b33 !important;
 }
+
+.text-justify {
+    text-align: justify;
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -27,7 +28,11 @@ class UserRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
-                'max:255'],
+                'max:255'
+            ],
+            'slug' => [
+                'string',
+            ],
             'password' => [
                 'nullable',
                 'string',
@@ -49,5 +54,11 @@ class UserRequest extends FormRequest
         return [
             'photo_avatar.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'slug' => Str::slug($this->name),
+        ]);
     }
 }

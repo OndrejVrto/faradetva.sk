@@ -49,7 +49,7 @@ class NewsRequest extends FormRequest
             'teaser' => [
                 'required',
                 'string',
-                'max:400',
+                'max:500',
             ],
             'category_id' => [
                 'required',

@@ -95,7 +95,7 @@
                     </div>
                     <div class="widget widget_tagcloud">
                         <h3 class="widget-title">
-                            Tagy
+                            Kľúčové slová
                         </h3>
                         <div class="tagcloud">
 
