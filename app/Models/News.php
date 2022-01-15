@@ -60,7 +60,7 @@ class News extends Model implements HasMedia
     }
 
     public function getCreatedStringAttribute() {
-        return $this->created_at->toDateString();
+        return $this->created_at->format('Y');
     }
 
     public function getUpdatedAttribute() {
