@@ -1447,6 +1447,10 @@ div#err_msg p {
 	color        : #ff7b33;
 }
 
+.blog_desc h2 {
+    color         : #243a4f;
+}
+
 .blog_desc h3 {
 	font-size     : 20px;
 	color         : #243a4f;

@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('nick')->unique()->after('name');
+            $table->string('slug')->after('nick');
         });
     }
 
@@ -19,6 +20,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('nick');
+            $table->dropColumn('slug');
         });
     }
 };

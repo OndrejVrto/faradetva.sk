@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Models;
 
 use App\Models\News;
@@ -29,6 +31,7 @@ class User extends Authenticatable implements HasMedia
         'nick',
         'email',
         'name',
+        'slug',
         'password',
     ];
 
