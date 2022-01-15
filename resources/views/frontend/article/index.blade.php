@@ -16,7 +16,7 @@
         <div class="row">
 
             @foreach ($articles as $oneNews)
-
+                {{-- TODO: disabla first iteration in page 2 and more  --}}
                 @if ($loop->first)
 
                     <div class="col-lg-12">
@@ -57,7 +57,7 @@
                 @else
 
                     <div class=" col-sm-6 col-lg-4">
-                        <div class="blog_item_cover frombottom wow">
+                        <div class="blog_item_cover frombottom wow" data-wow-delay=".{{ $loop->iteration * 2 }}s">
                             <div class="blog_thumb">
                                 <img src="{{ $oneNews->getFirstMediaUrl('news_front_picture', 'thumb-all-news') ?: "http://via.placeholder.com/370x248" }}"
                                     class="w-100"

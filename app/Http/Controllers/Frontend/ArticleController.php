@@ -14,14 +14,14 @@ use App\Http\Controllers\Controller;
 class ArticleController extends Controller
 {
     public function index() {
-        $articles = News::with('media', 'user')->latest()->paginate(9);
+        $articles = News::with('media', 'user')->latest()->paginate(7);
         return view('frontend.article.index', compact('articles'));
     }
 
     public function author($userSlug) {
         $articles = News::whereHas('user', function($query) use ($userSlug) {
             $query->whereSlug($userSlug);
-        })->with('media', 'user')->latest()->paginate(9);
+        })->with('media', 'user')->latest()->paginate(7);
 
         return view('frontend.article.index', compact('articles'));
     }
@@ -29,7 +29,7 @@ class ArticleController extends Controller
     public function category($categorySlug) {
         $articles = News::whereHas('category', function($query) use ($categorySlug) {
             $query->whereSlug($categorySlug);
-        })->with('media', 'user')->latest()->paginate(9);
+        })->with('media', 'user')->latest()->paginate(7);
 
         return view('frontend.article.index', compact('articles'));
     }
@@ -37,7 +37,7 @@ class ArticleController extends Controller
     public function tag($tagSlug) {
         $articles = News::whereHas('tags', function($query) use ($tagSlug) {
             $query->whereSlug($tagSlug);
-        })->with('media', 'user')->latest()->paginate(9);
+        })->with('media', 'user')->latest()->paginate(7);
 
         return view('frontend.article.index', compact('articles'));
     }
