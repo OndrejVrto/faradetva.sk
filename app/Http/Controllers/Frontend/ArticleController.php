@@ -17,10 +17,26 @@ class ArticleController extends Controller
         return view('frontend.article.index', compact('articles'));
     }
 
+    public function category($categorySlug) {
+        $articles = News::whereHas('category', function($query) use ($categorySlug) {
+            $query->whereSlug($categorySlug);
+        })->with('media', 'user')->latest()->paginate(9);
+
+        return view('frontend.article.index', compact('articles'));
+    }
+
+    public function tag($tagSlug) {
+        $articles = News::whereHas('tags', function($query) use ($tagSlug) {
+            $query->whereSlug($tagSlug);
+        })->with('media', 'user')->latest()->paginate(9);
+
+        return view('frontend.article.index', compact('articles'));
+    }
+
     public function show($slug) {
         $oneNews = News::whereSlug($slug)->with('media', 'category', 'tags', 'user')->firstOrFail();
         $lastNews = News::whereActive(1)->latest()->take(3)->with('media')->get();
-        $allCategories = Category::all();
+        $allCategories = Category::withCount('news')->get();
         $allTags = Tag::all();
 
         return view('frontend.article.show', compact('oneNews', 'lastNews', 'allCategories', 'allTags'));
