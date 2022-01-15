@@ -17,7 +17,7 @@
                         <ul class="menu">
 
                             <li><a href="#">Oznamy</a></li>
-                            <li><a href="{{ route('articles.index') }}">Články</a></li>
+                            <li><a href="{{ route('article.all') }}">Články</a></li>
 
                             <li>
                                 <a href="#">O nás</a>

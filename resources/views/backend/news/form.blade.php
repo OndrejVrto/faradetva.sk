@@ -19,7 +19,7 @@
     ];
 
     $config_select = [
-        "placeholder" => " Vyber niekoľko slov popisujúcich obsah ...",
+        // "placeholder" => " Vyber niekoľko slov popisujúcich obsah ...",
         "allowClear" => 'true',
     ];
 @endphp
@@ -82,8 +82,8 @@
         <div class="col-xl-6">
             <x-adminlte-input
                 name="title"
-                label="Titulok článku"
-                placeholder="Nadpis článku ..."
+                label="Nadpis článku"
+                {{-- placeholder="Nadpis článku ..." --}}
                 enableOldSupport="true"
                 value="{{ $news->title ?? '' }}" >
                 <x-slot name="prependSlot">
@@ -101,7 +101,7 @@
         <div class="col-md-6 col-xl-3">
 
             <div class="form-group">
-                <label>Publikovať Od</label>
+                <label>Publikovať od</label>
                 <div class="input-group date @error('published_at') adminlte-invalid-igroup @enderror" id="published_at" data-target-input="nearest">
                     <div class="input-group-prepend">
                         <div class="input-group-text bg-gradient-orange">
@@ -111,7 +111,7 @@
                     <input
                         name="published_at"
                         type="text"
-                        placeholder="Vyber dátum a čas ..."
+                        {{-- placeholder="Vyber dátum a čas ..." --}}
                         class="form-control datetimepicker-input @error('published_at') is-invalid @enderror"
                         data-target="#published_at"
                         value="{{ $news->published_at ?? old('published_at') }}"
@@ -134,7 +134,7 @@
         <div class="col-md-6 col-xl-3">
 
             <div class="form-group">
-                <label>Publikovať Do</label>
+                <label>Publikovať do</label>
                 <div class="input-group date @error('unpublished_at') adminlte-invalid-igroup @enderror" id="unpublished_at" data-target-input="nearest">
                     <div class="input-group-prepend">
                         <div class="input-group-text bg-gradient-orange">
@@ -144,7 +144,7 @@
                     <input
                         name="unpublished_at"
                         type="text"
-                        placeholder="Vyber dátum a čas..."
+                        {{-- placeholder="Vyber dátum a čas ..." --}}
                         class="form-control datetimepicker-input @error('unpublished_at') is-invalid @enderror"
                         data-target="#unpublished_at"
                         value="{{ $news->unpublished_at ?? old('unpublished_at') }}"
@@ -174,7 +174,7 @@
             <x-adminlte-select2
                 name="category_id"
                 label="Kategória článku"
-                data-placeholder="Vyber kategóriu článku ..."
+                {{-- data-placeholder="Vybrať kategóriu článku ..." --}}
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -203,7 +203,8 @@
                 name="news_picture"
                 class="border-right-none"
                 label="Obrázok na titulku"
-                placeholder="{{ $news->media_file_name ?? 'Vložiť obrázok ...' }}"
+                {{-- placeholder="{{ $news->media_file_name ?? 'Vložiť obrázok ...' }}" --}}
+                placeholder="{{ $news->media_file_name ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -251,7 +252,7 @@
         <div class="col-xl-8 order-xl-1">
             <x-adminlte-textarea
                 name="teaser"
-                label="Upútavka (Dve, tri vety)"
+                label="Upútavka"
                 enableOldSupport="true"
                 rows="2"
                 >

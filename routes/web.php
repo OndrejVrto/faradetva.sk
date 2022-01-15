@@ -71,13 +71,16 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 //! FrontEnd Routes
 Route::get('/', [HomeController::class, 'index'] )->name('home');
 
-//! Section News
-Route::get('/clanky', [ArticleController::class, 'index'])->name('articles.index');
-Route::get('/clanok/{slug}', [ArticleController::class, 'show'])->name('article.show');
-Route::get('/kategoria/{slug}', [ArticleController::class, 'showCategory'])->name('article.category');
-Route::get('/klucove-slovo/{slug}', [ArticleController::class, 'showTag'])->name('article.tag');
-Route::get('/autor/{slug}', [ArticleController::class, 'showAuthor'])->name('article.author');
-Route::get('/datum/{date}', [ArticleController::class, 'showDate'])->name('article.date');
+//! Section News article
+Route::name('article.')->group(function () {
+    Route::get('/clanok/{slug}', [ArticleController::class, 'show'])->name('show');
+
+    Route::get('/clanky', [ArticleController::class, 'indexAll'])->name('all');
+    Route::get('/clanky-v-kategorii/{slug}', [ArticleController::class, 'indexCategory'])->name('category');
+    Route::get('/clanky-podla-klucoveho-slova/{slug}', [ArticleController::class, 'indexTag'])->name('tag');
+    Route::get('/clanky-podla-autora/{slug}', [ArticleController::class, 'indexAuthor'])->name('author');
+    Route::get('/clanky-v-roku/{year}', [ArticleController::class, 'indexDate'])->name('date');
+});
 
 //! Section Search
 Route::get('/hladat/{search?}', [SearchController::class, 'searchAll'] )->name('search.all');

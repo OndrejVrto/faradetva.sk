@@ -50,7 +50,7 @@
             <x-adminlte-input
                 name="name"
                 label="Meno alebo prezývka"
-                placeholder="Vlož meno svedka ..."
+                {{-- placeholder="Vlož meno svedka ..." --}}
                 enableOldSupport="true"
                 value="{{ $testimonial->name ?? '' }}"
                 >
@@ -69,8 +69,8 @@
         <div class="col-6">
             <x-adminlte-input
                 name="function"
-                label="Pracovná pozícia"
-                placeholder="Akú prácu vykonáva svedok ..."
+                label="Charakteristika osoby"
+                {{-- placeholder="Akú prácu vykonáva svedok ..." --}}
                 enableOldSupport="true"
                 value="{{ $testimonial->function ?? '' }}"
             >
@@ -85,7 +85,7 @@
 
     <x-adminlte-textarea
         name="description"
-        label="Svedectvo (dve-tri vety)"
+        label="Svedectvo"
         enableOldSupport="true"
         rows="5"
         >
@@ -100,8 +100,9 @@
     <x-adminlte-input-file
         class="border-right-none"
         name="photo"
-        label="Fotka svedka"
-        placeholder="{{ $testimonial->media_file_name ?? 'Vložiť fotku ...' }}">
+        label="Fotka alebo avatar"
+        {{-- placeholder="{{ $testimonial->media_file_name ?? 'Vložiť fotku ...' }}"> --}}
+        placeholder="{{ $testimonial->media_file_name ?? '' }}">
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-file-import"></i>

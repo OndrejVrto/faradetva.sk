@@ -74,6 +74,7 @@
                 {{-- type="password" --}}
                 placeholder="Vlož heslo ..."
                 enableOldSupport="false"
+                {{-- value="{{ $user->password ?? '' }}" --}}
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">

@@ -13,7 +13,10 @@
 <!-- blog section Start -->
 <div class="section ch_blog_section">
     <div class="container">
-        <div class="row">
+        <div class="heading_section wh_headline">
+            <h1>{{ $title }}</h1>
+        </div>
+        <div class="row mt-3">
 
             @foreach ($articles as $oneNews)
                 {{-- TODO: disabla first iteration in page 2 and more  --}}
@@ -72,7 +75,7 @@
                             <div class="blog_desc">
                                 <div class="blog_info">
                                     <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->createdBy }}</a></span>
-                                    <span><a href="#"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
+                                    <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
                                 </div>
 
                                 <h3>{{ $oneNews->title }}</h3>

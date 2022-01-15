@@ -91,7 +91,8 @@
         class="border-right-none"
         name="photo"
         label="Obrázok"
-        placeholder="{{ $slider->media_file_name ?? 'Vložiť obrázok ...' }}">
+        {{-- placeholder="{{ $slider->media_file_name ?? 'Vložiť obrázok ...' }}"> --}}
+        placeholder="{{ $slider->media_file_name ?? '' }}">
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-file-import"></i>

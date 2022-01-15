@@ -55,15 +55,17 @@
                         @endif
                     </x-admin-table.td>
                     <x-admin-table.td class="text-center d-none d-md-table-cell">
-                        @canImpersonate()
-                            @if ($user->canBeImpersonated() and $user->id != auth()->user()->id )
-                                <a  href="{{ route('impersonate', $user->id) }}"
-                                    class="btn btn-outline-warning btn-sm btn-flat"
-                                    title="Stelesniť sa">
-                                    <i class="fas fa-people-arrows"></i>
-                                </a>
-                            @endif
-                        @endCanImpersonate
+                        @if (!is_impersonating())
+                            @canImpersonate()
+                                @if ($user->canBeImpersonated() and $user->id != auth()->user()->id )
+                                    <a  href="{{ route('impersonate', $user->id) }}"
+                                        class="btn btn-outline-warning btn-sm btn-flat"
+                                        title="Stelesniť sa">
+                                        <i class="fas fa-people-arrows"></i>
+                                    </a>
+                                @endif
+                            @endCanImpersonate
+                        @endif
                     </x-admin-table.td>
                     <x-admin-table.td-actions
                         showLink="{{ route('users.show', $user->id)}}"

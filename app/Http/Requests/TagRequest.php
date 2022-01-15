@@ -26,7 +26,7 @@ class TagRequest extends FormRequest
             ],
             'description' => [
                 'required',
-                'max:255'
+                'max:100'
             ],
         ];
     }
