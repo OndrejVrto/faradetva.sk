@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('titles_after')->nullable();
             $table->string('slug');
             $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->string('function')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

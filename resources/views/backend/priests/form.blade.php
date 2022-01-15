@@ -46,11 +46,11 @@
     </div>
 
     <div class="form-row">
-        <div class="col-6">
+        <div class="col-md-4">
             <x-adminlte-input
                 name="titles_before"
                 label="Titul pred menom"
-                placeholder="Titul pred menom..."
+                {{-- placeholder="Titul pred menom..." --}}
                 enableOldSupport="true"
                 value="{{ $priest->titles_before ?? '' }}"
                 >
@@ -61,11 +61,11 @@
                 </x-slot>
             </x-adminlte-input>
         </div>
-        <div class="col-6">
+        <div class="col-md-4">
             <x-adminlte-input
                 name="titles_after"
                 label="Titul za menom"
-                placeholder="Titul za menom..."
+                {{-- placeholder="Titul za menom..." --}}
                 enableOldSupport="true"
                 value="{{ $priest->titles_after ?? '' }}"
                 >
@@ -76,14 +76,29 @@
                 </x-slot>
             </x-adminlte-input>
         </div>
+        <div class="col-md-4">
+            <x-adminlte-input
+                name="function"
+                label="Funkcia"
+                {{-- placeholder="Akú funkciu zastáva ..." --}}
+                enableOldSupport="true"
+                value="{{ $priest->function ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
     </div>
 
     <div class="form-row">
-        <div class="col-6">
+        <div class="col-md-6">
             <x-adminlte-input
                 name="first_name"
-                label="Meno"
-                placeholder="Krstné meno ..."
+                label="Krstné meno"
+                {{-- placeholder="Krstné meno ..." --}}
                 enableOldSupport="true"
                 value="{{ $priest->first_name ?? '' }}"
                 >
@@ -94,11 +109,11 @@
                 </x-slot>
             </x-adminlte-input>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <x-adminlte-input
                 name="last_name"
                 label="Priezvisko"
-                placeholder="Priezvisko ..."
+                {{-- placeholder="Priezvisko ..." --}}
                 enableOldSupport="true"
                 value="{{ $priest->last_name ?? '' }}"
                 >
@@ -111,32 +126,32 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="col-6">
-            <x-adminlte-input
-                name="function"
-                label="Funkcia vo farnosti"
-                placeholder="Akú funkciu zastáva ..."
-                enableOldSupport="true"
-                value="{{ $priest->function ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-pray"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <x-adminlte-input
                 name="phone"
                 label="Telefón"
-                placeholder="Zadaj telefónne číslo ..."
+                {{-- placeholder="Zadaj telefónne číslo ..." --}}
                 enableOldSupport="true"
                 value="{{ $priest->phone ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-mobile-alt fa-lg"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+        <div class="col-md-6">
+            <x-adminlte-input
+                name="email"
+                label="E-mail"
+                {{-- placeholder="Zadaj e-mail ..." --}}
+                enableOldSupport="true"
+                value="{{ $priest->email ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-at"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -161,7 +176,8 @@
         class="border-right-none"
         name="photo"
         label="Fotka"
-        placeholder="{{ $priest->media_file_name ?? 'Vložiť fotku ..' }}">
+        {{-- placeholder="{{ $priest->media_file_name ?? 'Vložiť fotku ..' }}"> --}}
+        placeholder="{{ $priest->media_file_name ?? '' }}">
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-file-import"></i>

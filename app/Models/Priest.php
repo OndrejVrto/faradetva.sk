@@ -29,6 +29,7 @@ class Priest extends Model implements HasMedia
         'last_name',
         'titles_after',
         'phone',
+        'email',
         'function',
         'description',
     ];

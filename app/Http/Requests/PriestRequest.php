@@ -49,6 +49,12 @@ class PriestRequest extends FormRequest
                 'nullable',
                 'regex:/[\d\+\-\ ]+/',
             ],
+            'email' => [
+                'nullable',
+                'string',
+                'email',
+                'max:255',
+            ],
             'description' => [
                 'required',
                 'string',

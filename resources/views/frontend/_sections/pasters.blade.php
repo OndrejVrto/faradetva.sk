@@ -27,6 +27,14 @@
                                 </a>
                             </div>
                             @endisset
+                            @isset($priest->email)
+                            <div class="mt-0 mb-2">
+                                <a class="link-secondary" href="email:{{ $priest->email }}">
+                                    <i class="far fa-paper-plane fa-flip-horizontal ps-2"></i>
+                                    {{ $priest->email }}
+                                </a>
+                            </div>
+                            @endisset
                             <p>{{ $priest->description }}</p>
                         </div>
                     </div>
