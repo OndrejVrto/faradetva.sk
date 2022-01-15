@@ -32,26 +32,9 @@
         <div class="col-6">
 
             <x-adminlte-input
-                name="nick"
-                label="Nick"
-                placeholder="Prezývka ..."
-                enableOldSupport="true"
-                value="{{ $user->nick ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-
-        </div>
-        <div class="col-6">
-
-            <x-adminlte-input
                 name="name"
                 label="Celé meno"
-                placeholder="Vlož meno ..."
+                {{-- placeholder="Vlož meno ..." --}}
                 enableOldSupport="true"
                 value="{{ $user->name ?? '' }}"
                 >
@@ -63,6 +46,24 @@
             </x-adminlte-input>
 
         </div>
+        <div class="col-6">
+
+            <x-adminlte-input
+                name="nick"
+                label="Prezývka / Nick"
+                {{-- placeholder="Prezývka ..." --}}
+                enableOldSupport="true"
+                value="{{ $user->nick ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+
+        </div>
+
     </div>
 
     <div class="form-row">
@@ -72,7 +73,7 @@
                 name="password"
                 label="Heslo"
                 {{-- type="password" --}}
-                placeholder="Vlož heslo ..."
+                {{-- placeholder="Vlož heslo ..." --}}
                 enableOldSupport="false"
                 {{-- value="{{ $user->password ?? '' }}" --}}
                 >
@@ -90,7 +91,7 @@
                 name="password_confirmation"
                 label="Heslo potvrdenie"
                 {{-- type="password" --}}
-                placeholder="Zopakuj heslo ..."
+                {{-- placeholder="Zopakuj heslo ..." --}}
                 enableOldSupport="false"
                 >
                 <x-slot name="prependSlot">
@@ -109,7 +110,7 @@
             <x-adminlte-input
                 name="email"
                 label="E-mail"
-                placeholder="E-mail ..."
+                {{-- placeholder="E-mail ..." --}}
                 enableOldSupport="true"
                 value="{{ $user->email ?? '' }}"
                 >
@@ -126,8 +127,8 @@
             <x-adminlte-input-file
                 class="border-right-none"
                 name="photo_avatar"
-                label="Avatar"
-                placeholder="Vložiť avatara .."
+                label="Fotka alebo avatar"
+                {{-- placeholder="Vložiť avatara .." --}}
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">

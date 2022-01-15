@@ -22,8 +22,8 @@
 
     <x-adminlte-input
         name="name"
-        label="Názov roly"
-        placeholder="Názov užívateľskej roly"
+        label="Názov užívateľskej roly"
+        {{-- placeholder="Názov užívateľskej roly" --}}
         enableOldSupport="true"
         value="{{ $role->name ?? '' }}"
         >

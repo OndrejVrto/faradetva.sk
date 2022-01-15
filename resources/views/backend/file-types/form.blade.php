@@ -20,7 +20,7 @@
         fgroupClass=""
         name="name"
         label="Typ súboru"
-        placeholder="Typ ..."
+        {{-- placeholder="Typ ..." --}}
         enableOldSupport="true"
         value="{{ $fileType->name ?? '' }}"
         >
@@ -39,8 +39,8 @@
     <x-adminlte-input
         fgroupClass=""
         name="description"
-        label="Popis typu"
-        placeholder="O aký typ dokumentu sa jedná jednou vetou ..."
+        label="Popis typu súboru"
+        {{-- placeholder="O aký typ dokumentu sa jedná jednou vetou ..." --}}
         enableOldSupport="true"
         value="{{ $fileType->description ?? '' }}"
         >

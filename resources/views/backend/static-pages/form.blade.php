@@ -28,7 +28,7 @@
             <x-adminlte-input
                 name="title"
                 label="Titulok záložky prehliadača"
-                placeholder="Záložka prehliadača ..."
+                {{-- placeholder="Záložka prehliadača ..." --}}
                 enableOldSupport="true"
                 value="{{ $staticPage->title ?? '' }}" >
                 <x-slot name="prependSlot">
@@ -43,7 +43,7 @@
             <x-adminlte-input
                 name="header"
                 label="Nadpis stránky"
-                placeholder="Vlož nadpis stránky"
+                {{-- placeholder="Vlož nadpis stránky" --}}
                 enableOldSupport="true"
                 value="{{ $staticPage->header ?? '' }}" >
                 <x-slot name="prependSlot">
@@ -58,7 +58,7 @@
             <x-adminlte-input
                 name="author"
                 label="Autor obsahu stránky"
-                placeholder="Vlož celé meno autora obsahu"
+                {{-- placeholder="Vlož celé meno autora obsahu" --}}
                 enableOldSupport="true"
                 value="{{ $staticPage->author ?? '' }}" >
                 <x-slot name="prependSlot">
@@ -77,7 +77,7 @@
             <x-adminlte-input
                 name="url"
                 label="URL adresa ktorú uvidí uživateľ"
-                placeholder="Vlož url ..."
+                {{-- placeholder="Vlož url ..." --}}
                 enableOldSupport="true"
                 value="{{ $staticPage->url ?? '' }}" >
                 <x-slot name="prependSlot">
@@ -100,7 +100,7 @@
             <x-adminlte-input
                 name="route_name"
                 label="Vnútorná cesta Laravel-u k šablone (route)"
-                placeholder="Vlož route.name ..."
+                {{-- placeholder="Vlož route.name ..." --}}
                 enableOldSupport="true"
                 value="{{ $staticPage->route_name ?? '' }}" >
                 <x-slot name="prependSlot">
@@ -122,7 +122,7 @@
             <x-adminlte-input
                 name="description"
                 label="Popis obsahu stránky"
-                placeholder="Jedna rozvinutá veta."
+                {{-- placeholder="Jedna rozvinutá veta." --}}
                 enableOldSupport="true"
                 value="{{ $staticPage->description ?? '' }}" >
                 <x-slot name="prependSlot">
@@ -137,13 +137,16 @@
             <x-adminlte-input
                 name="keywords"
                 label="Kľúčové slová"
-                placeholder="Vlož slová súvisiace s obsahom oddelené čiarkou"
+                {{-- placeholder="slová oddelené čiarkou" --}}
                 enableOldSupport="true"
                 value="{{ $staticPage->keywords ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-keyboard fa-lg"></i>
                     </div>
+                </x-slot>
+                <x-slot name="noteSlot">
+                    Slová alebo slovné spojenia oddelené čiarkou
                 </x-slot>
             </x-adminlte-input>
         </div>
