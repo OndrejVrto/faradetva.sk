@@ -9,8 +9,9 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use Lab404\Impersonate\Models\Impersonate;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -21,6 +22,7 @@ class User extends Authenticatable implements HasMedia
     use HasRoles;
     use HasFactory;
     use Notifiable;
+    use Impersonate;
     use SoftDeletes;
     use HasApiTokens;
     use InteractsWithMedia;
@@ -50,6 +52,11 @@ class User extends Authenticatable implements HasMedia
 
     public function news() {
         return $this->hasMany(News::class);
+    }
+
+    public function canBeImpersonated()
+    {
+        return $this->can_be_impersonated == 1;
     }
 
     public function registerMediaConversions( Media $media = null ) : void

@@ -23,7 +23,7 @@
             <x-admin-table.th width="25%">Meno užívateľa</x-admin-table.th>
             <x-admin-table.th width="10%">Roly</x-admin-table.th>
             <x-admin-table.th width="10%" class="text-center d-none d-md-table-cell">Povolenia</x-admin-table.th>
-            <x-admin-table.th-actions colspan="3"/>
+            <x-admin-table.th-actions colspan="4"/>
         </x-slot>
 
         <x-slot name="table_body">
@@ -53,6 +53,17 @@
                         @if( $user->permissions_count != 0 )
                             <span class="badge bg-orange px-2 py-1">{{ $user->permissions_count }}</span>
                         @endif
+                    </x-admin-table.td>
+                    <x-admin-table.td class="text-center d-none d-md-table-cell">
+                        @canImpersonate()
+                            @if ($user->canBeImpersonated() and $user->id != auth()->user()->id )
+                                <a  href="{{ route('impersonate', $user->id) }}"
+                                    class="btn btn-outline-warning btn-sm btn-flat"
+                                    title="Stelesniť sa">
+                                    <i class="fas fa-people-arrows"></i>
+                                </a>
+                            @endif
+                        @endCanImpersonate
                     </x-admin-table.td>
                     <x-admin-table.td-actions
                         showLink="{{ route('users.show', $user->id)}}"

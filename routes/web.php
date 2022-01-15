@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\StaticPageController;
 use App\Http\Controllers\Backend\TestimonialController;
+use Lab404\Impersonate\Controllers\ImpersonateController;
 
 //Todo: Clear after development
 Route::view('419', 'errors.419');
@@ -35,9 +36,14 @@ Route::post('login', [LoginController::class, 'login']);
 //!  Logout Route
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+//!  Inpersonate OUT Route
+Route::get('impersonate/leave', [ImpersonateController::class, 'leave'])->name('impersonate.leave');
 
 //! BackEnd Routes
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
+
+    //!  Inpersonate IN Route
+    Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->name('impersonate');
 
     Route::get('/', DashboardController::class)->name('admin.dashboard');
     Route::resource('users', UserController::class);
