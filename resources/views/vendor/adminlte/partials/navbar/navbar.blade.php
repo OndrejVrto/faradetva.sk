@@ -22,6 +22,10 @@
         {{-- Configured right links --}}
         @each('adminlte::partials.navbar.menu-item', $adminlte->menu('navbar-right'), 'item')
 
+        @impersonating($guard = null)
+            <a class="btn btn-danger text-bold px-3 m-1" href="{{ route('impersonate.leave') }}">Odosobniť</a>
+        @endImpersonating
+
         {{-- User menu link --}}
         @if(Auth::user())
             @if(config('adminlte.usermenu_enabled'))
