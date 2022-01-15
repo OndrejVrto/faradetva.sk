@@ -68,9 +68,10 @@ Route::get('/', [HomeController::class, 'index'] )->name('home');
 //! Section News
 Route::get('/clanky', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/clanok/{slug}', [ArticleController::class, 'show'])->name('article.show');
-Route::get('/kategoria/{slug}', [ArticleController::class, 'category'])->name('article.category');
-Route::get('/klucove-slovo/{slug}', [ArticleController::class, 'tag'])->name('article.tag');
-Route::get('/autor/{slug}', [ArticleController::class, 'author'])->name('article.author');
+Route::get('/kategoria/{slug}', [ArticleController::class, 'showCategory'])->name('article.category');
+Route::get('/klucove-slovo/{slug}', [ArticleController::class, 'showTag'])->name('article.tag');
+Route::get('/autor/{slug}', [ArticleController::class, 'showAuthor'])->name('article.author');
+Route::get('/datum/{date}', [ArticleController::class, 'showDate'])->name('article.date');
 
 //! Section Search
 Route::get('/hladat/{search?}', [SearchController::class, 'searchAll'] )->name('search.all');

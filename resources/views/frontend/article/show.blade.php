@@ -23,8 +23,9 @@
                     </div>
                     <div class="blog_desc">
                         <div class="blog_info">
-                            <span><a href="#"><i class="fas fa-user-tie" aria-hidden="true"></i>{{ $oneNews->createdBy }}</a></span>
-                            <span><a href="#"><i class="fas fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->createdInfo }}</a></span>
+                            <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->createdBy }}</a></span>
+                            <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
+                            <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}</a></span>
                         </div>
 
                         <h3>{{ $oneNews->title }}</h3>
