@@ -25,7 +25,7 @@
     <x-adminlte-input
         name="title"
         label="Kľúčové slovo"
-        placeholder="Jediné slovo"
+        {{-- placeholder="Jediné slovo" --}}
         enableOldSupport="true"
         value="{{ $tag->title ?? '' }}"
         >
@@ -43,8 +43,8 @@
 
     <x-adminlte-input
         name="description"
-        label="Popis"
-        placeholder="Stručný popis ..."
+        label="Stručný popis kľúčového slova"
+        {{-- placeholder="Stručný popis ..." --}}
         enableOldSupport="true"
         value="{{ $tag->description ?? '' }}"
         >
