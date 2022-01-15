@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('description');
+            $table->string('description', 100);
             $table->timestamps();
             $table->softDeletes();
             $table->bigInteger('created_by')->unsigned();
