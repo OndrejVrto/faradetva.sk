@@ -37,7 +37,7 @@
                         <ul class="tag-list">
                             <li><i class="fas fa-tag" aria-hidden="true"></i></li>
                             @foreach ($oneNews->tags as $tag)
-                                <li><a href="{{ route('article.tag', $tag->slug) }}">{{ $tag->title }}</a></li>
+                                <li><a href="{{ route('article.tag', $tag->slug) }}" title="{{ $tag->description }}">{{ $tag->title }}</a></li>
                             @endforeach
                         </ul>
 
@@ -65,7 +65,7 @@
                         </h3>
                         <ul>
                             @foreach ($allCategories as $category)
-                                <li class="d-flex justify-content-between">
+                                <li class="d-flex justify-content-between" title="{{ $category->description }}">
                                     <a href="{{ route('article.category', $category->slug) }}">{{ $category->title }}</a>
                                     <span class="me-2 text-church-template">{{ $category->news_count }}</span>
                                 </li>
@@ -100,8 +100,8 @@
                         </h3>
                         <div class="tagcloud">
 
-                            @foreach ( $allTags as $tagB )
-                                <a href="{{ route('article.tag', $tagB->slug) }}">{{ $tagB->title }}</a>
+                            @foreach ( $allTags as $tag )
+                                <a href="{{ route('article.tag', $tag->slug) }}" title="{{ $tag->description }}">{{ $tag->title }}</a>
                             @endforeach
 
                         </div>
