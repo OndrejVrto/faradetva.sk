@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\StaticPageController;
 use App\Http\Controllers\Backend\TestimonialController;
 use Lab404\Impersonate\Controllers\ImpersonateController;
+use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 
 //Todo: Clear after development
 Route::view('419', 'errors.419');
@@ -45,7 +46,12 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     //!  Inpersonate IN Route
     Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->name('impersonate');
 
-    Route::get('/', DashboardController::class)->name('admin.dashboard');
+    //!  Activity plugin
+    Route::get('user-activity', [ActivityController::class, 'getIndex'])->name('log-activity.index');
+    Route::post('user-activity', [ActivityController::class, 'handlePostRequest'])->name('log-activity.post');
+
+    //!  Main route
+    Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
     Route::resource('users', UserController::class);
 
     Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
