@@ -369,6 +369,23 @@ return [
             'route' => 'permissions.index',
             'can'  => 'permissions.index',
         ],
+        [
+            'header' => 'Logovanie',
+            'can'  => [
+                'log-activity.index',
+                'log-activity.post',
+            ],
+        ],
+        [
+            'text' => 'Aktivita',
+            'icon_color'  => 'yellow',
+            'icon'  => 'fas fa-thumbtack',
+            'route' => 'log-activity.index',
+            'can'  => [
+                'log-activity.index',
+                'log-activity.post',
+            ],
+        ],
 
         // [
         //     'text'    => 'Tabuľky',

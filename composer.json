@@ -10,6 +10,7 @@
         "diglactic/laravel-breadcrumbs": "^7.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "haruncpi/laravel-user-activity": "^1.0",
         "intervention/image": "^2.7",
         "jeroennoten/laravel-adminlte": "^3.7",
         "lab404/laravel-impersonate": "^1.7",
@@ -75,7 +76,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": false
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
