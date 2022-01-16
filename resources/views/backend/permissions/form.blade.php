@@ -23,7 +23,7 @@
     <x-adminlte-input
         name="name"
         label="Povolenie"
-        placeholder="Kód povolenia s použitím 'Wildcard'"
+        {{-- placeholder="Pre kód povolenia môžete použiť aj 'Wildcard'" --}}
         enableOldSupport="true"
         value="{{ $permission->name ?? '' }}"
         >
@@ -31,6 +31,9 @@
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-key"></i>
             </div>
+        </x-slot>
+        <x-slot name="noteSlot">
+            Pre kód povolenia môžete použiť aj 'Wildcard'. (Napr. news.*)
         </x-slot>
     </x-adminlte-input>
 
