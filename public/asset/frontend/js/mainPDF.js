@@ -1,30 +1,30 @@
 class Main {
-    static pdfDoc = null;
-    static pageNum = 1;
-    static numPages = 0;
+    pdfDoc = null;
+    pageNum = 1;
+    numPages = 0;
 
     constructor(_url, _selector) {
         this.selector = _selector;
         this.url = _url;
-        this.getData(Main.pageNum);
+        this.getData(1);
     }
 
     getData(pageNum) {
         pdfjsLib.getDocument(this.url)
             .promise.then(res => {
-                Main.pdfDoc = res;
-                Main.numPages = Main.pdfDoc.numPages;
-                Main.renderPage(pageNum, this.selector);
+                this.pdfDoc = res;
+                this.numPages = this.pdfDoc.numPages;
+                this.renderPage(pageNum);
             });
     }
 
     // Rendering default page.
-    static renderPage(num, selector) {
-        let canvas = document.querySelector(selector);
+    renderPage(num) {
+        let canvas = document.querySelector(this.selector);
         let ctx = canvas.getContext('2d');
         let scale = 1.5;
 
-        Main.pdfDoc.getPage(num).then(pageResponse => {
+        this.pdfDoc.getPage(num).then(pageResponse => {
             const viewport = pageResponse.getViewport({ scale });
             canvas.height = viewport.height;
             canvas.width = viewport.width;
@@ -39,27 +39,27 @@ class Main {
     }
 
     // For Next page load.
-    static showNextPage() {
-        if (Main.pageNum >= Main.numPages) {
+    showNextPage() {
+        if (this.pageNum >= this.numPages) {
             return;
         }
-        Main.pageNum++;
-        Main.reRenderCanvas();
+        this.pageNum++;
+        this.reRenderCanvas();
     }
 
     // For Prev page load.
-    static showPrevPage() {
-        if (Main.pageNum <= 1) {
+    showPrevPage() {
+        if (this.pageNum <= 1) {
             return;
         }
 
-        Main.pageNum--;
-        Main.reRenderCanvas();
+        this.pageNum--;
+        this.reRenderCanvas();
     }
 
-    static reRenderCanvas() {
+    reRenderCanvas() {
         setTimeout(() => {
-            Main.renderPage(Main.pageNum);
+            this.renderPage(this.pageNum);
         }, 500);
     }
 }
