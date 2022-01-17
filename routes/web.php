@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\SearchController;
@@ -47,8 +48,8 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->name('impersonate');
 
     //!  Activity plugin
-    Route::get('user-activity', [ActivityController::class, 'getIndex'])->name('log-activity.index');
-    Route::post('user-activity', [ActivityController::class, 'handlePostRequest'])->name('log-activity.post');
+    Route::get('users-activity', [ActivityController::class, 'getIndex'])->name('log-activity.index');
+    Route::post('users-activity', [ActivityController::class, 'handlePostRequest'])->name('log-activity.post');
 
     //!  Main route
     Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
@@ -61,6 +62,7 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
         'news'         => NewsController::class,
         'files'        => FileController::class,
         'roles'        => RoleController::class,
+        'notices'      => NoticeController::class,
         'banners'      => BannerController::class,
         'priests'      => PriestController::class,
         'sliders'      => SliderController::class,

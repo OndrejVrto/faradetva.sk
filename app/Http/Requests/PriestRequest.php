@@ -19,7 +19,10 @@ class PriestRequest extends FormRequest
         }
 
         return [
-            'active' => 'boolean',
+            'active' => [
+                'boolean',
+                'required',
+            ],
             'titles_before' => [
                 'nullable',
                 'string',

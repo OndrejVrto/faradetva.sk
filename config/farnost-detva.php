@@ -131,6 +131,23 @@ return [
         'file-types_header_create'      => 'Nová kategória',
         'file-types_header_edit'        => 'Úprava kategórie',
 
+        'notices_title'              => 'Farské oznamy',
+        'notices_description'        => 'Pridávanie rôznych oznamov v pdf súboroch',
+        'notices_description_create' => 'Tu môžete pridať pdf súbor s farskými oznamami',
+        'notices_description_edit'   => 'Tu môžete upraviť údaje vo farských oznamoch',
+        'notices_header'             => 'Farské oznamy',
+        'notices_header_create'      => 'Nový oznamy',
+        'notices_header_edit'        => 'Úprava farských oznamov',
+
+
+        // 's_title'              => '',
+        // 's_description'        => '',
+        // 's_description_create' => '',
+        // 's_description_edit'   => '',
+        // 's_header'             => '',
+        // 's_header_create'      => '',
+        // 's_header_edit'        => '',
+
 
 
 

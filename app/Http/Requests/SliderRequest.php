@@ -19,10 +19,25 @@ class SliderRequest extends FormRequest
         }
 
         return [
-            'active' => 'boolean',
-            'heading_1' => 'nullable|string|max:255',
-            'heading_2' => 'nullable|string|max:255',
-            'heading_3' => 'nullable|string|max:255',
+            'active' => [
+                'boolean',
+                'required'
+            ],
+            'heading_1' => [
+                'nullable',
+                'string',
+                'max:255'
+            ],
+            'heading_2' => [
+                'nullable',
+                'string',
+                'max:255'
+            ],
+            'heading_3' => [
+                'nullable',
+                'string',
+                'max:255'
+            ],
             'photo' => [
                 $photoRule,
                 'file',

@@ -16,19 +16,19 @@ class UserRequest extends FormRequest
         return [
             'nick' => [
                 'required',
-                Rule::unique('users', 'nick')->ignore($this->user)
+                Rule::unique('users', 'nick')->ignore($this->user),
             ],
             'email' => [
                 'required',
                 'string',
                 'email',
                 'max:255',
-                Rule::unique('users', 'email')->ignore($this->user)
+                Rule::unique('users', 'email')->ignore($this->user),
             ],
             'name' => [
                 'required',
                 'string',
-                'max:255'
+                'max:255',
             ],
             'slug' => [
                 'string',
@@ -38,14 +38,14 @@ class UserRequest extends FormRequest
                 'string',
                 'min:8',
                 'max:255',
-                'confirmed'
+                'confirmed',
             ],
             'photo_avatar' => [
                 'nullable',
                 'file',
                 'mimes:jpg,bmp,png,jpeg,svg',
                 'dimensions:min_width=100,min_height=100',
-                'max:3000'
+                'max:3000',
             ],
         ];
     }

@@ -253,10 +253,16 @@ return [
             ],
         ],
         [
+            'text'  => 'Oznamy',
+            'icon_color'  => 'orange',
+            'route' => 'notices.index',
+            'icon'  => 'fas fa-broadcast-tower',
+            'can'  => 'news.index',
+        ],
+        [
             'text'  => 'Články',
             'icon_color'  => 'orange',
             'route' => 'news.index',
-            // 'icon'  => 'fas fa-book-open',
             'icon'  => 'fas fa-font',
             'can'  => 'news.index',
         ],

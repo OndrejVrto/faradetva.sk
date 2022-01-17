@@ -23,12 +23,13 @@ class TestimonialRequest extends FormRequest
 
         return [
             'active' => [
-                'boolean'
+                'boolean',
+                'required',
             ],
             'name' => [
                 'required',
                 'string',
-                'max:255'
+                'max:255',
             ],
             'slug' => [
                 Rule::unique('testimonials', 'slug')->ignore($this->testimonial)->whereNull('deleted_at')
@@ -36,18 +37,18 @@ class TestimonialRequest extends FormRequest
             'function' => [
                 'nullable',
                 'string',
-                'max:255'
+                'max:255',
             ],
             'description' => [
                 'nullable',
-                'string'
+                'string',
             ],
             'photo' => [
                 $photoRule,
                 'file',
                 'mimes:jpg,bmp,png,jpeg,svg',
                 'dimensions:min_width=100,min_height=100',
-                'max:2048'
+                'max:2048',
             ],
         ];
     }

@@ -34,7 +34,7 @@
                         <h3 class="text-muted">Zoznam statických stránok</h3>
                     </div>
                     <div class="card-body">
-                        {{-- @foreach($pages as $page)
+                        @foreach($pages as $page)
                             <div class="row py-1">
                                 @php
                                     //** Check if the Url works
@@ -56,7 +56,7 @@
                                     </a>
                                 </div>
                             </div>
-                        @endforeach --}}
+                        @endforeach
                     </div>
                 </div>
             </div>
