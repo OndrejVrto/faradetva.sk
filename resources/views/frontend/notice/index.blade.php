@@ -14,40 +14,42 @@
 @endpush
 
 @section('content')
+    <div class="section">
+        <div class="container">
 
-<!-- blog section Start -->
-<div class="section">
-    <div class="container">
+            @foreach ($notices as $notice)
 
-        @foreach ($notices as $notice)
-
-        <div class="col-md-11 col-lg-10 col-xl-9 m-auto">
-                <div class="notice_heading_section">
-                    <h1>{{ $notice->title }}</h1>
-                    <div class="d-flex justify-content-between mt-3">
-                        <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" onclick="Main_{{ $loop->iteration }}.showPrevPage()">
-                            Predchádzajúca strana
-                        </button>
-                        <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" onclick="Main_{{ $loop->iteration }}.showNextPage()">
-                            Ďalšia strana
-                        </button>
+                <div class="col-md-11 col-lg-10 col-xl-9 m-auto">
+                    <div class="notice_heading_section">
+                        <h1>{{ $notice->title }}</h1>
+                        <div class="d-flex justify-content-between mt-3">
+                            <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" onclick="main{{ $loop->iteration }}.showPrevPage()">
+                                Predchádzajúca strana
+                            </button>
+                            <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" onclick="main{{ $loop->iteration }}.showNextPage()">
+                                Ďalšia strana
+                            </button>
+                        </div>
+                    </div>
+                    <div class="blog_info">
+                        <a href="{{ $notice->getFirstMedia('notice_pdf')->getFullUrl() }}" target="_blank" rel="noopener noreferrer">
+                            <i class="far fa-save"></i>
+                            Link na stiahnutie
+                        </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-11 col-lg-10 col-xl-9 m-auto py-2">
-                <canvas id="pdfArea{{ $loop->iteration }}" class="pdfArea justify-content-center w-100">
-                </canvas>
-            </div>
+                <div class="col-md-11 col-lg-10 col-xl-9 m-auto pb-2">
+                    <canvas id="pdfArea{{ $loop->iteration }}" class="pdfArea justify-content-center w-100">
+                    </canvas>
+                </div>
 
-            @push('js')
-                <script>
-                    let main_{{ $loop->iteration }} = new Main("{{ $notice->getFirstMedia('notice_pdf')->getUrl() }}", "#pdfArea{{ $loop->iteration }}");
-                </script>
-            @endpush
-        @endforeach
+                @push('js')
+                    <script>
+                        let main{{ $loop->iteration }} = new Main("{{ $notice->getFirstMedia('notice_pdf')->getUrl() }}", "#pdfArea{{ $loop->iteration }}");
+                    </script>
+                @endpush
+            @endforeach
 
+        </div>
     </div>
-</div>
-<!-- blog section End -->
-
 @endsection
