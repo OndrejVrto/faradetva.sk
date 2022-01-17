@@ -47,8 +47,8 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->name('impersonate');
 
     //!  Activity plugin
-    Route::get('user-activity', [ActivityController::class, 'getIndex'])->name('log-activity.index');
-    Route::post('user-activity', [ActivityController::class, 'handlePostRequest'])->name('log-activity.post');
+    Route::get('users-activity', [ActivityController::class, 'getIndex'])->name('log-activity.index');
+    Route::post('users-activity', [ActivityController::class, 'handlePostRequest'])->name('log-activity.post');
 
     //!  Main route
     Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
