@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
-    public function index() {
+    public function __invoke() {
         $banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
         $priests = Priest::whereActive(1)->with('media')->get();
 
