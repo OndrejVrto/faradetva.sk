@@ -16,9 +16,12 @@ class RoleRequest extends FormRequest
             'name' => [
                 'required',
                 Rule::unique('users_roles', 'name')->ignore($this->role),
-                'max:255'
+                'max:255',
             ],
-            'permission' => 'required',
+            'permission' => [
+                'required',
+                'max:255',
+            ],
         ];
     }
 

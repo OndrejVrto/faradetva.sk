@@ -22,8 +22,13 @@ class NewsRequest extends FormRequest
         }
 
         return [
-            'active' => 'boolean|required',
-            'user_id' => 'required',
+            'active' => [
+                'boolean',
+                'required'
+            ],
+            'user_id' => [
+                'required'
+            ],
             'published_at' => [
                 'nullable',
                 'date',
