@@ -27,3 +27,19 @@
 .text-justify {
     text-align: justify;
 }
+
+.notice_heading_section {
+	padding      : 20px 15px;
+	text-align   : center;
+}
+
+.notice_heading_section h1 {
+	color         : #243a4f;
+	margin        : 0;
+	font-weight   : 700;
+	font-size     : 30px;
+}
+
+.pdfArea {
+    border: 2px dotted #ff7b33;
+}

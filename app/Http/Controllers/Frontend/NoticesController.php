@@ -11,8 +11,8 @@ class NoticesController extends Controller
 {
     public function __invoke() {
         // TODO: Date Published
-        $notice = Notice::whereActive(1)->with('media')->get();
+        $notices = Notice::whereActive(1)->with('media')->latest('published_at', 'created_at')->get();
 
-        return view('frontend.notice.index', compact('notice'));
+        return view('frontend.notice.index', compact('notices'));
     }
 }
