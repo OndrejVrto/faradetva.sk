@@ -22,9 +22,9 @@
                 <div class="col-md-11 col-lg-10 col-xl-9 m-auto">
                     <div class="notice_heading_section">
                         <h1>{{ $notice->title }}</h1>
-                        <div class="d-flex justify-content-between mt-3">
+                        <div class="d-flex justify-content-evenly mt-3">
                             <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" onclick="main{{ $loop->iteration }}.showPrevPage()">
-                                Predchádzajúca strana
+                                Predošlá strana
                             </button>
                             <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" onclick="main{{ $loop->iteration }}.showNextPage()">
                                 Ďalšia strana
