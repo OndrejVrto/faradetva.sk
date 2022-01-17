@@ -50,6 +50,7 @@ Breadcrumbs::for('admin.home', function (BreadcrumbTrail $trail) {
 
 // Admin Home : Resource Models
 Breadcrumbs::resource('news', 'Články');
+Breadcrumbs::resource('notices', 'Oznamy');
 Breadcrumbs::resource('tags', 'Kľúčové slová');
 Breadcrumbs::resource('categories', 'Kategórie článkov');
 Breadcrumbs::resource('sliders', 'Myšlienky');
