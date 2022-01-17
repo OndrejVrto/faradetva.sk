@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function __invoke() {
         $priests = Priest::whereActive(1)->with('media')->get();
 
         $countTestimonial = Testimonial::whereActive(1)->count();

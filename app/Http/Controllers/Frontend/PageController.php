@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\View;
 
 class PageController extends Controller
 {
-    public function getPageFromUrl($pageUrlFirst, $pageUrlSecond = null, $pageUrlThird = null, $pageUrlFourth = null) {
+    public function __invoke(
+        $pageUrlFirst,
+        $pageUrlSecond = null,
+        $pageUrlThird = null,
+        $pageUrlFourth = null
+    ) {
         $fullpath = collect([$pageUrlFirst, $pageUrlSecond, $pageUrlThird, $pageUrlFourth])
             ->whereNotNull()
             ->implode('/');
