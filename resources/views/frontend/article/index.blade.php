@@ -1,5 +1,6 @@
 @extends('frontend._layouts.page')
 
+{{-- TODO: Text in title --}}
 @section('title', 'Hľadať' )
 @section('meta_description', 'Vyhľadávanie medzi čLánkami.' )
 @section('content_header', 'Hľadaný výraz: XXX' )

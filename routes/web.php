@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\FileTypeController;
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\NoticesController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\StaticPageController;
@@ -77,7 +78,9 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 });
 
 //! FrontEnd Routes
-Route::get('/', [HomeController::class, 'index'] )->name('home');
+Route::get('/', HomeController::class)->name('home');
+Route::get('/kontakt', ContactController::class)->name('contact');
+Route::get('/oznamy', NoticesController::class)->name('notices.pdf');
 
 //! Section News article
 Route::name('article.')->group(function () {
@@ -94,8 +97,5 @@ Route::name('article.')->group(function () {
 Route::get('/hladat/{search?}', [SearchController::class, 'searchAll'] )->name('search.all');
 Route::get('/hladat-clanok/{search?}', [SearchController::class, 'searchNews'] )->name('search.news');
 
-//! Section Contact
-Route::get('/kontakt', [ContactController::class, 'index'] )->name('contact');
-
 //! Section - ALL others websites
-Route::get('{First}/{Second?}/{Third?}/{Fourth?}', [PageController::class, 'getPageFromUrl']);
+Route::get('{First}/{Second?}/{Third?}/{Fourth?}', PageController::class);
