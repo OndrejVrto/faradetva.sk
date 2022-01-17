@@ -20,7 +20,7 @@
             <x-admin-table.th width="10%" class="d-none d-md-table-cell text-center">Banner</x-admin-table.th>
             <x-admin-table.th width="15%">Titulok záložky</x-admin-table.th>
             <x-admin-table.th-check-active/>
-            <x-admin-table.th width="30%">Url <small>(cesta ktorú vidí uživateľ)</small></x-admin-table.th>
+            <x-admin-table.th width="40%">Url <small>(cesta ktorú vidí uživateľ)</small></x-admin-table.th>
             <x-admin-table.th class="d-none d-xl-table-cell">Route <small>(vnútorná cesta aplikácie)</small></x-admin-table.th>
             <x-admin-table.th width="7%" class="text-center d-none d-lg-table-cell">Prílohy</x-admin-table.th>
             <x-admin-table.th-actions colspan="3"/>

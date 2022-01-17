@@ -19,7 +19,7 @@
                             <li><a href="#">Oznamy</a></li>
                             <li><a href="{{ route('article.all') }}">Články</a></li>
 
-                            <li>
+                            {{-- <li>
                                 <a href="#">O nás</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">História</a></li>
@@ -31,28 +31,29 @@
                                     <li><a href="{{ url('o-nas/patron-farnosti') }}">Patrón farnosti</a></li>
                                     <li><a href="#">Sakrálne objekty</a></li>
                                     <!-- Kostoly  -->
+                                    <!-- Kostol sv.Františka Assiského v Detve  -->
                                     <!-- Kaplnky  -->
                                     <!-- Detvianske kríže  -->
                                     <!-- Prícestné sochy  -->
-                                    <li><a href="{{ url('o-nas/pastoracia/farska-rada') }}">Pastorácia</a></li>
+                                    <li><a href="#">Pastorácia</a></li>
                                     <!-- Kňazi  -->
                                     <!-- Farská rada  -->
                                     <!-- Liturgické služby  -->
                                     <!-- (Akolyti, lektori, miništranti, kostolníci, organisti, detský spevokol, mládežnícky spevokol, dychovka)  -->
                                     <!-- Vyučovanie náboženstva  -->
                                 </ul>
-                            </li>
+                            </li> --}}
 
-                            <li><a href="#">Spoločenstvá</a></li>
+                            {{-- <li><a href="#">Spoločenstvá</a></li>
                                 <!-- Bosé karmelitánky  -->
                                 <!-- Tretí rád OCD  -->
                                 <!-- Tretí rád OFM  -->
                                 <!-- Ružencové bratstvo  -->
                                 <!-- Faustínum  -->
                                 <!-- Modlitby za kňazov  -->
-                                <!-- Deti a mládež  -->
+                                <!-- Deti a mládež  --> --}}
 
-                            <li>
+                            {{-- <li>
                                 <a href="#">Duchovný život</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Sviatosti</a></li>
@@ -74,6 +75,27 @@
                                     <!-- Božie prikázania  -->
                                     <!-- Cirkevné prikázania  -->
                                     <!-- Modlitba  -->
+                                </ul>
+                            </li> --}}
+
+                            <li>
+                                <a href="#">Podstránky</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
+                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/imrich-durica') }}">Imrich Ďurica</a></li>
+                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/jozef-zavodsky') }}">Jozef Závodský</a></li>
+                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/prof-thdr-jozef-buda') }}">prof. Jozef Búda</a></li>
+                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/anton-prokop') }}">Anton Prokop</a></li>
+                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/mons-jan-strban') }}">Mons. Ján Štrbáň</a></li>
+                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/karol-anton-medvecky') }}">Karol Anton Medvecký</a></li>
+                                    <li><a href="{{ url('o-nas/pastoracia/lektori') }}">Lektori</a></li>
+                                    <li><a href="{{ url('o-nas/pastoracia/akolyti') }}">Akolyti</a></li>
+                                    <li><a href="{{ url('sakralne-objekty/kostol-sv-frantiska-z-assisi-v-detve') }}"> 	Kostol Detva</a></li>
+                                    <li><a href="{{ url('o-nas/patron-farnosti') }}">Svätý František</a></li>
+                                    <li><a href="{{ url('o-nas/pastoracia/farska-rada') }}">Farská rada</a></li>
+                                    <li><a href="{{ url('spolocenstva/faustinum') }}">Faustinum</a></li>
+                                    {{-- <li><a href="{{ url('') }}"></a></li> --}}
+
                                 </ul>
                             </li>
 
