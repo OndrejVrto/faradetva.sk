@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Category;
+use App\Traits\Publishable;
 use Illuminate\Support\Str;
 use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
@@ -21,6 +22,7 @@ class News extends Model implements HasMedia
 {
     use Loggable;
     use HasFactory;
+    use Publishable;
     use SoftDeletes;
     use CreatedUpdatedBy;
     use InteractsWithMedia;
@@ -67,14 +69,6 @@ class News extends Model implements HasMedia
 
     public function getUpdatedAttribute() {
         return $this->updated_at->format("d. m. Y");
-    }
-
-    public function getPublishedAtAttribute($value) {
-        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
-    }
-
-    public function getUnpublishedAtAttribute($value) {
-        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
     }
 
     public function user() {

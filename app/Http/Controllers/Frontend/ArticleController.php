@@ -15,8 +15,19 @@ class ArticleController extends Controller
     private $countPaginate = 7;
 
     public function show($slug) {
-        $oneNews = News::whereSlug($slug)->with('media', 'category', 'tags', 'user')->firstOrFail();
-        $lastNews = News::whereActive(1)->latest()->take(3)->with('media')->get();
+        $oneNews = News::whereActive(1)
+                        ->published()
+                        ->unpublished()
+                        ->whereSlug($slug)
+                        ->with('media', 'category', 'tags', 'user')
+                        ->firstOrFail();
+        $lastNews = News::whereActive(1)
+                        ->published()
+                        ->unpublished()
+                        ->latest()
+                        ->take(3)
+                        ->with('media')
+                        ->get();
         $allCategories = Category::withCount('news')->get();
         $allTags = Tag::all();
 
@@ -24,41 +35,46 @@ class ArticleController extends Controller
     }
 
     public function indexAll() {
-        $articles = News::with('media', 'user')->latest()->paginate($this->countPaginate);
+        $queryBase = News::with('media', 'user');
+        $articles = $this->queryAppend($queryBase);
         $title = config('farnost-detva.title-articles.all');
 
         return view('frontend.article.index', compact('articles', 'title'));
     }
 
     public function indexAuthor($userSlug) {
-        $articles = News::whereHas('user', function($query) use ($userSlug) {
+        $queryBase = News::whereHas('user', function($query) use ($userSlug) {
             $query->whereSlug($userSlug);
-        })->with('media', 'user')->latest()->paginate($this->countPaginate);
+        });
+        $articles = $this->queryAppend($queryBase);
         $title = config('farnost-detva.title-articles.author') . User::whereSlug($userSlug)->value('name');
 
         return view('frontend.article.index', compact('articles', 'title'));
     }
 
     public function indexCategory($categorySlug) {
-        $articles = News::whereHas('category', function($query) use ($categorySlug) {
+        $queryBase = News::whereHas('category', function($query) use ($categorySlug) {
             $query->whereSlug($categorySlug);
-        })->with('media', 'user')->latest()->paginate($this->countPaginate);
+        });
+        $articles = $this->queryAppend($queryBase);
         $title = config('farnost-detva.title-articles.category') . Category::whereSlug($categorySlug)->value('title');
 
         return view('frontend.article.index', compact('articles', 'title'));
     }
 
     public function indexDate($year) {
-        $articles = News::whereRaw('YEAR(created_at) = ?', $year)->with('media', 'user')->latest()->paginate($this->countPaginate);
+        $queryBase = News::whereRaw('YEAR(created_at) = ?', $year);
+        $articles = $this->queryAppend($queryBase);
         $title = config('farnost-detva.title-articles.date') . $year;
 
         return view('frontend.article.index', compact('articles', 'title'));
     }
 
     public function indexTag($tagSlug) {
-        $articles = News::whereHas('tags', function($query) use ($tagSlug) {
+        $queryBase = News::whereHas('tags', function($query) use ($tagSlug) {
             $query->whereSlug($tagSlug);
-        })->with('media', 'user')->latest()->paginate($this->countPaginate);
+        });
+        $articles = $this->queryAppend($queryBase);
         $title = config('farnost-detva.title-articles.tags') . Tag::whereSlug($tagSlug)->value('title');
 
         return view('frontend.article.index', compact('articles', 'title'));
@@ -67,16 +83,23 @@ class ArticleController extends Controller
     public function indexSearch($search = null) {
         if ($search) {
             // fullText Search
-            $articles = News::whereFulltext(['title', 'content'], $search)
-                        ->with('media', 'user')
-                        ->latest()
-                        ->paginate($this->countPaginate);
+            $queryBase = News::whereFulltext(['title', 'content'], $search);
             $title = config('farnost-detva.title-articles.search') . $search;
         } else {
-            $articles = News::with('media', 'user')->latest()->paginate($this->countPaginate);
+            $queryBase = News::class;
             $title = config('farnost-detva.title-articles.all');
         }
+        $articles = $this->queryAppend($queryBase);
 
         return view('frontend.article.index', compact('articles', 'title'));
+    }
+
+    private function queryAppend($queryBase) {
+        return $queryBase->whereActive(1)
+                        ->published()
+                        ->unpublished()
+                        ->latest()
+                        ->with('media', 'user')
+                        ->paginate($this->countPaginate);
     }
 }
