@@ -66,8 +66,8 @@ class ArticleController extends Controller
 
     public function indexSearch($search = null) {
         if ($search) {
-            $articles = News::where('content', 'like', '%'.$search.'%')
-                        ->orWhere('title', 'like', '%'.$search.'%')
+            // fullText Search
+            $articles = News::whereFulltext(['title', 'content'], $search)
                         ->with('media', 'user')
                         ->latest()
                         ->paginate($this->countPaginate);
