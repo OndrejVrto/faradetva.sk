@@ -25,7 +25,8 @@ return new class extends Migration
             $table->string('title', 200);
             $table->string('slug', 200);
             $table->string('teaser', 400);
-            $table->binary('content');
+            $table->mediumText('content');
+            $table->fulltext(['title', 'content']);
             $table->timestamp('published_at')->nullable();
             $table->timestamp('unpublished_at')->nullable();
             $table->timestamps();
