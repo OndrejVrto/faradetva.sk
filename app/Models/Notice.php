@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Traits\Publishable;
 use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,7 @@ class Notice extends Model implements HasMedia
 {
     use Loggable;
     use HasFactory;
+    use Publishable;
     use SoftDeletes;
     use CreatedUpdatedBy;
     use InteractsWithMedia;
@@ -32,13 +34,5 @@ class Notice extends Model implements HasMedia
 
     public function getMediaFileNameAttribute() {
         return $this->getFirstMedia('notice_pdf')->file_name ?? null;
-    }
-
-    public function getPublishedAtAttribute($value) {
-        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
-    }
-
-    public function getUnpublishedAtAttribute($value) {
-        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
     }
 }

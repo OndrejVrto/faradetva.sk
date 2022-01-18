@@ -30,11 +30,11 @@ class DateTimeAfterNow implements Rule
     public function passes($attribute, $value) {
         $app_timezone = Config::get('app.timezone');
 
-        $nowInPrague = Carbon::now(new DateTimeZone($app_timezone));
+        $nowInApp = Carbon::now(new DateTimeZone($app_timezone));
         $valueFromTZ = Carbon::createFromFormat('Y-m-d H:i:s', $value, $this->user_timezone)
                         ->setTimezone($app_timezone);
 
-        return $valueFromTZ->greaterThanOrEqualTo($nowInPrague);
+        return $valueFromTZ->greaterThanOrEqualTo($nowInApp);
     }
 
     /**
