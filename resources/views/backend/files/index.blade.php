@@ -24,7 +24,7 @@
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
             <x-admin-table.th width="20%">typ súboru</x-admin-table.th>
             <x-admin-table.th width="30%">Stránka</x-admin-table.th>
-            <x-admin-table.th>Názov dokumentu</x-admin-table.th>
+            <x-admin-table.th>Pracovný názov súboru</x-admin-table.th>
             <x-admin-table.th-actions/>
         </x-slot>
 
@@ -34,7 +34,7 @@
                 {{-- <x-admin-table.td>{{$file->id}}</x-admin-table.td> --}}
                 <x-admin-table.td class="text-wrap text-break">{{ $file->fileType->name }}</x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{ $file->page->url }} <br> {{ $file->page->title }}</x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{ $file->name }}</x-admin-table.td>
+                <x-admin-table.td class="text-wrap text-break text-bold">{{ $file->slug }}</x-admin-table.td>
                 <x-admin-table.td-actions
                     editLink="{{ route('files.edit', $file->id)}}"
                     deleteLink="{{ route('files.destroy', $file->id)}}"

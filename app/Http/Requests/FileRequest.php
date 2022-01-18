@@ -43,7 +43,7 @@ class FileRequest extends FormRequest
                 'max:255',
             ],
             'description' => [
-                'nullable',
+                'required',
                 'string',
                 'max:255',
             ],
