@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tag;
-use App\Models\News;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;

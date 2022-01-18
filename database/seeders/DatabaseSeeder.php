@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
             MediaSeeder::class,
         ]);
 
-        News::factory(4)->create();
+        // News::factory(4)->create();
         Testimonial::factory(5)->create();
 
         //* Pivot table news_tag seeder

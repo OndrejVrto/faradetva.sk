@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'Super Admin',
             'nick' => 'super-admin',
+            'slug' => 'super-admin',
             'email' => 'super@admin.sk',
             'email_verified_at' => now(),
             'password' => $password,
@@ -42,6 +43,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'Admin',
             'nick' => 'admin',
+            'slug' => 'admin',
             'email' => 'admin@admin.sk',
             'email_verified_at' => now(),
             'password' => $password,
@@ -59,6 +61,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'User',
             'nick' => 'user',
+            'slug' => 'user',
             'email' => 'user@user.sk',
             'email_verified_at' => now(),
             'password' => $password,
@@ -76,6 +79,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'Guest',
             'nick' => 'guest',
+            'slug' => 'guest',
             'email' => 'guest@guest.sk',
             'email_verified_at' => now(),
             'password' => $password,
@@ -85,15 +89,27 @@ class UserSeeder extends Seeder
 
         $role = Role::create(['name' => 'Akolyta']);
         $role->givePermissionTo('admin.dashboard');
-        User::create([
-            'name' => 'Ing. Ondrej VRŤO, IWE',
+        $user = User::create([
+            'name' => 'Ondrej VRŤO',
             'nick' => 'DonOndrej',
+            'slug' => Str::slug('Ondrej VRŤO'),
             'email' => 'ondrej@vrto.sk',
             'email_verified_at' => now(),
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole([$role->id]);
+
+        $user = User::create([
+            'name' => 'Marián Juhaniak',
+            'nick' => 'majko',
+            'slug' => Str::slug('Marián Juhaniak'),
+            'email' => 'marian@juhaniak.sk',
+            'email_verified_at' => now(),
+            'password' => $password,
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(['1']);
 
     }
 }
