@@ -66,7 +66,6 @@ class FileController extends Controller
 
     public function destroy(File $file): RedirectResponse {
         $file->delete();
-
         $file->clearMediaCollection($file->filetype->slug);
 
         toastr()->success(__('app.file.delete'));
