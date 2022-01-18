@@ -43,3 +43,24 @@
 .pdfArea {
     border: 2px dotted #ff7b33;
 }
+
+.img-article {
+    position: absolute;
+    z-index: 100;
+	font-weight   : 400;
+	font-size     : 10px;
+    color   : #243a4f;
+    bottom  : -1.1rem;
+}
+
+.img-article:hover {
+	color: #ff7b33;
+}
+
+.img-article-left {
+    left    : 5px;
+}
+
+.img-article-right {
+    right   : 5px;
+}
