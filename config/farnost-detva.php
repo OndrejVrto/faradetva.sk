@@ -13,10 +13,11 @@ return [
 
     'title-articles' => [
         'all' => 'Najnovšie články',
-        'author' => 'Články autora ',
-        'category' => 'Články z kategórie ',
-        'date' => 'Články z roku ',
-        'tags' => 'Články s kľúčovým slovom ',
+        'author' => 'Články autora: ',
+        'category' => 'Články z kategórie: ',
+        'date' => 'Články z roku: ',
+        'tags' => 'Články s kľúčovým slovom: ',
+        'search' => 'Články obsahujúce výraz: ',
     ],
 
     'admin_texts' => [

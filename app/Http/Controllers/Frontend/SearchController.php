@@ -8,13 +8,9 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-    public function searchAll($search = null ) {
-        // TODO: search in all pages
-        return 'Hľadať všade: '. $search;
-    }
-
-    public function searchNews($search = null) {
-        // TODO: search in news
-        return 'Hľadať v správach: '. $search;
+    public function __invoke($search = null ) {
+        //! TODO: search in all pages
+        //!  I do not know how!!
+        return 'TODO -> Hľadať všade výraz: '. $search;
     }
 }

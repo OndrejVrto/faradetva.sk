@@ -85,17 +85,16 @@ Route::get('/oznamy', NoticesController::class)->name('notices.pdf');
 //! Section News article
 Route::name('article.')->group(function () {
     Route::get('/clanok/{slug}', [ArticleController::class, 'show'])->name('show');
-
     Route::get('/clanky', [ArticleController::class, 'indexAll'])->name('all');
     Route::get('/clanky-v-kategorii/{slug}', [ArticleController::class, 'indexCategory'])->name('category');
     Route::get('/clanky-podla-klucoveho-slova/{slug}', [ArticleController::class, 'indexTag'])->name('tag');
     Route::get('/clanky-podla-autora/{slug}', [ArticleController::class, 'indexAuthor'])->name('author');
-    Route::get('/clanky-v-roku/{year}', [ArticleController::class, 'indexDate'])->name('date');
+    Route::get('/clanky-z-roku/{year}', [ArticleController::class, 'indexDate'])->name('date');
+    Route::get('/hladat-clanok/{search?}', [ArticleController::class, 'indexSearch'] )->name('search');
 });
 
 //! Section Search
-Route::get('/hladat/{search?}', [SearchController::class, 'searchAll'] )->name('search.all');
-Route::get('/hladat-clanok/{search?}', [SearchController::class, 'searchNews'] )->name('search.news');
+Route::get('/hladat/{search?}', SearchController::class)->name('search.all');
 
 //! Section - ALL others websites
 Route::get('{First}/{Second?}/{Third?}/{Fourth?}', PageController::class);
