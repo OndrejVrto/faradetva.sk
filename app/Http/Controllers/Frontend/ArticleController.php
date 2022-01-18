@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
+    private $countPaginate = 7;
+
     public function show($slug) {
         $oneNews = News::whereSlug($slug)->with('media', 'category', 'tags', 'user')->firstOrFail();
         $lastNews = News::whereActive(1)->latest()->take(3)->with('media')->get();
@@ -22,8 +24,7 @@ class ArticleController extends Controller
     }
 
     public function indexAll() {
-        $articles = News::with('media', 'user')->latest()->paginate(7);
-
+        $articles = News::with('media', 'user')->latest()->paginate($this->countPaginate);
         $title = config('farnost-detva.title-articles.all');
 
         return view('frontend.article.index', compact('articles', 'title'));
@@ -32,8 +33,7 @@ class ArticleController extends Controller
     public function indexAuthor($userSlug) {
         $articles = News::whereHas('user', function($query) use ($userSlug) {
             $query->whereSlug($userSlug);
-        })->with('media', 'user')->latest()->paginate(9);
-
+        })->with('media', 'user')->latest()->paginate($this->countPaginate);
         $title = config('farnost-detva.title-articles.author') . User::whereSlug($userSlug)->value('name');
 
         return view('frontend.article.index', compact('articles', 'title'));
@@ -42,17 +42,14 @@ class ArticleController extends Controller
     public function indexCategory($categorySlug) {
         $articles = News::whereHas('category', function($query) use ($categorySlug) {
             $query->whereSlug($categorySlug);
-        })->with('media', 'user')->latest()->paginate(9);
-
+        })->with('media', 'user')->latest()->paginate($this->countPaginate);
         $title = config('farnost-detva.title-articles.category') . Category::whereSlug($categorySlug)->value('title');
 
         return view('frontend.article.index', compact('articles', 'title'));
     }
 
     public function indexDate($year) {
-        // tTODO:: datum
-        $articles = News::where('created_at', 'like', '%'.$year.'%' )->with('media', 'user')->latest()->paginate(9);
-
+        $articles = News::whereRaw('YEAR(created_at) = ?', $year)->with('media', 'user')->latest()->paginate($this->countPaginate);
         $title = config('farnost-detva.title-articles.date') . $year;
 
         return view('frontend.article.index', compact('articles', 'title'));
@@ -61,9 +58,24 @@ class ArticleController extends Controller
     public function indexTag($tagSlug) {
         $articles = News::whereHas('tags', function($query) use ($tagSlug) {
             $query->whereSlug($tagSlug);
-        })->with('media', 'user')->latest()->paginate(9);
-
+        })->with('media', 'user')->latest()->paginate($this->countPaginate);
         $title = config('farnost-detva.title-articles.tags') . Tag::whereSlug($tagSlug)->value('title');
+
+        return view('frontend.article.index', compact('articles', 'title'));
+    }
+
+    public function indexSearch($search = null) {
+        if ($search) {
+            $articles = News::where('content', 'like', '%'.$search.'%')
+                        ->orWhere('title', 'like', '%'.$search.'%')
+                        ->with('media', 'user')
+                        ->latest()
+                        ->paginate($this->countPaginate);
+            $title = config('farnost-detva.title-articles.search') . $search;
+        } else {
+            $articles = News::with('media', 'user')->latest()->paginate($this->countPaginate);
+            $title = config('farnost-detva.title-articles.all');
+        }
 
         return view('frontend.article.index', compact('articles', 'title'));
     }

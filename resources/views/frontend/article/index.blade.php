@@ -11,10 +11,9 @@
 
 @section('content')
 
-<!-- blog section Start -->
 <div class="section ch_blog_section">
     <div class="container">
-        <div class="heading_section wh_headline">
+        <div class="heading_section">
             <h1>{{ $title }}</h1>
         </div>
         <div class="row mt-3">
@@ -27,16 +26,15 @@
                         <div class="blog_item_cover fromtop wow">
                             <div class="row">
                                 <div class="col-6 blog_thumb">
-                                    <img src="{{ $oneNews->getFirstMediaUrl('news_front_picture', 'large-thin') ?: "http://via.placeholder.com/370x248" }}"
+                                    <img src="{{ $oneNews->getFirstMediaUrl('news_front_picture', 'large-thin') ?: "http://via.placeholder.com/650x300" }}"
                                         class="w-100"
                                         alt="Malý obrázok k článku: {{ $oneNews->title }}."
                                     />
-                                    <!-- overlay -->
                                     <div class="blog_overlay">
                                         <a href="{{ route('article.show', $oneNews->slug)}}" class="link_icon"><i class="fas fa-link"></i></a>
                                     </div>
-                                    <!-- overlay -->
                                 </div>
+
                                 <div class="col-6 blog_desc">
                                     <div class="blog_info pb-3">
                                         <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->createdBy }}</a></span>
@@ -44,8 +42,10 @@
                                         <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}</a></span>
                                     </div>
 
-                                    <h2>{{ $oneNews->title }}</h2>
-                                    <div class="content py-2 text-justify pe-4">
+                                    <a class="text-decoration-none" href="{{ route('article.show', $oneNews->slug)}}">
+                                        <h2>{{ $oneNews->title }}</h2>
+                                    </a>
+                                    <div class="content pt-2 pb-3 text-justify pe-4">
                                         {{$oneNews->teaser}}
                                     </div>
 
@@ -67,20 +67,21 @@
                                     class="w-100"
                                     alt="Malý obrázok k článku: {{ $oneNews->title }}."
                                 />
-                                <!-- overlay -->
                                 <div class="blog_overlay">
                                     <a href="{{ route('article.show', $oneNews->slug)}}" class="link_icon"><i class="fas fa-link"></i></a>
                                 </div>
-                                <!-- overlay -->
                             </div>
+
                             <div class="blog_desc">
                                 <div class="blog_info">
                                     <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->createdBy }}</a></span>
                                     <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
                                 </div>
 
-                                <h3>{{ $oneNews->title }}</h3>
-                                <div class="content">
+                                <a class="text-decoration-none" href="{{ route('article.show', $oneNews->slug)}}">
+                                    <h3>{{ $oneNews->title }}</h3>
+                                </a>
+                                <div class="content pb-2 text-justify">
                                     {{$oneNews->teaser_medium}}
                                 </div>
 
@@ -93,19 +94,14 @@
                     </div>
 
                 @endif
-
             @endforeach
-
         </div>
 
-        <!-- Paginator Start-->
         <div class="row pt-2">
             {{ $articles->onEachSide(1)->links() }}
         </div>
-        <!-- Paginator end-->
 
     </div>
 </div>
-<!-- blog section End -->
 
 @endsection
