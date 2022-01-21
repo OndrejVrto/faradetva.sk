@@ -12,6 +12,7 @@
 @endpush
 
 @push('js')
+    <script src="{{ asset('asset/backend/js/admin_app.js') }}"></script>
     <script src="{{ asset('asset/backend/js/admin_custom.js') }}"></script>
     @toastr_js
     @toastr_render
