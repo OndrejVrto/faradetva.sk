@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\NoticesController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\StaticPageController;
+use App\Http\Controllers\Backend\FileManagerController;
 use App\Http\Controllers\Backend\TestimonialController;
 use Lab404\Impersonate\Controllers\ImpersonateController;
 use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
@@ -37,7 +38,7 @@ Route::view('500', 'errors.500');
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 //!  Logout Route
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 //!  Inpersonate OUT Route
 Route::get('impersonate/leave', [ImpersonateController::class, 'leave'])->name('impersonate.leave');
@@ -53,9 +54,10 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::post('users-activity', [ActivityController::class, 'handlePostRequest'])->name('log-activity.post');
 
     //!  Main route
-    Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
-    Route::resource('users', UserController::class);
+    Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
+    Route::get('file-manager', FileManagerController::class)->name('file-manager');
 
+    Route::resource('users', UserController::class);
     Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
 
     Route::resources([
@@ -79,22 +81,22 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 
 //! FrontEnd Routes
 Route::get('/', HomeController::class)->name('home');
-Route::get('/kontakt', ContactController::class)->name('contact');
-Route::get('/oznamy', NoticesController::class)->name('notices.pdf');
+Route::get('kontakt', ContactController::class)->name('contact');
+Route::get('oznamy', NoticesController::class)->name('notices.pdf');
 
 //! Section News article
 Route::controller(ArticleController::class)->name('article.')->group(function () {
-    Route::get('/clanok/{slug}', 'show')->name('show');
-    Route::get('/clanky', 'indexAll')->name('all');
-    Route::get('/clanky-v-kategorii/{slug}', 'indexCategory')->name('category');
-    Route::get('/clanky-podla-klucoveho-slova/{slug}', 'indexTag')->name('tag');
-    Route::get('/clanky-podla-autora/{slug}', 'indexAuthor')->name('author');
-    Route::get('/clanky-z-roku/{year}', 'indexDate')->name('date');
-    Route::get('/hladat-clanok/{search?}', 'indexSearch')->name('search');
+    Route::get('clanok/{slug}', 'show')->name('show');
+    Route::get('clanky', 'indexAll')->name('all');
+    Route::get('clanky-v-kategorii/{slug}', 'indexCategory')->name('category');
+    Route::get('clanky-podla-klucoveho-slova/{slug}', 'indexTag')->name('tag');
+    Route::get('clanky-podla-autora/{slug}', 'indexAuthor')->name('author');
+    Route::get('clanky-z-roku/{year}', 'indexDate')->name('date');
+    Route::get('hladat-clanok/{search?}', 'indexSearch')->name('search');
 });
 
 //! Section Search
-Route::get('/hladat/{search?}', SearchController::class)->name('search.all');
+Route::get('hladat/{search?}', SearchController::class)->name('search.all');
 
 //! Section - ALL others websites
 Route::get('{First}/{Second?}/{Third?}/{Fourth?}', PageController::class);
