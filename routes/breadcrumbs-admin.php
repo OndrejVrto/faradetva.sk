@@ -48,6 +48,11 @@ Breadcrumbs::for('admin.home', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('admin.dashboard'), ['icon' => 'fas fa-home']);
 });
 
+Breadcrumbs::for('file-manager', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.home');
+    $trail->push('Súborový manažér', route('file-manager'));
+});
+
 // Admin Home : Resource Models
 Breadcrumbs::resource('news', 'Články');
 Breadcrumbs::resource('notices', 'Oznamy');

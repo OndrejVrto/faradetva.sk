@@ -318,7 +318,7 @@ return [
             ],
         ],
         [
-            'text' => 'Dáta stránky',
+            'text' => 'Vlastnosti stránok',
             'icon_color'  => 'cyan',
             'icon'  => 'fab fa-pagelines fa-lg',
             'route' => 'static-pages.index',
@@ -332,7 +332,14 @@ return [
         //     'can'  => 'banners.index',
         // ],
         [
-            'text'  => 'Súbory',
+            'text'  => 'Správca šablon',
+            'icon_color'  => 'cyan',
+            'icon'  => 'fas fa-warehouse',
+            'route' => 'file-manager',
+            'can'  => 'file-manager',
+        ],
+        [
+            'text'  => 'Pridávanie súborov',
             'icon_color'  => 'cyan',
             'icon'  => 'fas fa-file-import',
             'route' => 'files.index',
