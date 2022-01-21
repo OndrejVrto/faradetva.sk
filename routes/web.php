@@ -83,14 +83,14 @@ Route::get('/kontakt', ContactController::class)->name('contact');
 Route::get('/oznamy', NoticesController::class)->name('notices.pdf');
 
 //! Section News article
-Route::name('article.')->group(function () {
-    Route::get('/clanok/{slug}', [ArticleController::class, 'show'])->name('show');
-    Route::get('/clanky', [ArticleController::class, 'indexAll'])->name('all');
-    Route::get('/clanky-v-kategorii/{slug}', [ArticleController::class, 'indexCategory'])->name('category');
-    Route::get('/clanky-podla-klucoveho-slova/{slug}', [ArticleController::class, 'indexTag'])->name('tag');
-    Route::get('/clanky-podla-autora/{slug}', [ArticleController::class, 'indexAuthor'])->name('author');
-    Route::get('/clanky-z-roku/{year}', [ArticleController::class, 'indexDate'])->name('date');
-    Route::get('/hladat-clanok/{search?}', [ArticleController::class, 'indexSearch'] )->name('search');
+Route::controller(ArticleController::class)->name('article.')->group(function () {
+    Route::get('/clanok/{slug}', 'show')->name('show');
+    Route::get('/clanky', 'indexAll')->name('all');
+    Route::get('/clanky-v-kategorii/{slug}', 'indexCategory')->name('category');
+    Route::get('/clanky-podla-klucoveho-slova/{slug}', 'indexTag')->name('tag');
+    Route::get('/clanky-podla-autora/{slug}', 'indexAuthor')->name('author');
+    Route::get('/clanky-z-roku/{year}', 'indexDate')->name('date');
+    Route::get('/hladat-clanok/{search?}', 'indexSearch')->name('search');
 });
 
 //! Section Search

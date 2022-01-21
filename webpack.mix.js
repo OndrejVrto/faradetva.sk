@@ -16,10 +16,10 @@ const mix = require('laravel-mix');
 	// .sourceMaps();
 
 // backend
-// mix.js('resources/asset/backend/js/admin_app.js', 'public/asset/js')
-// 	.sass('resources/asset/backend/sass/admin_custom.scss', 'public/asset/css')
-// 	.sass('resources/asset/backend/sass/admin_app.scss', 'public/asset/css')
-// 	.js('resources/asset/backend/js/admin_custom.js', 'public/asset/js');
+mix.js('resources/asset/backend/js/admin_app.js', 'public/asset/backend/js')
+	.sass('resources/asset/backend/sass/admin_custom.scss', 'public/asset/backend/css')
+	.sass('resources/asset/backend/sass/admin_app.scss', 'public/asset/backend/css')
+	.js('resources/asset/backend/js/admin_custom.js', 'public/asset/backend/js');
 
 
 //frontend
