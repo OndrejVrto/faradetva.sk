@@ -128,7 +128,7 @@ return [
     'classes_content_wrapper' => 'bg-backend',
     'classes_content_main' => 'pt-4',
     'classes_content_header' => '',
-    'classes_content' => '',
+    'classes_content' => 'container-fluid',
     'classes_sidebar' => 'sidebar-dark-light elevation-4 lh-sm',
     'classes_sidebar_nav' => '', // text-sm
     'classes_topnav' => 'navbar-gray navbar-dark',
@@ -314,7 +314,9 @@ return [
             'header' => 'Statické stránky',
             'can'  => [
                 'staticpages.index',
-                'banners.index',
+                'file-manager',
+                'files.index',
+                'file-types.index',
             ],
         ],
         [

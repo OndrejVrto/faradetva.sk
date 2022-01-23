@@ -9,12 +9,13 @@
 
 @section('content')
     <iframe
-        class="iframe-full-height w-100"
-        src="{{ asset('vendor/tiny-file-manager/TinyFileManager.php') }}"
         class="w-100"
+        {{-- class="w-100 vh-85" --}}
+        src="{{ asset('vendor/tiny-file-manager/TinyFileManager.php') }}"
         frameborder="0"
         scrolling="no"
-        style="min-height: 1000px !important;">
+        style="min-height: 600px !important;"
+    >
     </iframe>
 @endsection
 

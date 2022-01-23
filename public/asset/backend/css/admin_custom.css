@@ -45,3 +45,7 @@
 .lh-lg {
     line-height: 2 !important;
 }
+
+.vh-85 {
+	height: 85vh !important;
+}
