@@ -79,24 +79,7 @@
                             </li> --}}
 
                             <li>
-                                <a href="#">Podstránky</a>
-                                <ul class="sub-menu">
-                                    <li><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
-                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/imrich-durica') }}">Imrich Ďurica</a></li>
-                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/jozef-zavodsky') }}">Jozef Závodský</a></li>
-                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/prof-thdr-jozef-buda') }}">prof. Jozef Búda</a></li>
-                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/anton-prokop') }}">Anton Prokop</a></li>
-                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/mons-jan-strban') }}">Mons. Ján Štrbáň</a></li>
-                                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/karol-anton-medvecky') }}">Karol Anton Medvecký</a></li>
-                                    <li><a href="{{ url('o-nas/pastoracia/lektori') }}">Lektori</a></li>
-                                    <li><a href="{{ url('o-nas/pastoracia/akolyti') }}">Akolyti</a></li>
-                                    <li><a href="{{ url('sakralne-objekty/kostol-sv-frantiska-z-assisi-v-detve') }}"> 	Kostol Detva</a></li>
-                                    <li><a href="{{ url('o-nas/patron-farnosti') }}">Svätý František</a></li>
-                                    <li><a href="{{ url('o-nas/pastoracia/farska-rada') }}">Farská rada</a></li>
-                                    <li><a href="{{ url('spolocenstva/faustinum') }}">Faustinum</a></li>
-                                    {{-- <li><a href="{{ url('') }}"></a></li> --}}
-
-                                </ul>
+                                <a href="{{ url('zoznam-statickych-stranok') }}">Podstránky</a>
                             </li>
 
                             <li><a href="{{ route('contact') }}">Kontakty</a></li>

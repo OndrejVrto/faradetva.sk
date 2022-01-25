@@ -1,5 +1,12 @@
 @extends('frontend._layouts.static-page')
 
+@push('content_header')
+    {{-- Prepend content Header --}}
+@endpush
+@prepend('content_footer')
+    {{-- After content Footer --}}
+@endprepend
+
 @section('content')
     <x-page-section >
         <x-page-section.img-media columns="4" type="left" name="prvy-obrazok" :model="$pageData"/>
