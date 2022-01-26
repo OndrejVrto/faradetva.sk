@@ -6,7 +6,8 @@
             <x-page-section title="O nás / História">
                 <x-page-section.text type="left">
                     <ol>
-                        <li class="pb-2"><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
+                        <li><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
+                        <li class="pb-2"><a href="{{ url('o-nas/vianoce-v-detve') }}">Vianoce v Detve</a></li>
                         <span>Významné osobnosti</span>
                         <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/imrich-durica') }}">Imrich Ďurica</a></li>
                         <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/jozef-zavodsky') }}">Jozef Závodský</a></li>
@@ -28,6 +29,7 @@
                         <li><a href="{{ url('sakralne-objekty/pricestne-sochy') }}">Prícestné sochy</a></li>
                         <li><a href="{{ url('sakralne-objekty/detvianske-krize') }}">Detvianske kríže</a></li>
                         <li><a href="{{ url('sakralne-objekty/kostol-karmel') }}">Kostol Božieho milosrdenstva a Kráľovnej Karmelu</a></li>
+                        <li><a href="{{ url('sakralne-objekty/kaplnky') }}">Kaplnky</a></li>
                     </ol>
                 </x-page-section.text>
             </x-page-section>
@@ -38,6 +40,9 @@
                         <li><a href="{{ url('o-nas/pastoracia/lektori') }}">Lektori</a></li>
                         <li><a href="{{ url('o-nas/pastoracia/akolyti') }}">Akolyti</a></li>
                         <li><a href="{{ url('o-nas/pastoracia/farska-rada') }}">Farská rada</a></li>
+                        <li><a href="{{ url('o-nas/pastoracia/organisti-spevaci') }}">Organisti, speváci</a></li>
+                        <li><a href="{{ url('o-nas/pastoracia/kostolnici') }}">Kostolník / kostolníčka</a></li>
+                        <li><a href="{{ url('o-nas/pastoracia/ministranti') }}"> 	Miništranti</a></li>
                     </ol>
                 </x-page-section.text>
             </x-page-section>
