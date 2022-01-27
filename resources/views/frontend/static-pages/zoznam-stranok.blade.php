@@ -46,6 +46,8 @@
                         <span>Kňazi</span>
                         <li><a href="{{ url('o-nas/pastoracia/farari-v-detve') }}">Farári v Detve</a></li>
                         <li><a href="{{ url('o-nas/pastoracia/kaplani-v-detve') }}">Kapláni v Detve</a></li>
+                        <li><a href="{{ url('o-nas/pastoracia/knazi-pochovany-v-detve') }}">Kňazi pochovaní v Detve</a></li>
+                        <li><a href="{{ url('o-nas/pastoracia/duchovne-povolania') }}">Kňazské a rehoľné povolania</a></li>
                     </ol>
                 </x-page-section.text>
             </x-page-section>
