@@ -42,7 +42,10 @@
                         <li><a href="{{ url('o-nas/pastoracia/farska-rada') }}">Farská rada</a></li>
                         <li><a href="{{ url('o-nas/pastoracia/organisti-spevaci') }}">Organisti, speváci</a></li>
                         <li><a href="{{ url('o-nas/pastoracia/kostolnici') }}">Kostolník / kostolníčka</a></li>
-                        <li><a href="{{ url('o-nas/pastoracia/ministranti') }}"> 	Miništranti</a></li>
+                        <li class="pb-2"><a href="{{ url('o-nas/pastoracia/ministranti') }}">Miništranti</a></li>
+                        <span>Kňazi</span>
+                        <li><a href="{{ url('o-nas/pastoracia/farari-v-detve') }}">Farári v Detve</a></li>
+                        <li><a href="{{ url('o-nas/pastoracia/kaplani-v-detve') }}">Kapláni v Detve</a></li>
                     </ol>
                 </x-page-section.text>
             </x-page-section>
@@ -80,7 +83,8 @@
             <x-page-section title="Duchovný život / Sväteniny">
                 <x-page-section.text type="right">
                     <ol>
-                        {{-- <li><a href="{{ url('') }}"></a></li> --}}
+                        <li><a href="{{ url('duchovny-zivot/sveteniny/pohreb') }}">Pohreb</a></li>
+                        <li><a href="{{ url('duchovny-zivot/sveteniny/pozehnania') }}">Požehnania</a></li>
                     </ol>
                 </x-page-section.text>
             </x-page-section>
