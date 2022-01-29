@@ -1,5 +1,12 @@
 @extends('frontend._layouts.static-page')
 
+@push('content_header')
+    {{-- Prepend content Header --}}
+@endpush
+@prepend('content_footer')
+    {{-- After content Footer --}}
+@endprepend
+
 @section('content')
     <x-page-section >
         <x-page-section.img-media columns="4" type="left" name="prvy-obrazok" :model="$pageData"/>
@@ -13,7 +20,7 @@
     </x-page-section>
 
     <x-page-section title="Mladosť">
-        <x-page-section.img-media columns="5" type="right" name="druhy-obrazok-assisi" :model="$pageData"/>
+        <x-page-section.img-media columns="4" type="right" name="druhy-obrazok-assisi" :model="$pageData"/>
         <x-page-section.text type="left">
             <p>
                 František sa narodil v umbrijskom meste Assisi na úpätí hory Monte Subasio. Jeho rodičmi boli zámožný obchodník so súknom Pietro di Bernardone a jeho manželka Giovanna, zvaná tiež Pika, ktorá pravdepodobne pochádzala z Provensálska. František bol pokrstený ako Giovanni (Ján), krátko nato mu však jeho otec, ktorý sa práve vrátil z obchodnej cesty po Francúzsku, dal meno Francesco („malý Francúz“). Podľa niektorých zdrojov si tak chcel uctiť krajinu, pri obchodovaní s ktorou nadobudol svoje bohatstvo. Okrem Františka mali manželia Bernardonovci ešte jedno dieťa, a to chlapca, ktorý sa volal Angelo.
