@@ -35,7 +35,7 @@ class FileRequest extends FormRequest
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('files', 'slug')->ignore($this->file)->whereNull('deleted_at')
+                Rule::unique('files', 'slug')->ignore($this->file)->withoutTrashed(),
             ],
             'author' => [
                 'nullable',

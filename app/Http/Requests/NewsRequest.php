@@ -46,7 +46,7 @@ class NewsRequest extends FormRequest
                 'max:200',
             ],
             'slug' => [
-                Rule::unique('news', 'slug')->ignore($this->news)->whereNull('deleted_at')
+                Rule::unique('news', 'slug')->ignore($this->news)->withoutTrashed(),
             ],
             'content' => [
                 'required',

@@ -32,7 +32,7 @@ class TestimonialRequest extends FormRequest
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('testimonials', 'slug')->ignore($this->testimonial)->whereNull('deleted_at')
+                Rule::unique('testimonials', 'slug')->ignore($this->testimonial)->withoutTrashed(),
             ],
             'function' => [
                 'nullable',

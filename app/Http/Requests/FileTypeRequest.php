@@ -22,7 +22,7 @@ class FileTypeRequest extends FormRequest
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('file_types', 'slug')->ignore($this->file_type)->whereNull('deleted_at')
+                Rule::unique('file_types', 'slug')->ignore($this->file_type)->withoutTrashed(),
             ],
             'description' => [
                 'nullable',

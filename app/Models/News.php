@@ -55,10 +55,6 @@ class News extends Model implements HasMedia
         return Str::limit($this->teaser, 55, '...');
     }
 
-    public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('news_front_picture')->file_name ?? null;
-    }
-
     public function getCreatedAttribute() {
         return $this->created_at->format("d. m. Y");
     }
@@ -83,20 +79,22 @@ class News extends Model implements HasMedia
         return $this->belongsToMany(Tag::class);
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
-        $this->addMediaConversion('large')
-            ->fit("crop", 848, 460)
-            ->optimize()
-            ->withResponsiveImages();
-        $this->addMediaConversion('large-thin')
-            ->fit("crop", 650, 300)
-            ->optimize()
-            ->withResponsiveImages();
-        $this->addMediaConversion('thumb-latest-news')
-            ->fit("crop", 80, 80);
-        $this->addMediaConversion('thumb-all-news')
-            ->fit("crop", 370, 248);
-        $this->addMediaConversion('crop-thumb')
-            ->fit("crop", 170, 92);
+    public function registerMediaConversions(Media $media = null) : void {
+        if ($media->collection_name == 'news_front_picture') {
+            $this->addMediaConversion('large')
+                ->fit("crop", 848, 460)
+                ->optimize()
+                ->withResponsiveImages();
+            $this->addMediaConversion('large-thin')
+                ->fit("crop", 650, 300)
+                ->optimize()
+                ->withResponsiveImages();
+            $this->addMediaConversion('thumb-latest-news')
+                ->fit("crop", 80, 80);
+            $this->addMediaConversion('thumb-all-news')
+                ->fit("crop", 370, 248);
+            $this->addMediaConversion('crop-thumb')
+                ->fit("crop", 170, 92);
+        }
     }
 }
