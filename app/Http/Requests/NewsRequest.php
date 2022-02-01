@@ -67,17 +67,17 @@ class NewsRequest extends FormRequest
                 'dimensions:min_width=848,min_height=460',
                 'max:5000'
             ],
-            // 'document.*' => [
-            //     'file',
-            //     'max:10000',
-            // ],
+            'doc.*' => [
+                'file',
+                'max:10000',
+            ],
             // 'tags' => 'required',
         ];
     }
 
     public function messages() {
         return [
-            'news_picture.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
+            'picture.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
             'unpublished_at.after' => 'Dátum a čas musí byť väčší ako je v poli: Publikovať Od',
         ];
     }

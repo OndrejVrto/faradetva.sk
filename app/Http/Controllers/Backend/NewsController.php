@@ -8,6 +8,7 @@ use App\Models\Tag;
 use App\Models\News;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Helpers\DataFormater;
 use App\Http\Requests\NewsRequest;
 use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;
@@ -39,7 +40,8 @@ class NewsController extends Controller
         }
 
         $file = $request->file('doc');
-        $name = uniqid() . '_' . trim($file->getClientOriginalName());
+        // $name = uniqid() . '_' . trim($file->getClientOriginalName());
+        $name = trim($file->getClientOriginalName());
 
         $file->move($path, $name);
 
@@ -61,7 +63,10 @@ class NewsController extends Controller
         }
 
         foreach ($request->input('document', []) as $file) {
-            $news->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection($news->collectionDocument);
+            $news
+                ->addMedia(storage_path('tmp/uploads/' . $file))
+                ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true))
+                ->toMediaCollection($news->collectionDocument);
         }
 
         toastr()->success(__('app.news.store'));
@@ -101,7 +106,10 @@ class NewsController extends Controller
 
         foreach ($request->input('document', []) as $file) {
             if (count($media) === 0 || !in_array($file, $media)) {
-                $news->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection($news->collectionDocument);
+                $news
+                    ->addMedia(storage_path('tmp/uploads/' . $file))
+                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true))
+                    ->toMediaCollection($news->collectionDocument);
             }
         }
 

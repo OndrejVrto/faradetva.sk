@@ -5,8 +5,11 @@
 
         $media_id = $mediaFile->id ?? '';
         $media_file_name = $mediaFile->file_name ?? '';
-        $media_author = $mediaFile->getCustomProperty('author') ?? '';
-        $media_source = $mediaFile->getCustomProperty('source') ?? '';
+        $media_author = 'TODO';
+        $media_source = 'TODO';
+
+        // $media_author = $mediaFile->hasCustomProperty('author') ? $mediaFile->getCustomProperty('author') : '';
+        // $media_source = $mediaFile->hasCustomProperty('source') ? $mediaFile->getCustomProperty('source') : '';
     }
 @endphp
 
