@@ -25,12 +25,13 @@
         "barryvdh/laravel-debugbar": "^3.6",
         "barryvdh/laravel-ide-helper": "^2.10",
         "beyondcode/laravel-query-detector": "^1.5",
-        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
+        "glhd/laravel-dumper": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
         "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.0",
         "wulfheart/pretty_routes": "^0.3.0"
     },
     "autoload": {
