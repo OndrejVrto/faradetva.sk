@@ -38,7 +38,7 @@ class NewsController extends Controller
             mkdir($path, 0777, true);
         }
 
-        $file = $request->file('file');
+        $file = $request->file('doc');
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
         $file->move($path, $name);
