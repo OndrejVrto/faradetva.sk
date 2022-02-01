@@ -22,7 +22,7 @@ class TagRequest extends FormRequest
                 'alpha',
             ],
             'slug' => [
-                Rule::unique('tags', 'slug')->ignore($this->tag)->whereNull('deleted_at')
+                Rule::unique('tags', 'slug')->ignore($this->tag)->withoutTrashed(),
             ],
             'description' => [
                 'required',

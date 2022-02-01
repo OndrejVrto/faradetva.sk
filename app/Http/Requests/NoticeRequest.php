@@ -44,7 +44,7 @@ class NoticeRequest extends FormRequest
                 'max:10000',
             ],
             'slug' => [
-                Rule::unique('notices', 'slug')->ignore($this->notice)->whereNull('deleted_at')
+                Rule::unique('notices', 'slug')->ignore($this->notice)->withoutTrashed(),
             ],
         ];
     }

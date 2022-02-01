@@ -46,7 +46,7 @@ class NewsRequest extends FormRequest
                 'max:200',
             ],
             'slug' => [
-                Rule::unique('news', 'slug')->ignore($this->news)->whereNull('deleted_at')
+                Rule::unique('news', 'slug')->ignore($this->news)->withoutTrashed(),
             ],
             'content' => [
                 'required',
@@ -60,14 +60,14 @@ class NewsRequest extends FormRequest
                 'required',
                 'exists:categories,id'
             ],
-            'news_picture' => [
+            'picture' => [
                 $imageRule,
                 'file',
                 'mimes:jpg,bmp,png,jpeg',
                 'dimensions:min_width=848,min_height=460',
                 'max:5000'
             ],
-            'files.*' => [
+            'doc.*' => [
                 'file',
                 'max:10000',
             ],
@@ -77,7 +77,7 @@ class NewsRequest extends FormRequest
 
     public function messages() {
         return [
-            'news_picture.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
+            'picture.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
             'unpublished_at.after' => 'Dátum a čas musí byť väčší ako je v poli: Publikovať Od',
         ];
     }

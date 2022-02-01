@@ -35,7 +35,7 @@ class ArticleController extends Controller
     }
 
     public function indexAll() {
-        $queryBase = News::with('media', 'user');
+        $queryBase = News::query();
         $title = config('farnost-detva.title-articles.all');
 
         return $this->queryAppend($queryBase, $title);

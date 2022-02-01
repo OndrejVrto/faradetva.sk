@@ -43,6 +43,9 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 //!  Inpersonate OUT Route
 Route::get('impersonate/leave', [ImpersonateController::class, 'leave'])->name('impersonate.leave');
 
+//!  Store dropzone Documents
+Route::post('news/media', [NewsController::class, 'storeMedia'])->name('news.storeMedia');
+
 //! BackEnd Routes
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 
@@ -56,10 +59,9 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     //!  Main route
     Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
     Route::get('file-manager', FileManagerController::class)->name('file-manager');
-
-    Route::resource('users', UserController::class);
     Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
 
+    Route::resource('users', UserController::class);
     Route::resources([
         'tags'         => TagController::class,
         'news'         => NewsController::class,

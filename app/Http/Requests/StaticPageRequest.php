@@ -17,13 +17,13 @@ class StaticPageRequest extends FormRequest
     {
         $rules = [
             'route_name' => [
-                Rule::unique('static_pages', 'route_name')->ignore($this->static_page)->whereNull('deleted_at'),
+                Rule::unique('static_pages', 'route_name')->ignore($this->static_page)->withoutTrashed(),
                 'required',
                 'string',
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('static_pages', 'slug')->ignore($this->static_page)->whereNull('deleted_at')
+                Rule::unique('static_pages', 'slug')->ignore($this->static_page)->withoutTrashed(),
             ],
             'url' => [
                 'required',
