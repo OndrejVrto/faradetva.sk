@@ -41,6 +41,10 @@ class News extends Model implements HasMedia
         'teaser',
     ];
 
+    public $collectionPicture = 'news_front_picture';
+
+    public $collectionDocument = 'document';
+
     public function getRouteKeyName() {
         return 'slug';
     }
@@ -79,8 +83,12 @@ class News extends Model implements HasMedia
         return $this->belongsToMany(Tag::class);
     }
 
+    public function document() {
+        return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionDocument);
+    }
+
     public function registerMediaConversions(Media $media = null) : void {
-        if ($media->collection_name == 'news_front_picture') {
+        if ($media->collection_name == $this->collectionPicture) {
             $this->addMediaConversion('large')
                 ->fit("crop", 848, 460)
                 ->optimize()

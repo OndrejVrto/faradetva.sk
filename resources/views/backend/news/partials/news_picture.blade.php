@@ -1,7 +1,7 @@
 @php
     $media_id = $media_file_name = $media_author = $media_source = null;
     if (isset($news)) {
-        $mediaFile = $news->getFirstMedia('news_front_picture');
+        $mediaFile = $news->getFirstMedia($news->collectionPicture);
 
         $media_id = $mediaFile->id ?? '';
         $media_file_name = $mediaFile->file_name ?? '';
@@ -11,7 +11,7 @@
 @endphp
 
 <x-adminlte-input-file
-    name="news_picture[{{ $media_id }}]"
+    name="picture[{{ $media_id }}]"
     class="border-right-none"
     label="Obrázok na titulku"
     fgroupClass="mt-5"
@@ -28,9 +28,9 @@
 </x-adminlte-input-file>
 
 <x-adminlte-input
-    name="news_picture_author[{{ $media_id }}]"
+    name="picture_author[{{ $media_id }}]"
     label="Autor obrázku"
-    value="{{ $media_author ?? old('news_picture_author') ?? '' }}"
+    value="{{ $media_author ?? old('picture_author') ?? '' }}"
     class="input-group-sm"
     enableOldSupport="true"
     >
@@ -42,9 +42,9 @@
 </x-adminlte-input>
 
 <x-adminlte-input
-    name="news_picture_source[{{ $media_id }}]"
+    name="picture_source[{{ $media_id }}]"
     label="Zdroj obrázku (link na www, ...)"
-    value="{{ $media_source ?? old('news_picture_source') ?? '' }}"
+    value="{{ $media_source ?? old('picture_source') ?? '' }}"
     class="input-group-sm"
     enableOldSupport="true"
     >

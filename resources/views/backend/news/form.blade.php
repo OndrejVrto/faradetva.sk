@@ -52,13 +52,16 @@
         </div>
     </div>
 
-    @include('backend.news.partials.files_old')
+    {{-- @include('backend.news.partials.files_old') --}}
 
-    @include('backend.news.partials.files_new')
+    {{-- @include('backend.news.partials.files_new') --}}
 
-    <div class="form-row">
+    @include('backend.news.partials.dropzone_attachment')
+
+
+    {{-- <div class="form-row">
         <x-adminlte-button class="px-5 bg-gradient-red" icon="fas fa-plus" title="Pridať ďalší súbor" id="addFileSubmit" />
-    </div>
+    </div> --}}
 
 </x-admin-form>
 

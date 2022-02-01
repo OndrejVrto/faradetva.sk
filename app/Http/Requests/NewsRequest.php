@@ -60,17 +60,17 @@ class NewsRequest extends FormRequest
                 'required',
                 'exists:categories,id'
             ],
-            'news_picture' => [
+            'picture' => [
                 $imageRule,
                 'file',
                 'mimes:jpg,bmp,png,jpeg',
                 'dimensions:min_width=848,min_height=460',
                 'max:5000'
             ],
-            'files.*' => [
-                'file',
-                'max:10000',
-            ],
+            // 'document.*' => [
+            //     'file',
+            //     'max:10000',
+            // ],
             // 'tags' => 'required',
         ];
     }
