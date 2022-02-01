@@ -41,7 +41,9 @@ class NewsController extends Controller
 
         $file = $request->file('doc');
         // $name = uniqid() . '_' . trim($file->getClientOriginalName());
-        $name = trim($file->getClientOriginalName());
+
+        // sanitize filename
+        $name = DataFormater::filterFilename($file->getClientOriginalName(), true);
 
         $file->move($path, $name);
 
@@ -65,7 +67,6 @@ class NewsController extends Controller
         foreach ($request->input('document', []) as $file) {
             $news
                 ->addMedia(storage_path('tmp/uploads/' . $file))
-                ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true))
                 ->toMediaCollection($news->collectionDocument);
         }
 
@@ -108,7 +109,6 @@ class NewsController extends Controller
             if (count($media) === 0 || !in_array($file, $media)) {
                 $news
                     ->addMedia(storage_path('tmp/uploads/' . $file))
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true))
                     ->toMediaCollection($news->collectionDocument);
             }
         }
