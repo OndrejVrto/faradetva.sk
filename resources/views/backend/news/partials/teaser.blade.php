@@ -2,7 +2,7 @@
     name="teaser"
     label="Upútavka"
     enableOldSupport="true"
-    rows="2"
+    rows="3"
     >
     <x-slot name="prependSlot">
         <div class="input-group-text bg-gradient-orange">

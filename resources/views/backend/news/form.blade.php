@@ -44,7 +44,7 @@
         <div class="col-xl-4 order-xl-2">
             @include('backend.news.partials.category_id')
             @include('backend.news.partials.tags')
-            @include('backend.news.partials.news_picture')
+            @include('backend.news.partials.picture')
         </div>
         <div class="col-xl-8 order-xl-1">
             @include('backend.news.partials.teaser')
