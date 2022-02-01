@@ -12,19 +12,6 @@
     <script>
         var uploadedDocumentMap = {}
 
-        @verbatim
-        Dropzone.prototype.defaultOptions.dictDefaultMessage = "Sem pretiahni súbory pre upload";
-        Dropzone.prototype.defaultOptions.dictFallbackMessage = "Váš prehliadač nepodporuje vkladanie súborov preťahovaním.";
-        Dropzone.prototype.defaultOptions.dictFallbackText = "Na nahranie súborov použite záložný formulár nižšie.";
-        Dropzone.prototype.defaultOptions.dictFileTooBig = "Súbor je príliš veľký ({{filesize}}MiB). Maximálna veľkosť: {{maxFilesize}}MiB.";
-        Dropzone.prototype.defaultOptions.dictInvalidFileType = "Súbory tohto typu nemôžete nahrať.";
-        Dropzone.prototype.defaultOptions.dictResponseError = "Server odpovedal kódom {{statusCode}}.";
-        Dropzone.prototype.defaultOptions.dictCancelUpload = "Zrušiť nahrávanie";
-        Dropzone.prototype.defaultOptions.dictCancelUploadConfirmation = "Naozaj chcete zrušiť toto nahrávanie?";
-        Dropzone.prototype.defaultOptions.dictRemoveFile = "Odstrániť súbor";
-        Dropzone.prototype.defaultOptions.dictMaxFilesExceeded = "Nemôžete nahrať žiadne ďalšie súbory.";
-        @endverbatim
-
         Dropzone.options.documentDropzone = {
             url: '{{ route('news.storeMedia') }}',
             maxFilesize: 10, // MB
@@ -33,8 +20,7 @@
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
             },
-
-            dictDefaultMessage: "Sem pretiahni súbory pre upload",
+            dictDefaultMessage: "Sem vlož súbory pre upload",
             dictFallbackMessage: "Váš prehliadač nepodporuje vkladanie súborov preťahovaním.",
             dictFallbackText: "Na nahranie súborov použite záložný formulár nižšie.",
             dictInvalidFileType: "Súbory tohto typu nemôžete nahrať.",
