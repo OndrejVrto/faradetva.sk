@@ -1,5 +1,5 @@
 <x-adminlte-input
-name="title"
+    name="title"
     label="Nadpis článku"
     {{-- placeholder="Nadpis článku ..." --}}
     enableOldSupport="true"

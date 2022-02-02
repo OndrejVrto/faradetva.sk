@@ -21,6 +21,7 @@ mix.js('resources/asset/backend/js/admin_app.js', 'public/asset/backend/js')
 	.sass('resources/asset/backend/sass/admin_app.scss', 'public/asset/backend/css')
 	.js('resources/asset/backend/js/admin_custom.js', 'public/asset/backend/js');
 
+mix.copyDirectory('vendor/tinymce/tinymce', 'public/vendor/tinymce');
 
 //frontend
 // mix.copyDirectory('resources/asset/frontend-template-church/fonts','public/asset/fonts')

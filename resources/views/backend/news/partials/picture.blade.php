@@ -16,7 +16,7 @@
     name="picture"
     class="border-right-none"
     label="Obrázok na titulku"
-    fgroupClass="mt-5"
+    {{-- fgroupClass="mt-5" --}}
     placeholder="{{ $media_file_name }}"
     >
     <x-slot name="prependSlot">
