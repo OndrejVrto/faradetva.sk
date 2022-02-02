@@ -34,6 +34,8 @@
 
 @section('body')
 
+    @stack('body')
+
     {{-- @include('frontend._partials.preload') --}}
 
     @include('frontend._partials.search')
