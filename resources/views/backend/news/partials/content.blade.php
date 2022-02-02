@@ -9,7 +9,7 @@
     @enderror
 
     <textarea name="content" id="editorContent">
-        {{ old('content', $news->content) }}
+        {{ $news->content ?? old('content') }}
     </textarea>
 </div>
 
@@ -22,10 +22,9 @@
             language: 'sk',
             relative_urls: false,
             // plugins: 'code table lists',
-            plugins: 'print preview powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable export',
+            plugins: 'code lists print preview powerpaste casechange tinydrive searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime checklist wordcount a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed tinycomments mentions linkchecker emoticons advtable export',
 
-            // toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | code | table',
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+            toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | link image media",
             toolbar_mode: 'floating',
 
             height: 550,
