@@ -1,5 +1,6 @@
 <?php
 
+use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\TagController;
@@ -49,6 +50,14 @@ Route::post('news/media', [NewsController::class, 'storeMedia'])->name('news.sto
 //! BackEnd Routes
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 
+    //!  Filemanager for TinyMCE Editor
+    Route::prefix('laravel-file-manager')->group( function() {
+        Lfm::routes();
+    });
+
+    //!  Filemanager for Static-pages
+    Route::get('file-manager', FileManagerController::class)->name('file-manager');
+
     //!  Inpersonate IN Route
     Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->name('impersonate');
 
@@ -57,8 +66,8 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::post('users-activity', [ActivityController::class, 'handlePostRequest'])->name('log-activity.post');
 
     //!  Main route
+    Route::get('/', DashboardController::class)->name('admin.home');
     Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
-    Route::get('file-manager', FileManagerController::class)->name('file-manager');
     Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
 
     Route::resource('users', UserController::class);

@@ -79,6 +79,7 @@ class NewsRequest extends FormRequest
         return [
             'picture.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
             'unpublished_at.after' => 'Dátum a čas musí byť väčší ako je v poli: Publikovať Od',
+            'content.required' => 'Nejaký obsah článku by mal byť. Napíš aspoň pár viet.',
         ];
     }
 
