@@ -45,13 +45,12 @@
             @include('backend.news.partials.category_id')
             @include('backend.news.partials.tags')
             @include('backend.news.partials.picture')
+            @include('backend.news.partials.dropzone_attachment')
         </div>
         <div class="col-xl-8 order-xl-1">
             @include('backend.news.partials.teaser')
             @include('backend.news.partials.content')
         </div>
     </div>
-
-    @include('backend.news.partials.dropzone_attachment')
 
 </x-admin-form>
