@@ -66,7 +66,7 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::post('users-activity', [ActivityController::class, 'handlePostRequest'])->name('log-activity.post');
 
     //!  Main route
-    Route::get('/', DashboardController::class)->name('admin.home');
+    Route::redirect('/', '/admin/dashboard', 308);
     Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
     Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
 
