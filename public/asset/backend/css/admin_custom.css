@@ -49,3 +49,7 @@
 .vh-85 {
 	height: 85vh !important;
 }
+
+.dropzone .dz-preview .dz-image img {
+	height: 100%;
+}
