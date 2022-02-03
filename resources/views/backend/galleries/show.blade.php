@@ -9,16 +9,24 @@
 
 @section('content')
 
-    <div class="row">
-        <ul>
-            @foreach ($gallery->getMedia($gallery->collectionPicture) as $picture)
-                <li>
-                    {{ $picture->file_name }}
-                </li>
-            @endforeach
-        </ul>
-    </div>
+    <x-admin-card
+        columns="11"
+        headerTitle="{{ config('farnost-detva.admin_texts.galleries_header_show') }}"
+        headerDescription="{{ config('farnost-detva.admin_texts.galleries_description_show') }}"
+    >
 
-    <x-gallery/>
+        {{-- <div class="row">
+            <ul>
+                @foreach ($gallery->getMedia($gallery->collectionPicture) as $picture)
+                    <li>
+                        {{ $picture->file_name }}
+                    </li>
+                @endforeach
+            </ul>
+        </div> --}}
+
+        <x-gallery/>
+
+    </x-admin-card>
 
 @endsection

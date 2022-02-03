@@ -144,7 +144,7 @@ return [
         'galleries_description'        => 'Obrázkové galérie na statické stránky',
         'galleries_description_create' => 'Tu môžete pridať novú obrázkovú galériu',
         'galleries_description_edit'   => 'Tu môžete upraviť údaje v galérii',
-        'galleries_description_show'   => 'Náhľad',
+        'galleries_description_show'   => 'Detailné informácie o galérii',
         'galleries_header'             => 'Galérie obrázkov',
         'galleries_header_create'      => 'Nová galéria',
         'galleries_header_edit'        => 'Úprava galérie',
