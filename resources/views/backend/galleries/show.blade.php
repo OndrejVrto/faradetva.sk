@@ -8,6 +8,7 @@
 @stop
 
 @section('content')
+
     <div class="row">
         <ul>
             @foreach ($gallery->getMedia($gallery->collectionPicture) as $picture)
@@ -17,4 +18,7 @@
             @endforeach
         </ul>
     </div>
+
+    <x-gallery/>
+
 @endsection

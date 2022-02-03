@@ -26,12 +26,16 @@
             @include('adminlte::partials.sidebar.left-sidebar')
         @endif
 
+        @stack('content_header')
+
         {{-- Content Wrapper --}}
         @empty($iFrameEnabled)
             @include('adminlte::partials.cwrapper.cwrapper-default')
         @else
             @include('adminlte::partials.cwrapper.cwrapper-iframe')
         @endempty
+
+        @stack('content_footer')
 
         {{-- Footer --}}
         @hasSection('footer')
