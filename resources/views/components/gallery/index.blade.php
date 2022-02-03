@@ -1,12 +1,16 @@
 <div class="gallery mt-3 w-100">
     @for ($i=1; $i<=11; $i++)
-        <a href="{{ asset('photo/dychovka-na-stefana-2015/Dychovka2015-'.$i.'.jpg') }}" rel="gallery-item-1">
-            <img src="{{ asset('photo/dychovka-na-stefana-2015/thumbs/Dychovka2015-'.$i.'.jpg') }}" />
+        <a
+			rel="gallery-item-1"
+			href="{{ asset('photo/dychovka-na-stefana-2015/Dychovka2015-'.$i.'.jpg') }}"
+			title="Naspis ALT-{{ $i }}"
+		>
+            <img alt="ALT-{{ $i }}" src="{{ asset('photo/dychovka-na-stefana-2015/thumbs/Dychovka2015-'.$i.'.jpg') }}" />
         </a>
     @endfor
 </div>
 
-<div class="gallery mt-3 w-100">
+<div class="gallery mt-5 w-100">
     @for ($i=1; $i<=12; $i++)
         <a href="{{ asset('photo/bazilika/foto'.$i.'.jpg') }}" rel="gallery-item-2">
             <img src="{{ asset('photo/bazilika/thumbs/foto'.$i.'.jpg') }}" />
@@ -14,7 +18,8 @@
     @endfor
 </div>
 
-<div class="gallery mt-3 w-100">
+
+<div class="gallery mt-5 w-100">
     @for ($i=1; $i<=24; $i++)
         <a href="{{ asset('photo/370-rocna-detva/Obrazok-'.$i.'.jpg') }}" rel="gallery-item-2">
             <img src="{{ asset('photo/370-rocna-detva/thumbs/Obrazok-'.$i.'.jpg') }}" />
@@ -43,17 +48,24 @@
             $('.gallery').each(function (i, el) {
                 $(el).justifiedGallery({
                     rel: 'gallery-item-' + i,
+                    // lastRow : 'center',
                     lastRow : 'hide',
-                    rowHeight : 150,
-                    margins : 2,
-                    // border: -1,
+                    // lastRow : 'nojustify',
+                    // lastRow : 'justify',
+                    rowHeight : 140,
+					maxRowHeight: 130%,
+                    margins : 4,
+                    border: 0,
                 }).on('jg.complete', function () {
                     $(this).on('click', function(event) {
                         event = event || window.event;
                         var target = event.target || event.srcElement;
                         var link = target.src ? target.parentNode : target;
-                        var options = { index: link, event: event };
                         var links = this.getElementsByTagName('a');
+                        var options = {
+                            index: link,
+                            event: event,
+                        };
                         blueimp.Gallery(links, options);
                     });
                 });
@@ -61,8 +73,8 @@
         </script>
     @endpush
 
-    @push('body')
-        <!-- The Gallery as lightbox dialog, should be a document body child element -->
+    @push('content_footer')
+        <!-- START MODAL - The Gallery as lightbox dialog -->
         <div
             id="blueimp-gallery"
             class="blueimp-gallery"
@@ -100,6 +112,7 @@
             ></a>
             <ol class="indicator"></ol>
         </div>
+        <!-- END Modal Gallery -->
     @endpush
 
 @endonce

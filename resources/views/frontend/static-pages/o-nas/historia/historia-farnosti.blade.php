@@ -24,6 +24,10 @@
         </x-page-section.text>
     </x-page-section>
 
+
+    <x-gallery/>
+
+
     <x-page-section title="Vznik Detvy">
         {{-- <x-page-section.img columns="5" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/602199.jpg') }}" /> --}}
         <x-page-section.text type="left">

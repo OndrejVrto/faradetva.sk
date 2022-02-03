@@ -28,3 +28,4 @@ composer.lock
 /package-lock.json
 /zmaz
 database/raw
+public/photo
