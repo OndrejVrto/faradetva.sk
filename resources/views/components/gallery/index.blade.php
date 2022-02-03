@@ -1,30 +1,53 @@
-<div class="gallery mt-3 w-100">
-    @for ($i=1; $i<=11; $i++)
-        <a
-			rel="gallery-item-1"
-			href="{{ asset('photo/dychovka-na-stefana-2015/Dychovka2015-'.$i.'.jpg') }}"
-			title="Naspis ALT-{{ $i }}"
-		>
-            <img alt="ALT-{{ $i }}" src="{{ asset('photo/dychovka-na-stefana-2015/thumbs/Dychovka2015-'.$i.'.jpg') }}" />
-        </a>
-    @endfor
+@props([
+    // 'title' => null,
+    'title' => 'Album',
+])
+<div class="ch_about_desc">
+    @isset($title)
+        <h3 class="fromright wow" data-wow-delay="0.4s">{{ $title }}</h3>
+    @endisset
+    <div class="gallery w-100">
+        @for ($i=1; $i<=11; $i++)
+            <a
+                rel="gallery-item-1"
+                href="{{ asset('photo/dychovka-na-stefana-2015/Dychovka2015-'.$i.'.jpg') }}"
+                {{-- data-srcset="images/banana-800w.jpg 800w,
+                        images/banana-1024w.jpg 1024w,
+                        images/banana-1600w.jpg 1600w"
+                data-sizes="(min-width: 990px) 990px, 100vw" --}}
+                title="Naspis ALT-{{ $i }}"
+            >
+                <img alt="ALT-{{ $i }}" src="{{ asset('photo/dychovka-na-stefana-2015/thumbs/Dychovka2015-'.$i.'.jpg') }}" />
+            </a>
+        @endfor
+    </div>
 </div>
 
-<div class="gallery mt-5 w-100">
-    @for ($i=1; $i<=12; $i++)
-        <a href="{{ asset('photo/bazilika/foto'.$i.'.jpg') }}" rel="gallery-item-2">
-            <img src="{{ asset('photo/bazilika/thumbs/foto'.$i.'.jpg') }}" />
-        </a>
-    @endfor
+<div class="ch_about_desc">
+    @isset($title)
+        <h3 class="fromright wow" data-wow-delay="0.4s">{{ $title }}</h3>
+    @endisset
+    <div class="gallery w-100">
+        @for ($i=1; $i<=12; $i++)
+            <a href="{{ asset('photo/bazilika/foto'.$i.'.jpg') }}" rel="gallery-item-2">
+                <img src="{{ asset('photo/bazilika/thumbs/foto'.$i.'.jpg') }}" />
+            </a>
+        @endfor
+    </div>
 </div>
 
 
-<div class="gallery mt-5 w-100">
-    @for ($i=1; $i<=24; $i++)
-        <a href="{{ asset('photo/370-rocna-detva/Obrazok-'.$i.'.jpg') }}" rel="gallery-item-2">
-            <img src="{{ asset('photo/370-rocna-detva/thumbs/Obrazok-'.$i.'.jpg') }}" />
-        </a>
-    @endfor
+<div class="ch_about_desc">
+    @isset($title)
+        <h3 class="fromright wow" data-wow-delay="0.4s">{{ $title }}</h3>
+    @endisset
+    <div class="gallery w-100">
+        @for ($i=1; $i<=24; $i++)
+            <a href="{{ asset('photo/370-rocna-detva/Obrazok-'.$i.'.jpg') }}" rel="gallery-item-2">
+                <img src="{{ asset('photo/370-rocna-detva/thumbs/Obrazok-'.$i.'.jpg') }}" />
+            </a>
+        @endfor
+    </div>
 </div>
 
 
@@ -53,7 +76,7 @@
                     // lastRow : 'nojustify',
                     // lastRow : 'justify',
                     rowHeight : 140,
-					maxRowHeight: 130%,
+					maxRowHeight: 200,
                     margins : 4,
                     border: 0,
                 }).on('jg.complete', function () {
