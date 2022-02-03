@@ -6,7 +6,7 @@
     $typeForm = $identificatorEdit = null;
     if ( isset( $gallery ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $gallery->id;
+        $identificatorEdit = $gallery->slug;
     }
 @endphp
 
