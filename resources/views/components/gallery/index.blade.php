@@ -54,6 +54,22 @@
 @once
     @push('css')
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/justified-gallery/css/justifiedGallery.min.css') }}">
+        <style>
+            .justified-gallery > .jg-entry:hover img {
+                filter: brightness(70%);
+                -webkit-transition: .2s ease-in-out;
+                transition: .2s ease-in-out;
+            }
+            /* .justified-gallery > .jg-entry {
+                background: #ff7b33;
+            }
+            .justified-gallery > .jg-entry:hover img {
+                opacity: .5;
+                -webkit-transition: .2s ease-in-out;
+                transition: .2s ease-in-out;
+            } */
+
+        </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/blueimp-gallery/css/blueimp-gallery.min.css') }}" />
     @endpush
 
