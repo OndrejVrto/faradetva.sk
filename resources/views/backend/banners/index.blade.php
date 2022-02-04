@@ -41,8 +41,8 @@
                 </x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$banner->title}}</x-admin-table.td>
                 <x-admin-table.td-actions
-                    editLink="{{ route('banners.edit', $banner->id)}}"
-                    deleteLink="{{ route('banners.destroy', $banner->id)}}"
+                    controlerName="banners"
+                    identificator="{{ $banner->id }}"
                 />
             </tr>
             @endforeach

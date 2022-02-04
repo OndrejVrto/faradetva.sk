@@ -38,8 +38,8 @@
                 {{-- <x-admin-table.td class="text-wrap text-break">{{$permission->guard_name}}</x-admin-table.td> --}}
 
                 <x-admin-table.td-actions
-                    editLink="{{ route('permissions.edit', $permission->id)}}"
-                    deleteLink="{{ route('permissions.destroy', $permission->id)}}"
+                    controlerName="permissions"
+                    identificator="{{ $permission->id }}"
                 />
             </tr>
             @endforeach

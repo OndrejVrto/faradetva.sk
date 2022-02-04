@@ -100,7 +100,7 @@
         <div class="col-xl-7">
             <x-adminlte-input
                 name="source_url"
-                label="Link na zdroj obrázku (url)"
+                label="Link na zdroj obrázkov (url)"
                 enableOldSupport="true"
                 value="{{ $gallery->source_url ?? '' }}"
                 >

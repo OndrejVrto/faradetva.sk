@@ -43,17 +43,26 @@
                 </span>
             @endif
 
-            <div class="row justify-content-end mb-3">
-
+            <div class="card-header row justify-content-end border-0">
                 @isset($createNote)
                     <div class="col-md-8 mt-3 d-flex justify-content-start align-items-start">
-                        <span class="pr-2 py-1 text-info hoverDiv"><i class="mr-2 fas fa-info-circle"></i>{{ $createNote }}</span>
+                        <span class="pr-2 py-1 text-info hoverDiv">
+                            <i class="mr-2 fas fa-info-circle"></i>
+                            {{ $createNote }}
+                        </span>
                     </div>
                 @endisset
 
-                <div class="col-md-4 mr-2 mr-lg-3 mt-lg-n5 d-flex justify-content-end align-items-end">
-                    <a href="{{ $createLink }}" class="btn bg-gradient-warning btn-flat flex-fill flex-lg-grow-0" title="Vytvoriť">{{ $createBtn }}</a>
-                </div>
+                @can([
+                    $controlerName . '.create',
+                    $controlerName . '.store'
+                ])
+                    <div class="col-md-4 mt-lg-n5 d-flex justify-content-end align-items-end px-1">
+                        <a href="{{ $createLink }}" class="btn bg-gradient-warning btn-flat flex-fill flex-lg-grow-0 px-4" title="Vytvoriť">
+                            {{ $createBtn }}
+                        </a>
+                    </div>
+                @endcan
             </div>
 
             <div class="card mx-2 mx-lg-3">

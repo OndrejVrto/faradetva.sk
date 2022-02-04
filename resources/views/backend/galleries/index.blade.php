@@ -27,9 +27,8 @@
                 {{-- <x-admin-table.td>{{$gallery->id}}</x-admin-table.td> --}}
                 <x-admin-table.td class="text-wrap text-break text-bold">{{ $gallery->slug }}</x-admin-table.td>
                 <x-admin-table.td-actions
-                    showLink="{{ route('galleries.show', $gallery->slug)}}"
-                    editLink="{{ route('galleries.edit', $gallery->slug)}}"
-                    deleteLink="{{ route('galleries.destroy', $gallery->slug)}}"
+                    controlerName="galleries"
+                    identificator="{{ $gallery->slug }}"
                 />
             </tr>
             @endforeach

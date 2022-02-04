@@ -37,10 +37,9 @@
                 </x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$testimonial->name}}</x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$testimonial->function}}</x-admin-table.td>
-
                 <x-admin-table.td-actions
-                    editLink="{{ route('testimonials.edit', $testimonial->slug)}}"
-                    deleteLink="{{ route('testimonials.destroy', $testimonial->slug)}}"
+                    controlerName="testimonials"
+                    identificator="{{ $testimonial->slug }}"
                 />
             </tr>
             @endforeach

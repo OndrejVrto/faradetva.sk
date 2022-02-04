@@ -30,8 +30,8 @@
                 <x-admin-table.td class="text-wrap text-break">{{$tag->description}}</x-admin-table.td>
 
                 <x-admin-table.td-actions
-                    editLink="{{ route('tags.edit', $tag->slug)}}"
-                    deleteLink="{{ route('tags.destroy', $tag->slug)}}"
+                    controlerName="tags"
+                    identificator="{{ $tag->slug }}"
                 />
             </tr>
             @endforeach

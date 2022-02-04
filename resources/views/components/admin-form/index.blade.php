@@ -59,17 +59,25 @@
                             Späť
                         </a>
                         @if ( $typeForm == 'show')
-                            @can('users.edit')
+                            @can([
+                                $controlerName . '.edit',
+                                $controlerName . '.update'
+                            ])
                                 <a href="{{ $linkEdit }}" class="btn bg-gradient-primary px-5 ml-2">
                                     <i class="fas fa-edit mr-2"></i>
                                     Editovať
                                 </a>
                             @endcan
                         @else
-                            <button id="btnSave" type="submit" class="btn bg-gradient-success px-5 ml-2">
-                                <i class="fas fa-save mr-2"></i>
-                                Uložiť
-                            </button>
+                            @can([
+                                $controlerName . '.create',
+                                $controlerName . '.store'
+                            ])
+                                <button id="btnSave" type="submit" class="btn bg-gradient-success px-5 ml-2">
+                                    <i class="fas fa-save mr-2"></i>
+                                    Uložiť
+                                </button>
+                            @endcan
                         @endif
                     </div>
 
