@@ -13,6 +13,7 @@
         columns="11"
         headerTitle="{{ config('farnost-detva.admin_texts.galleries_header_show') }}"
         headerDescription="{{ config('farnost-detva.admin_texts.galleries_description_show') }}"
+        linkBack="{{ route('galleries.index') }}"
     >
 
         {{-- <div class="row">
