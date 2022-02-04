@@ -11,6 +11,7 @@ return new class extends Migration
     public function up(): void {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('static_page_id')
                     ->nullable()
                     ->constrained()
@@ -21,15 +22,22 @@ return new class extends Migration
                     ->constrained()
                     ->onUpdate('SET NULL')
                     ->onDelete('SET NULL');
+
             $table->string('name');
+            $table->string('description')->nullable();
             $table->string('slug');
             $table->string('author')->nullable();
-            $table->string('description')->nullable();
-            $table->string('source', 512)->nullable();
+            $table->string('author_url')->nullable();
+            $table->string('source')->nullable();
+            $table->string('source_url', 512)->nullable();
+            $table->string('license')->nullable();
+            $table->string('license_url')->nullable();
+
+            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
+            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
+
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('created_by')->unsigned();
-            $table->bigInteger('updated_by')->unsigned();
         });
     }
 
