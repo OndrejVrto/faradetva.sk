@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RoleRequest;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
+use App\Services\ChunkPermissionService;
 use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
@@ -20,7 +21,7 @@ class RoleController extends Controller
     }
 
     public function create() {
-        $permissions = Permission::all();
+        $permissions = (new ChunkPermissionService())->permission;
         $rolePermissions = [];
 
         return view('backend.roles.create', compact('permissions', 'rolePermissions'));
@@ -39,7 +40,7 @@ class RoleController extends Controller
 
     public function edit(Role $role) {
         $rolePermissions = $role->permissions->pluck('name')->toArray();
-        $permissions = Permission::get();
+        $permissions = (new ChunkPermissionService())->permission;
 
         return view('backend.roles.edit', compact('role', 'rolePermissions', 'permissions'));
     }

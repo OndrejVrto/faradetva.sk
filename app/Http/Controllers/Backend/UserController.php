@@ -10,6 +10,7 @@ use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Role;
 use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;
+use App\Services\ChunkPermissionService;
 use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
@@ -23,7 +24,7 @@ class UserController extends Controller
     public function create() {
         $roles = Role::all();
         $userRoles = [];
-        $permissions = Permission::all();
+        $permissions = (new ChunkPermissionService())->permission;
         $userPermissions = [];
 
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
@@ -58,7 +59,7 @@ class UserController extends Controller
     public function edit(User $user) {
         $roles = Role::all();
         $userRoles = $user->roles->pluck('id')->toArray();
-        $permissions = Permission::all();
+        $permissions = (new ChunkPermissionService())->permission;
         $userPermissions = $user->permissions->pluck('id')->toArray();
 
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));

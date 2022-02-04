@@ -13,103 +13,103 @@ class UserSeeder extends Seeder
 
     public function run()
     {
-        // $password = bcrypt('password');
         $password = 'password';
 
-        // Super Admin
-        $role = Role::create(['name' => 'Super Admin']);
-        $role->givePermissionTo(Permission::all());
-        // $permissions = Permission::pluck('id','id')->all();
-        // $role->syncPermissions($permissions);
         $user = User::create([
-            'name' => 'Super Admin',
+            'name' => 'Super Administrátor',
             'nick' => 'super-admin',
             'slug' => 'super-admin',
             'email' => 'super@admin.sk',
+            'can_be_impersonated' => 0,
             'email_verified_at' => now(),
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole([$role->id]);
+        $user->assignRole(1);  // Super Admin
 
-        // Admin
-        $role = Role::create(['name' => 'Admin']);
-        Permission::findOrCreate('news,tags,categories,priests,testimonials,sliders,banners.*');
-        $role->givePermissionTo([
-            'news,tags,categories,priests,testimonials,sliders,banners.*',
-            'users.index',
-            'admin.dashboard'
-        ]);
-        $user = User::create([
-            'name' => 'Admin',
-            'nick' => 'admin',
-            'slug' => 'admin',
-            'email' => 'admin@admin.sk',
-            'email_verified_at' => now(),
-            'password' => $password,
-            'remember_token' => Str::random(10)
-        ]);
-        $user->assignRole([$role->id]);
-
-        // User
-        $role = Role::create(['name' => 'User']);
-        Permission::findOrCreate('news,tags,categories,priests,testimonials.*');
-        $role->givePermissionTo([
-            'news,tags,categories,priests,testimonials.*',
-            'admin.dashboard'
-        ]);
-        $user = User::create([
-            'name' => 'User',
-            'nick' => 'user',
-            'slug' => 'user',
-            'email' => 'user@user.sk',
-            'email_verified_at' => now(),
-            'password' => $password,
-            'remember_token' => Str::random(10)
-        ]);
-        $user->assignRole([$role->id]);
-
-        // User
-        $role = Role::create(['name' => 'Guest']);
-        Permission::findOrCreate('news,tags,categories,priests,testimonials.index');
-        $role->givePermissionTo([
-            'news,tags,categories,priests,testimonials.index',
-            'admin.dashboard'
-        ]);
-        $user = User::create([
-            'name' => 'Guest',
-            'nick' => 'guest',
-            'slug' => 'guest',
-            'email' => 'guest@guest.sk',
-            'email_verified_at' => now(),
-            'password' => $password,
-            'remember_token' => Str::random(10)
-        ]);
-        $user->assignRole([$role->id]);
-
-        $role = Role::create(['name' => 'Akolyta']);
-        $role->givePermissionTo('admin.dashboard');
         $user = User::create([
             'name' => 'Ondrej VRŤO',
             'nick' => 'DonOndrej',
             'slug' => Str::slug('Ondrej VRŤO'),
             'email' => 'ondrej@vrto.sk',
+            'can_be_impersonated' => 0,
             'email_verified_at' => now(),
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole([$role->id]);
+        $user->assignRole(2); // Admin
 
         $user = User::create([
             'name' => 'Marián Juhaniak',
             'nick' => 'majko',
             'slug' => Str::slug('Marián Juhaniak'),
             'email' => 'marian@juhaniak.sk',
+            'can_be_impersonated' => 1,
             'email_verified_at' => now(),
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['1']);
+        $user->assignRole(['3']); // Moderátor
+
+        $user = User::create([
+            'name' => 'Ľuboš Sabol',
+            'nick' => 'lubos',
+            'slug' => Str::slug('Ľuboš Sabol'),
+            'email' => 'lubos@sabol.sk',
+            'can_be_impersonated' => 1,
+            'email_verified_at' => now(),
+            'password' => $password,
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(['4']); // Moderátor
+
+        $user = User::create([
+            'name' => 'Pavol Prieboj',
+            'nick' => 'Paľo',
+            'slug' => Str::slug('Pavol Prieboj'),
+            'email' => 'pavol@prieboj.sk',
+            'can_be_impersonated' => 1,
+            'email_verified_at' => now(),
+            'password' => $password,
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(['4']); // Moderátor
+
+        $user = User::create([
+            'name' => 'Vladimír Kučera',
+            'nick' => 'Vladko',
+            'slug' => Str::slug('Vladimír Kučera'),
+            'email' => 'vladimir@kucera.sk',
+            'can_be_impersonated' => 1,
+            'email_verified_at' => now(),
+            'password' => $password,
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(['5']); // Akolyta
+
+        $user = User::create([
+            'name' => 'Eva Bohumeľová',
+            'nick' => 'Evička',
+            'slug' => Str::slug('Eva Bohumeľová'),
+            'email' => 'eva@bohumelova.sk',
+            'can_be_impersonated' => 1,
+            'email_verified_at' => now(),
+            'password' => $password,
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(['6']); // Lektor
+
+        $user = User::create([
+            'name' => 'Hosť',
+            'nick' => 'guest',
+            'slug' => Str::slug('Hosť'),
+            'email' => 'guest@guest.sk',
+            'can_be_impersonated' => 1,
+            'email_verified_at' => now(),
+            'password' => $password,
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(['7']); // Hosť
 
     }
 }

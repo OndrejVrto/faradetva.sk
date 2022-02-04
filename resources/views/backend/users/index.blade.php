@@ -18,9 +18,9 @@
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
             <x-admin-table.th width="1%" class="text-center">Avatar</x-admin-table.th>
+            <x-admin-table.th width="20%">Meno užívateľa</x-admin-table.th>
+            <x-admin-table.th width="25%" class="d-none d-md-table-cell">Email</x-admin-table.th>
             <x-admin-table.th width="15%" class="d-none d-lg-table-cell">Nick</x-admin-table.th>
-            <x-admin-table.th width="20%" class="d-none d-md-table-cell">Email</x-admin-table.th>
-            <x-admin-table.th width="25%">Meno užívateľa</x-admin-table.th>
             <x-admin-table.th width="10%">Roly</x-admin-table.th>
             <x-admin-table.th width="10%" class="text-center d-none d-md-table-cell">Povolenia</x-admin-table.th>
             <x-admin-table.th-actions colspan="4"/>
@@ -35,9 +35,9 @@
                         class="img-fluid img-circle"
                         alt="Fotografia Avatara: {{ $user->name }}"/>
                     </x-admin-table.td>
-                    <x-admin-table.td class="d-none d-lg-table-cell">{{$user->nick}}</x-admin-table.td>
-                    <x-admin-table.td class="text-wrap text-break d-none d-md-table-cell">{{$user->email}}</x-admin-table.td>
                     <x-admin-table.td class="text-wrap text-break">{{$user->name}}</x-admin-table.td>
+                    <x-admin-table.td class="text-wrap text-break d-none d-md-table-cell">{{$user->email}}</x-admin-table.td>
+                    <x-admin-table.td class="d-none d-lg-table-cell">{{$user->nick}}</x-admin-table.td>
                     <x-admin-table.td>
                         @foreach($user->roles as $role)
                             @php

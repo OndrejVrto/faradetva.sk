@@ -186,23 +186,24 @@
         </div>
     </div>
 
-    <div class="row no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
-        @foreach($permissions as $permission)
-            <div class="col text-break">
-                <input type="checkbox"
-                    name="permission[{{ $permission->id }}]"
-                    value="{{ $permission->id }}"
-                    class='d-inline permission m-2'
-                    {{ in_array($permission->id, $userPermissions)
-                        ? 'checked'
-                        : '' }}
-                >
-                {{ $permission->name }}
-            </div>
-            @php
-            @endphp
-        @endforeach
-    </div>
+    @foreach($permissions as $alpha => $collections)
+        <h4 class="pl-3 text-orange">{{ $alpha }}</h4>
+        <div class="row pb-4 no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
+            @foreach($collections as $permission)
+                <div class="col text-break">
+                    <input type="checkbox"
+                        name="permission[{{ $permission->id }}]"
+                        value="{{ $permission->id }}"
+                        class='d-inline permission m-2'
+                        {{ in_array($permission->id, $userPermissions)
+                            ? 'checked'
+                            : '' }}
+                    >
+                    {{ $permission->name }}
+                </div>
+            @endforeach
+        </div>
+    @endforeach
 
 </x-admin-form>
 
