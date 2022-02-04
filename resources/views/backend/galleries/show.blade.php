@@ -7,27 +7,28 @@
     {{ Breadcrumbs::render('galleries.show', $gallery, $gallery->title )}}
 @stop
 
+@php
+    $controlerName = 'galleries';
+    $columns = 11;
+
+    $typeForm = $identificatorEdit = $createdInfo = $updatedInfo = null;
+    if ( isset( $gallery ) ) {
+        $typeForm = 'show';
+        $identificatorEdit = $gallery->slug;
+        $createdInfo = $gallery->created_at;
+        $updatedInfo = $gallery->updated_at;
+    }
+@endphp
+
 @section('content')
 
-    <x-admin-card
-        columns="11"
-        headerTitle="{{ config('farnost-detva.admin_texts.galleries_header_show') }}"
-        headerDescription="{{ config('farnost-detva.admin_texts.galleries_description_show') }}"
-        linkBack="{{ route('galleries.index') }}"
-    >
-
-        {{-- <div class="row">
-            <ul>
-                @foreach ($gallery->getMedia($gallery->collectionPicture) as $picture)
-                    <li>
-                        {{ $picture->file_name }}
-                    </li>
-                @endforeach
-            </ul>
-        </div> --}}
+    <x-admin-form
+        controlerName="{{ $controlerName }}" columns="{{ $columns }}"
+        typeForm="{{ $typeForm }}"  identificatorEdit="{{ $identificatorEdit }}"
+        createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
         <x-gallery/>
 
-    </x-admin-card>
+    </x-admin-form>
 
 @endsection

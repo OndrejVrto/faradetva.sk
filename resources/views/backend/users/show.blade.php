@@ -12,7 +12,7 @@
     $columns = 5;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificatorEdit = $createdInfo = $updatedInfo = null;
     if ( isset( $user ) ) {
         $typeForm = 'show';
         $identificatorEdit = $user->id;
