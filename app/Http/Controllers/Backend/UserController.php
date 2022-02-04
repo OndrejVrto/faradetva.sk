@@ -45,7 +45,7 @@ class UserController extends Controller
             $mediaService->storeMediaOneFile($user, 'avatar', 'photo_avatar');
         }
 
-        toastr()->success(__('app.user.store'));
+        toastr()->success(__('app.user.store', ['name'=> $user->name]));
         return redirect()->route('users.index');
     }
 
@@ -86,14 +86,20 @@ class UserController extends Controller
             $mediaService->storeMediaOneFile($user, 'avatar', 'photo_avatar');
         }
 
-        toastr()->success(__('app.user.update'));
+        toastr()->success(__('app.user.update', ['name'=> $user->name]));
         return redirect()->route('users.index');
     }
 
     public function destroy(User $user) {
-        $user->delete();
+        if ($user->id == 1) {
+            toastr()->error(__('app.user.delete-error', ['name'=> $user->name]));
+        } elseif ($user->id == auth()->user()->id) {
+            toastr()->error(__('app.user.delete-self'));
+        } else {
+            $user->delete();
+            toastr()->success(__('app.user.delete', ['name'=> $user->name]));
+        }
 
-        toastr()->success(__('app.user.delete'));
         return redirect()->route('users.index');
     }
 }

@@ -56,13 +56,18 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(News::class);
     }
 
-    public function canBeImpersonated()
-    {
+    public function isAdmin() {
+        return $this->roles->pluck('id')->contains(function ($value, $key) {
+            //* id1 = SuperAdmin, id2 = Admin,  id3 = Moderator
+            return $value <= 3;
+        });
+    }
+
+    public function canBeImpersonated() {
         return $this->can_be_impersonated == 1;
     }
 
-    public function registerMediaConversions( Media $media = null ) : void
-    {
+    public function registerMediaConversions( Media $media = null ) : void {
         $this->addMediaConversion('crop')
             ->fit("crop", 100, 100);
         $this->addMediaConversion('crop-thumb')

@@ -75,6 +75,8 @@ class NewsController extends Controller
     }
 
     public function edit(News $news) {
+        $this->authorize('view', $news);
+
         $news->load('media', 'tags');
         $documents = $news->getMedia($news->collectionDocument);
         $categories = Category::all();
@@ -118,6 +120,8 @@ class NewsController extends Controller
     }
 
     public function destroy(News $news) {
+        $this->authorize('delete', $news);
+
         $news->delete();
         $news->clearMediaCollection($news->collectionPicture);
         $news->clearMediaCollection($news->collectionDocument);
