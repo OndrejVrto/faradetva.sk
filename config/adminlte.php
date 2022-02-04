@@ -257,7 +257,7 @@ return [
             'icon_color'  => 'orange',
             'route' => 'notices.index',
             'icon'  => 'fas fa-broadcast-tower',
-            'can'  => 'news.index',
+            'can'  => 'notices.index',
         ],
         [
             'text'  => 'Články',
