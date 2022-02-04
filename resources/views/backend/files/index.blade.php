@@ -36,8 +36,8 @@
                 <x-admin-table.td class="text-wrap text-break">{{ $file->page->url }} <br> {{ $file->page->title }}</x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break text-bold">{{ $file->slug }}</x-admin-table.td>
                 <x-admin-table.td-actions
-                    editLink="{{ route('files.edit', $file->id)}}"
-                    deleteLink="{{ route('files.destroy', $file->id)}}"
+                    controlerName="files"
+                    identificator="{{ $file->id }}"
                 />
             </tr>
             @endforeach

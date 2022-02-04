@@ -32,8 +32,8 @@
                 <x-admin-table.td class="text-wrap text-break">{{$role->name}}</x-admin-table.td>
 
                 <x-admin-table.td-actions
-                    editLink="{{ route('roles.edit', $role->id)}}"
-                    deleteLink="{{ route('roles.destroy', $role->id)}}"
+                    controlerName="roles"
+                    identificator="{{ $role->id }}"
                 />
             </tr>
             @endforeach

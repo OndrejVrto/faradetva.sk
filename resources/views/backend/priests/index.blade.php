@@ -38,8 +38,8 @@
                 <x-admin-table.td class="text-wrap text-break">{{$priest->function}}</x-admin-table.td>
 
                 <x-admin-table.td-actions
-                    editLink="{{ route('priests.edit', $priest->slug)}}"
-                    deleteLink="{{ route('priests.destroy', $priest->slug)}}"
+                    controlerName="priests"
+                    identificator="{{ $priest->slug }}"
                 />
             </tr>
             @endforeach

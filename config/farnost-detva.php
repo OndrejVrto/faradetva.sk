@@ -140,6 +140,16 @@ return [
         'notices_header_create'      => 'Nový oznamy',
         'notices_header_edit'        => 'Úprava farských oznamov',
 
+        'galleries_title'              => 'Galéria',
+        'galleries_description'        => 'Obrázkové galérie na statické stránky',
+        'galleries_description_create' => 'Tu môžete pridať novú obrázkovú galériu',
+        'galleries_description_edit'   => 'Tu môžete upraviť údaje v galérii',
+        'galleries_description_show'   => 'Detailné informácie o galérii',
+        'galleries_header'             => 'Galérie obrázkov',
+        'galleries_header_create'      => 'Nová galéria',
+        'galleries_header_edit'        => 'Úprava galérie',
+        'galleries_header_show'        => 'Prehliadanie galérie',
+
 
         // 's_title'              => '',
         // 's_description'        => '',

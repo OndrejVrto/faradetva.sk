@@ -68,9 +68,8 @@
                         @endif
                     </x-admin-table.td>
                     <x-admin-table.td-actions
-                        showLink="{{ route('users.show', $user->id)}}"
-                        editLink="{{ route('users.edit', $user->id)}}"
-                        deleteLink="{{ route('users.destroy', $user->id)}}"
+                        controlerName="users"
+                        identificator="{{ $user->id }}"
                     />
                 </tr>
             @endforeach

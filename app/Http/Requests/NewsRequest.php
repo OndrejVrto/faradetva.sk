@@ -68,8 +68,7 @@ class NewsRequest extends FormRequest
                 'max:5000'
             ],
             'doc.*' => [
-                'file',
-                'max:10000',
+                'nullable',
             ],
             // 'tags' => 'required',
         ];

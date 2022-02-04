@@ -34,8 +34,8 @@
                 <x-admin-table.td class="text-wrap text-break">{{$fileType->description}}</x-admin-table.td>
                 {{-- TODO: Count Files in this filetype --}}
                 <x-admin-table.td-actions
-                    editLink="{{ route('file-types.edit', $fileType->slug)}}"
-                    deleteLink="{{ route('file-types.destroy', $fileType->slug)}}"
+                    controlerName="file-types"
+                    identificator="{{ $fileType->slug }}"
                 />
             </tr>
             @endforeach

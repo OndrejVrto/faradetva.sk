@@ -42,8 +42,8 @@
                 </x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$slider->teaser}}</x-admin-table.td>
                 <x-admin-table.td-actions
-                    editLink="{{ route('sliders.edit', $slider->id)}}"
-                    deleteLink="{{ route('sliders.destroy', $slider->id)}}"
+                    controlerName="sliders"
+                    identificator="{{ $slider->id }}"
                 />
             </tr>
             @endforeach

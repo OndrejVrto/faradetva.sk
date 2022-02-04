@@ -67,11 +67,14 @@
                 {{-- <x-admin-table.td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</x-admin-table.td> --}}
 
                 <x-admin-table.td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</x-admin-table.td>
-
-                <x-admin-table.td-actions
-                    editLink="{{ route('news.edit', $news->slug)}}"
-                    deleteLink="{{ route('news.destroy', $news->slug)}}"
-                />
+                @if ( $news->user_id == auth()->user()->id OR auth()->user()->isAdmin())
+                    <x-admin-table.td-actions
+                        controlerName="news"
+                        identificator="{{ $news->slug }}"
+                    />
+                @else
+                <td colspan="2"></td>
+                @endif
             </tr>
             @endforeach
         </x-slot>

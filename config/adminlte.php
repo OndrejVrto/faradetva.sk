@@ -257,7 +257,7 @@ return [
             'icon_color'  => 'orange',
             'route' => 'notices.index',
             'icon'  => 'fas fa-broadcast-tower',
-            'can'  => 'news.index',
+            'can'  => 'notices.index',
         ],
         [
             'text'  => 'Články',
@@ -317,6 +317,7 @@ return [
                 'file-manager',
                 'files.index',
                 'file-types.index',
+                'galleries.index.index',
             ],
         ],
         [
@@ -325,6 +326,13 @@ return [
             'icon'  => 'fab fa-pagelines fa-lg',
             'route' => 'static-pages.index',
             'can'  => 'static-pages.index',
+        ],
+        [
+            'text' => 'Galérie',
+            'icon_color'  => 'cyan',
+            'icon'  => 'far fa-images fa-lg',
+            'route' => 'galleries.index',
+            'can'  => 'galleries.index',
         ],
         // [
         //     'text'  => 'Banner',

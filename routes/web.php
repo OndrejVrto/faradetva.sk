@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\FileTypeController;
@@ -46,6 +47,7 @@ Route::get('impersonate/leave', [ImpersonateController::class, 'leave'])->name('
 
 //!  Store dropzone Documents
 Route::post('news/media', [NewsController::class, 'storeMedia'])->name('news.storeMedia');
+Route::post('galleries/media', [GalleryController::class, 'storeMedia'])->name('galleries.storeMedia');
 
 //! BackEnd Routes
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
@@ -71,6 +73,7 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
 
     Route::resource('users', UserController::class);
+    Route::resource('galleries', GalleryController::class);
     Route::resources([
         'tags'         => TagController::class,
         'news'         => NewsController::class,

@@ -43,8 +43,8 @@
                 <x-admin-table.td class="text-wrap text-break">{{ $notice->media_file_name }}</x-admin-table.td>
 
                 <x-admin-table.td-actions
-                    editLink="{{ route('notices.edit', $notice->id)}}"
-                    deleteLink="{{ route('notices.destroy', $notice->id)}}"
+                    controlerName="notices"
+                    identificator="{{ $notice->id }}"
                 />
             </tr>
             @endforeach

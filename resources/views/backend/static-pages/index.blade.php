@@ -56,8 +56,8 @@
                         <a href="{{ route('files.index').'/page/'.$page->id }}" class="btn btn-outline-success btn-sm btn-flat" title="Súbory"><i class="fas fa-paperclip"></i></a>
                     </x-admin-table.td>
                     <x-admin-table.td-actions
-                        editLink="{{ route('static-pages.edit', $page->slug)}}"
-                        deleteLink="{{ route('static-pages.destroy', $page->slug)}}"
+                        controlerName="static-pages"
+                        identificator="{{ $page->slug }}"
                     />
                 </tr>
             @endforeach

@@ -33,9 +33,10 @@ return [
         'delete' => 'Informácia o kňazovi našej farnosti bola odstránená!',
     ],
     'role'   => [
-        'store' => 'Nová rola bola pridaná!',
-        'update' => 'Rola bola upravená!',
-        'delete' => 'Rola bola zmazaná!',
+        'store' => 'Nová rola :name bola pridaná!',
+        'update' => 'Rola :name bola upravená!',
+        'delete' => 'Rola :name bola zmazaná!',
+        'delete-error' => 'Rola :name nemôže byť vymazaná!',
     ],
     'slider'   => [
         'store' => 'Nový obrázok s myšlienkou bol pridaný!',
@@ -58,9 +59,11 @@ return [
         'delete' => 'Svedectvo bolo odstránené!',
     ],
     'user'   => [
-        'store' => 'Uživateľ bol pridaný!',
-        'update' => 'Uživateľ bol upravený!',
-        'delete' => 'Uživateľ bol odstránený!',
+        'store' => 'Uživateľ :name bol pridaný!',
+        'update' => 'Uživateľ :name bol upravený!',
+        'delete' => 'Uživateľ :name bol odstránený!',
+        'delete-error' => 'Užívateľ :name nemôže byť vymazaný!',
+        'delete-self' => 'Užívateľ nemôže vymazať sám seba!',
     ],
     'file'   => [
         'store' => 'Súbor bol pridaný!',

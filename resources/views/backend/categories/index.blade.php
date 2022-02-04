@@ -30,9 +30,10 @@
                 <x-admin-table.td class="text-wrap text-break">{{$category->description}}</x-admin-table.td>
 
                 <x-admin-table.td-actions
-                    editLink="{{ route('categories.edit', $category->slug)}}"
-                    deleteLink="{{ route('categories.destroy', $category->slug)}}"
+                    controlerName="categories"
+                    identificator="{{ $category->slug }}"
                 />
+
             </tr>
             @endforeach
         </x-slot>
