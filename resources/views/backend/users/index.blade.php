@@ -18,9 +18,9 @@
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
             <x-admin-table.th width="1%" class="text-center">Avatar</x-admin-table.th>
+            <x-admin-table.th width="20%">Meno užívateľa</x-admin-table.th>
+            <x-admin-table.th width="25%" class="d-none d-md-table-cell">Email</x-admin-table.th>
             <x-admin-table.th width="15%" class="d-none d-lg-table-cell">Nick</x-admin-table.th>
-            <x-admin-table.th width="20%" class="d-none d-md-table-cell">Email</x-admin-table.th>
-            <x-admin-table.th width="25%">Meno užívateľa</x-admin-table.th>
             <x-admin-table.th width="10%">Roly</x-admin-table.th>
             <x-admin-table.th width="10%" class="text-center d-none d-md-table-cell">Povolenia</x-admin-table.th>
             <x-admin-table.th-actions colspan="4"/>
@@ -35,18 +35,22 @@
                         class="img-fluid img-circle"
                         alt="Fotografia Avatara: {{ $user->name }}"/>
                     </x-admin-table.td>
-                    <x-admin-table.td class="d-none d-lg-table-cell">{{$user->nick}}</x-admin-table.td>
-                    <x-admin-table.td class="text-wrap text-break d-none d-md-table-cell">{{$user->email}}</x-admin-table.td>
                     <x-admin-table.td class="text-wrap text-break">{{$user->name}}</x-admin-table.td>
+                    <x-admin-table.td class="text-wrap text-break d-none d-md-table-cell">{{$user->email}}</x-admin-table.td>
+                    <x-admin-table.td class="d-none d-lg-table-cell">{{$user->nick}}</x-admin-table.td>
                     <x-admin-table.td>
                         @foreach($user->roles as $role)
                             @php
                                 $colors = ['info', 'purple', 'warning', 'success', 'secondary', 'primary', 'indigo', 'pink'];
                                 $color = $role->id == 1 ? 'danger' : $colors[(int)$role->id % count($colors)];
                             @endphp
-                            <a href="{{ route('roles.edit', $role->id) }}">
+                            @can('roles.edit')
+                                <a href="{{ route('roles.edit', $role->id) }}">
+                            @endcan
                                 <span class="badge bg-{{ $color }} px-2 py-1">{{ $role->name }}</span>
-                            </a>
+                            @can('roles.edit')
+                                </a>
+                            @endcan
                         @endforeach
                     </x-admin-table.td>
                     <x-admin-table.td class="text-center d-none d-md-table-cell">
@@ -67,10 +71,14 @@
                             @endCanImpersonate
                         @endif
                     </x-admin-table.td>
-                    <x-admin-table.td-actions
-                        controlerName="users"
-                        identificator="{{ $user->id }}"
-                    />
+                    @if ( $user->id != 1 OR auth()->user()->id == 1 )
+                        <x-admin-table.td-actions
+                            controlerName="users"
+                            identificator="{{ $user->id }}"
+                        />
+                    @else
+                        <td colspan=3></td>
+                    @endif
                 </tr>
             @endforeach
         </x-slot>

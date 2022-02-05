@@ -11,12 +11,15 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
+
             $table->boolean('active')->default(1);
             $table->string('title')->nullable();
+
+            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
+            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
+
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('created_by')->unsigned();
-            $table->bigInteger('updated_by')->unsigned();
         });
     }
 

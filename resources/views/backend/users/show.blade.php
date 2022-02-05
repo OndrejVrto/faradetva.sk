@@ -57,14 +57,14 @@
                     <dd>{{ $user->permissions_count != 0 ? $user->permissions_count : 'žiadne' }}</dd>
             </div>
         </div>
-        @can('user.edit')
-        <hr>
-        <div class="row">
-            @foreach ($user->permissions as $permission )
-                <span class="badge bg-gradient-orange m-1 px-2">{{ $permission->name }}</span>
-            @endforeach
-        </div>
-        @endcan
+        @role('Super Administrátor')
+            <hr>
+            <div class="row">
+                @foreach ($user->permissions as $permission )
+                    <span class="badge bg-gradient-orange m-1 px-2">{{ $permission->name }}</span>
+                @endforeach
+            </div>
+        @endrole
 
     </x-admin-form>
 

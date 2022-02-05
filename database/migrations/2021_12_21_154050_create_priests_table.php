@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::create('priests', function (Blueprint $table) {
             $table->id();
+
             $table->boolean('active')->default(1);
             $table->string('titles_before')->nullable();
             $table->string('first_name');
@@ -21,10 +22,12 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('function')->nullable();
             $table->text('description')->nullable();
+
+            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
+            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
+
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('created_by')->unsigned();
-            $table->bigInteger('updated_by')->unsigned();
         });
     }
 

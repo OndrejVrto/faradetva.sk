@@ -9,14 +9,16 @@ use App\Models\Testimonial;
 use Database\Seeders\TagSeeder;
 use Illuminate\Database\Seeder;
 use Database\Seeders\FileSeeder;
+use Database\Seeders\RoleSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\MediaSeeder;
 use Database\Seeders\BannerSeeder;
 use Database\Seeders\SliderSeeder;
 use Database\Seeders\FileTypeSeeder;
 use Database\Seeders\CategoriesSeeder;
+use Database\Seeders\PermissionSeeder;
 use Database\Seeders\TestimonialSeeder;
-use Illuminate\Support\Facades\Artisan;
+use Database\Seeders\UserRolePermissionsSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,9 +26,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        Artisan::call('permission:create-permission-routes');
+        $this->call([
+            // PermissionSeeder::class,
+            // RoleSeeder::class,
+            // UserSeeder::class,
+            UserRolePermissionsSeeder::class,
+        ]);
 
-        $this->call(UserSeeder::class);
         // User::factory(10)->create();
 
         $this->call([

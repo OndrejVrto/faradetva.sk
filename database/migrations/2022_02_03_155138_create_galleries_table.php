@@ -15,17 +15,18 @@ return new class extends Migration
             $table->string('title');
             $table->string('description')->nullable();
             $table->string('slug');
-            $table->string('author')->nullable()->default('null');
-            $table->string('author_url', 512)->nullable()->default('null');
-            $table->string('source')->nullable()->default('null');
-            $table->string('source_url', 512)->nullable()->default('null');
-            $table->string('license')->nullable()->default('null');
-            $table->string('license_url', 512)->nullable()->default('null');
+            $table->string('author')->nullable()->default(NULL);
+            $table->string('author_url', 512)->nullable()->default(NULL);
+            $table->string('source')->nullable()->default(NULL);
+            $table->string('source_url', 512)->nullable()->default(NULL);
+            $table->string('license')->nullable()->default(NULL);
+            $table->string('license_url', 512)->nullable()->default(NULL);
+
+            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
+            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
 
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('created_by')->unsigned();
-            $table->bigInteger('updated_by')->unsigned();
         });
     }
 

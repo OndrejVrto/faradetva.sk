@@ -24,7 +24,7 @@
         </x-slot>
 
         <x-slot name="table_header">
-            <x-admin-table.th width="1%">#</x-admin-table.th>
+            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
             <x-admin-table.th>Názov povolenia</x-admin-table.th>
             {{-- <x-admin-table.th>Brána</x-admin-table.th> --}}
             <x-admin-table.th-actions/>
@@ -33,7 +33,7 @@
         <x-slot name="table_body">
             @foreach($permissions as $permission)
             <tr>
-                <x-admin-table.td>{{$permission->id}}</x-admin-table.td>
+                {{-- <x-admin-table.td>{{$permission->id}}</x-admin-table.td> --}}
                 <x-admin-table.td class="text-wrap text-break">{{$permission->name}}</x-admin-table.td>
                 {{-- <x-admin-table.td class="text-wrap text-break">{{$permission->guard_name}}</x-admin-table.td> --}}
 

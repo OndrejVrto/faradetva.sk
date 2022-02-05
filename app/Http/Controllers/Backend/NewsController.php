@@ -54,7 +54,7 @@ class NewsController extends Controller
     }
 
     public function store(NewsRequest $request, MediaStoreService $mediaService) {
-        $validated = $request->validated();
+        $validated = $request->validated() + [ 'user_id' => auth()->id() ];
         $news = News::create($validated);
 
         $tags = $request->input('tags');

@@ -26,9 +26,6 @@ class NewsRequest extends FormRequest
                 'boolean',
                 'required'
             ],
-            'user_id' => [
-                'required'
-            ],
             'published_at' => [
                 'nullable',
                 'date',
@@ -87,7 +84,6 @@ class NewsRequest extends FormRequest
 
         $this->merge([
             'active' => $state,
-            'user_id' => auth()->id(),
             'slug' => Str::slug($this->title),
         ]);
 

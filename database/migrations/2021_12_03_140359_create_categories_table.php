@@ -11,13 +11,16 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+
             $table->string('title');
             $table->string('slug');
             $table->string('description')->nullable();
+
+            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
+            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
+
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('created_by')->unsigned();
-            $table->bigInteger('updated_by')->unsigned();
         });
     }
 
