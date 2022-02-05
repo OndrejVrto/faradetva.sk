@@ -18,6 +18,7 @@ use Database\Seeders\FileTypeSeeder;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\PermissionSeeder;
 use Database\Seeders\TestimonialSeeder;
+use Database\Seeders\UserRolePermissionsSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,9 +27,10 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
-            PermissionSeeder::class,
-            RoleSeeder::class,
-            UserSeeder::class,
+            // PermissionSeeder::class,
+            // RoleSeeder::class,
+            // UserSeeder::class,
+            UserRolePermissionsSeeder::class,
         ]);
 
         // User::factory(10)->create();
