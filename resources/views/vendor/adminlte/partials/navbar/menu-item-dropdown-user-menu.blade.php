@@ -1,6 +1,6 @@
 @php ( $userImage = Auth::user()->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100" )
-@php( $userName = Auth::user()->name )
-@php( $rola = Auth::user()->roles->first()->name )
+@php( $userName = Auth::user()->name ?? 'Anonym' )
+@php( $rola = Auth::user()->roles->first()->name ?? 'bez role' )
 @php( $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'logout') )
 @php( $profile_url = View::getSection('profile_url') ?? config('adminlte.profile_url', 'logout') )
 
