@@ -67,10 +67,14 @@
                             @endCanImpersonate
                         @endif
                     </x-admin-table.td>
-                    <x-admin-table.td-actions
-                        controlerName="users"
-                        identificator="{{ $user->id }}"
-                    />
+                    @if ( $user->id != 1 OR auth()->user()->id == 1 )
+                        <x-admin-table.td-actions
+                            controlerName="users"
+                            identificator="{{ $user->id }}"
+                        />
+                    @else
+                        <td colspan=3></td>
+                    @endif
                 </tr>
             @endforeach
         </x-slot>

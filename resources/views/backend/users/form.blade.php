@@ -174,54 +174,58 @@
         @endif
     </x-adminlte-select2>
 
-    <div class="form-group">
-        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mal užívateľ všetky oprávnenia.">
-            <input
-                type="checkbox"
-                class="custom-control-input"
-                id="customSwitch3"
-                name="all_permission"
-            >
-            <label class="custom-control-label" for="customSwitch3">Všetko</label>
+    @role('Super Administrátor')
+        <div class="form-group">
+            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mal užívateľ všetky oprávnenia.">
+                <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="customSwitch3"
+                    name="all_permission"
+                >
+                <label class="custom-control-label" for="customSwitch3">Všetko</label>
+            </div>
         </div>
-    </div>
 
-    @foreach($permissions as $alpha => $collections)
-        <h4 class="pl-3 text-orange">{{ $alpha }}</h4>
-        <div class="row pb-4 no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
-            @foreach($collections as $permission)
-                <div class="col text-break">
-                    <input type="checkbox"
-                        name="permission[{{ $permission->id }}]"
-                        value="{{ $permission->id }}"
-                        class='d-inline permission m-2'
-                        {{ in_array($permission->id, $userPermissions)
-                            ? 'checked'
-                            : '' }}
-                    >
-                    {{ $permission->name }}
-                </div>
-            @endforeach
-        </div>
-    @endforeach
+        @foreach($permissions as $alpha => $collections)
+            <h4 class="pl-3 text-orange">{{ $alpha }}</h4>
+            <div class="row pb-4 no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
+                @foreach($collections as $permission)
+                    <div class="col text-break">
+                        <input type="checkbox"
+                            name="permission[{{ $permission->id }}]"
+                            value="{{ $permission->id }}"
+                            class='d-inline permission m-2'
+                            {{ in_array($permission->id, $userPermissions)
+                                ? 'checked'
+                                : '' }}
+                        >
+                        {{ $permission->name }}
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
+    @endrole
 
 </x-admin-form>
 
 @push('js')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('[name="all_permission"]').on('click', function() {
+    @role('Super Administrátor')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('[name="all_permission"]').on('click', function() {
 
-                if($(this).is(':checked')) {
-                    $.each($('.permission'), function() {
-                        $(this).prop('checked',true);
-                    });
-                } else {
-                    $.each($('.permission'), function() {
-                        $(this).prop('checked',false);
-                    });
-                }
+                    if($(this).is(':checked')) {
+                        $.each($('.permission'), function() {
+                            $(this).prop('checked',true);
+                        });
+                    } else {
+                        $.each($('.permission'), function() {
+                            $(this).prop('checked',false);
+                        });
+                    }
+                });
             });
-        });
-    </script>
+        </script>
+    @endrole
 @endpush

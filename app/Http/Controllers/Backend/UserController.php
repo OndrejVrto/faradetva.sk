@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     public function create() {
-        $roles = Role::all();
+        $roles = Role::where('id', '>', 1)->get();
         $userRoles = [];
         $permissions = (new ChunkPermissionService())->permission;
         $userPermissions = [];
@@ -34,8 +34,13 @@ class UserController extends Controller
         $validated = $request->validated();
         $user->create($validated);
 
-        // store rols to user
-        $role = $request->input('role');
+        // store roles to user
+        $role = collect($request->input('role'))
+        ->filter(function ($value, $key) {
+            return $value >= 2; // SuperAdmin remove
+        })->when($user->id == 1, function ($collection) {
+            return $collection->push(1);
+        })->toArray();
         $user->roles()->sync($role);
 
         // store permissions to user
@@ -57,7 +62,11 @@ class UserController extends Controller
     }
 
     public function edit(User $user) {
-        $roles = Role::all();
+        if ($user->id == 1 AND auth()->user()->id != 1) {
+            toastr()->error(__('app.user.update-error', ['name'=> $user->name]));
+            return redirect()->route('users.index');
+        }
+        $roles = Role::where('id', '>', 1)->get();
         $userRoles = $user->roles->pluck('id')->toArray();
         $permissions = (new ChunkPermissionService())->permission;
         $userPermissions = $user->permissions->pluck('id')->toArray();
@@ -75,8 +84,13 @@ class UserController extends Controller
 
         $user->update($validated);
 
-        // store rols to user
-        $role = $request->input('role');
+        // store roles to user
+        $role = collect($request->input('role'))
+        ->filter(function ($value, $key) {
+            return $value >= 2; // SuperAdmin remove
+        })->when($user->id == 1, function ($collection) {
+            return $collection->push(1);  // SuperAdmin add
+        })->toArray();
         $user->roles()->sync($role);
 
         // store permissions to user

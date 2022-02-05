@@ -33,10 +33,7 @@ trait CreatedUpdatedBy
     }
 
     public static function isAdmin() {
-        return auth()->user()->roles->pluck('id')->contains(function ($value, $key) {
-            //* id1 = SuperAdmin, id2 = Admin,  id3 = Moderator
-            return $value <= 3;
-        });
+        return auth()->user()->roles->pluck('id')->contains(1);  //* id1 is SuperAdmin
     }
 
     public function getCreatedInfoAttribute() {
