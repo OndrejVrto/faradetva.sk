@@ -44,9 +44,13 @@
                                 $colors = ['info', 'purple', 'warning', 'success', 'secondary', 'primary', 'indigo', 'pink'];
                                 $color = $role->id == 1 ? 'danger' : $colors[(int)$role->id % count($colors)];
                             @endphp
-                            <a href="{{ route('roles.edit', $role->id) }}">
+                            @can('roles.edit')
+                                <a href="{{ route('roles.edit', $role->id) }}">
+                            @endcan
                                 <span class="badge bg-{{ $color }} px-2 py-1">{{ $role->name }}</span>
-                            </a>
+                            @can('roles.edit')
+                                </a>
+                            @endcan
                         @endforeach
                     </x-admin-table.td>
                     <x-admin-table.td class="text-center d-none d-md-table-cell">
