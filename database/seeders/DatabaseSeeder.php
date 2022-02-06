@@ -11,10 +11,12 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\FileSeeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\ChartSeeder;
 use Database\Seeders\MediaSeeder;
 use Database\Seeders\BannerSeeder;
 use Database\Seeders\SliderSeeder;
 use Database\Seeders\FileTypeSeeder;
+use Database\Seeders\ChartDataSeeder;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\PermissionSeeder;
 use Database\Seeders\TestimonialSeeder;
@@ -44,6 +46,8 @@ class DatabaseSeeder extends Seeder
             FileTypeSeeder::class,
             FileSeeder::class,
             StaticPageSeeder::class,
+            ChartSeeder::class,
+            ChartDataSeeder::class,
 
             //after StaticPages
             BannerSeeder::class,
