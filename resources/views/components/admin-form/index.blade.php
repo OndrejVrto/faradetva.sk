@@ -3,7 +3,11 @@
     'columns' => 8,
     'uploadFiles' => 'false',
     'typeForm' => '',
-    'identificatorEdit' => null,
+    'identificator' => null,
+    'linkActionCreate' => null,
+    'linkBack' => null,
+    'linkEdit' => null,
+    'linkActionEdit' => null,
     'createdInfo' => '',
     'createdBy' => '',
     'updatedInfo' => '',
@@ -11,15 +15,28 @@
 ])
 @php
     if($typeForm == '' OR is_null($typeForm)) $typeForm = 'create';
+
     $maxXL = min($columns, 12);
     $maxLG = min($columns + 1, 12);
     $maxMD = min($columns + 2, 12);
-    $headerTitle = config('farnost-detva.admin_texts.'.$controlerName.'_header_'.$typeForm );
-    $headerDescription = config('farnost-detva.admin_texts.'.$controlerName.'_description_'.$typeForm );
-    $linkActionEdit = route( $controlerName . '.update', $identificatorEdit);
-    $linkActionCreate = route( $controlerName . '.store');
-    $linkBack = route( $controlerName . '.index');
-    $linkEdit = route( $controlerName . '.edit', $identificatorEdit);
+
+    $texts = Str::replace('.','-', $controlerName);
+    $headerTitle = config('farnost-detva.admin_texts.'.$texts.'_header_'.$typeForm );
+    $headerDescription = config('farnost-detva.admin_texts.'.$texts.'_description_'.$typeForm );
+
+    if (is_null($linkBack)) {
+        $linkBack = Route::has($controlerName . '.index') ? route($controlerName . '.index', $identificator) : null;
+    }
+    if (is_null($linkActionCreate)) {
+        $linkActionCreate = Route::has($controlerName . '.store') ? route($controlerName . '.store', $identificator) : null;
+    }
+    if (is_null($linkEdit)) {
+        $linkEdit = Route::has($controlerName . '.edit') ? route($controlerName . '.edit', $identificator) : null;
+    }
+    if (is_null($linkActionEdit)) {
+        $linkActionEdit = Route::has($controlerName . '.destroy') ? route($controlerName . '.destroy', $identificator) : null;
+    }
+
 @endphp
 
 <div class="row">

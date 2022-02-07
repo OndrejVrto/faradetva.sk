@@ -14,43 +14,40 @@ use App\Http\Requests\ChartDataRequest;
 class ChartDataController extends Controller
 {
     public function index(Chart $chart): View {
-        $chartData = ChartData::latest()->paginate(10);
+        $data = ChartData::where('chart_id', $chart->id)->latest('key')->paginate(25);
 
-        return view('backend.chartDatas.index', compact('chartData'));
+        return view('backend.chart-data.index', compact('chart', 'data'));
     }
 
     public function create(Chart $chart): View {
-        return view('backend.chartDatas.create');
+        return view('backend.chart-data.create', compact('chart'));
     }
 
     public function store(ChartDataRequest $request, Chart $chart): RedirectResponse {
-        $validated = $request->validated();
+        $validated = $request->validated() + ['chart_id' => $chart->id];
         ChartData::create($validated);
 
-        toastr()->success(__('app.chartData.store'));
-        return redirect()->route('chartDatas.index');
+        toastr()->success(__('app.chart-data.store'));
+        return redirect()->route('charts.data.index', $chart);
     }
 
-    public function show(ChartData $chartData, Chart $chart): View {
-        return view('backend.chartDatas.show', compact('chartData'));
+    public function edit(Chart $chart, ChartData $data): View {
+        // dd($chart, $data);
+        return view('backend.chart-data.edit', compact('chart', 'data'));
     }
 
-    public function edit(ChartData $chartData, Chart $chart): View {
-        return view('backend.chartDatas.edit', compact('chartData'));
+    public function update(ChartDataRequest $request, Chart $chart, ChartData $data): RedirectResponse {
+        $validated = $request->validated() + ['chart_id' => $chart->id];
+        $data->update($validated);
+
+        toastr()->success(__('app.chart-data.update'));
+        return redirect()->route('charts.data.index', $chart);
     }
 
-    public function update(ChartDataRequest $request, ChartData $chartData, Chart $chart): RedirectResponse {
-        $validated = $request->validated();
-        $chartData->update($validated);
+    public function destroy(Chart $chart, ChartData $data): RedirectResponse {
+        $data->delete();
 
-        toastr()->success(__('app.chartData.update'));
-        return redirect()->route('chartDatas.index');
-    }
-
-    public function destroy(ChartData $chartData, Chart $chart): RedirectResponse {
-        $chartData->delete();
-
-        toastr()->success(__('app.chartData.delete'));
-        return redirect()->route('chartDatas.index');
+        toastr()->success(__('app.chart-data.delete'));
+        return redirect()->route('charts.data.index', $chart);
     }
 }

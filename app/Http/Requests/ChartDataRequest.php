@@ -14,10 +14,6 @@ class ChartDataRequest extends FormRequest
 
     public function rules(): array {
         return [
-            'chart_id' => [
-                'required',
-                'exists:charts,id'
-            ],
             'key' => [
                 'required',
                 'max:255',
@@ -25,6 +21,12 @@ class ChartDataRequest extends FormRequest
             'value' => [
                 'numeric'
             ],
+        ];
+    }
+
+    public function messages() {
+        return [
+            'value.numeric' => 'Hodnota musí byť číslo. Ako oddeľovač desatiných miest použi bodku.',
         ];
     }
 }

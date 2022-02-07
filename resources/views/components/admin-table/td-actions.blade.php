@@ -1,11 +1,20 @@
 @props([
     'controlerName' => '',
-    'identificator'
+    'showLink' => null,
+    'editLink' => null,
+    'deleteLink' => null,
+    'identificator' => null,
 ])
 @php
-    $showLink = Route::has($controlerName . '.show') ? route($controlerName . '.show', $identificator) : null;
-    $editLink = Route::has($controlerName . '.edit') ? route($controlerName . '.edit', $identificator) : null;
-    $deleteLink = Route::has($controlerName . '.destroy') ? route($controlerName . '.destroy', $identificator) : null;
+    if (is_null($showLink)) {
+        $showLink = Route::has($controlerName . '.show') ? route($controlerName . '.show', $identificator) : null;
+    }
+    if (is_null($editLink)) {
+        $editLink = Route::has($controlerName . '.edit') ? route($controlerName . '.edit', $identificator) : null;
+    }
+    if (is_null($deleteLink)) {
+        $deleteLink = Route::has($controlerName . '.destroy') ? route($controlerName . '.destroy', $identificator) : null;
+    }
 @endphp
 
 @isset($showLink)

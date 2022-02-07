@@ -1,10 +1,12 @@
 @props([
     'controlerName' => '',
     'columns' => null,
+    'createLink' => null,
     'createBtn' => null,
     'createNote' => null,
     'paginator' => null,
     'headerSpecial' => '',
+    'linkBack' => route('admin.dashboard'),
     'table_header',
     'table_body',
     'table_footer',
@@ -13,10 +15,12 @@
     $maxXL = min($columns, 12);
     $maxLG = min($columns + 1, 12);
     $maxMD = min($columns + 2, 12);
-    $headerTitle = config('farnost-detva.admin_texts.'.$controlerName.'_header' );
-    $headerDescription = config('farnost-detva.admin_texts.'.$controlerName.'_description' );
-    $createLink = route( $controlerName . '.create');
-    $linkBack = route( 'admin.dashboard' );
+    $texts = Str::replace('.','-', $controlerName);
+    $headerTitle = config('farnost-detva.admin_texts.'.$texts.'_header' );
+    $headerDescription = config('farnost-detva.admin_texts.'.$texts.'_description' );
+    if (is_null($createLink)) {
+        $createLink = Route::has($controlerName . '.create') ? route($controlerName . '.create') : null;
+    }
 @endphp
 
 <div class="row justify-content-center">
@@ -30,7 +34,7 @@
                     </a>
                     <h1>
                         @if(isset($headerSpecial) AND $headerSpecial != '')
-                            {{ $headerSpecial }}
+                            {!! $headerSpecial !!}
                         @else
                             {{ $headerTitle }}
                         @endif
