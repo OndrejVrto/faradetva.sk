@@ -3,17 +3,17 @@
     $columns = 8;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = null;
+    $typeForm = $identificator = null;
     if ( isset( $gallery ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $gallery->slug;
+        $identificator = $gallery->slug;
     }
 @endphp
 
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
+    identificator="{{ $identificator }}"
     >
 
     <x-adminlte-input

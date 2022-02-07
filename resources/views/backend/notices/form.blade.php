@@ -3,10 +3,10 @@
     $columns = 6;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $notice ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $notice->id;
+        $identificator = $notice->id;
         $createdInfo = $notice->createdInfo;
         $createdBy = $notice->createdBy;
         $updatedInfo = $notice->updatedInfo;
@@ -17,7 +17,7 @@
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
+    identificator="{{ $identificator }}"
     createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
     updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
 >

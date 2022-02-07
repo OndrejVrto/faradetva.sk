@@ -3,17 +3,17 @@
     $columns = 6;
     $uploadFiles = 'false';
 
-    $typeForm = $identificatorEdit = null;
+    $typeForm = $identificator = null;
     if ( isset( $chart ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $chart->id;
+        $identificator = $chart->id;
     }
 @endphp
 
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
+    identificator="{{ $identificator }}"
     >
 
     <x-adminlte-input

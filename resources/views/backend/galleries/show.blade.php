@@ -11,10 +11,10 @@
     $controlerName = 'galleries';
     $columns = 11;
 
-    $typeForm = $identificatorEdit = $createdInfo = $updatedInfo = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $gallery ) ) {
         $typeForm = 'show';
-        $identificatorEdit = $gallery->slug;
+        $identificator = $gallery->slug;
         $createdInfo = $gallery->created_at;
         $updatedInfo = $gallery->updated_at;
     }
@@ -24,7 +24,7 @@
 
     <x-admin-form
         controlerName="{{ $controlerName }}" columns="{{ $columns }}"
-        typeForm="{{ $typeForm }}"  identificatorEdit="{{ $identificatorEdit }}"
+        typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
         createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
         <x-gallery/>
