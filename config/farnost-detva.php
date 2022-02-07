@@ -160,5 +160,15 @@ return [
         'charts_header_edit'        => 'Úprava grafu',
         'charts_header_show'        => 'Prehliadanie grafu',
 
+        'charts-data_title'              => 'Graf',
+        'charts-data_description'        => 'Štatistiky farnosti v grafoch',
+        'charts-data_description_create' => 'Tu môžete pridať nový graf',
+        'charts-data_description_edit'   => 'Tu môžete upraviť graf',
+        'charts-data_description_show'   => 'Detailné informácie o grafoch s náhľadom',
+        'charts-data_header'             => 'Grafy',
+        'charts-data_header_create'      => 'Nový graf',
+        'charts-data_header_edit'        => 'Úprava grafu',
+        'charts-data_header_show'        => 'Prehliadanie grafu',
+
     ]
 ];
