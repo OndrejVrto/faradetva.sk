@@ -144,29 +144,31 @@ return [
         'galleries_description'        => 'Obrázkové galérie na statické stránky',
         'galleries_description_create' => 'Tu môžete pridať novú obrázkovú galériu',
         'galleries_description_edit'   => 'Tu môžete upraviť údaje v galérii',
-        'galleries_description_show'   => 'Detailné informácie o galérii',
+        'galleries_description_show'   => 'Detailné informácie o galérii s náhľadom',
         'galleries_header'             => 'Galérie obrázkov',
         'galleries_header_create'      => 'Nová galéria',
         'galleries_header_edit'        => 'Úprava galérie',
         'galleries_header_show'        => 'Prehliadanie galérie',
 
+        'charts_title'              => 'Graf',
+        'charts_description'        => 'Štatistiky farnosti v grafoch',
+        'charts_description_create' => 'Tu môžete pridať nový graf',
+        'charts_description_edit'   => 'Tu môžete upraviť graf',
+        'charts_description_show'   => 'Detailné informácie o grafoch s náhľadom',
+        'charts_header'             => 'Grafy',
+        'charts_header_create'      => 'Nový graf',
+        'charts_header_edit'        => 'Úprava grafu',
+        'charts_header_show'        => 'Prehliadanie grafu',
 
-        // 's_title'              => '',
-        // 's_description'        => '',
-        // 's_description_create' => '',
-        // 's_description_edit'   => '',
-        // 's_header'             => '',
-        // 's_header_create'      => '',
-        // 's_header_edit'        => '',
-
-
-
-
-
-
-
-
+        'charts-data_title'              => 'Graf',
+        'charts-data_description'        => 'Štatistiky farnosti v grafoch',
+        'charts-data_description_create' => 'Tu môžete pridať nový graf',
+        'charts-data_description_edit'   => 'Tu môžete upraviť graf',
+        'charts-data_description_show'   => 'Detailné informácie o grafoch s náhľadom',
+        'charts-data_header'             => 'Grafy',
+        'charts-data_header_create'      => 'Nový graf',
+        'charts-data_header_edit'        => 'Úprava grafu',
+        'charts-data_header_show'        => 'Prehliadanie grafu',
 
     ]
-
 ];

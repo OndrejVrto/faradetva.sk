@@ -250,6 +250,7 @@ return [
                 'priests.index',
                 'testimonials.index',
                 'sliders.index',
+                'charts.index',
             ],
         ],
         [
@@ -286,6 +287,13 @@ return [
             'route' => 'sliders.index',
             'icon'  => 'fas fa-image',
             'can'  => 'sliders.index',
+        ],
+        [
+            'text'  => 'Grafy',
+            'icon_color'  => 'orange',
+            'route' => 'charts.index',
+            'icon'  => 'fas fa-chart-line',
+            'can'  => 'charts.index',
         ],
 
         [

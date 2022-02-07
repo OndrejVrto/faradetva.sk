@@ -3,10 +3,10 @@
     $columns = 12;
     $uploadFiles = 'false';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $staticPage ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $staticPage->slug;
+        $identificator = $staticPage->slug;
         $createdInfo = $staticPage->createdInfo;
         $createdBy = $staticPage->createdBy;
         $updatedInfo = $staticPage->updatedInfo;
@@ -17,7 +17,7 @@
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
+    identificator="{{ $identificator }}"
     createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
     updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
 >

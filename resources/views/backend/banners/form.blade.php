@@ -3,10 +3,10 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
     if ( isset( $banner ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $banner->id;
+        $identificator = $banner->id;
         $createdInfo = $banner->createdInfo;
         $createdBy = $banner->createdBy;
         $updatedInfo = $banner->updatedInfo;
@@ -17,7 +17,7 @@
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
+    identificator="{{ $identificator }}"
     createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
     updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
 >
@@ -64,6 +64,7 @@
         class="border-right-none"
         name="photo"
         label="Obrázok"
+        accept=".jpg,.bmp,.png,.jpeg"
         placeholder="{{ $banner->media_file_name ?? 'Vložiť obrázok ...' }}">
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">

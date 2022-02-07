@@ -54,23 +54,23 @@ Breadcrumbs::for('file-manager', function (BreadcrumbTrail $trail) {
 });
 
 // Admin Home : Resource Models
-Breadcrumbs::resource('news', 'Články');
-Breadcrumbs::resource('notices', 'Oznamy');
-Breadcrumbs::resource('tags', 'Kľúčové slová');
-Breadcrumbs::resource('categories', 'Kategórie článkov');
-Breadcrumbs::resource('sliders', 'Myšlienky');
-Breadcrumbs::resource('testimonials', 'Svedectvá');
-Breadcrumbs::resource('priests', 'Kňazi');
-
-Breadcrumbs::resource('banners', 'Bannery');
-Breadcrumbs::resource('static-pages', 'Statické stránky');
-Breadcrumbs::resource('files', 'Súbory');
-Breadcrumbs::resource('galleries', 'Galérie');
-Breadcrumbs::resource('file-types', 'Typy súborov');
-
-Breadcrumbs::resource('users', 'Užívatelia');
 Breadcrumbs::resource('roles', 'Role');
+Breadcrumbs::resource('news', 'Články');
+Breadcrumbs::resource('charts', 'Grafy');
+Breadcrumbs::resource('files', 'Súbory');
+Breadcrumbs::resource('priests', 'Kňazi');
+Breadcrumbs::resource('notices', 'Oznamy');
+Breadcrumbs::resource('banners', 'Bannery');
+Breadcrumbs::resource('users', 'Užívatelia');
+Breadcrumbs::resource('sliders', 'Myšlienky');
+Breadcrumbs::resource('galleries', 'Galérie');
+Breadcrumbs::resource('tags', 'Kľúčové slová');
 Breadcrumbs::resource('permissions', 'Povolenia');
+Breadcrumbs::resource('testimonials', 'Svedectvá');
+Breadcrumbs::resource('file-types', 'Typy súborov');
+Breadcrumbs::resource('charts.data', 'Údaje do grafov');
+Breadcrumbs::resource('categories', 'Kategórie článkov');
+Breadcrumbs::resource('static-pages', 'Statické stránky');
 
 // Home > Blog > [Category]
 // Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {

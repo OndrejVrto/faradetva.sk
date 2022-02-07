@@ -32,6 +32,16 @@ return [
         'update' => 'Informácie o kňazovi boli upravené.',
         'delete' => 'Informácia o kňazovi našej farnosti bola odstránená!',
     ],
+    'chart'   => [
+        'store' => 'Nový graf bol pridaný!',
+        'update' => 'Graf bol upravený.',
+        'delete' => 'Graf bol odstránený!',
+    ],
+    'chart-data'   => [
+        'store' => 'Nový parameter grafu bol pridaný!',
+        'update' => 'Parameter grafu bol upravený.',
+        'delete' => 'Parameter grafu bol odstránený!',
+    ],
     'role'   => [
         'store' => 'Nová rola :name bola pridaná!',
         'update' => 'Rola :name bola upravená!',

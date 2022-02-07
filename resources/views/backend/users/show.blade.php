@@ -12,10 +12,10 @@
     $columns = 5;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $createdInfo = $updatedInfo = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $user ) ) {
         $typeForm = 'show';
-        $identificatorEdit = $user->id;
+        $identificator = $user->id;
         $createdInfo = $user->created_at;
         $updatedInfo = $user->updated_at;
     }
@@ -24,7 +24,7 @@
 @section('content')
 
     <x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
-                    typeForm="{{ $typeForm }}"  identificatorEdit="{{ $identificatorEdit }}"
+                    typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
                     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
         <div class="row d-flex justify-content-between">
