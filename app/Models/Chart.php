@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Models\ChartData;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -21,4 +22,8 @@ class Chart extends Model
         'type_chart',
         'color',
     ];
+
+    public function data() {
+        return $this->hasMany(ChartData::class);
+    }
 }
