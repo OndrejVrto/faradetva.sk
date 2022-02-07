@@ -16,6 +16,7 @@
     name="picture"
     class="border-right-none"
     label="Obrázok na titulku"
+    accept=".jpg,.bmp,.png,.jpeg"
     {{-- fgroupClass="mt-5" --}}
     placeholder="{{ $media_file_name }}"
     >

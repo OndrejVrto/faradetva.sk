@@ -101,6 +101,7 @@
         class="border-right-none"
         name="photo"
         label="Fotka alebo avatar"
+        accept=".jpg,.bmp,.png,.jpeg,.svg"
         {{-- placeholder="{{ $testimonial->media_file_name ?? 'Vložiť fotku ...' }}"> --}}
         placeholder="{{ $testimonial->media_file_name ?? '' }}">
         <x-slot name="prependSlot">

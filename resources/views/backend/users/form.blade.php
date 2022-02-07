@@ -128,6 +128,7 @@
                 class="border-right-none"
                 name="photo_avatar"
                 label="Fotka alebo avatar"
+                accept=".jpg,.bmp,.png,.jpeg,.svg"
                 {{-- placeholder="Vložiť avatara .." --}}
                 >
                 <x-slot name="prependSlot">

@@ -176,6 +176,7 @@
         class="border-right-none"
         name="photo"
         label="Fotka"
+        accept=".jpg,.bmp,.png,.jpeg,.svg"
         {{-- placeholder="{{ $priest->media_file_name ?? 'Vložiť fotku ..' }}"> --}}
         placeholder="{{ $priest->media_file_name ?? '' }}">
         <x-slot name="prependSlot">

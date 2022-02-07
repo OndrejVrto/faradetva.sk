@@ -64,6 +64,7 @@
         class="border-right-none"
         name="photo"
         label="Obrázok"
+        accept=".jpg,.bmp,.png,.jpeg"
         placeholder="{{ $banner->media_file_name ?? 'Vložiť obrázok ...' }}">
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">

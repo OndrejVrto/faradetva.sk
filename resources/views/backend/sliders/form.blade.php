@@ -91,6 +91,7 @@
         class="border-right-none"
         name="photo"
         label="Obrázok"
+        accept=".jpg,.bmp,.png,.jpeg"
         {{-- placeholder="{{ $slider->media_file_name ?? 'Vložiť obrázok ...' }}"> --}}
         placeholder="{{ $slider->media_file_name ?? '' }}">
         <x-slot name="prependSlot">

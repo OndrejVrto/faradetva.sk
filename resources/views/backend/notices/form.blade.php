@@ -56,6 +56,7 @@
         name="notice_file"
         class="border-right-none"
         label="Pdf súbor"
+        accept=".pdf"
         {{-- placeholder="{{ $notice->media_file_name ?? 'Vložiť obrázok ...' }}" --}}
         placeholder="{{ $notice->media_file_name ?? '' }}"
         >
