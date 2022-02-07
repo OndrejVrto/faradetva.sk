@@ -17,6 +17,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "rexlabs/enum": "^2.2",
         "spatie/laravel-medialibrary": "^9.0.0",
         "spatie/laravel-permission": "^5.4",
         "tinymce/tinymce": "^5.10",
