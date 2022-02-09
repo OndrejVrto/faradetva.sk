@@ -24,6 +24,6 @@ class Chart extends Model
     ];
 
     public function data() {
-        return $this->hasMany(ChartData::class);
+        return $this->hasMany(ChartData::class)->orderBy('key');
     }
 }
