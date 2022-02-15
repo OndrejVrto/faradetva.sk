@@ -1,4 +1,4 @@
-@php ( $userImage = Auth::user()->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100" )
+@php( $userImage = Auth::user()->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100" )
 @php( $userName = Auth::user()->name ?? 'Anonym' )
 @php( $rola = Auth::user()->roles->first()->name ?? 'bez role' )
 @php( $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'logout') )
@@ -28,6 +28,7 @@
         <span @if(config('adminlte.usermenu_image')) class="d-none d-md-inline" @endif>
             {{ $userName }}
             <span class="pl-2 small text-warning">({{ $rola }})</span>
+            <span id="time" class="pl-2 small text-light"></span>
         </span>
     </a>
 

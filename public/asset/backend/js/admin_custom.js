@@ -82,3 +82,36 @@
 
 
 })(jQuery);
+
+var Timer = function(opts) {
+    var self = this;
+
+    self.opts     = opts || {};
+    self.element  = opts.element || null;
+    self.minutes  = opts.minutes || 0;
+    self.seconds  = opts.seconds || 0;
+
+    self.start = function() {
+        self.interval = setInterval(countDown, 1000);
+    };
+
+    self.stop = function() {
+        clearInterval(self.interval);
+    };
+
+    function countDown() {
+        self.seconds--; //Changed Line
+        if (self.minutes == 0 && self.seconds == 0) {
+        self.stop();
+        }
+
+        if (self.seconds < 0) { //Changed Condition. Not include 0
+        self.seconds = 59;
+        self.minutes--;
+        }
+
+        if (self.seconds <= 9) { self.seconds = '0' + self.seconds; }
+
+        self.element.textContent = ("0" + self.minutes).slice(-2) + ':' + self.seconds;
+    }
+};
