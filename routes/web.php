@@ -55,9 +55,9 @@ Route::post('galleries/media', [GalleryController::class, 'storeMedia'])->name('
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 
     //!  Filemanager for TinyMCE Editor
-    Route::prefix('laravel-file-manager')->group( function() {
-        Lfm::routes();
-    });
+    // Route::prefix('laravel-file-manager')->group( function() {
+    //     Lfm::routes();
+    // });
 
     //!  Filemanager for Static-pages
     Route::get('file-manager', FileManagerController::class)->name('file-manager');
