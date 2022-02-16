@@ -18,7 +18,7 @@
     @toastr_render
     <script>
         var myTimer = new Timer({
-            minutes: {{ config('auth.password_timeout')/60 }},
+            minutes: {{ config('session.lifetime') }},
             seconds: 0,
             element: document.querySelector('#time')
         });

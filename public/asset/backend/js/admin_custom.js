@@ -101,16 +101,19 @@ var Timer = function(opts) {
 
     function countDown() {
         self.seconds--; //Changed Line
+
         if (self.minutes == 0 && self.seconds == 0) {
-        self.stop();
+            self.stop();
         }
 
         if (self.seconds < 0) { //Changed Condition. Not include 0
-        self.seconds = 59;
-        self.minutes--;
+            self.seconds = 59;
+            self.minutes--;
         }
 
-        if (self.seconds <= 9) { self.seconds = '0' + self.seconds; }
+        if (self.seconds <= 9) {
+            self.seconds = '0' + self.seconds;
+        }
 
         self.element.textContent = ("0" + self.minutes).slice(-2) + ':' + self.seconds;
     }
