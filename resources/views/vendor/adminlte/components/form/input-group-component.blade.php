@@ -1,3 +1,11 @@
+{{-- Setup the internal errors bag for the component --}}
+
+@php
+    $setErrorsBag($errors);
+@endphp
+
+{{-- Setup the input group component structure --}}
+
 <div class="{{ $makeFormGroupClass() }}">
 
     {{-- Input label --}}
@@ -44,13 +52,18 @@
         <small class="form-text text-muted">{{ $noteSlot }}</small>
     @endisset
 
+    {{-- Bottom slot --}}
+    @isset($bottomSlot)
+        {{ $bottomSlot }}
+    @endisset
+
 </div>
 
 {{-- Extra style customization for invalid input groups --}}
 
 @once
 @push('css')
-<style>
+<style type="text/css">
 
     {{-- Highlight invalid input groups with a box-shadow --}}
 

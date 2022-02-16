@@ -15,6 +15,14 @@
 
     $(() => {
         $('#{{ $id }}').bootstrapSwitch( @json($config) );
+
+        // Add support to auto select the previous submitted value in case of
+        // validation errors.
+
+        @if($errors->any() && $enableOldSupport)
+            let oldState = @json((bool)$getOldValue($errorKey));
+            $('#{{ $id }}').bootstrapSwitch('state', oldState);
+        @endif
     })
 
 </script>
@@ -25,7 +33,7 @@
 
 @once
 @push('css')
-<style>
+<style type="text/css">
 
     {{-- MD (default) size setup --}}
     .input-group .bootstrap-switch-handle-on,
