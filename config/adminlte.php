@@ -232,7 +232,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'Hľadať ...',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
 
         // Sidebar items:

@@ -42,8 +42,8 @@
 
 @isset($deleteLink)
     @can($controlerName . '.destroy')
-        <td class="form-delete-wraper text-center">
-            <form class="delete-form" action="{{ $deleteLink }}" method="post" style="display: inline-block">
+        <td>
+            <form class="delete-form" action="{{ $deleteLink }}" method="post">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
