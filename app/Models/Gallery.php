@@ -52,6 +52,8 @@ class Gallery extends Model implements HasMedia
                 ->withResponsiveImages();
             $this->addMediaConversion('thumb')
                 ->height(200);
+            $this->addMediaConversion('crop-thumb')
+                ->fit("crop", 100, 100);
         }
     }
 }

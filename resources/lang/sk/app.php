@@ -86,4 +86,9 @@ return [
         'update' => 'Typ dokumentu bol upravený!',
         'delete' => 'Typ dokumentu bol odstránený!',
     ],
+    'gallery'   => [
+        'store' => 'Galéria obrázkov bola pridaná!',
+        'update' => 'Galéria bola upravená!',
+        'delete' => 'Galéria bola odstránená!',
+    ],
 ];

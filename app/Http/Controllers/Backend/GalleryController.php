@@ -15,7 +15,7 @@ use Illuminate\Http\RedirectResponse;
 class GalleryController extends Controller
 {
     public function index(): View {
-        $galleries = Gallery::latest()->with('media')->paginate(10);
+        $galleries = Gallery::latest()->with('media')->withCount('picture')->paginate(5);
 
         return view('backend.galleries.index', compact('galleries'));
     }
