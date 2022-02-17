@@ -47,14 +47,11 @@ class Gallery extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null) : void {
         if ($media->collection_name == $this->collectionPicture) {
-            // TODO: setting size thumbs
             $this->addMediaConversion('orginal')
                 ->optimize()
                 ->withResponsiveImages();
-            $this->addMediaConversion('thumb-small')
-                ->height(100);
-            $this->addMediaConversion('thumb-large')
-                ->height(250);
+            $this->addMediaConversion('thumb')
+                ->height(200);
         }
     }
 }

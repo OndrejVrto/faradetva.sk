@@ -42,6 +42,7 @@ class GalleryRequest extends FormRequest
             ],
             'author_url' => [
                 'nullable',
+                'url',
                 'string',
                 'max:512',
             ],
@@ -52,6 +53,7 @@ class GalleryRequest extends FormRequest
             ],
             'source_url' => [
                 'nullable',
+                'url',
                 'string',
                 'max:512',
             ],
@@ -62,6 +64,7 @@ class GalleryRequest extends FormRequest
             ],
             'license_url' => [
                 'nullable',
+                'url',
                 'string',
                 'max:512',
             ],

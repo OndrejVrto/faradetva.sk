@@ -24,9 +24,10 @@
         </x-page-section.text>
     </x-page-section>
 
-
-    <x-gallery/>
-
+    <x-photo-gallery titleSlug="ratione-sunt-aut-re"/>
+    <x-photo-gallery titleSlug="sequi-excepteur-labo"/>
+    <x-photo-gallery titleSlug="error-dolor-veritati"/>
+    <x-photo-gallery titleSlug="srandovne-obrazky"/>
 
     <x-page-section title="Vznik Detvy">
         {{-- <x-page-section.img columns="5" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/602199.jpg') }}" /> --}}

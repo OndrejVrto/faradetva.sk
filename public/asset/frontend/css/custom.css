@@ -20,6 +20,11 @@
 	color: #ff7b33 !important;
 }
 
+.link-template {
+    text-decoration: none;
+    color: #243a4f !important;
+}
+
 .link-template:hover {
 	color: #ff7b33 !important;
 }
@@ -68,3 +73,14 @@
 .img-article-right {
     right   : 5px;
 }
+
+
+.gallery-source {
+    /* position: absolute; */
+    /* z-index: 100; */
+	font-weight   : 400;
+	font-size     : 10px;
+    /* color   : #243a4f; */
+    /* bottom  : -1.1rem; */
+}
+

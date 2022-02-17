@@ -47,6 +47,7 @@ class GalleryController extends Controller
         $validated = $request->validated();
         $gallery = Gallery::create($validated);
 
+        set_time_limit(300); // 5 minutes
         foreach ($request->input('picture', []) as $file) {
             $gallery
                 ->addMedia(storage_path('tmp/uploads/' . $file))
@@ -74,6 +75,7 @@ class GalleryController extends Controller
         $validated = $request->validated();
         $gallery->update($validated);
 
+        set_time_limit(300); // 5 minutes
         if (count($gallery->picture) > 0) {
             foreach ($gallery->picture as $media) {
                 if (!in_array($media->file_name, $request->input('picture', []))) {

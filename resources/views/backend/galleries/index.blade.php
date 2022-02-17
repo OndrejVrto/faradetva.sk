@@ -17,7 +17,7 @@
 
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th>Pracovný názov galérie</x-admin-table.th>
+            <x-admin-table.th>Pracovný názov galérie [titleSlug]</x-admin-table.th>
             <x-admin-table.th-actions colspan="3"/>
         </x-slot>
 

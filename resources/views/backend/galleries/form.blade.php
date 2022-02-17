@@ -54,37 +54,6 @@
     <div class="form-row">
         <div class="col-xl-5">
             <x-adminlte-input
-                name="author"
-                label="Meno autora obrázkov"
-                enableOldSupport="true"
-                value="{{ $gallery->author ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-user-astronaut fa-lg"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-        <div class="col-xl-7">
-            <x-adminlte-input
-                name="author_url"
-                label="Kontakt na autora obrázkov (url)"
-                enableOldSupport="true"
-                value="{{ $gallery->author_url ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fab fa-facebook"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="col-xl-5">
-            <x-adminlte-input
                 name="source"
                 label="Zdroj obrázkov (text)"
                 enableOldSupport="true"
@@ -107,6 +76,37 @@
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-link"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-xl-5">
+            <x-adminlte-input
+                name="author"
+                label="Meno autora obrázkov"
+                enableOldSupport="true"
+                value="{{ $gallery->author ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-user-astronaut fa-lg"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+        <div class="col-xl-7">
+            <x-adminlte-input
+                name="author_url"
+                label="Kontakt na autora obrázkov (url)"
+                enableOldSupport="true"
+                value="{{ $gallery->author_url ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fab fa-facebook"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
