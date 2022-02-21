@@ -63,7 +63,7 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::get('file-manager', FileManagerController::class)->name('file-manager');
 
     //!  Inpersonate IN Route
-    Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->name('impersonate');
+    Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->whereNumber('id')->name('impersonate');
 
     //!  Activity plugin
     Route::get('users-activity', [ActivityController::class, 'getIndex'])->name('log-activity.index');
@@ -109,7 +109,7 @@ Route::controller(ArticleController::class)->name('article.')->group(function ()
     Route::get('clanky-v-kategorii/{slug}', 'indexCategory')->name('category');
     Route::get('clanky-podla-klucoveho-slova/{slug}', 'indexTag')->name('tag');
     Route::get('clanky-podla-autora/{slug}', 'indexAuthor')->name('author');
-    Route::get('clanky-z-roku/{year}', 'indexDate')->name('date');
+    Route::get('clanky-z-roku/{year}', 'indexDate')->where('year', '^(20\d\d)$')->name('date');
     Route::get('hladat-clanok/{search?}', 'indexSearch')->name('search');
 });
 
