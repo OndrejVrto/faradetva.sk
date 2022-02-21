@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 // use Haruncpi\LaravelUserActivity\Traits\Loggable;
@@ -45,8 +46,25 @@ class News extends Model implements HasMedia
 
     public $collectionDocument = 'document';
 
+    private $newsPerPage = 7;
+
     public function getRouteKeyName() {
         return 'slug';
+    }
+
+    public function scopeVisible(Builder $query) {
+        return $query
+                    ->where('active', 1)
+                    ->published()
+                    ->unpublished()
+                    ->latest();
+    }
+
+    public function scopeNewsComplete(Builder $query) {
+        return $query
+                    ->visible()
+                    ->with('media', 'user', 'category')
+                    ->paginate($this->newsPerPage);
     }
 
     public function getTeaserMediumAttribute() {
