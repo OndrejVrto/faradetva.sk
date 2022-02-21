@@ -79,7 +79,7 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     //!  Main route
     Route::redirect('/', '/admin/dashboard', 308);
     Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
-    Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
+    // Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
 
     Route::resource('users', UserController::class);
     Route::resource('charts', ChartController::class);

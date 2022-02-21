@@ -27,7 +27,7 @@
         typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
         createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
-        <x-gallery/>
+        <x-photo-gallery titleSlug="{{ $gallery->slug }}"/>
 
     </x-admin-form>
 
