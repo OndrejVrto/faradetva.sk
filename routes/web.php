@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\FileController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\CacheController;
 use App\Http\Controllers\Backend\ChartController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PageController;
@@ -58,6 +59,12 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::prefix('laravel-file-manager')->group( function() {
         Lfm::routes();
     });
+
+    //!  Caches
+    Route::get('start-caches', [CacheController::class, 'startCaches'])->name('cache.start');
+    Route::get('clear-caches', [CacheController::class, 'clearCaches'])->name('cache.stop');
+    Route::get('clear-data-caches', [CacheController::class, 'clearDataCaches'])->name('cache-data.stop');
+    Route::get('reset-caches', [CacheController::class, 'resetCaches'])->name('cache.reset');
 
     //!  Filemanager for Static-pages
     Route::get('file-manager', FileManagerController::class)->name('file-manager');
