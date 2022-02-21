@@ -15,7 +15,7 @@ use Illuminate\Http\RedirectResponse;
 class GalleryController extends Controller
 {
     public function index(): View {
-        $galleries = Gallery::latest()->with('media')->paginate(10);
+        $galleries = Gallery::latest()->with('media')->withCount('picture')->paginate(5);
 
         return view('backend.galleries.index', compact('galleries'));
     }
@@ -47,6 +47,7 @@ class GalleryController extends Controller
         $validated = $request->validated();
         $gallery = Gallery::create($validated);
 
+        set_time_limit(300); // 5 minutes
         foreach ($request->input('picture', []) as $file) {
             $gallery
                 ->addMedia(storage_path('tmp/uploads/' . $file))
@@ -74,6 +75,7 @@ class GalleryController extends Controller
         $validated = $request->validated();
         $gallery->update($validated);
 
+        set_time_limit(300); // 5 minutes
         if (count($gallery->picture) > 0) {
             foreach ($gallery->picture as $media) {
                 if (!in_array($media->file_name, $request->input('picture', []))) {
