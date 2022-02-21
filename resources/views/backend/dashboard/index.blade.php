@@ -15,32 +15,39 @@
             @endrole
         @endauth
 
-        <div class="row justify-content-center">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="text-muted">
-                        Správa cache
-                    </h3>
-                </div>
-                <div class="card-body">
-                    @can('cache-data.stop')
-                        <a href="{{ route('cache-data.stop') }}" class="btn btn-info px-3 mx-2">Cache data CLEAR</a>
-                    @endcan
-                    @can('cache.stop')
-                    <a href="{{ route('cache.stop') }}" class="btn btn-warning px-3 mx-2">Cache STOP</a>
-                    @endcan
-                    @can('cache.start')
-                        <a href="{{ route('cache.start') }}" class="btn btn-danger px-3 mx-2">Cache ŠTART</a>
-                    @endcan
-                    @can('cache.reset')
-                        <a href="{{ route('cache.reset') }}" class="btn btn-danger px-3 mx-2">Cache RESET</a>
-                    @endcan
-                </div>
-                <div class="card-footer text-danger">
-                    ! POZOR !  Cache používaj uvážlivo len v ostrej prevádzke.
+        @can(
+            'cache-data.stop',
+            'cache.stop',
+            'cache.start',
+            'cache.reset',
+        )
+            <div class="row justify-content-center">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-muted">
+                            Správa cache
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        @can('cache-data.stop')
+                            <a href="{{ route('cache-data.stop') }}" class="btn btn-info px-3 mx-2">Cache data CLEAR</a>
+                        @endcan
+                        @can('cache.stop')
+                        <a href="{{ route('cache.stop') }}" class="btn btn-warning px-3 mx-2">Cache STOP</a>
+                        @endcan
+                        @can('cache.start')
+                            <a href="{{ route('cache.start') }}" class="btn btn-danger px-3 mx-2">Cache ŠTART</a>
+                        @endcan
+                        @can('cache.reset')
+                            <a href="{{ route('cache.reset') }}" class="btn btn-danger px-3 mx-2">Cache RESET</a>
+                        @endcan
+                    </div>
+                    <div class="card-footer text-danger">
+                        ! POZOR !  Cache používaj uvážlivo len v ostrej prevádzke.
+                    </div>
                 </div>
             </div>
-        </div>
+        @endcan
 
         <div class="row justify-content-end">
             <div class="col-xl-5">
