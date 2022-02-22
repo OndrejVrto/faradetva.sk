@@ -8,11 +8,12 @@ use App\Models\Banner;
 use App\Models\Priest;
 use App\Models\Slider;
 use App\Models\Testimonial;
+use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function __invoke() {
+    public function __invoke(): View  {
         $priests = Priest::whereActive(1)->with('media')->get();
 
         $countTestimonial = Testimonial::whereActive(1)->count();

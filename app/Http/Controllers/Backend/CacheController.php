@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
 
 class CacheController extends Controller
 {
-    public function startCaches() {
+    public function startCaches(): RedirectResponse {
         Artisan::call('config:cache -q');
         Artisan::call('route:cache -q');
         Artisan::call('optimize -q');
@@ -17,7 +18,7 @@ class CacheController extends Controller
         return to_route('admin.dashboard');
     }
 
-    public function clearCaches() {
+    public function clearCaches(): RedirectResponse {
         Artisan::call('config:clear -q');
         Artisan::call('route:clear -q');
         Artisan::call('optimize:clear -q');
@@ -27,14 +28,14 @@ class CacheController extends Controller
         return to_route('admin.dashboard');
     }
 
-    public function clearDataCaches() {
+    public function clearDataCaches(): RedirectResponse {
         Artisan::call('cache:clear -q');
 
         toastr()->info(__('app.cache.stop-data'));
         return to_route('admin.dashboard');
     }
 
-    public function resetCaches () {
+    public function resetCaches (): RedirectResponse {
         Artisan::call('config:clear -q');
         Artisan::call('route:clear -q');
         Artisan::call('optimize:clear -q');

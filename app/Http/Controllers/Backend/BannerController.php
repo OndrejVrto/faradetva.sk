@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Banner;
-
 use Illuminate\Contracts\View\View;
 use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;

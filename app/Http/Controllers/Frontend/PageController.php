@@ -6,8 +6,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\StaticPage;
 use Illuminate\Support\Str;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {

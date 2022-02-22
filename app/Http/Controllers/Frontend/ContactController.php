@@ -6,11 +6,12 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Banner;
 use App\Models\Priest;
+use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
-    public function __invoke() {
+    public function __invoke(): View  {
         $banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
         $priests = Priest::whereActive(1)->with('media')->get();
 

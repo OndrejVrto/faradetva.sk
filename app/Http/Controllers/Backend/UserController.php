@@ -9,18 +9,20 @@ use Illuminate\Support\Arr;
 use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Role;
 use App\Services\MediaStoreService;
+use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use App\Services\ChunkPermissionService;
 
 class UserController extends Controller
 {
-    public function index() {
+    public function index(): View  {
         $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);
 
         return view('backend.users.index', compact('users'));
     }
 
-    public function create() {
+    public function create(): View  {
         $roles = Role::where('id', '>', 1)->get();
         $userRoles = [];
         $permissions = (new ChunkPermissionService())->permission;
@@ -29,7 +31,7 @@ class UserController extends Controller
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function store(UserRequest $request, User $user, MediaStoreService $mediaService) {
+    public function store(UserRequest $request, User $user, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $user->create($validated);
 
@@ -54,13 +56,13 @@ class UserController extends Controller
         return to_route('users.index');
     }
 
-    public function show(User $user) {
+    public function show(User $user): View  {
         $user->with('roles', 'media')->withCount('permissions');
 
         return view('backend.users.show', compact('user') );
     }
 
-    public function edit(User $user) {
+    public function edit(User $user): View  {
         if ($user->id == 1 AND auth()->user()->id != 1) {
             toastr()->error(__('app.user.update-error', ['name'=> $user->name]));
             return to_route('users.index');
@@ -73,7 +75,7 @@ class UserController extends Controller
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function update(UserRequest $request, User $user, MediaStoreService $mediaService) {
+    public function update(UserRequest $request, User $user, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
 
         // if no password is entered, it is removed from the request
@@ -111,7 +113,7 @@ class UserController extends Controller
         return to_route('users.index');
     }
 
-    public function destroy(User $user) {
+    public function destroy(User $user): RedirectResponse {
         if ($user->id == 1) {
             toastr()->error(__('app.user.delete-error', ['name'=> $user->name]));
         } elseif ($user->id == auth()->user()->id) {
