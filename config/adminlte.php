@@ -345,12 +345,12 @@ return [
                 [
                     'text' => 'Galérie',
                     'icon_color'  => 'cyan',
-                    'icon'  => 'fas fa-images fa-lg',
+                    'icon'  => 'fas fa-images',
                     'route' => 'galleries.index',
                     'can'  => 'galleries.index',
                 ],
                 [
-                    'text'  => 'Bannery',
+                    'text'  => 'Banery',
                     'icon_color'  => 'cyan',
                     'icon'  => 'far fa-flag',
                     'route' => 'banners.index',
@@ -359,7 +359,7 @@ return [
                 [
                     'text'  => 'Obrázky',
                     'icon_color'  => 'cyan',
-                    'icon'  => 'far fa-image fa-lg',
+                    'icon'  => 'far fa-image',
                     'route' => 'pictures.index',
                     'can'  => 'pictures.index',
                 ],
