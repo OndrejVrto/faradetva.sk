@@ -61,6 +61,7 @@ Breadcrumbs::resource('files', 'Súbory');
 Breadcrumbs::resource('priests', 'Kňazi');
 Breadcrumbs::resource('notices', 'Oznamy');
 Breadcrumbs::resource('banners', 'Bannery');
+Breadcrumbs::resource('pictures', 'Obrázky');
 Breadcrumbs::resource('users', 'Užívatelia');
 Breadcrumbs::resource('sliders', 'Myšlienky');
 Breadcrumbs::resource('galleries', 'Galérie');

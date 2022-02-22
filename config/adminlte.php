@@ -350,7 +350,12 @@ return [
                     'can'  => 'banners.index',
         ],
         [
-            'text'  => 'Pridávanie súborov',
+                    'text'  => 'Obrázky',
+                    'icon_color'  => 'cyan',
+                    'icon'  => 'far fa-image fa-lg',
+                    'route' => 'pictures.index',
+                    'can'  => 'pictures.index',
+                ],
             'icon_color'  => 'cyan',
             'icon'  => 'fas fa-file-import',
             'route' => 'files.index',

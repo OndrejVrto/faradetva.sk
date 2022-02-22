@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\PictureController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Frontend\ArticleController;
@@ -84,23 +85,21 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     Route::resource('charts', ChartController::class);
     Route::resource('galleries', GalleryController::class);
     Route::resources([
-        'tags'              => TagController::class,
-        'news'              => NewsController::class,
-        'files'             => FileController::class,
-        'roles'             => RoleController::class,
-        'notices'           => NoticeController::class,
-        'banners'           => BannerController::class,
-        'priests'           => PriestController::class,
-        'sliders'           => SliderController::class,
-        'categories'        => CategoryController::class,
-        'file-types'        => FileTypeController::class,
-        'charts.data'       => ChartDataController::class,
-        'permissions'       => PermissionController::class,
-        'static-pages'      => StaticPageController::class,
-        'testimonials'      => TestimonialController::class,
+        'tags'         => TagController::class,
+        'news'         => NewsController::class,
+        'files'        => FileController::class,
+        'roles'        => RoleController::class,
+        'notices'      => NoticeController::class,
+        'banners'      => BannerController::class,
+        'priests'      => PriestController::class,
+        'sliders'      => SliderController::class,
+        'pictures'     => PictureController::class,
+        'categories'   => CategoryController::class,
+        'charts.data'  => ChartDataController::class,
+        'permissions'  => PermissionController::class,
+        'static-pages' => StaticPageController::class,
+        'testimonials' => TestimonialController::class,
     ], ['except' => 'show']);
-
-    // Route::get('static-pages/{slug}/documents', [StaticDocumentController::class, 'index'])->name('documents.index');
 });
 
 //! FrontEnd Routes

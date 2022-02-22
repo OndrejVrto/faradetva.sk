@@ -25,6 +25,11 @@ return [
         'update' => 'Baner bol upravený.',
         'delete' => 'Baner bol odstránený!',
     ],
+    'picture'   => [
+        'store'  => 'Nový obrázok bol pridaný!',
+        'update' => 'Obrázok bol upravený.',
+        'delete' => 'Obrázok bol odstránený!',
+    ],
     'category'   => [
         'store'  => 'Nová kategória bola pridaná!',
         'update' => 'Kategória bola upravená!',
