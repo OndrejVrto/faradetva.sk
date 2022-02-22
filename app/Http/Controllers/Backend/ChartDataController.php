@@ -32,7 +32,6 @@ class ChartDataController extends Controller
     }
 
     public function edit(Chart $chart, ChartData $data): View {
-        // dd($chart, $data);
         return view('backend.chart-data.edit', compact('chart', 'data'));
     }
 

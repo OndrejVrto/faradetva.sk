@@ -32,7 +32,7 @@ use App\Http\Controllers\Backend\TestimonialController;
 use Lab404\Impersonate\Controllers\ImpersonateController;
 use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 
-//Todo: Clear after development
+// TODO: Clear after development
 Route::view('419', 'errors.419');
 Route::view('403', 'errors.403');
 Route::view('404', 'errors.404');
@@ -79,7 +79,6 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     //!  Main route
     Route::redirect('/', '/admin/dashboard', 308);
     Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
-    // Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
 
     Route::resource('users', UserController::class);
     Route::resource('charts', ChartController::class);
