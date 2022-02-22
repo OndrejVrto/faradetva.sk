@@ -13,8 +13,8 @@
 ])
 @php
     $maxXL = min($columns, 12);
-    $maxLG = min($columns + 1, 12);
-    $maxMD = min($columns + 2, 12);
+    $maxLG = min($columns + 2, 12);
+    $maxMD = min($columns + 4, 12);
     $texts = Str::replace('.','-', $controlerName);
     $headerTitle = config('farnost-detva.admin_texts.'.$texts.'_header' );
     $headerDescription = config('farnost-detva.admin_texts.'.$texts.'_description' );
