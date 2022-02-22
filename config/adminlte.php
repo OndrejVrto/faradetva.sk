@@ -356,6 +356,8 @@ return [
                     'route' => 'pictures.index',
                     'can'  => 'pictures.index',
                 ],
+                [
+                    'text'  => 'Prílohy',
             'icon_color'  => 'cyan',
             'icon'  => 'fas fa-file-import',
             'route' => 'files.index',

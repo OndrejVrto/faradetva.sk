@@ -22,49 +22,21 @@ class File extends Model implements HasMedia
 
     protected $table = 'files';
 
+    public $collectionName = 'attachment';
+
     protected $fillable = [
         'name',
+        'description',
         'slug',
         'author',
-        'description',
+        'author_url',
         'source',
+        'source_url',
+        'license',
+        'license_url',
     ];
 
-    public function fileType() {
-        return $this->belongsTo(FileType::class, 'file_type_id');
+    public function getRouteKeyName() {
+        return 'slug';
     }
-
-    public function page() {
-        return $this->belongsTo(StaticPage::class, 'static_page_id');
-    }
-
-    // public function registerMediaCollections( Media $media = null ) : void {
-    //     $this->addMediaCollection('banner')
-    //         ->singleFile()
-    //         ->registerMediaConversions(function (Media $media = null) {
-    //             $this->addMediaConversion('crop')
-    //                 ->fit("crop", 100, 100);
-    //             $this->addMediaConversion('crop-thumb')
-    //                 ->fit("crop", 40, 40);
-    //         });
-
-    //     $this->addMediaCollection('document');
-
-    //     $this->addMediaCollection('galery')
-    //         ->registerMediaConversions(function (Media $media = null) {
-    //             $this->addMediaConversion('crop')
-    //                 ->fit("crop", 500, 500);
-    //         });
-
-    //     $this->addMediaCollection('picture')
-    //         ->singleFile()
-    //         ->registerMediaConversions(function (Media $media = null) {
-    //             $this->addMediaConversion('crop')
-    //                 ->fit("crop", 10, 10);
-    //         });
-    // }
-
-    // public function getMediaFileNameAttribute() {
-    //     return $this->getFirstMedia('testimonial')->file_name ?? null;
-    // }
 }

@@ -57,7 +57,7 @@ Breadcrumbs::for('file-manager', function (BreadcrumbTrail $trail) {
 Breadcrumbs::resource('roles', 'Role');
 Breadcrumbs::resource('news', 'Články');
 Breadcrumbs::resource('charts', 'Grafy');
-Breadcrumbs::resource('files', 'Súbory');
+Breadcrumbs::resource('files', 'Prílohy');
 Breadcrumbs::resource('priests', 'Kňazi');
 Breadcrumbs::resource('notices', 'Oznamy');
 Breadcrumbs::resource('banners', 'Bannery');
@@ -68,7 +68,6 @@ Breadcrumbs::resource('galleries', 'Galérie');
 Breadcrumbs::resource('tags', 'Kľúčové slová');
 Breadcrumbs::resource('permissions', 'Povolenia');
 Breadcrumbs::resource('testimonials', 'Svedectvá');
-Breadcrumbs::resource('file-types', 'Typy súborov');
 Breadcrumbs::resource('charts.data', 'Údaje do grafov');
 Breadcrumbs::resource('categories', 'Kategórie článkov');
 Breadcrumbs::resource('static-pages', 'Statické stránky');
