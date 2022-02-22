@@ -33,6 +33,7 @@ class User extends Authenticatable implements HasMedia
     public $collectionName = 'avatar';
 
     protected $fillable = [
+        'active',
         'nick',
         'email',
         'name',

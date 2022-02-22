@@ -23,29 +23,6 @@
     updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
 >
 
-    <div class="form-group">
-        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazoval banner na stránke.">
-            <input
-                type="checkbox"
-                class="custom-control-input"
-                id="customSwitch3"
-                name="active"
-
-                @if (!is_null(Session::get('banner_old_input_checkbox')))
-                    {{ Session::get('banner_old_input_checkbox') == 1 ? 'checked' : '' }}
-                @else
-                    @if( isset($banner) )
-                        {{ $banner->active == 1 ? 'checked' : '' }}
-                    @else
-                        checked
-                    @endif
-                @endif
-
-            >
-            <label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
-        </div>
-    </div>
-
     <x-adminlte-input-file
         class="border-right-none"
         name="photo"

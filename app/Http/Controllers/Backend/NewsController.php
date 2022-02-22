@@ -19,8 +19,6 @@ class NewsController extends Controller
     public function index() {
         $allNews = News::latest()->with('user', 'media')->paginate(5);
 
-        Session::remove('news_old_input_checkbox');
-
         return view('backend.news.index', compact('allNews'));
     }
 
@@ -71,7 +69,7 @@ class NewsController extends Controller
         }
 
         toastr()->success(__('app.news.store'));
-        return redirect()->route('news.index');
+        return to_route('news.index');
     }
 
     public function edit(News $news) {
@@ -116,7 +114,7 @@ class NewsController extends Controller
         }
 
         toastr()->success(__('app.news.update'));
-        return redirect()->route('news.index');
+        return to_route('news.index');
     }
 
     public function destroy(News $news) {
@@ -127,6 +125,6 @@ class NewsController extends Controller
         $news->clearMediaCollection($news->collectionDocument);
 
         toastr()->success(__('app.news.delete'));
-        return redirect()->route('news.index');
+        return to_route('news.index');
     }
 }

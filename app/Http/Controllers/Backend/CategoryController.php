@@ -25,7 +25,7 @@ class CategoryController extends Controller
         Category::create($validated);
 
         toastr()->success(__('app.category.store'));
-        return redirect()->route('categories.index');
+        return to_route('categories.index');
     }
 
     public function edit(Category $category) {
@@ -37,13 +37,13 @@ class CategoryController extends Controller
         $category->update($validated);
 
         toastr()->success(__('app.category.update'));
-        return redirect()->route('categories.index');
+        return to_route('categories.index');
     }
 
     public function destroy(Category $category) {
         $category->delete();
 
         toastr()->success(__('app.category.delete'));
-        return redirect()->route('categories.index');
+        return to_route('categories.index');
     }
 }

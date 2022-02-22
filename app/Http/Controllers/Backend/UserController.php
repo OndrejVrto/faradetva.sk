@@ -51,7 +51,7 @@ class UserController extends Controller
         }
 
         toastr()->success(__('app.user.store', ['name'=> $user->name]));
-        return redirect()->route('users.index');
+        return to_route('users.index');
     }
 
     public function show($id) {
@@ -63,7 +63,7 @@ class UserController extends Controller
     public function edit(User $user) {
         if ($user->id == 1 AND auth()->user()->id != 1) {
             toastr()->error(__('app.user.update-error', ['name'=> $user->name]));
-            return redirect()->route('users.index');
+            return to_route('users.index');
         }
         $roles = Role::where('id', '>', 1)->get();
         $userRoles = $user->roles->pluck('id')->toArray();
@@ -101,7 +101,7 @@ class UserController extends Controller
         }
 
         toastr()->success(__('app.user.update', ['name'=> $user->name]));
-        return redirect()->route('users.index');
+        return to_route('users.index');
     }
 
     public function destroy(User $user) {
@@ -115,6 +115,6 @@ class UserController extends Controller
             toastr()->success(__('app.user.delete', ['name'=> $user->name]));
         }
 
-        return redirect()->route('users.index');
+        return to_route('users.index');
     }
 }

@@ -16,8 +16,6 @@ class BannerController extends Controller
     public function index() {
         $banners = Banner::latest('updated_at')->with('media')->paginate(5);
 
-        Session::remove('banner_old_input_checkbox');
-
         return view('backend.banners.index', compact('banners'));
     }
 
@@ -34,7 +32,7 @@ class BannerController extends Controller
         }
 
         toastr()->success(__('app.banner.store'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 
     public function edit(Banner $banner) {
@@ -50,7 +48,7 @@ class BannerController extends Controller
         }
 
         toastr()->success(__('app.banner.update'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 
     public function destroy(Banner $banner) {
@@ -58,6 +56,6 @@ class BannerController extends Controller
         $banner->clearMediaCollection($banner->collectionName);
 
         toastr()->success(__('app.banner.delete'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 }

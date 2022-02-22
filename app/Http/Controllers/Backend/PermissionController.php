@@ -27,7 +27,7 @@ class PermissionController extends Controller
         Permission::create($data);
 
         toastr()->success(__('app.permission.store'));
-        return redirect()->route('permissions.index');
+        return to_route('permissions.index');
     }
 
     public function edit(Permission $permission) {
@@ -40,13 +40,13 @@ class PermissionController extends Controller
         Permission::findOrFail($id)->update($data);
 
         toastr()->success(__('app.permission.update'));
-        return redirect()->route('permissions.index');
+        return to_route('permissions.index');
     }
 
     public function destroy(Permission $permission) {
         $permission->delete();
 
         toastr()->success(__('app.permission.delete'));
-        return redirect()->route('permissions.index');
+        return to_route('permissions.index');
     }
 }

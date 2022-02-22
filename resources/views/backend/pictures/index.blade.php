@@ -17,7 +17,7 @@
 
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th width="30%" class="text-center">Obrázok</x-admin-table.th>
+            <x-admin-table.th width="20%" class="text-center">Obrázok</x-admin-table.th>
             <x-admin-table.th>Názov obrázka</x-admin-table.th>
             <x-admin-table.th-actions/>
         </x-slot>

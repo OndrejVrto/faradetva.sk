@@ -32,7 +32,7 @@ class NoticeController extends Controller
         }
 
         toastr()->success(__('app.notice.store'));
-        return redirect()->route('notices.index');
+        return to_route('notices.index');
     }
 
     public function edit(Notice $notice): View {
@@ -50,7 +50,7 @@ class NoticeController extends Controller
         }
 
         toastr()->success(__('app.notice.update'));
-        return redirect()->route('notices.index');
+        return to_route('notices.index');
     }
 
     public function destroy(Notice $notice): RedirectResponse {
@@ -58,6 +58,6 @@ class NoticeController extends Controller
         $notice->clearMediaCollection($notice->collectionName);
 
         toastr()->success(__('app.notice.delete'));
-        return redirect()->route('notices.index');
+        return to_route('notices.index');
     }
 }

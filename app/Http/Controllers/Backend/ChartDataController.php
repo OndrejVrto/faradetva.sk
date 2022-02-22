@@ -28,7 +28,7 @@ class ChartDataController extends Controller
         ChartData::create($validated);
 
         toastr()->success(__('app.chart-data.store'));
-        return redirect()->route('charts.data.index', $chart);
+        return to_route('charts.data.index', $chart);
     }
 
     public function edit(Chart $chart, ChartData $data): View {
@@ -40,13 +40,13 @@ class ChartDataController extends Controller
         $data->update($validated);
 
         toastr()->success(__('app.chart-data.update'));
-        return redirect()->route('charts.data.index', $chart);
+        return to_route('charts.data.index', $chart);
     }
 
     public function destroy(Chart $chart, ChartData $data): RedirectResponse {
         $data->delete();
 
         toastr()->success(__('app.chart-data.delete'));
-        return redirect()->route('charts.data.index', $chart);
+        return to_route('charts.data.index', $chart);
     }
 }

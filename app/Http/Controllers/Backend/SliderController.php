@@ -16,8 +16,6 @@ class SliderController extends Controller
     public function index() {
         $sliders = Slider::latest('updated_at')->with('media')->paginate(5);
 
-        Session::remove('slider_old_input_checkbox');
-
         return view('backend.sliders.index', compact('sliders'));
     }
 
@@ -34,7 +32,7 @@ class SliderController extends Controller
         }
 
         toastr()->success(__('app.slider.store'));
-        return redirect()->route('sliders.index');
+        return to_route('sliders.index');
     }
 
     public function edit(Slider $slider) {
@@ -50,7 +48,7 @@ class SliderController extends Controller
         }
 
         toastr()->success(__('app.slider.update'));
-        return redirect()->route('sliders.index');
+        return to_route('sliders.index');
     }
 
     public function destroy(Slider $slider) {
@@ -58,6 +56,6 @@ class SliderController extends Controller
         $slider->clearMediaCollection($slider->collectionName);
 
         toastr()->success(__('app.slider.delete'));
-        return redirect()->route('sliders.index');
+        return to_route('sliders.index');
     }
 }

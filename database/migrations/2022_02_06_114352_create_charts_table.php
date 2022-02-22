@@ -12,6 +12,7 @@ return new class extends Migration
         Schema::create('charts', function (Blueprint $table) {
             $table->id();
 
+            $table->boolean('active')->default(1);
             $table->string('title');
             $table->string('description')->nullable();
             $table->string('name_x_axis');

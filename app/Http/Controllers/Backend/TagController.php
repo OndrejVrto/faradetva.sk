@@ -25,7 +25,7 @@ class TagController extends Controller
         Tag::create($validated);
 
         toastr()->success(__('app.tag.store'));
-        return redirect()->route('tags.index');
+        return to_route('tags.index');
     }
 
     public function edit(Tag $tag) {
@@ -37,13 +37,13 @@ class TagController extends Controller
         $tag->update($validated);
 
         toastr()->success(__('app.tag.update'));
-        return redirect()->route('tags.index');
+        return to_route('tags.index');
     }
 
     public function destroy(Tag $tag) {
         $tag->delete();
 
         toastr()->success(__('app.tag.delete'));
-        return redirect()->route('tags.index');
+        return to_route('tags.index');
     }
 }

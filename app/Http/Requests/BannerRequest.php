@@ -21,10 +21,6 @@ class BannerRequest extends FormRequest
         }
 
         return [
-            'active' => [
-                'boolean',
-                'required',
-            ],
             'title' => [
                 'required',
                 'string',
@@ -83,13 +79,8 @@ class BannerRequest extends FormRequest
     }
 
     protected function prepareForValidation() {
-        $state = $this->active ? 1 : 0;
-
         $this->merge([
-            'active' => $state,
             'slug' => Str::slug($this->title)
         ]);
-
-        Session::put(['banner_old_input_checkbox' => $state]);
     }
 }

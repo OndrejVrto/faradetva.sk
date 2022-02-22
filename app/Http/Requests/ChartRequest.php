@@ -14,6 +14,10 @@ class ChartRequest extends FormRequest
 
     public function rules(): array {
         return [
+            'active' => [
+                'boolean',
+                'required',
+            ],
             'title' => [
                 'required',
                 'string',

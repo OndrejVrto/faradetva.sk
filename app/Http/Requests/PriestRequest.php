@@ -77,15 +77,5 @@ class PriestRequest extends FormRequest
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];
     }
-
-    protected function prepareForValidation() {
-        $state = $this->active ? 1 : 0;
-
-        $this->merge([
-            'active' => $state,
-        ]);
-
-        Session::put(['priest_old_input_checkbox' => $state]);
-    }
 }
 

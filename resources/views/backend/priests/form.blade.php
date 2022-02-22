@@ -24,22 +24,14 @@
 
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazoval kňaz na stránke.">
+            <input type="hidden" name="active" value="0">
             <input
                 type="checkbox"
+                name="active"
                 class="custom-control-input"
                 id="customSwitch3"
-                name="active"
-
-                @if (!is_null(Session::get('priest_old_input_checkbox')))
-                    {{ Session::get('priest_old_input_checkbox') == 1 ? 'checked' : '' }}
-                @else
-                    @if( isset($priest) )
-                        {{ $priest->active == 1 ? 'checked' : '' }}
-                    @else
-                        checked
-                    @endif
-                @endif
-
+                value="1"
+                {{ (( $priest->active ?? (old('active') === "0" ? 0 : 1) ) OR old('active', 0) === 1) ? 'checked' : '' }}
             >
             <label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
         </div>

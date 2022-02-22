@@ -31,7 +31,7 @@ class ChartController extends Controller
         Chart::create($validated);
 
         toastr()->success(__('app.chart.store'));
-        return redirect()->route('charts.index');
+        return to_route('charts.index');
     }
 
     public function show(Chart $chart): View {
@@ -49,13 +49,13 @@ class ChartController extends Controller
         $chart->update($validated);
 
         toastr()->success(__('app.chart.update'));
-        return redirect()->route('charts.index');
+        return to_route('charts.index');
     }
 
     public function destroy(Chart $chart): RedirectResponse {
         $chart->delete();
 
         toastr()->success(__('app.chart.delete'));
-        return redirect()->route('charts.index');
+        return to_route('charts.index');
     }
 }
