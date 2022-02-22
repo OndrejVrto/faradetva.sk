@@ -70,6 +70,7 @@ class GalleryRequest extends FormRequest
             ],
             'picture.*' => [
                 $fileRule,
+                'max:10000'
             ],
         ];
     }
