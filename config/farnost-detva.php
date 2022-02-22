@@ -128,14 +128,6 @@ return [
         'files_header_create'      => 'Vložiť súbor',
         'files_header_edit'        => 'Upraviť súbor',
 
-        'file-types_title'              => 'Typy súborov',
-        'file-types_description'        => 'Kategorizácia súborov',
-        'file-types_description_create' => 'Vytvorenie novej kategórie pre súbory',
-        'file-types_description_edit'   => 'Zmena údajov v kategórii pre súbory',
-        'file-types_header'             => 'Typy vkladaných súborov',
-        'file-types_header_create'      => 'Nová kategória',
-        'file-types_header_edit'        => 'Úprava kategórie',
-
         'notices_title'              => 'Farské oznamy',
         'notices_description'        => 'Pridávanie rôznych oznamov v pdf súboroch',
         'notices_description_create' => 'Tu môžete pridať pdf súbor s farskými oznamami',

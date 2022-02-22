@@ -89,11 +89,6 @@ return [
         'update' => 'Súbor bol upravený!',
         'delete' => 'Súbor bol odstránený!',
     ],
-    'file-type'   => [
-        'store'  => 'Typ dokumentu bol pridaný!',
-        'update' => 'Typ dokumentu bol upravený!',
-        'delete' => 'Typ dokumentu bol odstránený!',
-    ],
     'gallery'   => [
         'store'  => 'Galéria obrázkov bola pridaná!',
         'update' => 'Galéria bola upravená!',

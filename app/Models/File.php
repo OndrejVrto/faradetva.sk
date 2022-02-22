@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-use App\Models\StaticPage;
 use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -24,8 +23,6 @@ class File extends Model implements HasMedia
     protected $table = 'files';
 
     protected $fillable = [
-        'file_type_id',
-        'static_page_id',
         'name',
         'slug',
         'author',

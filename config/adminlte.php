@@ -364,14 +364,6 @@ return [
             'can'  => 'files.index',
         ],
         [
-            'text'  => 'Typy súborov',
-            'icon_color'  => 'cyan',
-            'icon'  => 'fas fa-toilet-paper',
-            'route' => 'file-types.index',
-            'can'  => 'file-types.index',
-        ],
-
-        [
             'header' => 'Prístupové práva',
             'can'  => [
                 'users.index',

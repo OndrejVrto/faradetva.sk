@@ -19,7 +19,6 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\FileTypeController;
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\NoticesController;
