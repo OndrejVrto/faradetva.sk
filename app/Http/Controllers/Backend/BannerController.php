@@ -6,24 +6,25 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Banner;
 
+use Illuminate\Contracts\View\View;
 use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BannerRequest;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Http\RedirectResponse;
 
 class BannerController extends Controller
 {
-    public function index() {
+    public function index(): View  {
         $banners = Banner::latest('updated_at')->with('media')->paginate(5);
 
         return view('backend.banners.index', compact('banners'));
     }
 
-    public function create() {
+    public function create(): View  {
         return view('backend.banners.create');
     }
 
-    public function store(BannerRequest $request, MediaStoreService $mediaService) {
+    public function store(BannerRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $banner = Banner::create($validated);
 
@@ -35,11 +36,17 @@ class BannerController extends Controller
         return to_route('banners.index');
     }
 
-    public function edit(Banner $banner) {
+    public function show(Banner $banner): View {
+        $banner->load('media');
+
+        return view('backend.banners.show', compact('banner'));
+    }
+
+    public function edit(Banner $banner): View  {
         return view('backend.banners.edit', compact('banner'));
     }
 
-    public function update(BannerRequest $request, Banner $banner, MediaStoreService $mediaService) {
+    public function update(BannerRequest $request, Banner $banner, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $banner->update($validated);
 
@@ -51,7 +58,7 @@ class BannerController extends Controller
         return to_route('banners.index');
     }
 
-    public function destroy(Banner $banner) {
+    public function destroy(Banner $banner): RedirectResponse {
         $banner->delete();
         $banner->clearMediaCollection($banner->collectionName);
 

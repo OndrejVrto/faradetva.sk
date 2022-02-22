@@ -9,7 +9,7 @@
 
 @section('content')
     <x-admin-table
-        columns="7"
+        columns="9"
         controlerName="galleries"
         createBtn="Pridať novú galériu"
         paginator="{{ $galleries->onEachSide(1)->links() }}"
@@ -17,7 +17,7 @@
 
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th  class="text-center">Prvý obrázok</x-admin-table.th>
+            <x-admin-table.th width="20%" class="text-center">Prvý obrázok</x-admin-table.th>
             <x-admin-table.th width="50%">Pracovný názov</x-admin-table.th>
             <x-admin-table.th width="15%" class="text-center">Obrázkov</x-admin-table.th>
             <x-admin-table.th-actions colspan="3"/>

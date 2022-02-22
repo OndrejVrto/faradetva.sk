@@ -9,7 +9,7 @@
 
 @section('content')
     <x-admin-table
-        columns="7"
+        columns="9"
         controlerName="banners"
         createBtn="Vytvoriť nový Baner"
         paginator="{{ $banners->onEachSide(1)->links() }}"
@@ -19,7 +19,7 @@
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
             <x-admin-table.th width="30%" class="text-center">Obrázok</x-admin-table.th>
             <x-admin-table.th>Názov baneru</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            <x-admin-table.th-actions colspan="3"/>
         </x-slot>
 
         <x-slot name="table_body">

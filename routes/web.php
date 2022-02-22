@@ -82,17 +82,18 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 
     Route::resource('users', UserController::class);
     Route::resource('charts', ChartController::class);
+    Route::resource('banners', BannerController::class);
+    Route::resource('pictures', PictureController::class);
     Route::resource('galleries', GalleryController::class);
+
     Route::resources([
         'tags'         => TagController::class,
         'news'         => NewsController::class,
         'files'        => FileController::class,
         'roles'        => RoleController::class,
         'notices'      => NoticeController::class,
-        'banners'      => BannerController::class,
         'priests'      => PriestController::class,
         'sliders'      => SliderController::class,
-        'pictures'     => PictureController::class,
         'categories'   => CategoryController::class,
         'charts.data'  => ChartDataController::class,
         'permissions'  => PermissionController::class,
