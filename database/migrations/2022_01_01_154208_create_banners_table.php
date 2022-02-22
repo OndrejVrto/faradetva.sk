@@ -14,6 +14,13 @@ return new class extends Migration
 
             $table->boolean('active')->default(1);
             $table->string('title')->nullable();
+            $table->string('slug');
+            $table->string('author')->nullable();
+            $table->string('author_url')->nullable();
+            $table->string('source')->nullable();
+            $table->string('source_url', 512)->nullable();
+            $table->string('license')->nullable();
+            $table->string('license_url')->nullable();
 
             $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
             $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);

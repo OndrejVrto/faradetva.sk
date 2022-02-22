@@ -342,19 +342,12 @@ return [
             'route' => 'galleries.index',
             'can'  => 'galleries.index',
         ],
-        // [
-        //     'text'  => 'Banner',
-        //     'icon_color'  => 'cyan',
-        //     'icon'  => 'far fa-flag',
-        //     'route' => 'banners.index',
-        //     'can'  => 'banners.index',
-        // ],
         [
-            'text'  => 'Správca šablon',
+                    'text'  => 'Bannery',
             'icon_color'  => 'cyan',
-            'icon'  => 'fas fa-warehouse',
-            'route' => 'file-manager',
-            'can'  => 'file-manager',
+                    'icon'  => 'far fa-flag',
+                    'route' => 'banners.index',
+                    'can'  => 'banners.index',
         ],
         [
             'text'  => 'Pridávanie súborov',

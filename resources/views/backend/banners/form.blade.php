@@ -3,14 +3,15 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = $media_file_name = null;
     if ( isset( $banner ) ) {
         $typeForm = 'edit';
-        $identificator = $banner->id;
+        $identificator = $banner->slug;
         $createdInfo = $banner->createdInfo;
         $createdBy = $banner->createdBy;
         $updatedInfo = $banner->updatedInfo;
         $updatedBy = $banner->updatedBy;
+        $media_file_name = $banner->getFirstMedia($banner->collectionName)->file_name ?? '';
     }
 @endphp
 
@@ -45,11 +46,28 @@
         </div>
     </div>
 
+    <x-adminlte-input-file
+        class="border-right-none"
+        name="photo"
+        label="Obrázok"
+        placeholder="{{ $media_file_name }}"
+        accept=".jpg,.bmp,.png,.jpeg"
+    >
+        <x-slot name="prependSlot">
+            <div class="input-group-text bg-gradient-orange">
+                <i class="fas fa-file-import"></i>
+            </div>
+        </x-slot>
+        <x-slot name="noteSlot">
+            Poznámka: veľkosť obrázka minimálne 1920x480 px.
+        </x-slot>
+    </x-adminlte-input-file>
+
     <x-adminlte-input
-        fgroupClass="mb-1"
+        fgroupClass="pb-4"
         name="title"
         label="Názov"
-        placeholder="Názov baneru ..."
+        {{-- placeholder="Názov baneru ..." --}}
         enableOldSupport="true"
         value="{{ $banner->title ?? '' }}"
         >
@@ -60,21 +78,98 @@
         </x-slot>
     </x-adminlte-input>
 
-    <x-adminlte-input-file
-        class="border-right-none"
-        name="photo"
-        label="Obrázok"
-        accept=".jpg,.bmp,.png,.jpeg"
-        placeholder="{{ $banner->media_file_name ?? 'Vložiť obrázok ...' }}">
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-file-import"></i>
-            </div>
-        </x-slot>
-        <x-slot name="noteSlot">
-            Poznámka: veľkosť obrázka minimálne 1920x480 px.
-        </x-slot>
-    </x-adminlte-input-file>
+    <div class="form-row">
+        <div class="col-xl-5">
+            <x-adminlte-input
+                name="source"
+                label="Zdroj obrázkov (text)"
+                enableOldSupport="true"
+                value="{{ $banner->source ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-cart-arrow-down"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+        <div class="col-xl-7">
+            <x-adminlte-input
+                name="source_url"
+                label="Link na zdroj obrázkov (url)"
+                enableOldSupport="true"
+                value="{{ $banner->source_url ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-link"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-xl-5">
+            <x-adminlte-input
+                name="author"
+                label="Meno autora obrázkov"
+                enableOldSupport="true"
+                value="{{ $banner->author ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-user-astronaut fa-lg"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+        <div class="col-xl-7">
+            <x-adminlte-input
+                name="author_url"
+                label="Kontakt na autora obrázkov (url)"
+                enableOldSupport="true"
+                value="{{ $banner->author_url ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-xl-5">
+            <x-adminlte-input
+                name="license"
+                label="Licencia obrázkov (text)"
+                enableOldSupport="true"
+                value="{{ $banner->license ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="far fa-copyright"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+        <div class="col-xl-7">
+            <x-adminlte-input
+                name="license_url"
+                label="Link na licenciu obrázkov (url)"
+                enableOldSupport="true"
+                value="{{ $banner->license_url ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+    </div>
 
 </x-admin-form>
 

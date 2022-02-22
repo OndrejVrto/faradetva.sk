@@ -15,17 +15,11 @@
         paginator="{{ $banners->onEachSide(1)->links() }}"
         >
 
-        <x-slot name="createNote">
-            Na stránke sa zobrazuje iba jeden náhodný baner pre každú stránku!
-            <br>
-            Pre fungovanie musí byť vložený aspoň jeden obrázok.
-        </x-slot>
-
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
             <x-admin-table.th-check-active/>
             <x-admin-table.th width="30%" class="text-center">Obrázok</x-admin-table.th>
-            <x-admin-table.th>Názov stránky</x-admin-table.th>
+            <x-admin-table.th>Názov baneru</x-admin-table.th>
             <x-admin-table.th-actions/>
         </x-slot>
 
@@ -35,14 +29,14 @@
                 {{-- <x-admin-table.td>{{$banner->id}}</x-admin-table.td> --}}
                 <x-admin-table.td-check-active check="{{ $banner->active }}"/>
                 <x-admin-table.td class="text-center">
-                    <img src="{{ $banner->getFirstMediaUrl('banner', 'crop-thumb') ?: "http://via.placeholder.com/360x90" }}"
+                    <img src="{{ $banner->getFirstMediaUrl($banner->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/360x90" }}"
                     class="img-fluid px-3"
                     alt="Banner: {{ $banner->title }}"/>
                 </x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{$banner->title}}</x-admin-table.td>
+                <x-admin-table.td class="text-wrap text-break">{{$banner->slug}}</x-admin-table.td>
                 <x-admin-table.td-actions
                     controlerName="banners"
-                    identificator="{{ $banner->id }}"
+                    identificator="{{ $banner->slug }}"
                 />
             </tr>
             @endforeach
