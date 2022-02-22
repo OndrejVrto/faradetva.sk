@@ -23,6 +23,8 @@ class Testimonial extends Model implements HasMedia
 
     protected $table = 'testimonials';
 
+    public $collectionName = 'testimonial';
+
     protected $fillable = [
         'active',
         'name',
@@ -46,7 +48,7 @@ class Testimonial extends Model implements HasMedia
     }
 
     public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('testimonial')->file_name ?? null;
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 }
 

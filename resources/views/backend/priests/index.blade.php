@@ -30,7 +30,7 @@
                 {{-- <x-admin-table.td>{{$priest->id}}</x-admin-table.td> --}}
                 <x-admin-table.td-check-active check="{{ $priest->active }}"/>
                 <x-admin-table.td class="text-center">
-                    <img src="{{ $priest->getFirstMediaUrl('priest', 'crop-thumb') ?: "http://via.placeholder.com/60x80" }}"
+                    <img src="{{ $priest->getFirstMediaUrl($priest->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x80" }}"
                     class="img-fluid" style="width: 60px;"
                     alt="Fotografia: {{ $priest->full_name_titles }}, {{ $priest->function }}"/>
                 </x-admin-table.td>

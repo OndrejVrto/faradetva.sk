@@ -29,7 +29,7 @@ class TestimonialController extends Controller
         $testimonial = Testimonial::create($validated);
 
         if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($testimonial, 'testimonial', 'photo');
+            $mediaService->storeMediaOneFile($testimonial, $testimonial->collectionName, 'photo');
         }
 
         toastr()->success(__('app.testimonia.store'));
@@ -45,7 +45,7 @@ class TestimonialController extends Controller
         $testimonial->update($validated);
 
         if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($testimonial, 'testimonial', 'photo');
+            $mediaService->storeMediaOneFile($testimonial, $testimonial->collectionName, 'photo');
         }
 
         toastr()->success(__('app.testimonia.update'));
@@ -54,7 +54,7 @@ class TestimonialController extends Controller
 
     public function destroy(Testimonial $testimonial) {
         $testimonial->delete();
-        $testimonial->clearMediaCollection('testimonial');
+        $testimonial->clearMediaCollection($testimonial->collectionName);
 
         toastr()->success(__('app.testimonia.delete'));
         return redirect()->route('testimonials.index');

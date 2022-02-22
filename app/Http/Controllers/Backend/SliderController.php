@@ -30,7 +30,7 @@ class SliderController extends Controller
         $slider = Slider::create($validated);
 
         if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($slider, 'slidert', 'photo');
+            $mediaService->storeMediaOneFile($slider, $slider->collectionName, 'photo');
         }
 
         toastr()->success(__('app.slider.store'));
@@ -46,7 +46,7 @@ class SliderController extends Controller
         $slider->update($validated);
 
         if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($slider, 'slidert', 'photo');
+            $mediaService->storeMediaOneFile($slider, $slider->collectionName, 'photo');
         }
 
         toastr()->success(__('app.slider.update'));
@@ -55,7 +55,7 @@ class SliderController extends Controller
 
     public function destroy(Slider $slider) {
         $slider->delete();
-        $slider->clearMediaCollection('slider');
+        $slider->clearMediaCollection($slider->collectionName);
 
         toastr()->success(__('app.slider.delete'));
         return redirect()->route('sliders.index');

@@ -31,7 +31,7 @@
                 <tr>
                     {{-- <x-admin-table.td>{{$user->id}}</x-admin-table.td> --}}
                     <x-admin-table.td class="text-center">
-                        <img src="{{ $user->getFirstMediaUrl('avatar', 'crop-thumb') ?: "http://via.placeholder.com/40x40" }}"
+                        <img src="{{ $user->getFirstMediaUrl($user->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/40x40" }}"
                         class="img-fluid img-circle"
                         alt="Fotografia Avatara: {{ $user->name }}"/>
                     </x-admin-table.td>

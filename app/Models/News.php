@@ -30,6 +30,10 @@ class News extends Model implements HasMedia
 
     protected $table = 'news';
 
+    public $collectionPicture = 'news_front_picture';
+
+    public $collectionDocument = 'document';
+
     protected $fillable = [
         'active',
         'user_id',
@@ -41,10 +45,6 @@ class News extends Model implements HasMedia
         'content',
         'teaser',
     ];
-
-    public $collectionPicture = 'news_front_picture';
-
-    public $collectionDocument = 'document';
 
     private $newsPerPage = 7;
 

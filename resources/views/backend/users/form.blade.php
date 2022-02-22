@@ -9,7 +9,7 @@
     $columns = 10;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = $media_file_name = null;
     if ( isset( $user ) ) {
         $typeForm = 'edit';
         $identificator = $user->id;
@@ -17,6 +17,7 @@
         $createdBy = $user->createdBy;
         $updatedInfo = $user->updatedInfo;
         $updatedBy = $user->updatedBy;
+        $media_file_name = $user->getFirstMedia($user->collectionName)->file_name ?? '';
     }
 @endphp
 
@@ -128,8 +129,8 @@
                 class="border-right-none"
                 name="photo_avatar"
                 label="Fotka alebo avatar"
+                placeholder="{{ $media_file_name }}"
                 accept=".jpg,.bmp,.png,.jpeg,.svg"
-                {{-- placeholder="Vložiť avatara .." --}}
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">

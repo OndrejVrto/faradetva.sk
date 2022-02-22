@@ -24,6 +24,8 @@ class Priest extends Model implements HasMedia
 
     protected $table = 'priests';
 
+    public $collectionName = 'priest';
+
     protected $fillable = [
         'active',
         'titles_before',
@@ -60,7 +62,7 @@ class Priest extends Model implements HasMedia
     }
 
     public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('priest')->file_name ?? null;
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 
     public function getFullNameTitlesAttribute () {
