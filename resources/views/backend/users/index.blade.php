@@ -9,7 +9,7 @@
 
 @section('content')
     <x-admin-table
-        columns="10"
+        columns="12"
         controlerName="users"
         createBtn="Pridať uživateľa"
         paginator="{{ $users->onEachSide(1)->links() }}"
@@ -17,6 +17,7 @@
 
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
+            <x-admin-table.th-check-active/>
             <x-admin-table.th width="1%" class="text-center">Avatar</x-admin-table.th>
             <x-admin-table.th width="20%">Meno užívateľa</x-admin-table.th>
             <x-admin-table.th width="25%" class="d-none d-md-table-cell">Email</x-admin-table.th>
@@ -30,6 +31,7 @@
             @foreach($users as $user)
                 <tr>
                     {{-- <x-admin-table.td>{{$user->id}}</x-admin-table.td> --}}
+                    <x-admin-table.td-check-active check="{{ $user->active }}"/>
                     <x-admin-table.td class="text-center">
                         <img src="{{ $user->getFirstMediaUrl($user->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/40x40" }}"
                         class="img-fluid img-circle"
