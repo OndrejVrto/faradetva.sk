@@ -15,8 +15,6 @@ class TestimonialController extends Controller
     public function index() {
         $testimonials = Testimonial::latest('updated_at')->with('media')->paginate(6);
 
-        Session::remove('testimonial_old_input_checkbox');
-
         return view('backend.testimonials.index', compact('testimonials'));
     }
 

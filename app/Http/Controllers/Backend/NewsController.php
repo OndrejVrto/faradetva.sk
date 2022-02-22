@@ -19,8 +19,6 @@ class NewsController extends Controller
     public function index() {
         $allNews = News::latest()->with('user', 'media')->paginate(5);
 
-        Session::remove('news_old_input_checkbox');
-
         return view('backend.news.index', compact('allNews'));
     }
 

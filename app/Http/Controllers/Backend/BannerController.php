@@ -16,8 +16,6 @@ class BannerController extends Controller
     public function index() {
         $banners = Banner::latest('updated_at')->with('media')->paginate(5);
 
-        Session::remove('banner_old_input_checkbox');
-
         return view('backend.banners.index', compact('banners'));
     }
 

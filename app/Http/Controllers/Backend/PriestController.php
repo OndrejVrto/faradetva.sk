@@ -16,8 +16,6 @@ class PriestController extends Controller
     public function index() {
         $priests = Priest::latest()->with('media')->paginate(5);
 
-        Session::remove('priest_old_input_checkbox');
-
         return view('backend.priests.index', compact('priests'));
     }
 

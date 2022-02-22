@@ -16,8 +16,6 @@ class SliderController extends Controller
     public function index() {
         $sliders = Slider::latest('updated_at')->with('media')->paginate(5);
 
-        Session::remove('slider_old_input_checkbox');
-
         return view('backend.sliders.index', compact('sliders'));
     }
 
