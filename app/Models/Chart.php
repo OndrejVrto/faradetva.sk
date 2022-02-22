@@ -15,6 +15,7 @@ class Chart extends Model
     protected $table = 'charts';
 
     protected $fillable = [
+        'active',
         'title',
         'description',
         'name_x_axis',
