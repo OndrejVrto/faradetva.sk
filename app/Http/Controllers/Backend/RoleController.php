@@ -35,7 +35,7 @@ class RoleController extends Controller
         $role->syncPermissions($request->get('permission'));
 
         toastr()->success(__('app.role.store', ['name'=> $role->name]));
-        return redirect()->route('roles.index');
+        return to_route('roles.index');
     }
 
     public function edit(Role $role) {
@@ -54,7 +54,7 @@ class RoleController extends Controller
         $role->syncPermissions($request->get('permission'));
 
         toastr()->success(__('app.role.update', ['name'=> $role->name]));
-        return redirect()->route('roles.index');
+        return to_route('roles.index');
     }
 
     public function destroy(Role $role) {
@@ -65,6 +65,6 @@ class RoleController extends Controller
             toastr()->success(__('app.role.delete', ['name'=> $role->name]));
         }
 
-        return redirect()->route('roles.index');
+        return to_route('roles.index');
     }
 }

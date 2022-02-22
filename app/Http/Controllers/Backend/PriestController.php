@@ -32,7 +32,7 @@ class PriestController extends Controller
         }
 
         toastr()->success(__('app.priest.store'));
-        return redirect()->route('priests.index');
+        return to_route('priests.index');
     }
 
     public function edit(Priest $priest) {
@@ -48,7 +48,7 @@ class PriestController extends Controller
         }
 
         toastr()->success(__('app.priest.update'));
-        return redirect()->route('priests.index');
+        return to_route('priests.index');
     }
 
     public function destroy(Priest $priest) {
@@ -56,6 +56,6 @@ class PriestController extends Controller
         $priest->clearMediaCollection($priest->collectionName);
 
         toastr()->success(__('app.priest.delete'));
-        return redirect()->route('priests.index');
+        return to_route('priests.index');
     }
 }

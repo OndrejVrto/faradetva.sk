@@ -32,7 +32,7 @@ class FileController extends Controller
         }
 
         toastr()->success(__('app.file.store'));
-        return redirect()->route('files.index');
+        return to_route('files.index');
     }
 
     public function edit(File $file): View {
@@ -47,7 +47,7 @@ class FileController extends Controller
         }
 
         toastr()->success(__('app.file.update'));
-        return redirect()->route('files.index');
+        return to_route('files.index');
     }
 
     public function destroy(File $file): RedirectResponse {
@@ -55,6 +55,6 @@ class FileController extends Controller
         $file->clearMediaCollection($file->collectionName);
 
         toastr()->success(__('app.file.delete'));
-        return redirect()->route('files.index');
+        return to_route('files.index');
     }
 }

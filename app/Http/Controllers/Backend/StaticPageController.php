@@ -26,7 +26,7 @@ class StaticPageController extends Controller
         StaticPage::create($validated);
 
         toastr()->success(__('app.static-page.store'));
-        return redirect()->route('static-pages.index');
+        return to_route('static-pages.index');
     }
 
     public function edit(StaticPage $staticPage) {
@@ -38,13 +38,13 @@ class StaticPageController extends Controller
         $staticPage->update($validated);
 
         toastr()->success(__('app.static-page.update'));
-        return redirect()->route('static-pages.index');
+        return to_route('static-pages.index');
     }
 
     public function destroy(StaticPage $staticPage) {
         $staticPage->delete();
 
         toastr()->success(__('app.static-page.delete'));
-        return redirect()->route('static-pages.index');
+        return to_route('static-pages.index');
     }
 }

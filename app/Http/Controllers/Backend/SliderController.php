@@ -32,7 +32,7 @@ class SliderController extends Controller
         }
 
         toastr()->success(__('app.slider.store'));
-        return redirect()->route('sliders.index');
+        return to_route('sliders.index');
     }
 
     public function edit(Slider $slider) {
@@ -48,7 +48,7 @@ class SliderController extends Controller
         }
 
         toastr()->success(__('app.slider.update'));
-        return redirect()->route('sliders.index');
+        return to_route('sliders.index');
     }
 
     public function destroy(Slider $slider) {
@@ -56,6 +56,6 @@ class SliderController extends Controller
         $slider->clearMediaCollection($slider->collectionName);
 
         toastr()->success(__('app.slider.delete'));
-        return redirect()->route('sliders.index');
+        return to_route('sliders.index');
     }
 }

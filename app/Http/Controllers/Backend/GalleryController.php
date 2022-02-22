@@ -55,7 +55,7 @@ class GalleryController extends Controller
         }
 
         toastr()->success(__('app.gallery.store'));
-        return redirect()->route('galleries.index');
+        return to_route('galleries.index');
     }
 
     public function show(Gallery $gallery): View {
@@ -95,7 +95,7 @@ class GalleryController extends Controller
         }
 
         toastr()->success(__('app.gallery.update'));
-        return redirect()->route('galleries.index');
+        return to_route('galleries.index');
     }
 
     public function destroy(Gallery $gallery): RedirectResponse {
@@ -103,6 +103,6 @@ class GalleryController extends Controller
         $gallery->clearMediaCollection($gallery->collectionName);
 
         toastr()->success(__('app.gallery.delete'));
-        return redirect()->route('galleries.index');
+        return to_route('galleries.index');
     }
 }

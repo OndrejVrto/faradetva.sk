@@ -14,7 +14,7 @@ class CacheController extends Controller
         Artisan::call('view:cache -q');
 
         toastr()->info(__('app.cache.start'));
-        return redirect()->route('admin.dashboard');
+        return to_route('admin.dashboard');
     }
 
     public function clearCaches() {
@@ -24,14 +24,14 @@ class CacheController extends Controller
         Artisan::call('view:clear -q');
 
         toastr()->info(__('app.cache.stop'));
-        return redirect()->route('admin.dashboard');
+        return to_route('admin.dashboard');
     }
 
     public function clearDataCaches() {
         Artisan::call('cache:clear -q');
 
         toastr()->info(__('app.cache.stop-data'));
-        return redirect()->route('admin.dashboard');
+        return to_route('admin.dashboard');
     }
 
     public function resetCaches () {
@@ -48,6 +48,6 @@ class CacheController extends Controller
         Artisan::call('view:cache -q');
 
         toastr()->info(__('app.cache.reset'));
-        return redirect()->route('admin.dashboard');
+        return to_route('admin.dashboard');
     }
 }

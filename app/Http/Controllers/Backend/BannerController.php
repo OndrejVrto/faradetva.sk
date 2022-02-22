@@ -32,7 +32,7 @@ class BannerController extends Controller
         }
 
         toastr()->success(__('app.banner.store'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 
     public function edit(Banner $banner) {
@@ -48,7 +48,7 @@ class BannerController extends Controller
         }
 
         toastr()->success(__('app.banner.update'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 
     public function destroy(Banner $banner) {
@@ -56,6 +56,6 @@ class BannerController extends Controller
         $banner->clearMediaCollection($banner->collectionName);
 
         toastr()->success(__('app.banner.delete'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 }

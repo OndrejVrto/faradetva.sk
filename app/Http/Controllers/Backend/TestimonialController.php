@@ -31,7 +31,7 @@ class TestimonialController extends Controller
         }
 
         toastr()->success(__('app.testimonia.store'));
-        return redirect()->route('testimonials.index');
+        return to_route('testimonials.index');
     }
 
     public function edit(Testimonial $testimonial) {
@@ -47,7 +47,7 @@ class TestimonialController extends Controller
         }
 
         toastr()->success(__('app.testimonia.update'));
-        return redirect()->route('testimonials.index');
+        return to_route('testimonials.index');
     }
 
     public function destroy(Testimonial $testimonial) {
@@ -55,6 +55,6 @@ class TestimonialController extends Controller
         $testimonial->clearMediaCollection($testimonial->collectionName);
 
         toastr()->success(__('app.testimonia.delete'));
-        return redirect()->route('testimonials.index');
+        return to_route('testimonials.index');
     }
 }

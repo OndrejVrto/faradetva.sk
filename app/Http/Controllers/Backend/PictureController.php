@@ -30,7 +30,7 @@ class PictureController extends Controller
         }
 
         toastr()->success(__('app.picture.store'));
-        return redirect()->route('pictures.index');
+        return to_route('pictures.index');
     }
 
     public function edit(Picture $picture) {
@@ -46,7 +46,7 @@ class PictureController extends Controller
         }
 
         toastr()->success(__('app.picture.update'));
-        return redirect()->route('pictures.index');
+        return to_route('pictures.index');
     }
 
     public function destroy(Picture $picture) {
@@ -54,6 +54,6 @@ class PictureController extends Controller
         $picture->clearMediaCollection($picture->collectionName);
 
         toastr()->success(__('app.picture.delete'));
-        return redirect()->route('pictures.index');
+        return to_route('pictures.index');
     }
 }
