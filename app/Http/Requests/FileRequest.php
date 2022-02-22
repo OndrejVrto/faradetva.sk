@@ -21,14 +21,6 @@ class FileRequest extends FormRequest
             $fileRule = 'nullable';
         }
         return [
-            'static_page_id' => [
-                'required',
-                'exists:static_pages,id'
-            ],
-            'file_type_id' => [
-                'required',
-                'exists:file_types,id'
-            ],
             'name' => [
                 'required',
                 'string',
@@ -37,22 +29,45 @@ class FileRequest extends FormRequest
             'slug' => [
                 Rule::unique('files', 'slug')->ignore($this->file)->withoutTrashed(),
             ],
+            'description' => [
+                'required',
+                'string',
+                'max:255',
+            ],
             'author' => [
                 'nullable',
                 'string',
                 'max:255',
             ],
-            'description' => [
-                'required',
+            'author_url' => [
+                'nullable',
+                'url',
                 'string',
-                'max:255',
+                'max:512',
             ],
             'source' => [
                 'nullable',
                 'string',
                 'max:255',
             ],
-            'file' => [
+            'source_url' => [
+                'nullable',
+                'url',
+                'string',
+                'max:512',
+            ],
+            'license' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'license_url' => [
+                'nullable',
+                'url',
+                'string',
+                'max:512',
+            ],
+            'attachment' => [
                 $fileRule,
                 'file',
                 'max:10000'

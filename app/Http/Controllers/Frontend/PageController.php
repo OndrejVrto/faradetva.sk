@@ -21,7 +21,7 @@ class PageController extends Controller
             ->whereNotNull()
             ->implode('/');
 
-        $pageData = StaticPage::whereUrl($fullpath)->with('files.fileType', 'files.media')->firstOrFail();
+        $pageData = StaticPage::whereUrl($fullpath)->firstOrFail();
 
         //* create full path to template
         $route = config('farnost-detva.preppend_route_static_pages','frontend') . '.' . $pageData->route_name;

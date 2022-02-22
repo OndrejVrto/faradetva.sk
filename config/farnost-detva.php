@@ -2,6 +2,10 @@
 
 return [
 
+    'cache-duration' => [
+        'news' => env('CACHE_DURATION_NEWS', 60*60*24),   // 24 hodín
+    ],
+
     'title' => 'Farnosť Detva',
     'title_prefix' => '',
     'title_postfix' => ' | Farnosť Detva',
@@ -49,6 +53,14 @@ return [
         'banners_header'             => 'Baner',
         'banners_header_create'      => 'Nový baner',
         'banners_header_edit'        => 'Úprava baner-u',
+
+        'pictures_title'              => 'Obrázok',
+        'pictures_description'        => 'Administrácia - správa sekcie: Obrázok',
+        'pictures_description_create' => 'Administrácia - pridanie nového obrázku-u',
+        'pictures_description_edit'   => 'Administrácia - Editácia obrázku-u',
+        'pictures_header'             => 'Obrázok',
+        'pictures_header_create'      => 'Nový obrázok',
+        'pictures_header_edit'        => 'Úprava obrázka-u',
 
         'tags_title'              => 'Kľúčové slová',
         'tags_description'        => 'Administrácia - správa sekcie: Kľúčové slová',
@@ -123,14 +135,6 @@ return [
         'files_header'             => 'Súbory',
         'files_header_create'      => 'Vložiť súbor',
         'files_header_edit'        => 'Upraviť súbor',
-
-        'file-types_title'              => 'Typy súborov',
-        'file-types_description'        => 'Kategorizácia súborov',
-        'file-types_description_create' => 'Vytvorenie novej kategórie pre súbory',
-        'file-types_description_edit'   => 'Zmena údajov v kategórii pre súbory',
-        'file-types_header'             => 'Typy vkladaných súborov',
-        'file-types_header_create'      => 'Nová kategória',
-        'file-types_header_edit'        => 'Úprava kategórie',
 
         'notices_title'              => 'Farské oznamy',
         'notices_description'        => 'Pridávanie rôznych oznamov v pdf súboroch',

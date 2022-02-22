@@ -23,6 +23,8 @@ class Gallery extends Model implements HasMedia
 
     protected $table = 'galleries';
 
+    public $collectionName = 'gallery_picture';
+
     protected $fillable = [
         'title',
         'description',
@@ -35,18 +37,16 @@ class Gallery extends Model implements HasMedia
         'license_url',
     ];
 
-    public $collectionPicture = 'gallery_picture';
-
     public function getRouteKeyName() {
         return 'slug';
     }
 
     public function picture() {
-        return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionPicture);
+        return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionName);
     }
 
     public function registerMediaConversions(Media $media = null) : void {
-        if ($media->collection_name == $this->collectionPicture) {
+        if ($media->collection_name == $this->collectionName) {
             $this->addMediaConversion('orginal')
                 ->optimize()
                 ->withResponsiveImages();

@@ -24,6 +24,8 @@ class Notice extends Model implements HasMedia
 
     protected $table = 'notices';
 
+    public $collectionName = 'notice_pdf';
+
     protected $fillable = [
         'active',
         'slug',
@@ -33,6 +35,6 @@ class Notice extends Model implements HasMedia
     ];
 
     public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('notice_pdf')->file_name ?? null;
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 }

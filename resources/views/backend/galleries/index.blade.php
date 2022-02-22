@@ -28,7 +28,7 @@
             <tr>
                 {{-- <x-admin-table.td>{{$gallery->id}}</x-admin-table.td> --}}
                 <x-admin-table.td class="text-center">
-                    <img src="{{ $gallery->getFirstMediaUrl($gallery->collectionPicture, 'crop-thumb') ?: "http://via.placeholder.com/100x100" }}"
+                    <img src="{{ $gallery->getFirstMediaUrl($gallery->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x100" }}"
                     class="img-fluid px-3"
                     alt="Album {{ $gallery->title }}"/>
                 </x-admin-table.td>

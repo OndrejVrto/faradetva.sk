@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\FileController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\CacheController;
 use App\Http\Controllers\Backend\ChartController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PageController;
@@ -16,9 +17,9 @@ use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\PictureController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\FileTypeController;
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\NoticesController;
@@ -31,7 +32,7 @@ use App\Http\Controllers\Backend\TestimonialController;
 use Lab404\Impersonate\Controllers\ImpersonateController;
 use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 
-//Todo: Clear after development
+// TODO: Clear after development
 Route::view('419', 'errors.419');
 Route::view('403', 'errors.403');
 Route::view('404', 'errors.404');
@@ -55,15 +56,21 @@ Route::post('galleries/media', [GalleryController::class, 'storeMedia'])->name('
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 
     //!  Filemanager for TinyMCE Editor
-    // Route::prefix('laravel-file-manager')->group( function() {
-    //     Lfm::routes();
-    // });
+    Route::prefix('laravel-file-manager')->group( function() {
+        Lfm::routes();
+    });
+
+    //!  Caches
+    Route::get('start-caches', [CacheController::class, 'startCaches'])->name('cache.start');
+    Route::get('clear-caches', [CacheController::class, 'clearCaches'])->name('cache.stop');
+    Route::get('clear-data-caches', [CacheController::class, 'clearDataCaches'])->name('cache-data.stop');
+    Route::get('reset-caches', [CacheController::class, 'resetCaches'])->name('cache.reset');
 
     //!  Filemanager for Static-pages
     Route::get('file-manager', FileManagerController::class)->name('file-manager');
 
     //!  Inpersonate IN Route
-    Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->name('impersonate');
+    Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->whereNumber('id')->name('impersonate');
 
     //!  Activity plugin
     Route::get('users-activity', [ActivityController::class, 'getIndex'])->name('log-activity.index');
@@ -72,29 +79,26 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     //!  Main route
     Route::redirect('/', '/admin/dashboard', 308);
     Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
-    Route::get('files/page/{page?}', [FileController::class, 'index'])->name('files.index');
 
     Route::resource('users', UserController::class);
     Route::resource('charts', ChartController::class);
     Route::resource('galleries', GalleryController::class);
     Route::resources([
-        'tags'              => TagController::class,
-        'news'              => NewsController::class,
-        'files'             => FileController::class,
-        'roles'             => RoleController::class,
-        'notices'           => NoticeController::class,
-        'banners'           => BannerController::class,
-        'priests'           => PriestController::class,
-        'sliders'           => SliderController::class,
-        'categories'        => CategoryController::class,
-        'file-types'        => FileTypeController::class,
-        'charts.data'       => ChartDataController::class,
-        'permissions'       => PermissionController::class,
-        'static-pages'      => StaticPageController::class,
-        'testimonials'      => TestimonialController::class,
+        'tags'         => TagController::class,
+        'news'         => NewsController::class,
+        'files'        => FileController::class,
+        'roles'        => RoleController::class,
+        'notices'      => NoticeController::class,
+        'banners'      => BannerController::class,
+        'priests'      => PriestController::class,
+        'sliders'      => SliderController::class,
+        'pictures'     => PictureController::class,
+        'categories'   => CategoryController::class,
+        'charts.data'  => ChartDataController::class,
+        'permissions'  => PermissionController::class,
+        'static-pages' => StaticPageController::class,
+        'testimonials' => TestimonialController::class,
     ], ['except' => 'show']);
-
-    // Route::get('static-pages/{slug}/documents', [StaticDocumentController::class, 'index'])->name('documents.index');
 });
 
 //! FrontEnd Routes
@@ -109,7 +113,7 @@ Route::controller(ArticleController::class)->name('article.')->group(function ()
     Route::get('clanky-v-kategorii/{slug}', 'indexCategory')->name('category');
     Route::get('clanky-podla-klucoveho-slova/{slug}', 'indexTag')->name('tag');
     Route::get('clanky-podla-autora/{slug}', 'indexAuthor')->name('author');
-    Route::get('clanky-z-roku/{year}', 'indexDate')->name('date');
+    Route::get('clanky-z-roku/{year}', 'indexDate')->where('year', '^(20\d\d)$')->name('date');
     Route::get('hladat-clanok/{search?}', 'indexSearch')->name('search');
 });
 

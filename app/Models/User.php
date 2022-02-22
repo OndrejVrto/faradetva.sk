@@ -30,6 +30,8 @@ class User extends Authenticatable implements HasMedia
 
     protected $table = 'users';
 
+    public $collectionName = 'avatar';
+
     protected $fillable = [
         'nick',
         'email',
@@ -75,7 +77,7 @@ class User extends Authenticatable implements HasMedia
     }
 
     public function adminlte_image() {
-        return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
+        return $this->getFirstMediaUrl($this->collectionName, 'crop') ?: "http://via.placeholder.com/100x100";
     }
 
     public function adminlte_desc() {

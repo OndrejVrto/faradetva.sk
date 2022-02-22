@@ -15,7 +15,6 @@ use Database\Seeders\ChartSeeder;
 use Database\Seeders\MediaSeeder;
 use Database\Seeders\BannerSeeder;
 use Database\Seeders\SliderSeeder;
-use Database\Seeders\FileTypeSeeder;
 use Database\Seeders\ChartDataSeeder;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\PermissionSeeder;
@@ -29,9 +28,9 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
-            // PermissionSeeder::class,
-            // RoleSeeder::class,
-            // UserSeeder::class,
+            PermissionSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class,
             UserRolePermissionsSeeder::class,
         ]);
 
@@ -43,7 +42,6 @@ class DatabaseSeeder extends Seeder
             PriestSeeder::class,
             TestimonialSeeder::class,
             SliderSeeder::class,
-            FileTypeSeeder::class,
             FileSeeder::class,
             StaticPageSeeder::class,
             ChartSeeder::class,

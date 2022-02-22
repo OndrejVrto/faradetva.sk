@@ -13,7 +13,7 @@ use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Testimonial extends Model implements HasMedia
+class Picture extends Model implements HasMedia
 {
     use Loggable;
     use HasFactory;
@@ -21,34 +21,34 @@ class Testimonial extends Model implements HasMedia
     use CreatedUpdatedBy;
     use InteractsWithMedia;
 
-    protected $table = 'testimonials';
+    protected $table = 'pictures';
 
-    public $collectionName = 'testimonial';
+    public $collectionName = 'picture';
 
     protected $fillable = [
-        'active',
-        'name',
+        'title',
         'slug',
-        'phone',
-        'function',
-        'description',
+        'author',
+        'author_url',
+        'source',
+        'source_url',
+        'license',
+        'license_url',
     ];
 
     public function getRouteKeyName() {
         return 'slug';
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
-        $this->addMediaConversion('crop')
-            ->fit("crop", 800, 800);
-            // ->optimize();
-            // ->withResponsiveImages();
-        $this->addMediaConversion('crop-thumb')
-            ->fit("crop", 60, 60);
-    }
-
     public function getMediaFileNameAttribute() {
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
-}
 
+    public function registerMediaConversions(Media $media = null) : void {
+        $this->addMediaConversion('optimize')
+            // ->fit("crop", 1440, 360)
+            ->optimize();
+        $this->addMediaConversion('crop-thumb')
+            ->fit("crop", 100, 100);
+    }
+}

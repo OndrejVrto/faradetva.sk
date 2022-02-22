@@ -11,7 +11,6 @@ use Spatie\Permission\Models\Role;
 use App\Services\MediaStoreService;
 use App\Http\Controllers\Controller;
 use App\Services\ChunkPermissionService;
-use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -48,7 +47,7 @@ class UserController extends Controller
         $user->permissions()->sync($permissions);
 
         if ($request->hasFile('photo_avatar')) {
-            $mediaService->storeMediaOneFile($user, 'avatar', 'photo_avatar');
+            $mediaService->storeMediaOneFile($user, $user->collectionName, 'photo_avatar');
         }
 
         toastr()->success(__('app.user.store', ['name'=> $user->name]));
@@ -58,7 +57,7 @@ class UserController extends Controller
     public function show($id) {
         $user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
 
-        return view('backend.users.show', compact( 'user' ) );
+        return view('backend.users.show', compact('user') );
     }
 
     public function edit(User $user) {
@@ -98,7 +97,7 @@ class UserController extends Controller
         $user->permissions()->sync($permissions);
 
         if ($request->hasFile('photo_avatar')) {
-            $mediaService->storeMediaOneFile($user, 'avatar', 'photo_avatar');
+            $mediaService->storeMediaOneFile($user, $user->collectionName, 'photo_avatar');
         }
 
         toastr()->success(__('app.user.update', ['name'=> $user->name]));
@@ -112,6 +111,7 @@ class UserController extends Controller
             toastr()->error(__('app.user.delete-self'));
         } else {
             $user->delete();
+            $user->clearMediaCollection($user->collectionName);
             toastr()->success(__('app.user.delete', ['name'=> $user->name]));
         }
 

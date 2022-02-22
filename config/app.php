@@ -179,7 +179,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
         Lab404\Impersonate\ImpersonateServiceProvider::class,
-        // UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -188,6 +188,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\EloquentEventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
     ],

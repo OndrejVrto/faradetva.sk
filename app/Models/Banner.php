@@ -9,11 +9,13 @@ use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Banner extends Model implements HasMedia
 {
+    use Loggable;
     use HasFactory;
     use SoftDeletes;
     use CreatedUpdatedBy;
@@ -21,16 +23,29 @@ class Banner extends Model implements HasMedia
 
     protected $table = 'banners';
 
+    public $collectionName = 'banner';
+
     protected $fillable = [
         'active',
         'title',
+        'slug',
+        'author',
+        'author_url',
+        'source',
+        'source_url',
+        'license',
+        'license_url',
     ];
 
-    public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('banner')->file_name ?? null;
+    public function getRouteKeyName() {
+        return 'slug';
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
+    public function getMediaFileNameAttribute() {
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
+    }
+
+    public function registerMediaConversions(Media $media = null) : void {
         //1920x480px (240*60)
         $this->addMediaConversion('extra-large')
             ->fit("crop", 1920, 480)    // 1200px and up

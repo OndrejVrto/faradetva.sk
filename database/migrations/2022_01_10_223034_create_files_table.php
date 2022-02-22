@@ -12,17 +12,6 @@ return new class extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('static_page_id')
-                    ->nullable()
-                    ->constrained()
-                    ->onUpdate('CASCADE')
-                    ->onDelete('CASCADE');
-            $table->foreignId('file_type_id')
-                    ->nullable()
-                    ->constrained()
-                    ->onUpdate('SET NULL')
-                    ->onDelete('SET NULL');
-
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('slug');

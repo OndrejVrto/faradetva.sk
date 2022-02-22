@@ -7,31 +7,27 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerRequest extends FormRequest
+class PictureRequest extends FormRequest
 {
     public function authorize() {
         return true;
     }
 
     public function rules() {
-        if (request()->routeIs('banners.store')) {
+        if (request()->routeIs('pictures.store')) {
             $photoRule = 'required';
-        } else if (request()->routeIs('banners.update')) {
+        } else if (request()->routeIs('pictures.update')) {
             $photoRule = 'nullable';
         }
 
         return [
-            'active' => [
-                'boolean',
-                'required',
-            ],
             'title' => [
                 'required',
                 'string',
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('banners', 'slug')->ignore($this->banner)->withoutTrashed(),
+                Rule::unique('pictures', 'slug')->ignore($this->picture)->withoutTrashed(),
             ],
             'author' => [
                 'nullable',
@@ -69,16 +65,9 @@ class BannerRequest extends FormRequest
             'photo' => [
                 $photoRule,
                 'file',
-                'mimes:jpg,bmp,png,jpeg',
-                'dimensions:min_width=1920,min_height=480',
+                'mimes:jpg,bmp,png,jpeg,svg,tif',
                 'max:10000',
             ],
-        ];
-    }
-
-    public function messages() {
-        return [
-            'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];
     }
 
@@ -86,10 +75,7 @@ class BannerRequest extends FormRequest
         $state = $this->active ? 1 : 0;
 
         $this->merge([
-            'active' => $state,
             'slug' => Str::slug($this->title)
         ]);
-
-        Session::put(['banner_old_input_checkbox' => $state]);
     }
 }

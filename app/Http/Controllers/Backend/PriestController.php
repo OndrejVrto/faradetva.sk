@@ -30,7 +30,7 @@ class PriestController extends Controller
         $priest = Priest::create($validated);
 
         if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($priest, 'priest', 'photo');
+            $mediaService->storeMediaOneFile($priest, $priest->collectionName, 'photo');
         }
 
         toastr()->success(__('app.priest.store'));
@@ -46,7 +46,7 @@ class PriestController extends Controller
         $priest->update($validated);
 
         if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($priest, 'priest', 'photo');
+            $mediaService->storeMediaOneFile($priest, $priest->collectionName, 'photo');
         }
 
         toastr()->success(__('app.priest.update'));
@@ -55,7 +55,7 @@ class PriestController extends Controller
 
     public function destroy(Priest $priest) {
         $priest->delete();
-        $priest->clearMediaCollection('priest');
+        $priest->clearMediaCollection($priest->collectionName);
 
         toastr()->success(__('app.priest.delete'));
         return redirect()->route('priests.index');

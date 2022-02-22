@@ -9,10 +9,9 @@ return new class extends Migration
 
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('pictures', function (Blueprint $table) {
             $table->id();
 
-            $table->boolean('active')->default(1);
             $table->string('title')->nullable();
             $table->string('slug');
             $table->string('author')->nullable();
@@ -33,6 +32,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('pictures');
     }
 };

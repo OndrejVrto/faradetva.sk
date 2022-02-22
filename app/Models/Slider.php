@@ -24,6 +24,8 @@ class Slider extends Model implements HasMedia {
 
     protected $table = 'sliders';
 
+    public $collectionName = 'slider';
+
     protected $fillable = [
         'active',
         'heading_1',
@@ -32,7 +34,7 @@ class Slider extends Model implements HasMedia {
     ];
 
     public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('slider')->file_name ?? null;
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 
     public function registerMediaConversions( Media $media = null ) : void {

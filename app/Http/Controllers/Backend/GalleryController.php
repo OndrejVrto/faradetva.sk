@@ -51,7 +51,7 @@ class GalleryController extends Controller
         foreach ($request->input('picture', []) as $file) {
             $gallery
                 ->addMedia(storage_path('tmp/uploads/' . $file))
-                ->toMediaCollection($gallery->collectionPicture);
+                ->toMediaCollection($gallery->collectionName);
         }
 
         toastr()->success(__('app.gallery.store'));
@@ -66,7 +66,7 @@ class GalleryController extends Controller
 
     public function edit(Gallery $gallery): View {
         $gallery->load('media');
-        $pictures = $gallery->getMedia($gallery->collectionPicture);
+        $pictures = $gallery->getMedia($gallery->collectionName);
 
         return view('backend.galleries.edit', compact('gallery', 'pictures'));
     }
@@ -90,7 +90,7 @@ class GalleryController extends Controller
             if (count($media) === 0 || !in_array($file, $media)) {
                 $gallery
                     ->addMedia(storage_path('tmp/uploads/' . $file))
-                    ->toMediaCollection($gallery->collectionPicture);
+                    ->toMediaCollection($gallery->collectionName);
             }
         }
 
@@ -100,7 +100,7 @@ class GalleryController extends Controller
 
     public function destroy(Gallery $gallery): RedirectResponse {
         $gallery->delete();
-        $gallery->clearMediaCollection($gallery->collectionPicture);
+        $gallery->clearMediaCollection($gallery->collectionName);
 
         toastr()->success(__('app.gallery.delete'));
         return redirect()->route('galleries.index');
