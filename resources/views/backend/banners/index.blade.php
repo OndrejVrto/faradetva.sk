@@ -17,7 +17,6 @@
 
         <x-slot name="table_header">
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th-check-active/>
             <x-admin-table.th width="30%" class="text-center">Obrázok</x-admin-table.th>
             <x-admin-table.th>Názov baneru</x-admin-table.th>
             <x-admin-table.th-actions/>
@@ -27,7 +26,6 @@
             @foreach($banners as $banner)
             <tr>
                 {{-- <x-admin-table.td>{{$banner->id}}</x-admin-table.td> --}}
-                <x-admin-table.td-check-active check="{{ $banner->active }}"/>
                 <x-admin-table.td class="text-center">
                     <img src="{{ $banner->getFirstMediaUrl($banner->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/360x90" }}"
                     class="img-fluid px-3"

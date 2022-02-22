@@ -26,7 +26,6 @@ class Banner extends Model implements HasMedia
     public $collectionName = 'banner';
 
     protected $fillable = [
-        'active',
         'title',
         'slug',
         'author',

@@ -21,10 +21,6 @@ class BannerRequest extends FormRequest
         }
 
         return [
-            'active' => [
-                'boolean',
-                'required',
-            ],
             'title' => [
                 'required',
                 'string',
