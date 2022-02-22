@@ -54,8 +54,8 @@ class UserController extends Controller
         return to_route('users.index');
     }
 
-    public function show($id) {
-        $user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
+    public function show(User $user) {
+        $user->with('roles', 'media')->withCount('permissions');
 
         return view('backend.users.show', compact('user') );
     }
@@ -77,8 +77,16 @@ class UserController extends Controller
         $validated = $request->validated();
 
         // if no password is entered, it is removed from the request
-        if( ! $request->filled('password') ) {
+        if (! $request->filled('password')) {
             $validated = Arr::except($validated, ['password']);
+        }
+
+        // if user change self
+        if ($user->id == auth()->user()->id) {
+            $validated = Arr::except($validated, ['active']);
+            toastr()->warning(__('app.user.update-self'));
+        } else {
+            toastr()->success(__('app.user.update', ['name'=> $user->name]));
         }
 
         $user->update($validated);
@@ -100,7 +108,6 @@ class UserController extends Controller
             $mediaService->storeMediaOneFile($user, $user->collectionName, 'photo_avatar');
         }
 
-        toastr()->success(__('app.user.update', ['name'=> $user->name]));
         return to_route('users.index');
     }
 

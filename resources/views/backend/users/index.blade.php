@@ -76,7 +76,7 @@
                     @if ( $user->id != 1 OR auth()->user()->id == 1 )
                         <x-admin-table.td-actions
                             controlerName="users"
-                            identificator="{{ $user->id }}"
+                            identificator="{{ $user->slug }}"
                         />
                     @else
                         <td colspan=3></td>

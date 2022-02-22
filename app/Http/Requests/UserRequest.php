@@ -46,7 +46,6 @@ class UserRequest extends FormRequest
             ],
             'can_be_impersonated' => [
                 'boolean',
-                'required',
             ],
             'photo_avatar' => [
                 'nullable',

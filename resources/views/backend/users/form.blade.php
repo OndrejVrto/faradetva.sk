@@ -12,7 +12,7 @@
     $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = $media_file_name = null;
     if ( isset( $user ) ) {
         $typeForm = 'edit';
-        $identificator = $user->id;
+        $identificator = $user->slug;
         $createdInfo = $user->createdInfo;
         $createdBy = $user->createdBy;
         $updatedInfo = $user->updatedInfo;
@@ -43,18 +43,20 @@
             <label class="custom-control-label" for="Switch1">Účet aktívny</label>
         </div>
 
-        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš bol účet aktívny.">
-            <input type="hidden" name="can_be_impersonated" value="0">
-            <input
-                type="checkbox"
-                name="can_be_impersonated"
-                class="custom-control-input"
-                id="Switch2"
-                value="1"
-                {{ (( $user->can_be_impersonated ?? (old('can_be_impersonated') === "0" ? 0 : 1) ) OR old('can_be_impersonated', 0) === 1) ? 'checked' : '' }}
-            >
-            <label class="custom-control-label" for="Switch2">Účet je možné prisvojiť administrátorom</label>
-        </div>
+        @role('Super Administrátor')
+            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš bol účet aktívny.">
+                <input type="hidden" name="can_be_impersonated" value="0">
+                <input
+                    type="checkbox"
+                    name="can_be_impersonated"
+                    class="custom-control-input"
+                    id="Switch2"
+                    value="1"
+                    {{ (( $user->can_be_impersonated ?? (old('can_be_impersonated') === "0" ? 0 : 1) ) OR old('can_be_impersonated', 0) === 1) ? 'checked' : '' }}
+                >
+                <label class="custom-control-label" for="Switch2">Účet je možné prisvojiť administrátorom</label>
+            </div>
+        @endrole
     </div>
 
     <div class="form-row">
