@@ -29,6 +29,11 @@ class BannerRequest extends FormRequest
             'slug' => [
                 Rule::unique('banners', 'slug')->ignore($this->banner)->withoutTrashed(),
             ],
+            'description' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
             'author' => [
                 'nullable',
                 'string',

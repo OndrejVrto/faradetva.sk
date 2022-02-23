@@ -13,6 +13,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('title')->nullable();
+            $table->string('description')->nullable();
             $table->string('slug');
             $table->string('author')->nullable();
             $table->string('author_url')->nullable();

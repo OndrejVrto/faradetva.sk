@@ -21,7 +21,7 @@ class HomeController extends Controller
 
         $countSliders = Slider::whereActive(1)->count();
         $sliders = Slider::whereActive(1)->with('media')->get()->random(min($countSliders, 3));
-        $banner = Banner::whereActive(1)->with('media')->get()->random(1)->first();
+        $banner = Banner::with('media')->get()->random(1)->first();
 
         return view('frontend.home.index', compact(
             'priests',
