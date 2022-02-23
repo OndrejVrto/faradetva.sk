@@ -16,11 +16,12 @@ class MinifiHtmlMiddleware
      */
     public function handle(Request $request, Closure $next) {
         $response = $next($request);
-        $content = $response->getContent();
 
-        $minifi = $this->minifi( $content );
-
-        $response->setContent($minifi);
+        if ( !in_array(env('APP_ENV'), ['local', 'dev'])) {
+            $content = $response->getContent();
+            $minifi = $this->minifi($content);
+            $response->setContent($minifi);
+        }
 
         return $response;
     }
