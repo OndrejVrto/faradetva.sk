@@ -37,11 +37,11 @@ class UserController extends Controller
 
         // store roles to user
         $role = collect($request->input('role'))
-        ->filter(function ($value, $key) {
-            return $value >= 2; // SuperAdmin remove
-        })->when($user->id == 1, function ($collection) {
-            return $collection->push(1);
-        })->toArray();
+            ->filter(function ($value, $key) {
+                return $value >= 2; // SuperAdmin remove
+            })->when($user->id == 1, function ($collection) {
+                return $collection->push(1); // SuperAdmin add
+            })->toArray();
         $user->roles()->sync($role);
 
         // store permissions to user
@@ -95,11 +95,11 @@ class UserController extends Controller
 
         // store roles to user
         $role = collect($request->input('role'))
-        ->filter(function ($value, $key) {
-            return $value >= 2; // SuperAdmin remove
-        })->when($user->id == 1, function ($collection) {
-            return $collection->push(1);  // SuperAdmin add
-        })->toArray();
+            ->filter(function ($value, $key) {
+                return $value >= 2; // SuperAdmin remove
+            })->when($user->id == 1, function ($collection) {
+                return $collection->push(1);  // SuperAdmin add
+            })->toArray();
         $user->roles()->sync($role);
 
         // store permissions to user
