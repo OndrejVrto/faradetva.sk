@@ -61,10 +61,15 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     });
 
     //!  Caches
-    Route::get('start-caches', [CacheController::class, 'startCaches'])->name('cache.start');
-    Route::get('clear-caches', [CacheController::class, 'clearCaches'])->name('cache.stop');
-    Route::get('clear-data-caches', [CacheController::class, 'clearDataCaches'])->name('cache-data.stop');
-    Route::get('reset-caches', [CacheController::class, 'resetCaches'])->name('cache.reset');
+    Route::controller(CacheController::class)->name('cache.')->group(function () {
+        Route::get('caches-start', 'cachesStart')->name('start');
+        Route::get('caches-stop', 'cachesStop')->name('stop');
+        Route::get('caches-reset', 'cachesReset')->name('reset');
+        Route::get('caches-data-start', 'cacheDataStart')->name('data.start');
+        Route::get('caches-data-stop', 'cacheDataStop')->name('data.stop');
+        Route::get('caches-data-reset', 'cacheDataReset')->name('data.reset');
+        Route::get('info-php', 'infoPHP')->name('info');
+    });
 
     //!  Filemanager for Static-pages
     Route::get('file-manager', FileManagerController::class)->name('file-manager');
