@@ -46,7 +46,8 @@ class News extends Model implements HasMedia
         'teaser',
     ];
 
-    private $newsPerPage = 7;
+    /* The number of models to return for pagination. */
+    protected $perPage = 7;
 
     public function getRouteKeyName() {
         return 'slug';
@@ -64,7 +65,7 @@ class News extends Model implements HasMedia
         return $query
                     ->visible()
                     ->with('media', 'user', 'category')
-                    ->paginate($this->newsPerPage);
+                    ->paginate();
     }
 
     public function getTeaserMediumAttribute() {
