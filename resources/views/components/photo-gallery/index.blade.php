@@ -19,7 +19,7 @@
         @endforelse
     </div>
 
-    <x-source
+    <x-source-sentence
         :sourceSmall="$sourceSmall"
         :sourceArray="$sourceArr"
     />
