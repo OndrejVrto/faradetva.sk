@@ -51,6 +51,10 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function setPasswordAttribute($value){
         $this->attributes['password'] = bcrypt($value);
     }

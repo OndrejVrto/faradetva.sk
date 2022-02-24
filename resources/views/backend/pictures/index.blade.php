@@ -9,7 +9,7 @@
 
 @section('content')
     <x-admin-table
-        columns="7"
+        columns="9"
         controlerName="pictures"
         createBtn="Pridať nový obrázok"
         paginator="{{ $pictures->onEachSide(1)->links() }}"
@@ -19,7 +19,7 @@
             {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
             <x-admin-table.th width="20%" class="text-center">Obrázok</x-admin-table.th>
             <x-admin-table.th>Názov obrázka</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            <x-admin-table.th-actions colspan="3"/>
         </x-slot>
 
         <x-slot name="table_body">

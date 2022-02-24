@@ -52,6 +52,20 @@
         </x-slot>
     </x-adminlte-input>
 
+    <x-adminlte-input
+        fgroupClass=""
+        name="description"
+        label="Popis obrázku"
+        enableOldSupport="true"
+        value="{{ $picture->description ?? '' }}"
+        >
+        <x-slot name="prependSlot">
+            <div class="input-group-text bg-gradient-orange">
+                <i class="fas fa-scroll"></i>
+            </div>
+        </x-slot>
+    </x-adminlte-input>
+
     <div class="form-row">
         <div class="col-xl-5">
             <x-adminlte-input

@@ -9,18 +9,20 @@ use Illuminate\Support\Arr;
 use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Role;
 use App\Services\MediaStoreService;
+use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use App\Services\ChunkPermissionService;
 
 class UserController extends Controller
 {
-    public function index() {
+    public function index(): View  {
         $users = User::withCount('permissions')->with('roles', 'media')->paginate(10);
 
         return view('backend.users.index', compact('users'));
     }
 
-    public function create() {
+    public function create(): View  {
         $roles = Role::where('id', '>', 1)->get();
         $userRoles = [];
         $permissions = (new ChunkPermissionService())->permission;
@@ -29,17 +31,17 @@ class UserController extends Controller
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function store(UserRequest $request, User $user, MediaStoreService $mediaService) {
+    public function store(UserRequest $request, User $user, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $user->create($validated);
 
         // store roles to user
         $role = collect($request->input('role'))
-        ->filter(function ($value, $key) {
-            return $value >= 2; // SuperAdmin remove
-        })->when($user->id == 1, function ($collection) {
-            return $collection->push(1);
-        })->toArray();
+            ->filter(function ($value, $key) {
+                return $value >= 2; // SuperAdmin remove
+            })->when($user->id == 1, function ($collection) {
+                return $collection->push(1); // SuperAdmin add
+            })->toArray();
         $user->roles()->sync($role);
 
         // store permissions to user
@@ -54,13 +56,13 @@ class UserController extends Controller
         return to_route('users.index');
     }
 
-    public function show($id) {
-        $user = User::whereId($id)->withCount('permissions')->with('roles', 'media')->firstOrFail();
+    public function show(User $user): View  {
+        $user->with('roles', 'media')->withCount('permissions');
 
         return view('backend.users.show', compact('user') );
     }
 
-    public function edit(User $user) {
+    public function edit(User $user): View  {
         if ($user->id == 1 AND auth()->user()->id != 1) {
             toastr()->error(__('app.user.update-error', ['name'=> $user->name]));
             return to_route('users.index');
@@ -73,23 +75,31 @@ class UserController extends Controller
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function update(UserRequest $request, User $user, MediaStoreService $mediaService) {
+    public function update(UserRequest $request, User $user, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
 
         // if no password is entered, it is removed from the request
-        if( ! $request->filled('password') ) {
+        if (! $request->filled('password')) {
             $validated = Arr::except($validated, ['password']);
+        }
+
+        // if user change self
+        if ($user->id == auth()->user()->id) {
+            $validated = Arr::except($validated, ['active']);
+            toastr()->warning(__('app.user.update-self'));
+        } else {
+            toastr()->success(__('app.user.update', ['name'=> $user->name]));
         }
 
         $user->update($validated);
 
         // store roles to user
         $role = collect($request->input('role'))
-        ->filter(function ($value, $key) {
-            return $value >= 2; // SuperAdmin remove
-        })->when($user->id == 1, function ($collection) {
-            return $collection->push(1);  // SuperAdmin add
-        })->toArray();
+            ->filter(function ($value, $key) {
+                return $value >= 2; // SuperAdmin remove
+            })->when($user->id == 1, function ($collection) {
+                return $collection->push(1);  // SuperAdmin add
+            })->toArray();
         $user->roles()->sync($role);
 
         // store permissions to user
@@ -100,11 +110,10 @@ class UserController extends Controller
             $mediaService->storeMediaOneFile($user, $user->collectionName, 'photo_avatar');
         }
 
-        toastr()->success(__('app.user.update', ['name'=> $user->name]));
         return to_route('users.index');
     }
 
-    public function destroy(User $user) {
+    public function destroy(User $user): RedirectResponse {
         if ($user->id == 1) {
             toastr()->error(__('app.user.delete-error', ['name'=> $user->name]));
         } elseif ($user->id == auth()->user()->id) {

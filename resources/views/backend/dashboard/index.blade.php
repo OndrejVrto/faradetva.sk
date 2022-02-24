@@ -15,39 +15,80 @@
             @endrole
         @endauth
 
-        @can(
-            'cache-data.stop',
-            'cache.stop',
-            'cache.start',
-            'cache.reset',
-        )
-            <div class="row justify-content-center">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-muted">
-                            Správa cache
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        @can('cache-data.stop')
-                            <a href="{{ route('cache-data.stop') }}" class="btn btn-info px-3 mx-2">Cache data CLEAR</a>
-                        @endcan
-                        @can('cache.stop')
-                        <a href="{{ route('cache.stop') }}" class="btn btn-warning px-3 mx-2">Cache STOP</a>
-                        @endcan
-                        @can('cache.start')
-                            <a href="{{ route('cache.start') }}" class="btn btn-danger px-3 mx-2">Cache ŠTART</a>
-                        @endcan
-                        @can('cache.reset')
-                            <a href="{{ route('cache.reset') }}" class="btn btn-danger px-3 mx-2">Cache RESET</a>
-                        @endcan
-                    </div>
-                    <div class="card-footer text-danger">
-                        ! POZOR !  Cache používaj uvážlivo len v ostrej prevádzke.
+        <div class="row">
+            @can(
+                'cache.start',
+                'cache.stop',
+                'cache.reset',
+            )
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-muted">
+                                Správa cache
+                            </h3>
+                        </div>
+                        <div class="card-body d-flex flex-wrap justify-content-center">
+                            @can('cache.start')
+                                <a href="{{ route('cache.start') }}" class="btn btn-success m-2">Optimize ŠTART</a>
+                            @endcan
+                            @can('cache.reset')
+                                <a href="{{ route('cache.reset') }}" class="btn btn-warning m-2">Optimize RESET</a>
+                            @endcan
+                            @can('cache.stop')
+                                <a href="{{ route('cache.stop') }}" class="btn btn-danger m-2" ">Optimize STOP</a>
+                            @endcan
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endcan
+            @endcan
+
+            @can(
+                'cache.data.start',
+                'cache.data.stop',
+                'cache.data.reset',
+            )
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-muted">
+                                Správa dátovej cache
+                            </h3>
+                        </div>
+                        <div class="card-body d-flex flex-wrap justify-content-center">
+                            @can('cache.data.start')
+                                <a href="{{ route('cache.data.start') }}" class="btn btn-success m-2">Cache data ŠTART</a>
+                            @endcan
+                            @can('cache.data.reset')
+                                <a href="{{ route('cache.data.reset') }}" class="btn btn-warning m-2">Cache data RESET</a>
+                            @endcan
+                            @can('cache.data.stop')
+                                <a href="{{ route('cache.data.stop') }}" class="btn btn-danger m-2">Cache data STOP</a>
+                            @endcan
+                        </div>
+                    </div>
+                </div>
+            @endcan
+
+            @can(
+                'cache.info',
+            )
+                <div class="col-lg-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-muted">
+                                Info
+                            </h3>
+                        </div>
+                        <div class="card-body d-flex flex-wrap justify-content-center">
+                            @can('cache.info')
+                                <a href="{{ route('cache.info') }}" class="btn btn-info m-2">PHP info</a>
+                            @endcan
+                        </div>
+                    </div>
+                </div>
+            @endcan
+        </div>
 
         <div class="row justify-content-end">
             <div class="col-xl-5">

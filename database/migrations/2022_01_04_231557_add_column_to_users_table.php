@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('nick')->unique()->after('name');
             $table->string('slug')->after('nick');
             $table->boolean('can_be_impersonated')->after('email')->default(1);
+            $table->boolean('active')->after('id')->default(1);
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->dropColumn('nick');
             $table->dropColumn('slug');
             $table->dropColumn('can_be_impersonated');
+            $table->dropColumn('active');
         });
     }
 };

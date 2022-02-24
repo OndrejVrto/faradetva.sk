@@ -85,6 +85,7 @@ return [
         'store'        => 'Uživateľ :name bol pridaný!',
         'update'       => 'Uživateľ :name bol upravený!',
         'update-error' => 'Uživateľ :name nemôže byť upravovaný!',
+        'update-self'  => 'Užívateľ sám sebe nemôže meniť status!',
         'delete'       => 'Uživateľ :name bol odstránený!',
         'delete-error' => 'Užívateľ :name nemôže byť vymazaný!',
         'delete-self'  => 'Užívateľ nemôže vymazať sám seba!',

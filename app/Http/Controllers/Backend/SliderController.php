@@ -5,25 +5,25 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Slider;
-
 use App\Services\MediaStoreService;
-use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
 use App\Http\Requests\SliderRequest;
-use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 class SliderController extends Controller
 {
-    public function index() {
+    public function index(): View  {
         $sliders = Slider::latest('updated_at')->with('media')->paginate(5);
 
         return view('backend.sliders.index', compact('sliders'));
     }
 
-    public function create() {
+    public function create(): View  {
         return view('backend.sliders.create');
     }
 
-    public function store(SliderRequest $request, MediaStoreService $mediaService) {
+    public function store(SliderRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $slider = Slider::create($validated);
 
@@ -35,11 +35,11 @@ class SliderController extends Controller
         return to_route('sliders.index');
     }
 
-    public function edit(Slider $slider) {
+    public function edit(Slider $slider): View  {
         return view('backend.sliders.edit', compact('slider'));
     }
 
-    public function update(SliderRequest $request, Slider $slider, MediaStoreService $mediaService) {
+    public function update(SliderRequest $request, Slider $slider, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $slider->update($validated);
 
@@ -51,7 +51,7 @@ class SliderController extends Controller
         return to_route('sliders.index');
     }
 
-    public function destroy(Slider $slider) {
+    public function destroy(Slider $slider): RedirectResponse {
         $slider->delete();
         $slider->clearMediaCollection($slider->collectionName);
 

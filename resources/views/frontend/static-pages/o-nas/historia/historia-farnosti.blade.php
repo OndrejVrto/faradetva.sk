@@ -1,6 +1,14 @@
 @extends('frontend._layouts.static-page')
 @push('content_header')
     {{-- Prepend content Header --}}
+
+    <x-picture titleSlug="obrazok-2" arrival="left" sourceSmall="true"/>
+    <div class="py-5"></div>
+    <x-picture titleSlug="obrazok-1" arrival="right"/>
+    <div class="py-5"></div>
+    <x-photo-gallery titleSlug="galeria1"/>
+    <div class="py-5"></div>
+
 @endpush
 @prepend('content_footer')
     {{-- After content Footer --}}
@@ -23,8 +31,6 @@
             </p>
         </x-page-section.text>
     </x-page-section>
-
-    <x-photo-gallery titleSlug="galeria1"/>
 
     <x-page-section title="Vznik Detvy">
         {{-- <x-page-section.img columns="5" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/602199.jpg') }}" /> --}}

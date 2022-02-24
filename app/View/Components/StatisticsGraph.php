@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use App\Models\Chart;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class StatisticsGraph extends Component
 {
@@ -22,7 +23,7 @@ class StatisticsGraph extends Component
         // dd($this->dataGraph);
     }
 
-    public function render() {
+    public function render(): View {
         return view('components.statistics-graph.index');
     }
 }

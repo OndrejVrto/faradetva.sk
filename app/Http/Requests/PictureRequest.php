@@ -26,6 +26,11 @@ class PictureRequest extends FormRequest
                 'string',
                 'max:255',
             ],
+            'description' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
             'slug' => [
                 Rule::unique('pictures', 'slug')->ignore($this->picture)->withoutTrashed(),
             ],

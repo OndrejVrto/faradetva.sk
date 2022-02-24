@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Chart;
 use App\Enum\ChartType;
-use Illuminate\Support\Arr;
 use App\Http\Requests\ChartRequest;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;

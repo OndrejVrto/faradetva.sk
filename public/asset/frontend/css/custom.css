@@ -56,15 +56,15 @@
 .img-article {
     position: absolute;
     z-index: 100;
-	font-weight   : 400;
-	font-size     : 10px;
-    color   : #243a4f;
+	/* font-weight   : 400;
+	font-size     : 10px; */
+    /* color   : #243a4f; */
     bottom  : -1.1rem;
 }
 
-.img-article:hover {
+/* .img-article:hover {
 	color: #ff7b33;
-}
+} */
 
 .img-article-left {
     left    : 5px;
@@ -74,13 +74,8 @@
     right   : 5px;
 }
 
-
-.gallery-source {
-    /* position: absolute; */
-    /* z-index: 100; */
+.source {
 	font-weight   : 400;
 	font-size     : 10px;
-    /* color   : #243a4f; */
-    /* bottom  : -1.1rem; */
 }
 

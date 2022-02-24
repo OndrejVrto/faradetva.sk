@@ -32,7 +32,7 @@ class Kernel extends HttpKernel
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\PreetyHtmlMiddleware::class,
-            // \App\Http\Middleware\MinifiHtmlMiddleware::class,
+            \App\Http\Middleware\MinifiHtmlMiddleware::class,
 
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,

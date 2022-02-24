@@ -8,21 +8,23 @@ use App\Models\Tag;
 use App\Models\News;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Helpers\DataFormater;
 use App\Http\Requests\NewsRequest;
 use App\Services\MediaStoreService;
+use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Http\RedirectResponse;
 
 class NewsController extends Controller
 {
-    public function index() {
+    public function index(): View  {
         $allNews = News::latest()->with('user', 'media')->paginate(5);
 
         return view('backend.news.index', compact('allNews'));
     }
 
-    public function create() {
+    public function create(): View  {
         $categories = Category::all();
         $tags = Tag::all();
         $selectedTags = [];
@@ -30,7 +32,7 @@ class NewsController extends Controller
         return view('backend.news.create', compact('categories', 'tags', 'selectedTags'));
     }
 
-    public function storeMedia(Request $request) {
+    public function storeMedia(Request $request): JsonResponse {
         $path = storage_path('tmp/uploads');
 
         if (!file_exists($path)) {
@@ -51,7 +53,7 @@ class NewsController extends Controller
         ]);
     }
 
-    public function store(NewsRequest $request, MediaStoreService $mediaService) {
+    public function store(NewsRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated() + [ 'user_id' => auth()->id() ];
         $news = News::create($validated);
 
@@ -72,7 +74,7 @@ class NewsController extends Controller
         return to_route('news.index');
     }
 
-    public function edit(News $news) {
+    public function edit(News $news): View  {
         $this->authorize('view', $news);
 
         $news->load('media', 'tags');
@@ -84,7 +86,7 @@ class NewsController extends Controller
         return view('backend.news.edit', compact('news', 'documents', 'categories', 'tags', 'selectedTags'));
     }
 
-    public function update(NewsRequest $request, News $news, MediaStoreService $mediaService) {
+    public function update(NewsRequest $request, News $news, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $news->update($validated);
 
@@ -117,7 +119,7 @@ class NewsController extends Controller
         return to_route('news.index');
     }
 
-    public function destroy(News $news) {
+    public function destroy(News $news): RedirectResponse {
         $this->authorize('delete', $news);
 
         $news->delete();

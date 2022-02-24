@@ -1,4 +1,4 @@
-<div class="ch_about_desc">
+<div class="ch_about_desc" {{ $attributes }}>
     <h3 class="fromright wow" data-wow-delay="0.4s">{{ $gallery->title }}</h3>
 
     @isset($gallery->description)
@@ -19,41 +19,10 @@
         @endforelse
     </div>
 
-    <p class="gallery-source">
-        Album
-        @isset($gallery->source)
-            zo zdroja
-            @isset($gallery->source_url)
-                <a href="{{ url($gallery->source_url) }}" target="_blank" rel="noopener noreferrer" class="link-template">
-            @endisset
-                    <span class="px-1 @unless($gallery->source_url)text-church-template-blue @endunless">{{ $gallery->source }}</span>
-            @isset($gallery->source_url)
-                </a>
-            @endisset
-        @endisset
-
-        @isset($gallery->author)
-            od autora
-            @isset($gallery->author_url)
-                <a href="{{ url($gallery->author_url) }}" target="_blank" rel="noopener noreferrer" class="link-template">
-            @endisset
-                <span class="px-1 @unless($gallery->author_url)text-church-template-blue @endunless">{{ $gallery->author }}</span>
-            @isset($gallery->author_url)
-                </a>
-            @endisset
-        @endisset
-
-        @isset($gallery->license)
-            licencované podľa
-            @isset($gallery->license_url)
-                <a href="{{ $gallery->license_url }}" target="_blank" rel="noopener noreferrer license" class="link-template">
-            @endisset
-                <span class="ps-1 @unless($gallery->license_url)text-church-template-blue @endunless">{{ $gallery->license }}</span>
-            @isset($gallery->license_url)
-                </a>
-            @endisset
-        @endisset
-    </p>
+    <x-source
+        :sourceSmall="$sourceSmall"
+        :sourceArray="$sourceArr"
+    />
 
 </div>
 

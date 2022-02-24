@@ -17,7 +17,7 @@
     <div class="section">
         <div class="container">
 
-            @foreach ($notices as $notice)
+            @forelse ($notices as $notice)
 
                 <div class="col-md-11 col-lg-10 col-xl-9 m-auto">
                     <div class="notice_heading_section">
@@ -48,7 +48,13 @@
                         let main{{ $loop->iteration }} = new Main("{{ $notice->getFirstMedia('notice_pdf')->getUrl() }}", "#pdfArea{{ $loop->iteration }}");
                     </script>
                 @endpush
-            @endforeach
+            @empty
+                <div class="p-5 m-5">
+                    <h3>
+                        Aktuálne nieje zverejnený žiadny oznam.
+                    </h3>
+                </div>
+            @endforelse
 
         </div>
     </div>
