@@ -17,7 +17,7 @@
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
-    >
+>
 
     <x-adminlte-input
         fgroupClass=""
@@ -43,7 +43,7 @@
         name="description"
         label="Popis obsahu galérie"
         enableOldSupport="true"
-        value="{{ $gallery->description ?? '' }}"
+        value="{{ $gallery->source->description ?? '' }}"
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
@@ -60,7 +60,7 @@
                 name="source"
                 label="Zdroj obrázkov (text)"
                 enableOldSupport="true"
-                value="{{ $gallery->source ?? '' }}"
+                value="{{ $gallery->source->source ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -74,7 +74,7 @@
                 name="source_url"
                 label="Link na zdroj obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $gallery->source_url ?? '' }}"
+                value="{{ $gallery->source->source_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -91,7 +91,7 @@
                 name="author"
                 label="Meno autora obrázkov"
                 enableOldSupport="true"
-                value="{{ $gallery->author ?? '' }}"
+                value="{{ $gallery->source->author ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -105,7 +105,7 @@
                 name="author_url"
                 label="Kontakt na autora obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $gallery->author_url ?? '' }}"
+                value="{{ $gallery->source->author_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -122,7 +122,7 @@
                 name="license"
                 label="Licencia obrázkov (text)"
                 enableOldSupport="true"
-                value="{{ $gallery->license ?? '' }}"
+                value="{{ $gallery->source->license ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -136,7 +136,7 @@
                 name="license_url"
                 label="Link na licenciu obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $gallery->license_url ?? '' }}"
+                value="{{ $gallery->source->license_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
