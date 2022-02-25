@@ -44,7 +44,7 @@
 
                 <x-admin-table.td-actions
                     controlerName="notices"
-                    identificator="{{ $notice->id }}"
+                    identificator="{{ $notice->slug }}"
                 />
             </tr>
             @endforeach

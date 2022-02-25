@@ -32,6 +32,10 @@ class Notice extends Model implements HasMedia
         'title',
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function getMediaFileNameAttribute() {
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
