@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('color', 10);
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
