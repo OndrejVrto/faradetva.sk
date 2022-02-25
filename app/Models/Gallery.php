@@ -27,18 +27,15 @@ class Gallery extends Model implements HasMedia
 
     protected $fillable = [
         'title',
-        'description',
         'slug',
-        'author',
-        'author_url',
-        'source',
-        'source_url',
-        'license',
-        'license_url',
     ];
 
     public function getRouteKeyName() {
         return 'slug';
+    }
+
+    public function source() {
+        return $this->morphOne(Source::class, 'sourceable');
     }
 
     public function picture() {

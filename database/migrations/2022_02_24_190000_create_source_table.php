@@ -9,28 +9,24 @@ use Illuminate\Database\Migrations\Migration;
 return new class extends Migration
 {
     public function up(): void {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('source', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
+            $table->morphs('sourceable');
+
             $table->string('description')->nullable();
-            $table->string('slug');
             $table->string('author')->nullable();
-            $table->string('author_url')->nullable();
+            $table->string('author_url', 512)->nullable();
             $table->string('source')->nullable();
             $table->string('source_url', 512)->nullable();
             $table->string('license')->nullable();
-            $table->string('license_url')->nullable();
-
-            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
-            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
+            $table->string('license_url', 512)->nullable();
 
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
     public function down(): void {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('source');
     }
 };

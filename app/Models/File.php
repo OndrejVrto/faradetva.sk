@@ -25,18 +25,15 @@ class File extends Model implements HasMedia
     public $collectionName = 'attachment';
 
     protected $fillable = [
-        'name',
-        'description',
+        'title',
         'slug',
-        'author',
-        'author_url',
-        'source',
-        'source_url',
-        'license',
-        'license_url',
     ];
 
     public function getRouteKeyName() {
         return 'slug';
+    }
+
+    public function source() {
+        return $this->morphOne(Source::class, 'sourceable');
     }
 }
