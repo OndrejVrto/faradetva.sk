@@ -1,18 +1,18 @@
 <div class="ch_about_desc" {{ $attributes }}>
-    <h3 class="fromright wow" data-wow-delay="0.4s">{{ $gallery->title }}</h3>
+    <h3 class="fromright wow" data-wow-delay="0.4s">{{ $gallery['title'] }}</h3>
 
-    @isset($gallery->description)
-        <h5>{{ $gallery->description }}</h5>
+    @isset($gallery['description'])
+        <h5>{{ $gallery['description'] }}</h5>
     @endisset
 
     <div class="gallery w-100">
-        @forelse ($gallery->picture as $picture )
+        @forelse ($gallery['picture'] as $picture )
             <a
-                href="{{ $picture->getUrl() }}"
-                title="{{ $picture->name }}"
-                data-srcset="{{ $picture->getSrcset('orginal') }}"
+                href="{{ $picture['href'] }}"
+                title="{{ $picture['title'] }}"
+                data-srcset="{{ $picture['srcset'] }}"
             >
-                {{ $picture->img('thumb') }}
+                {!! $picture['responsivePicture'] !!}
             </a>
         @empty
             <p class="text-danger">Album neobsahuje žiadne obrázky.</p>
@@ -21,7 +21,7 @@
 
     <x-source-sentence
         :sourceSmall="$sourceSmall"
-        :sourceArray="$sourceArr"
+        :sourceArray="$gallery['sourceArr']"
     />
 
 </div>
