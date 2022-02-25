@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
@@ -15,7 +14,6 @@ class Category extends Model
     use Loggable;
     use HasFactory;
     use SoftDeletes;
-    use CreatedUpdatedBy;
 
     protected $table = 'categories';
 

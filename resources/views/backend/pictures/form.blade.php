@@ -3,14 +3,12 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = $media_file_name = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
     if ( isset( $picture ) ) {
         $typeForm = 'edit';
         $identificator = $picture->slug;
-        $createdInfo = $picture->createdInfo;
-        $createdBy = $picture->createdBy;
-        $updatedInfo = $picture->updatedInfo;
-        $updatedBy = $picture->updatedBy;
+        $createdInfo = $picture->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $picture->updated_at->format('d. m. Y \o H:i');
         $media_file_name = $picture->getFirstMedia($picture->collectionName)->file_name ?? '';
     }
 @endphp
@@ -19,8 +17,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <x-adminlte-input-file

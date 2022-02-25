@@ -3,14 +3,12 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $priest ) ) {
         $typeForm = 'edit';
         $identificator = $priest->slug;
-        $createdInfo = $priest->createdInfo;
-        $createdBy = $priest->createdBy;
-        $updatedInfo = $priest->updatedInfo;
-        $updatedBy = $priest->updatedBy;
+        $createdInfo = $priest->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $priest->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -18,8 +16,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <div class="form-group">

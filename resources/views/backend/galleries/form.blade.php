@@ -3,10 +3,12 @@
     $columns = 8;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = null;
-    if ( isset( $gallery ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $gallery) ) {
         $typeForm = 'edit';
         $identificator = $gallery->slug;
+        $createdInfo = $gallery->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $gallery->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -14,6 +16,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
     >
 
     <x-adminlte-input

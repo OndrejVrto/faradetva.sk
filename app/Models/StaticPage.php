@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Models\File;
-use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
@@ -13,10 +12,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class StaticPage extends Model
 {
-    use Loggable;
     use HasFactory;
     use SoftDeletes;
-    use CreatedUpdatedBy;
 
     protected $table = 'static_pages';
 

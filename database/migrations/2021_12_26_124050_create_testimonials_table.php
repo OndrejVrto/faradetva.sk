@@ -18,9 +18,6 @@ return new class extends Migration
             $table->string('function')->nullable();
             $table->text('description')->nullable();
 
-            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
-            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
-
             $table->timestamps();
             $table->softDeletes();
         });

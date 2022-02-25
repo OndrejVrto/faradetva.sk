@@ -3,14 +3,12 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = $media_file_name = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
     if ( isset( $banner ) ) {
         $typeForm = 'edit';
         $identificator = $banner->slug;
-        $createdInfo = $banner->createdInfo;
-        $createdBy = $banner->createdBy;
-        $updatedInfo = $banner->updatedInfo;
-        $updatedBy = $banner->updatedBy;
+        $createdInfo = $banner->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $banner->updated_at->format('d. m. Y \o H:i');
         $media_file_name = $banner->getFirstMedia($banner->collectionName)->file_name ?? '';
     }
 @endphp
@@ -19,8 +17,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <x-adminlte-input-file
@@ -60,7 +57,7 @@
         name="description"
         label="Popis obrázku bannera"
         enableOldSupport="true"
-        value="{{ $banner->description ?? '' }}"
+        value="{{ $banner->source->description ?? '' }}"
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
@@ -75,7 +72,7 @@
                 name="source"
                 label="Zdroj obrázkov (text)"
                 enableOldSupport="true"
-                value="{{ $banner->source ?? '' }}"
+                value="{{ $banner->source->source ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -89,7 +86,7 @@
                 name="source_url"
                 label="Link na zdroj obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $banner->source_url ?? '' }}"
+                value="{{ $banner->source->source_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -106,7 +103,7 @@
                 name="author"
                 label="Meno autora obrázkov"
                 enableOldSupport="true"
-                value="{{ $banner->author ?? '' }}"
+                value="{{ $banner->source->author ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -120,7 +117,7 @@
                 name="author_url"
                 label="Kontakt na autora obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $banner->author_url ?? '' }}"
+                value="{{ $banner->source->author_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -137,7 +134,7 @@
                 name="license"
                 label="Licencia obrázkov (text)"
                 enableOldSupport="true"
-                value="{{ $banner->license ?? '' }}"
+                value="{{ $banner->source->license ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -151,7 +148,7 @@
                 name="license_url"
                 label="Link na licenciu obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $banner->license_url ?? '' }}"
+                value="{{ $banner->source->license_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">

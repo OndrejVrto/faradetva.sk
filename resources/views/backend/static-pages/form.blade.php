@@ -3,14 +3,12 @@
     $columns = 12;
     $uploadFiles = 'false';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $staticPage ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $staticPage) ) {
         $typeForm = 'edit';
         $identificator = $staticPage->slug;
-        $createdInfo = $staticPage->createdInfo;
-        $createdBy = $staticPage->createdBy;
-        $updatedInfo = $staticPage->updatedInfo;
-        $updatedBy = $staticPage->updatedBy;
+        $createdInfo = $staticPage->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $staticPage->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -18,8 +16,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <div class="form-row">

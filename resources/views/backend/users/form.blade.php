@@ -9,15 +9,12 @@
     $columns = 10;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = $media_file_name = null;
-    if ( isset( $user ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $user) ) {
         $typeForm = 'edit';
         $identificator = $user->slug;
-        $createdInfo = $user->createdInfo;
-        $createdBy = $user->createdBy;
-        $updatedInfo = $user->updatedInfo;
-        $updatedBy = $user->updatedBy;
-        $media_file_name = $user->getFirstMedia($user->collectionName)->file_name ?? '';
+        $createdInfo = $user->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $user->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -25,8 +22,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <div class="form-group">

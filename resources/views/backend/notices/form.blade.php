@@ -3,14 +3,12 @@
     $columns = 6;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $notice ) ) {
         $typeForm = 'edit';
-        $identificator = $notice->id;
-        $createdInfo = $notice->createdInfo;
-        $createdBy = $notice->createdBy;
-        $updatedInfo = $notice->updatedInfo;
-        $updatedBy = $notice->updatedBy;
+        $identificator = $notice->slug;
+        $createdInfo = $notice->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $notice->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -18,8 +16,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <input type="hidden" name="timezone" id="timezone">

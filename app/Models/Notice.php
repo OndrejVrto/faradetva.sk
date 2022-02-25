@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Traits\Publishable;
-use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -19,7 +18,6 @@ class Notice extends Model implements HasMedia
     use HasFactory;
     use Publishable;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'notices';

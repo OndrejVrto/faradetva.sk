@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -18,7 +17,6 @@ class Testimonial extends Model implements HasMedia
     use Loggable;
     use HasFactory;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'testimonials';

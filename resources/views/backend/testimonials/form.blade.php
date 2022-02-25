@@ -3,14 +3,12 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $testimonial ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $testimonial) ) {
         $typeForm = 'edit';
         $identificator = $testimonial->slug;
-        $createdInfo = $testimonial->createdInfo;
-        $createdBy = $testimonial->createdBy;
-        $updatedInfo = $testimonial->updatedInfo;
-        $updatedBy = $testimonial->updatedBy;
+        $createdInfo = $testimonial->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $testimonial->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -18,8 +16,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <div class="form-group">
