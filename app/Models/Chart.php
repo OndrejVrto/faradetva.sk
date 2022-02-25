@@ -18,11 +18,16 @@ class Chart extends Model
         'active',
         'title',
         'description',
+        'slug',
         'name_x_axis',
         'name_y_axis',
         'type_chart',
         'color',
     ];
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
 
     public function data() {
         return $this->hasMany(ChartData::class)->orderBy('key');

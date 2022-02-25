@@ -2,15 +2,15 @@
     $controlerName = 'charts.data';
     $columns = 5;
     $uploadFiles = 'false';
-    $linkActionCreate = route('charts.data.index', $chart->id);
-    $linkBack = route('charts.data.store', $chart->id);
+    $linkActionCreate = route('charts.data.index', $chart->slug);
+    $linkBack = route('charts.data.store', $chart->slug);
 
     $typeForm = $identificator = $linkActionEdit = $linkEdit = null;
     if ( isset( $data ) ) {
         $typeForm = 'edit';
         $identificator = $data->id;
-        $linkEdit = route('charts.data.edit', ['chart' => $chart->id, 'data' => $data->id]);
-        $linkActionEdit = route('charts.data.update', ['chart' => $chart->id, 'data' => $data->id]);
+        $linkEdit = route('charts.data.edit', ['chart' => $chart->slug, 'data' => $data->id]);
+        $linkActionEdit = route('charts.data.update', ['chart' => $chart->slug, 'data' => $data->id]);
     }
 @endphp
 

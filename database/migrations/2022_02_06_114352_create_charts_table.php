@@ -15,6 +15,7 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->string('title');
             $table->string('description')->nullable();
+            $table->string('slug');
             $table->string('name_x_axis');
             $table->string('name_y_axis');
             $table->tinyInteger('type_chart')->unsigned();

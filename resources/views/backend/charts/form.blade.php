@@ -6,7 +6,7 @@
     $typeForm = $identificator = null;
     if ( isset( $chart ) ) {
         $typeForm = 'edit';
-        $identificator = $chart->id;
+        $identificator = $chart->slug;
     }
 @endphp
 
