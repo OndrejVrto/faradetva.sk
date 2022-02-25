@@ -38,8 +38,8 @@ class Picture extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null) : void {
         $this->addMediaConversion('optimize')
-            // ->fit("crop", 1440, 360)
-            ->optimize();
+            ->optimize()
+            ->withResponsiveImages();
         $this->addMediaConversion('crop-thumb')
             ->fit("crop", 100, 100);
     }

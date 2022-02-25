@@ -6,14 +6,10 @@
 
     <x-source-sentence
         :sourceSmall="$sourceSmall"
-        :sourceArray="$sourceArr"
+        :sourceArray="$picture['sourceArr']"
         class="img-article img-article-{{ $arrival }}"
     />
 
-    <img class="img-fluid"
-        src="{{ $url }}"
-        alt="{{ $alt }}"
-        title="{{ $title }}"
-    />
+    {!! $picture['responsivePicture'] !!}
 
 </div>

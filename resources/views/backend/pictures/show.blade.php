@@ -9,7 +9,7 @@
 
 @php
     $controlerName = 'pictures';
-    $columns = 11;
+    $columns = 9;
 
     $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $picture ) ) {
@@ -27,8 +27,32 @@
         typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
         createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
-        {{-- TODO:  Apply component picture --}}
-        {{ $picture->title }}
+        <div class="row">
+            <div class="col-lg-4">
+                <dt>Titulok</dt>
+                    <dd>{{ $picture->title ?? '---' }}</dd>
+                <dt>Popis</dt>
+                    <dd>{{ $picture->source->description ?? '---' }}</dd>
+                <dt>Zdroj:</dt>
+                    <dd>{{ $picture->source->source ?? '---' }}</dd>
+                <dt>Zdroj URL:</dt>
+                    <dd>{{ $picture->source->source_url ?? '---' }}</dd>
+                <dt>Autor:</dt>
+                    <dd>{{ $picture->source->author ?? '---' }}</dd>
+                <dt>Autor URL:</dt>
+                    <dd>{{ $picture->source->author_url ?? '---' }}</dd>
+                <dt>Licencia:</dt>
+                    <dd>{{ $picture->source->license ?? '---' }}</dd>
+                <dt>Licencia URL:</dt>
+                    <dd>{{ $picture->source->license_url ?? '---' }}</dd>
+            </div>
+            <div class="col-lg-8 mb-4">
+                <dt>Náhľad:</dt>
+                <div class="border border-2 border-warning p-3">
+                    <x-picture titleSlug="{{ $picture->slug }}" columns="12"/>
+                </div>
+            </div>
+        </div>
 
     </x-admin-form>
 
