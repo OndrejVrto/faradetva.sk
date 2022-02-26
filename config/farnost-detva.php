@@ -46,14 +46,6 @@ return [
         'sliders_header_create'      => 'Nový obrázok s myšlienkou',
         'sliders_header_edit'        => 'Úprava obrázku s myšlienkou',
 
-        'banners_title'              => 'Banery',
-        'banners_description'        => 'Administrácia - správa sekcie: Baner',
-        'banners_description_create' => 'Administrácia - pridanie nového Baner-u',
-        'banners_description_edit'   => 'Administrácia - Editácia Baner-u',
-        'banners_header'             => 'Banery',
-        'banners_header_create'      => 'Nový baner',
-        'banners_header_edit'        => 'Úprava baner-u',
-
         'tags_title'              => 'Kľúčové slová',
         'tags_description'        => 'Administrácia - správa sekcie: Kľúčové slová',
         'tags_description_create' => 'Administrácia - vytvorenie nového Kľúčového slova (tagu)',
@@ -155,6 +147,16 @@ return [
         'pictures_header_create'      => 'Nový obrázok',
         'pictures_header_edit'        => 'Úprava obrázku',
         'pictures_header_show'        => 'Detaily obrázku',
+
+        'banners_title'              => 'Banery',
+        'banners_description'        => 'Administrácia - správa sekcie: Baner',
+        'banners_description_create' => 'Administrácia - pridanie nového Baneru',
+        'banners_description_edit'   => 'Administrácia - Editácia Baneru',
+        'banners_description_show'   => 'zobrazenie detailov o Baneri',
+        'banners_header'             => 'Banery',
+        'banners_header_create'      => 'Nový baner',
+        'banners_header_edit'        => 'Úprava baneru',
+        'banners_header_show'        => 'Detail baneru',
 
         'charts_title'              => 'Graf',
         'charts_description'        => 'Štatistiky farnosti v grafoch',

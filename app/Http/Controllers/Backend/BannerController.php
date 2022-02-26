@@ -27,7 +27,7 @@ class BannerController extends Controller
     public function store(BannerRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $banner = Banner::create($validated);
-        $sourceData = Arr::except($validated, ['title', 'slug', 'picture']);
+        $sourceData = Arr::except($validated, ['title', 'slug', 'photo']);
         $banner->source()->create($sourceData);
 
         if ($request->hasFile('photo')) {
@@ -53,7 +53,7 @@ class BannerController extends Controller
     public function update(BannerRequest $request, Banner $banner, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $banner->update($validated);
-        $sourceData = Arr::except($validated, ['title', 'slug', 'picture']);
+        $sourceData = Arr::except($validated, ['title', 'slug', 'photo']);
         $banner->source()->update($sourceData);
         $banner->touch(); // Touch because i need start observer for delete cache
 
