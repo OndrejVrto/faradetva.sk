@@ -10,7 +10,7 @@ class NewsObserver
     private function clearCache(){
         // max pages: 100 ??
         for ($i=1; $i <= 100 ; $i++) {
-            $key = 'allNews-page-' . $i;
+            $key = 'NEWS_ALL_PAGE-' . $i;
             if (Cache::has($key)) {
                 Cache::forget($key);
             } else {
@@ -18,8 +18,8 @@ class NewsObserver
             }
         }
 
-        if (Cache::has('lastNews')) {
-            Cache::forget('lastNews');
+        if (Cache::has('NEWS_LAST')) {
+            Cache::forget('NEWS_LAST');
         }
     }
 

@@ -5,6 +5,19 @@
 @section('meta_description', 'Vyhľadávanie medzi čLánkami.' )
 @section('content_header', 'Hľadaný výraz: XXX' )
 
+@push('content_header')
+    {{-- Prepend content Header --}}
+    <x-banner
+        :header="$title"
+        :breadcrumb="$breadCrumb"
+        titleSlug="vyzdoba-kostola-a-kaplnky, torta"
+        {{-- dimensionSource="full" --}}
+    />
+@endpush
+@prepend('content_footer')
+    {{-- After content Footer --}}
+@endprepend
+
 @section('content')
 
 <div class="section ch_blog_section">

@@ -22,3 +22,24 @@ Breadcrumbs::for('pages.others', function (BreadcrumbTrail $trail, array $pagesU
         $trail->push($page['title'], $page['url']);
     }
 });
+
+
+Breadcrumbs::macro('article', function (string $name, string $title) {
+    Breadcrumbs::for("article.{$name}", function (BreadcrumbTrail $trail, string|null $slug = null, string|null $keyValue = null) use ($name, $title) {
+        $trail->parent('frontend.home');
+        if (isset($keyValue)) {
+            $trail->push($title, route("article.{$name}", $slug));
+            $trail->push($keyValue);
+        } else {
+            $trail->push($title, route("article.{$name}"));
+        }
+    });
+});
+
+
+Breadcrumbs::article('all', 'Všetky články');
+Breadcrumbs::article('author', 'Všetky články autora');
+Breadcrumbs::article('category', 'Články z kategórie');
+Breadcrumbs::article('date', 'Všetky z roku');
+Breadcrumbs::article('tag', 'Všetky s kľúčovým slovom');
+Breadcrumbs::article('search', 'Vyhľadávanie');

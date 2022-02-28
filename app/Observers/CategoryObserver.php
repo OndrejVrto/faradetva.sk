@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Cache;
 class CategoryObserver
 {
     private function clearCache(){
-        if (Cache::has('allCategories')) {
-            Cache::forget('allCategories');
+        if (Cache::has('CATEGORIES_ALL')) {
+            Cache::forget('CATEGORIES_ALL');
         }
     }
 
