@@ -1,14 +1,12 @@
 @extends('frontend._layouts.static-page')
-
 @push('content_header')
     {{-- Prepend content Header --}}
     <x-banner
         :header="$pageData['header']"
-        breadcrumb="off"
-        titleSlug="kalvaria, vyzdoba-kostola-a-kaplnky, torta, tekvice"
+        :breadcrumb="$breadCrumb"
+        titleSlug="vyzdoba-kostola-a-kaplnky, torta"
         dimensionSource="full"
     />
-    {{-- <x-banner titleSlug="tekvice" /> --}}
 @endpush
 @prepend('content_footer')
     {{-- After content Footer --}}

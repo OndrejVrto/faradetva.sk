@@ -3,7 +3,7 @@
     {{-- Prepend content Header --}}
     <x-banner
         :header="$pageData['header']"
-        breadcrumb="off"
+        :breadcrumb="$breadCrumb"
         titleSlug="kalvaria, vyzdoba-kostola-a-kaplnky, torta, tekvice"
         dimensionSource="full"
     />

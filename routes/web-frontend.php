@@ -28,4 +28,4 @@ Route::controller(ArticleController::class)->name('article.')->group(function ()
 Route::get('hladat/{search?}', SearchController::class)->name('search.all');
 
 //! Section - ALL others websites
-Route::get('{First}/{Second?}/{Third?}/{Fourth?}', PageController::class);
+Route::get('{First}/{Second?}/{Third?}/{Fourth?}/{Fifth?}', PageController::class)->name('pages.others');

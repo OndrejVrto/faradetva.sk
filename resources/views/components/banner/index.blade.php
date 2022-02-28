@@ -1,9 +1,4 @@
-{{-- <pre>
-    @dd($banner)
-</pre> --}}
-
-
-<!-- Banner section Start -->
+!-- Banner section Start -->
 <div class="section ch_banner_wrapper banner-img">
     <div class="black_overlay">
         <div class="container">
@@ -18,10 +13,9 @@
                         <div class="page_heading">
                             <h2>{{ $header }}</h2>
                         </div>
-                        <ul class="breadcrumb">
-                            <li><a href="/">Domov</a></li>
-                            <li>TODO: BreadCrumb</li>
-                        </ul>
+                        @isset($breadcrumb)
+                            {!! $breadcrumb !!}
+                        @endisset
                     </div>
                 </div>
             </div>
