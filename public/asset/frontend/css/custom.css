@@ -79,3 +79,8 @@
 	font-size     : 10px;
 }
 
+.breadcrumb li,
+.breadcrumb-item + .breadcrumb-item::before {
+	color: #f8f8f8 !important;
+}
+
