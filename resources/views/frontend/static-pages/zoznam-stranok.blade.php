@@ -1,7 +1,8 @@
 @extends('frontend._layouts.static-page')
 
 @section('content')
-    <div class="row text-center">
+    <x-page-section.header :header="$pageData['header']" class="my-0"/>
+
         <div class="col-md-6">
             <x-page-section title="O nás / História">
                 <x-page-section.text type="left">
