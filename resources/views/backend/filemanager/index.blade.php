@@ -10,10 +10,9 @@
 @section('content')
     <iframe
         class="w-100"
-        {{-- class="w-100 vh-85" --}}
         src="{{ asset('vendor/tiny-file-manager/TinyFileManager.php') }}"
         frameborder="0"
-        scrolling="no"
+        {{-- scrolling="no" --}}
         style="min-height: 600px !important;"
     >
     </iframe>
