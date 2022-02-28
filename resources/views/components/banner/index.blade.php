@@ -1,4 +1,4 @@
-!-- Banner section Start -->
+<!-- Banner section Start -->
 <div class="section ch_banner_wrapper banner-img">
     <div class="black_overlay">
         <div class="container">

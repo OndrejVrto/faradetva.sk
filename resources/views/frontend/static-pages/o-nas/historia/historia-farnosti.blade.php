@@ -7,7 +7,6 @@
         titleSlug="kalvaria, vyzdoba-kostola-a-kaplnky, torta, tekvice"
         dimensionSource="full"
     />
-    {{-- <x-banner titleSlug="tekvice" /> --}}
 @endpush
 @prepend('content_footer')
     {{-- After content Footer --}}
