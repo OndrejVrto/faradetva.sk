@@ -48,6 +48,7 @@ class BannerRequest extends SourceRequest
 
     protected function prepareForValidation() {
         $this->merge([
+            'title' => Str::replace(',', ' ', $this->title),
             'slug' => Str::slug($this->title)
         ]);
     }

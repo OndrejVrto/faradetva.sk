@@ -7,10 +7,6 @@
 
 @prepend('content_header')
     {{-- Begin of the all static pages --}}
-    {{-- @dd($pageData) --}}
-
-    {{-- @include('frontend._sections.banner', ['mainTitle' => 'TODO']) --}}
-    {{-- TODO:  Banner --}}
 @endprepend
 
 @push('content_footer')

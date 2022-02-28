@@ -8,10 +8,15 @@
     <div class="black_overlay">
         <div class="container">
             <div class="row">
+                <x-source-sentence
+                    :dimensionSource="$dimensionSource"
+                    :sourceArray="$banner['sourceArr']"
+                    class="img-article img-article-left"
+                />
                 <div class="col-12">
                     <div class="banner_heading">
                         <div class="page_heading">
-                            <h2>TODO: Nadpis stránky</h2>
+                            <h2>{{ $header }}</h2>
                         </div>
                         <ul class="breadcrumb">
                             <li><a href="/">Domov</a></li>

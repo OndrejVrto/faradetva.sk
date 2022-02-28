@@ -2,21 +2,34 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Cache;
 use App\Models\Banner as BannerModel;
+use Illuminate\Support\Facades\Cache;
 
 class Banner extends Component
 {
     public $banner;
 
     public function __construct(
-        public string $sourceSmall = "false",
-        private string $titleSlug = "",
+        public string $dimensionSource = "off",
+        public string $header,
+        private $titleSlug,
     ) {
-        $this->banner = Cache::rememberForever('BANNER_'.$titleSlug, function () use($titleSlug) {
-            return BannerModel::whereSlug($titleSlug)->with('media', 'source')->get()->map(function($img){
+        $this->banner = $this->getBanner($this->getName($titleSlug));
+    }
+
+    public function render(): View {
+        if (!is_null($this->banner)) {
+            return view('components.banner.index');
+        }
+        return null;
+    }
+
+    private function getBanner($slug) {
+        return Cache::rememberForever('BANNER_'.$slug, function () use($slug) {
+            return BannerModel::whereSlug($slug)->with('media', 'source')->get()->map(function($img){
                 return [
                     'extra_small_image' => $img->getFirstMediaUrl('banner', 'extra-small'),
                     'small_image' => $img->getFirstMediaUrl('banner', 'small'),
@@ -36,10 +49,17 @@ class Banner extends Component
         });
     }
 
-    public function render(): View {
-        if (!is_null($this->banner)) {
-            return view('components.banner.index');
-        }
-        return null;
+    private function getName($value) {
+        return Str::of($value)
+            ->explode(',')
+            ->map(function($value){
+                return trim($value);
+            })
+            ->whereNotNull()
+            ->filter(function ($value) {
+                return $value != '';
+            })
+            ->shuffle()
+            ->first();
     }
 }
