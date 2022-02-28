@@ -49,6 +49,23 @@
                     <h3>
                         Aktuálne nieje zverejnený žiadny oznam.
                     </h3>
+                    <p>
+                        Skúste hľadať informácie v
+                        <a class="text-church-template ms-2 me-3" href="{{ route('article.all') }}">článkoch</a>
+                        alebo
+                    </p>
+                    <div class="widget widget_search">
+                        <form id="search-form-all" class="search-form" action="{{ route('search.all') }}">
+                            <div class="form_group">
+                                <label>
+                                    <input type="text" id="inputSearch" name="searchAll" class="search-field" placeholder="Hľadať na celej stránke ...">
+                                </label>
+                                <button type="submit" value="Search" class="search-submit">
+                                    Hľadať
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             @endforelse
 

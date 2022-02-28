@@ -104,7 +104,7 @@
                             Hľadaný výraz<em class="ms-3 me-4 text-church-template">{{ $search }}</em>
                             sa nenachádza v žiadnom článku!
                         </h3>
-                        <p>Pokračovať na <a class="text-church-template ms-2 me-3" href="{{ route('article.all') }}">všetky články</a> alebo</p>
+                        <p>Pokračovať na <a class="text-church-template ms-2 me-3" href="{{ route('article.all') }}">všetky články</a> alebo opäť</p>
                         <div class="widget widget_search">
                             <form id="search-form" class="search-form" action="{{ route('article.search') }}">
                                 <label>
