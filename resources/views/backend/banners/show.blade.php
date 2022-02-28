@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.banners_description_show') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('banners.show', $banner, $banner->title )}}
+    {{  Breadcrumbs::render('banners.show', false, $banner, $banner->title )}}
 @stop
 
 @php

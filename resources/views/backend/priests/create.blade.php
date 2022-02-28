@@ -4,6 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.priests_description_create') )
 
 @section('content_breadcrumb')
+@dd((string)Breadcrumbs::render('priests.create'))
     {{ Breadcrumbs::render('priests.create') }}
 @stop
 

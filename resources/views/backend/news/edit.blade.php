@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.news_description_edit') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('news.edit', $news, $news->title )}}
+    {{  Breadcrumbs::render('news.edit', false, $news, $news->title )}}
 @stop
 
 @section('content')

@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.users_description') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('users.show', $user, $user->name) }}
+    {{  Breadcrumbs::render('users.show', false, $user, $user->name) }}
 @stop
 
 @php

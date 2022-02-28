@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.galleries_description_show') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('galleries.show', $gallery, $gallery->title )}}
+    {{  Breadcrumbs::render('galleries.show', false, $gallery, $gallery->title )}}
 @stop
 
 @php
