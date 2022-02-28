@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
@@ -29,5 +30,9 @@ class Category extends Model
 
     public function news() {
         return $this->hasMany(News::class);
+    }
+
+    public function getTitleLightAttribute() {
+        return Str::limit($this->title, 15, '...');
     }
 }
