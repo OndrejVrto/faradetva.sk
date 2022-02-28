@@ -76,10 +76,10 @@ body {
 }
 
 /*===== Section heading css======*/
-.full_width {
+/* .full_width { */
 	/* float:left;
 	width:100%; */
-}
+/* } */
 
 .section {
 	float: left;
@@ -573,7 +573,7 @@ button:before {
 /*----------------------------------------------------------------------------------
 5. slider section  css Start
 ----------------------------------------------------------------------------------*/
-.ch_slider_wrapper {}
+/* .ch_slider_wrapper {} */
 
 .ch_home_slider {
 	float: left;
@@ -1421,7 +1421,7 @@ div#err_msg p {
 	margin-top: 20px;
 }
 
-.blog_info span {}
+/* .blog_info span {} */
 
 .blog_info a {
 	color          : #919191;
@@ -1842,10 +1842,10 @@ blockquote cite {
 	padding-left: 0;
 }
 
-#comments ul.comment_list li {
+/* #comments ul.comment_list li { */
 	/* float: left;
     width: 100%; */
-}
+/* } */
 
 #comments ul.comment_list li.comment {
 	list-style: none;
@@ -1930,7 +1930,7 @@ blockquote cite {
 	margin: 20px 0 20px;
 }
 
-.comment-respond .comment-form {}
+/* .comment-respond .comment-form {} */
 
 .comment-respond .comment-form p {
 	margin-bottom: 20px;
@@ -2093,7 +2093,7 @@ blockquote cite {
 	background-color: #55acee;
 }
 
-.newsletter_form {}
+/* .newsletter_form {} */
 
 .newsletter_form form input {
 	width           : 100%;
@@ -2140,7 +2140,8 @@ blockquote cite {
 }
 
 .counter_box:hover .fa {
-	-webkit-transform: rotateY(180deg);
+    transform         : rotateY(180deg);
+	-webkit-transform : rotateY(180deg);
 }
 
 .ch_skills_section {
