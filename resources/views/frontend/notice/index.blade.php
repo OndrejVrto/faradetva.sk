@@ -4,10 +4,6 @@
 @section('meta_description', 'Vyhľadávanie medzi čLánkami.' )
 @section('content_header', 'Hľadaný výraz: XXX' )
 
-{{-- @section('content_breadcrumb')
-    {{ Breadcrumbs::render('article.show', $oneNews, $oneNews->title )}}
-@stop --}}
-
 @push('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
     <script src="{{ asset('asset/frontend/js/mainPDF.js') }}"></script>

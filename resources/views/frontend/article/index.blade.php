@@ -5,10 +5,6 @@
 @section('meta_description', 'Vyhľadávanie medzi čLánkami.' )
 @section('content_header', 'Hľadaný výraz: XXX' )
 
-{{-- @section('content_breadcrumb')
-    {{ Breadcrumbs::render('article.show', $oneNews, $oneNews->title )}}
-@stop --}}
-
 @section('content')
 
 <div class="section ch_blog_section">
