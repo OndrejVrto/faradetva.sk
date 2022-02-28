@@ -14,7 +14,7 @@ class Picture extends Component
     public function __construct(
         public int $columns = 4,
         public string $arrival = "left",
-        public string $sourceSmall = "false",
+        public string $dimensionSource = 'full',
         private string $titleSlug = "",
     ) {
         $this->picture = Cache::rememberForever('PICTURE_'.$titleSlug, function () use($titleSlug) {

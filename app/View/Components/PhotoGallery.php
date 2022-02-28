@@ -13,7 +13,7 @@ class PhotoGallery extends Component
 
     public function __construct(
         public string $titleSlug,
-        public string $sourceSmall = "false",
+        public string $dimensionSource = 'full',
     ) {
 
         $this->gallery = Cache::rememberForever('GALLERY_'.$titleSlug, function () use($titleSlug) {

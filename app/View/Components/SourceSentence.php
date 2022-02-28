@@ -16,7 +16,7 @@ class SourceSentence extends Component
 
     public function __construct(
         public array $sourceArray = [],
-        public string $sourceSmall = "false",
+        public string $dimensionSource = 'full',
     ) {
         $this->source = $sourceArray['source'];
         $this->source_url = $sourceArray['source_url'];

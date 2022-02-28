@@ -20,7 +20,7 @@
     </div>
 
     <x-source-sentence
-        :sourceSmall="$sourceSmall"
+        :dimensionSource="$dimensionSource"
         :sourceArray="$gallery['sourceArr']"
     />
 

@@ -5,7 +5,7 @@
 <div class="{{ $classes }}" {{ $attributes }}>
 
     <x-source-sentence
-        :sourceSmall="$sourceSmall"
+        :dimensionSource="$dimensionSource"
         :sourceArray="$picture['sourceArr']"
         class="img-article img-article-{{ $arrival }}"
     />
