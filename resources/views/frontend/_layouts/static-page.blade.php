@@ -1,9 +1,9 @@
 @extends('frontend._layouts.page')
 
-@section('title', $pageData->title )
-@section('description', $pageData->description)
-@section('keywords', $pageData->keywords)
-@section('author', $pageData->author)
+@section('title', $pageData['title'] )
+@section('description', $pageData['description'])
+@section('keywords', $pageData['keywords'])
+@section('author', $pageData['author'])
 
 @prepend('content_header')
     {{-- Begin of the all static pages --}}

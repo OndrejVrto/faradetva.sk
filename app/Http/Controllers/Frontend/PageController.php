@@ -6,8 +6,10 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\StaticPage;
 use Illuminate\Support\Str;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class PageController extends Controller
 {
@@ -21,17 +23,37 @@ class PageController extends Controller
             ->whereNotNull()
             ->implode('/');
 
-        $pageData = StaticPage::whereUrl($fullpath)->firstOrFail();
+        $pageData = $this->getPageData($fullpath);
 
-        //* create full path to template
-        $route = config('farnost-detva.preppend_route_static_pages','frontend') . '.' . $pageData->route_name;
-        //* remove first dot
-        $routeClear = (! Str::startsWith($route, '.')) ? $route : substr($route, 1);
-
-        if (View::exists($routeClear)) {
-            return view($routeClear, compact('pageData') );
+        if ($pageData AND View::exists($pageData['route'])) {
+            return view($pageData['route'], compact('pageData'));
         } else {
-            abort(404);
+            abort(Response::HTTP_NOT_FOUND);
         }
+    }
+
+    private function getPageData(string $fullpath): array|null {
+        return Cache::rememberForever('PAGE_' . Str::slug($fullpath), function () use($fullpath): array|null {
+            return StaticPage::whereUrl($fullpath)->get()
+                ->map(function($page): array {
+                return [
+                    'id'          => $page->id,
+                    'slug'        => $page->slug,
+                    'title'       => $page->title,
+                    'header'      => $page->header,
+                    'author'      => $page->author,
+                    'url'         => $page->url,
+                    'route'       => $this->getFullRoute($page->route_name),
+                    'description' => $page->description,
+                    'keywords'    => $page->keywords,
+                ];
+            })->first();
+        });
+    }
+
+    //** create full route name *//
+    private function getFullRoute(string $route_name): string {
+        $route = config('farnost-detva.preppend_route_static_pages','frontend') . '.' . $route_name;
+        return (! Str::startsWith($route, '.')) ? $route : substr($route, 1);
     }
 }
