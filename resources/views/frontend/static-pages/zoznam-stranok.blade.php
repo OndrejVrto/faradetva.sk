@@ -3,9 +3,10 @@
 @section('content')
     <x-page-section.header :header="$pageData['header']" class="my-0"/>
 
+    <div class="row text-left">
         <div class="col-md-6">
             <x-page-section title="O nás / História">
-                <x-page-section.text type="left">
+                <x-page-section.text type="right">
                     <ol>
                         <li><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
                         <li class="pb-2"><a href="{{ url('o-nas/vianoce-v-detve') }}">Vianoce v Detve</a></li>

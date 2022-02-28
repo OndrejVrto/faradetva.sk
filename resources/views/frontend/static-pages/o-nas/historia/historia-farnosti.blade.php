@@ -31,13 +31,6 @@
         </x-page-section.text>
     </x-page-section>
 
-    <x-picture titleSlug="obr12" arrival="right"/>
-    <div class="py-5"></div>
-    <x-picture titleSlug="obr1" arrival="left" sourceSmall="true"/>
-    <div class="py-5"></div>
-    <x-photo-gallery titleSlug="gallery1"/>
-    <div class="py-5"></div>
-
     <x-page-section title="Vznik Detvy">
         {{-- <x-page-section.img columns="5" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/602199.jpg') }}" /> --}}
         <x-page-section.text type="left">
