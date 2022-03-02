@@ -101,18 +101,14 @@
                 @empty
                     <div class="p-5 m-5">
                         <h3>
-                            Hľadaný výraz<em class="ms-3 me-4 text-church-template">{{ $search }}</em>
+                            Hľadaný výraz
+                            <em class="ms-3 me-4 text-church-template">{{ $search }}</em>
                             sa nenachádza v žiadnom článku!
                         </h3>
-                        <p>Pokračovať na <a class="text-church-template ms-2 me-3" href="{{ route('article.all') }}">všetky články</a> alebo opäť</p>
-                        <div class="widget widget_search">
-                            <form id="search-form" class="search-form" action="{{ route('article.search') }}">
-                                <label>
-                                    <input type="text" id="search-form-q" name="searchNews" placeholder="Hľadať v článkoch ..." class="search-field">
-                                </label>
-                                <input type="submit" class="search-submit" value="Hľadať">
-                            </form>
-                        </div>
+                        <p>
+                            Pokračovať na
+                            <a class="text-church-template ms-2 me-3" href="{{ route('article.all') }}">všetky články</a>
+                        </p>
                     </div>
                 @endforelse
             </div>
@@ -121,6 +117,14 @@
                 {{ $articles->onEachSide(1)->links() }}
             </div>
 
+            <div class="widget widget_search">
+                <form id="search-form" class="search-form" action="{{ route('article.search') }}">
+                    <label>
+                        <input type="text" id="search-form-q" name="searchNews" placeholder="Hľadať v článkoch ..." class="search-field">
+                    </label>
+                    <input type="submit" class="search-submit" value="Hľadať">
+                </form>
+            </div>
         </div>
     </div>
 @endsection

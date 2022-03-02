@@ -31,7 +31,7 @@
         </x-page-section.text>
     </x-page-section>
 
-    <x-photo-gallery titleSlug="gallery1" dimensionSource="medium"/>
+    <x-photo-gallery titleSlug="historia-farnosti-detva" dimensionSource="medium"/>
 
     <x-page-section title="Podnadpis sekcie">
         {{-- <x-page-section.img columns="4" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/Saint_Francis_of_Assisi_by_Jusepe_de_Ribera.jpg') }}" /> --}}
