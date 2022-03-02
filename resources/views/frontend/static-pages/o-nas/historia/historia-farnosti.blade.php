@@ -1,14 +1,12 @@
 @extends('frontend._layouts.static-page')
 @push('content_header')
     {{-- Prepend content Header --}}
-
-    <x-picture titleSlug="obrazok-2" arrival="left" sourceSmall="true"/>
-    <div class="py-5"></div>
-    <x-picture titleSlug="obrazok-1" arrival="right"/>
-    <div class="py-5"></div>
-    <x-photo-gallery titleSlug="galeria1"/>
-    <div class="py-5"></div>
-
+    <x-banner
+        :header="$pageData['header']"
+        :breadcrumb="$breadCrumb"
+        titleSlug="kalvaria, vyzdoba-kostola-a-kaplnky, torta, tekvice"
+        dimensionSource="full"
+    />
 @endpush
 @prepend('content_footer')
     {{-- After content Footer --}}

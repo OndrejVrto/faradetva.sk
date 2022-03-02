@@ -9,10 +9,13 @@
 return [
 
     'cache' => [
-        'start'     => 'Boli spustené všetky typy cache.',
-        'stop'      => 'Boli vymazané všetky typy cache okrem dátových.',
-        'stop-data' => 'Boli vymazané dátové cache.',
-        'reset'     => 'Boli vymazané a znovu spustené všetky typy cache.',
+        'start'      => 'Boli spustené všetky typy cache okrem dátových.',
+        'stop'       => 'Boli vymazané všetky typy cache okrem dátových.',
+        'reset'      => 'Boli vymazané a opäť spustené všetky typy cache okrem dátových.',
+        'data-start' => 'Boli spustené dátové cache.',
+        'data-stop'  => 'Boli vymazané dátové cache.',
+        'data-reset' => 'Boli vymazané a znovu spustené dátové cache.',
+        'info'       => 'Informácie o behovom prostredí PHP.',
     ],
 
     'permission'   => [

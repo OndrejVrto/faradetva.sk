@@ -246,6 +246,7 @@ return [
         [
             'header' => 'Sekcie',
             'can'  => [
+                'notices.index',
                 'news.index',
                 'priests.index',
                 'testimonials.index',
@@ -319,24 +320,18 @@ return [
                 ],
 
         [
-            'header' => 'Stránky',
+            'header' => 'Statické stránky',
             'can'  => [
-                'staticpages.index',
-                'file-manager',
+                'static-pages.index',
+                'galleries.index',
+                'banners.index',
+                'pictures.index',
                 'files.index',
-                'file-types.index',
-                'galleries.index.index',
+                'file-manager',
             ],
         ],
                 [
-                    'text'  => 'Šablony',
-                    'icon_color'  => 'cyan',
-                    'icon'  => 'fas fa-warehouse',
-                    'route' => 'file-manager',
-                    'can'  => 'file-manager',
-                ],
-                [
-                    'text' => 'Vlastnosti',
+                    'text' => 'Vlastnosti stránok',
                     'icon_color'  => 'cyan',
                     'icon'  => 'fab fa-pagelines fa-lg',
                     'route' => 'static-pages.index',
@@ -369,6 +364,13 @@ return [
                     'icon'  => 'fas fa-file-import',
                     'route' => 'files.index',
                     'can'  => 'files.index',
+                ],
+                [
+                    'text'  => 'Správca šablon',
+                    'icon_color'  => 'cyan',
+                    'icon'  => 'fas fa-warehouse',
+                    'route' => 'file-manager',
+                    'can'  => 'file-manager',
                 ],
         [
             'header' => 'Prístupové práva',
@@ -407,7 +409,7 @@ return [
             ],
         ],
                 [
-                    'text' => 'Aktivita',
+                    'text' => 'Aktivita užívateľov',
                     'icon_color'  => 'yellow',
                     'icon'  => 'fas fa-thumbtack',
                     'route' => 'log-activity.index',

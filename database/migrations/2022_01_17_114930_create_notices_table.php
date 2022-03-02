@@ -18,9 +18,6 @@ return new class extends Migration
             $table->timestamp('published_at')->nullable();
             $table->timestamp('unpublished_at')->nullable();
 
-            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
-            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
-
             $table->timestamps();
             $table->softDeletes();
         });

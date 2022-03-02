@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace Database\Seeders;
 
 use App\Models\Chart;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class ChartSeeder extends Seeder
@@ -16,6 +17,7 @@ class ChartSeeder extends Seeder
             'name_x_axis' => 'Rok',
             'name_y_axis' => 'Počet krstov',
             'type_chart' => '1',
+            'slug' => Str::slug('Vývoj počtu krstov'),
             'color' => '#217346',
         ]);
 
@@ -25,6 +27,7 @@ class ChartSeeder extends Seeder
             'name_x_axis' => 'Rok',
             'name_y_axis' => 'Počet',
             'type_chart' => '1',
+            'slug' => Str::slug('Prvé sväté prijímanie'),
             'color' => '#4BACC6',
         ]);
 
@@ -34,6 +37,7 @@ class ChartSeeder extends Seeder
             'name_x_axis' => 'Rok',
             'name_y_axis' => 'Počet birmovancov',
             'type_chart' => '1',
+            'slug' => Str::slug('Birmovanie'),
             'color' => '#ff7b33',
         ]);
 
@@ -43,6 +47,7 @@ class ChartSeeder extends Seeder
             'name_x_axis' => 'Rok',
             'name_y_axis' => 'Počet sobášov',
             'type_chart' => '1',
+            'slug' => Str::slug('Sobáše'),
             'color' => '#DA4D54',
         ]);
 
@@ -52,6 +57,7 @@ class ChartSeeder extends Seeder
             'name_x_axis' => 'Rok',
             'name_y_axis' => 'Počet pohrebov',
             'type_chart' => '1',
+            'slug' => Str::slug('Pohreby'),
             'color' => '#79CC42',
         ]);
 
@@ -61,6 +67,7 @@ class ChartSeeder extends Seeder
             'name_x_axis' => 'Rok',
             'name_y_axis' => 'Počet obyvateľov',
             'type_chart' => '2',
+            'slug' => Str::slug('Sčítanie obyvateľov Detvy'),
             'color' => '#C0504D',
         ]);
 
@@ -70,6 +77,7 @@ class ChartSeeder extends Seeder
             'name_x_axis' => 'Rok',
             'name_y_axis' => 'Počet katolíkov',
             'type_chart' => '2',
+            'slug' => Str::slug('Sčítanie rímsko-katolíkov v meste Detva'),
             'color' => '#8064A2',
         ]);
     }

@@ -5,7 +5,7 @@ return [
     'middleware'       => ['web', 'auth', 'permission'],
     'route_path'       => 'admin/user-activity',
     'admin_panel_path' => 'admin/dashboard',
-    'delete_limit'     => 365, // default 7 days
+    'delete_limit'     => 14, // default 7 days
 
     'model' => [
         'user' => "App\Models\User"

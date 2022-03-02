@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.roles_description_edit') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('roles.edit', $role, $role->name )}}
+    {{  Breadcrumbs::render('roles.edit', false, $role, $role->name )}}
 @stop
 
 @section('content')

@@ -17,9 +17,6 @@ return new class extends Migration
             $table->string('heading_2')->nullable();
             $table->string('heading_3')->nullable();
 
-            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
-            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
-
             $table->timestamps();
             $table->softDeletes();
         });

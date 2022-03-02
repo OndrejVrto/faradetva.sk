@@ -2,15 +2,17 @@
     $controlerName = 'charts.data';
     $columns = 5;
     $uploadFiles = 'false';
-    $linkActionCreate = route('charts.data.index', $chart->id);
-    $linkBack = route('charts.data.store', $chart->id);
+    $linkActionCreate = route('charts.data.index', $chart->slug);
+    $linkBack = route('charts.data.store', $chart->slug);
 
-    $typeForm = $identificator = $linkActionEdit = $linkEdit = null;
+    $typeForm = $identificator = $linkActionEdit = $linkEdit = $createdInfo = $updatedInfo = null;
     if ( isset( $data ) ) {
         $typeForm = 'edit';
         $identificator = $data->id;
-        $linkEdit = route('charts.data.edit', ['chart' => $chart->id, 'data' => $data->id]);
-        $linkActionEdit = route('charts.data.update', ['chart' => $chart->id, 'data' => $data->id]);
+        $createdInfo = $chart->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $chart->updated_at->format('d. m. Y \o H:i');
+        $linkEdit = route('charts.data.edit', ['chart' => $chart->slug, 'data' => $data->id]);
+        $linkActionEdit = route('charts.data.update', ['chart' => $chart->slug, 'data' => $data->id]);
     }
 @endphp
 
@@ -18,6 +20,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 
     linkBack="{{ $linkBack }}"
     linkEdit="{{ $linkEdit }}"

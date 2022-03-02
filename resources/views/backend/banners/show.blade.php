@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.banners_description_show') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('banners.show', $banner, $banner->title )}}
+    {{  Breadcrumbs::render('banners.show', false, $banner, $banner->title )}}
 @stop
 
 @php
@@ -27,8 +27,13 @@
         typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
         createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
-        {{-- TODO:  Apply component banner --}}
-        {{ $banner->title }}
+        <div class="row" style="min-height: 480px">
+            <div class="col border border-2 border-warning p-3">
+                <div class="w-100">
+                    <x-banner titleSlug="{{ $banner->slug }}"/>
+                </div>
+            </div>
+        </div>
 
     </x-admin-form>
 

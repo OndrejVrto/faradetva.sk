@@ -3,14 +3,12 @@
     $columns = 6;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $slider ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $slider) ) {
         $typeForm = 'edit';
         $identificator = $slider->id;
-        $createdInfo = $slider->createdInfo;
-        $createdBy = $slider->createdBy;
-        $updatedInfo = $slider->updatedInfo;
-        $updatedBy = $slider->updatedBy;
+        $createdInfo = $slider->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $slider->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -18,8 +16,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <div class="form-group">

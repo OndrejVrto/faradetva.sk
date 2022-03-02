@@ -6,9 +6,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\SourceRequest;
 
-class GalleryRequest extends FormRequest
+class GalleryRequest extends SourceRequest
 {
     public function authorize(): bool {
         return true;
@@ -21,52 +21,14 @@ class GalleryRequest extends FormRequest
             $fileRule = 'nullable';
         }
 
-        return [
+        return parent::rules() + [
             'title' => [
                 'required',
                 'string',
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('galleries', 'slug')->ignore($this->gallery)->withoutTrashed(),
-            ],
-            'description' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'author' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'author_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
-            ],
-            'source' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'source_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
-            ],
-            'license' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'license_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
+                Rule::unique('galleries', 'slug')->ignore($this->gallery),
             ],
             'picture.*' => [
                 $fileRule,

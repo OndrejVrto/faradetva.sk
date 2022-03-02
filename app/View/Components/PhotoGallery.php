@@ -5,29 +5,48 @@ namespace App\View\Components;
 use App\Models\Gallery;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 class PhotoGallery extends Component
 {
     public $gallery;
-    public $sourceArr = [];
 
     public function __construct(
         public string $titleSlug,
-        public string $sourceSmall = "false",
+        public string $dimensionSource = 'full',
     ) {
-        $this->gallery = Gallery::whereSlug($titleSlug)->with('picture')->first();
 
-        $this->sourceArr = [
-            'source' => $this->gallery->source,
-            'source_url' => $this->gallery->source_url,
-            'author' => $this->gallery->author,
-            'author_url' => $this->gallery->author_url,
-            'license' => $this->gallery->license,
-            'license_url' => $this->gallery->license_url,
-        ];
+        $this->gallery = Cache::rememberForever('GALLERY_'.$titleSlug, function () use($titleSlug) {
+            return Gallery::whereSlug($titleSlug)->with('media', 'source')->get()->map(function($album){
+                foreach ($album->picture as $pic ) {
+                    $picture['picture'][] = [
+                        'href' => $pic->getUrl(),
+                        'title' => $pic->name,
+                        'srcset' => $pic->getSrcset('orginal'),
+                        'responsivePicture' => (string) $pic->img('thumb'),
+                    ];
+                }
+                return $picture + [
+                    'title' => $album->title,
+                    'description' => $album->source->description,
+                    'sourceArr' => [
+                        'source'      => $album->source->source,
+                        'source_url'  => $album->source->source_url,
+                        'author'      => $album->source->author,
+                        'author_url'  => $album->source->author_url,
+                        'license'     => $album->source->license,
+                        'license_url' => $album->source->license_url,
+                    ],
+                ];
+            })->first();
+        });
+        // dd($this->gallery);
     }
 
-    public function render(): View {
-        return view('components.photo-gallery.index');
+    public function render(): View|null {
+        if(!is_null($this->gallery)){
+            return view('components.photo-gallery.index');
+        }
+        return null;
     }
 }

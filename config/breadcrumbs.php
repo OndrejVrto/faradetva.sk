@@ -23,8 +23,8 @@ return [
     |
     */
 
-    // 'view' => 'breadcrumbs::bootstrap5',
     'view' => 'partials.breadcrumbs',
+    'view-frontend' => 'breadcrumbs::bootstrap5',
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ return [
 
     // 'files' => base_path('routes/breadcrumbs.php'),
     'files' => [
-        base_path('routes/breadcrumbs-admin.php'),
+        base_path('routes/breadcrumbs-backend.php'),
         base_path('routes/breadcrumbs-frontend.php'),
     ],
 
@@ -72,7 +72,8 @@ return [
     */
 
     // Manager
-    'manager-class' => Diglactic\Breadcrumbs\Manager::class,
+    // 'manager-class' => Diglactic\Breadcrumbs\Manager::class,
+    'manager-class' => App\Services\BreadCrumbManagerService::class,
 
     // Generator
     'generator-class' => Diglactic\Breadcrumbs\Generator::class,

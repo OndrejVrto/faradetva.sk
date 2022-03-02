@@ -20,9 +20,6 @@ return new class extends Migration
             $table->string('author')->nullable();
             $table->string('header')->nullable();
 
-            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
-            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
-
             $table->timestamps();
             $table->softDeletes();
         });

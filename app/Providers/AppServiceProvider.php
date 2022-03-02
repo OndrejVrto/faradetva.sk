@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use App\Http\Middleware\CacheResponseMiddleware;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -42,5 +43,8 @@ class AppServiceProvider extends ServiceProvider
                 Config::set($setting->key, $setting->value);
             }
         }
+
+        // singleton for aplly cache time whole page
+        $this->app->singleton(CacheResponseMiddleware::class);
     }
 }

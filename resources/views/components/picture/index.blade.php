@@ -4,16 +4,12 @@
 @endphp
 <div class="{{ $classes }}" {{ $attributes }}>
 
-    <x-source
-        :sourceSmall="$sourceSmall"
-        :sourceArray="$sourceArr"
+    <x-source-sentence
+        :dimensionSource="$dimensionSource"
+        :sourceArray="$picture['sourceArr']"
         class="img-article img-article-{{ $arrival }}"
     />
 
-    <img class="img-fluid"
-        src="{{ $url }}"
-        alt="{{ $alt }}"
-        title="{{ $title }}"
-    />
+    {!! $picture['responsivePicture'] !!}
 
 </div>

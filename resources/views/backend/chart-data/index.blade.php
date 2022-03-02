@@ -32,8 +32,8 @@
                     <x-admin-table.td class="text-wrap text-break">{{$keyValue->value}}</x-admin-table.td>
                     <x-admin-table.td-actions
                         controlerName="charts.data"
-                        editLink="{{ route('charts.data.edit', ['chart' => $chart->id, 'data' => $keyValue->id]) }}"
-                        deleteLink="{{ route('charts.data.destroy', ['chart' => $chart->id, 'data' => $keyValue->id]) }}"
+                        editLink="{{ route('charts.data.edit', ['chart' => $chart->slug, 'data' => $keyValue->id]) }}"
+                        deleteLink="{{ route('charts.data.destroy', ['chart' => $chart->slug, 'data' => $keyValue->id]) }}"
                     />
                 </tr>
             @endforeach

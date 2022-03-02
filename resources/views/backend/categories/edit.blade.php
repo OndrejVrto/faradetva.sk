@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.categories_description_edit') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('categories.edit', $category, $category->title )}}
+    {{  Breadcrumbs::render('categories.edit', false, $category, $category->title )}}
 @stop
 
 @section('content')

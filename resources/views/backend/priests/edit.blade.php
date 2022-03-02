@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.priests_description_edit') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('priests.edit', $priest, $priest->full_name_titles )}}
+    {{  Breadcrumbs::render('priests.edit', false, $priest, $priest->full_name_titles )}}
 @stop
 
 @section('content')

@@ -6,9 +6,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\SourceRequest;
 
-class FileRequest extends FormRequest
+class FileRequest extends SourceRequest
 {
     public function authorize(): bool {
         return true;
@@ -20,52 +20,15 @@ class FileRequest extends FormRequest
         } else if (request()->routeIs('files.update')) {
             $fileRule = 'nullable';
         }
-        return [
-            'name' => [
+
+        return parent::rules() + [
+            'title' => [
                 'required',
                 'string',
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('files', 'slug')->ignore($this->file)->withoutTrashed(),
-            ],
-            'description' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'author' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'author_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
-            ],
-            'source' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'source_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
-            ],
-            'license' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'license_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
+                Rule::unique('files', 'slug')->ignore($this->file),
             ],
             'attachment' => [
                 $fileRule,
@@ -77,7 +40,7 @@ class FileRequest extends FormRequest
 
     protected function prepareForValidation() {
         $this->merge([
-            'slug' => Str::slug($this->name)
+            'slug' => Str::slug($this->title)
         ]);
     }
 }

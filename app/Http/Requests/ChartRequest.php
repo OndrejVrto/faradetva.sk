@@ -4,7 +4,9 @@ declare(strict_types = 1);
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ChartRequest extends FormRequest
 {
@@ -28,6 +30,9 @@ class ChartRequest extends FormRequest
                 'string',
                 'max:255',
             ],
+            'slug' => [
+                Rule::unique('charts', 'slug')->ignore($this->chart),
+            ],
             'name_x_axis' => [
                 'required',
                 'string',
@@ -49,5 +54,11 @@ class ChartRequest extends FormRequest
                 'max:10',
             ],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'slug' => Str::slug($this->title)
+        ]);
     }
 }

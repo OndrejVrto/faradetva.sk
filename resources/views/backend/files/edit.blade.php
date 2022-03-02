@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.files_description_edit') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('files.edit', $file, $file->name )}}
+    {{  Breadcrumbs::render('files.edit', false, $file, $file->name )}}
 @stop
 
 @section('content')

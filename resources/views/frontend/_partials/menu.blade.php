@@ -16,6 +16,7 @@
                     <div class="header_right_menu" id="header_right_menu">
                         <ul class="menu">
 
+                            <li><a href="{{ url('test') }}">Test</a></li>
                             <li><a href="{{ route('notices.pdf') }}">Oznamy</a></li>
                             <li><a href="{{ route('article.all') }}">Články</a></li>
 

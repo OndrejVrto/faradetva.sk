@@ -3,10 +3,12 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $media_file_name = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
     if ( isset( $file ) ) {
         $typeForm = 'edit';
         $identificator = $file->slug;
+        $createdInfo = $file->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $file->updated_at->format('d. m. Y \o H:i');
         $media_file_name = $file->getFirstMedia($file->collectionFile)->file_name ?? '';
     }
 @endphp
@@ -15,7 +17,8 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    >
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
+>
 
     <x-adminlte-input-file
         class="border-right-none"
@@ -35,11 +38,11 @@
 
     <x-adminlte-input
         fgroupClass=""
-        name="name"
+        name="title"
         label="Pracovný názov súboru"
         {{-- placeholder="Názov dokumentu ..." --}}
         enableOldSupport="true"
-        value="{{ $file->name ?? '' }}"
+        value="{{ $file->title ?? '' }}"
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
@@ -66,7 +69,7 @@
         label="Popis obsahu dokumentu"
         {{-- placeholder="Obsah dokumentu jednou vetou ..." --}}
         enableOldSupport="true"
-        value="{{ $file->description ?? '' }}"
+        value="{{ $file->source->description ?? '' }}"
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
@@ -83,7 +86,7 @@
                 name="source"
                 label="Zdroj obrázkov (text)"
                 enableOldSupport="true"
-                value="{{ $file->source ?? '' }}"
+                value="{{ $file->source->source ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -97,7 +100,7 @@
                 name="source_url"
                 label="Link na zdroj obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $file->source_url ?? '' }}"
+                value="{{ $file->source->source_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -114,7 +117,7 @@
                 name="author"
                 label="Meno autora obrázkov"
                 enableOldSupport="true"
-                value="{{ $file->author ?? '' }}"
+                value="{{ $file->source->author ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -128,7 +131,7 @@
                 name="author_url"
                 label="Kontakt na autora obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $file->author_url ?? '' }}"
+                value="{{ $file->source->author_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -145,7 +148,7 @@
                 name="license"
                 label="Licencia obrázkov (text)"
                 enableOldSupport="true"
-                value="{{ $file->license ?? '' }}"
+                value="{{ $file->source->license ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -159,7 +162,7 @@
                 name="license_url"
                 label="Link na licenciu obrázkov (url)"
                 enableOldSupport="true"
-                value="{{ $file->license_url ?? '' }}"
+                value="{{ $file->source->license_url ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">

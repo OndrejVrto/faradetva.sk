@@ -40,7 +40,7 @@
                 <x-admin-table.td class="text-center">{{ $chart->data_count }}</x-admin-table.td>
                 <x-admin-table.td-actions
                     controlerName="charts"
-                    identificator="{{ $chart->id }}"
+                    identificator="{{ $chart->slug }}"
                 />
             </tr>
             @endforeach

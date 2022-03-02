@@ -55,3 +55,25 @@
     height: 100% !important;
     object-fit: cover;
 }
+
+.img-article {
+    position: absolute;
+    z-index: 100;
+    bottom  : -1.5rem;
+}
+
+.img-article-left {
+    left    : 5px;
+}
+
+.img-article-right {
+    right   : 5px;
+}
+
+.source {
+	font-weight   : 400;
+	font-size     : 14px;
+}
+dd {
+    margin-left: 20px;
+}

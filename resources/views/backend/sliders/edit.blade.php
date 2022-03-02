@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.sliders_description_edit') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('sliders.edit', $slider, $slider->breadcrumb_teaser )}}
+    {{  Breadcrumbs::render('sliders.edit', false, $slider, $slider->breadcrumb_teaser )}}
 @stop
 
 @section('content')

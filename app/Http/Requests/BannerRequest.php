@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\SourceRequest;
 
-class BannerRequest extends FormRequest
+class BannerRequest extends SourceRequest
 {
     public function authorize() {
         return true;
@@ -20,52 +21,14 @@ class BannerRequest extends FormRequest
             $photoRule = 'nullable';
         }
 
-        return [
+        return parent::rules() + [
             'title' => [
                 'required',
                 'string',
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('banners', 'slug')->ignore($this->banner)->withoutTrashed(),
-            ],
-            'description' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'author' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'author_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
-            ],
-            'source' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'source_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
-            ],
-            'license' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'license_url' => [
-                'nullable',
-                'url',
-                'string',
-                'max:512',
+                Rule::unique('banners', 'slug')->ignore($this->banner),
             ],
             'photo' => [
                 $photoRule,
@@ -85,6 +48,7 @@ class BannerRequest extends FormRequest
 
     protected function prepareForValidation() {
         $this->merge([
+            'title' => Str::replace(',', ' ', $this->title),
             'slug' => Str::slug($this->title)
         ]);
     }

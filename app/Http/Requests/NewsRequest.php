@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use Illuminate\Support\Str;
 use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Http\FormRequest;
 
 class NewsRequest extends FormRequest

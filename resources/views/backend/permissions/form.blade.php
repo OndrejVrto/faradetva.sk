@@ -3,12 +3,12 @@
     $columns = 6;
     $uploadFiles = 'false';
 
-    $typeForm = $identificator = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $permission ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $permission) ) {
         $typeForm = 'edit';
         $identificator = $permission->id;
-        $createdInfo = $permission->created_at;
-        $updatedInfo = $permission->updated_at;
+        $createdInfo = $permission->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $permission->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -16,8 +16,7 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <x-adminlte-input

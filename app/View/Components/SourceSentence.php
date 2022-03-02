@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class Source extends Component
+class SourceSentence extends Component
 {
     public $source = null;
     public $source_url = null;
@@ -16,7 +16,7 @@ class Source extends Component
 
     public function __construct(
         public array $sourceArray = [],
-        public string $sourceSmall = "false",
+        public string $dimensionSource = 'full',
     ) {
         $this->source = $sourceArray['source'];
         $this->source_url = $sourceArray['source_url'];
@@ -27,6 +27,6 @@ class Source extends Component
     }
 
     public function render(): View {
-        return view('components.source.index');
+        return view('components.source-sentence.index');
     }
 }

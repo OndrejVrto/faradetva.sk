@@ -32,9 +32,6 @@ return new class extends Migration
             $table->string('teaser', 400);
             $table->text('content');
 
-            $table->bigInteger('created_by')->unsigned()->nullable()->default(NULL);
-            $table->bigInteger('updated_by')->unsigned()->nullable()->default(NULL);
-
             $table->timestamps();
             $table->softDeletes();
         });

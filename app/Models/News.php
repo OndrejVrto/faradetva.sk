@@ -9,23 +9,21 @@ use App\Models\User;
 use App\Models\Category;
 use App\Traits\Publishable;
 use Illuminate\Support\Str;
-use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
-// use Haruncpi\LaravelUserActivity\Traits\Loggable;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class News extends Model implements HasMedia
 {
-    // use Loggable;
+    use Loggable;
     use HasFactory;
     use Publishable;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'news';

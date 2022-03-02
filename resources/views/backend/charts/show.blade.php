@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.charts_description_show') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('charts.show', $chart, $chart->title )}}
+    {{  Breadcrumbs::render('charts.show', false, $chart, $chart->title )}}
 @stop
 
 @php

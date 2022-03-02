@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Cache;
 class TagObserver
 {
     private function clearCache(){
-        if (Cache::has('allTags')) {
-            Cache::forget('allTags');
+        if (Cache::has('TAGS_ALL')) {
+            Cache::forget('TAGS_ALL');
         }
     }
 

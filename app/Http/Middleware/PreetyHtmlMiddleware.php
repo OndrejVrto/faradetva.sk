@@ -18,7 +18,7 @@ class PreetyHtmlMiddleware
     public function handle(Request $request, Closure $next) {
         $response = $next($request);
 
-        if (in_array(env('APP_ENV'), ['local', 'dev'])) {
+        // if (in_array(env('APP_ENV'), ['local', 'dev'])) {
             $code = $response->getStatusCode();
 
             if ($code === 200) {
@@ -39,7 +39,7 @@ class PreetyHtmlMiddleware
 
                 $response->setContent($output);
             }
-        }
+        // }
 
         return $response;
     }

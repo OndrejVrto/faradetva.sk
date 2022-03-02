@@ -3,10 +3,12 @@
     $columns = 6;
     $uploadFiles = 'false';
 
-    $typeForm = $identificator = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $chart ) ) {
         $typeForm = 'edit';
-        $identificator = $chart->id;
+        $identificator = $chart->slug;
+        $createdInfo = $chart->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $chart->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
@@ -14,7 +16,8 @@
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
-    >
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
+>
 
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazoval graf na stránke.">

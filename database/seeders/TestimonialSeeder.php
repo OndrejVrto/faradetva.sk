@@ -19,8 +19,6 @@ class TestimonialSeeder extends Seeder
             'description'  => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam sed possimus quo delectus, qui nihil!
             Ut molestiae distinctio delectus eum, ad laudantium quae, suscipit iure explicabo ullam officia hic molestias.
             Fuga facilis aliquam quia animi, corporis necessitatibus iste laborum, reiciendis a dolore eum exercitationem veritatis?',
-            'created_by' => rand(2,4),
-            'updated_by' => rand(2,4),
         ]);
 
         Testimonial::create([
@@ -32,8 +30,6 @@ class TestimonialSeeder extends Seeder
             Fugit iusto, dolor odit assumenda recusandae laudantium harum blanditiis autem suscipit eum.
             Et velit nisi tempora, eveniet quo labore officiis totam perferendis veritatis eos?
             Debitis modi facilis assumenda inventore! Omnis et sint magnam quae veritatis quis.',
-            'created_by' => rand(2,4),
-            'updated_by' => rand(2,4),
         ]);
 
         Testimonial::create([
@@ -46,8 +42,6 @@ class TestimonialSeeder extends Seeder
             Non tempore beatae neque minima eum aut velit!
             Nostrum adipisci saepe corrupti cupiditate natus atque dignissimos.
             Magnam numquam corporis sed, necessitatibus voluptate nisi quam!',
-            'created_by' => rand(2,4),
-            'updated_by' => rand(2,4),
         ]);
 
         Testimonial::create([
@@ -57,8 +51,6 @@ class TestimonialSeeder extends Seeder
             'function'  => 'Poštár',
             'description'  => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur architecto culpa quas fugiat quia consequuntur iure corrupti facere.
             Deserunt, inventore voluptatem dolorum provident expedita veritatis ullam ex quibusdam blanditiis aspernatur nobis accusantium ea suscipit quas corporis!',
-            'created_by' => rand(2,4),
-            'updated_by' => rand(2,4),
         ]);
 
         Testimonial::create([
@@ -67,8 +59,6 @@ class TestimonialSeeder extends Seeder
             'slug'  => Str::slug('Dáša Gallová'),
             'function'  => 'Holička',
             'description'  => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum at, rem nam exercitationem minus tenetur perferendis officiis.',
-            'created_by' => rand(2,4),
-            'updated_by' => rand(2,4),
         ]);
     }
 }

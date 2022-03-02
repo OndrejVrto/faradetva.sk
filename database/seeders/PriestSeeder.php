@@ -23,8 +23,6 @@ class PriestSeeder extends Seeder
             'phone'  => 'dekan@fara.detva.sk',
             'function'  => 'farár - dekan',
             'description'  => 'Vo Farnosti Detva pôsobil už aj ako kaplán v rokoch 1988 - 1990. Kňazskú vysviacku prijal 13. júna 1987. Pochádza z východoslovenskej obce Petrovany. V roku 1999 získal licenciát katolíckej teológie na Lublinskej univerzite v Poľsku. Od októbra 2002 je farárom a dekanom v Detve.',
-            'created_by' => rand(2,4),
-            'updated_by' => rand(2,4),
         ]);
 
         Priest::create([
@@ -38,8 +36,6 @@ class PriestSeeder extends Seeder
             'phone'  => 'marian@fara.detva.sk',
             'function'  => 'kaplán',
             'description'  => 'Pochádza z Farnosti Sedembolestnej Panny Márie v Žiari nad Hronom. Pôvodom je zahraničný Slovák z Rumunska. Za kňaza bol vysvätený 18. júna 2016. Po prvom kaplánskom pôsobisku v Banskej Bystrici-meste pôsobí vo Farnosti Detva od júla 2020.',
-            'created_by' => rand(2,4),
-            'updated_by' => rand(2,4),
         ]);
 
         Priest::create([
@@ -53,8 +49,6 @@ class PriestSeeder extends Seeder
             'phone'  => 'pavol@fara.detva.sk',
             'function'  => 'výpomocný duchovný',
             'description'  => 'Rodák z dolnooravskej obce Chlebnice. Z rúk biskupa Baláža prijal kňazskú vysviacku 21. júna 2003. Ako kaplán pôsobil vo Vrútkach, následne bol prvým správcom farnosti Michalová. Pred príchodom do Detvy v apríli 2019 bol ešte farárom v Bzenici a v Mošovciach.',
-            'created_by' => rand(2,4),
-            'updated_by' => rand(2,4),
         ]);
     }
 }
