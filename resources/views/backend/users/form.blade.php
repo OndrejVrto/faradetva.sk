@@ -9,12 +9,13 @@
     $columns = 10;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
     if ( isset( $user) ) {
         $typeForm = 'edit';
         $identificator = $user->slug;
         $createdInfo = $user->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $user->updated_at->format('d. m. Y \o H:i');
+        $media_file_name = $user->getFirstMedia($user->collectionName)->file_name ?? '';
     }
 @endphp
 
