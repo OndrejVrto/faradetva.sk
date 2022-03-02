@@ -7,22 +7,20 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\StaticPage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
-use Illuminate\Support\Collection;
 
 class PageController extends Controller
 {
     public function __invoke(...$param) {
-        $nodes = collect($param)
-            ->whereNotNull();
-
+        $nodes = collect($param)->whereNotNull();
         $pageData = $this->getPageData($nodes->implode('/'));
 
         if ($pageData AND View::exists($pageData['route'])) {
-            $arr = $this->getBreadCrumbLink($nodes);
+            $arr = $this->getBreadCrumbLinks($nodes);
             $breadCrumb = (string) Breadcrumbs::render('pages.others', true, $arr );
 
             return view($pageData['route'], compact('pageData', 'breadCrumb'));
@@ -56,7 +54,7 @@ class PageController extends Controller
         return (! Str::startsWith($route, '.')) ? $route : substr($route, 1);
     }
 
-    private function getBreadCrumbLink(Collection $node): array {
+    private function getBreadCrumbLinks(Collection $node): array {
         $path = '';
         foreach ($node->toArray() as $key => $value) {
             $path .= '/' . $value;
