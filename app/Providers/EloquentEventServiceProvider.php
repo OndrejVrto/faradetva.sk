@@ -10,6 +10,7 @@ use App\Models\Gallery;
 use App\Models\Picture;
 use App\Models\Category;
 use App\Models\ChartData;
+use App\Models\StaticPage;
 use App\Observers\TagObserver;
 use App\Observers\NewsObserver;
 use App\Observers\ChartObserver;
@@ -18,6 +19,7 @@ use App\Observers\GalleryObserver;
 use App\Observers\PictureObserver;
 use App\Observers\CategoryObserver;
 use App\Observers\ChartDataObserver;
+use App\Observers\StaticPageObserver;
 use Illuminate\Support\ServiceProvider;
 
 class EloquentEventServiceProvider extends ServiceProvider
@@ -35,5 +37,6 @@ class EloquentEventServiceProvider extends ServiceProvider
         Picture::observe(PictureObserver::class);
         Category::observe(CategoryObserver::class);
         ChartData::observe(ChartDataObserver::class);
+        StaticPage::observe(StaticPageObserver::class);
     }
 }
