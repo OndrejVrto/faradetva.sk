@@ -7,7 +7,6 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Setting;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Artisan;
 
 class CacheController extends Controller
@@ -42,7 +41,8 @@ class CacheController extends Controller
     }
 
     public function cacheDataStart(): RedirectResponse {
-        Setting::set('cache.default', 'file');
+        // Setting::set('cache.default', 'file');
+        Setting::set('cache.default', 'database');
         Artisan::call('cache:clear');
         toastr()->info(__('app.cache.data-start'));
         return to_route('admin.dashboard');

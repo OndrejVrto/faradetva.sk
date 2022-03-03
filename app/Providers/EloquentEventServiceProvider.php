@@ -20,7 +20,7 @@ use App\Observers\PictureObserver;
 use App\Observers\CategoryObserver;
 use App\Observers\ChartDataObserver;
 use App\Observers\StaticPageObserver;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EloquentEventServiceProvider extends ServiceProvider
 {
