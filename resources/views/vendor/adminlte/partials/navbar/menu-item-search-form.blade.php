@@ -8,7 +8,7 @@
     {{-- Search bar --}}
     <div class="navbar-search-block">
         <form class="form-inline" action="{{ $item['href'] }}" method="{{ $item['method'] }}">
-            {{ csrf_field() }}
+            @csrf
 
             <div class="input-group">
 

@@ -56,6 +56,7 @@
                     </p>
                     <div class="widget widget_search">
                         <form id="search-form-all" class="search-form" action="{{ route('search.all') }}">
+                            @csrf
                             <div class="form_group">
                                 <label>
                                     <input type="text" id="inputSearch" name="searchAll" class="search-field" placeholder="Hľadať na celej stránke ...">

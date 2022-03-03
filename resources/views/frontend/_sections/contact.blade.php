@@ -7,6 +7,7 @@
                     <h2 class="contact_heading">Kontaktný formulár</h2>
                     <div class="contact_form_wrap">
                         <form>
+                            @csrf
                             <div class="form-group">
                                 <input type="text" name="name" id="u_name" placeholder="Celé meno">
                                 <span class="input_icon"><i class="fas fa-user-tie" aria-hidden="true"></i></span>

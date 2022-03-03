@@ -1,7 +1,7 @@
 <li>
 
     <form class="form-inline my-2" action="{{ $item['href'] }}" method="{{ $item['method'] }}">
-        {{ csrf_field() }}
+        @csrf
 
         <div class="input-group">
 

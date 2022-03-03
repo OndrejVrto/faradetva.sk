@@ -148,7 +148,7 @@ return [
         /* The cache key used to store all permissions.
         /*/
 
-        'key' => 'spatie.permission.cache',
+        'key' => 'SPATIE_PERMISSION',
 
         /*
         /* You may optionally indicate a specific cache driver to use for permission and

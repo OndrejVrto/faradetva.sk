@@ -12,9 +12,9 @@
         {{ __('adminlte::adminlte.log_out') }}
     </a>
     <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
+        @csrf
         @if(config('adminlte.logout_method'))
             {{ method_field(config('adminlte.logout_method')) }}
         @endif
-        {{ csrf_field() }}
     </form>
 </li>
