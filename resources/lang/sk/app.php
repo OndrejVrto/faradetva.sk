@@ -79,10 +79,15 @@ return [
         'update' => 'Kľúčové slovo bolo upravené.',
         'delete' => 'Kľúčové slovo bolo odstránené!',
     ],
-    'testimonia'   => [
+    'testimonial'   => [
         'store'  => 'Nové svedectvo bolo pridané!',
         'update' => 'Svedectvo bolo upravené.',
         'delete' => 'Svedectvo bolo odstránené!',
+    ],
+    'notice'   => [
+        'store'  => 'Nový oznam bol pridaný!',
+        'update' => 'Oznamy boli upravené.',
+        'delete' => 'Oznamy boli odstránené!',
     ],
     'user'   => [
         'store'        => 'Uživateľ :name bol pridaný!',

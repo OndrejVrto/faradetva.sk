@@ -31,7 +31,7 @@ class TestimonialController extends Controller
             $mediaService->storeMediaOneFile($testimonial, $testimonial->collectionName, 'photo');
         }
 
-        toastr()->success(__('app.testimonia.store'));
+        toastr()->success(__('app.testimonial.store'));
         return to_route('testimonials.index');
     }
 
@@ -47,7 +47,7 @@ class TestimonialController extends Controller
             $mediaService->storeMediaOneFile($testimonial, $testimonial->collectionName, 'photo');
         }
 
-        toastr()->success(__('app.testimonia.update'));
+        toastr()->success(__('app.testimonial.update'));
         return to_route('testimonials.index');
     }
 
@@ -55,7 +55,7 @@ class TestimonialController extends Controller
         $testimonial->delete();
         $testimonial->clearMediaCollection($testimonial->collectionName);
 
-        toastr()->success(__('app.testimonia.delete'));
+        toastr()->success(__('app.testimonial.delete'));
         return to_route('testimonials.index');
     }
 }
