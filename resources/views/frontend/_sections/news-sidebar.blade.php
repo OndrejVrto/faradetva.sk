@@ -114,6 +114,7 @@
                 <div class="ch_sidebar_area">
                     <div class="widget widget_search">
                         <form class="search-form">
+                            @csrf
                             <label>
                                 <input type="text" name="search" placeholder="Search" class="search-field">
                             </label>
