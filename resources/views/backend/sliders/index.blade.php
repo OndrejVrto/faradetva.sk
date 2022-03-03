@@ -36,14 +36,14 @@
                 {{-- <x-admin-table.td>{{$slider->id}}</x-admin-table.td> --}}
                 <x-admin-table.td-check-active check="{{ $slider->active }}"/>
                 <x-admin-table.td class="text-center">
-                    <img src="{{ $slider->getFirstMediaUrl('slider', 'crop-thumb') ?: "http://via.placeholder.com/240x100" }}"
+                    <img src="{{ $slider->getFirstMediaUrl($slider->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/240x100" }}"
                     class="img-fluid"
                     alt="Obrázok: {{ $slider->full_heading }}"/>
                 </x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$slider->teaser}}</x-admin-table.td>
                 <x-admin-table.td-actions
-                    editLink="{{ route('sliders.edit', $slider->id)}}"
-                    deleteLink="{{ route('sliders.destroy', $slider->id)}}"
+                    controlerName="sliders"
+                    identificator="{{ $slider->id }}"
                 />
             </tr>
             @endforeach

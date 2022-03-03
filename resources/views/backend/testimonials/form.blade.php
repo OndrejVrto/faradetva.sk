@@ -3,43 +3,32 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $testimonial ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $testimonial) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $testimonial->slug;
-        $createdInfo = $testimonial->createdInfo;
-        $createdBy = $testimonial->createdBy;
-        $updatedInfo = $testimonial->updatedInfo;
-        $updatedBy = $testimonial->updatedBy;
+        $identificator = $testimonial->slug;
+        $createdInfo = $testimonial->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $testimonial->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    identificator="{{ $identificator }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby sa zobrazovalo svedectvo na stránke.">
+            <input type="hidden" name="active" value="0">
             <input
                 type="checkbox"
+                name="active"
                 class="custom-control-input"
                 id="customSwitch3"
-                name="active"
-
-                @if (!is_null(Session::get('testimonial_old_input_checkbox')))
-                    {{ Session::get('testimonial_old_input_checkbox') == 1 ? 'checked' : '' }}
-                @else
-                    @if( isset($testimonial) )
-                        {{ $testimonial->active == 1 ? 'checked' : '' }}
-                    @else
-                        checked
-                    @endif
-                @endif
-
+                value="1"
+                {{ (( $testimonial->active ?? (old('active') === "0" ? 0 : 1) ) OR old('active', 0) === 1) ? 'checked' : '' }}
             >
             <label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
         </div>
@@ -101,6 +90,7 @@
         class="border-right-none"
         name="photo"
         label="Fotka alebo avatar"
+        accept=".jpg,.bmp,.png,.jpeg,.svg"
         {{-- placeholder="{{ $testimonial->media_file_name ?? 'Vložiť fotku ...' }}"> --}}
         placeholder="{{ $testimonial->media_file_name ?? '' }}">
         <x-slot name="prependSlot">

@@ -11,15 +11,15 @@ return new class extends Migration
     public function up(): void {
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
+
             $table->boolean('active')->default(1);
             $table->string('title');
             $table->string('slug');
             $table->timestamp('published_at')->nullable();
             $table->timestamp('unpublished_at')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('created_by')->unsigned();
-            $table->bigInteger('updated_by')->unsigned();
         });
     }
 

@@ -14,6 +14,10 @@ class UserRequest extends FormRequest
 
     public function rules() {
         return [
+            'active' => [
+                'boolean',
+                'required',
+            ],
             'nick' => [
                 'required',
                 Rule::unique('users', 'nick')->ignore($this->user),
@@ -39,6 +43,9 @@ class UserRequest extends FormRequest
                 'min:8',
                 'max:255',
                 'confirmed',
+            ],
+            'can_be_impersonated' => [
+                'boolean',
             ],
             'photo_avatar' => [
                 'nullable',

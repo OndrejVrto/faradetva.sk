@@ -6,6 +6,8 @@
 
 @section('content')
 
+    @include('frontend._sections.graph')
+
     @include('frontend._sections.banner', ['mainTitle' => 'DEBUG'])
     @include('frontend._sections.testimonials')
     @include('frontend._sections.pray')

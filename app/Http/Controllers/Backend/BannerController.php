@@ -5,67 +5,72 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Banner;
-
-use App\Http\Helpers\DataFormater;
+use Illuminate\Support\Arr;
+use App\Services\MediaStoreService;
+use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BannerRequest;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Http\RedirectResponse;
 
 class BannerController extends Controller
 {
-    public function index() {
-        $banners = Banner::latest('updated_at')->with('media')->paginate(5);
-
-        Session::remove('banner_old_input_checkbox');
+    public function index(): View  {
+        $banners = Banner::latest('updated_at')->with('media', 'source')->paginate(5);
 
         return view('backend.banners.index', compact('banners'));
     }
 
-    public function create() {
+    public function create(): View  {
         return view('backend.banners.create');
     }
 
-    public function store(BannerRequest $request) {
+    public function store(BannerRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $banner = Banner::create($validated);
+        $sourceData = Arr::except($validated, ['title', 'slug', 'photo']);
+        $banner->source()->create($sourceData);
 
         if ($request->hasFile('photo')) {
-            $banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
-            $banner->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                    ->toMediaCollection('banner');
+            $mediaService->storeMediaOneFile($banner, $banner->collectionName, 'photo');
         }
 
         toastr()->success(__('app.banner.store'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 
-    public function edit(Banner $banner) {
+    public function show(Banner $banner): View {
+        $banner->load('media', 'source');
+
+        return view('backend.banners.show', compact('banner'));
+    }
+
+    public function edit(Banner $banner): View  {
+        $banner->load('source');
+
         return view('backend.banners.edit', compact('banner'));
     }
 
-    public function update(BannerRequest $request, $id) {
+    public function update(BannerRequest $request, Banner $banner, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-
-        $banner = Banner::findOrFail($id);
         $banner->update($validated);
+        $sourceData = Arr::except($validated, ['title', 'slug', 'photo']);
+        $banner->source()->update($sourceData);
+        $banner->touch(); // Touch because i need start observer for delete cache
 
         if ($request->hasFile('photo')) {
-            $banner->clearMediaCollectionExcept('banner', $banner->getFirstMedia());
-            $banner->addMediaFromRequest('photo')
-                    ->sanitizingFileName( fn($fileName) => DataFormater::filterFilename($fileName, true) )
-                    ->toMediaCollection('banner');
+            $mediaService->storeMediaOneFile($banner, $banner->collectionName, 'photo');
         }
 
         toastr()->success(__('app.banner.update'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 
-    public function destroy(Banner $banner) {
+    public function destroy(Banner $banner): RedirectResponse {
+        $banner->source()->delete();
         $banner->delete();
-        $banner->clearMediaCollection('banner');
+        $banner->clearMediaCollection($banner->collectionName);
 
         toastr()->success(__('app.banner.delete'));
-        return redirect()->route('banners.index');
+        return to_route('banners.index');
     }
 }

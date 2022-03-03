@@ -7,7 +7,6 @@ namespace App\Http\Requests;
 use Illuminate\Support\Str;
 use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Http\FormRequest;
 
 class NoticeRequest extends FormRequest
@@ -44,22 +43,17 @@ class NoticeRequest extends FormRequest
                 'max:10000',
             ],
             'slug' => [
-                Rule::unique('notices', 'slug')->ignore($this->notice)->whereNull('deleted_at')
+                Rule::unique('notices', 'slug')->ignore($this->notice)->withoutTrashed(),
             ],
         ];
     }
 
     protected function prepareForValidation() {
-        $state = $this->active ? 1 : 0;
-
         $this->merge([
-            'active' => $state,
             'slug' => Str::slug($this->title)
         ]);
 
         is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s', strtotime($this->published_at))]);
         is_null($this->unpublished_at) ?: $this->merge(['unpublished_at' => date('Y-m-d H:i:s', strtotime($this->unpublished_at))]);
-
-        Session::put(['notice_old_input_checkbox' => $state]);
     }
 }

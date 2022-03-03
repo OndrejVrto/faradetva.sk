@@ -2,6 +2,10 @@
 
 return [
 
+    'cache-duration' => [
+        'news' => env('CACHE_DURATION_NEWS', 60*60*24),   // 24 hodín
+    ],
+
     'title' => 'Farnosť Detva',
     'title_prefix' => '',
     'title_postfix' => ' | Farnosť Detva',
@@ -41,14 +45,6 @@ return [
         'sliders_header'             => 'Obrázok s myšlienkou',
         'sliders_header_create'      => 'Nový obrázok s myšlienkou',
         'sliders_header_edit'        => 'Úprava obrázku s myšlienkou',
-
-        'banners_title'              => 'Baner',
-        'banners_description'        => 'Administrácia - správa sekcie: Baner',
-        'banners_description_create' => 'Administrácia - pridanie nového Baner-u',
-        'banners_description_edit'   => 'Administrácia - Editácia Baner-u',
-        'banners_header'             => 'Baner',
-        'banners_header_create'      => 'Nový baner',
-        'banners_header_edit'        => 'Úprava baner-u',
 
         'tags_title'              => 'Kľúčové slová',
         'tags_description'        => 'Administrácia - správa sekcie: Kľúčové slová',
@@ -124,14 +120,6 @@ return [
         'files_header_create'      => 'Vložiť súbor',
         'files_header_edit'        => 'Upraviť súbor',
 
-        'file-types_title'              => 'Typy súborov',
-        'file-types_description'        => 'Kategorizácia súborov',
-        'file-types_description_create' => 'Vytvorenie novej kategórie pre súbory',
-        'file-types_description_edit'   => 'Zmena údajov v kategórii pre súbory',
-        'file-types_header'             => 'Typy vkladaných súborov',
-        'file-types_header_create'      => 'Nová kategória',
-        'file-types_header_edit'        => 'Úprava kategórie',
-
         'notices_title'              => 'Farské oznamy',
         'notices_description'        => 'Pridávanie rôznych oznamov v pdf súboroch',
         'notices_description_create' => 'Tu môžete pridať pdf súbor s farskými oznamami',
@@ -140,23 +128,55 @@ return [
         'notices_header_create'      => 'Nový oznamy',
         'notices_header_edit'        => 'Úprava farských oznamov',
 
+        'galleries_title'              => 'Galéria',
+        'galleries_description'        => 'Obrázkové galérie na statické stránky',
+        'galleries_description_create' => 'Tu môžete pridať novú obrázkovú galériu',
+        'galleries_description_edit'   => 'Tu môžete upraviť údaje v galérii',
+        'galleries_description_show'   => 'Detailné informácie o galérii s náhľadom',
+        'galleries_header'             => 'Galérie obrázkov',
+        'galleries_header_create'      => 'Nová galéria',
+        'galleries_header_edit'        => 'Úprava galérie',
+        'galleries_header_show'        => 'Prehliadanie galérie',
 
-        // 's_title'              => '',
-        // 's_description'        => '',
-        // 's_description_create' => '',
-        // 's_description_edit'   => '',
-        // 's_header'             => '',
-        // 's_header_create'      => '',
-        // 's_header_edit'        => '',
+        'pictures_title'              => 'Obrázok',
+        'pictures_description'        => 'Administrácia - správa sekcie: Obrázok',
+        'pictures_description_create' => 'Administrácia - pridanie nového obrázku-u',
+        'pictures_description_edit'   => 'Administrácia - Editácia obrázku-u',
+        'pictures_description_show'   => 'Zobrazenie detailov o obrázku',
+        'pictures_header'             => 'Obrázok',
+        'pictures_header_create'      => 'Nový obrázok',
+        'pictures_header_edit'        => 'Úprava obrázku',
+        'pictures_header_show'        => 'Detaily obrázku',
 
+        'banners_title'              => 'Banery',
+        'banners_description'        => 'Administrácia - správa sekcie: Baner',
+        'banners_description_create' => 'Administrácia - pridanie nového Baneru',
+        'banners_description_edit'   => 'Administrácia - Editácia Baneru',
+        'banners_description_show'   => 'zobrazenie detailov o Baneri',
+        'banners_header'             => 'Banery',
+        'banners_header_create'      => 'Nový baner',
+        'banners_header_edit'        => 'Úprava baneru',
+        'banners_header_show'        => 'Detail baneru',
 
+        'charts_title'              => 'Graf',
+        'charts_description'        => 'Štatistiky farnosti v grafoch',
+        'charts_description_create' => 'Tu môžete pridať nový graf',
+        'charts_description_edit'   => 'Tu môžete upraviť graf',
+        'charts_description_show'   => 'Detailné informácie o grafoch s náhľadom',
+        'charts_header'             => 'Grafy',
+        'charts_header_create'      => 'Nový graf',
+        'charts_header_edit'        => 'Úprava grafu',
+        'charts_header_show'        => 'Prehliadanie grafu',
 
-
-
-
-
-
+        'charts-data_title'              => 'Graf',
+        'charts-data_description'        => 'Štatistiky farnosti v grafoch',
+        'charts-data_description_create' => 'Tu môžete pridať nový graf',
+        'charts-data_description_edit'   => 'Tu môžete upraviť graf',
+        'charts-data_description_show'   => 'Detailné informácie o grafoch s náhľadom',
+        'charts-data_header'             => 'Grafy',
+        'charts-data_header_create'      => 'Nový graf',
+        'charts-data_header_edit'        => 'Úprava grafu',
+        'charts-data_header_show'        => 'Prehliadanie grafu',
 
     ]
-
 ];

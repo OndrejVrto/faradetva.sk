@@ -4,33 +4,39 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-use App\Traits\CreatedUpdatedBy;
+
+use App\Models\Source;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Banner extends Model implements HasMedia
 {
-    use HasFactory;
-    use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'banners';
 
+    public $collectionName = 'banner';
+
     protected $fillable = [
-        'active',
         'title',
+        'slug',
     ];
 
-    public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('banner')->file_name ?? null;
+    public function getRouteKeyName() {
+        return 'slug';
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
+    public function source() {
+        return $this->morphOne(Source::class, 'sourceable');
+    }
+
+    public function getMediaFileNameAttribute() {
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
+    }
+
+    public function registerMediaConversions(Media $media = null) : void {
         //1920x480px (240*60)
         $this->addMediaConversion('extra-large')
             ->fit("crop", 1920, 480)    // 1200px and up

@@ -15,9 +15,6 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \App\Http\Middleware\QueryLogsSeparateMiddleware::class,
-        \App\Http\Middleware\PreetyHtmlMiddleware::class,
-        // \App\Http\Middleware\MinifiHtmlMiddleware::class,
-
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,
@@ -34,6 +31,9 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+            \App\Http\Middleware\PreetyHtmlMiddleware::class,
+            // \App\Http\Middleware\MinifiHtmlMiddleware::class,
+
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
@@ -67,8 +67,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \App\Http\Middleware\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+        'cache_response' => \App\Http\Middleware\CacheResponseMiddleware::class,
     ];
 }

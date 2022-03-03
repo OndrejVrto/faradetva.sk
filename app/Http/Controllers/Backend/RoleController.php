@@ -8,43 +8,45 @@ use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Requests\RoleRequest;
 use Spatie\Permission\Models\Role;
+use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
+use Illuminate\Http\RedirectResponse;
+use App\Services\ChunkPermissionService;
 
 class RoleController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request): View  {
         $roles = Role::paginate(10);
 
         return view('backend.roles.index', compact( 'roles' ) );
     }
 
-    public function create() {
-        $permissions = Permission::all();
+    public function create(): View  {
+        $permissions = (new ChunkPermissionService())->permission;
         $rolePermissions = [];
 
         return view('backend.roles.create', compact('permissions', 'rolePermissions'));
     }
 
-    public function store(RoleRequest $request) {
+    public function store(RoleRequest $request): RedirectResponse {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
         $role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success(__('app.role.store'));
-        return redirect()->route('roles.index');
+        toastr()->success(__('app.role.store', ['name'=> $role->name]));
+        return to_route('roles.index');
     }
 
-    public function edit(Role $role) {
+    public function edit(Role $role): View  {
         $rolePermissions = $role->permissions->pluck('name')->toArray();
-        $permissions = Permission::get();
+        $permissions = (new ChunkPermissionService())->permission;
 
         return view('backend.roles.edit', compact('role', 'rolePermissions', 'permissions'));
     }
 
-    public function update(RoleRequest $request, $id) {
+    public function update(RoleRequest $request, $id): RedirectResponse {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
@@ -52,14 +54,18 @@ class RoleController extends Controller
         $role->update($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success(__('app.role.update'));
-        return redirect()->route('roles.index');
+        toastr()->success(__('app.role.update', ['name'=> $role->name]));
+        return to_route('roles.index');
     }
 
-    public function destroy(Role $role) {
-        $role->delete();
+    public function destroy(Role $role): RedirectResponse {
+        if ($role->id == 1) {
+            toastr()->error(__('app.role.delete-error', ['name'=> $role->name]));
+        } else {
+            $role->delete();
+            toastr()->success(__('app.role.delete', ['name'=> $role->name]));
+        }
 
-        toastr()->success(__('app.role.delete'));
-        return redirect()->route('roles.index');
+        return to_route('roles.index');
     }
 }

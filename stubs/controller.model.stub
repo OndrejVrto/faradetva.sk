@@ -28,7 +28,7 @@ class {{ class }} extends Controller
         {{ model }}::create($validated);
 
         toastr()->success(__('app.{{ modelVariable }}.store'));
-        return redirect()->route('{{ modelVariable }}s.index');
+        return to_route('{{ modelVariable }}s.index');
     }
 
     public function show({{ model }} ${{ modelVariable }}): View {
@@ -44,13 +44,13 @@ class {{ class }} extends Controller
         ${{ modelVariable }}->update($validated);
 
         toastr()->success(__('app.{{ modelVariable }}.update'));
-        return redirect()->route('{{ modelVariable }}s.index');
+        return to_route('{{ modelVariable }}s.index');
     }
 
     public function destroy({{ model }} ${{ modelVariable }}): RedirectResponse {
         ${{ modelVariable }}->delete();
 
         toastr()->success(__('app.{{ modelVariable }}.delete'));
-        return redirect()->route('{{ modelVariable }}s.index');
+        return to_route('{{ modelVariable }}s.index');
     }
 }

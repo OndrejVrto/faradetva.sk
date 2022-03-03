@@ -11,10 +11,15 @@ return new class extends Migration
     {
         Schema::create('news_tag', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('news_id')->unsigned();
-            $table->bigInteger('tag_id')->unsigned();
-            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
-            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+
+            $table->foreignId('news_id')
+                ->constrained()
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
+            $table->foreignId('tag_id')
+                ->constrained()
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 

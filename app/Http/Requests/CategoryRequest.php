@@ -19,7 +19,7 @@ class CategoryRequest extends FormRequest
                 'max:30',
             ],
             'slug' => [
-                Rule::unique('categories', 'slug')->ignore($this->category)->whereNull('deleted_at')
+                Rule::unique('categories', 'slug')->ignore($this->category)->withoutTrashed(),
             ],
             'description' => [
                 'required',

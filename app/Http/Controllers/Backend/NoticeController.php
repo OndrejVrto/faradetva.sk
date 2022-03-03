@@ -28,11 +28,11 @@ class NoticeController extends Controller
         $notice = Notice::create($validated);
 
         if ($request->hasFile('notice_file')) {
-            $mediaService->storeMediaOneFile($notice, 'notice_pdf', 'notice_file');
+            $mediaService->storeMediaOneFile($notice, $notice->collectionName, 'notice_file');
         }
 
         toastr()->success(__('app.notice.store'));
-        return redirect()->route('notices.index');
+        return to_route('notices.index');
     }
 
     public function edit(Notice $notice): View {
@@ -46,18 +46,18 @@ class NoticeController extends Controller
         $notice->update($validated);
 
         if ($request->hasFile('notice_file')) {
-            $mediaService->storeMediaOneFile($notice, 'notice_pdf', 'notice_file');
+            $mediaService->storeMediaOneFile($notice, $notice->collectionName, 'notice_file');
         }
 
         toastr()->success(__('app.notice.update'));
-        return redirect()->route('notices.index');
+        return to_route('notices.index');
     }
 
     public function destroy(Notice $notice): RedirectResponse {
         $notice->delete();
-        $notice->clearMediaCollection('notice_pdf');
+        $notice->clearMediaCollection($notice->collectionName);
 
         toastr()->success(__('app.notice.delete'));
-        return redirect()->route('notices.index');
+        return to_route('notices.index');
     }
 }

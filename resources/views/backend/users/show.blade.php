@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.users_description') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('users.show', $user, $user->name) }}
+    {{  Breadcrumbs::render('users.show', false, $user, $user->name) }}
 @stop
 
 @php
@@ -12,10 +12,10 @@
     $columns = 5;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $user ) ) {
         $typeForm = 'show';
-        $identificatorEdit = $user->id;
+        $identificator = $user->id;
         $createdInfo = $user->created_at;
         $updatedInfo = $user->updated_at;
     }
@@ -24,7 +24,7 @@
 @section('content')
 
     <x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
-                    typeForm="{{ $typeForm }}"  identificatorEdit="{{ $identificatorEdit }}"
+                    typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
                     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
         <div class="row d-flex justify-content-between">
@@ -57,14 +57,14 @@
                     <dd>{{ $user->permissions_count != 0 ? $user->permissions_count : 'žiadne' }}</dd>
             </div>
         </div>
-        @can('user.edit')
-        <hr>
-        <div class="row">
-            @foreach ($user->permissions as $permission )
-                <span class="badge bg-gradient-orange m-1 px-2">{{ $permission->name }}</span>
-            @endforeach
-        </div>
-        @endcan
+        @role('Super Administrátor')
+            <hr>
+            <div class="row">
+                @foreach ($user->permissions as $permission )
+                    <span class="badge bg-gradient-orange m-1 px-2">{{ $permission->name }}</span>
+                @endforeach
+            </div>
+        @endrole
 
     </x-admin-form>
 

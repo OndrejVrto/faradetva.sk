@@ -15,7 +15,7 @@
         $author = $data->author;
     } catch (\Throwable $th) {
         $alt = 'Obrázok neexistuje!';
-        $url = 'http://via.placeholder.com/300x150';
+        $url = 'http://via.placeholder.com/450x200';
         $source = 'Obrázok neexistuje!';
         $author = null;
     }

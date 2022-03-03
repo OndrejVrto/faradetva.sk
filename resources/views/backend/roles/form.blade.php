@@ -3,21 +3,20 @@
     $columns = 10;
     $uploadFiles = 'false';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $role ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $role) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $role->id;
-        $createdInfo = $role->created_at;
-        $updatedInfo = $role->updated_at;
+        $identificator = $role->id;
+        $createdInfo = $role->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $role->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    identificator="{{ $identificator }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <x-adminlte-input
@@ -52,21 +51,24 @@
         @enderror
     </div>
 
-    <div class="row no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
-        @foreach($permissions as $permission)
-            <div class="col text-break">
-                <input type="checkbox"
-                    name="permission[{{ $permission->name }}]"
-                    value="{{ $permission->name }}"
-                    class='d-inline permission m-2'
-                    {{ in_array($permission->name, $rolePermissions)
-                        ? 'checked'
-                        : '' }}
-                >
-                {{ $permission->name }}
-            </div>
-        @endforeach
-    </div>
+    @foreach($permissions as $alpha => $collections)
+        <h4 class="pl-3 text-orange">{{ $alpha }}</h4>
+        <div class="row pb-4 no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
+            @foreach($collections as $permission)
+                <div class="col text-break">
+                    <input type="checkbox"
+                        name="permission[{{ $permission->name }}]"
+                        value="{{ $permission->name }}"
+                        class='d-inline permission m-2'
+                        {{ in_array($permission->name, $rolePermissions)
+                            ? 'checked'
+                            : '' }}
+                    >
+                    {{ $permission->name }}
+                </div>
+            @endforeach
+        </div>
+    @endforeach
 
 </x-admin-form>
 

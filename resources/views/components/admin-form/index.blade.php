@@ -3,7 +3,11 @@
     'columns' => 8,
     'uploadFiles' => 'false',
     'typeForm' => '',
-    'identificatorEdit' => null,
+    'identificator' => null,
+    'linkActionCreate' => null,
+    'linkBack' => null,
+    'linkEdit' => null,
+    'linkActionEdit' => null,
     'createdInfo' => '',
     'createdBy' => '',
     'updatedInfo' => '',
@@ -11,15 +15,28 @@
 ])
 @php
     if($typeForm == '' OR is_null($typeForm)) $typeForm = 'create';
+
     $maxXL = min($columns, 12);
     $maxLG = min($columns + 1, 12);
     $maxMD = min($columns + 2, 12);
-    $headerTitle = config('farnost-detva.admin_texts.'.$controlerName.'_header_'.$typeForm );
-    $headerDescription = config('farnost-detva.admin_texts.'.$controlerName.'_description_'.$typeForm );
-    $linkActionEdit = route( $controlerName . '.update', $identificatorEdit);
-    $linkActionCreate = route( $controlerName . '.store');
-    $linkBack = route( $controlerName . '.index');
-    $linkEdit = route( $controlerName . '.edit', $identificatorEdit);
+
+    $texts = Str::replace('.','-', $controlerName);
+    $headerTitle = config('farnost-detva.admin_texts.'.$texts.'_header_'.$typeForm );
+    $headerDescription = config('farnost-detva.admin_texts.'.$texts.'_description_'.$typeForm );
+
+    if (is_null($linkBack)) {
+        $linkBack = Route::has($controlerName . '.index') ? route($controlerName . '.index', $identificator) : null;
+    }
+    if (is_null($linkActionCreate)) {
+        $linkActionCreate = Route::has($controlerName . '.store') ? route($controlerName . '.store', $identificator) : null;
+    }
+    if (is_null($linkEdit)) {
+        $linkEdit = Route::has($controlerName . '.edit') ? route($controlerName . '.edit', $identificator) : null;
+    }
+    if (is_null($linkActionEdit)) {
+        $linkActionEdit = Route::has($controlerName . '.destroy') ? route($controlerName . '.destroy', $identificator) : null;
+    }
+
 @endphp
 
 <div class="row">
@@ -59,17 +76,25 @@
                             Späť
                         </a>
                         @if ( $typeForm == 'show')
-                            @can('users.edit')
+                            @can([
+                                $controlerName . '.edit',
+                                $controlerName . '.update'
+                            ])
                                 <a href="{{ $linkEdit }}" class="btn bg-gradient-primary px-5 ml-2">
                                     <i class="fas fa-edit mr-2"></i>
                                     Editovať
                                 </a>
                             @endcan
                         @else
-                            <button id="btnSave" type="submit" class="btn bg-gradient-success px-5 ml-2">
-                                <i class="fas fa-save mr-2"></i>
-                                Uložiť
-                            </button>
+                            @can([
+                                $controlerName . '.create',
+                                $controlerName . '.store'
+                            ])
+                                <button id="btnSave" type="submit" class="btn bg-gradient-success px-5 ml-2">
+                                    <i class="fas fa-save mr-2"></i>
+                                    Uložiť
+                                </button>
+                            @endcan
                         @endif
                     </div>
 

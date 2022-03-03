@@ -3,23 +3,20 @@
     $columns = 12;
     $uploadFiles = 'false';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $staticPage ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $staticPage) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $staticPage->slug;
-        $createdInfo = $staticPage->createdInfo;
-        $createdBy = $staticPage->createdBy;
-        $updatedInfo = $staticPage->updatedInfo;
-        $updatedBy = $staticPage->updatedBy;
+        $identificator = $staticPage->slug;
+        $createdInfo = $staticPage->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $staticPage->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    identificator="{{ $identificator }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <div class="form-row">

@@ -18,20 +18,17 @@
     $(() => {
         $('#{{ $id }}').select2( @json($config) );
 
-        {{-- Add support to auto select old submitted values --}}
+        // Add support to auto select old submitted values in case of
+        // validation errors.
 
-        @if($errors->any())
+        @if($errors->any() && $enableOldSupport)
 
-            let oldOptions = @json(collect($makeItemValue($errorKey)));
+            let oldOptions = @json(collect($getOldValue($errorKey)));
 
             $('#{{ $id }} option').each(function()
             {
                 let value = $(this).val() || $(this).text();
-
-                if (oldOptions.includes(value))
-                {
-                    $(this).prop('selected', true);
-                }
+                $(this).prop('selected', oldOptions.includes(value));
             });
 
             $('#{{ $id }}').trigger('change');
@@ -47,7 +44,7 @@
 
 @once
 @push('css')
-<style>
+<style type="text/css">
 
     {{-- SM size setup --}}
     .input-group-sm .select2-selection--single {

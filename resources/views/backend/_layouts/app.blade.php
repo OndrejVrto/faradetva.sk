@@ -16,4 +16,13 @@
     <script src="{{ asset('asset/backend/js/admin_custom.js') }}"></script>
     @toastr_js
     @toastr_render
+    <script>
+        var myTimer = new Timer({
+            minutes: {{ config('session.lifetime') }},
+            seconds: 0,
+            element: document.querySelector('#time')
+        });
+
+        myTimer.start();
+    </script>
 @endpush

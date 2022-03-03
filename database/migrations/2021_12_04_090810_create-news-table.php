@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->boolean('active')->default(1);
+
             $table->foreignId('user_id')
                     ->nullable()
                     ->constrained()
@@ -22,17 +22,18 @@ return new class extends Migration
                     ->constrained()
                     ->onUpdate('SET NULL')
                     ->onDelete('SET NULL');
+            $table->fulltext(['title', 'content']);
+
+            $table->boolean('active')->default(1);
+            $table->timestamp('published_at')->nullable()->default(NULL);
+            $table->timestamp('unpublished_at')->nullable()->default(NULL);
             $table->string('title', 200);
             $table->string('slug', 200);
             $table->string('teaser', 400);
-            $table->mediumText('content');
-            $table->fulltext(['title', 'content']);
-            $table->timestamp('published_at')->nullable();
-            $table->timestamp('unpublished_at')->nullable();
+            $table->text('content');
+
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('created_by')->unsigned();
-            $table->bigInteger('updated_by')->unsigned();
         });
     }
 

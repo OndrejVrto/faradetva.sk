@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TestimonialRequest extends FormRequest
@@ -32,7 +31,7 @@ class TestimonialRequest extends FormRequest
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('testimonials', 'slug')->ignore($this->testimonial)->whereNull('deleted_at')
+                Rule::unique('testimonials', 'slug')->ignore($this->testimonial)->withoutTrashed(),
             ],
             'function' => [
                 'nullable',
@@ -60,13 +59,8 @@ class TestimonialRequest extends FormRequest
     }
 
     protected function prepareForValidation() {
-        $state = $this->active ? 1 : 0;
-
         $this->merge([
-            'active' => $state,
             'slug' => Str::slug($this->name)
         ]);
-
-        Session::put(['testimonial_old_input_checkbox' => $state]);
     }
 }

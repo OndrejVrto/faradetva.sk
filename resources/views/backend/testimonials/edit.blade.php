@@ -4,7 +4,7 @@
 @section('meta_description', config('farnost-detva.admin_texts.testimonials_description_edit') )
 
 @section('content_breadcrumb')
-    {{ Breadcrumbs::render('testimonials.edit', $testimonial, $testimonial->name )}}
+    {{  Breadcrumbs::render('testimonials.edit', false, $testimonial, $testimonial->name )}}
 @stop
 
 @section('content')

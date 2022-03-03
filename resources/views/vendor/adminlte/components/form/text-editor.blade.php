@@ -5,7 +5,7 @@
     {{-- Summernote Textarea --}}
     <textarea id="{{ $id }}" name="{{ $name }}"
         {{ $attributes->merge(['class' => $makeItemClass()]) }}
-    >{{ $slot }}</textarea>
+    >{{ $getOldValue($errorKey, $slot) }}</textarea>
 
 @overwrite
 
@@ -42,7 +42,7 @@
 
 @once
 @push('css')
-<style>
+<style type="text/css">
 
     {{-- SM size setup --}}
     .input-group-sm .note-editor {

@@ -11,45 +11,33 @@ class BannerSeeder extends Seeder
     public function run()
     {
         Banner::create([
-            'active'  => '1',
             'title' => 'Kňazi',
-            'created_by' => rand(2,5),
-            'updated_by' => rand(2,5),
+            'slug' => 'knazi',
         ]);
 
         Banner::create([
-            'active'  => '1',
             'title' => 'Spoločenstvá',
-            'created_by' => rand(2,5),
-            'updated_by' => rand(2,5),
+            'slug' => 'spolocenstva',
         ]);
 
         Banner::create([
-            'active'  => '1',
             'title' => 'Články',
-            'created_by' => rand(2,5),
-            'updated_by' => rand(2,5),
+            'slug' => 'clanky',
         ]);
 
         Banner::create([
-            'active'  => '1',
             'title' => 'Svedectvá',
-            'created_by' => rand(2,5),
-            'updated_by' => rand(2,5),
+            'slug' => 'svedectva',
         ]);
 
         Banner::create([
-            'active'  => '0',
             'title' => 'Zmazať',
-            'created_by' => rand(2,5),
-            'updated_by' => rand(2,5),
+            'slug' => 'zmazat',
         ]);
 
         Banner::create([
-            'active'  => '1',
             'title' => 'Udalosti',
-            'created_by' => rand(2,5),
-            'updated_by' => rand(2,5),
+            'slug' => 'udalosti',
         ]);
 
     }

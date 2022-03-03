@@ -20,8 +20,17 @@
 	color: #ff7b33 !important;
 }
 
+.link-template {
+    text-decoration: none;
+    color: #243a4f !important;
+}
+
 .link-template:hover {
 	color: #ff7b33 !important;
+}
+
+.text-church-template-blue {
+    color         : #243a4f;
 }
 
 .text-justify {
@@ -47,15 +56,15 @@
 .img-article {
     position: absolute;
     z-index: 100;
-	font-weight   : 400;
-	font-size     : 10px;
-    color   : #243a4f;
+	/* font-weight   : 400;
+	font-size     : 10px; */
+    /* color   : #243a4f; */
     bottom  : -1.1rem;
 }
 
-.img-article:hover {
+/* .img-article:hover {
 	color: #ff7b33;
-}
+} */
 
 .img-article-left {
     left    : 5px;
@@ -64,3 +73,14 @@
 .img-article-right {
     right   : 5px;
 }
+
+.source {
+	font-weight   : 400;
+	font-size     : 10px;
+}
+
+.breadcrumb li,
+.breadcrumb-item + .breadcrumb-item::before {
+	color: #f8f8f8 !important;
+}
+

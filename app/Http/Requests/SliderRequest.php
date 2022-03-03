@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Session;
 
 class SliderRequest extends FormRequest
 {
@@ -52,15 +51,5 @@ class SliderRequest extends FormRequest
         return [
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];
-    }
-
-    protected function prepareForValidation() {
-        $state = $this->active ? 1 : 0;
-
-        $this->merge([
-            'active' => $state,
-        ]);
-
-        Session::put(['slider_old_input_checkbox' => $state]);
     }
 }

@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use Illuminate\Support\Str;
-use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -19,10 +18,11 @@ class Priest extends Model implements HasMedia
     use Loggable;
     use HasFactory;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'priests';
+
+    public $collectionName = 'priest';
 
     protected $fillable = [
         'active',
@@ -60,7 +60,7 @@ class Priest extends Model implements HasMedia
     }
 
     public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('priest')->file_name ?? null;
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 
     public function getFullNameTitlesAttribute () {

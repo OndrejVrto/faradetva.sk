@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use Illuminate\Support\Str;
-use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -19,10 +18,11 @@ class Slider extends Model implements HasMedia {
     use Loggable;
     use HasFactory;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'sliders';
+
+    public $collectionName = 'slider';
 
     protected $fillable = [
         'active',
@@ -32,7 +32,7 @@ class Slider extends Model implements HasMedia {
     ];
 
     public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('slider')->file_name ?? null;
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 
     public function registerMediaConversions( Media $media = null ) : void {

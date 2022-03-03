@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Traits\Publishable;
-use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -19,10 +18,11 @@ class Notice extends Model implements HasMedia
     use HasFactory;
     use Publishable;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'notices';
+
+    public $collectionName = 'notice_pdf';
 
     protected $fillable = [
         'active',
@@ -32,7 +32,11 @@ class Notice extends Model implements HasMedia
         'title',
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('notice_pdf')->file_name ?? null;
+        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 }

@@ -9,24 +9,52 @@
     $columns = 10;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $user ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
+    if ( isset( $user) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $user->id;
-        $createdInfo = $user->createdInfo;
-        $createdBy = $user->createdBy;
-        $updatedInfo = $user->updatedInfo;
-        $updatedBy = $user->updatedBy;
+        $identificator = $user->slug;
+        $createdInfo = $user->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $user->updated_at->format('d. m. Y \o H:i');
+        $media_file_name = $user->getFirstMedia($user->collectionName)->file_name ?? '';
     }
 @endphp
 
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    identificator="{{ $identificator }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
+
+    <div class="form-group">
+        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš bol účet aktívny.">
+            <input type="hidden" name="active" value="0">
+            <input
+                type="checkbox"
+                name="active"
+                class="custom-control-input"
+                id="Switch1"
+                value="1"
+                {{ (( $user->active ?? (old('active') === "0" ? 0 : 1) ) OR old('active', 0) === 1) ? 'checked' : '' }}
+            >
+            <label class="custom-control-label" for="Switch1">Účet aktívny</label>
+        </div>
+
+        @role('Super Administrátor')
+            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš bol účet aktívny.">
+                <input type="hidden" name="can_be_impersonated" value="0">
+                <input
+                    type="checkbox"
+                    name="can_be_impersonated"
+                    class="custom-control-input"
+                    id="Switch2"
+                    value="1"
+                    {{ (( $user->can_be_impersonated ?? (old('can_be_impersonated') === "0" ? 0 : 1) ) OR old('can_be_impersonated', 0) === 1) ? 'checked' : '' }}
+                >
+                <label class="custom-control-label" for="Switch2">Účet je možné prisvojiť administrátorom</label>
+            </div>
+        @endrole
+    </div>
 
     <div class="form-row">
         <div class="col-6">
@@ -128,7 +156,8 @@
                 class="border-right-none"
                 name="photo_avatar"
                 label="Fotka alebo avatar"
-                {{-- placeholder="Vložiť avatara .." --}}
+                placeholder="{{ $media_file_name }}"
+                accept=".jpg,.bmp,.png,.jpeg,.svg"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
@@ -174,53 +203,58 @@
         @endif
     </x-adminlte-select2>
 
-    <div class="form-group">
-        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mal užívateľ všetky oprávnenia.">
-            <input
-                type="checkbox"
-                class="custom-control-input"
-                id="customSwitch3"
-                name="all_permission"
-            >
-            <label class="custom-control-label" for="customSwitch3">Všetko</label>
-        </div>
-    </div>
-
-    <div class="row no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
-        @foreach($permissions as $permission)
-            <div class="col text-break">
-                <input type="checkbox"
-                    name="permission[{{ $permission->id }}]"
-                    value="{{ $permission->id }}"
-                    class='d-inline permission m-2'
-                    {{ in_array($permission->id, $userPermissions)
-                        ? 'checked'
-                        : '' }}
+    @role('Super Administrátor')
+        <div class="form-group">
+            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mal užívateľ všetky oprávnenia.">
+                <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="Switch3"
+                    name="all_permission"
                 >
-                {{ $permission->name }}
+                <label class="custom-control-label" for="Switch3">Všetko</label>
             </div>
-            @php
-            @endphp
+        </div>
+
+        @foreach($permissions as $alpha => $collections)
+            <h4 class="pl-3 text-orange">{{ $alpha }}</h4>
+            <div class="row pb-4 no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
+                @foreach($collections as $permission)
+                    <div class="col text-break">
+                        <input type="checkbox"
+                            name="permission[{{ $permission->id }}]"
+                            value="{{ $permission->id }}"
+                            class='d-inline permission m-2'
+                            {{ in_array($permission->id, $userPermissions)
+                                ? 'checked'
+                                : '' }}
+                        >
+                        {{ $permission->name }}
+                    </div>
+                @endforeach
+            </div>
         @endforeach
-    </div>
+    @endrole
 
 </x-admin-form>
 
 @push('js')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('[name="all_permission"]').on('click', function() {
+    @role('Super Administrátor')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('[name="all_permission"]').on('click', function() {
 
-                if($(this).is(':checked')) {
-                    $.each($('.permission'), function() {
-                        $(this).prop('checked',true);
-                    });
-                } else {
-                    $.each($('.permission'), function() {
-                        $(this).prop('checked',false);
-                    });
-                }
+                    if($(this).is(':checked')) {
+                        $.each($('.permission'), function() {
+                            $(this).prop('checked',true);
+                        });
+                    } else {
+                        $.each($('.permission'), function() {
+                            $(this).prop('checked',false);
+                        });
+                    }
+                });
             });
-        });
-    </script>
+        </script>
+    @endrole
 @endpush

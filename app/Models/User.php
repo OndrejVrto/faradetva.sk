@@ -30,7 +30,10 @@ class User extends Authenticatable implements HasMedia
 
     protected $table = 'users';
 
+    public $collectionName = 'avatar';
+
     protected $fillable = [
+        'active',
         'nick',
         'email',
         'name',
@@ -48,6 +51,10 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function setPasswordAttribute($value){
         $this->attributes['password'] = bcrypt($value);
     }
@@ -56,13 +63,18 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(News::class);
     }
 
-    public function canBeImpersonated()
-    {
+    public function isAdmin() {
+        return $this->roles->pluck('id')->contains(function ($value, $key) {
+            //* id1 = SuperAdmin, id2 = Admin,  id3 = Moderator
+            return $value <= 3;
+        });
+    }
+
+    public function canBeImpersonated() {
         return $this->can_be_impersonated == 1;
     }
 
-    public function registerMediaConversions( Media $media = null ) : void
-    {
+    public function registerMediaConversions( Media $media = null ) : void {
         $this->addMediaConversion('crop')
             ->fit("crop", 100, 100);
         $this->addMediaConversion('crop-thumb')
@@ -70,7 +82,7 @@ class User extends Authenticatable implements HasMedia
     }
 
     public function adminlte_image() {
-        return $this->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
+        return $this->getFirstMediaUrl($this->collectionName, 'crop') ?: "http://via.placeholder.com/100x100";
     }
 
     public function adminlte_desc() {

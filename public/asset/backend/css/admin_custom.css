@@ -9,10 +9,10 @@
     background-color: rgba(255, 200, 100, 0.4);
 }
 
-.table-last-padding th:last-of-type,
+/* .table-last-padding th:last-of-type,
 .table-last-padding td:last-of-type {
-    padding-right: 0.3rem !important;
-}
+    padding-right: 1rem !important;
+} */
 
 .custom-file-label::after {
     color           : #495057;
@@ -48,4 +48,32 @@
 
 .vh-85 {
 	height: 85vh !important;
+}
+
+.dropzone .dz-preview .dz-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+.img-article {
+    position: absolute;
+    z-index: 100;
+    bottom  : -1.5rem;
+}
+
+.img-article-left {
+    left    : 5px;
+}
+
+.img-article-right {
+    right   : 5px;
+}
+
+.source {
+	font-weight   : 400;
+	font-size     : 14px;
+}
+dd {
+    margin-left: 20px;
 }

@@ -21,8 +21,6 @@ class NewsFactory extends Factory
             'teaser' => $this->faker->paragraph(1),
             'content' => $this->faker->paragraph(5),
             'created_at'=> $this->faker->dateTimeBetween('-20 day', now()),
-            'created_by' => $user_id,
-            'updated_by' => $this->faker->numberBetween(1,5),
         ];
     }
 }

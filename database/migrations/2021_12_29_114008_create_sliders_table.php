@@ -11,14 +11,14 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
+
             $table->boolean('active')->default(1);
             $table->string('heading_1')->nullable();
             $table->string('heading_2')->nullable();
             $table->string('heading_3')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('created_by')->unsigned();
-            $table->bigInteger('updated_by')->unsigned();
         });
     }
 

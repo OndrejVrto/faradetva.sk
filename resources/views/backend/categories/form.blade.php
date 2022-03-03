@@ -3,23 +3,20 @@
     $columns = 6;
     $uploadFiles = 'false';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
-    if ( isset( $category ) ) {
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    if ( isset( $category) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $category->slug;
-        $createdInfo = $category->createdInfo;
-        $createdBy = $category->createdBy;
-        $updatedInfo = $category->updatedInfo;
-        $updatedBy = $category->updatedBy;
+        $identificator = $category->slug;
+        $createdInfo = $category->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $category->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    identificator="{{ $identificator }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <x-adminlte-input

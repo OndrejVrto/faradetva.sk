@@ -1,6 +1,12 @@
 @extends('frontend._layouts.static-page')
 @push('content_header')
     {{-- Prepend content Header --}}
+    <x-banner
+        :header="$pageData['header']"
+        :breadcrumb="$breadCrumb"
+        titleSlug="kalvaria, vyzdoba-kostola-a-kaplnky, torta, tekvice"
+        dimensionSource="full"
+    />
 @endpush
 @prepend('content_footer')
     {{-- After content Footer --}}

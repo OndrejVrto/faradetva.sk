@@ -39,12 +39,12 @@
                     <span class="pe-2">Medzitým choďťe</span>
                     <a class="btn btn-outline-secondary" href="{{ URL::previous() }}" role="button">späť</a>
                     <span class="px-2">prípadne</span>
-                    <a class="btn btn-outline-secondary" href="{{ URL::previous() }}" role="button">domov</a>
+                    <a class="btn btn-outline-secondary" href="{{ route('home') }}" role="button">domov</a>
                 </p>
 
                 <div class="pt-4">
                     <span class="pe-2">alebo sa</span>
-                    <a class="btn btn-outline-danger" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a class="btn btn-outline-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         odhláste
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

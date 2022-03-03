@@ -7,23 +7,33 @@ use App\Models\User;
 trait CreatedUpdatedBy
 {
     public static function bootCreatedUpdatedBy() {
-        // parent::boot();
-        // updating createdBy and updatedBy when model is created
-        static::creating(function ($model) {
-            if (!$model->isDirty('created_by')) {
-                $model->created_by = auth()->user()->id ?? '1';
-            }
-            if (!$model->isDirty('updated_by')) {
-                $model->updated_by = auth()->user()->id ?? '1';
-            }
-        });
+        if (!app()->runningInConsole() && auth()->check()) {
 
-        // updating updatedBy when model is updated
-        static::updating(function ($model) {
-            if (!$model->isDirty('updated_by')) {
-                $model->updated_by = auth()->user()->id ?? '1';
-            }
-        });
+            $isAdmin = Self::isAdmin();
+
+            static::creating(function ($model) use ($isAdmin) {
+                if (!$model->isDirty('created_by')) {
+                    $model->created_by = auth()->id();
+                }
+                if (!$isAdmin) {
+                    if (!$model->isDirty('updated_by')) {
+                        $model->updated_by = auth()->id();
+                    }
+                }
+            });
+
+            static::updating(function ($model) use ($isAdmin) {
+                if (!$isAdmin) {
+                    if (!$model->isDirty('updated_by')) {
+                        $model->updated_by = auth()->id();
+                    }
+                }
+            });
+        }
+    }
+
+    public static function isAdmin() {
+        return auth()->user()->roles->pluck('id')->contains(1);  //* id1 is SuperAdmin
     }
 
     public function getCreatedInfoAttribute() {

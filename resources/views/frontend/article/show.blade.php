@@ -4,13 +4,7 @@
 @section('meta_description', $oneNews->title . ' --> '. $oneNews->teaser )
 @section('content_header', $oneNews->title )
 
-{{-- @section('content_breadcrumb')
-    {{ Breadcrumbs::render('article.show', $oneNews, $oneNews->title )}}
-@stop --}}
-
 @section('content')
-{{-- <a class="btn btn-danger btn-flat w-25 fixed-top mx-auto mt-4" href="{{ URL::previous() }}">Späť do administrácie</a> --}}
-
 <!-- blog section Start -->
 <div class="section blog_single_page pad_t_50 pad_b_30">
     <div class="container">
@@ -52,6 +46,7 @@
 
                     <div class="widget widget_search">
                         <form id="search-form" class="search-form" action="{{ route('article.search') }}">
+                            @csrf
                             <label>
                                 <input type="text" id="search-form-q" name="searchNews" placeholder="Hľadať v článkoch ..." class="search-field">
                             </label>

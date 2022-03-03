@@ -133,7 +133,7 @@ return [
     /* By default wildcard permission lookups are disabled.
     /*/
 
-    'enable_wildcard_permission' => true,
+    'enable_wildcard_permission' => false,
 
     'cache' => [
 
@@ -148,7 +148,7 @@ return [
         /* The cache key used to store all permissions.
         /*/
 
-        'key' => 'spatie.permission.cache',
+        'key' => 'SPATIE_PERMISSION',
 
         /*
         /* You may optionally indicate a specific cache driver to use for permission and

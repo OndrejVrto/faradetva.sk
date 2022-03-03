@@ -9,9 +9,9 @@ use App\Models\User;
 use App\Models\Category;
 use App\Traits\Publishable;
 use Illuminate\Support\Str;
-use App\Traits\CreatedUpdatedBy;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
@@ -24,10 +24,13 @@ class News extends Model implements HasMedia
     use HasFactory;
     use Publishable;
     use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'news';
+
+    public $collectionPicture = 'news_front_picture';
+
+    public $collectionDocument = 'document';
 
     protected $fillable = [
         'active',
@@ -41,8 +44,26 @@ class News extends Model implements HasMedia
         'teaser',
     ];
 
+    /* The number of models to return for pagination. */
+    protected $perPage = 7;
+
     public function getRouteKeyName() {
         return 'slug';
+    }
+
+    public function scopeVisible(Builder $query) {
+        return $query
+                    ->where('active', 1)
+                    ->published()
+                    ->unpublished()
+                    ->latest();
+    }
+
+    public function scopeNewsComplete(Builder $query) {
+        return $query
+                    ->visible()
+                    ->with('media', 'user', 'category')
+                    ->paginate();
     }
 
     public function getTeaserMediumAttribute() {
@@ -53,10 +74,6 @@ class News extends Model implements HasMedia
     public function getTeaserLightAttribute() {
         // return Str::words($this->teaser, 9, '...');
         return Str::limit($this->teaser, 55, '...');
-    }
-
-    public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia('news_front_picture')->file_name ?? null;
     }
 
     public function getCreatedAttribute() {
@@ -83,20 +100,26 @@ class News extends Model implements HasMedia
         return $this->belongsToMany(Tag::class);
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
-        $this->addMediaConversion('large')
-            ->fit("crop", 848, 460)
-            ->optimize()
-            ->withResponsiveImages();
-        $this->addMediaConversion('large-thin')
-            ->fit("crop", 650, 300)
-            ->optimize()
-            ->withResponsiveImages();
-        $this->addMediaConversion('thumb-latest-news')
-            ->fit("crop", 80, 80);
-        $this->addMediaConversion('thumb-all-news')
-            ->fit("crop", 370, 248);
-        $this->addMediaConversion('crop-thumb')
-            ->fit("crop", 170, 92);
+    public function document() {
+        return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionDocument);
+    }
+
+    public function registerMediaConversions(Media $media = null) : void {
+        if ($media->collection_name == $this->collectionPicture) {
+            $this->addMediaConversion('large')
+                ->fit("crop", 848, 460)
+                ->optimize()
+                ->withResponsiveImages();
+            $this->addMediaConversion('large-thin')
+                ->fit("crop", 650, 300)
+                ->optimize()
+                ->withResponsiveImages();
+            $this->addMediaConversion('thumb-latest-news')
+                ->fit("crop", 80, 80);
+            $this->addMediaConversion('thumb-all-news')
+                ->fit("crop", 370, 248);
+            $this->addMediaConversion('crop-thumb')
+                ->fit("crop", 170, 92);
+        }
     }
 }

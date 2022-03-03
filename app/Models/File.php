@@ -4,70 +4,30 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-use App\Models\StaticPage;
-use App\Traits\CreatedUpdatedBy;
+
+use App\Models\Source;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Haruncpi\LaravelUserActivity\Traits\Loggable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class File extends Model implements HasMedia
 {
-    use Loggable;
-    use HasFactory;
-    use SoftDeletes;
-    use CreatedUpdatedBy;
     use InteractsWithMedia;
 
     protected $table = 'files';
 
+    public $collectionName = 'attachment';
+
     protected $fillable = [
-        'file_type_id',
-        'static_page_id',
-        'name',
+        'title',
         'slug',
-        'author',
-        'description',
-        'source',
     ];
 
-    public function fileType() {
-        return $this->belongsTo(FileType::class, 'file_type_id');
+    public function getRouteKeyName() {
+        return 'slug';
     }
 
-    public function page() {
-        return $this->belongsTo(StaticPage::class, 'static_page_id');
+    public function source() {
+        return $this->morphOne(Source::class, 'sourceable');
     }
-
-    // public function registerMediaCollections( Media $media = null ) : void {
-    //     $this->addMediaCollection('banner')
-    //         ->singleFile()
-    //         ->registerMediaConversions(function (Media $media = null) {
-    //             $this->addMediaConversion('crop')
-    //                 ->fit("crop", 100, 100);
-    //             $this->addMediaConversion('crop-thumb')
-    //                 ->fit("crop", 40, 40);
-    //         });
-
-    //     $this->addMediaCollection('document');
-
-    //     $this->addMediaCollection('galery')
-    //         ->registerMediaConversions(function (Media $media = null) {
-    //             $this->addMediaConversion('crop')
-    //                 ->fit("crop", 500, 500);
-    //         });
-
-    //     $this->addMediaCollection('picture')
-    //         ->singleFile()
-    //         ->registerMediaConversions(function (Media $media = null) {
-    //             $this->addMediaConversion('crop')
-    //                 ->fit("crop", 10, 10);
-    //         });
-    // }
-
-    // public function getMediaFileNameAttribute() {
-    //     return $this->getFirstMedia('testimonial')->file_name ?? null;
-    // }
 }

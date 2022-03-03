@@ -16,28 +16,41 @@ class MinifiHtmlMiddleware
      */
     public function handle(Request $request, Closure $next) {
         $response = $next($request);
-        $content = $response->getContent();
 
-        $minifi = $this->minifi( $content );
-
-        $response->setContent($minifi);
+        if ( !in_array(env('APP_ENV'), ['local', 'dev'])) {
+            $content = $response->getContent();
+            $minifi = $this->minifi($content);
+            $response->setContent($minifi);
+        }
 
         return $response;
     }
 
     private function minifi($htmlString) {
         $search = array(
-            '/\>[^\S ]+/s',     // strip whitespaces after tags, except space
-            '/[^\S ]+\</s',     // strip whitespaces before tags, except space
-            '/(\s)+/s',         // shorten multiple whitespace sequences
-            '/<!--(.|\s)*?-->/' // Remove HTML comments
+            // '/\>[^\S ]+/s',     // strip whitespaces after tags, except space
+            // '/[^\S ]+\</s',     // strip whitespaces before tags, except space
+            // '/(\s)+/s',         // shorten multiple whitespace sequences
+            '/<!--(.|\s)*?-->/', // Remove HTML comments
+            "/\n([\S])/",
+            "/\r/",
+            "/\n/",
+            "/\t/",
+            "/ +/",
+            "/> +</",
         );
 
         $replace = array(
-            '>',
-            '<',
-            '\\1',
-            ''
+            // '>',
+            // '<',
+            // '\\1',
+            '',
+            '$1',
+            '',
+            '',
+            '',
+            ' ',
+            '><',
         );
 
         return preg_replace($search, $replace, $htmlString);

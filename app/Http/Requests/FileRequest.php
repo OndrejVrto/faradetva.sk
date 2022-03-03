@@ -6,9 +6,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\SourceRequest;
 
-class FileRequest extends FormRequest
+class FileRequest extends SourceRequest
 {
     public function authorize(): bool {
         return true;
@@ -20,39 +20,17 @@ class FileRequest extends FormRequest
         } else if (request()->routeIs('files.update')) {
             $fileRule = 'nullable';
         }
-        return [
-            'static_page_id' => [
-                'required',
-                'exists:static_pages,id'
-            ],
-            'file_type_id' => [
-                'required',
-                'exists:file_types,id'
-            ],
-            'name' => [
+
+        return parent::rules() + [
+            'title' => [
                 'required',
                 'string',
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('files', 'slug')->ignore($this->file)->whereNull('deleted_at')
+                Rule::unique('files', 'slug')->ignore($this->file),
             ],
-            'author' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'description' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'source' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'file' => [
+            'attachment' => [
                 $fileRule,
                 'file',
                 'max:10000'
@@ -62,7 +40,7 @@ class FileRequest extends FormRequest
 
     protected function prepareForValidation() {
         $this->merge([
-            'slug' => Str::slug($this->name)
+            'slug' => Str::slug($this->title)
         ]);
     }
 }

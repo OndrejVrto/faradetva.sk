@@ -3,23 +3,20 @@
     $columns = 6;
     $uploadFiles = 'true';
 
-    $typeForm = $identificatorEdit = $createdInfo = $createdBy = $updatedInfo = $updatedBy = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $notice ) ) {
         $typeForm = 'edit';
-        $identificatorEdit = $notice->id;
-        $createdInfo = $notice->createdInfo;
-        $createdBy = $notice->createdBy;
-        $updatedInfo = $notice->updatedInfo;
-        $updatedBy = $notice->updatedBy;
+        $identificator = $notice->slug;
+        $createdInfo = $notice->created_at->format('d. m. Y \o H:i');
+        $updatedInfo = $notice->updated_at->format('d. m. Y \o H:i');
     }
 @endphp
 
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
-    identificatorEdit="{{ $identificatorEdit }}"
-    createdInfo="{{ $createdInfo }}" createdBy="{{ $createdBy }}"
-    updatedInfo="{{ $updatedInfo }}" updatedBy="{{ $updatedBy }}"
+    identificator="{{ $identificator }}"
+    createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
     <input type="hidden" name="timezone" id="timezone">
@@ -29,22 +26,14 @@
         <div class="form-group">
             <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success"
                 title="Zaškrtni keď chceš aby sa zobrazoval oznam na stránke.">
+                <input type="hidden" name="active" value="0">
                 <input
-                    name="active"
                     type="checkbox"
+                    name="active"
                     class="custom-control-input"
                     id="customSwitch3"
-
-                    @if (!is_null(Session::get('notices_old_input_checkbox')))
-                        {{ Session::get('notices_old_input_checkbox') == 1 ? 'checked' : '' }}
-                    @else
-                        @if( isset($notice) )
-                            {{ $notice->active == 1 ? 'checked' : '' }}
-                        @else
-                            checked
-                        @endif
-                    @endif
-
+                    value="1"
+                    {{ (( $notice->active ?? (old('active') === "0" ? 0 : 1) ) OR old('active', 0) === 1) ? 'checked' : '' }}
                 >
                 <label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
             </div>
@@ -56,6 +45,7 @@
         name="notice_file"
         class="border-right-none"
         label="Pdf súbor"
+        accept=".pdf"
         {{-- placeholder="{{ $notice->media_file_name ?? 'Vložiť obrázok ...' }}" --}}
         placeholder="{{ $notice->media_file_name ?? '' }}"
         >
