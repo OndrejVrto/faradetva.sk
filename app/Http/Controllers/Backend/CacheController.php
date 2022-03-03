@@ -25,6 +25,7 @@ class CacheController extends Controller
         Artisan::call('optimize:clear');
         Artisan::call('permission:cache-reset');
         Artisan::call('schedule:clear-cache');
+        Artisan::call('debugbar:clear');
         toastr()->info(__('app.cache.stop'));
         return to_route('admin.dashboard');
     }
@@ -36,6 +37,7 @@ class CacheController extends Controller
         Artisan::call('event:cache');
         Artisan::call('permission:cache-reset');
         Artisan::call('schedule:clear-cache');
+        Artisan::call('debugbar:clear');
         toastr()->info(__('app.cache.reset'));
         return to_route('admin.dashboard');
     }
