@@ -6,7 +6,7 @@
 
 @push('js')
     <!-- map js -->
-    <script>
+    <script @nonce>
           // Initialize and add the map
 
         let map;
@@ -56,7 +56,7 @@
 
     </script>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_API_KEY') }}&callback=initMap"></script>
+    <script @nonce async src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_API_KEY') }}&callback=initMap"></script>
 
     <!-- google map script -->
 @endpush

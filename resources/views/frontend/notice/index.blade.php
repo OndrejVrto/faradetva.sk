@@ -1,12 +1,12 @@
 @extends('frontend._layouts.page')
 
-@section('title', 'Hľadať' )
-@section('meta_description', 'Vyhľadávanie medzi čLánkami.' )
-@section('content_header', 'Hľadaný výraz: XXX' )
+@section('title', 'Oznamy' )
+@section('meta_description', 'Farské oznmy na nasledujúce obdobie.' )
 
 @push('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
-    <script src="{{ asset('asset/frontend/js/mainPDF.js') }}"></script>
+    <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
+    <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <script @nonce src="{{ asset('asset/frontend/js/mainPDF.js') }}"></script>
 @endpush
 
 @section('content')
@@ -19,10 +19,10 @@
                     <div class="notice_heading_section">
                         <h1>{{ $notice->title }}</h1>
                         <div class="d-flex justify-content-evenly mt-3">
-                            <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" onclick="main{{ $loop->iteration }}.showPrevPage()">
+                            <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" id="btn-prev-{{ $loop->iteration }}">
                                 Predošlá strana
                             </button>
-                            <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" onclick="main{{ $loop->iteration }}.showNextPage()">
+                            <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" id="btn-next-{{ $loop->iteration }}">
                                 Ďalšia strana
                             </button>
                         </div>
@@ -40,8 +40,14 @@
                 </div>
 
                 @push('js')
-                    <script>
+                    <script @nonce>
                         let main{{ $loop->iteration }} = new Main("{{ $notice->getFirstMedia('notice_pdf')->getUrl() }}", "#pdfArea{{ $loop->iteration }}");
+                        document.getElementById("btn-prev-{{ $loop->iteration }}").addEventListener('click', function(){
+                            main{{ $loop->iteration }}.showPrevPage();
+                        });
+                        document.getElementById("btn-next-{{ $loop->iteration }}").addEventListener('click', function(){
+                            main{{ $loop->iteration }}.showNextPage();
+                        });
                     </script>
                 @endpush
             @empty

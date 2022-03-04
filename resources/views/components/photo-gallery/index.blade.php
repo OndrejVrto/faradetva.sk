@@ -30,7 +30,7 @@
     @push('css')
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/blueimp-gallery/css/blueimp-gallery.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/justified-gallery/css/justifiedGallery.min.css') }}">
-        <style>
+        <style @nonce>
             .justified-gallery > .jg-entry:hover img {
                 filter: brightness(70%);
                 -webkit-transition: .2s ease-in-out;
@@ -40,9 +40,9 @@
     @endpush
 
     @push('js')
-        <script type="text/javascript" src="{{ asset('vendor/justified-gallery/js/jquery.justifiedGallery.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('vendor/blueimp-gallery/js/blueimp-gallery.min.js') }}"></script>
-        <script>
+        <script @nonce type="text/javascript" src="{{ asset('vendor/justified-gallery/js/jquery.justifiedGallery.min.js') }}"></script>
+        <script @nonce type="text/javascript" src="{{ asset('vendor/blueimp-gallery/js/blueimp-gallery.min.js') }}"></script>
+        <script @nonce>
             $('.gallery').each(function (i, el) {
                 $(el).justifiedGallery({
                     rel: 'gallery-item-' + i,

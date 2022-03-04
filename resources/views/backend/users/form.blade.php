@@ -240,7 +240,7 @@
 
 @push('js')
     @role('Super Administrátor')
-        <script type="text/javascript">
+        <script @nonce type="text/javascript">
             $(document).ready(function() {
                 $('[name="all_permission"]').on('click', function() {
 

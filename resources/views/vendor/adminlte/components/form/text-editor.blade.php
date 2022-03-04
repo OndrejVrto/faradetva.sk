@@ -12,7 +12,7 @@
 {{-- Add plugin initialization and configuration code --}}
 
 @push('js')
-<script>
+<script @nonce>
 
     $(() => {
         let usrCfg = @json($config);
@@ -42,7 +42,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style @nonce type="text/css">
 
     {{-- SM size setup --}}
     .input-group-sm .note-editor {

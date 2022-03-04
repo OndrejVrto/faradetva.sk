@@ -61,7 +61,7 @@
                     $controlerName . '.create',
                     $controlerName . '.store'
                 ])
-                    <div class="col-md-4 mt-lg-n5 d-flex justify-content-end align-items-end px-1">
+                    <div class="col-md-4 mt-lg-n5 d-flex justify-content-end align-items-end">
                         <a href="{{ $createLink }}" class="btn bg-gradient-warning btn-flat flex-fill flex-lg-grow-0 px-4" title="Vytvoriť">
                             {{ $createBtn }}
                         </a>
@@ -69,8 +69,15 @@
                 @endcan
             </div>
 
-            <div class="card mx-2 mx-lg-3">
+            @isset($top)
+                <div class="card-header row border-0 pt-0">
+                    <div class="col">
+                        {{ $top }}
+                    </div>
+                </div>
+            @endisset
 
+            <div class="card mx-2 mx-lg-3">
                 <div class="card-body table-responsive p-0">
                     <table class="table table-sm table-hover table-middle-align table-striped table-last-padding">
                         <thead>

@@ -13,7 +13,7 @@
 {{-- Add plugin initialization and configuration code --}}
 
 @push('js')
-<script>
+<script @nonce>
 
     $(() => {
         $('#{{ $id }}').selectpicker( @json($config) );

@@ -11,7 +11,11 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     public function __invoke(): View  {
-        $pages = StaticPage::select('title', 'url')->get();
+        $pages = StaticPage::select([
+            'title',
+            'url',
+            'check_url'
+        ])->orderBy('slug')->get();
 
         return view('backend.dashboard.index', compact('pages'));
     }

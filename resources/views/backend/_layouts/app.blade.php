@@ -8,15 +8,15 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('asset/backend/css/admin_custom.css') }}">
-    {{-- <script src="{{ asset('vendor/debugbar.js') }}"></script> --}}
 @endpush
 
 @push('js')
-    <script src="{{ asset('asset/backend/js/admin_app.js') }}"></script>
-    <script src="{{ asset('asset/backend/js/admin_custom.js') }}"></script>
-    @toastr_js
-    @toastr_render
-    <script>
+    <script @nonce src="{{ asset('asset/backend/js/admin_app.js') }}"></script>
+    <script @nonce src="{{ asset('asset/backend/js/admin_custom.js') }}"></script>
+
+    @toastr_render(csp_nonce())
+
+    <script @nonce>
         var myTimer = new Timer({
             minutes: {{ config('session.lifetime') }},
             seconds: 0,

@@ -11,8 +11,8 @@
     <x-admin-table
         columns="120"
         controlerName="static-pages"
-        createBtn="Prisať novú statickú stránku"
-        paginator="{{ $pages->onEachSide(1)->links() }}"
+        createBtn="Pridať novú statickú stránku"
+        {{-- paginator="{{ $pages->onEachSide(1)->links() }}" --}}
         >
 
         <x-slot name="table_header">
@@ -24,22 +24,25 @@
             <x-admin-table.th-actions/>
         </x-slot>
 
+        <x-slot name="top">
+            <div class="d-flex justify-content-end">
+                @can('cache.check.url')
+                    <a href="{{ route('cache.check.url') }}" class="btn btn-outline-info mx-2">Scanovať iba nové URL</a>
+                @endcan
+                @can('cache.check.all-url')
+                    <a href="{{ route('cache.check.all-url') }}" class="btn btn-outline-info mx-2">Scanovať <strong>všetky</strong> URL</a>
+                @endcan
+            </div>
+        </x-slot>
+
         <x-slot name="table_body">
             @foreach($pages as $page)
-                @php
-                    //** Check if the Url works
-                    $url = config('app.url') . '/' . $page->url;
-                    $exists = Cache::remember(Str::slug($url), now()->addHour(5), function () use($url) {
-                        $headers = @get_headers($url);
-                        return ($headers && strpos( $headers[0], '200')) ? true : false;
-                    });
-                @endphp
                 <tr>
                     {{-- <x-admin-table.td>{{$page->id}}</x-admin-table.td> --}}
                     <x-admin-table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-admin-table.td>
-                    <x-admin-table.td-check-active check="{{ $exists }}"/>
+                    <x-admin-table.td-check-active check="{{ $page->check_url }}"/>
                     <x-admin-table.td class="text-wrap text-break">
-                        <a href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+                        <a href="{{ config('app.url').'/'.$page->url }}" target="_blank" rel="noopener noreferrer">
                             <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}
                         </a>
                     </x-admin-table.td>

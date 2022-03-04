@@ -1,4 +1,4 @@
-<div class="modal model_overlay fade" id="modalSearch" tabindex="-1" role="dialog" style="display: none;">
+<div class="modal model_overlay fade" id="modalSearch" tabindex="-1" role="dialog" >
 	<div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -19,7 +19,7 @@
 </div>
 
 @push('js')
-    <script>
+    <script @nonce>
         var myModal = document.getElementById('modalSearch');
         var myInput = document.getElementById('inputSearch');
 

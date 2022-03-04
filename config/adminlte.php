@@ -581,6 +581,21 @@ return [
                 ],
             ],
         ],
+        'Dropzone' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/dropzone/5.9.3/dropzone.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/dropzone/5.9.3/dropzone.min.js',
+                ],
+            ],
+        ],
         'Moment' => [
             'active' => true,
             'files' => [

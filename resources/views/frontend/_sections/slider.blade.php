@@ -30,7 +30,7 @@
 @endphp
 
 @push('css')
-<style>
+<style @nonce>
     /* Responsive background images for Slider N.{{ $loop->iteration }} */
 
     /* Extra small devices (portrait phones, less than 576px) */

@@ -73,7 +73,7 @@
 </x-admin-form>
 
 @push('js')
-    <script type="text/javascript">
+    <script @nonce type="text/javascript">
         $(document).ready(function() {
             $('[name="all_permission"]').on('click', function() {
 
