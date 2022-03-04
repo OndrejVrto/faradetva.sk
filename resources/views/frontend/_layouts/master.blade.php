@@ -47,7 +47,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('favicons/android-chrome-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="256x256"  href="{{ asset('favicons/android-chrome-256x256.png') }}">
-    <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}">
+    <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}" crossorigin="use-credentials">
     <link rel="mask-icon" href="{{ asset('favicons/safari-pinned-tab.svg') }}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="{{ asset('favicon/mstile-144x144.png') }}">
