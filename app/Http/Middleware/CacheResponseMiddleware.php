@@ -8,6 +8,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 
 class CacheResponseMiddleware
@@ -37,8 +38,9 @@ class CacheResponseMiddleware
         if (Cache::has($this->key)) {
             return;
         }
-
-        Cache::put($this->key, $response->getContent(), $this->time);
+        if ($response->getStatusCode() === Response::HTTP_OK) {
+            Cache::put($this->key, $response->getContent(), $this->time);
+        }
     }
 
     private function cacheKey(Request $request): string {
