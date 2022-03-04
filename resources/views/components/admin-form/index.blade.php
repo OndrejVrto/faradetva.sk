@@ -131,7 +131,7 @@
 </div>
 
 @push('js')
-    <script>
+    <script @nonce>
         $('#btnSave').click(function() {
             $('#btnSave')
                 .html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Ukladám...')

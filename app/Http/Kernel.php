@@ -31,9 +31,6 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \App\Http\Middleware\PreetyHtmlMiddleware::class,
-            // \App\Http\Middleware\MinifiHtmlMiddleware::class,
-
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
@@ -72,5 +69,7 @@ class Kernel extends HttpKernel
         'permission' => \App\Http\Middleware\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'cache_response' => \App\Http\Middleware\CacheResponseMiddleware::class,
+        'csp.headers' => \Spatie\Csp\AddCspHeaders::class,
+        'preety.html' => \App\Http\Middleware\PreetyHtmlMiddleware::class,
     ];
 }

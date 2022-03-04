@@ -41,7 +41,7 @@
 
 @once
 @push('js')
-<script>
+<script @nonce>
 
     class _AdminLTE_SmallBox {
 

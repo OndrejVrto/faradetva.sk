@@ -14,15 +14,25 @@
 </div>
 
 @push('js')
-    <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-    <script>
+    <script @nonce src="{{ asset('vendor/tinymce/tinymce.js') }}" referrerpolicy="origin"></script>
+    <script @nonce>
         var editor_config = {
             path_absolute : "/",
             selector: 'textarea#editorContent',
             language: 'sk',
             relative_urls: false,
+
+            // basic
             // plugins: 'code table lists',
-            plugins: 'code lists print preview powerpaste casechange tinydrive searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime checklist wordcount a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed tinycomments mentions linkchecker emoticons advtable export',
+
+            // full with premium
+            // plugins: 'advlist anchor autolink autoresize autosave bbcode charmap code codesample colorpicker contextmenu directionality emoticons fullpage fullscreen help hr image imagetools importcss insertdatetime legacyoutput link lists media nonbreaking noneditable pagebreak paste preview print quickbars save searchreplace spellchecker tabfocus table template textcolor textpattern toc visualblocks visualchars wordcount',
+
+            //full without premium
+            // plugins: 'advlist anchor autolink autoresize autosave charmap code codesample directionality emoticons fullscreen help hr image importcss insertdatetime link lists media nonbreaking noneditable pagebreak paste preview print quickbars save searchreplace tabfocus table template textpattern visualblocks visualchars wordcount',
+
+            // optimal
+            plugins: 'anchor autolink autosave code codesample directionality emoticons fullscreen help hr charmap image insertdatetime link lists media nonbreaking noneditable pagebreak preview print save searchreplace table template textpattern visualblocks visualchars wordcount',
 
             toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | link image media",
             toolbar_mode: 'floating',

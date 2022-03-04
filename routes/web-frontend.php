@@ -9,7 +9,7 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\NoticesController;
 
 //! FrontEnd Routes
-Route::middleware('cache_response')->group(function (){
+Route::middleware('cache_response', 'csp.headers', 'preety.html')->group(function (){
 
     Route::get('/', HomeController::class)->name('home');
     Route::get('kontakt', ContactController::class)->name('contact');

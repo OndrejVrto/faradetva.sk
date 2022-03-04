@@ -19,7 +19,7 @@
 @endsection
 
 @push('js')
-    <script>
+    <script @nonce>
         $('.iframe-full-height').on('load', function(){
             this.style.height=this.contentWindow.document.body.scrollHeight + 'px'
         });

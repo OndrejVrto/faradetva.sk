@@ -9,15 +9,8 @@
     @enderror
 </div>
 
-@push('css')
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" /> --}}
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-@endpush
-
 @push('js')
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script> --}}
-    <script>
+    <script @nonce>
         var uploadedDocumentMap = {}
 
         Dropzone.options.documentDropzone = {

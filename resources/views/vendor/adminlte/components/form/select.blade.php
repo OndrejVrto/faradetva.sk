@@ -14,7 +14,7 @@
 
 @if($errors->any() && $enableOldSupport)
 @push('js')
-<script>
+<script @nonce>
 
     $(() => {
 

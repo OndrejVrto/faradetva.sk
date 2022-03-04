@@ -11,7 +11,7 @@
 {{-- Add plugin initialization and configuration code --}}
 
 @push('js')
-<script>
+<script @nonce>
 
     $(() => {
         $('#{{ $id }}').bootstrapSwitch( @json($config) );
@@ -33,7 +33,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style @nonce type="text/css">
 
     {{-- MD (default) size setup --}}
     .input-group .bootstrap-switch-handle-on,

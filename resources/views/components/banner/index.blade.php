@@ -26,7 +26,7 @@
 
 @once
     @push('css')
-        <style>
+        <style @nonce>
         /* Responsive background images for Banner */
 
         /* Extra small devices (portrait phones, less than 576px) */

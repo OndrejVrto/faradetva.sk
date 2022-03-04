@@ -37,7 +37,7 @@
 {{-- Add plugin initialization and configuration code --}}
 
 @push('js')
-<script>
+<script @nonce>
 
     $(() => {
         $('#{{ $id }}').DataTable( @json($config) );
@@ -50,7 +50,7 @@
 
 @isset($beautify)
     @push('css')
-    <style type="text/css">
+    <style @nonce type="text/css">
         #{{ $id }} tr td,  #{{ $id }} tr th {
             vertical-align: middle;
             text-align: center;
