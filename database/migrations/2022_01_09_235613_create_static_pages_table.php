@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('keywords')->nullable();
             $table->string('author')->nullable();
             $table->string('header')->nullable();
+            $table->boolean('check')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

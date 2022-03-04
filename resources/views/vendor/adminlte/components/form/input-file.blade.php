@@ -22,7 +22,7 @@
 
 {{-- @once
 @push('js')
-<script>
+<script @nonce>
 
     $(() => {bsCustomFileInput.init();})
 
@@ -35,7 +35,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style @nonce type="text/css">
 
     {{-- SM size setup --}}
     .input-group-sm .custom-file-label:after {

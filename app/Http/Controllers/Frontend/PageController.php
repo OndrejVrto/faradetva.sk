@@ -24,9 +24,9 @@ class PageController extends Controller
             $breadCrumb = (string) Breadcrumbs::render('pages.others', true, $arr );
 
             return view($pageData['route'], compact('pageData', 'breadCrumb'));
-        } else {
-            abort(Response::HTTP_NOT_FOUND);
         }
+
+        abort(Response::HTTP_NOT_FOUND);
     }
 
     private function getPageData(string $path): array|null {

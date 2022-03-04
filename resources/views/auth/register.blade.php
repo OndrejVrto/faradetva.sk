@@ -5,5 +5,5 @@
 @stop
 
 @section('js')
-    <script src="{{ mix('asset/backend/js/admin_custom.js') }}"></script>
+    <script @nonce src="{{ mix('asset/backend/js/admin_custom.js') }}"></script>
 @stop

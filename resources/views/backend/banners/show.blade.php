@@ -27,11 +27,16 @@
         typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
         createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
-        <div class="row" style="min-height: 480px">
-            <div class="col border border-2 border-warning p-3">
-                <div class="w-100">
-                    <x-banner titleSlug="{{ $banner->slug }}"/>
-                </div>
+        <h1>{{ $banner->title }}</h1>
+
+        <div class="row container-banner-show">
+            <div class="col border border-2 border-warning p-3 pb-5">
+                <x-banner
+                    {{-- :header="$banner->title" --}}
+                    {{-- :breadcrumb="" --}}
+                    :titleSlug="$banner->slug"
+                    dimensionSource="full"
+                />
             </div>
         </div>
 

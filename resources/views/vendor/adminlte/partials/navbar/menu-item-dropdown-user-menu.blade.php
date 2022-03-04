@@ -39,7 +39,7 @@
         {{-- User menu header --}}
         @if(!View::hasSection('usermenu_header') && config('adminlte.usermenu_header'))
             <li class="user-header {{ config('adminlte.usermenu_header_class', 'bg-primary') }}
-                @if(!config('adminlte.usermenu_image')) h-auto @endif" style="height: 230px;">
+                @if(!config('adminlte.usermenu_image')) h-auto @endif">
                 @if(config('adminlte.usermenu_image'))
                     <img src="{{ $userImage }}"
                         class="img-circle elevation-2"
@@ -81,17 +81,19 @@
                     </a>
                 @endif
             @endcan
-            <a class="btn btn-default btn-flat float-right @if(!$profile_url) btn-block @endif"
-                href="#"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="fa fa-fw fa-power-off text-red"></i>
-                    {{ __('adminlte::adminlte.log_out') }}
-            </a>
-            <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
+            <form class="float-right" id="logout-form" action="{{ $logout_url }}" method="POST">
                 @csrf
                 @if(config('adminlte.logout_method'))
                     {{ method_field(config('adminlte.logout_method')) }}
                 @endif
+                <button
+                    class="btn btn-default btn-flat @if(!$profile_url) btn-block @endif"
+                    href="#"
+                    type="submit"
+                >
+                    <i class="fa fa-fw fa-power-off text-red"></i>
+                    {{ __('adminlte::adminlte.log_out') }}
+            </button>
             </form>
         </li>
 

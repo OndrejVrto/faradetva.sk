@@ -9,13 +9,15 @@
 return [
 
     'cache' => [
-        'start'      => 'Boli spustené všetky typy cache okrem dátových.',
-        'stop'       => 'Boli vymazané všetky typy cache okrem dátových.',
-        'reset'      => 'Boli vymazané a opäť spustené všetky typy cache okrem dátových.',
-        'data-start' => 'Boli spustené dátové cache.',
-        'data-stop'  => 'Boli vymazané dátové cache.',
-        'data-reset' => 'Boli vymazané a znovu spustené dátové cache.',
-        'info'       => 'Informácie o behovom prostredí PHP.',
+        'start'                      => 'Boli spustené všetky typy cache okrem dátových.',
+        'stop'                       => 'Boli vymazané všetky typy cache okrem dátových.',
+        'reset'                      => 'Boli vymazané a opäť spustené všetky typy cache okrem dátových.',
+        'data-start'                 => 'Boli spustené dátové cache.',
+        'data-stop'                  => 'Boli vymazané dátové cache.',
+        'data-reset'                 => 'Boli vymazané a znovu spustené dátové cache.',
+        'info'                       => 'Informácie o behovom prostredí PHP.',
+        'check-all-url-static-pages' => 'Skenovanie všetkých URL prebehlo úspešne.',
+        'check-url-static-pages'     => 'Skenovanie neaktívnych URL prebehlo úspešne.',
     ],
 
     'permission'   => [

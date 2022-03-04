@@ -6,12 +6,12 @@
 
 @once
     @push('js')
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script @nonce src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @endpush
 @endonce
 
 @push('js')
-    <script>
+    <script @nonce>
         const data{{ $graph['id'] }} = {
             labels: [
                 {{ $graph['labelGraph'] }}

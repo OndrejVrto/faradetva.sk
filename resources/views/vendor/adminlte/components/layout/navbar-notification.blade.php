@@ -43,7 +43,7 @@
 
 @if (! is_null($makeUpdateUrl()) && $makeUpdatePeriod() > 0)
 @push('js')
-<script>
+<script @nonce>
 
     $(() => {
 
@@ -84,7 +84,7 @@
 
 @once
 @push('js')
-<script>
+<script @nonce>
 
     class _AdminLTE_NavbarNotification {
 

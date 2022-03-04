@@ -31,9 +31,11 @@
                 {{-- <x-admin-table.td>{{$testimonial->id}}</x-admin-table.td> --}}
                 <x-admin-table.td-check-active check="{{ $testimonial->active }}"/>
                 <x-admin-table.td class="text-center">
-                    <img src="{{ $testimonial->getFirstMediaUrl($testimonial->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x60" }}"
-                    class="img-fluid" style="width: 60px;"
-                    alt="Fotografia: {{ $testimonial->full_name_titles }}, {{ $testimonial->function }}"/>
+                    <img
+                        src="{{ $testimonial->getFirstMediaUrl($testimonial->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x60" }}"
+                        class="img-fluid priest-thumb"
+                        alt="Fotografia: {{ $testimonial->full_name_titles }}, {{ $testimonial->function }}"
+                    />
                 </x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$testimonial->name}}</x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{$testimonial->function}}</x-admin-table.td>

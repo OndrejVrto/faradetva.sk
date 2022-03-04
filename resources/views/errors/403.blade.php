@@ -44,11 +44,11 @@
 
                 <div class="pt-4">
                     <span class="pe-2">alebo sa</span>
-                    <a class="btn btn-outline-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        odhláste
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
+                        <button class="btn btn-outline-danger" href="#" type="submit">
+                            odhláste
+                        </button>
                     </form>
                 </div>
             </div>

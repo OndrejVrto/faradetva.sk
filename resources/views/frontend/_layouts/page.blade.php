@@ -15,17 +15,17 @@
 
     @stack('css')
     @yield('css')
-    {{-- <script src="{{ asset('vendor/debugbar.js') }}"></script> --}}
+    {{-- <script @nonce src="{{ asset('vendor/debugbar.js') }}"></script> --}}
 @stop
 
 @section('js_master')
-    <script type="text/javascript" src="{{ asset('asset/frontend/js/jquery.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/frontend/js/bootstrap-5.1.3/bootstrap.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/owl-crousel/owl.carousel.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/wow.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/jquery.appear.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/frontend/js/plugins/counter/jquery.countTo.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/frontend/js/custom.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/jquery.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/bootstrap-5.1.3/bootstrap.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/owl-crousel/owl.carousel.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/wow.min.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/jquery.appear.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/counter/jquery.countTo.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom.js') }}"></script>
 
     {{-- Custom Scripts --}}
     @stack('js')

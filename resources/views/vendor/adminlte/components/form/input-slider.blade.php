@@ -11,7 +11,7 @@
 {{-- Add plugin initialization and configuration code --}}
 
 @push('js')
-<script>
+<script @nonce>
 
     $(() => {
         let usrCfg = @json($config);
@@ -72,7 +72,7 @@
 {{-- NOTE: this may change with newer plugin versions --}}
 
 @push('css')
-<style type="text/css">
+<style @nonce type="text/css">
 
     {{-- Setup plugin color --}}
 
@@ -113,7 +113,7 @@
 
 @once
 @push('css')
-<style type="text/css">
+<style @nonce type="text/css">
 
     .adminlte-invalid-islgroup .slider-track,
     .adminlte-invalid-islgroup > .input-group-prepend > *,
