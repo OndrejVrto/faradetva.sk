@@ -1,5 +1,5 @@
 <!-- Banner section Start -->
-<div class="section ch_banner_wrapper banner-img">
+<div class="section ch_banner_wrapper banner-img h-100">
     <div class="black_overlay">
         <div class="container">
             <div class="row">
@@ -10,9 +10,11 @@
                 />
                 <div class="col-12">
                     <div class="banner_heading">
+                        @isset($header)
                         <div class="page_heading">
                             <h2>{{ $header }}</h2>
                         </div>
+                        @endisset
                         @isset($breadcrumb)
                             {!! $breadcrumb !!}
                         @endisset

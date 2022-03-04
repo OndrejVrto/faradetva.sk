@@ -51,6 +51,8 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
         Route::get('caches-data-stop', 'cacheDataStop')->name('data.stop');
         Route::get('caches-data-start', 'cacheDataStart')->name('data.start');
         Route::get('caches-data-reset', 'cacheDataReset')->name('data.reset');
+        Route::get('check-url-static-pages', 'checkUrlStaticPages')->name('check.url');
+        Route::get('check-all-url-static-pages', 'checkAllUrlStaticPages')->name('check.all-url');
     });
 
     //!  Filemanager for Static-pages

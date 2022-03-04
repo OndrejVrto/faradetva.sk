@@ -21,7 +21,7 @@
                 'cache.stop',
                 'cache.reset',
             )
-                <div class="col-lg-5">
+                <div class="col-lg-8">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="text-muted">
@@ -36,7 +36,26 @@
                                 <a href="{{ route('cache.reset') }}" class="btn btn-warning m-2">Optimize RESET</a>
                             @endcan
                             @can('cache.stop')
-                                <a href="{{ route('cache.stop') }}" class="btn btn-danger m-2" ">Optimize STOP</a>
+                                <a href="{{ route('cache.stop') }}" class="btn btn-danger m-2">Optimize STOP</a>
+                            @endcan
+                        </div>
+                    </div>
+                </div>
+            @endcan
+
+            @can(
+                'cache.info',
+            )
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-muted">
+                                Info
+                            </h3>
+                        </div>
+                        <div class="card-body d-flex flex-wrap justify-content-center">
+                            @can('cache.info')
+                                <a href="{{ route('cache.info') }}" class="btn btn-info m-2">PHP info</a>
                             @endcan
                         </div>
                     </div>
@@ -48,7 +67,7 @@
                 'cache.data.stop',
                 'cache.data.reset',
             )
-                <div class="col-lg-5">
+                <div class="col-lg-8">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="text-muted">
@@ -71,18 +90,22 @@
             @endcan
 
             @can(
-                'cache.info',
+                'cache.check.url',
+                'cache.check.all-url',
             )
-                <div class="col-lg-2">
+                <div class="col-lg-4">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="text-muted">
-                                Info
+                                Statické stránky
                             </h3>
                         </div>
                         <div class="card-body d-flex flex-wrap justify-content-center">
-                            @can('cache.info')
-                                <a href="{{ route('cache.info') }}" class="btn btn-info m-2">PHP info</a>
+                            @can('cache.check.url')
+                                <a href="{{ route('cache.check.url') }}" class="btn btn-info m-2">Scanovať nové URL statických stránok</a>
+                            @endcan
+                            @can('cache.check.all-url')
+                                <a href="{{ route('cache.check.all-url') }}" class="btn btn-info m-2">Scanovať všetky URL</a>
                             @endcan
                         </div>
                     </div>
@@ -109,16 +132,10 @@
                         <h3 class="text-muted">Zoznam statických stránok</h3>
                     </div>
                     <div class="card-body">
-                        {{-- @foreach($pages as $page)
+                        @foreach($pages as $page)
                             <div class="row py-1">
-                                @php
-                                    //** Check if the Url works
-                                    $url = config('app.url') . '/' . $page->url;
-                                    $headers = @get_headers($url);
-                                    $exists = ($headers && strpos( $headers[0], '200')) ? true : false;
-                                @endphp
                                 <div class="col-4">
-                                    @if ($exists)
+                                    @if ($page->check_url == 1)
                                         <i class="fas fa-check fa-lg text-success mr-3"></i>
                                     @else
                                         <i class="far fa-times-circle fa-lg text-danger mr-3"></i>
@@ -126,12 +143,12 @@
                                     {{ $page->title }}
                                 </div>
                                 <div class="col-8">
-                                    <a href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+                                    <a href="{{ config('app.url').'/'.$page->url }}" target="_blank" rel="noopener noreferrer">
                                         <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}
                                     </a>
                                 </div>
                             </div>
-                        @endforeach --}}
+                        @endforeach
                     </div>
                 </div>
             </div>

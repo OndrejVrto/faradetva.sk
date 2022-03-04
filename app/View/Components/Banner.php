@@ -14,7 +14,7 @@ class Banner extends Component
 
     public function __construct(
         public string $dimensionSource = "off",
-        public string $header,
+        public $header = null,
         public $breadcrumb = null,
         private $titleSlug,
     ) {

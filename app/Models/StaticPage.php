@@ -25,7 +25,10 @@ class StaticPage extends Model
         'keywords',
         'author',
         'header',
+        'check_url',
     ];
+
+    // protected $guarded = ['check_url'];
 
     public function getRouteKeyName() {
         return 'slug';

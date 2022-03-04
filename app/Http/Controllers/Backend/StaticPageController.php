@@ -13,7 +13,7 @@ use App\Http\Requests\StaticPageRequest;
 class StaticPageController extends Controller
 {
     public function index(): View  {
-        $pages = StaticPage::latest()->paginate(10);
+        $pages = StaticPage::orderBy('slug')->get();
 
         return view('backend.static-pages.index', compact('pages'));
     }
