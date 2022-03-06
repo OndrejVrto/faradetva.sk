@@ -43,6 +43,6 @@ class CacheResponseMiddleware
     }
 
     private function cacheKey(Request $request): string {
-        return '_FRONTEND_' . md5($request->fullUrl() . '_' . auth()->id());
+        return 'X_FRONTEND_' . md5($request->fullUrl() . '_' . auth()->id());
     }
 }

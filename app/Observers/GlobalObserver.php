@@ -11,7 +11,7 @@ class GlobalObserver
 {
     private function clearAllCache() {
         Artisan::call('cache:clear');
-        Cache::put('LAST_MODIFIED', Carbon::now()->timestamp);
+        Cache::put('___LAST_MODIFIED', Carbon::now()->timestamp);
     }
 
     public function created(Model $model) {
