@@ -47,17 +47,32 @@ class AppServiceProvider extends ServiceProvider
             //! Loging all Query-s to log file
             File::prepend(
                 storage_path('/logs/query.log'),
+                PHP_EOL . '[' . date('Y-m-d H:i:s') . ']' .
+                PHP_EOL . $request->url() . PHP_EOL .
                 PHP_EOL . '---------------------------------------------------------------------------' . PHP_EOL . PHP_EOL . PHP_EOL
             );
             DB::listen(function ($query) {
+                // grab the first element of non vendor calls
+                $location = collect(debug_backtrace())->filter(function ($trace) {
+                    return isset($trace['file']) ? !str_contains($trace['file'], 'vendor') : '';
+                })->first();
+
                 File::prepend(
                     storage_path('/logs/query.log'),
-                        '[' . date('Y-m-d H:i:s') . '] [' . $query->time . ' ms]' .
-                        PHP_EOL . $query->sql .
-                        PHP_EOL . '{' . implode(', ', $query->bindings) . '}' .
+                        PHP_EOL . 'Sql:      ' . $this->populateSQL($query->sql, $query->bindings) .
+                        PHP_EOL . 'Bindings: {' . implode(', ', $query->bindings) . '}' .
+                        PHP_EOL . 'Time:     ' . $query->time . ' ms' .
+                        PHP_EOL . 'File:     ' . $location['file'] .
+                        PHP_EOL . 'Line:     ' . $location['line'] .
                         PHP_EOL . PHP_EOL
                 );
             });
         }
+    }
+
+    private function populateSQL(string $sql, array $params): string {
+        foreach($params as $value)
+            $sql = preg_replace('[\?]', '"'.$value.'"', $sql, 1);
+        return $sql;
     }
 }
