@@ -6,6 +6,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
 
 class AddResponseHeadersMiddleware
@@ -14,6 +15,7 @@ class AddResponseHeadersMiddleware
      * Handle an incoming request.
      */
     public function handle(Request $request, Closure $next) {
+
         $response = $next($request)
             ->header('Content-Language', config('app.faker_locale'))
             ->header('X-XSS-Protection', '1; mode=block')
@@ -26,8 +28,13 @@ class AddResponseHeadersMiddleware
             ->header('Feature-Policy', "microphone 'none'; camera 'none'; geolocation 'none';");
 
             if (Cache::has('LAST_MODIFIED')) {
-                $response
-                    ->header('Last-Modified', gmdate("D, d M Y H:i:s", Cache::get('LAST_MODIFIED'))." GMT");
+                $modifiedSince = $request->headers->get('If-Modified-Since');
+
+                if ($modifiedSince && Cache::get('LAST_MODIFIED') <= strtotime($modifiedSince)) {
+                    $response->setStatusCode(Response::HTTP_NOT_MODIFIED);
+                } else {
+                    $response->header('Last-Modified', gmdate("D, d M Y H:i:s", Cache::get('LAST_MODIFIED'))." GMT");
+                }
             }
 
             return $response;
