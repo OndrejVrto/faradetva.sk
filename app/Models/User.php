@@ -48,6 +48,7 @@ class User extends Authenticatable implements HasMedia
     ];
 
     protected $casts = [
+        'active' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
 

@@ -31,6 +31,10 @@ class Slider extends Model implements HasMedia {
         'heading_3',
     ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     public function getMediaFileNameAttribute() {
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }

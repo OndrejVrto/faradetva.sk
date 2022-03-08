@@ -44,6 +44,10 @@ class News extends Model implements HasMedia
         'teaser',
     ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     /* The number of models to return for pagination. */
     protected $perPage = 7;
 

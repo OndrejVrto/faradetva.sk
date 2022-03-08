@@ -28,7 +28,9 @@ class StaticPage extends Model
         'check_url',
     ];
 
-    // protected $guarded = ['check_url'];
+    protected $casts = [
+        'check_url' => 'boolean',
+    ];
 
     public function getRouteKeyName() {
         return 'slug';
