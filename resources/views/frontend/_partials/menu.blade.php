@@ -91,9 +91,9 @@
                             @auth
                                 <li><a class="text-template text-muted ms-5" href="{{ route('admin.dashboard') }}"><small>Admin</small></a></li>
                             @else
-                                <li><a class="text-template text-muted ms-5" href="{{ route('login') }}"><small>Login</small></a></li>
+                                <li><a class="text-template text-muted ms-5" href="{{ route('login') }}" rel="nofollow"><small>Login</small></a></li>
                                 {{-- @if (Route::has('register'))
-                                <li><a class="text-template" href="{{ route('register') }}">Registrovať</a></li>
+                                <li><a class="text-template" href="{{ route('register') }}" rel="nofollow">Registrovať</a></li>
                                 @endif --}}
                             @endauth
                         </ul>

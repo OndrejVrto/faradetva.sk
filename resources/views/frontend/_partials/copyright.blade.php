@@ -12,7 +12,7 @@
                     <div class="col-lg-3 col-12">
                         <div class="float-lg-end d-flex justify-content-center mt-4 mt-lg-0">
                             @guest
-                            <a class="btn btn-sm btn-outline-secondary rounded-pill" href="{{ route('login') }}">
+                            <a class="btn btn-sm btn-outline-secondary rounded-pill" href="{{ route('login') }}" rel="nofollow">
                                 Prihlásiť
                             </a>
                             @else

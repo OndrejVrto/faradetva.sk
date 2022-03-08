@@ -27,7 +27,7 @@
                 <p class="pt-2">
                     <p>
                         Skúste sa opäť
-                        <a class="ms-3 btn btn-outline-warning" href="{{ route('login') }}" role="button">prihlásiť</a>
+                        <a class="ms-3 btn btn-outline-warning" href="{{ route('login') }}" role="button" rel="nofollow">prihlásiť</a>
                     </p>
                     <p>
                         Prípadne choďte
