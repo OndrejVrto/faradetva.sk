@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Middleware;
 
 use Closure;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
@@ -35,6 +36,9 @@ class AddResponseHeadersMiddleware
                 } else {
                     $response->header('Last-Modified', gmdate("D, d M Y H:i:s", Cache::get('___LAST_MODIFIED'))." GMT");
                 }
+            } else {
+                Cache::forever('___LAST_MODIFIED', Carbon::now()->timestamp);
+                Cache::forever('___RELOAD', true);
             }
 
             return $response;

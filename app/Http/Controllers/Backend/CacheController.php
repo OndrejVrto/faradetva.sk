@@ -6,10 +6,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Setting;
 use App\Models\StaticPage;
+use App\Services\CheckUrlsService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Database\Eloquent\Collection;
 
 class CacheController extends Controller
 {
@@ -67,7 +67,7 @@ class CacheController extends Controller
 
     public function checkAllUrlStaticPages(): RedirectResponse {
         $pages = StaticPage::all();
-        $this->checkUrl($pages);
+        (new CheckUrlsService)->checkUrl($pages);
 
         toastr()->info(__('app.cache.check-all-url-static-pages'));
         return to_route('static-pages.index');
@@ -75,7 +75,7 @@ class CacheController extends Controller
 
     public function checkUrlStaticPages(): RedirectResponse {
         $pages = StaticPage::whereNull('check_url')->orWhere('check_url', 0)->get();
-        $this->checkUrl($pages);
+        (new CheckUrlsService)->checkUrl($pages);
 
         toastr()->info(__('app.cache.check-url-static-pages'));
         return to_route('static-pages.index');
@@ -83,17 +83,5 @@ class CacheController extends Controller
 
     public function infoPHP() {
         return phpinfo();
-    }
-
-    private function checkUrl(Collection $pages): void {
-        foreach($pages as $page) {
-            $url = config('app.url') . '/' . $page->url;
-            $headers = @get_headers($url, true);
-            $exists = ($headers && strpos( $headers[0], '200')) ? true : false;
-
-            StaticPage::find($page->id)->update([
-                'check_url' => (int)$exists,
-            ]);
-        }
     }
 }
