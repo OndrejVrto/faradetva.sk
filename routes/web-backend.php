@@ -34,7 +34,6 @@ Route::post('news/media', [NewsController::class, 'storeMedia'])->name('news.sto
 Route::post('galleries/media', [GalleryController::class, 'storeMedia'])->name('galleries.storeMedia');
 
 
-//! BackEnd Routes
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 
     //!  Filemanager for TinyMCE Editor

@@ -55,21 +55,21 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        // 'auth.basic'         => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         // 'password.confirm'   => \Illuminate\Auth\Middleware\RequirePassword::class,
+        // 'role'               => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         // 'signed'             => \Illuminate\Routing\Middleware\ValidateSignature::class,
         // 'verified'           => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        // 'role'               => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        // 'auth.basic'         => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         // 'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 
-        'auth'           => \App\Http\Middleware\Authenticate::class,
-        'cache.headers'  => \Illuminate\Http\Middleware\SetCacheHeaders::class,
-        'can'            => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest'          => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle'       => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'permission'     => \App\Http\Middleware\PermissionMiddleware::class,
-        'cache.response' => \App\Http\Middleware\CacheResponseMiddleware::class,
         'csp.headers'    => \Spatie\Csp\AddCspHeaders::class,
+        'auth'           => \App\Http\Middleware\Authenticate::class,
+        'can'            => \Illuminate\Auth\Middleware\Authorize::class,
+        'permission'     => \App\Http\Middleware\PermissionMiddleware::class,
         'preety.html'    => \App\Http\Middleware\PreetyHtmlMiddleware::class,
+        'cache.headers'  => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+        'guest'          => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'cache.response' => \App\Http\Middleware\CacheResponseMiddleware::class,
+        'throttle'       => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

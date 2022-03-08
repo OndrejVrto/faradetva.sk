@@ -35,16 +35,4 @@ trait Publishable
     public function getUnpublishedAtAttribute($value) {
         return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
     }
-
-    // public function isPublished() {
-    //     if (is_null($this->published_at)) {
-    //         return false;
-    //     }
-
-    //     return $this->published_at->lte(Carbon::now());
-    // }
-
-    // public function isUnpublished() {
-    //     return !$this->isPublished();
-    // }
 }
