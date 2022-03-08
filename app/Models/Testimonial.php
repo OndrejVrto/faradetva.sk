@@ -32,6 +32,10 @@ class Testimonial extends Model implements HasMedia
         'description',
     ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     public function getRouteKeyName() {
         return 'slug';
     }

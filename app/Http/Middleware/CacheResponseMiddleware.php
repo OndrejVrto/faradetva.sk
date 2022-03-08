@@ -7,24 +7,24 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 
 class CacheResponseMiddleware
 {
-    private $time;
-
     private $key;
 
+    private $hasCache;
     /**
      * Handle an incoming request.
      */
-    public function handle(Request $request, Closure $next, int $time = null) {
-        $this->time = $time ?? Carbon::now()->addDay();
+    public function handle(Request $request, Closure $next) {
         $this->key = $this->cacheKey($request);
+        $this->hasCache = Cache::has($this->key);
 
-        if (Cache::has($this->key)) {
-            return response(Cache::get($this->key));
+        if ($this->hasCache) {
+            $data = Cache::get($this->key);
+            return response($data)
+                ->header('Content-Length', strlen($data));
         }
 
         return $next($request);
@@ -34,15 +34,15 @@ class CacheResponseMiddleware
      * Handle tasks after the response has been sent to the browser.
      */
     public function terminate(Request $request, Response $response): void {
-        if (Cache::has($this->key)) {
+        if ($this->hasCache) {
             return;
         }
         if ($response->getStatusCode() === Response::HTTP_OK) {
-            Cache::put($this->key, $response->getContent(), $this->time);
+            Cache::forever($this->key, $response->getContent());
         }
     }
 
     private function cacheKey(Request $request): string {
-        return '_FRONTEND_' . md5($request->fullUrl() . '_' . auth()->id());
+        return 'X_FRONTEND_' . md5($request->fullUrl() . '_' . auth()->id());
     }
 }

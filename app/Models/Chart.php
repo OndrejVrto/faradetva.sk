@@ -29,6 +29,10 @@ class Chart extends Model
         'color',
     ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     public function getRouteKeyName() {
         return 'slug';
     }

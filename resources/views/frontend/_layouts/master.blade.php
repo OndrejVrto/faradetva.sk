@@ -1,3 +1,5 @@
+<!-- {{ Request::fullUrl() }} -->
+
 <!DOCTYPE html>
 
 @php

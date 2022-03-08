@@ -32,6 +32,10 @@ class Notice extends Model implements HasMedia
         'title',
     ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     public function getRouteKeyName() {
         return 'slug';
     }
