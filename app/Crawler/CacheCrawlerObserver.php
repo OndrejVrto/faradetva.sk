@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Crawl;
+namespace App\Crawler;
 
 use App\Models\StaticPage;
 use Psr\Http\Message\UriInterface;
