@@ -31,11 +31,13 @@
                 <x-admin-table.td class="text-wrap text-break text-bold">{{ $chart->title }}</x-admin-table.td>
                 <x-admin-table.td class="text-wrap text-break">{{ $chart->description }}</x-admin-table.td>
                 <x-admin-table.td class="text-center">
-                    <a  href="{{ route('charts.data.index', $chart) }}"
-                        class="btn btn-outline-warning btn-sm btn-flat"
-                        title="Vložiť dáta do grafu: {{ $chart->title }}">
-                        <i class="fas fa-chart-pie"></i>
-                    </a>
+                    @can('charts.data.index')
+                        <a  href="{{ route('charts.data.index', $chart) }}"
+                            class="btn btn-outline-warning btn-sm btn-flat"
+                            title="Vložiť dáta do grafu: {{ $chart->title }}">
+                            <i class="fas fa-chart-pie"></i>
+                        </a>
+                    @endcan
                 </x-admin-table.td>
                 <x-admin-table.td class="text-center">{{ $chart->data_count }}</x-admin-table.td>
                 <x-admin-table.td-actions
