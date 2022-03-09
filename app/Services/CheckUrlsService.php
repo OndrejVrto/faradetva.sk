@@ -2,39 +2,28 @@
 
 namespace App\Services;
 
-use App\Models\StaticPage;
+use Spatie\Crawler\Crawler;
+use Illuminate\Support\Facades\DB;
+use App\Crawl\CacheCrawlerObserver;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Artisan;
+use Spatie\Crawler\CrawlProfiles\CrawlInternalUrls;
 
 class CheckUrlsService
 {
-    private $pages;
-
-    private $updateDB = false;
-
-    public function checkUrl(Collection|array $listPages): void {
-
-        if ($listPages instanceof \Illuminate\Database\Eloquent\Collection) {
-            $this->pages = $listPages->pluck('url', 'id')->toArray();
-            $this->updateDB = true;
+    public function run(bool $updateDB = false): void {
+        // clear cache and reset DB column
+        if ($updateDB) {
+            Artisan::call('cache:clear');
+            DB::select('UPDATE `static_pages` SET `check_url` = NULL WHERE `check_url` = 1;');
         }
 
-        if (is_array($listPages) ) {
-            $this->pages = $listPages;
-        }
-
-        foreach($this->pages as $pageID => $pageUrl) {
-
-            $url = config('app.url') . '/' . $pageUrl;
-            $headers = @get_headers($url, true);
-
-            if ($this->updateDB) {
-                $exists = ($headers && strpos( $headers[0], '200')) ? true : false;
-                StaticPage::find((int)$pageID)->update([
-                    'check_url' => (int)$exists,
-                ]);
-            }
-        }
+        Crawler::create()
+            ->setCrawlProfile(new CrawlInternalUrls(config('app.url')))
+            ->setCrawlObserver(new CacheCrawlerObserver($updateDB))
+            ->setParseableMimeTypes(['text/html', 'text/plain'])
+            ->setConcurrency(30)
+            ->startCrawling(config('app.url'));
 
         Cache::forever('___RELOAD', false);
     }

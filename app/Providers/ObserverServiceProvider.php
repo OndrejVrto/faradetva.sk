@@ -21,7 +21,6 @@ class ObserverServiceProvider extends ServiceProvider
             \App\Models\Priest::class,
             \App\Models\Slider::class,
             \App\Models\Source::class,
-            \App\Models\StaticPage::class,
             \App\Models\Tag::class,
             \App\Models\Testimonial::class,
         ];
