@@ -18,15 +18,12 @@ class QueryLogService
     
     private $final;
 
-
     public function __construct() {
         $this->file_path = storage_path("logs\\".$this->file_name);
         $this->total_query = 0;
         $this->total_time = 0;
         $this->final = [];
-    }
 
-    public function run(): void {
         if (!Str::startsWith(request()->path(), '_debugbar')) {
 
             File::delete($this->file_path);
@@ -91,7 +88,7 @@ class QueryLogService
             })->toArray());
     }
 
-    public function write() {
+    private function write() {
 
         foreach ($this->final['meta'] as $key => $value) {
             $this->writeLine($this->addSpace($key, 14) . ":  $value");
