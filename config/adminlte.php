@@ -130,7 +130,7 @@ return [
     'classes_content_header' => '',
     'classes_content' => 'container-fluid',
     'classes_sidebar' => 'sidebar-dark-light elevation-4 lh-sm',
-    'classes_sidebar_nav' => '', // text-sm
+    'classes_sidebar_nav' => 'text-sm', // text-sm
     'classes_topnav' => 'navbar-gray navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
@@ -244,9 +244,38 @@ return [
         ],
 
         [
+            'header' => 'Oznamy',
+            'can'  => [
+                'notice-church.index', 
+                'notice-general.index',
+                'notice-acolyte.index', 
+                'notice-lecturer.index',
+            ],
+        ],
+                [
+                    'text'  => 'Farské oznamy',
+                    'icon_color'  => 'yellow',
+                    'route' => 'notice-church.index',
+                    'icon'  => 'fas fa-broadcast-tower',
+                    'can'  => 'notice-church.index',
+                ],
+                [
+                    'text'  => 'Rozpisy akolytov',
+                    'icon_color'  => 'yellow',
+                    'route' => 'notice-acolyte.index',
+                    'icon'  => 'fas fa-hands-helping',
+                    'can'  => 'notice-acolyte.index',
+                ],
+                [
+                    'text'  => 'Rozpisy lektorov',
+                    'icon_color'  => 'yellow',
+                    'route' => 'notice-lecturer.index',
+                    'icon'  => 'fas fa-book-open',
+                    'can'  => 'notice-lecturer.index',
+                ],
+        [
             'header' => 'Sekcie',
             'can'  => [
-                'notices.index',
                 'news.index',
                 'priests.index',
                 'testimonials.index',
@@ -254,13 +283,6 @@ return [
                 'charts.index',
             ],
         ],
-                [
-                    'text'  => 'Oznamy',
-                    'icon_color'  => 'orange',
-                    'route' => 'notices.index',
-                    'icon'  => 'fas fa-broadcast-tower',
-                    'can'  => 'notices.index',
-                ],
                 [
                     'text'  => 'Články',
                     'icon_color'  => 'orange',

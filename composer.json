@@ -16,6 +16,7 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
+        "nanigans/single-table-inheritance": "~1.0",
         "rexlabs/enum": "^2.2",
         "spatie/crawler": "^7.1",
         "spatie/laravel-csp": "^2.7",
