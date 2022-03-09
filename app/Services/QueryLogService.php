@@ -98,17 +98,19 @@ class QueryLogService
         }
 
         $this->writeLine(str_repeat("-", 100) . PHP_EOL);
-
-        foreach ($this->final['queries'] as $q) {
-            foreach ($q as $key => $val) {
-                if (is_array($val)) {
-                    $this->writeLine($this->addSpace($key, 12) . ":  {" . implode(", ", $val)."}");
-                } else {
-                    $this->writeLine($this->addSpace($key, 12) . ":  " . $val);
+        
+        if (isset($this->final['queries']) AND is_array($this->final['queries'])) {
+            foreach ($this->final['queries'] as $q) {
+                foreach ($q as $key => $val) {
+                    if (is_array($val)) {
+                        $this->writeLine($this->addSpace($key, 12) . ":  {" . implode(", ", $val)."}");
+                    } else {
+                        $this->writeLine($this->addSpace($key, 12) . ":  " . $val);
+                    }
                 }
-            }
 
-            $this->writeLine("");
+                $this->writeLine("");
+            }
         }
     }
 
