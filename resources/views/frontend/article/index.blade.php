@@ -101,8 +101,8 @@
                 @empty
                     <div class="p-5 m-5">
                         <h3>
-                            Hľadaný výraz
-                            <em class="ms-3 me-4 text-church-template">{{ $search }}</em>
+                            {{ $emptyTitle['name'] }}
+                            <em class="ms-3 me-4 text-church-template">{{ $emptyTitle['value'] }}</em>
                             sa nenachádza v žiadnom článku!
                         </h3>
                         <p>
