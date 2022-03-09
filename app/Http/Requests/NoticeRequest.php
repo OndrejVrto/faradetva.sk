@@ -43,8 +43,14 @@ class NoticeRequest extends FormRequest
                 'max:10000',
             ],
             'slug' => [
-                Rule::unique('notices', 'slug')->ignore($this->notice)->withoutTrashed(),
+                Rule::unique('notices', 'slug')->ignore($this->{$this->route()->parameterNames()[0]})->withoutTrashed(),
             ],
+        ];
+    }
+    
+    public function messages() {
+        return [
+            'slug.unique' => 'Takýto nadpis už existuje medzi farskými oznamami alebo medzi rozpismi lektorov/akolytov. Zvoľ iný.',
         ];
     }
 

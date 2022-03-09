@@ -120,14 +120,6 @@ return [
         'files_header_create'      => 'Vložiť súbor',
         'files_header_edit'        => 'Upraviť súbor',
 
-        'notices_title'              => 'Farské oznamy',
-        'notices_description'        => 'Pridávanie rôznych oznamov v pdf súboroch',
-        'notices_description_create' => 'Tu môžete pridať pdf súbor s farskými oznamami',
-        'notices_description_edit'   => 'Tu môžete upraviť údaje vo farských oznamoch',
-        'notices_header'             => 'Farské oznamy',
-        'notices_header_create'      => 'Nový oznamy',
-        'notices_header_edit'        => 'Úprava farských oznamov',
-
         'galleries_title'              => 'Galéria',
         'galleries_description'        => 'Obrázkové galérie na statické stránky',
         'galleries_description_create' => 'Tu môžete pridať novú obrázkovú galériu',
@@ -178,5 +170,28 @@ return [
         'charts-data_header_edit'        => 'Úprava grafu',
         'charts-data_header_show'        => 'Prehliadanie grafu',
 
+        'notice-lecturer_title'              => 'Rozpisy lektorov',
+        'notice-lecturer_description'        => 'Pridávanie rozpisov lektorov v pdf súboroch',
+        'notice-lecturer_description_create' => 'Tu môžete pridať pdf súbor s rozpisom lektorov',
+        'notice-lecturer_description_edit'   => 'Tu môžete upraviť údaje v rozpise lektorov',
+        'notice-lecturer_header'             => 'Rozpisy lektorov',
+        'notice-lecturer_header_create'      => 'Nový Rozpis lektorov',
+        'notice-lecturer_header_edit'        => 'Úprava rozpisu lektorov',
+
+        'notice-acolyte_title'              => 'Rozpisy akolytov',
+        'notice-acolyte_description'        => 'Pridávanie rozpisov akolytov v pdf súboroch',
+        'notice-acolyte_description_create' => 'Tu môžete pridať pdf súbor s rozpisom akolytov',
+        'notice-acolyte_description_edit'   => 'Tu môžete upraviť údaje v rozpise akolytov',
+        'notice-acolyte_header'             => 'Rozpisy akolytov',
+        'notice-acolyte_header_create'      => 'Nový Rozpis akolytov',
+        'notice-acolyte_header_edit'        => 'Úprava rozpisu akolytov',
+
+        'notice-church_title'              => 'Farské oznamy',
+        'notice-church_description'        => 'Pridávanie farských oznamov v pdf súboroch',
+        'notice-church_description_create' => 'Tu môžete pridať pdf súbor s farskými oznamami',
+        'notice-church_description_edit'   => 'Tu môžete upraviť údaje vo farských oznamoch',
+        'notice-church_header'             => 'Farské oznamy',
+        'notice-church_header_create'      => 'Nové oznamy',
+        'notice-church_header_edit'        => 'Úprava farských oznamov',
     ]
 ];

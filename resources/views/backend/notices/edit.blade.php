@@ -1,10 +1,10 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.notices_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.notices_description_edit') )
+@section('title', config('farnost-detva.admin_texts.'.$controller.'_title', 'Administrácia') )
+@section('meta_description', config('farnost-detva.admin_texts.'.$controller.'_description_edit') )
 
 @section('content_breadcrumb')
-    {{  Breadcrumbs::render('notices.edit', false, $notice, $notice->title )}}
+    {{  Breadcrumbs::render($controller.'.edit', false, $notice, $notice->title )}}
 @stop
 
 @section('content')
