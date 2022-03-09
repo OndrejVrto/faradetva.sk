@@ -86,11 +86,6 @@ return [
         'update' => 'Svedectvo bolo upravené.',
         'delete' => 'Svedectvo bolo odstránené!',
     ],
-    'notice'   => [
-        'store'  => 'Nový oznam bol pridaný!',
-        'update' => 'Oznamy boli upravené.',
-        'delete' => 'Oznamy boli odstránené!',
-    ],
     'user'   => [
         'store'        => 'Uživateľ :name bol pridaný!',
         'update'       => 'Uživateľ :name bol upravený!',
@@ -109,5 +104,20 @@ return [
         'store'  => 'Galéria obrázkov bola pridaná!',
         'update' => 'Galéria bola upravená!',
         'delete' => 'Galéria bola odstránená!',
+    ],
+    'notice-lecturer'   => [
+        'store'  => 'Nový rozpis lektorov bol pridaný!',
+        'update' => 'Rozpis lektorov bol upravený.',
+        'delete' => 'Rozpis lektorov bol odstránený!',
+    ],
+    'notice-acolyte'   => [
+        'store'  => 'Nový rozpis akolytov bol pridaný!',
+        'update' => 'Rozpis akolytov bol upravený.',
+        'delete' => 'Rozpis akolytov bol odstránený!',
+    ],
+    'notice-church'   => [
+        'store'  => 'Farské oznamy boli pridané!',
+        'update' => 'Farské oznamy boli upravené.',
+        'delete' => 'Farské oznamy boli odstránené!',
     ],
 ];

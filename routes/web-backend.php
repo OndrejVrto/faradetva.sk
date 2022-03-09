@@ -11,7 +11,6 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\CacheController;
 use App\Http\Controllers\Backend\ChartController;
 use App\Http\Controllers\Backend\BannerController;
-use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\GalleryController;
@@ -23,7 +22,11 @@ use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\StaticPageController;
 use App\Http\Controllers\Backend\FileManagerController;
 use App\Http\Controllers\Backend\TestimonialController;
+use App\Http\Controllers\Backend\NoticeChurchController;
+use App\Http\Controllers\Backend\NoticeAcolyteController;
+use App\Http\Controllers\Backend\NoticeGeneralController;
 use Lab404\Impersonate\Controllers\ImpersonateController;
+use App\Http\Controllers\Backend\NoticeLecturerController;
 use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 
 //!  Inpersonate OUT Route
@@ -50,7 +53,6 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
         Route::get('caches-data-stop', 'cacheDataStop')->name('data.stop');
         Route::get('caches-data-start', 'cacheDataStart')->name('data.start');
         Route::get('caches-data-reset', 'cacheDataReset')->name('data.reset');
-        Route::get('check-url-static-pages', 'checkUrlStaticPages')->name('check.url');
         Route::get('check-all-url-static-pages', 'checkAllUrlStaticPages')->name('check.all-url');
     });
 
@@ -79,17 +81,19 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
     ]);
 
     Route::resources([
-        'tags'         => TagController::class,
-        'news'         => NewsController::class,
-        'files'        => FileController::class,
-        'roles'        => RoleController::class,
-        'notices'      => NoticeController::class,
-        'priests'      => PriestController::class,
-        'sliders'      => SliderController::class,
-        'categories'   => CategoryController::class,
-        'charts.data'  => ChartDataController::class,
-        'permissions'  => PermissionController::class,
-        'static-pages' => StaticPageController::class,
-        'testimonials' => TestimonialController::class,
+        'tags'            => TagController::class,
+        'news'            => NewsController::class,
+        'files'           => FileController::class,
+        'roles'           => RoleController::class,
+        'priests'         => PriestController::class,
+        'sliders'         => SliderController::class,
+        'categories'      => CategoryController::class,
+        'charts.data'     => ChartDataController::class,
+        'permissions'     => PermissionController::class,
+        'static-pages'    => StaticPageController::class,
+        'testimonials'    => TestimonialController::class,
+        'notice-church'   => NoticeChurchController::class,
+        'notice-acolyte'  => NoticeAcolyteController::class,
+        'notice-lecturer' => NoticeLecturerController::class,
     ], ['except' => 'show']);
 });

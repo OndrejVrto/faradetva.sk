@@ -1,17 +1,18 @@
 @php
-    $controlerName = 'notices';
+    $controlerName = $controller;
     $columns = 6;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
     if ( isset( $notice ) ) {
         $typeForm = 'edit';
         $identificator = $notice->slug;
         $createdInfo = $notice->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $notice->updated_at->format('d. m. Y \o H:i');
+        $media_file_name = $notice->getFirstMedia($notice->collectionName)->file_name ?? null;
     }
 @endphp
-
+{{-- @dd($media_file_name, $notice->collectionName, $notice) --}}
 <x-admin-form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
@@ -47,7 +48,7 @@
         label="Pdf súbor"
         accept=".pdf"
         {{-- placeholder="{{ $notice->media_file_name ?? 'Vložiť obrázok ...' }}" --}}
-        placeholder="{{ $notice->media_file_name ?? '' }}"
+        placeholder="{{ $media_file_name }}"
         >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">

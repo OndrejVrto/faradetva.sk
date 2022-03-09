@@ -59,7 +59,6 @@ Breadcrumbs::resource('news', 'Články');
 Breadcrumbs::resource('charts', 'Grafy');
 Breadcrumbs::resource('files', 'Prílohy');
 Breadcrumbs::resource('priests', 'Kňazi');
-Breadcrumbs::resource('notices', 'Oznamy');
 Breadcrumbs::resource('banners', 'Bannery');
 Breadcrumbs::resource('pictures', 'Obrázky');
 Breadcrumbs::resource('users', 'Užívatelia');
@@ -69,8 +68,11 @@ Breadcrumbs::resource('tags', 'Kľúčové slová');
 Breadcrumbs::resource('permissions', 'Povolenia');
 Breadcrumbs::resource('testimonials', 'Svedectvá');
 Breadcrumbs::resource('charts.data', 'Údaje do grafov');
+Breadcrumbs::resource('notice-church', 'Farské oznamy');
 Breadcrumbs::resource('categories', 'Kategórie článkov');
 Breadcrumbs::resource('static-pages', 'Statické stránky');
+Breadcrumbs::resource('notice-acolyte', 'Rozpisy akolytov');
+Breadcrumbs::resource('notice-lecturer', 'Rozpisy lektorov');
 
 // Home > Blog > [Category]
 // Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {

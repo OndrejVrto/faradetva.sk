@@ -6,10 +6,14 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Setting;
 use App\Models\StaticPage;
+use Spatie\Crawler\Crawler;
 use App\Services\CheckUrlsService;
+use Illuminate\Support\Facades\DB;
+use App\Crawl\CacheCrawlerObserver;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
+use Spatie\Crawler\CrawlProfiles\CrawlInternalUrls;
 
 class CacheController extends Controller
 {
@@ -66,18 +70,9 @@ class CacheController extends Controller
     }
 
     public function checkAllUrlStaticPages(): RedirectResponse {
-        $pages = StaticPage::all();
-        (new CheckUrlsService)->checkUrl($pages);
+        (new CheckUrlsService)->run(updateDB: true);
 
         toastr()->info(__('app.cache.check-all-url-static-pages'));
-        return to_route('static-pages.index');
-    }
-
-    public function checkUrlStaticPages(): RedirectResponse {
-        $pages = StaticPage::whereNull('check_url')->orWhere('check_url', 0)->get();
-        (new CheckUrlsService)->checkUrl($pages);
-
-        toastr()->info(__('app.cache.check-url-static-pages'));
         return to_route('static-pages.index');
     }
 

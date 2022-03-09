@@ -19,12 +19,10 @@ class CacheResponseMiddleware
      */
     public function handle(Request $request, Closure $next) {
         $this->key = $this->cacheKey($request);
-        $this->hasCache = Cache::has($this->key);
+        $this->hasCache = Cache::get($this->key);
 
         if ($this->hasCache) {
-            $data = Cache::get($this->key);
-            return response($data)
-                ->header('Content-Length', strlen($data));
+            return response($this->hasCache)->header('Content-Length', strlen($this->hasCache));
         }
 
         return $next($request);
@@ -43,6 +41,7 @@ class CacheResponseMiddleware
     }
 
     private function cacheKey(Request $request): string {
-        return 'X_FRONTEND_' . md5($request->fullUrl() . '_' . auth()->id());
+        // dd($request->fullUrl());
+        return 'X_FRONTEND_' . md5($request->fullUrl());
     }
 }

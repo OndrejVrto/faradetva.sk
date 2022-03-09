@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services\Csp;
+namespace App\Services;
 
 use Spatie\Csp\Keyword;
 use Spatie\Csp\Directive;
 use Spatie\Csp\Policies\Basic;
 
-class MyCustomCspPolicy extends Basic
+class CspPolicyService extends Basic
 {
     public function configure()
     {
