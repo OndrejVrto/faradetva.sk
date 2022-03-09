@@ -26,9 +26,9 @@
 
         <x-slot name="top">
             <div class="d-flex justify-content-end">
-                @can('cache.check.url')
+                {{-- @can('cache.check.url')
                     <a href="{{ route('cache.check.url') }}" class="btn btn-outline-info mx-2">Scanovať iba nové URL</a>
-                @endcan
+                @endcan --}}
                 @can('cache.check.all-url')
                     <a href="{{ route('cache.check.all-url') }}" class="btn btn-outline-info mx-2">Scanovať <strong>všetky</strong> URL</a>
                 @endcan

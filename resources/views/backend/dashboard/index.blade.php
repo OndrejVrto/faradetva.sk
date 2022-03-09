@@ -101,11 +101,11 @@
                             </h3>
                         </div>
                         <div class="card-body d-flex flex-wrap justify-content-center">
-                            @can('cache.check.url')
+                            {{-- @can('cache.check.url')
                                 <a href="{{ route('cache.check.url') }}" class="btn btn-info m-2">Scanovať nové URL statických stránok</a>
-                            @endcan
+                            @endcan --}}
                             @can('cache.check.all-url')
-                                <a href="{{ route('cache.check.all-url') }}" class="btn btn-info m-2">Scanovať všetky URL</a>
+                                <a href="{{ route('cache.check.all-url') }}" class="btn btn-danger m-2">Scanovať všetky URL</a>
                             @endcan
                         </div>
                     </div>

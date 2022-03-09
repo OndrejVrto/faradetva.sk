@@ -45,8 +45,9 @@ class ArticleController extends Controller
         });
         $title = config('farnost-detva.title-articles.all');
         $breadCrumb = (string) Breadcrumbs::render('article.all', true);
+        $emptyTitle = ['name'=> 'V článkoch', 'value' => ''];
 
-        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb'));
+        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexAuthor($userSlug): View  {
@@ -54,11 +55,12 @@ class ArticleController extends Controller
             $query->whereSlug($userSlug);
         })->newsComplete();
 
-        $userName = $articles->first()->user->name;
+        $userName = User::whereSlug($userSlug)->value('name');
         $title = config('farnost-detva.title-articles.author') . $userName;
         $breadCrumb = (string) Breadcrumbs::render('article.author', true, $userSlug, $userName);
+        $emptyTitle = ['name'=> 'Zvolený autor', 'value' => $userName];
 
-        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb'));
+        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexCategory($categorySlug): View  {
@@ -66,19 +68,21 @@ class ArticleController extends Controller
             $query->whereSlug($categorySlug);
         })->newsComplete();
 
-        $categoryName = $articles->first()->category->title;
+        $categoryName = Category::whereSlug($categorySlug)->value('title');
         $title = config('farnost-detva.title-articles.category') . $categoryName;
         $breadCrumb = (string) Breadcrumbs::render('article.category', true, $categorySlug, $categoryName);
+        $emptyTitle = ['name'=> 'Vybraná kategória', 'value' => $categoryName];
 
-        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb'));
+        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexDate($year): View  {
         $articles = News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete();
         $title = config('farnost-detva.title-articles.date') . $year;
         $breadCrumb = (string) Breadcrumbs::render('article.date', true, $year, $year);
+        $emptyTitle = ['name'=> 'Vybraný rok', 'value' => (string)$year];
 
-        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb'));
+        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexTag($tagSlug): View  {
@@ -89,8 +93,9 @@ class ArticleController extends Controller
         $tagName = Tag::whereSlug($tagSlug)->value('title');
         $title = config('farnost-detva.title-articles.tags') . $tagName;
         $breadCrumb = (string) Breadcrumbs::render('article.tag', true, $tagSlug, $tagName);
+        $emptyTitle = ['name'=> 'Klúčové slovo', 'value' => $tagName];
 
-        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb'));
+        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexSearch($search = null): View  {
@@ -100,7 +105,8 @@ class ArticleController extends Controller
         $articles = News::whereFulltext(['title', 'content'], $search)->newsComplete();
         $title = config('farnost-detva.title-articles.search') . $search;
         $breadCrumb = (string) Breadcrumbs::render('article.search', true);
+        $emptyTitle = ['name'=> 'Hľadaný výraz', 'value' => $search];
 
-        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'search'));
+        return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 }
