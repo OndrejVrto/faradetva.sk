@@ -43,7 +43,9 @@ class AppServiceProvider extends ServiceProvider
                 }
 
                 //! Loging Query-s to log file
-                (new QueryLogService)->run();
+                if (env('QUERY_LOG', false)) {
+                    new QueryLogService;
+                }
             }
         }
     }
