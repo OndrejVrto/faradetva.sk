@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\RequestException;
+use Spatie\Crawler\CrawlObservers\CrawlObserver;
 
-class CacheCrawlerObserver extends \Spatie\Crawler\CrawlObservers\CrawlObserver
+class CacheCrawlerObserver extends CrawlObserver
 {
     private $pages;
     
