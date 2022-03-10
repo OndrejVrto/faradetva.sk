@@ -144,11 +144,16 @@ class Toastr
     /**
      * Render the notifications' script tag.
      *
+     * @param  string  $nonce
      * @return string
      */
-    public function render(): string
+    public function render(string $nonce = null): string
     {
-        $toastr = '<script type="text/javascript">'.$this->options().$this->notificationsAsString().'</script>';
+        if (null !== $nonce) {
+            $nonce = ' nonce="'.$nonce.'"';
+        }
+
+        $toastr = '<script type="text/javascript"'.$nonce.'>'.$this->options().$this->notificationsAsString().'</script>';
 
         $this->session->forget(self::TOASTR_NOTIFICATIONS);
 
