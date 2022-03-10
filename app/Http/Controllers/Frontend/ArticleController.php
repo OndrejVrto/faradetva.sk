@@ -33,7 +33,7 @@ class ArticleController extends Controller
             return Category::withCount('news')->get();
         });
         $allTags = Cache::remember('TAGS_ALL', config('farnost-detva.cache-duration.news'), function () {
-            return Tag::all();
+            return Tag::withCount('news')->get();
         });
 
         return view('frontend.article.show', compact('oneNews', 'lastNews', 'allCategories', 'allTags'));
