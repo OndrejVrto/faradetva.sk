@@ -153,7 +153,7 @@ class Toastr
             $nonce = ' nonce="'.$nonce.'"';
         }
 
-        $toastr = '<script type="text/javascript"'.$nonce.'>'.$this->options().$this->notificationsAsString().'</script>';
+        $toastr = '<script'.$nonce.' type="text/javascript">'.$this->options().$this->notificationsAsString().'</script>';
 
         $this->session->forget(self::TOASTR_NOTIFICATIONS);
 
