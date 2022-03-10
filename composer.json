@@ -48,7 +48,9 @@
             "Database\\Seeders\\": "database/seeders/"
         },
 		"files": [
+            "app/Overrides/toastr/ToastrServiceProvider.php",
             "app/Overrides/toastr/Toastr.php",
+            
 			"app/Http/Helpers/BeautifyHtml.php",
 			"app/Http/Helpers/DataFormater.php"
 		]
