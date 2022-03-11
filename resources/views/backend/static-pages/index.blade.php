@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="120"
         controlerName="static-pages"
         createBtn="Pridať novú statickú stránku"
@@ -16,12 +16,12 @@
         >
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th width="15%">Titulok záložky</x-admin-table.th>
-            <x-admin-table.th-check-active/>
-            <x-admin-table.th width="40%">Url <small>(cesta ktorú vidí uživateľ)</small></x-admin-table.th>
-            <x-admin-table.th class="d-none d-xl-table-cell">Route <small>(vnútorná cesta aplikácie)</small></x-admin-table.th>
-            <x-admin-table.th-actions/>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th width="15%">Titulok záložky</x-backend.table.th>
+            <x-backend.table.th-check-active/>
+            <x-backend.table.th width="40%">Url <small>(cesta ktorú vidí uživateľ)</small></x-backend.table.th>
+            <x-backend.table.th class="d-none d-xl-table-cell">Route <small>(vnútorná cesta aplikácie)</small></x-backend.table.th>
+            <x-backend.table.th-actions/>
         </x-slot>
 
         <x-slot name="top">
@@ -38,16 +38,16 @@
         <x-slot name="table_body">
             @foreach($pages as $page)
                 <tr>
-                    {{-- <x-admin-table.td>{{$page->id}}</x-admin-table.td> --}}
-                    <x-admin-table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-admin-table.td>
-                    <x-admin-table.td-check-active check="{{ $page->check_url }}"/>
-                    <x-admin-table.td class="text-wrap text-break">
+                    {{-- <x-backend.table.td>{{$page->id}}</x-backend.table.td> --}}
+                    <x-backend.table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-backend.table.td>
+                    <x-backend.table.td-check-active check="{{ $page->check_url }}"/>
+                    <x-backend.table.td class="text-wrap text-break">
                         <a href="{{ config('app.url').'/'.$page->url }}" target="_blank" rel="noopener noreferrer">
                             <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}
                         </a>
-                    </x-admin-table.td>
-                    <x-admin-table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->route_name }}</x-admin-table.td>
-                    <x-admin-table.td-actions
+                    </x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->route_name }}</x-backend.table.td>
+                    <x-backend.table.td-actions
                         controlerName="static-pages"
                         identificator="{{ $page->slug }}"
                     />
@@ -55,5 +55,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="8"
         controlerName="files"
         createBtn="Pridať nový dokument"
@@ -16,17 +16,17 @@
         >
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th>Pracovný názov súboru</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th>Pracovný názov súboru</x-backend.table.th>
+            <x-backend.table.th-actions/>
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($files as $file)
             <tr>
-                {{-- <x-admin-table.td>{{$file->id}}</x-admin-table.td> --}}
-                <x-admin-table.td class="text-wrap text-break text-bold">{{ $file->slug }}</x-admin-table.td>
-                <x-admin-table.td-actions
+                {{-- <x-backend.table.td>{{$file->id}}</x-backend.table.td> --}}
+                <x-backend.table.td class="text-wrap text-break text-bold">{{ $file->slug }}</x-backend.table.td>
+                <x-backend.table.td-actions
                     controlerName="files"
                     identificator="{{ $file->slug }}"
                 />
@@ -34,5 +34,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

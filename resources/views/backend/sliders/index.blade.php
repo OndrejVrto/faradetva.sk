@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="7"
         controlerName="sliders"
         createBtn="Pridať nový obrázok s myšlienkou"
@@ -23,25 +23,25 @@
         </x-slot>
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th-check-active/>
-            <x-admin-table.th width="10%" class="text-center">Obrázok</x-admin-table.th>
-            <x-admin-table.th width="25%">Myšlienka</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th-check-active/>
+            <x-backend.table.th width="10%" class="text-center">Obrázok</x-backend.table.th>
+            <x-backend.table.th width="25%">Myšlienka</x-backend.table.th>
+            <x-backend.table.th-actions/>
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($sliders as $slider)
             <tr>
-                {{-- <x-admin-table.td>{{$slider->id}}</x-admin-table.td> --}}
-                <x-admin-table.td-check-active check="{{ $slider->active }}"/>
-                <x-admin-table.td class="text-center">
+                {{-- <x-backend.table.td>{{$slider->id}}</x-backend.table.td> --}}
+                <x-backend.table.td-check-active check="{{ $slider->active }}"/>
+                <x-backend.table.td class="text-center">
                     <img src="{{ $slider->getFirstMediaUrl($slider->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/240x100" }}"
                     class="img-fluid"
                     alt="Obrázok: {{ $slider->full_heading }}"/>
-                </x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{$slider->teaser}}</x-admin-table.td>
-                <x-admin-table.td-actions
+                </x-backend.table.td>
+                <x-backend.table.td class="text-wrap text-break">{{$slider->teaser}}</x-backend.table.td>
+                <x-backend.table.td-actions
                     controlerName="sliders"
                     identificator="{{ $slider->id }}"
                 />
@@ -49,5 +49,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

@@ -12,7 +12,7 @@
     }
 @endphp
 
-<x-admin-form
+<x-backend.form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
@@ -50,4 +50,4 @@
         </div>
     </div>
 
-</x-admin-form>
+</x-backend.form>

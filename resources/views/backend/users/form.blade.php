@@ -19,7 +19,7 @@
     }
 @endphp
 
-<x-admin-form
+<x-backend.form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
@@ -236,7 +236,7 @@
         @endforeach
     @endrole
 
-</x-admin-form>
+</x-backend.form>
 
 @push('js')
     @role('Super Administrátor')
