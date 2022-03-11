@@ -13,6 +13,17 @@
 @endprepend
 
 @section('content')
+    <x-page-section title="Rozpisy lektorov">
+        <x-notice typeNotice="Lecturer"/>
+    </x-page-section>
+
+    <x-page-section title="Rozpisy akolytov">
+        <x-notice typeNotice="Acolyte"/>
+    </x-page-section>
+
+    <x-page-section title="Farské oznamy">
+        <x-notice typeNotice="Church"/>
+    </x-page-section>
 
     {{-- <x-page-section.header :header="$pageData['header']" class="my-0"/> --}}
 
