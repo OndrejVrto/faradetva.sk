@@ -96,7 +96,12 @@
                         <div class="tagcloud">
 
                             @foreach ( $allTags as $tag )
-                                <a href="{{ route('article.tag', $tag->slug) }}" title="{{ $tag->description }}">{{ $tag->title }}</a>
+                                <a 
+                                    href="{{ route('article.tag', $tag->slug) }}" 
+                                    title="{{ $tag->description }} | {{ $tag->news_count }} {{ trans_choice('messages.clanok', $tag->news_count) }}"
+                                >
+                                    {{ $tag->title }}
+                                </a>
                             @endforeach
 
                         </div>

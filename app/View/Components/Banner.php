@@ -21,16 +21,16 @@ class Banner extends Component
         $this->banner = $this->getBanner($this->getName($titleSlug));
     }
 
-    public function render(): View {
+    public function render(): View|null {
         if (!is_null($this->banner)) {
             return view('components.banner.index');
         }
         return null;
     }
 
-    private function getBanner($slug) {
-        return Cache::rememberForever('BANNER_'.$slug, function () use($slug) {
-            return BannerModel::whereSlug($slug)->with('media', 'source')->get()->map(function($img){
+    private function getBanner(string $slug): array {
+        return Cache::rememberForever('BANNER_'.$slug, function() use($slug): array {
+            return BannerModel::whereSlug($slug)->with('media', 'source')->get()->map(function($img): array {
                 return [
                     'extra_small_image' => $img->getFirstMediaUrl('banner', 'extra-small'),
                     'small_image' => $img->getFirstMediaUrl('banner', 'small'),
@@ -50,8 +50,8 @@ class Banner extends Component
         });
     }
 
-    private function getName($value) {
-        return Str::of($value)
+    private function getName(string $value): string {
+        return (string) Str::of($value)
             ->explode(',')
             ->map(function($value){
                 return trim($value);
