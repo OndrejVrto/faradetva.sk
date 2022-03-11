@@ -16,6 +16,8 @@ class NoticeRequest extends FormRequest
     }
 
     public function rules(): array {
+        $modelName = Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"]);
+        // dd(Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),);
         return [
             'active' => [
                 'boolean',
@@ -43,11 +45,11 @@ class NoticeRequest extends FormRequest
                 'max:10000',
             ],
             'slug' => [
-                Rule::unique('notices', 'slug')->ignore($this->{$this->route()->parameterNames()[0]})->withoutTrashed(),
+                Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),
             ],
         ];
     }
-    
+
     public function messages() {
         return [
             'slug.unique' => 'Takýto nadpis už existuje medzi farskými oznamami alebo medzi rozpismi lektorov/akolytov. Zvoľ iný.',
