@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         controlerName="permissions"
         columns="6"
         createBtn="Pridať povolenie"
@@ -24,20 +24,20 @@
         </x-slot>
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th>Názov povolenia</x-admin-table.th>
-            {{-- <x-admin-table.th>Brána</x-admin-table.th> --}}
-            <x-admin-table.th-actions/>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th>Názov povolenia</x-backend.table.th>
+            {{-- <x-backend.table.th>Brána</x-backend.table.th> --}}
+            <x-backend.table.th-actions/>
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($permissions as $permission)
             <tr>
-                {{-- <x-admin-table.td>{{$permission->id}}</x-admin-table.td> --}}
-                <x-admin-table.td class="text-wrap text-break">{{$permission->name}}</x-admin-table.td>
-                {{-- <x-admin-table.td class="text-wrap text-break">{{$permission->guard_name}}</x-admin-table.td> --}}
+                {{-- <x-backend.table.td>{{$permission->id}}</x-backend.table.td> --}}
+                <x-backend.table.td class="text-wrap text-break">{{$permission->name}}</x-backend.table.td>
+                {{-- <x-backend.table.td class="text-wrap text-break">{{$permission->guard_name}}</x-backend.table.td> --}}
 
-                <x-admin-table.td-actions
+                <x-backend.table.td-actions
                     controlerName="permissions"
                     identificator="{{ $permission->id }}"
                 />
@@ -45,5 +45,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

@@ -23,7 +23,7 @@
 
 @section('content')
 
-    <x-admin-form     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
+    <x-backend.form     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
                     typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
                     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
@@ -66,6 +66,6 @@
             </div>
         @endrole
 
-    </x-admin-form>
+    </x-backend.form>
 
 @endsection

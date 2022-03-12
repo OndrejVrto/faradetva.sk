@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="6"
         controlerName="priests"
         createBtn="Pridať nového kňaza"
@@ -16,30 +16,30 @@
         >
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th-check-active/>
-            <x-admin-table.th width="10%" class="text-center">Fotka</x-admin-table.th>
-            <x-admin-table.th width="25%">Meno kňaza</x-admin-table.th>
-            <x-admin-table.th>Funkcia</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th-check-active/>
+            <x-backend.table.th width="10%" class="text-center">Fotka</x-backend.table.th>
+            <x-backend.table.th width="25%">Meno kňaza</x-backend.table.th>
+            <x-backend.table.th>Funkcia</x-backend.table.th>
+            <x-backend.table.th-actions/>
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($priests as $priest)
             <tr>
-                {{-- <x-admin-table.td>{{$priest->id}}</x-admin-table.td> --}}
-                <x-admin-table.td-check-active check="{{ $priest->active }}"/>
-                <x-admin-table.td class="text-center">
+                {{-- <x-backend.table.td>{{$priest->id}}</x-backend.table.td> --}}
+                <x-backend.table.td-check-active check="{{ $priest->active }}"/>
+                <x-backend.table.td class="text-center">
                     <img
                         src="{{ $priest->getFirstMediaUrl($priest->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x80" }}"
                         class="img-fluid priest-thumb"
                         alt="Fotografia: {{ $priest->full_name_titles }}, {{ $priest->function }}"
                     />
-                </x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{$priest->full_name_titles}}</x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{$priest->function}}</x-admin-table.td>
+                </x-backend.table.td>
+                <x-backend.table.td class="text-wrap text-break">{{$priest->full_name_titles}}</x-backend.table.td>
+                <x-backend.table.td class="text-wrap text-break">{{$priest->function}}</x-backend.table.td>
 
-                <x-admin-table.td-actions
+                <x-backend.table.td-actions
                     controlerName="priests"
                     identificator="{{ $priest->slug }}"
                 />
@@ -47,5 +47,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

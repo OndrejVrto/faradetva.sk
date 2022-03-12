@@ -13,7 +13,7 @@
     }
 @endphp
 {{-- @dd($media_file_name, $notice->collectionName, $notice) --}}
-<x-admin-form
+<x-backend.form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
@@ -146,7 +146,7 @@
         @enderror
     </x-adminlte-input>
 
-</x-admin-form>
+</x-backend.form>
 
 @push('js')
 

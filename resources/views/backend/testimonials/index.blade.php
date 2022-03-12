@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="7"
         controlerName="testimonials"
         createBtn="Pridať nové svedectvo"
@@ -17,29 +17,29 @@
         >
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th-check-active/>
-            <x-admin-table.th width="10%" class="text-center">Fotka</x-admin-table.th>
-            <x-admin-table.th width="25%">Meno svedka</x-admin-table.th>
-            <x-admin-table.th>Pracovná pozícia</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th-check-active/>
+            <x-backend.table.th width="10%" class="text-center">Fotka</x-backend.table.th>
+            <x-backend.table.th width="25%">Meno svedka</x-backend.table.th>
+            <x-backend.table.th>Pracovná pozícia</x-backend.table.th>
+            <x-backend.table.th-actions/>
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($testimonials as $testimonial)
             <tr>
-                {{-- <x-admin-table.td>{{$testimonial->id}}</x-admin-table.td> --}}
-                <x-admin-table.td-check-active check="{{ $testimonial->active }}"/>
-                <x-admin-table.td class="text-center">
+                {{-- <x-backend.table.td>{{$testimonial->id}}</x-backend.table.td> --}}
+                <x-backend.table.td-check-active check="{{ $testimonial->active }}"/>
+                <x-backend.table.td class="text-center">
                     <img
                         src="{{ $testimonial->getFirstMediaUrl($testimonial->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x60" }}"
                         class="img-fluid priest-thumb"
                         alt="Fotografia: {{ $testimonial->full_name_titles }}, {{ $testimonial->function }}"
                     />
-                </x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{$testimonial->name}}</x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{$testimonial->function}}</x-admin-table.td>
-                <x-admin-table.td-actions
+                </x-backend.table.td>
+                <x-backend.table.td class="text-wrap text-break">{{$testimonial->name}}</x-backend.table.td>
+                <x-backend.table.td class="text-wrap text-break">{{$testimonial->function}}</x-backend.table.td>
+                <x-backend.table.td-actions
                     controlerName="testimonials"
                     identificator="{{ $testimonial->slug }}"
                 />
@@ -47,5 +47,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\SourceRequest;
 
-class SliderRequest extends FormRequest
+class SliderRequest extends SourceRequest
 {
     public function authorize() {
         return true;
@@ -17,7 +17,7 @@ class SliderRequest extends FormRequest
             $photoRule = 'nullable';
         }
 
-        return [
+        return parent::rules() + [
             'active' => [
                 'boolean',
                 'required'

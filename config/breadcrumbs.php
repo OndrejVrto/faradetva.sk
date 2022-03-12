@@ -23,7 +23,7 @@ return [
     |
     */
 
-    'view' => 'partials.breadcrumbs',
+    'view' => 'vendor.breadcrumbs.index',
     'view-frontend' => 'breadcrumbs::bootstrap5',
 
     /*

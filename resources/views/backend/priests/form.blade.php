@@ -12,7 +12,7 @@
     }
 @endphp
 
-<x-admin-form
+<x-backend.form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
@@ -178,4 +178,4 @@
         </x-slot>
     </x-adminlte-input-file>
 
-</x-admin-form>
+</x-backend.form>

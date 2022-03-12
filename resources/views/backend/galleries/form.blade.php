@@ -12,7 +12,7 @@
     }
 @endphp
 
-<x-admin-form
+<x-backend.form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
     identificator="{{ $identificator }}"
@@ -149,5 +149,5 @@
 
     @include('backend.galleries.partials.dropzone_attachment')
 
-</x-admin-form>
+</x-backend.form>
 

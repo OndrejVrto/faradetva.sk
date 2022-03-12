@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="6"
         controlerName="charts.data"
         createLink="{{ route('charts.data.create', $chart) }}"
@@ -20,17 +20,17 @@
         >
 
         <x-slot name="table_header">
-            <x-admin-table.th width="15%">Parameter</x-admin-table.th>
-            <x-admin-table.th width="15%">Hodnota</x-admin-table.th>
-            <x-admin-table.th-actions />
+            <x-backend.table.th width="15%">Parameter</x-backend.table.th>
+            <x-backend.table.th width="15%">Hodnota</x-backend.table.th>
+            <x-backend.table.th-actions />
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($data as $keyValue)
                 <tr>
-                    <x-admin-table.td class="text-wrap text-break text-bold">{{$keyValue->key}}</x-admin-table.td>
-                    <x-admin-table.td class="text-wrap text-break">{{$keyValue->value}}</x-admin-table.td>
-                    <x-admin-table.td-actions
+                    <x-backend.table.td class="text-wrap text-break text-bold">{{$keyValue->key}}</x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{$keyValue->value}}</x-backend.table.td>
+                    <x-backend.table.td-actions
                         controlerName="charts.data"
                         editLink="{{ route('charts.data.edit', ['chart' => $chart->slug, 'data' => $keyValue->id]) }}"
                         deleteLink="{{ route('charts.data.destroy', ['chart' => $chart->slug, 'data' => $keyValue->id]) }}"
@@ -39,5 +39,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

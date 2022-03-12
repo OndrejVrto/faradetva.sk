@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="6"
         controlerName="roles"
         createBtn="Pridať rolu"
@@ -20,18 +20,18 @@
         </x-slot>
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th>Meno</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th>Meno</x-backend.table.th>
+            <x-backend.table.th-actions/>
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($roles as $role)
             <tr>
-                {{-- <x-admin-table.td>{{$role->id}}</x-admin-table.td> --}}
-                <x-admin-table.td class="text-wrap text-break">{{$role->name}}</x-admin-table.td>
+                {{-- <x-backend.table.td>{{$role->id}}</x-backend.table.td> --}}
+                <x-backend.table.td class="text-wrap text-break">{{$role->name}}</x-backend.table.td>
 
-                <x-admin-table.td-actions
+                <x-backend.table.td-actions
                     controlerName="roles"
                     identificator="{{ $role->id }}"
                 />
@@ -39,5 +39,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

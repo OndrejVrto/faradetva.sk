@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="8"
         controlerName="charts"
         createBtn="Pridať nový graf"
@@ -16,21 +16,21 @@
         >
 
         <x-slot name="table_header">
-            <x-admin-table.th-check-active/>
-            <x-admin-table.th width="15%">Názov grafu</x-admin-table.th>
-            <x-admin-table.th width="15%">Popis grafu</x-admin-table.th>
-            <x-admin-table.th-actions colspan="1" class="text-center">Dáta</x-admin-table.th-actions>
-            <x-admin-table.th width="1%" class="text-center">Počet hodnôt</x-admin-table.th>
-            <x-admin-table.th-actions colspan="3"/>
+            <x-backend.table.th-check-active/>
+            <x-backend.table.th width="15%">Názov grafu</x-backend.table.th>
+            <x-backend.table.th width="15%">Popis grafu</x-backend.table.th>
+            <x-backend.table.th-actions colspan="1" class="text-center">Dáta</x-backend.table.th-actions>
+            <x-backend.table.th width="1%" class="text-center">Počet hodnôt</x-backend.table.th>
+            <x-backend.table.th-actions colspan="3"/>
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($charts as $chart)
             <tr>
-                <x-admin-table.td-check-active check="{{ $chart->active }}"/>
-                <x-admin-table.td class="text-wrap text-break text-bold">{{ $chart->title }}</x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{ $chart->description }}</x-admin-table.td>
-                <x-admin-table.td class="text-center">
+                <x-backend.table.td-check-active check="{{ $chart->active }}"/>
+                <x-backend.table.td class="text-wrap text-break text-bold">{{ $chart->title }}</x-backend.table.td>
+                <x-backend.table.td class="text-wrap text-break">{{ $chart->description }}</x-backend.table.td>
+                <x-backend.table.td class="text-center">
                     @can('charts.data.index')
                         <a  href="{{ route('charts.data.index', $chart) }}"
                             class="btn btn-outline-warning btn-sm btn-flat"
@@ -38,9 +38,9 @@
                             <i class="fas fa-chart-pie"></i>
                         </a>
                     @endcan
-                </x-admin-table.td>
-                <x-admin-table.td class="text-center">{{ $chart->data_count }}</x-admin-table.td>
-                <x-admin-table.td-actions
+                </x-backend.table.td>
+                <x-backend.table.td class="text-center">{{ $chart->data_count }}</x-backend.table.td>
+                <x-backend.table.td-actions
                     controlerName="charts"
                     identificator="{{ $chart->slug }}"
                 />
@@ -48,5 +48,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <x-admin-table
+    <x-backend.table
         columns="7"
         controlerName="tags"
         createBtn="Pridať nové kľúčové slovo"
@@ -16,20 +16,20 @@
         >
 
         <x-slot name="table_header">
-            {{-- <x-admin-table.th width="1%">#</x-admin-table.th> --}}
-            <x-admin-table.th width="20%">Kľúčové slovo</x-admin-table.th>
-            <x-admin-table.th>Popis</x-admin-table.th>
-            <x-admin-table.th-actions/>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th width="20%">Kľúčové slovo</x-backend.table.th>
+            <x-backend.table.th>Popis</x-backend.table.th>
+            <x-backend.table.th-actions/>
         </x-slot>
 
         <x-slot name="table_body">
             @foreach($tags as $tag)
             <tr>
-                {{-- <x-admin-table.td>{{$tag->id}}</x-admin-table.td> --}}
-                <x-admin-table.td class="text-wrap text-break">{{$tag->title}}</x-admin-table.td>
-                <x-admin-table.td class="text-wrap text-break">{{$tag->description}}</x-admin-table.td>
+                {{-- <x-backend.table.td>{{$tag->id}}</x-backend.table.td> --}}
+                <x-backend.table.td class="text-wrap text-break">{{$tag->title}}</x-backend.table.td>
+                <x-backend.table.td class="text-wrap text-break">{{$tag->description}}</x-backend.table.td>
 
-                <x-admin-table.td-actions
+                <x-backend.table.td-actions
                     controlerName="tags"
                     identificator="{{ $tag->slug }}"
                 />
@@ -37,5 +37,5 @@
             @endforeach
         </x-slot>
 
-    </x-admin-table>
+    </x-backend.table>
 @endsection

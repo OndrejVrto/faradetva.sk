@@ -246,9 +246,9 @@ return [
         [
             'header' => 'Oznamy',
             'can'  => [
-                'notice-church.index', 
+                'notice-church.index',
                 'notice-general.index',
-                'notice-acolyte.index', 
+                'notice-acolyte.index',
                 'notice-lecturer.index',
             ],
         ],
@@ -342,7 +342,7 @@ return [
                 ],
 
         [
-            'header' => 'Statické stránky',
+            'header' => 'Stránky',
             'can'  => [
                 'static-pages.index',
                 'galleries.index',
@@ -353,7 +353,7 @@ return [
             ],
         ],
                 [
-                    'text' => 'Vlastnosti stránok',
+                    'text' => 'Vlastnosti',
                     'icon_color'  => 'cyan',
                     'icon'  => 'fab fa-pagelines fa-lg',
                     'route' => 'static-pages.index',
