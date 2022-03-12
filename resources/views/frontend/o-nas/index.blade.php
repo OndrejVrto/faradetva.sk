@@ -1,24 +1,13 @@
-@extends('frontend._layouts.static-page')
-@push('content_header')
-    {{-- Prepend content Header --}}
-    <x-banner
-        :header="$pageData['header']"
-        :breadcrumb="$breadCrumb"
-        titleSlug="kalvaria, tekvice"
-        dimensionSource="full"
-    />
-@endpush
-@prepend('content_footer')
-    {{-- After content Footer --}}
-@endprepend
+<x-frontend.layout.master :pageData="$pageData">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
-@section('content')
-    <x-page-section.header :header="$pageData['header']" class="my-0"/>
+    <x-frontend.page.section-header :header="$pageData['header']" class="my-0"/>
 
     <div class="row text-left">
         <div class="col-lg-4 m-auto">
-            <x-page-section title="O nás / História">
-                <x-page-section.text type="right">
+
+            <x-frontend.page.subsection title="O nás / História">
+                <x-frontend.page.text-segment type="right">
                     <ol>
                         <li><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
                         <li class="pb-2"><a href="{{ url('o-nas/vianoce-v-detve') }}">Vianoce v Detve</a></li>
@@ -32,10 +21,11 @@
                         <span>Patrón farnosti</span>
                         <li><a href="{{ url('o-nas/patron-farnosti') }}">Svätý František</a></li>
                     </ol>
-                </x-page-section.text>
-            </x-page-section>
+                </x-frontend.page.text-segment>
+            </x-frontend.page.subsection>
+
         </div>
     </div>
 
-@endsection
-
+    </x-frontend.page.section>
+</x-frontend.layout.master>

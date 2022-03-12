@@ -4,7 +4,7 @@
     'overlay' => null,
 ])
 <!-- {{ $name }} section Start -->
-    <div {{ $attributes->merge(['class' => 'section ']) }}>
+    <div {{ $attributes->merge(['class' => 'section']) }}>
         @if($overlay == 'true')<div class="black_overlay">@endif
             <div class="container">
                 @if($row == 'true')<div class="row">@endif

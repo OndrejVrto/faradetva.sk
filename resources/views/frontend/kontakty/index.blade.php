@@ -11,4 +11,3 @@
     <x-frontend.sections.map-google />
 
 </x-frontend.layout.master>
-

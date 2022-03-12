@@ -1,18 +1,11 @@
-@extends('frontend._layouts.static-page')
-
-@push('content_header')
-    {{-- Prepend content Header --}}
-@endpush
-@prepend('content_footer')
-    {{-- After content Footer --}}
-@endprepend
-
-@section('content')
+<x-frontend.layout.master :pageData="$pageData">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <div class="row">
         <div class="ps-5 ps-md-0 col-lg-9 col-xl-8 m-auto">
-            <x-page-section >
-                <x-page-section.text type="right">
+
+            <x-frontend.page.subsection >
+                <x-frontend.page.text-segment type="right">
                     <h5 class="text-church-template">
                         Tomáš Imrich Ďurica OP
                     </h5>
@@ -23,8 +16,9 @@
                         <dt class="col-sm-3 col-lg-2">† 12.09.1992</dt>         <dd class="col-sm-9 col-lg-10">Dunajská Lužná</dd>
                         <dt class="col-sm-3 col-lg-2">pochovaný</dt>            <dd class="col-sm-9 col-lg-10">Dunajská Lužná, cintorín</dd>
                     </dl>
-                </x-page-section.text>
-            </x-page-section>
+                </x-frontend.page.text-segment>
+            </x-frontend.page.subsection>
+
         </div>
     </div>
 
@@ -253,4 +247,5 @@
     členka Kongregácie sestier karmelitánok Dieťaťa Ježiša od r. 2015
 </div>
 
-@endsection
+    </x-frontend.page.section>
+</x-frontend.layout.master>
