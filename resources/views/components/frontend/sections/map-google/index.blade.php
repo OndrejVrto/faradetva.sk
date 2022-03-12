@@ -1,11 +1,11 @@
-<!-- Map section Start -->
-<div class="section ch_map_section">
-    <div id="contact_map"></div>
-</div>
-<!-- Map section End -->
+<!-- GOOGLE MAP section Start -->
+    <div class="section ch_map_section">
+        <div id="contact_map"></div>
+    </div>
+<!-- GOOGLE MAP section End -->
 
 @push('js')
-    <!-- map js -->
+<!-- GOOGLE MAP script Start -->
     <script @nonce>
           // Initialize and add the map
 
@@ -57,6 +57,5 @@
     </script>
 
     <script @nonce async src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_API_KEY') }}&callback=initMap"></script>
-
-    <!-- google map script -->
+<!-- GOOGLE MAP script End -->
 @endpush
