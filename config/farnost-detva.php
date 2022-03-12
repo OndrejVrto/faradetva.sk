@@ -6,14 +6,13 @@ return [
         'news' => env('CACHE_DURATION_NEWS', 60*60*24),   // 24 hodín
     ],
 
-    'title' => 'Farnosť Detva',
-    'title_prefix' => '',
+    'title' => 'Vitajte',
     'title_postfix' => ' | Farnosť Detva',
 
     'keywords' => 'farnosť, Detva, svadba, krst, oznamy, predmanželská príprava, pohreb',
     'description' => 'Webové stránky farnosťi Detva.',
 
-    'preppend_route_static_pages' => 'frontend.static-pages',
+    'preppend_route_static_pages' => 'frontend',
 
     'title-articles' => [
         'all' => 'Najnovšie články',
