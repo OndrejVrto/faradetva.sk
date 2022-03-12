@@ -12,8 +12,8 @@ use App\Http\Controllers\Frontend\NoticesController;
 Route::middleware('cache.response', 'csp.headers', 'preety.html')->group(function (){
 
     Route::get('/', HomeController::class)->name('home');
-    Route::get('kontakt', ContactController::class)->name('contact');
-    Route::get('oznamy', NoticesController::class)->name('notices.pdf');
+    // Route::get('kontakt', ContactController::class)->name('contact');
+    // Route::get('oznamy', NoticesController::class)->name('notices.pdf');
 
     //! Section News article
     Route::controller(ArticleController::class)->name('article.')->group(function () {
