@@ -1,15 +1,8 @@
-@extends('frontend._layouts.static-page')
+<x-frontend.layout.master :pageData="$pageData">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
-@push('content_header')
-    {{-- Prepend content Header --}}
-@endpush
-@prepend('content_footer')
-    {{-- After content Footer --}}
-@endprepend
-
-@section('content')
-    <x-page-section >
-        <x-page-section.text type="right">
+    <x-frontend.page.subsection >
+        <x-frontend.page.text-segment type="right">
             <div class="ps-5 ps-md-0 col-lg-6 col-xl-5 m-auto">
                 <dl class="row">
                     <dt class="col-sm-3">1644 - 1647</dt>    <dd class="col-sm-9">Michal Luczicz SJ</dd>
@@ -52,7 +45,8 @@
                     <dt class="col-sm-3">2002 -</dt>         <dd class="col-sm-9">Ľuboš Sabol</dd>
                 </dl>
             </div>
-        </x-page-section.text>
-    </x-page-section>
+        </x-frontend.page.text-segment>
+    </x-frontend.page.subsection>
 
-@endsection
+    </x-frontend.page.section>
+</x-frontend.layout.master>

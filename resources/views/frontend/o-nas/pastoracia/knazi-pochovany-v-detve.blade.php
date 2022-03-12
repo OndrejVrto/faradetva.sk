@@ -1,19 +1,11 @@
-@extends('frontend._layouts.static-page')
-
-@push('content_header')
-    {{-- Prepend content Header --}}
-@endpush
-@prepend('content_footer')
-    {{-- After content Footer --}}
-@endprepend
-
-@section('content')
+<x-frontend.layout.master :pageData="$pageData">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <div class="ps-5 ps-md-0 col-lg-9 col-xl-8 m-auto">
 
-        <x-page-section title="Jozef Troszt">
-            {{-- <x-page-section.img-media columns="4" type="left" name="" :model="$pageData"/> --}}
-            <x-page-section.text type="right">
+        <x-frontend.page.subsection title="Jozef Troszt">
+            {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
+            <x-frontend.page.text-segment type="right">
                 <h6 class="text-church-template">
                     * 20.03.1813    Pešť, Maďarsko
                 </h6>
@@ -34,12 +26,12 @@
                 <p>
                     pochovaný na dolnom cintoríne
                 </p>
-            </x-page-section.text>
-        </x-page-section>
+            </x-frontend.page.text-segment>
+        </x-frontend.page.subsection>
 
-        <x-page-section title="Štefan Pitrof">
-            {{-- <x-page-section.img-media columns="4" type="left" name="" :model="$pageData"/> --}}
-            <x-page-section.text type="left">
+        <x-frontend.page.subsection title="Štefan Pitrof">
+            {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
+            <x-frontend.page.text-segment type="left">
                 <h6 class="text-church-template">
                     * 27.06.1850    Bratislava
                 </h6>
@@ -59,12 +51,12 @@
                 <p>
                     pochovaný 05.02.1907 na dolnom cintoríne
                 </p>
-            </x-page-section.text>
-        </x-page-section>
+            </x-frontend.page.text-segment>
+        </x-frontend.page.subsection>
 
-        <x-page-section title="Jozef Golian">
-            {{-- <x-page-section.img-media columns="4" type="left" name="" :model="$pageData"/> --}}
-            <x-page-section.text type="right">
+        <x-frontend.page.subsection title="Jozef Golian">
+            {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
+            <x-frontend.page.text-segment type="right">
                 <h6 class="text-church-template">
                     * 25.02.1904    Detva
                 </h6>
@@ -84,12 +76,12 @@
                 <p>
                     pochovaný 18.04.1941 na dolnom cintoríne
                 </p>
-            </x-page-section.text>
-        </x-page-section>
+            </x-frontend.page.text-segment>
+        </x-frontend.page.subsection>
 
-        <x-page-section title="Mons. Ján Štrbáň">
-            {{-- <x-page-section.img-media columns="4" type="left" name="" :model="$pageData"/> --}}
-            <x-page-section.text type="left">
+        <x-frontend.page.subsection title="Mons. Ján Štrbáň">
+            {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
+            <x-frontend.page.text-segment type="left">
                 <h6 class="text-church-template">
                     * 23.06.1878    Trstená
                 </h6>
@@ -120,9 +112,10 @@
                 <p>
                     pochovaný 13.12.1960 stredný cintorín, pri druhom zastavení krížovej cesty
                 </p>
-            </x-page-section.text>
-        </x-page-section>
+            </x-frontend.page.text-segment>
+        </x-frontend.page.subsection>
 
     </div>
 
-@endsection
+    </x-frontend.page.section>
+</x-frontend.layout.master>
