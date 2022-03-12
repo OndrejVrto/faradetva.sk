@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Partials;
 
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
@@ -27,6 +27,6 @@ class SourceSentence extends Component
     }
 
     public function render(): View {
-        return view('components.source-sentence.index');
+        return view('components.partials.source-sentence.index');
     }
 }

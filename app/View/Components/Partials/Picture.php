@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Partials;
 
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
@@ -42,7 +42,7 @@ class Picture extends Component
 
     public function render(): View|null {
         if (!is_null($this->picture)) {
-            return view('components.picture.index');
+            return view('components.partials.picture.index');
         }
         return null;
     }

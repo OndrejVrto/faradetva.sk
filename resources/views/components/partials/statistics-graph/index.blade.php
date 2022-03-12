@@ -1,14 +1,8 @@
 <canvas id="Chart-{{ $graph['id'] }}"></canvas>
 
-{{-- <pre>
-    @dump($graph)
-</pre> --}}
-
-@once
-    @push('js')
-        <script @nonce src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    @endpush
-@endonce
+@pushOnce('js')
+    <script @nonce src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@endpushOnce
 
 @push('js')
     <script @nonce>

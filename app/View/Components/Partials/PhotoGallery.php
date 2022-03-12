@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Partials;
 
 use App\Models\Gallery;
 use Illuminate\View\Component;
@@ -15,9 +15,19 @@ class PhotoGallery extends Component
         public string $titleSlug,
         public string $dimensionSource = 'full',
     ) {
+        $this->gallery = $this->getGallery($titleSlug);
+    }
 
-        $this->gallery = Cache::rememberForever('GALLERY_'.$titleSlug, function () use($titleSlug) {
-            return Gallery::whereSlug($titleSlug)->with('media', 'source')->get()->map(function($album){
+    public function render(): View|null {
+        if(!is_null($this->gallery)){
+            return view('components.partials.photo-gallery.index');
+        }
+        return null;
+    }
+
+    private function getGallery($slug): array {
+        return Cache::rememberForever('GALLERY_'.$slug, function () use($slug): array {
+            return Gallery::whereSlug($slug)->with('media', 'source')->get()->map(function($album): array {
                 foreach ($album->picture as $pic ) {
                     $picture['picture'][] = [
                         'href' => $pic->getUrl(),
@@ -40,13 +50,6 @@ class PhotoGallery extends Component
                 ];
             })->first();
         });
-        // dd($this->gallery);
-    }
 
-    public function render(): View|null {
-        if(!is_null($this->gallery)){
-            return view('components.photo-gallery.index');
-        }
-        return null;
     }
 }

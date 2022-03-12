@@ -19,7 +19,7 @@
         @endforelse
     </div>
 
-    <x-source-sentence
+    <x-partials.source-sentence
         :dimensionSource="$dimensionSource"
         :sourceArray="$gallery['sourceArr']"
     />
