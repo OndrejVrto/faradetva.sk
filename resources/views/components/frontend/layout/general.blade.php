@@ -1,10 +1,12 @@
+@props([
+    'css_general',
+    'js_general',
+])
+@php($lang = str_replace('_', '-', app()->getLocale()))
 <!-- {{ Request::fullUrl() }} -->
 
 <!DOCTYPE html>
 
-@php
-    $lang = str_replace('_', '-', app()->getLocale());
-@endphp
 <!--[if IE 8]> <html lang="{{ $lang }}" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="{{ $lang }}" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]> -->
@@ -12,17 +14,13 @@
 <!-- <![endif]-->
 
 <head>
-
-    {{-- Title --}}
+    <!-- META properties Start -->
     <title>
-        @yield('title_prefix', config('farnost-detva.title_prefix', ''))
         @yield('title', config('farnost-detva.title', 'Farnosť Detva'))
         @yield('title_postfix', config('farnost-detva.title_postfix', ''))
     </title>
-
     <meta name="description" content="@yield('description', config('farnost-detva.description', 'Webové stránky farnosťi Detva.'))">
     <meta name="keywords" content="@yield('keywords', config('farnost-detva.keywords', 'farnosť, Detva, svadba, krst, oznamy, predmanželská príprava, pohreb'))">
-
     <meta name="author" content="@yield('author', 'Ing. Ondrej VRŤO, IWE')">
     <meta name="author-aplication" content="Ing. Ondrej VRŤO, IWE">
     <meta charset="utf-8">
@@ -30,10 +28,8 @@
     <meta name="MobileOptimized" content="320">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{-- Custom Meta Tags --}}
-    @yield('meta_tags')
-
-    <!-- favicon-icon - realfavicongenerator.net-->
+    <!-- META properties End -->
+    <!-- FAVICON - realfavicongenerator.net Start-->
     <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png') }}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicons/apple-touch-icon-57x57.png') }}">
@@ -55,20 +51,25 @@
     <meta name="msapplication-TileImage" content="{{ asset('favicon/mstile-144x144.png') }}">
     <meta name="msapplication-config" content="{{ asset('favicons/browserconfig.xml') }}">
     <meta name="theme-color" content="#e3b359">
+    <!-- FAVICON - realfavicongenerator.net End-->
 
-    <!-- Style Start -->
-    {{-- Custom stylesheets - prepend --}}
-    @yield('css_master_prepend')
-
-    @yield('css_master')
+    <!-- GENERAL STYLE Start -->
+    {{ $css_general }}
+    <!-- GENERAL STYLE End -->
+    <!-- CUSTOM STYLE Start -->
+    @stack('css')
+    <!-- CUSTOM STYLE End -->
 </head>
 
-<body class="{{ Request::segment(1) ?: 'home' }}">
-
-    {{-- Body Content --}}
-    @yield('body')
-
-    <!-- Scripts - Start-->
-    @yield('js_master')
+<body>
+    <!-- BODY CONTENT Start -->
+    {{ $slot }}
+    <!-- BODY CONTENT End -->
+    <!-- GENERAL SCRIPTS Start -->
+    {{ $js_general }}
+    <!-- GENERAL SCRIPTS End -->
+    <!-- CUSTOM SCRIPTS Start -->
+    @stack('js')
+    <!-- CUSTOM SCRIPTS End -->
 </body>
 </html>
