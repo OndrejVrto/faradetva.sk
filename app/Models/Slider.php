@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Models\Source;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -35,8 +36,8 @@ class Slider extends Model implements HasMedia {
         'active' => 'boolean',
     ];
 
-    public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
+    public function source() {
+        return $this->morphOne(Source::class, 'sourceable');
     }
 
     public function registerMediaConversions( Media $media = null ) : void {
