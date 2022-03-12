@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Frontend\Sections;
 
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
@@ -23,7 +23,7 @@ class Banner extends Component
 
     public function render(): View|null {
         if (!is_null($this->banner)) {
-            return view('components.banner.index');
+            return view('components.frontend.sections.banner.index');
         }
         return null;
     }
@@ -32,18 +32,22 @@ class Banner extends Component
         return Cache::rememberForever('BANNER_'.$slug, function() use($slug): array {
             return BannerModel::whereSlug($slug)->with('media', 'source')->get()->map(function($img): array {
                 return [
+                    'id'                => $img->id,
+
                     'extra_small_image' => $img->getFirstMediaUrl('banner', 'extra-small'),
-                    'small_image' => $img->getFirstMediaUrl('banner', 'small'),
-                    'medium_image' => $img->getFirstMediaUrl('banner', 'medium'),
-                    'large_image' => $img->getFirstMediaUrl('banner', 'large'),
+                    'small_image'       => $img->getFirstMediaUrl('banner', 'small'),
+                    'medium_image'      => $img->getFirstMediaUrl('banner', 'medium'),
+                    'large_image'       => $img->getFirstMediaUrl('banner', 'large'),
                     'extra_large_image' => $img->getFirstMediaUrl('banner', 'extra-large'),
+
+                    'description'       => $img->source->description,
                     'sourceArr' => [
-                        'source'      => $img->source->source,
-                        'source_url'  => $img->source->source_url,
-                        'author'      => $img->source->author,
-                        'author_url'  => $img->source->author_url,
-                        'license'     => $img->source->license,
-                        'license_url' => $img->source->license_url,
+                        'source'        => $img->source->source,
+                        'source_url'    => $img->source->source_url,
+                        'author'        => $img->source->author,
+                        'author_url'    => $img->source->author_url,
+                        'license'       => $img->source->license,
+                        'license_url'   => $img->source->license_url,
                     ],
                 ];
             })->first();

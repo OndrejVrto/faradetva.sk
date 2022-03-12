@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Partials;
 
 use App\Models\Chart;
 use Illuminate\View\Component;
@@ -29,6 +29,6 @@ class StatisticsGraph extends Component
     }
 
     public function render(): View {
-        return view('components.statistics-graph.index');
+        return view('components.partials.statistics-graph.index');
     }
 }

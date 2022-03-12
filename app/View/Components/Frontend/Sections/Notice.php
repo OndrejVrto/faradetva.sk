@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Frontend\Sections;
 
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
@@ -22,7 +22,7 @@ class Notice extends Component
     ];
 
     public function __construct(
-        private $typeNotice
+        public $typeNotice
     ) {
         $this->model = $this->getModelName($typeNotice);
         $this->notices = $this->getNotice(self::NAMESPACE.$this->model);
@@ -30,7 +30,7 @@ class Notice extends Component
 
     public function render(): View|null {
         if (!is_null($this->notices)) {
-            return view('components.notice.index');
+            return view('components.frontend.sections.notice.index');
         }
         return null;
     }

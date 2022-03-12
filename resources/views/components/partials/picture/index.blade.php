@@ -4,7 +4,7 @@
 @endphp
 <div class="{{ $classes }}" {{ $attributes }}>
 
-    <x-source-sentence
+    <x-partials.source-sentence
         :dimensionSource="$dimensionSource"
         :sourceArray="$picture['sourceArr']"
         class="img-article img-article-{{ $arrival }}"
