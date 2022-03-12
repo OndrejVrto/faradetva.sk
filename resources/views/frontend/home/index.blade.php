@@ -1,4 +1,21 @@
-@extends('frontend._layouts.page')
+<x-frontend.layout.master>
+
+    <x-frontend.sections.slider />
+
+    <x-frontend.sections.priests />
+
+    <x-frontend.sections.contact />
+
+    <x-frontend.sections.pray />
+
+    <x-frontend.sections.testimonials />
+
+    <x-frontend.sections.map-google />
+
+</x-frontend.layout.master>
+
+
+{{-- @extends('frontend._layouts.page')
 
 @section('title', 'All')
 @section('description', 'Stránka slúži výhradne pre vývoj Frontedovej časti')
@@ -16,14 +33,14 @@
     @include('frontend._sections.slider')
     @include('frontend._sections.aboutPage')
     @include('frontend._sections.skill')
-    @include('frontend._sections.contact')
+    @include('frontend._sections.contact') --}}
     {{-- @include('frontend._sections.map') --}}
     {{-- @include('frontend._sections.eventExtend') --}}
     {{-- @include('frontend._sections.event') --}}
     {{-- @include('frontend._sections.ministeries') --}}
     {{-- @include('frontend._sections.news-sidebar') --}}
-    @include('frontend._sections.ministeriesExtend')
+    {{-- @include('frontend._sections.ministeriesExtend') --}}
     {{-- @include('frontend._sections.news') --}}
     {{-- @include('frontend._sections.news-single') --}}
 
-@endsection
+{{-- @endsection --}}
