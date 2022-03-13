@@ -8,14 +8,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StaticPageRequest extends FormRequest
 {
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
-    public function rules()
-    {
-        $rules = [
+    public function rules() {
+        return [
             'route_name' => [
                 Rule::unique('static_pages', 'route_name')->ignore($this->static_page)->withoutTrashed(),
                 'required',
@@ -55,8 +53,10 @@ class StaticPageRequest extends FormRequest
                 'string',
                 'max:255'
             ],
+            // 'banner' => [
+            //     'required'
+            // ],
         ];
-        return $rules;
     }
 
     protected function prepareForValidation() {

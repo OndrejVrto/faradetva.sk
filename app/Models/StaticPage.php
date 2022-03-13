@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Models\File;
+use App\Models\Banner;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -38,5 +39,9 @@ class StaticPage extends Model
 
     public function files() {
         return $this->hasMany(File::class);
+    }
+
+    public function banners() {
+        return $this->belongsToMany(Banner::class, 'static_page_banner', 'static_page_id', 'banner_id');
     }
 }
