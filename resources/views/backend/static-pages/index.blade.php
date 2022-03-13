@@ -21,6 +21,7 @@
             <x-backend.table.th-check-active/>
             <x-backend.table.th width="40%">Url <small>(cesta ktorú vidí uživateľ)</small></x-backend.table.th>
             <x-backend.table.th class="d-none d-xl-table-cell">Route <small>(vnútorná cesta aplikácie)</small></x-backend.table.th>
+            <x-backend.table.th class="text-center">Počet banerov</x-backend.table.th>
             <x-backend.table.th-actions/>
         </x-slot>
 
@@ -47,6 +48,11 @@
                         </a>
                     </x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->route_name }}</x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        @if( $page->banners_count != 0 )
+                            <span class="badge bg-orange px-2 py-1">{{ $page->banners_count }}</span>
+                        @endif
+                    </x-backend.table.td>
                     <x-backend.table.td-actions
                         controlerName="static-pages"
                         identificator="{{ $page->slug }}"

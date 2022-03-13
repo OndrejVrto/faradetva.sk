@@ -14,7 +14,7 @@ use App\Http\Requests\StaticPageRequest;
 class StaticPageController extends Controller
 {
     public function index(): View  {
-        $pages = StaticPage::orderBy('slug')->get();
+        $pages = StaticPage::orderBy('slug')->withCount('banners')->get();
 
         return view('backend.static-pages.index', compact('pages'));
     }

@@ -15,7 +15,7 @@ use Illuminate\Http\RedirectResponse;
 class BannerController extends Controller
 {
     public function index(): View  {
-        $banners = Banner::latest('updated_at')->with('media', 'source')->paginate(5);
+        $banners = Banner::latest('updated_at')->withCount('staticPages')->with('media', 'source', 'staticPages')->paginate(10);
 
         return view('backend.banners.index', compact('banners'));
     }
@@ -39,7 +39,7 @@ class BannerController extends Controller
     }
 
     public function show(Banner $banner): View {
-        $banner->load('media', 'source');
+        $banner->load('media', 'source', 'staticPages');
 
         return view('backend.banners.show', compact('banner'));
     }

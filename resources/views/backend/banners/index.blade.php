@@ -19,6 +19,7 @@
             {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
             <x-backend.table.th width="30%" class="text-center">Obrázok</x-backend.table.th>
             <x-backend.table.th>Názov baneru</x-backend.table.th>
+            <x-backend.table.th class="text-center">Počet využití</x-backend.table.th>
             <x-backend.table.th-actions colspan="3"/>
         </x-slot>
 
@@ -31,7 +32,12 @@
                     class="img-fluid px-3"
                     alt="Banner: {{ $banner->title }}"/>
                 </x-backend.table.td>
-                <x-backend.table.td class="text-wrap text-break">{{$banner->slug}}</x-backend.table.td>
+                <x-backend.table.td class="text-wrap text-break">{{ $banner->title }}</x-backend.table.td>
+                <x-backend.table.td class="text-center">
+                    @if( $banner->static_pages_count != 0 )
+                        <span class="badge bg-orange px-2 py-1">{{ $banner->static_pages_count }}</span>
+                    @endif
+                </x-backend.table.td>
                 <x-backend.table.td-actions
                     controlerName="banners"
                     identificator="{{ $banner->slug }}"
