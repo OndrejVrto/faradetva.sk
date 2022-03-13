@@ -2,8 +2,8 @@
 
     <x-frontend.sections.banner
         :header="$pageData['title']"
-        :breadcrumb="$breadCrumb"
-        titleSlug="vyzdoba-kostola-a-kaplnky, torta"
+        :breadcrumb="$pageData['breadCrumb']"
+        :titleSlug="$pageData['banners']"
         dimensionSource="full"
     />
 
