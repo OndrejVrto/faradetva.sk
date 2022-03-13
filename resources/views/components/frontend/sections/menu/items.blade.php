@@ -1,5 +1,6 @@
 <li><a href="{{ url('test') }}">Test</a></li>
-{{-- <li><a href="{{ route('notices.pdf') }}">Oznamy</a></li> --}}
+<li><a href="{{ url('oznamy-vsetky') }}">Oznamy</a></li>
+
 {{-- <li><a href="{{ route('article.all') }}">Články</a></li> --}}
 
 {{-- <li>
@@ -62,7 +63,7 @@
 </li> --}}
 
 <li><a href="{{ url('zoznam-statickych-stranok') }}">Podstránky</a></li>
-{{-- <li><a href="{{ route('contact') }}">Kontakty</a></li> --}}
+<li><a href="{{ url('kontakty') }}">Kontakty</a></li>
 <li class="search_icon">
     <!-- Button trigger modal -->
     <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fas fa-search"></i></span>
