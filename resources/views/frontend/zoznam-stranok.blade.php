@@ -1,4 +1,12 @@
 <x-frontend.layout.master :pageData="$pageData">
+
+    <x-frontend.sections.banner
+        :header="$pageData['title']"
+        :breadcrumb="$pageData['breadCrumb']"
+        :titleSlug="$pageData['banners']"
+        dimensionSource="full"
+    />
+
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
         <x-frontend.page.section-header :header="$pageData['header']" class="my-0"/>
@@ -97,6 +105,15 @@
                     <x-frontend.page.text-segment type="right">
                         <ol>
                             {{-- <li><a href="{{ url('') }}"></a></li> --}}
+                        </ol>
+                    </x-frontend.page.text-segment>
+                </x-frontend.page.subsection>
+
+                <x-frontend.page.subsection title="iné">
+                    <x-frontend.page.text-segment type="right">
+                        <ol>
+                            <li><a href="{{ url('o-nas') }}">Zoznam sekcie: O nás</a></li>
+                            <li><a href="{{ url('oznamy-vsetky') }}"></a></li>
                         </ol>
                     </x-frontend.page.text-segment>
                 </x-frontend.page.subsection>

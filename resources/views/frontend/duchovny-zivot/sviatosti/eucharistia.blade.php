@@ -1,4 +1,12 @@
 <x-frontend.layout.master :pageData="$pageData">
+
+    <x-frontend.sections.banner
+        :header="$pageData['title']"
+        :breadcrumb="$pageData['breadCrumb']"
+        :titleSlug="$pageData['banners']"
+        dimensionSource="full"
+    />
+
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <x-frontend.page.subsection title="Čo je Eucharistia?">

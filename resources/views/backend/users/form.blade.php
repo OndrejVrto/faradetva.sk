@@ -238,8 +238,8 @@
 
 </x-backend.form>
 
-@push('js')
-    @role('Super Administrátor')
+@role('Super Administrátor')
+    @push('js')
         <script @nonce type="text/javascript">
             $(document).ready(function() {
                 $('[name="all_permission"]').on('click', function() {
@@ -256,5 +256,5 @@
                 });
             });
         </script>
-    @endrole
-@endpush
+    @endpush
+@endrole

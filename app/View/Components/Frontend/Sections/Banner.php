@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Frontend\Sections;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
@@ -10,15 +11,15 @@ use Illuminate\Support\Facades\Cache;
 
 class Banner extends Component
 {
-    public $banner;
+    public $banner = null;
 
     public function __construct(
         public string $dimensionSource = "off",
         public $header = null,
         public $breadcrumb = null,
-        private $titleSlug,
+        private string|array $titleSlug,
     ) {
-        $this->banner = $this->getBanner($this->getName($titleSlug));
+        if($this->getName($titleSlug) != '') $this->banner = $this->getBanner($this->getName($titleSlug));
     }
 
     public function render(): View|null {
@@ -54,15 +55,19 @@ class Banner extends Component
         });
     }
 
-    private function getName(string $value): string {
-        return (string) Str::of($value)
+    private function getName(string|array $namesBanners): string {
+        if(is_array($namesBanners)){
+            return head(Arr::shuffle($namesBanners));
+        };
+
+        return (string) Str::of($namesBanners)
             ->explode(',')
-            ->map(function($value){
-                return trim($value);
+            ->map(function($namesBanners){
+                return trim($namesBanners);
             })
             ->whereNotNull()
-            ->filter(function ($value) {
-                return $value != '';
+            ->filter(function ($namesBanners) {
+                return $namesBanners != '';
             })
             ->shuffle()
             ->first();

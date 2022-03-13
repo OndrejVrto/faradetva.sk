@@ -9,23 +9,23 @@ return new class extends Migration
 
     public function up()
     {
-        Schema::create('news_tag', function (Blueprint $table) {
+        Schema::create('static_page_banner', function (Blueprint $table) {
             // $table->id();
-            $table->foreignId('news_id')
+            $table->foreignId('static_page_id')
                 ->constrained()
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
-            $table->foreignId('tag_id')
+            $table->foreignId('banner_id')
                 ->constrained()
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
-            $table->primary(['news_id', 'tag_id'], 'news_tag_id');
+            $table->primary(['static_page_id', 'banner_id'], 'static_page_banner_id');
         });
     }
 
 
     public function down()
     {
-        Schema::dropIfExists('news_tags');
+        Schema::dropIfExists('static_page_banner');
     }
 };

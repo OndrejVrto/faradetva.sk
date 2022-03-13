@@ -1,8 +1,17 @@
 <x-frontend.layout.master :pageData="$pageData">
+
+    <x-frontend.sections.banner
+        :header="$pageData['title']"
+        :breadcrumb="$pageData['breadCrumb']"
+        :titleSlug="$pageData['banners']"
+        dimensionSource="full"
+    />
+
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
+    {{-- karol-anton-medvecky --}}
+
     <x-frontend.page.subsection>
-        <x-frontend.page.subsection.img columns="4" type="left" alt="" url="{{ asset('images/.jpg') }}" />
         <x-frontend.page.text-segment type="right">
             <h6 class="text-church-template">* 8.6.1875  Dolná Lehota (okr. Dolný Kubín)</h6>
             <h6 class="text-church-template">† 11.12.1937  Bojnice (okr. Prievidza)</h6>

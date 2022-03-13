@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-
 use App\Models\Source;
+use App\Models\StaticPage;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -30,6 +30,10 @@ class Banner extends Model implements HasMedia
 
     public function source() {
         return $this->morphOne(Source::class, 'sourceable');
+    }
+
+    public function staticPages() {
+        return $this->belongsToMany(StaticPage::class, 'static_page_banner', 'banner_id', 'static_page_id');
     }
 
     public function getMediaFileNameAttribute() {

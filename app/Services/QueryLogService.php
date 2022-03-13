@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\File;
 class QueryLogService
 {
     private $file_name = 'query.log';
-    
+
     private $file_path;
-    
+
     private $total_query;
 
     private $total_time;
-    
+
     private $final;
 
     public function __construct() {
@@ -26,17 +26,17 @@ class QueryLogService
 
         if (!Str::startsWith(request()->path(), '_debugbar')) {
 
-            File::delete($this->file_path);
+            // File::delete($this->file_path);
 
             DB::listen(function ($query) {
                 // Not cache Query
                 if (!Str::startsWith($query->sql, ["insert into `cache`", "update `cache`", "select * from `cache`"])) {
-                    
+
                     $this->total_query++;
                     $this->total_time += $query->time;
-                    
+
                     $this->addQuery(
-                        $query, 
+                        $query,
                         // grab the first element of non vendor calls
                         collect(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS))
                             ->filter(function ($trace) {
@@ -95,7 +95,7 @@ class QueryLogService
         }
 
         $this->writeLine(str_repeat("-", 100) . PHP_EOL);
-        
+
         if (isset($this->final['queries']) AND is_array($this->final['queries'])) {
             foreach ($this->final['queries'] as $q) {
                 foreach ($q as $key => $val) {

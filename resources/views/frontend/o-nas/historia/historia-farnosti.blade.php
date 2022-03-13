@@ -1,7 +1,15 @@
 <x-frontend.layout.master :pageData="$pageData">
+
+    <x-frontend.sections.banner
+        :header="$pageData['title']"
+        :breadcrumb="$pageData['breadCrumb']"
+        :titleSlug="$pageData['banners']"
+        dimensionSource="full"
+    />
+
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
-        {{-- História farnosti Detva --}}
+    {{-- História farnosti Detva --}}
 
     <x-frontend.page.subsection>
         {{-- <x-frontend.page.subsection.img columns="4" type="left" alt="" url="{{ asset('images/.jpg') }}" /> --}}
