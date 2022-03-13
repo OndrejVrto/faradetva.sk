@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('news_tag', function (Blueprint $table) {
-            $table->id();
-
+            // $table->id();
             $table->foreignId('news_id')
                 ->constrained()
                 ->onUpdate('CASCADE')
@@ -20,6 +19,7 @@ return new class extends Migration
                 ->constrained()
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+            $table->primary(['news_id', 'tag_id'], 'news_tag_id');
         });
     }
 
