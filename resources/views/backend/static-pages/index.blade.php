@@ -22,7 +22,7 @@
             <x-backend.table.th width="40%">Url <small>(cesta ktorú vidí uživateľ)</small></x-backend.table.th>
             <x-backend.table.th class="d-none d-xl-table-cell">Route <small>(vnútorná cesta aplikácie)</small></x-backend.table.th>
             <x-backend.table.th class="text-center">Počet banerov</x-backend.table.th>
-            <x-backend.table.th-actions/>
+            <x-backend.table.th-actions colspan="3"/>
         </x-slot>
 
         <x-slot name="top">
@@ -52,6 +52,15 @@
                         @if( $page->banners_count != 0 )
                             <span class="badge bg-orange px-2 py-1">{{ $page->banners_count }}</span>
                         @endif
+                    </x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        <a  href="{{ config('app.url').'/'.$page->url }}"
+                            class="btn btn-outline-success btn-sm btn-flat"
+                            title="Zobraziť v novom okne"
+                            target="_blank"
+                        >
+                            <i class="fas fa-eye"></i>
+                        </a>
                     </x-backend.table.td>
                     <x-backend.table.td-actions
                         controlerName="static-pages"
