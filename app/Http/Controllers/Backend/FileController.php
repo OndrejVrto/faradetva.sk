@@ -11,13 +11,15 @@ use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use App\Services\FilePropertiesService;
 
 class FileController extends Controller
 {
     public function index(): View {
-        $files = File::latest()->with('source')->paginate(10);
+        $paginator = File::with('media','source')->latest()->paginate(10);
+        $files = (new FilePropertiesService())->allFileData($paginator->items());
 
-        return view('backend.files.index', compact('files'));
+        return view('backend.files.index', compact('paginator', 'files'));
     }
 
     public function create(): View {
@@ -30,7 +32,7 @@ class FileController extends Controller
         $sourceData = Arr::except($validated, ['title', 'slug', 'attachment']);
         $file->source()->create($sourceData);
 
-        if ($request->hasFile('file')) {
+        if ($request->hasFile('attachment')) {
             $mediaService->storeMediaOneFile($file, $file->collectionName, 'attachment');
         }
 
@@ -51,7 +53,7 @@ class FileController extends Controller
         $file->source()->update($sourceData);
         $file->touch(); // Touch because i need start observer for delete cache
 
-        if ($request->hasFile('file')) {
+        if ($request->hasFile('attachment')) {
             $mediaService->storeMediaOneFile($file, $file->collectionName, 'attachment');
         }
 

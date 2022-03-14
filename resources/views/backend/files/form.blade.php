@@ -9,7 +9,7 @@
         $identificator = $file->slug;
         $createdInfo = $file->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $file->updated_at->format('d. m. Y \o H:i');
-        $media_file_name = $file->getFirstMedia($file->collectionFile)->file_name ?? '';
+        $media_file_name = $file->getFirstMedia($file->collectionName)->file_name ?? '';
     }
 @endphp
 
