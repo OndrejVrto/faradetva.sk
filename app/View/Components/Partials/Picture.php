@@ -11,12 +11,47 @@ class Picture extends Component
 {
     public $picture;
 
+    private const SIDE = [
+        'left',
+        'right',
+    ];
+
+    private const ANIMATION_TYPE = [
+        'fromtop',
+        'frombottom',
+        'fromleft',
+        'fromright',
+        'zoom',
+        'zoom_in',
+        'zoom_out',
+        'stratch',
+        'rotate',
+        'flipin',
+        'flipinY',
+        'spin',
+        'spin_back',
+        'sonarEffect',
+        'fadeleft',
+        'fadeIn',
+        'fadeOut',
+        'slidein',
+        'slideout',
+        'slideup',
+        'slidedown',
+        'loader',
+        'load_fade',
+    ];
+
     public function __construct(
         public int $columns = 4,
-        public string $arrival = "left",
+        public string|null $animation = null,
+        public string|null $side = null,
         public string $dimensionSource = 'full',
-        private string $titleSlug = "",
+        private string $titleSlug,
     ) {
+        $this->side = in_array($side, self::SIDE) ? $side : 'right';
+        $this->animation = in_array($animation, self::ANIMATION_TYPE) ? $animation : 'fromright';
+
         $this->picture = Cache::rememberForever('PICTURE_'.$titleSlug, function () use($titleSlug) {
             return PictureModel::whereSlug($titleSlug)->with('media', 'source')->get()->map(function($img){
                 return [

@@ -13,7 +13,7 @@
         <div class="ps-5 ps-md-0 col-lg-9 col-xl-8 m-auto">
 
             <x-frontend.page.subsection >
-                <x-frontend.page.text-segment type="right">
+                <x-frontend.page.text-segment animation="fromright">
                     <h5 class="text-church-template">
                         Tomáš Imrich Ďurica OP
                     </h5>

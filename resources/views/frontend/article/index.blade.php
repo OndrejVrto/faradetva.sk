@@ -8,7 +8,6 @@
         :header="$title"
         :breadcrumb="$breadCrumb"
         titleSlug="vyzdoba-kostola-a-kaplnky, torta"
-        {{-- dimensionSource="full" --}}
     />
 
     <x-frontend.page.section name="ARTICLE" class="ch_blog_section pt-5" row="true">
@@ -16,6 +15,7 @@
         @forelse ($articles as $oneNews)
 
             @if ($loop->first)
+                <!-- ARTICLE {{ $oneNews->id }} Start -->
                 <div class="col-lg-12">
                     <div class="blog_item_cover fromtop wow">
                         <div class="row">
@@ -51,11 +51,11 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- ARTICLE {{ $oneNews->id }} End -->
             @else
-
+                <!-- ARTICLE {{ $oneNews->id }} Start -->
                 <div class=" col-sm-6 col-lg-4">
-                    <div class="blog_item_cover frombottom wow" data-wow-delay=".{{ $loop->iteration * 2 }}s">
+                    <div class="blog_item_cover frombottom wow" data-wow-delay=".{{ $oneNews->id * 2 }}s">
                         <div class="blog_thumb">
                             <img src="{{ $oneNews->getFirstMediaUrl('news_front_picture', 'thumb-all-news') ?: "http://via.placeholder.com/370x248" }}"
                                 class="w-100"
@@ -87,9 +87,10 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- ARTICLE {{ $oneNews->id }} End -->
             @endif
         @empty
+            <!-- ARTICLE No exist Start -->
             <div class="p-5 m-5">
                 <h3>
                     {{ $emptyTitle['name'] }}
@@ -101,12 +102,16 @@
                     <a class="text-church-template ms-2 me-3" href="{{ route('article.all') }}">všetky články</a>
                 </p>
             </div>
+            <!-- ARTICLE No exist End -->
         @endforelse
 
+        <!-- ARTICLE Pagination Start -->
         <div class="row pt-2">
             {{ $articles->onEachSide(1)->links() }}
         </div>
+        <!-- ARTICLE Pagination End -->
 
+        <!-- ARTICLE Search Start -->
         <div class="widget widget_search">
             <form id="search-form" class="search-form" action="{{ route('article.search') }}">
                 @csrf
@@ -116,6 +121,7 @@
                 <input type="submit" class="search-submit" value="Hľadať">
             </form>
         </div>
+        <!-- ARTICLE Search End -->
 
     </x-frontend.page.section>
 

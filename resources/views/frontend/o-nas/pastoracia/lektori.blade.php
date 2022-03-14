@@ -10,12 +10,12 @@
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <x-frontend.page.subsection>
-        <x-frontend.page.text-segment type="right">
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Lektor je ten, kto číta v liturgii Božie slovo. Prostredníctvom prednesu, čítania sa Božie slovo stáva živým a oslovujúcim všetkých členov liturgického zhromaždenia. Už v 3. storočí boli lektori ustanovení biskupom nato, aby čítali Božie slovo v rámci liturgických slávení, ba dokonca prednášali aj samotné evanjelium. Až v 4. storočí dochádza k zmene: čítanie evanjelia je rezervované diakonovi alebo presbyterovi, tak je to dodnes. Služba lektora od 10. storočia postupne zanikla, pretože texty čítaní boli latinské a úloha lektora dostávala skôr formálny charakter. Služba lektora bola potom až do 20. storočia vnímaná len ako predstupeň pre prijatie kňazstva.
             </p>
         </x-frontend.page.text-segment>
-        <x-frontend.page.text-segment type="left">
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Keď pápež sv. Pavol VI. v roku 1972 zrušil tzv. „nižšie svätenia“, ponechal prístup k ministériám (službám) lektorátu a akolytátu vyhradený len osobám mužského pohlavia, urobil tak v tom zmysle, že sa tieto ministériá považovali za predprípravu k neskoršiemu prijatiu posvätného rádu. Pápež František v roku 2021 rozhodol, že ministériá lektorátu a akolytátu budú prístupné aj ženám, a to v stabilnej a inštitucionálnej forme. Je potrebné si uvedomiť, že ide o laické ministériá zásadne odlišné od ordinovaného ministéria, ktoré sa prijíma sviatosťou vysviacky. Znovuobjavený význam lektorátu a akolytátu nie je len vo vzťahu k sviatostnému kňazstvu, ale tiež a predovšetkým v súvislosti s krstným kňazstvom. Existuje aj suplovaná úloha lektora, ktorú môžeme nazvať mimoriadny čitateľ Božieho slova - ním môžu byť ženy, muži, mládež, a títo síce nie sú svojím ordinárom ustanovenými lektormi, ale majú od svojho správcu farnosti dovolenie čítať lekcie Svätého písma vo svätej omši.
             </p>
@@ -23,12 +23,12 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-frontend.page.text-segment type="right">
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Všade, kde chýba ustanovený lektor, sú určení laici na prednášanie liturgických čítaní, ktorí majú byť dobre pripravení plniť túto službu dôstojne, vhodne a horlivo, aby sa u veriacich pri počúvaní posvätných čítaní vznietila v srdci láska k Svätému písmu a živý záujem oň. Je dôležité, aby sa čitatelia Božieho slova zodpovedne pripravovali na jeho prednes. Príprava spočíva v duchovnej aj technickej príprave, okrem toho sa vyžaduje tiež príkladný život zhodujúci sa s evanjeliom.
             </p>
         </x-frontend.page.text-segment>
-        <x-frontend.page.text-segment type="left">
+        <x-frontend.page.text-segment animation="fromleft">
             <h6>Zásady a odporúčania pre lektorov vo farnosti Detva</h6>
 
             <ol>

@@ -12,13 +12,13 @@
     {{-- História farnosti Detva --}}
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" type="left" alt="" url="{{ asset('images/.jpg') }}" /> --}}
-        <x-frontend.page.text-segment type="right">
+        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Podpoľanie je oblasť situovaná na južných a juhovýchodných svahoch najvyššieho sopečného pohoria na Slovensku - Poľany, územie na rozhraní medzi Slovenským rudohorím a Slovenským stredohorím. Roztratené osídlenie po svahoch nečinného vulkánu predstavuje špecifiká, ktoré výrazne ovplyvňovali život miestnych obyvateľov. Táto rozsiahla časť Zvolenskej kotliny dostala svoj rázovitý charakter vďaka kopaničiarskej kolonizácii 17. storočia. Do oblasti Podpoľania patrili už stredoveké sídla Očová a Zvolenská Slatina so sídlom hradného panstva v dedine Vígľaš a na severovýchodnej strane Poľany obce Hrochoť a Čerín.
             </p>
         </x-frontend.page.text-segment>
-        <x-frontend.page.text-segment type="left">
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 V prvej polovici 17. storočia sa napriek neustálemu tureckému nebezpečenstvu začalo vplyvom kopaničiarskej kolonizácie rozvíjať roztratené osídlenie na území Vígľašského panstva. Na východ od hradu Vígľaš sa v tom čase nenachádzalo trvalé sídlo, hoci obyvatelia panstva toto územie už dobre poznali a hospodársky využívali. V horských a podhorských oblastiach Podpoľania postupne vznikali dočasné obydlia a hospodárske stavby. Postupom času sa tieto sezónne hospodárstva stali základom trvalých kopaničiarskych sídlisk. Centrom kopaničiarskej kolonizácie na území Vígľašského panstva sa stala Detva, ktorá bola založená priamo na podnet svojho zemepána Csákyho. Na jeho podnet sa sem sťahovali obyvatelia okolitých dedín, klčovali lesy na okolí majera a stavali si domy.
             </p>
@@ -26,8 +26,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Vznik Detvy">
-        {{-- <x-frontend.page.subsection.img columns="5" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/602199.jpg') }}" /> --}}
-        <x-frontend.page.text-segment type="left">
+        {{-- <x-frontend.page.subsection.img columns="5" animation="fromright" alt="" url="{{ asset('images/only-for-debug/sv-francisco/602199.jpg') }}" /> --}}
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 V roku 1636 boli Ladislavom Csákym vymenovaní lokátori Juraj Holec a František Péchy, aby vystavali v údolí detvianskeho potoka dedinu. O dva roky neskôr už jestvovala spomínaná nová usadlosť pre komorských uhliarov, ktorá bola neskôr identifikovaná ako Detva. Prvými osadníkmi novej oblasti boli pôvodní obyvatelia z okolitých dedín Očová a Zvolenská Slatina. Prisťahovalcami, ktorí na Podpoľanie prišli v čase valaskej kolonizácie, boli pastieri prichádzajúci z Oravy, Liptova a východoslovenských stolíc a osídľovali vyššie položené lokality. Pred tureckým nebezpečenstvom tu nachádzali nový domov aj obyvatelia z južných stolíc, najmä Novohradu a Hontu.
             </p>
@@ -35,12 +35,12 @@
                 Krátko po založení Detvy v roku 1636, sa objavili pokusy zapojiť ju aj do cirkevnej správy. Detva vznikla v zložitom období reformácie a rekatolizácie, čo sa prejavilo aj na jej cirkevnom vývoji. V najstaršom období patrila pod správu Ostrihomskej arcidiecézy, zvolenského archidiakonátu a očovskej farnosti, ktorá bola v tom čase v rukách evanjelikov. Očovskí farári sa však pre rozľahlosť vlastnej farnosti nemohli dostatočne starať o duchovné potreby Detvanov, a preto Detva dostala samostatnú duchovnú správu. Povolaním členov Spoločnosti Ježišovej (jezuitov) z Banskej Bystrice v prvej polovici 17. storočia sa rod Csákyovcov snažil o vytvorenie katolíckej oblasti na Podpoľaní, ktorá mala byť akousi protiváhou voči susedným evanjelickým oblastiam. Stála jezuitská misia, ktorú riadil Michal Luczicz, spravovala novozaloženú farnosť v dedine. V roku 1638 František Péchy daroval v Detve kúriu s pozemkami pre potreby fary. V darovanej budove bolo zriadené sídlo farnosti a až do postavenia kostola v nej bola aj provizórna kaplnka. Pôvodná drevená budova bola prestavaná na budovu z trvalých stavebných materiálov až v roku 1763.
             </p>
         </x-frontend.page.text-segment>
-        {{-- <x-frontend.page.subsection.img columns="4" type="left" alt="" url="{{ asset('images/only-for-debug/sv-francisco/Josep_Benlliure_Gil43.jpg')  }}" /> --}}
+        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/only-for-debug/sv-francisco/Josep_Benlliure_Gil43.jpg')  }}" /> --}}
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Vznik farnosti">
-        {{-- <x-frontend.page.subsection.img columns="4" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/Saint_Francis_of_Assisi_by_Jusepe_de_Ribera.jpg') }}" /> --}}
-        <x-frontend.page.text-segment type="left">
+        {{-- <x-frontend.page.subsection.img columns="4" animation="fromright" alt="" url="{{ asset('images/only-for-debug/sv-francisco/Saint_Francis_of_Assisi_by_Jusepe_de_Ribera.jpg') }}" /> --}}
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Farnosť bola oficiálne zriadená v roku 1644 ostrihomským arcibiskupom Jurajom Lippayom. Okrem jezuitov pôsobili v mladej osade aj františkáni, ich služba v Detve zanechala trvalú pamiatku v podobe patrocínia Kostola sv. Františka z Assisi. Duchovný život podporovali miestni zemepáni, ktorí na začiatku 60. rokov 17. storočia darovali viaceré pozemky, polia a lúky na založenie a výstavbu kostola. Miestne bratstvo františkánov nemalo k dispozícii základinu, majetok na chod farnosti spravovali prostredníctvom inšpektorov. Ich odchod z detvianskej farnosti pravdepodobne súvisí s patentom Jozefa II. o zrušení kláštorov. Premena malej osady na zemepanské mestečko je úzko spätá s dominantným podielom rímskokatolíckeho obyvateľstva v regióne. O nekatolíkoch žijúcich na Podpoľaní sa v prameňoch dozvedáme len sporadicky. Detviansky farár Anton Okolitsányi v kánonickej vizitácii z roku 1781 uviedol, že v Detve nikoho nepriviedol ku katolicizmu, keďže všetci vo farnosti boli katolíci a nevyskytovali sa tu ani žiadne zmiešané manželstvá. Až v polovici 19. storočia sa v Detve výraznejšie objavili aj príslušníci ďalších konfesií.
             </p>
@@ -52,8 +52,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Charakteristika">
-        {{-- <x-frontend.page.subsection.img columns="4" type="left" alt="aaa" url="{{ asset('images/only-for-debug/sv-francisco/StFrancis_part.jpg') }}" /> --}}
-        <x-frontend.page.text-segment type="right">
+        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="aaa" url="{{ asset('images/only-for-debug/sv-francisco/StFrancis_part.jpg') }}" /> --}}
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Po vzniku Banskobystrickej diecézy v roku 1776 sa detvianska farnosť stala súčasťou dolnozvolenského vicearchidiakonátu a očovského dekanátu. Po úprave cirkevnoprávneho členenia diecézy v roku 1821 patrila Detva do katedrálneho archidiakonátu a zvolenského dekanátu. Posledná výrazná zmena územného členenia diecézy, ktorá sa dotýkala Detvy, nastala v roku 1995, keď bol zo zvolenského dekanátu vyčlenený dekanát Detva. Do tohto dekanátu v súčasnosti patria farnosti Detva, Detvianska Huta, Hriňová, Kriváň, Očová, Stožok, Vígľašská Huta-Kalinka a Zvolenská Slatina.
             </p>
@@ -64,8 +64,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Neskorší rozvoj">
-        {{-- <x-frontend.page.subsection.img columns="4" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/st_francis_of_assisi_receiving_the_stigmata-12701.jpg') }}" /> --}}
-        <x-frontend.page.text-segment type="left">
+        {{-- <x-frontend.page.subsection.img columns="4" animation="fromright" alt="" url="{{ asset('images/only-for-debug/sv-francisco/st_francis_of_assisi_receiving_the_stigmata-12701.jpg') }}" /> --}}
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Keďže od Zvolena po Lučenec nebolo mesto, Detva si začala nárokovať, aby dostala štatút mestečka. Podarilo sa jej to začiatkom 19. storočia, keď bola kráľovskou výsadnou listinou, datovanou 13. decembra 1811, povýšená na mestečko (oppium). Detva dostala privilégium konať štyrikrát v roku jarmok (24. apríla; 24. júna; 24. septembra a 24. novembra) a týždenne trh. Erbom mestečka sa stali tri smreky. Postupne menila Detva svoj charakter. Dominujúce drevorubačské práce nahrádzali remeslá - tesári, kolári, farbiari, mlynári, zámočník, obuvník, krajčír, pivovarník, atď. Po roku 1848 sa tu začali usádzať židia, ktorí sa vypracovali na veľkopriemyselníkov a hlavne obchodníkov a krčmárov. Obchod v mestečku reprezentovali štyria kresťanskí a traja židovskí obchodníci. Nadmieru však boli rozšírené kresťanské i židovské krčmy. V Detve ich bolo sedem, v Kriváni dve, v Hriňovej štyri a na lazoch deväť. Súpis židov z roku 1942 spomína 50 občanov tohto vierovyznania v Detve. Židovská komunita mala v obci neďaleko kostola postavenú aj vlastnú synagógu.
             </p>
@@ -79,8 +79,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Novodobé dejiny">
-        {{-- <x-frontend.page.subsection.img columns="4" type="right" alt="" url="{{ asset('images/only-for-debug/sv-francisco/st_francis_of_assisi_receiving_the_stigmata-12701.jpg') }}" /> --}}
-        <x-frontend.page.text-segment type="left">
+        {{-- <x-frontend.page.subsection.img columns="4" animation="fromright" alt="" url="{{ asset('images/only-for-debug/sv-francisco/st_francis_of_assisi_receiving_the_stigmata-12701.jpg') }}" /> --}}
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Po roku 1989 boli postupne vo farnosti postavené tri nové kostoly. V roku 1992 sa začalo s výstavbou kostola v Kriváni a v roku 1994 v Korytárkach. Po dokončení Kostola sv. Cyrila a Metoda v Kriváni bola v roku 1995 z Detvy vyčlenená nová farnosť Kriváň, s filiálkou Korytárky, kde bol Kostol Panny Márie Karmelskej dostavaný v roku 1998. V jubilejnom roku 2000 sa začalo s výstavbou Kostola Svätej rodiny v Stožku, ktorý bol dokončený v roku 2002 a o rok neskôr tu bola zriadená aj nová farnosť. V spolupráci s vedením mesta bola v roku 2002 dokončená úprava okolia farského kostola, položená dlažba, inštalované nové svietidlá a lavičky, čím sa obnovilo centrum starej časti mesta, s dominantou Kostola sv. Františka z Assisi. V areáli farskej záhrady bolo v rokoch 2004 - 2005 vybudované športové centrum, pozostávajúce z trávnatého i asfaltového ihriska.
             </p>

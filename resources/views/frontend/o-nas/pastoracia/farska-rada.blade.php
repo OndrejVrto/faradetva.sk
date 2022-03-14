@@ -10,7 +10,7 @@
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <x-frontend.page.subsection title="Farská ekonomická rada">
-        <x-frontend.page.text-segment type="left">
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Farská ekonomická rada je poradný orgán farára, ktorého úlohou je podľa noriem kánonického práva pomáhať farárovi v správe majetkov farnosti a v hľadaní prostriedkov potrebných na vykonávanie kultu, pastoračných činností a dobročinnosti najmä voči chudobným. Farár farnosti predsedá farskej ekonomickej rade. Farár je štatutárnym zástupcom farnosti vo všetkých právnych záležitostiach podľa noriem práva a v duchu Cirkvi. Konečné rozhodnutia v ekonomicko-právnych záležitostiach farnosti prináležia jedine farárovi pri zachovaní noriem práva.
             </p>
@@ -32,7 +32,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Farská pastoračná radaa">
-        <x-frontend.page.text-segment type="right">
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Farská pastoračná rada je poradným a pracovným orgánom farára, ktorá s ním spolupracuje pri vytváraní živého spoločenstva veriacich vo farnosti. Každá farnosť má právo si zriadiť vlastnú farskú pastoračnú radu, ktorá sa má na základe poznania situácie vo farnosti podieľať na vytváraní a realizácii pastoračného programu. K úlohám farskej pastoračnej rady zvlášť patrí podporovať a napomáhať uskutočňovanie pastoračných plánov, ktoré určí diecézny biskup; dôstojne sláviť liturgiu; inkulturáciu evanjelia; podporovať teologickú vzdelávaciu činnosť vo farnosti; spoločnými úlohami a akciami posilňovať vedomie farského spoločenstva; charitatívnu činnosť; odporúčať zamestnanie osôb farskému úradu a riešiť ich prípadné pracovno-právne problémy; spoluprácu s organizáciami a združeniami, tak cirkevnými, ako aj občianskymi; riešiť iné problémy farského života ako to požaduje farár.
             </p>

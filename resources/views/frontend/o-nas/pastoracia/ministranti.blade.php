@@ -10,8 +10,8 @@
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="right">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Nenahraditeľnou súčasťou života a práce v Cirkvi sú miništranti. Ich celkový význam spočíva v priamej oslave Boha prostredníctvom všetkých liturgických úkonov a obradov, na ktorých sa zúčastňujú a pri ktorých sú obdarúvaní zvláštnymi dobrodeniami. Ich viera je vzorom pre iných mladých ľudí, a tak veľmi často plnia aj misijnú úlohu Cirkvi medzi svojimi vrstovníkmi.
             </p>
@@ -22,8 +22,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Nadpis 1">
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4" />
-        <x-frontend.page.text-segment type="left">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Miništrantská služba je vznešená, posvätná, je to služba rozmnožujúca Božie milosti, služba Pánovi a služba veriacemu ľudu. Miništrant je po kňazovi a diakonovi najbližšie k samému Ježišovi Kristovi, ktorý je opravdivo, skutočne a podstatne prítomný v Oltárnej sviatosti. Miništranti sú akoby viditeľnými zástupcami anjelov. Ich úlohou je prinášať na oltár liturgické knihy, nádoby a rúcha, chlieb a víno, starať sa o kadidelnicu, dávať veriacim znamenie zvončekom a zabezpečiť iné potrebné liturgické úlohy.
             </p>
@@ -34,8 +34,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Aký má byť miništrant">
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="right">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Všetci sme povolaní k spáse, lebo Ježiš Kristus za každého človeka zomrel na kríži. Zvlášť miništrant sa má usilovať žiť v stave posväcujúcej milosti, aby jeho duša bola čistá, a to najmä vtedy, keď slúži pri Pánovom oltári. Je tak blízko k Božím milostiam a darom, že ho Ježiš obdarúva mimoriadnymi milosťami a povoláva k svätosti.
             </p>
@@ -46,8 +46,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4" />
-        <x-frontend.page.text-segment type="left">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Miništrant často prichádza k Bohu, ktorý ho potešuje, dodáva mu silu byť zbožným a svätým. Mal by pravidelne pristupovať k sviatostiam, najmä k sviatosti zmierenia a k svätému prijímaniu a denne sa modliť. Zbožnosť miništranta nemožno merať podľa množstva a dĺžky modlitieb, ale podľa jeho živej a radostnej praktickej viery.
             </p>
@@ -61,8 +61,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Miništranti v Detve">
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="right">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Ako v mnohých iných farnostiach našej diecézy, tak aj v Detve za posledné roky výrazne klesol počet miništrantov. Napriek tomu sa zatiaľ vďaka Bohu stále nájdu chlapci, ktorí sú ešte odhodlaní slúžiť pri Pánovom oltári. Naša farnosť počas letných prázdnin organizuje každoročne pre miništrantov niekoľkodňový pobyt na chate, kde majú mladší chlapci pod vedením starších miništrantov vytvorený program, ktorý je pestrý na hry, zábavu, výlety, ale aj na modlitbu, sväté omše a osvojenie si vedomostných i praktických úloh miništranta.
             </p>

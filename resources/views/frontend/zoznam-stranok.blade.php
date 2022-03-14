@@ -14,7 +14,7 @@
         <div class="row text-left">
             <div class="col-md-6">
                 <x-frontend.page.subsection title="O nás / História">
-                    <x-frontend.page.text-segment type="right">
+                    <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             <li><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
                             <li class="pb-2"><a href="{{ url('o-nas/vianoce-v-detve') }}">Vianoce v Detve</a></li>
@@ -32,7 +32,7 @@
                 </x-frontend.page.subsection>
 
                 <x-frontend.page.subsection title="O nás / Sakrálne objekty">
-                    <x-frontend.page.text-segment type="right">
+                    <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             <li><a href="{{ url('sakralne-objekty/kostol-sv-frantiska-z-assisi-v-detve') }}">Kostol Detva</a></li>
                             <li><a href="{{ url('sakralne-objekty/chudobienec') }}">Chudobienec</a></li>
@@ -45,7 +45,7 @@
                 </x-frontend.page.subsection>
 
                 <x-frontend.page.subsection title="O nás / Pastorácia">
-                    <x-frontend.page.text-segment type="right">
+                    <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             <li><a href="{{ url('o-nas/pastoracia/lektori') }}">Lektori</a></li>
                             <li><a href="{{ url('o-nas/pastoracia/akolyti') }}">Akolyti</a></li>
@@ -66,7 +66,7 @@
             <div class="col-md-6">
 
                 <x-frontend.page.subsection title="Spoločenstvá">
-                    <x-frontend.page.text-segment type="right">
+                    <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             <li><a href="{{ url('spolocenstva/rad-bosych-karmelitanok') }}">Rád bosých karmelitánok (OCD)</a></li>
                             <li><a href="{{ url('spolocenstva/svetsky-rad-bosych-karmelitanov') }}">Svetský rád bosých karmelitánov (OCDS)</a></li>
@@ -79,7 +79,7 @@
                 </x-frontend.page.subsection>
 
                 <x-frontend.page.subsection title="Duchovný život / Sviatosti">
-                    <x-frontend.page.text-segment type="right">
+                    <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             <li><a href="{{ url('duchovny-zivot/sviatosti/krst') }}">Krst</a></li>
                             <li><a href="{{ url('duchovny-zivot/sviatosti/birmovanie') }}">Sviatosť birmovania</a></li>
@@ -93,7 +93,7 @@
                 </x-frontend.page.subsection>
 
                 <x-frontend.page.subsection title="Duchovný život / Sväteniny">
-                    <x-frontend.page.text-segment type="right">
+                    <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             <li><a href="{{ url('duchovny-zivot/sveteniny/pohreb') }}">Pohreb</a></li>
                             <li><a href="{{ url('duchovny-zivot/sveteniny/pozehnania') }}">Požehnania</a></li>
@@ -102,7 +102,7 @@
                 </x-frontend.page.subsection>
 
                 <x-frontend.page.subsection title="Duchovný život / Život viery">
-                    <x-frontend.page.text-segment type="right">
+                    <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             {{-- <li><a href="{{ url('') }}"></a></li> --}}
                         </ol>
@@ -110,7 +110,7 @@
                 </x-frontend.page.subsection>
 
                 <x-frontend.page.subsection title="iné">
-                    <x-frontend.page.text-segment type="right">
+                    <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             <li><a href="{{ url('o-nas') }}">Zoznam sekcie: O nás</a></li>
                             <li><a href="{{ url('oznamy-vsetky') }}"></a></li>
