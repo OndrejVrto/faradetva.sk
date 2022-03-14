@@ -1,4 +1,5 @@
-<div class="ch_about_desc" {{ $attributes }}>
+<!-- GALLERY Start ({{ $gallery['title'] }}) -->
+<div class="row ch_about_desc" {{ $attributes }}>
     <h3 class="fromright wow" data-wow-delay="0.4s">{{ $gallery['title'] }}</h3>
 
     @isset($gallery['description'])
@@ -25,6 +26,7 @@
     />
 
 </div>
+<!-- GALLERY End ({{ $gallery['title'] }}) -->
 
 @once
     @push('css')

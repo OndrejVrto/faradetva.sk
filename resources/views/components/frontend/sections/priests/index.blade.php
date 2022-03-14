@@ -18,20 +18,20 @@
                     <h4>{{ $priest['full_name_titles'] }}</h4>
                     <h5>{{ $priest['function'] }}</h5>
                     @isset($priest['phone'])
-                    <div class="mb-2">
-                        <a class="link-secondary" href="tel:{{ $priest['phone_digits'] }}">
-                            <i class="fas fa-phone-alt pe-2"></i>
-                            {{ $priest['phone'] }}
-                        </a>
-                    </div>
+                        <div class="mb-2">
+                            <a class="link-secondary" href="tel:{{ $priest['phone_digits'] }}">
+                                <i class="fas fa-phone-alt pe-2"></i>
+                                {{ $priest['phone'] }}
+                            </a>
+                        </div>
                     @endisset
                     @isset($priest['email'])
-                    <div class="mt-0 mb-2">
-                        <a class="link-secondary" href="email:{{ $priest['email'] }}">
-                            <i class="far fa-paper-plane fa-flip-horizontal ps-2"></i>
-                            {{ $priest['email'] }}
-                        </a>
-                    </div>
+                        <div class="mt-0 mb-2">
+                            <a class="link-secondary" href="email:{{ $priest['email'] }}">
+                                <i class="far fa-paper-plane fa-flip-horizontal ps-2"></i>
+                                {{ $priest['email'] }}
+                            </a>
+                        </div>
                     @endisset
                     <p>{{ $priest['description'] }}</p>
                 </div>

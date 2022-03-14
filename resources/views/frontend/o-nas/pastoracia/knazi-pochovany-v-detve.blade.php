@@ -12,8 +12,8 @@
     <div class="ps-5 ps-md-0 col-lg-9 col-xl-8 m-auto">
 
         <x-frontend.page.subsection title="Jozef Troszt">
-            {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
-            <x-frontend.page.text-segment type="right">
+            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
+            <x-frontend.page.text-segment animation="fromright">
                 <h6 class="text-church-template">
                     * 20.03.1813    Pešť, Maďarsko
                 </h6>
@@ -38,8 +38,8 @@
         </x-frontend.page.subsection>
 
         <x-frontend.page.subsection title="Štefan Pitrof">
-            {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
-            <x-frontend.page.text-segment type="left">
+            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
+            <x-frontend.page.text-segment animation="fromleft">
                 <h6 class="text-church-template">
                     * 27.06.1850    Bratislava
                 </h6>
@@ -63,8 +63,8 @@
         </x-frontend.page.subsection>
 
         <x-frontend.page.subsection title="Jozef Golian">
-            {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
-            <x-frontend.page.text-segment type="right">
+            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
+            <x-frontend.page.text-segment animation="fromright">
                 <h6 class="text-church-template">
                     * 25.02.1904    Detva
                 </h6>
@@ -88,8 +88,8 @@
         </x-frontend.page.subsection>
 
         <x-frontend.page.subsection title="Mons. Ján Štrbáň">
-            {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
-            <x-frontend.page.text-segment type="left">
+            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
+            <x-frontend.page.text-segment animation="fromleft">
                 <h6 class="text-church-template">
                     * 23.06.1878    Trstená
                 </h6>

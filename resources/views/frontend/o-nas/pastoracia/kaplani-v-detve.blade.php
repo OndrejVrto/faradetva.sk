@@ -10,7 +10,7 @@
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-frontend.page.text-segment type="right">
+        <x-frontend.page.text-segment animation="fromright">
 
             <div class="ps-5 ps-md-0 col-lg-6 col-xl-5 m-auto">
                 <dl class="row">

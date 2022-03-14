@@ -15,7 +15,7 @@
         <div class="col-lg-4 m-auto">
 
             <x-frontend.page.subsection title="O nás / História">
-                <x-frontend.page.text-segment type="right">
+                <x-frontend.page.text-segment animation="fromright">
                     <ol>
                         <li><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
                         <li class="pb-2"><a href="{{ url('o-nas/vianoce-v-detve') }}">Vianoce v Detve</a></li>

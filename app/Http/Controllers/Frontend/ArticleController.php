@@ -22,7 +22,6 @@ class ArticleController extends Controller
                         ->whereSlug($slug)
                         ->with('media', 'category', 'tags', 'user')
                         ->firstOrFail();
-
         $lastNews = Cache::remember('NEWS_LAST', config('farnost-detva.cache-duration.news'), function () {
             return  News::visible()
                         ->take(3)
@@ -35,8 +34,9 @@ class ArticleController extends Controller
         $allTags = Cache::remember('TAGS_ALL', config('farnost-detva.cache-duration.news'), function () {
             return Tag::withCount('news')->get();
         });
+        $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
 
-        return view('frontend.article.show', compact('oneNews', 'lastNews', 'allCategories', 'allTags'));
+        return view('frontend.article.show', compact('oneNews', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
     }
 
     public function indexAll(): View  {
@@ -44,7 +44,7 @@ class ArticleController extends Controller
             return News::newsComplete();
         });
         $title = config('farnost-detva.title-articles.all');
-        $breadCrumb = (string) Breadcrumbs::render('article.all', true);
+        $breadCrumb = (string) Breadcrumbs::render('articles.all', true);
         $emptyTitle = ['name'=> 'V článkoch', 'value' => ''];
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
@@ -57,7 +57,7 @@ class ArticleController extends Controller
 
         $userName = User::whereSlug($userSlug)->value('name');
         $title = config('farnost-detva.title-articles.author') . $userName;
-        $breadCrumb = (string) Breadcrumbs::render('article.author', true, $userSlug, $userName);
+        $breadCrumb = (string) Breadcrumbs::render('articles.author', true, $userSlug, $userName);
         $emptyTitle = ['name'=> 'Zvolený autor', 'value' => $userName];
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
@@ -70,7 +70,7 @@ class ArticleController extends Controller
 
         $categoryName = Category::whereSlug($categorySlug)->value('title');
         $title = config('farnost-detva.title-articles.category') . $categoryName;
-        $breadCrumb = (string) Breadcrumbs::render('article.category', true, $categorySlug, $categoryName);
+        $breadCrumb = (string) Breadcrumbs::render('articles.category', true, $categorySlug, $categoryName);
         $emptyTitle = ['name'=> 'Vybraná kategória', 'value' => $categoryName];
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
@@ -79,7 +79,7 @@ class ArticleController extends Controller
     public function indexDate($year): View  {
         $articles = News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete();
         $title = config('farnost-detva.title-articles.date') . $year;
-        $breadCrumb = (string) Breadcrumbs::render('article.date', true, $year, $year);
+        $breadCrumb = (string) Breadcrumbs::render('articles.date', true, $year, $year);
         $emptyTitle = ['name'=> 'Vybraný rok', 'value' => (string)$year];
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
@@ -92,7 +92,7 @@ class ArticleController extends Controller
 
         $tagName = Tag::whereSlug($tagSlug)->value('title');
         $title = config('farnost-detva.title-articles.tags') . $tagName;
-        $breadCrumb = (string) Breadcrumbs::render('article.tag', true, $tagSlug, $tagName);
+        $breadCrumb = (string) Breadcrumbs::render('articles.tag', true, $tagSlug, $tagName);
         $emptyTitle = ['name'=> 'Klúčové slovo', 'value' => $tagName];
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
@@ -104,7 +104,7 @@ class ArticleController extends Controller
         }
         $articles = News::whereFulltext(['title', 'content'], $search)->newsComplete();
         $title = config('farnost-detva.title-articles.search') . $search;
-        $breadCrumb = (string) Breadcrumbs::render('article.search', true);
+        $breadCrumb = (string) Breadcrumbs::render('articles.search', true);
         $emptyTitle = ['name'=> 'Hľadaný výraz', 'value' => $search];
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));

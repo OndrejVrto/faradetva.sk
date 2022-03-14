@@ -5,14 +5,14 @@
 ])
 <!-- {{ $name }} section Start -->
     <div {{ $attributes->merge(['class' => 'section']) }}>
-        @if($overlay == 'true')<div class="black_overlay">@endif
+        @isset($overlay)<div class="black_overlay">@endisset
             <div class="container">
-                @if($row == 'true')<div class="row">@endif
+                @isset($row)<div class="row">@endisset
 
                     {{ $slot }}
 
-                @if($row)</div>@endif
+                @isset($row)</div>@endisset
             </div>
-        @if($overlay)</div>@endif
+        @isset($overlay)</div>@endisset
     </div>
 <!-- {{ $name }} section End -->

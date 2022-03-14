@@ -10,8 +10,8 @@
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="right">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Vianočné obdobie patrilo k tým častiam roka, ktoré boli na Podpoľaní mimoriadne bohaté na kalendárne obyčaje. Počas Štedrého dňa (24. decembra) sa dodržiaval prísny pôst. Ženy v tento deň rešpektovali zákaz chodiť po domoch, naproti tomu mladí muži a najmä malí chlapci boli v dome vítaní. Príprave chleba a vianočného pečiva sa venovala zvýšená pozornosť. Dobre vykysnuté cesto a vydarené pečivo totiž symbolizovalo hojnosť a prosperitu po celý rok. Cesnak, oblátku a trochu z jedál, ktoré sa pripravovali na štedrovečerný stôl, dostávali i domáce zvieratá a hydina.
             </p>
@@ -25,8 +25,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4" />
-        <x-frontend.page.text-segment type="left">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Štedrovečerné jedlá sa do polovice 20. storočia takmer nemenili a zachovali si pôstny charakter. Boli to predovšetkým: oblátky s cesnakom a medom, opekance s makom, kapustová polievka s hríbmi, chlieb a koláče z kysnutého cesta. Jedávalo sa zo spoločnej misky, čo symbolizovalo súdržnosť rodiny. Pripíjalo sa hriatym bez tuku, okrem toho sa pripravil nápoj z varených sušených hrušiek. Večera sa zakončila modlitbou a poďakovaním za konzumované dary. Omrviny a zvyšky zo štedrovečerného stola sa odkladali a používali pri domácom liečení ľudí aj dobytka.
             </p>
@@ -34,8 +34,8 @@
                 Večer sa chodilo po spievaní a vinšovaní. Osobitnú pozornosť si zasluhuje pochôdzkové chodenie s betlehemom, ktoré je v Detve, ale aj v Hriňovej a Detvianskej Hute dodnes súčasťou živej neprerušenej tradície. Betľehemci začínali na Štedrí deň po večeri a šeci sa zišli na pounočnej. Kubovia ostaľi pret kostolom... Chodievali Dolňickí, Horňickí, Laštekári, Skliarovčaňia, Kostolňaňia, Piešťanci. Predvádzali ľudovú vianočnú hru s témou narodenia Ježiška. Počet betlehemcov nebýval všade rovnaký. Hlavné postavy hry sú: Kresťan (anjel), bača a pastieri - valasi: Fedor, Stacho, Ivan, Bača - Kubo - Starý. Kubo chodil inkognito v maske z ovčej kožušiny. Dôležitou rekvizitou bol figurálny betľehemček a štrngalá (kyjaky). Betlehemcov v rodinách netrpezlivo očakávali, za pochôdzku ich pohostili a odmenili peniazmi.
             </p>
         </x-frontend.page.text-segment>
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="right">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Polnočnej svätej omše sa každoročne v Detve zúčastňuje množstvo veriacich nielen z detvianskej farnosti, ale aj zo širokého okolia. Spev počas polnočnej omše znie mohutne, v niektorých častiach svätej omše kostol doslova buráca a ľudia sa tešia z každej piesne. Vianočná polnočná svätá omša v Detve sa formovala na začiatku 20. storočia. Keď v roku 1921 prišiel do Detvy za farára Ján Štrbáň, ten veľmi podporoval detvianske spevy a spôsoby prežívania duchovných vecí miestneho obyvateľstva. Spolu so Štrbáňom sa intenzívne angažoval v sociálnej i kultúrnej sfére organista Martin Valent. Medzi ich významné počiny v oblasti hudobného folklóru patrí zbieranie vianočných ľudových piesní a ich publikovanie v malej brožúre. Keďže v tom čase ešte neexistoval Jednotný katolícky spevník, v každom regióne a v každej farnosti sa pri bohoslužbách spievalo v rôznych obmenách. Rechtor Valent v spolupráci s farárom Štrbáňom takto pozbierali ľudové spevy prispôsobené podpolianskemu folklóru, a tým dali základ vzniku Detvianskej vianočnej omše, ktorú si veriaci veľmi obľúbili.
             </p>
@@ -46,8 +46,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4" />
-        <x-frontend.page.text-segment type="left">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Polnočná svätá omša popretkávaná ľudovými koledami sa traduje už niekoľko desiatok rokov. Kňazi, ktorí v Detve pôsobili po Jánovi Štrbáňovi, akceptovali tradície, ktoré sú v miestnych ľuďoch silno zakorenené. Ľudové koledy sú im totiž stále veľmi blízke. Oproti liturgickým piesňam majú jednoduchšie texty a rytmus, jednoduchšie harmonické melódie, väčšinou s úzkym rozsahom, a preto sú veľmi ľahko zvládnuteľné aj pre menej zdatných spevákov. Nemalú funkciu v uchovávaní kolied zohrávajú miestne detské folklórne kolektívy. Vďaka ich práci aj súčasné deti poznajú vianočné detvianske ľudové piesne. A tak môžeme na polnočnej svätej omši pozorovať spoločný spev viacerých generácií. Detí, mládežníkov, dospelých i veriacich najstaršej generácie, čo je v súčasnosti až jedinečné.
             </p>
@@ -61,8 +61,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="right">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Na Silvestra - Starí rok (31. decembra) ráno chlapci chodili s oceľou, tento zvyk neskôr zanikol. Večera prebieha bez poverových úkonov a zákazov. Oheň, strieľanie, zvonenie a praskanie bičom malo chrániť pred negatívnymi silami. Po bohoslužbe v kostole farár verejne hodnotil cirkevný rok a hospodárenie farnosti.
             </p>

@@ -2,7 +2,7 @@
     <div class="section ch_slider_wrapper">
         <div class="ch_home_slider">
 
-            @foreach ( $sliders as $slider )
+            @forelse ( $sliders as $slider )
                 <!-- SLIDER-ITEM-{{ $slider['id'] }} start-->
                 <div class="item">
                     <div class="slider_bg slider-img-{{ $slider['id'] }}">
@@ -99,7 +99,9 @@
                     </style>
                 @endpush
 
-            @endforeach
+            @empty
+                <div class="d-none">Žiaden slider nieje pridaný.</div>
+            @endforelse
         </div>
     </div>
 <!-- SLIDER section End -->

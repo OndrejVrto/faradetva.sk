@@ -3,10 +3,11 @@
 // Note: Laravel will automatically resolve `Breadcrumbs::` without
 // this import. This is nice for IDE syntax and refactoring.
 
-use Diglactic\Breadcrumbs\Breadcrumbs;
+use App\Models\News;
 
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
 //  with `$trail`. This is nice for IDE type checking and completion.
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 
@@ -23,9 +24,14 @@ Breadcrumbs::for('pages.others', function (BreadcrumbTrail $trail, array $pagesU
     }
 });
 
+Breadcrumbs::for('article.show', function (BreadcrumbTrail $trail, News $news) {
+    $trail->parent('frontend.home');
+    $trail->push('Všetky články', route('article.all'));
+    $trail->push($news->title, route('article.show', $news));
+});
 
-Breadcrumbs::macro('article', function (string $name, string $title) {
-    Breadcrumbs::for("article.{$name}", function (BreadcrumbTrail $trail, string|null $slug = null, string|null $keyValue = null) use ($name, $title) {
+Breadcrumbs::macro('articles', function (string $name, string $title) {
+    Breadcrumbs::for("articles.{$name}", function (BreadcrumbTrail $trail, string|null $slug = null, string|null $keyValue = null) use ($name, $title) {
         $trail->parent('frontend.home');
         if (isset($keyValue)) {
             $trail->push($title, route("article.{$name}", $slug));
@@ -36,10 +42,9 @@ Breadcrumbs::macro('article', function (string $name, string $title) {
     });
 });
 
-
-Breadcrumbs::article('all', 'Všetky články');
-Breadcrumbs::article('author', 'Všetky články autora');
-Breadcrumbs::article('category', 'Články z kategórie');
-Breadcrumbs::article('date', 'Všetky z roku');
-Breadcrumbs::article('tag', 'Všetky s kľúčovým slovom');
-Breadcrumbs::article('search', 'Vyhľadávanie');
+Breadcrumbs::articles('all', 'Všetky články');
+Breadcrumbs::articles('author', 'Všetky články autora');
+Breadcrumbs::articles('category', 'Články z kategórie');
+Breadcrumbs::articles('date', 'Všetky z roku');
+Breadcrumbs::articles('tag', 'Všetky s kľúčovým slovom');
+Breadcrumbs::articles('search', 'Vyhľadávanie');

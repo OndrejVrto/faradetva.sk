@@ -10,8 +10,8 @@
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="right">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Umelecké cítenie detvianskych ľudí sa dostalo do sveta najmä prostredníctvom pestrých výšiviek a vyrezávaných krížov. Ďaleká minulosť Podpoľancov bola vždy spojená s tvrdou prácou s drevom, keďže ich predkovia sa usádzali v horách. Drevo ich sprevádzalo od kolísky až po hrob. Svojim zosnulým robili pomníky z dreva vo forme jednoduchých, ručne vyrezávaných, neskôr i polychrómovaných krížov. Od stredoveku sa kríž začal používať na označenie hrobu a stal sa symbolom viery, pomocou ktorej človek ľahšie prekonával tajomstvo smrti. Z typologického hľadiska ľudovej umeleckej výroby vyrezávaných krížov v Detve ide jednak o náhrobné kríže, jednak o veľké ústredné a prícestné kríže.
             </p>
@@ -22,8 +22,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="left">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Technologicky sa výzdoba zhotovovala obvyklým rezbárskym spôsobom - dekor sa predkreslil pomocou šablóny a vyrezal dlátom ako nízky plochý reliéf. Následne sa vymaľoval: podklad býval tmavý - čierny, modrý, neskôr tiež červenohnedý, ornament sa dotváral červenou, bielou, žltou, zelenou a modrou farbou. Umiestňoval sa obvykle na čelnú a bočné strany kríža. Kompozične sa členil hlbokými zárezmi a výstupkami priečnymi na telo kríža na dve - tri (prípadne viac) polí, z ktorých každé bolo motivicky samostatné. Pri novších krížoch z polovice 20. storočia úlohu členiaceho prvku dostal solárny motív a orámovaný monogram IHS. Ramená pri starších krížoch boli spravidla ukončené troma lalokmi, novšie okrem uvedenej formy majú pomerne často hladké zaoblené ramená. Telo Pána Ježiša a poloblúková strieška nad ramenami kríža sa vystrihovali z plechu.
             </p>
@@ -31,8 +31,8 @@
                 Povrch oboch ramien kríža býval dekorovaný jednoduchou rezbárskou výzdobou pásových, cikcakovitých, zubovitých, archaických kruhových, hviezdicovitých a rozetových prvkov. Dekoratívny efekt umocňovala a do ľudovej polohy ho posúvala polychrómia. Vyskytli sa i kríže vytvorené na spôsob oltárika, resp. kaplnky s tŕňovou korunou a klincami vsadenou do kríža, alebo Pannou Máriou zasklenou vo vnútri kríža. Niektoré ornamenty sú totožné na výšivkách i krížoch a zdá sa, že muži vyrezávali to, čo ženy vyšívali alebo naopak. Náhrobné kríže obsahovali originálne, niekedy ťažko rozlúštiteľné nápisy.
             </p>
         </x-frontend.page.text-segment>
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/>
-        <x-frontend.page.text-segment type="right">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Kríže vyrábali rezbári z najtrvácnejšieho materiálu, t. j. z duba. Boli zastrešené ručne vyrobeným oblúkom z pozinkovaného plechu, ktorý bol pozahýnaný a vykrojený do ozdobných trojuholníkových, eliptických alebo kruhových tvarov. Najstaršie dochované kríže pochádzajú od neznámych výrobcov z konca 19. storočia. Vyznačujú sa širšou škálou námetov, vyváženou kompozíciou, väčšou plasticitou výzdoby a vynikajúcou rezbárskou technikou. Tradícia zhotovovania krížov pokračovala nepretržite až do súčasnosti. V polovici 20. storočia sa už možno stretnúť i s menami výrobcov - vďaka rešpektu k starším vzorom a tiež vďaka svojskému identifikovateľnému rukopisu treba spomenúť bratov Jána a Jozefa Fekiačovcov, ako aj Štefana Melicha. Dnes na tradície ich tvorby nadväzuje ďalšia generácia. Na novšej a súčasnej produkcii krížov vidieť snahu ísť do istej miery v intenciách tradičnej tvorby, ale snaha po dekorativizme v spojení s nebývalými technologickými a materiálovými možnosťami uberajú novej produkcii na presvedčivosti.
             </p>
@@ -46,8 +46,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4" /> --}}
-        <x-frontend.page.text-segment type="left">
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Z mnohých uvedieme aspoň niektoré:
             </p>
@@ -61,8 +61,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4"/> --}}
-        <x-frontend.page.text-segment type="right">
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
+        <x-frontend.page.text-segment animation="fromright">
             <p>
                 Z novšieho obdobia to boli napríklad tieto udalosti:
             </p>
@@ -75,8 +75,8 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="full" columns="4" />
-        <x-frontend.page.text-segment type="left">
+        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Detvianske náhrobné i prícestné kríže sú chránenou kultúrnou pamiatkou. V auguste 2017 sa rozhodlo o ich zápise do Reprezentatívneho zoznamu nehmotného kultúrneho dedičstva Slovenska. Roztrúsené po Slovensku zviditeľňujú Detvu a tie, ktoré sú ojedinele umiestnené po Európe (napr. pred Slovenským ústavom sv. Cyrila a Metoda v Ríme) zviditeľňujú celé Slovensko. Kríže, ktoré sa do súčasnosti zachovali na detvianskom cintoríne, ako aj prícestné kríže, sú dielami jednak už nežijúcich ľudových majstrov Jozefa Fekiača-Šumného, Jána Fekiača, Štefana Melicha-Klima, Štefana Stehlíka, Mikuláša Sekereša, Jozefa Krnáča-Stolára, Jozefa Krnáča-Boriaka, ale aj neznámych výrobcov.
             </p>

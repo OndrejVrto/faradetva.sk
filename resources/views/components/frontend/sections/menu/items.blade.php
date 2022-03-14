@@ -1,7 +1,7 @@
 <li><a href="{{ url('test') }}">Test</a></li>
 <li><a href="{{ url('oznamy-vsetky') }}">Oznamy</a></li>
 
-{{-- <li><a href="{{ route('article.all') }}">Články</a></li> --}}
+<li><a href="{{ route('article.all') }}">Články</a></li>
 
 {{-- <li>
     <a href="#">O nás</a>

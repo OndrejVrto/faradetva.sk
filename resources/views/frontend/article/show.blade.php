@@ -1,16 +1,20 @@
-@extends('frontend._layouts.page')
-
 @section('title', $oneNews->title )
-@section('meta_description', $oneNews->title . ' --> '. $oneNews->teaser )
-@section('content_header', $oneNews->title )
+@section('description', $oneNews->title . ' --> '. $oneNews->teaser )
+@section('keywords', 'novinky, článkok, správa, informácia, farnosť Detva, oznamy')
 
-@section('content')
-<!-- blog section Start -->
-<div class="section blog_single_page pad_t_50 pad_b_30">
-    <div class="container">
-        <div class="row">
+<x-frontend.layout.master>
+
+    <x-frontend.sections.banner
+        :header="$oneNews->title"
+        :breadcrumb="$breadCrumb"
+        titleSlug="vyzdoba-kostola-a-kaplnky, torta"
+        {{-- dimensionSource="full" --}}
+    />
+
+    <x-frontend.page.section name="ARTICLE" class="blog_single_page pad_t_50 pad_b_30" row="true">
+
             <div class="col-lg-9 col-md-8 col-xs-12">
-                <!-- Item Start -->
+                <!-- ARTICLE {{ $oneNews->title }} - Start -->
                 <div class="wh_new">
                     <div class="blog_thumb">
                         {!! $oneNews->getFirstMedia('news_front_picture')->img('large', ['class' => 'w-100 img-fluid']) !!}
@@ -37,10 +41,10 @@
 
                     </div>
                 </div>
-                <!-- Item End -->
+                <!-- ARTICLE {{ $oneNews->title }} - End -->
             </div>
 
-            <!-- sidebar Start -->
+            <!-- SIDEBAR Start -->
             <div class="col-lg-3 col-md-4 col-xs-12">
                 <div class="ch_sidebar_area">
 
@@ -60,9 +64,12 @@
                         </h3>
                         <ul>
                             @foreach ($allCategories as $category)
-                                <li class="d-flex justify-content-between" title="{{ $category->description }}">
-                                    <a href="{{ route('article.category', $category->slug) }}">{{ $category->title }}</a>
-                                    <span class="me-2 text-church-template">{{ $category->news_count }}</span>
+                                <li
+                                    class="d-flex justify-content-between"
+                                    title="{{ $category->description }} | {{ $category->news_count }} {{ trans_choice('messages.clanok', $category->news_count) }}"
+                                >
+                                        <a href="{{ route('article.category', $category->slug) }}">{{ $category->title }}</a>
+                                        <span class="me-2 text-church-template">{{ $category->news_count }}</span>
                                 </li>
                             @endforeach
                         </ul>
@@ -96,8 +103,8 @@
                         <div class="tagcloud">
 
                             @foreach ( $allTags as $tag )
-                                <a 
-                                    href="{{ route('article.tag', $tag->slug) }}" 
+                                <a
+                                    href="{{ route('article.tag', $tag->slug) }}"
                                     title="{{ $tag->description }} | {{ $tag->news_count }} {{ trans_choice('messages.clanok', $tag->news_count) }}"
                                 >
                                     {{ $tag->title }}
@@ -108,10 +115,7 @@
                     </div>
                 </div>
             </div>
-            <!-- sidebar End -->
-        </div>
-    </div>
-</div>
-<!-- blog section End -->
+            <!-- SIDEBAR End -->
 
-@endsection
+    </x-frontend.page.section>
+</x-frontend.layout.master>
