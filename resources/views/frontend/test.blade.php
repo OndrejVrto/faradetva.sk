@@ -9,6 +9,9 @@
 
     <x-frontend.page.section name="ATTACHMENT" class="static-page pt-5">
         <x-partials.attachment nameSlug="excel-stary" />
+        <x-partials.attachment nameSlug="obrazok-gif" />
+        <x-partials.attachment nameSlug="gimp" />
+        <x-partials.attachment nameSlug="zip" />
     </x-frontend.page.section>
 {{--
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Rozpisy) -" class="static-page pad_t_50">
