@@ -5,15 +5,10 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Setting;
-use App\Models\StaticPage;
-use Spatie\Crawler\Crawler;
 use App\Services\CheckUrlsService;
-use Illuminate\Support\Facades\DB;
-use App\Crawl\CacheCrawlerObserver;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
-use Spatie\Crawler\CrawlProfiles\CrawlInternalUrls;
 
 class CacheController extends Controller
 {
