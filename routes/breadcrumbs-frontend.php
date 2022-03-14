@@ -26,12 +26,12 @@ Breadcrumbs::for('pages.others', function (BreadcrumbTrail $trail, array $pagesU
 
 Breadcrumbs::for('article.show', function (BreadcrumbTrail $trail, News $news) {
     $trail->parent('frontend.home');
-    $trail->push('Článok');
+    $trail->push('Všetky články', route('article.all'));
     $trail->push($news->title, route('article.show', $news));
 });
 
 Breadcrumbs::macro('articles', function (string $name, string $title) {
-    Breadcrumbs::for("article.{$name}", function (BreadcrumbTrail $trail, string|null $slug = null, string|null $keyValue = null) use ($name, $title) {
+    Breadcrumbs::for("articles.{$name}", function (BreadcrumbTrail $trail, string|null $slug = null, string|null $keyValue = null) use ($name, $title) {
         $trail->parent('frontend.home');
         if (isset($keyValue)) {
             $trail->push($title, route("article.{$name}", $slug));
