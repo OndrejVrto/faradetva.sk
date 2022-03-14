@@ -1,15 +1,12 @@
 @section('title', $oneNews->title )
 @section('description', $oneNews->title . ' --> '. $oneNews->teaser )
-
-{{-- TODO: --}}
-{{-- @section('keywords', 'novinky, článkok, správa, informácia, farnosť Detva, oznamy') --}}
-{{-- @section('content_header', $oneNews->title ) --}}
+@section('keywords', 'novinky, článkok, správa, informácia, farnosť Detva, oznamy')
 
 <x-frontend.layout.master>
 
     <x-frontend.sections.banner
         :header="$oneNews->title"
-        {{-- :breadcrumb="$breadCrumb" --}}
+        :breadcrumb="$breadCrumb"
         titleSlug="vyzdoba-kostola-a-kaplnky, torta"
         {{-- dimensionSource="full" --}}
     />
