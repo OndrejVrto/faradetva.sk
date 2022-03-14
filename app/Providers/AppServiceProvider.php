@@ -37,6 +37,9 @@ class AppServiceProvider extends ServiceProvider
 
             //! only for Dev
             if ( $request->userAgent() !== 'fara-detva-crawl' AND App::environment(['local', 'dev', 'staging'])) {
+                //! register Ide-Helper Service only in local
+                $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+
                 //! correctly url adres in Nqrock
                 if (!empty(env('NGROK_URL')) && $request->server->has('HTTP_X_ORIGINAL_HOST')) {
                     $this->app['url']->forceRootUrl(env('NGROK_URL'));
