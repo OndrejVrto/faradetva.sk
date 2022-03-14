@@ -5,15 +5,11 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\ArticleController;
-use App\Http\Controllers\Frontend\ContactController;
-use App\Http\Controllers\Frontend\NoticesController;
 
 //! FrontEnd Routes
-Route::middleware('cache.response', 'csp.headers', 'preety.html')->group(function (){
+Route::middleware('response.headers', 'csp.headers', 'cache.response', 'preety.html')->group(function (){
 
     Route::get('/', HomeController::class)->name('home');
-    // Route::get('kontakt', ContactController::class)->name('contact');
-    // Route::get('oznamy', NoticesController::class)->name('notices.pdf');
 
     //! Section News article
     Route::controller(ArticleController::class)->name('article.')->group(function () {

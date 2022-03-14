@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GalleryRequest;
 use Illuminate\Http\RedirectResponse;
+use Spatie\MediaLibrary\Support\MediaStream;
 
 class GalleryController extends Controller
 {
@@ -102,6 +103,12 @@ class GalleryController extends Controller
 
         toastr()->success(__('app.gallery.update'));
         return to_route('galleries.index');
+    }
+
+    public function download(Gallery $gallery) {
+        $downloads = $gallery->getMedia($gallery->collectionName);
+
+        return MediaStream::create('Album_'.$gallery->slug.'.zip')->addMedia($downloads);
     }
 
     public function destroy(Gallery $gallery): RedirectResponse {

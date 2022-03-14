@@ -24,7 +24,6 @@ use App\Http\Controllers\Backend\FileManagerController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\NoticeChurchController;
 use App\Http\Controllers\Backend\NoticeAcolyteController;
-use App\Http\Controllers\Backend\NoticeGeneralController;
 use Lab404\Impersonate\Controllers\ImpersonateController;
 use App\Http\Controllers\Backend\NoticeLecturerController;
 use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
@@ -32,10 +31,10 @@ use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 //!  Inpersonate OUT Route
 Route::get('impersonate/leave', [ImpersonateController::class, 'leave'])->name('impersonate.leave');
 
-//!  Store dropzone Documents
+//!  Store files from dropzone and download zip files
 Route::post('news/media', [NewsController::class, 'storeMedia'])->name('news.storeMedia');
 Route::post('galleries/media', [GalleryController::class, 'storeMedia'])->name('galleries.storeMedia');
-
+Route::get('admin/galleries/{gallery}/download', [GalleryController::class, 'download'])->name('galleries.download');
 
 Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
 
