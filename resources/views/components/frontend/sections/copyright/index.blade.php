@@ -12,19 +12,19 @@
                 <div class="col-lg-3 col-12">
                     <div class="float-lg-end d-flex justify-content-center mt-4 mt-lg-0">
                         @guest
-                        <a class="btn btn-sm btn-outline-secondary rounded-pill" href="{{ route('login') }}" rel="nofollow">
-                            Prihlásiť
-                        </a>
+                            <a class="btn btn-sm btn-outline-secondary rounded-pill" href="{{ route('login') }}" rel="nofollow">
+                                Prihlásiť
+                            </a>
                         @else
-                        <a class="btn btn-sm btn-outline-warning rounded-pill" href="{{ route('admin.dashboard') }}">
-                            Administrácia
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="ms-2 btn btn-sm btn-outline-danger rounded-pill" type="submit">
-                                Odhlásiť
-                            </button>
-                        </form>
+                            <a class="btn btn-sm btn-outline-warning rounded-pill" href="{{ route('admin.dashboard') }}">
+                                Administrácia
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="ms-2 btn btn-sm btn-outline-danger rounded-pill" type="submit">
+                                    Odhlásiť
+                                </button>
+                            </form>
                         @endguest
                     </div>
                 </div>

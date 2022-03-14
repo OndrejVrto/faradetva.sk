@@ -1,11 +1,11 @@
 {{-- !! MUST BE IN FRONT !!--}}
-@pushOnce('js')
-<!-- NOTICE-PDF script Start -->
-    <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
-    <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
-    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/mainPDF.js') }}"></script>
-<!-- NOTICE-PDF script End -->
-@endPushOnce
+    @pushOnce('js')
+        <!-- NOTICE-PDF script Start -->
+            <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
+            <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+            <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/mainPDF.js') }}"></script>
+        <!-- NOTICE-PDF script End -->
+    @endPushOnce
 {{-- !! MUST BE IN FRONT !!--}}
 
 <x-frontend.page.section
@@ -15,6 +15,7 @@
     @push('js')
         <!-- NOTICE-PDF-{{ $typeNotice }} script Start -->
     @endpush
+
     @forelse ($notices as $notice)
 
         <div class="col-md-11 col-lg-10 col-xl-9 m-auto">
@@ -44,12 +45,14 @@
         @push('js')
             <script @nonce>
                 let main{{ $notice['id'] }} = new Main("{{ $notice['url'] }}", "#pdfArea{{ $notice['id'] }}");
-    document.getElementById("btn-prev-{{ $notice['id'] }}").addEventListener('click', function(){
-        main{{ $notice['id'] }}.showPrevPage();
-    });
-    document.getElementById("btn-next-{{ $notice['id'] }}").addEventListener('click', function(){
-        main{{ $notice['id'] }}.showNextPage();
-    });
+
+                document.getElementById("btn-prev-{{ $notice['id'] }}").addEventListener('click', function(){
+                    main{{ $notice['id'] }}.showPrevPage();
+                });
+
+                document.getElementById("btn-next-{{ $notice['id'] }}").addEventListener('click', function(){
+                    main{{ $notice['id'] }}.showNextPage();
+                });
             </script>
         @endpush
     @empty
@@ -77,6 +80,7 @@
             </div>
         </div>
     @endforelse
+
     @push('js')
         <!-- NOTICE-PDF-{{ $typeNotice }} script End -->
     @endpush
