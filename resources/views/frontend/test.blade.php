@@ -7,31 +7,16 @@
         dimensionSource="full"
     />
 
-    <x-frontend.page.section name="ATTACHMENT" class="static-page pt-5">
-        <x-partials.attachment nameSlug="excel-stary" />
-        <x-partials.attachment nameSlug="obrazok-gif" />
-        <x-partials.attachment nameSlug="gimp" />
-        <x-partials.attachment nameSlug="zip" />
-    </x-frontend.page.section>
-{{--
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Rozpisy) -" class="static-page pad_t_50">
-
-        <x-frontend.page.subsection title="Rozpisy lektorov">
-            <x-frontend.sections.notice typeNotice="Lecturer" />
-        </x-frontend.page.subsection>
-
-        <x-frontend.page.subsection title="Rozpisy akolytov">
-            <x-frontend.sections.notice typeNotice="Acolyte" />
-        </x-frontend.page.subsection>
-
-        <x-frontend.page.subsection title="Farské oznamy">
-            <x-frontend.sections.notice typeNotice="Church" />
-        </x-frontend.page.subsection>
-    </x-frontend.page.section> --}}
-
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page pad_b_50">
 
-        <x-frontend.page.subsection>
+        <x-frontend.page.subsection title="Prílohy">
+            <x-partials.attachment nameSlug="excel-stary" />
+            <x-partials.attachment nameSlug="obrazok-gif" />
+            <x-partials.attachment nameSlug="gimp" />
+            <x-partials.attachment nameSlug="zip" />
+        </x-frontend.page.subsection>
+
+        <x-frontend.page.subsection title="Lorem ipsum dolor et my">
             <x-partials.picture titleSlug="blank" arrival="right" dimensionSource="small"/>
             <x-frontend.page.text-segment type="right">
                 <p>
