@@ -64,9 +64,12 @@
                         </h3>
                         <ul>
                             @foreach ($allCategories as $category)
-                                <li class="d-flex justify-content-between" title="{{ $category->description }}">
-                                    <a href="{{ route('article.category', $category->slug) }}">{{ $category->title }}</a>
-                                    <span class="me-2 text-church-template">{{ $category->news_count }}</span>
+                                <li
+                                    class="d-flex justify-content-between"
+                                    title="{{ $category->description }} | {{ $category->news_count }} {{ trans_choice('messages.clanok', $category->news_count) }}"
+                                >
+                                        <a href="{{ route('article.category', $category->slug) }}">{{ $category->title }}</a>
+                                        <span class="me-2 text-church-template">{{ $category->news_count }}</span>
                                 </li>
                             @endforeach
                         </ul>
