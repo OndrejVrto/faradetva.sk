@@ -20,7 +20,7 @@
             <x-backend.table.th width="30%" class="text-center">Obrázok</x-backend.table.th>
             <x-backend.table.th>Názov baneru</x-backend.table.th>
             <x-backend.table.th class="text-center">Počet využití</x-backend.table.th>
-            <x-backend.table.th-actions colspan="3"/>
+            <x-backend.table.th-actions colspan="4"/>
         </x-slot>
 
         <x-slot name="table_body">
@@ -37,6 +37,15 @@
                     @if( $banner->static_pages_count != 0 )
                         <span class="badge bg-orange px-2 py-1">{{ $banner->static_pages_count }}</span>
                     @endif
+                </x-backend.table.td>
+                <x-backend.table.td class="text-center">
+                    <a  href="{{ url($banner->getFirstMediaUrl($banner->collectionName) ?: '#') }}"
+                        class="btn btn-outline-warning btn-sm btn-flat"
+                        title="Stiahnuť pôvodný obrázok"
+                        download
+                    >
+                        <i class="fas fa-download"></i>
+                    </a>
                 </x-backend.table.td>
                 <x-backend.table.td-actions
                     controlerName="banners"
