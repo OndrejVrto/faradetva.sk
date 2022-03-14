@@ -48,8 +48,8 @@
             </div>
             <div class="col-lg-8 mb-4">
                 <dt>Náhľad:</dt>
-                <div class="border border-2 border-warning p-3">
-                    <x-picture titleSlug="{{ $picture->slug }}" columns="12"/>
+                <div class="border border-2 border-warning pt-2 pb-3">
+                    <x-partials.picture titleSlug="{{ $picture->slug }}" columns="12"/>
                 </div>
             </div>
         </div>

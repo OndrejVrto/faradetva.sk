@@ -20,7 +20,7 @@
             <x-backend.table.th width="20%" class="text-center">Prvý obrázok</x-backend.table.th>
             <x-backend.table.th width="50%">Pracovný názov</x-backend.table.th>
             <x-backend.table.th width="15%" class="text-center">Obrázkov</x-backend.table.th>
-            <x-backend.table.th-actions colspan="3"/>
+            <x-backend.table.th-actions colspan="4"/>
         </x-slot>
 
         <x-slot name="table_body">
@@ -35,6 +35,14 @@
                 <x-backend.table.td class="text-wrap text-break text-bold">{{ $gallery->slug }}</x-backend.table.td>
                 <x-backend.table.td class="text-center">
                     <span class="badge bg-orange px-2 py-1">{{ $gallery->picture_count }}</span>
+                </x-backend.table.td>
+                <x-backend.table.td class="text-center">
+                    <a  href="{{ route('galleries.download', $gallery->slug) }}"
+                        class="btn btn-outline-warning btn-sm btn-flat"
+                        title="Stiahnuť celý album (zip)"
+                    >
+                        <i class="fas fa-download"></i>
+                    </a>
                 </x-backend.table.td>
                 <x-backend.table.td-actions
                     controlerName="galleries"

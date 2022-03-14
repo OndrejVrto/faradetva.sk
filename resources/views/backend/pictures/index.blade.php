@@ -19,7 +19,7 @@
             {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
             <x-backend.table.th width="20%" class="text-center">Obrázok</x-backend.table.th>
             <x-backend.table.th>Názov obrázka</x-backend.table.th>
-            <x-backend.table.th-actions colspan="3"/>
+            <x-backend.table.th-actions colspan="4"/>
         </x-slot>
 
         <x-slot name="table_body">
@@ -32,6 +32,15 @@
                     alt="picture: {{ $picture->title }}"/>
                 </x-backend.table.td>
                 <x-backend.table.td class="text-wrap text-break">{{$picture->slug}}</x-backend.table.td>
+                <x-backend.table.td class="text-center">
+                    <a  href="{{ url($picture->getFirstMediaUrl($picture->collectionName) ?: '#') }}"
+                        class="btn btn-outline-warning btn-sm btn-flat"
+                        title="Stiahnuť pôvodný obrázok"
+                        download
+                    >
+                        <i class="fas fa-download"></i>
+                    </a>
+                </x-backend.table.td>
                 <x-backend.table.td-actions
                     controlerName="pictures"
                     identificator="{{ $picture->slug }}"

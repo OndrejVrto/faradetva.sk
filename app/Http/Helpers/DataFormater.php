@@ -17,9 +17,9 @@ trait DataFormater {
         $size = abs($size);
 
         $base = log($size) / log(1024);
-        $suffixes = array('B', 'KB', 'MB', 'GB', 'TB');
+        $suffixes = array('B', 'kB', 'MB', 'GB', 'TB');
 
-        return $sign . round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
+        return $sign . round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
     }
 
     public static function filterFilename($filename, $beautify=true) {
