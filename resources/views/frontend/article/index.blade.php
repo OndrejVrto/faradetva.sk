@@ -1,26 +1,17 @@
-@extends('frontend._layouts.page')
-
 @section('title', 'Články' )
-@section('meta_description', 'Novinky a čLánky farnosti Detva.' )
+@section('description', 'Novinky a čLánky farnosti Detva.' )
 @section('keywords', 'novinky, článkok, správa, informácia, farnosť Detva, oznamy')
 
-@push('content_header')
-    {{-- Prepend content Header --}}
-    <x-banner
+<x-frontend.layout.master>
+
+    <x-frontend.sections.banner
         :header="$title"
         :breadcrumb="$breadCrumb"
         titleSlug="vyzdoba-kostola-a-kaplnky, torta"
         {{-- dimensionSource="full" --}}
     />
-@endpush
-@prepend('content_footer')
-    {{-- After content Footer --}}
-@endprepend
 
-@section('content')
-    <div class="section ch_blog_section pt-5">
-        <div class="container">
-            <div class="row">
+    <x-frontend.page.section name="ARTICLE" class="ch_blog_section pt-5" row="true">
 
                 @forelse ($articles as $oneNews)
 
@@ -111,7 +102,8 @@
                         </p>
                     </div>
                 @endforelse
-            </div>
+
+    </x-frontend.page.section>
 
             <div class="row pt-2">
                 {{ $articles->onEachSide(1)->links() }}
@@ -126,6 +118,5 @@
                     <input type="submit" class="search-submit" value="Hľadať">
                 </form>
             </div>
-        </div>
-    </div>
-@endsection
+
+</x-frontend.layout.master>
