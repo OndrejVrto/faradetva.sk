@@ -19,6 +19,7 @@
         "nanigans/single-table-inheritance": "~1.0",
         "rexlabs/enum": "^2.2",
         "spatie/crawler": "^7.1",
+        "spatie/laravel-collection-macros": "^7.10",
         "spatie/laravel-csp": "^2.7",
         "spatie/laravel-medialibrary": "^10.0",
         "spatie/laravel-permission": "^5.5",
