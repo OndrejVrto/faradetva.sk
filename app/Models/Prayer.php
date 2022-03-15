@@ -31,6 +31,8 @@ class Prayer extends Model implements HasMedia {
         'quote_row1',
         'quote_row2',
         'quote_author',
+        'quote_link_text',
+        'quote_link_url',
     ];
 
     protected $casts = [

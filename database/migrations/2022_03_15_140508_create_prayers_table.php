@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('quote_row1');
             $table->string('quote_row2')->nullable();
             $table->string('quote_author')->nullable();
+            $table->string('quote_link', 512)->nullable();
+            $table->string('quote_link_text')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

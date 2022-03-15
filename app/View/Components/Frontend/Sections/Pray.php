@@ -40,6 +40,8 @@ class Pray extends Component
                         'quote_row1'        => $img->quote_row1,
                         'quote_row2'        => $img->quote_row2,
                         'quote_author'      => $img->quote_author,
+                        'quote_link_url'    => $img->quote_link_url,
+                        'quote_link_text'   => $img->quote_link_text,
 
                         'extra_small_image' => $img->getFirstMediaUrl('prayer', 'extra-small'),
                         'small_image'       => $img->getFirstMediaUrl('prayer', 'small'),

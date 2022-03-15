@@ -34,24 +34,43 @@
         </div>
     </div>
 
-    <x-adminlte-input
-        name="title"
-        label="Názov modlidby"
-        {{-- placeholder="Názov modlidby ..." --}}
-        enableOldSupport="true"
-        value="{{ $prayer->title ?? '' }}"
-        >
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-flag"></i>
-            </div>
-        </x-slot>
-        @error('slug')
-            <x-slot name="errorManual">
-                {{ $errors->first('slug') }}
-            </x-slot>
-        @enderror
-    </x-adminlte-input>
+    <div class="form-row">
+        <div class="col-xl-5">
+            <x-adminlte-input
+                name="title"
+                label="Názov modlidby"
+                {{-- placeholder="Názov modlidby ..." --}}
+                enableOldSupport="true"
+                value="{{ $prayer->title ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="far fa-flag"></i>
+                    </div>
+                </x-slot>
+                @error('slug')
+                    <x-slot name="errorManual">
+                        {{ $errors->first('slug') }}
+                    </x-slot>
+                @enderror
+            </x-adminlte-input>
+        </div>
+        <div class="col-xl-7">
+            <x-adminlte-input
+                name="quote_author"
+                {{-- placeholder="Tretí riadok ..." --}}
+                label="Autor modlidby / odkaz do svätého písma"
+                enableOldSupport="true"
+                value="{{ $prayer->quote_author ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+    </div>
 
     <x-adminlte-input
         {{-- fgroupClass="mb-1" --}}
@@ -83,21 +102,39 @@
         </x-slot>
     </x-adminlte-input>
 
-    <x-adminlte-input
-        name="quote_author"
-        {{-- placeholder="Tretí riadok ..." --}}
-        label="Autor modlidby / odkaz do svätého písma"
-        enableOldSupport="true"
-        value="{{ $prayer->quote_author ?? '' }}"
-        >
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-pray"></i>
-            </div>
-        </x-slot>
-    </x-adminlte-input>
+    <div class="form-row">
+        <div class="col-xl-6">
+            <x-adminlte-input
+                name="quote_link_text"
+                label="Text tlačítka"
+                enableOldSupport="true"
+                value="{{ $prayer->quote_link_text ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+        <div class="col-xl-6">
+            <x-adminlte-input
+                name="quote_link_url"
+                label="Link tlačítka (url)"
+                enableOldSupport="true"
+                value="{{ $prayer->quote_link ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-link"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+    </div>
 
     <x-adminlte-input-file
+        fgroupClass="pt-4"
         class="border-right-none"
         name="photo"
         label="Obrázok"

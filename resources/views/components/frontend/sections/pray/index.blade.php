@@ -1,11 +1,10 @@
 <x-frontend.page.section
-    name="PRAY"
+    name="PRAY-ITEM-{{ $pray['id'] }}: ({{ $pray['title'] }}) - "
     row="true"
     overlay="true"
     class="ch_pray_section prayer-img-{{ $pray['id'] }}"
-    id="Pray_{{ $pray['slug'] }}"
+    id="PRAY_{{ $pray['slug'] }}"
 >
-    <!-- PRAY-ITEM-{{ $pray['id'] }} Start-->
     <div class="col-md-12 col-12">
         <div class="full_width hero_heading">
             <h1 class="frombottom wow">
@@ -26,23 +25,21 @@
                     {{ $pray['quote_author'] }}
                 </p>
             @endisset
-            @isset($link)
+            @if(isset($pray['quote_link_text']) AND isset($pray['quote_link_url']) )
                 <div class="frombottom wow mt-5" data-wow-delay="1.2s">
-                    <a href="{{ url('kontakty') }}" class="read_btn">
-                        Prispejte
+                    <a href="{{ url($pray['quote_link_url']) }}" class="read_btn" target="_blank">
+                        {{ $pray['quote_link_text'] }}
                         <i class="fas fa-long-arrow-alt-right"></i>
                     </a>
                 </div>
-            @endisset
+            @endif
         </div>
     </div>
-    <span class="d-none" rel="license" for="Pray_{{ $pray['slug'] }}">
+    <span class="d-none" rel="license" for="PRAY_{{ $pray['slug'] }}">
         <x-partials.source-sentence
             :sourceArray="$pray['sourceArr']"
         />
     </span>
-    <!-- PRAY-ITEM-{{ $pray['id'] }} End -->
-
 </x-frontend.page.section>
 
 @push('css')
