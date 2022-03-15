@@ -926,7 +926,7 @@ button:before {
 9. Pray section  css Start
 ----------------------------------------------------------------------------------*/
 .ch_pray_section {
-	background           : url('/images/bg/pray_bg.jpg') no-repeat;
+	/* background           : url('/images/bg/pray_bg.jpg') no-repeat; */
 	background-size      : cover;
 	position             : relative;
 	background-position  : center center;

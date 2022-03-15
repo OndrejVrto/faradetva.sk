@@ -7,7 +7,8 @@
         dimensionSource="full"
     />
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page pad_b_50">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page">
+
 
         <x-frontend.page.subsection title="Prílohy" icon="fas fa-paperclip me-3">
             <x-partials.attachment nameSlug="excel-stary" />
@@ -34,6 +35,12 @@
                 </p>
             </x-frontend.page.text-segment>
         </x-frontend.page.subsection>
+
+    </x-frontend.page.section>
+
+    <x-frontend.sections.pray />
+
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page pad_b_50">
 
         <x-partials.photo-gallery titleSlug="historia-farnosti-detva" dimensionSource="medium"/>
 
