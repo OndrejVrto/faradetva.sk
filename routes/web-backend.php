@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\CacheController;
 use App\Http\Controllers\Backend\ChartController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\PrayerController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\GalleryController;
@@ -84,6 +85,7 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
         'news'            => NewsController::class,
         'files'           => FileController::class,
         'roles'           => RoleController::class,
+        'prayers'         => PrayerController::class,
         'priests'         => PriestController::class,
         'sliders'         => SliderController::class,
         'categories'      => CategoryController::class,

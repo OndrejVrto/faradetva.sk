@@ -312,6 +312,13 @@ return [
                     'can'  => 'sliders.index',
                 ],
                 [
+                    'text'  => 'Modlidba dňa',
+                    'icon_color'  => 'orange',
+                    'route' => 'prayers.index',
+                    'icon'  => 'fas fa-praying-hands',
+                    'can'  => 'prayers.index',
+                ],
+                [
                     'text'  => 'Grafy',
                     'icon_color'  => 'orange',
                     'route' => 'charts.index',

@@ -119,6 +119,14 @@ return [
         'files_header_create'      => 'Vložiť súbor',
         'files_header_edit'        => 'Upraviť súbor',
 
+        'prayers_title'              => 'Modlidby',
+        'prayers_description'        => 'Sem môžete vkladať modlidby dňa',
+        'prayers_description_create' => 'Pridanie ďalšej modlidby dňa',
+        'prayers_description_edit'   => 'Zmena modlidby dňa',
+        'prayers_header'             => 'Modlidby',
+        'prayers_header_create'      => 'Vložiť modlidbu',
+        'prayers_header_edit'        => 'Upraviť modlidbu',
+
         'galleries_title'              => 'Galéria',
         'galleries_description'        => 'Obrázkové galérie na statické stránky',
         'galleries_description_create' => 'Tu môžete pridať novú obrázkovú galériu',

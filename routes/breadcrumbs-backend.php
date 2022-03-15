@@ -65,6 +65,7 @@ Breadcrumbs::resource('users', 'Užívatelia');
 Breadcrumbs::resource('sliders', 'Myšlienky');
 Breadcrumbs::resource('galleries', 'Galérie');
 Breadcrumbs::resource('tags', 'Kľúčové slová');
+Breadcrumbs::resource('prayers', 'Modlidby dňa');
 Breadcrumbs::resource('permissions', 'Povolenia');
 Breadcrumbs::resource('testimonials', 'Svedectvá');
 Breadcrumbs::resource('charts.data', 'Údaje do grafov');

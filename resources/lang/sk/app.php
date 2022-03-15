@@ -120,4 +120,9 @@ return [
         'update' => 'Farské oznamy boli upravené.',
         'delete' => 'Farské oznamy boli odstránené!',
     ],
+    'prayer'   => [
+        'store'  => 'Modlidba bola pridaná!',
+        'update' => 'Modlidba bola upravená.',
+        'delete' => 'Modlidba bola odstránená!',
+    ],
 ];

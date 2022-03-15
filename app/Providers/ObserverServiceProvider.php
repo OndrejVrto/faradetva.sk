@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Prayer;
 use App\Observers\GlobalObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -21,6 +22,7 @@ class ObserverServiceProvider extends ServiceProvider
             \App\Models\NoticeLecturer::class,
             \App\Models\Picture::class,
             \App\Models\Priest::class,
+            \App\Models\Prayer::class,
             \App\Models\Slider::class,
             \App\Models\Source::class,
             \App\Models\Tag::class,
