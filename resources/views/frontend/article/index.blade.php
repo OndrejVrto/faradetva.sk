@@ -20,7 +20,7 @@
                     <div class="blog_item_cover fromtop wow">
                         <div class="row">
                             <div class="col-6 blog_thumb">
-                                <img src="{{ $oneNews->getFirstMediaUrl('news_front_picture', 'large-thin') ?: "http://via.placeholder.com/650x300" }}"
+                                <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionPicture, 'large-thin') ?: "http://via.placeholder.com/650x300" }}"
                                     class="w-100"
                                     alt="Malý obrázok k článku: {{ $oneNews->title }}."
                                 />
@@ -57,7 +57,7 @@
                 <div class=" col-sm-6 col-lg-4">
                     <div class="blog_item_cover frombottom wow" data-wow-delay=".{{ $oneNews->id * 2 }}s">
                         <div class="blog_thumb">
-                            <img src="{{ $oneNews->getFirstMediaUrl('news_front_picture', 'thumb-all-news') ?: "http://via.placeholder.com/370x248" }}"
+                            <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionPicture, 'thumb-all-news') ?: "http://via.placeholder.com/370x248" }}"
                                 class="w-100"
                                 alt="Malý obrázok k článku: {{ $oneNews->title }}."
                             />

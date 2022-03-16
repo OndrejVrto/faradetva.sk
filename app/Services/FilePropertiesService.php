@@ -4,19 +4,35 @@ namespace App\Services;
 
 use App\Models\File;
 use App\Http\Helpers\DataFormater;
+use App\Models\News;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Arr;
 
 class FilePropertiesService
 {
     public function allFileData(Collection|array $eloquentCollection): Array {
         return collect($eloquentCollection)->map(function($file) {
-            return $this->getItemProperties($file);
+            return $this->getFileItemProperties($file);
         })->toArray();
     }
 
-    public function getItemProperties(File $item): Array {
-        $fileMedia = $item->getFirstMedia('attachment');
+    public function allNewsAttachmentData(News $model): Array {
+        return $model->getMedia($model->collectionDocument)->map(function($item) {
+            return [
+                'id'                => $item->id,
+                'mime_type'         => $item->mime_type,
+                'icon'              => $this->getFileIcon($item->mime_type),
+                'file_url'          => $item->getUrl(),
+                'file_name'         => $item->file_name,
+                'file_extension'    => pathinfo($item->file_name, PATHINFO_EXTENSION),
+                'name'              => $item->name,
+                'size'              => $item->size,
+                'humanReadableSize' => DataFormater::formatBytes($item->size),
+            ];
+        })->toArray();
+    }
+
+    public function getFileItemProperties(File $item): Array {
+        $fileMedia = $item->getFirstMedia($item->collectionName);
         return [
             'id'                => $item->id,
             'slug'              => $item->slug,

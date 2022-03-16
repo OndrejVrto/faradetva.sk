@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
+use App\Services\FilePropertiesService;
 
 class ArticleController extends Controller
 {
@@ -22,6 +23,9 @@ class ArticleController extends Controller
                         ->whereSlug($slug)
                         ->with('media', 'category', 'tags', 'user')
                         ->firstOrFail();
+        $attachments = (new FilePropertiesService)->allNewsAttachmentData($oneNews);
+        $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
+
         $lastNews = Cache::remember('NEWS_LAST', config('farnost-detva.cache-duration.news'), function () {
             return  News::visible()
                         ->take(3)
@@ -34,9 +38,8 @@ class ArticleController extends Controller
         $allTags = Cache::remember('TAGS_ALL', config('farnost-detva.cache-duration.news'), function () {
             return Tag::withCount('news')->get();
         });
-        $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
 
-        return view('frontend.article.show', compact('oneNews', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
+        return view('frontend.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
     }
 
     public function indexAll(): View  {

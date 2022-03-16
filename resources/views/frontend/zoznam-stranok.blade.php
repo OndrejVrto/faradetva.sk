@@ -113,7 +113,7 @@
                     <x-frontend.page.text-segment animation="fromright">
                         <ol>
                             <li><a href="{{ url('o-nas') }}">Zoznam sekcie: O nás</a></li>
-                            <li><a href="{{ url('oznamy-vsetky') }}"></a></li>
+                            <li><a href="{{ url('oznamy-vsetky') }}">Všetky oznamy</a></li>
                         </ol>
                     </x-frontend.page.text-segment>
                 </x-frontend.page.subsection>

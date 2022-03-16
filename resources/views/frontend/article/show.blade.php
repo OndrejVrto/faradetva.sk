@@ -8,7 +8,6 @@
         :header="$oneNews->title"
         :breadcrumb="$breadCrumb"
         titleSlug="vyzdoba-kostola-a-kaplnky, torta"
-        {{-- dimensionSource="full" --}}
     />
 
     <x-frontend.page.section name="ARTICLE" class="blog_single_page pad_t_50 pad_b_30" row="true">
@@ -17,25 +16,52 @@
                 <!-- ARTICLE {{ $oneNews->title }} - Start -->
                 <div class="wh_new">
                     <div class="blog_thumb">
-                        {!! $oneNews->getFirstMedia('news_front_picture')->img('large', ['class' => 'w-100 img-fluid']) !!}
+                        {!! $oneNews->getFirstMedia($oneNews->collectionPicture)->img('large', ['class' => 'w-100 img-fluid']) !!}
                     </div>
                     <div class="blog_desc">
                         <div class="blog_info">
-                            <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->createdBy }}</a></span>
-                            <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
-                            <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}</a></span>
+                            <span>
+                                <a href="{{ route('article.author', $oneNews->user->slug) }}">
+                                    <i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->createdBy }}
+                                </a>
+                            </span>
+                            <span>
+                                <a href="{{ route('article.date', $oneNews->created_string) }}">
+                                    <i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}
+                                </a>
+                            </span>
+                            <span>
+                                <a href="{{ route('article.category', $oneNews->category->slug) }}">
+                                    <i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}
+                                </a>
+                            </span>
                         </div>
 
                         <h3>{{ $oneNews->title }}</h3>
+
+                        <!-- ARTICLE CONTENT from Sumernote Start -->
                         <div class="content">
-                            {{-- from Sumernote --}}
-                                {!! $oneNews->content !!}
-                            {{-- from Sumernote --}}
+                            {!! $oneNews->content !!}
                         </div>
+                        <!-- ARTICLE CONTENT from Sumernote End -->
+
+                        @if(!empty($attachments))
+                            <!-- ARTICLE ATTACHMENTS Start -->
+                            <h3>Prílohy <i class="fas fa-paperclip me-3"></i></h3>
+                            @foreach ($attachments as $attachment)
+                                <x-partials.attachment-article :data="$attachment"/>
+                            @endforeach
+                            <!-- ARTICLE ATTACHMENTS End -->
+                        @endif
+
                         <ul class="tag-list">
                             <li><i class="fas fa-tag" aria-hidden="true"></i></li>
                             @foreach ($oneNews->tags as $tag)
-                                <li><a href="{{ route('article.tag', $tag->slug) }}" title="{{ $tag->description }}">{{ $tag->title }}</a></li>
+                                <li>
+                                    <a href="{{ route('article.tag', $tag->slug) }}" title="{{ $tag->description }}">
+                                        {{ $tag->title }}
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
 
@@ -63,6 +89,7 @@
                             Kategórie
                         </h3>
                         <ul>
+
                             @foreach ($allCategories as $category)
                                 <li
                                     class="d-flex justify-content-between"
@@ -72,6 +99,7 @@
                                         <span class="me-2 text-church-template">{{ $category->news_count }}</span>
                                 </li>
                             @endforeach
+
                         </ul>
                     </div>
                     <div class="widget widget_recent_post">
@@ -79,11 +107,11 @@
                             Posledné články
                         </h3>
                         <ul>
-                            @foreach ($lastNews as $lastOneNews)
 
+                            @foreach ($lastNews as $lastOneNews)
                                 <li>
                                     {{-- <img src="images/blog/post_1.jpg" alt="Recent blog"> --}}
-                                    <img src="{{ $lastOneNews->getFirstMediaUrl('news_front_picture', 'thumb-latest-news') ?: "http://via.placeholder.com/80x80" }}"
+                                    <img src="{{ $lastOneNews->getFirstMediaUrl($lastOneNews->collectionPicture, 'thumb-latest-news') ?: "http://via.placeholder.com/80x80" }}"
                                         class="img-fluid"
                                         alt="Malý obrázok článku: {{ $lastOneNews->title }}."
                                     />
@@ -92,8 +120,8 @@
                                         {{ $lastOneNews->teaser_light }}
                                     </div>
                                 </li>
-
                             @endforeach
+
                         </ul>
                     </div>
                     <div class="widget widget_tagcloud">
