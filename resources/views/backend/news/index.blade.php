@@ -35,7 +35,7 @@
                 <x-backend.table.td-check-active check="{{$news->active}}"/>
 
                 <x-backend.table.td class="d-none d-md-table-cell text-center">
-                    <img src="{{ $news->getFirstMediaUrl('news_front_picture', 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"
+                    <img src="{{ $news->getFirstMediaUrl($news->collectionPicture, 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"
                     class="img-fluid px-2"
                     alt="Titulná fotka článku: {{$news->title}}."/>
                 </x-backend.table.td>

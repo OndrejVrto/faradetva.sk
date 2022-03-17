@@ -17,7 +17,7 @@ class Attachment extends Component
     ) {
         $this->attachment = Cache::rememberForever('ATTACHMENT_'.$nameSlug, function () use($nameSlug) {
             $file = File::whereSlug($nameSlug)->with('media', 'source')->first();
-            return (new FilePropertiesService())->getItemProperties($file);
+            return (new FilePropertiesService())->getFileItemProperties($file);
         });
     }
 
