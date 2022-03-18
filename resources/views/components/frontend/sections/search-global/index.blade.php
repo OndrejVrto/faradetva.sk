@@ -1,5 +1,5 @@
 <!-- GLOBAL SEARCH Start - Modal -->
-    <div class="modal model_overlay fade" id="modalSearch" tabindex="-1" role="dialog" >
+    <section class="modal model_overlay fade" id="modalSearch" tabindex="-1" role="dialog" >
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -17,7 +17,7 @@
 
             </div>
         </div>
-    </div>
+    </section>
 <!-- GLOBAL SEARCH End - Modal -->
 
 @push('js')

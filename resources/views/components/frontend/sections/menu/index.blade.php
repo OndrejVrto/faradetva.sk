@@ -1,5 +1,5 @@
 <!-- MENU section start -->
-    <div class="section header_menu_section">
+    <nav class="section header_menu_section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-12">
@@ -13,15 +13,15 @@
                         <i></i>
                         <i></i>
                     </div>
-                    <nav class="header_right_menu" id="header_right_menu">
+                    <menu class="header_right_menu" id="header_right_menu">
                         <ul class="menu">
 
                             <x-frontend.sections.menu.items />
 
                         </ul>
-                    </nav>
+                    </menu>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 <!-- MENU section end -->

@@ -1,5 +1,5 @@
 <!-- FOOTER section Start -->
-    <div class="footer_section">
+    <footer class="footer_section">
         <div class="footer_main_section">
             <div class="container">
                 <div class="row">
@@ -57,5 +57,5 @@
 
         <x-frontend.sections.copyright />
 
-    </div>
+    </footer>
 <!-- FOOTER section End -->

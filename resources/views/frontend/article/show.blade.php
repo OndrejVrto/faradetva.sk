@@ -12,7 +12,7 @@
 
     <x-frontend.page.section name="ARTICLE" class="blog_single_page pad_t_50 pad_b_30" row="true">
 
-            <div class="col-lg-9 col-md-8 col-xs-12">
+            <article class="col-lg-9 col-md-8 col-xs-12">
                 <!-- ARTICLE {{ $oneNews->title }} - Start -->
                 <div class="wh_new">
                     <div class="blog_thumb">
@@ -68,13 +68,13 @@
                     </div>
                 </div>
                 <!-- ARTICLE {{ $oneNews->title }} - End -->
-            </div>
+            </article>
 
             <!-- SIDEBAR Start -->
-            <div class="col-lg-3 col-md-4 col-xs-12">
+            <aside class="col-lg-3 col-md-4 col-xs-12">
                 <div class="ch_sidebar_area">
 
-                    <div class="widget widget_search">
+                    <section class="widget widget_search">
                         <form id="search-form" class="search-form" action="{{ route('article.search') }}">
                             @csrf
                             <label>
@@ -82,9 +82,9 @@
                             </label>
                             <input type="submit" class="search-submit" value="Hľadať">
                         </form>
-                    </div>
+                    </section>
 
-                    <div class="widget widget_categories">
+                    <section class="widget widget_categories">
                         <h3 class="widget-title">
                             Kategórie
                         </h3>
@@ -101,8 +101,9 @@
                             @endforeach
 
                         </ul>
-                    </div>
-                    <div class="widget widget_recent_post">
+                    </section>
+
+                    <section class="widget widget_recent_post">
                         <h3 class="widget-title">
                             Posledné články
                         </h3>
@@ -123,8 +124,9 @@
                             @endforeach
 
                         </ul>
-                    </div>
-                    <div class="widget widget_tagcloud">
+                    </section>
+
+                    <section class="widget widget_tagcloud">
                         <h3 class="widget-title">
                             Kľúčové slová
                         </h3>
@@ -140,9 +142,9 @@
                             @endforeach
 
                         </div>
-                    </div>
+                    </section>
                 </div>
-            </div>
+            </aside>
             <!-- SIDEBAR End -->
 
     </x-frontend.page.section>
