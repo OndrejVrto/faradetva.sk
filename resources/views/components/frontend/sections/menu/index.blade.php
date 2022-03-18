@@ -13,13 +13,13 @@
                         <i></i>
                         <i></i>
                     </div>
-                    <div class="header_right_menu" id="header_right_menu">
+                    <nav class="header_right_menu" id="header_right_menu">
                         <ul class="menu">
 
                             <x-frontend.sections.menu.items />
 
                         </ul>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </div>

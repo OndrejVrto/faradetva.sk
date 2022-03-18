@@ -1,16 +1,26 @@
-@extends('frontend._layouts.master')
-
 @section('title', 'Error 500')
 @section('description', 'Chyba serveru.')
+@section('keywords', 'Chyba serveru, 500, chyba, MySQL error, administrátor')
 
-@section('css_master')
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/bootstrap-5.1.3/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/responsive.css') }}">
-@stop
+<x-frontend.layout.general>
 
-@section('body')
+    <x-slot name="css_general">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+        <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/bootstrap-5.1.3/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/responsive.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom.css') }}">
+    </x-slot>
+
+    <x-slot name="js_general">
+        <script @nonce type='text/javascript'>
+            document.addEventListener('DOMContentLoaded', function () {
+                window.setTimeout( document.querySelector('svg').classList.add('animated'),1000);
+            })
+        </script>
+    </x-slot>
+
+    <!-- ERROR 500 Start -->
     <div class="container d-flex min-vh-100">
         <div class="row w-100 justify-content-center align-self-center">
             <div class="col-md-6 p-5 p-lg-0 my-auto">
@@ -38,12 +48,6 @@
             </div>
         </div>
     </div>
-@endsection
+    <!-- ERROR 500 Start -->
 
-@push('js')
-    <script @nonce type='text/javascript'>
-        document.addEventListener('DOMContentLoaded', function () {
-            window.setTimeout( document.querySelector('svg').classList.add('animated'),1000);
-        })
-    </script>
-@endpush
+</x-frontend.layout.general>
