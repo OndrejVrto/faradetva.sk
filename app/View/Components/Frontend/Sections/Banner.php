@@ -26,6 +26,11 @@ class Banner extends Component
         if (!is_null($this->banner)) {
             return view('components.frontend.sections.banner.index');
         }
+
+        if (!is_null($this->header)) {
+            return view('components.frontend.sections.banner.header');
+        }
+
         return null;
     }
 
