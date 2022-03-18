@@ -10,12 +10,11 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-    public function __invoke($search = null ): View {
-
-        $searchResults = Search::onIndex('FullSearchFaraDetva')
+    public function __invoke($search = null): View {
+        $searchResults = $search ? Search::onIndex('FullSearchFaraDetva')
             ->query($search)
-            ->paginate(20);
-
+            ->limit(100)
+            ->get() : null;
 
         return view('frontend.search.global', compact('searchResults'));
     }

@@ -9,6 +9,9 @@ return [
      * You may use `*` as a wildcard.
      */
     'ignore_content_on_urls' => [
+        '',
+        '/',
+        '/media/*',
         '/clanky',
         '/clanky-z-roku/*',
         '/clanky-podla-autora/*',
@@ -26,6 +29,12 @@ return [
     'ignore_content_by_css_selector' => [
         '[data-no-index]',
         'nav',
+        'script',
+        'aside',
+        'footer',
+        '.modal',
+        '.preloader',
+        '.source',
     ],
 
     /**
@@ -42,7 +51,8 @@ return [
      * You may use `*` as a wildcard.
      */
     'do_not_crawl_urls' => [
-        //
+        '/login',
+        '/register',
     ],
 
     /**
