@@ -10,12 +10,12 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-    public function __invoke($search = null): View {
-        $searchResults = $search ? Search::onIndex('FullSearchFaraDetva')
-            ->query($search)
+    public function __invoke($searchFrase = null): View {
+        $searchResults = $searchFrase ? Search::onIndex('FullSearchFaraDetva')
+            ->query($searchFrase)
             ->limit(100)
             ->get() : null;
 
-        return view('frontend.search.global', compact('searchResults'));
+        return view('frontend.search.global', compact('searchResults', 'searchFrase'));
     }
 }
