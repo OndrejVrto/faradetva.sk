@@ -30,3 +30,5 @@ composer.lock
 database/raw
 public/photo
 resources/views/BACKUP/*
+data.ms/*
+meilisearch.exe
