@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Artisan;
 class CacheController extends Controller
 {
     public function cachesStart(): RedirectResponse {
-        Setting::set('cache.default', 'file');
         Artisan::call('view:cache');
         Artisan::call('optimize');
         Artisan::call('event:cache');
@@ -52,13 +51,15 @@ class CacheController extends Controller
     }
 
     public function cacheDataStop(): RedirectResponse {
-        Artisan::call('cache:clear');
         Setting::set('cache.default', 'none');
+        Artisan::call('cache:clear');
         toastr()->info(__('app.cache.data-stop'));
         return to_route('admin.dashboard');
     }
 
     public function cacheDataReset(): RedirectResponse {
+        // Setting::set('cache.default', 'file');
+        Setting::set('cache.default', 'database');
         Artisan::call('cache:clear');
         toastr()->info(__('app.cache.data-reset'));
         return to_route('admin.dashboard');

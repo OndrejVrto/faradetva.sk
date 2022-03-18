@@ -3,6 +3,7 @@
 namespace App\Crawler;
 
 use App\Models\StaticPage;
+use Illuminate\Support\Arr;
 use Psr\Http\Message\UriInterface;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
@@ -14,7 +15,7 @@ use Spatie\Crawler\CrawlObservers\CrawlObserver;
 class CacheCrawlerObserver extends CrawlObserver
 {
     private $pages;
-    
+
     private $loging = false;
 
     private $updateDB;
@@ -33,9 +34,9 @@ class CacheCrawlerObserver extends CrawlObserver
      */
     public function willCrawl(UriInterface $url): void
     {
-        if($this->loging){
-            // Log::info("Now crawling: " . (string) $url);
-        }
+        // if($this->loging){
+        //     Log::info("Now crawling: " . (string) $url);
+        // }
     }
 
     /**
@@ -47,28 +48,32 @@ class CacheCrawlerObserver extends CrawlObserver
         ?UriInterface $foundOnUrl = null
     ): void {
 
-        $mineTypes = [
-            'text/html',
-            'text/html; charset=UTF-8',
-            'text/plain',
-            'text/plain; charset=UTF-8',
-        ];
+        // TODO:  Refactor this
+        if( Arr::exists($response->getHeaders(), 'Content-Type') ){
 
-        if (in_array($response->getHeader('Content-Type')[0], $mineTypes)) {
-            if ($this->updateDB) {
-                $pageExistinDB = StaticPage::whereUrl(substr($url->getPath(), 1))->first();
-                if ($pageExistinDB) {
-                    $pageExistinDB->update([
-                        'check_url' => true,
-                    ]);
+            $mineTypes = [
+                'text/html',
+                'text/html; charset=UTF-8',
+                'text/plain',
+                'text/plain; charset=UTF-8',
+            ];
+
+            if (in_array($response->getHeader('Content-Type')[0], $mineTypes)) {
+                if ($this->updateDB) {
+                    $pageExistinDB = StaticPage::whereUrl(substr($url->getPath(), 1))->first();
+                    if ($pageExistinDB) {
+                        $pageExistinDB->update([
+                            'check_url' => true,
+                        ]);
+                    }
                 }
-            }
-            
-            $fullPath = (string) $url;
-            Cache::forever('X_FRONTEND_'.md5($fullPath), (string)$response->getBody());
-            if($this->loging){
-                Log::info("Process: ". $fullPath);
-                $this->pages[] = $fullPath;
+
+                $fullPath = (string) $url;
+                Cache::forever('X_FRONTEND_'.md5($fullPath), (string)$response->getBody());
+                if($this->loging){
+                    Log::info("Process: ". $fullPath);
+                    $this->pages[] = $fullPath;
+                }
             }
         }
     }
