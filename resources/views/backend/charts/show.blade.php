@@ -25,7 +25,7 @@
         typeForm="{{ $typeForm }}"  identificator="{{ $identificator }}"
         createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}">
 
-        <x-statistics-graph name="{{ $chart->title }}"/>
+        <x-partials.statistics-graph name="{{ $chart->slug }}"/>
 
     </x-backend.form>
 
