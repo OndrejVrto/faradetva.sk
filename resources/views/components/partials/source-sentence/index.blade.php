@@ -1,5 +1,5 @@
 @if(!$source == null OR !$author == null OR !$license == null OR !$dimensionSource == "off")
-    <div rel="license" {{ $attributes->merge(['class' => 'source ']) }}>
+    <div rel="license" {{ $attributes->merge(['class' => 'source']) }}>
         @if($dimensionSource == "small" OR $dimensionSource == "medium" OR $dimensionSource == "full")
             @isset($source)
                 Zdroj

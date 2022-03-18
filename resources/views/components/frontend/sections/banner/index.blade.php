@@ -2,7 +2,7 @@
     name="BANER"
     row="true"
     overlay="true"
-    class="ch_banner_wrapper banner-img-{{$banner['id']}} h-100"
+    class="ch_banner_wrapper banner-img-{{$banner['id']}} h-100 mb-5"
 >
     <x-partials.source-sentence
         :dimensionSource="$dimensionSource"
@@ -14,7 +14,7 @@
         <div class="banner_heading">
             @isset($header)
             <div class="page_heading">
-                <h2>{{ $header }}</h2>
+                <h1>{{ $header }}</h1>
             </div>
             @endisset
             @isset($breadcrumb)

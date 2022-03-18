@@ -11,7 +11,9 @@
     <x-frontend.sections.menu />
 
     <!-- MASTER CONTENT Start -->
-    {{ $slot }}
+    <main>
+        {{ $slot }}
+    </main>
     <!-- MASTER CONTENT End -->
 
     <x-frontend.sections.footer />

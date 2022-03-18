@@ -1124,7 +1124,7 @@ button:before {
 	text-align: center;
 }
 
-.page_heading h2 {
+.page_heading h1 {
 	color         : #ffffff;
 	/* text-transform: capitalize; */
 	font-weight   : 700;

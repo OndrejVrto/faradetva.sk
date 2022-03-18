@@ -230,4 +230,10 @@ Project: Church
 		window.location.replace('/hladat/' + search_frase_B);
 	})
 
+    $('#search-form-all2').on('submit', function(event) {
+		event.preventDefault();
+		var search_frase_B = $('#inputSearch2').val();
+		window.location.replace('/hladat/' + search_frase_B);
+	})
+
 })(jQuery);

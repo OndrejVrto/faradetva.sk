@@ -53,6 +53,11 @@
     border: 2px dotted #ff7b33;
 }
 
+.search-global em {
+    color: #ff7b33;
+
+}
+
 .img-article {
     position: absolute;
     z-index: 100;

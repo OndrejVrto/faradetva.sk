@@ -1,5 +1,5 @@
 <!-- SLIDER section Start -->
-    <div class="section ch_slider_wrapper">
+    <section class="section ch_slider_wrapper">
         <div class="ch_home_slider">
 
             @forelse ( $sliders as $slider )
@@ -103,6 +103,6 @@
                 <div class="d-none">Žiaden slider nieje pridaný.</div>
             @endforelse
         </div>
-    </div>
+    </section>
 <!-- SLIDER section End -->
 

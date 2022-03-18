@@ -1,7 +1,7 @@
 <!-- GOOGLE MAP section Start -->
-    <div class="section ch_map_section">
+    <section class="section ch_map_section">
         <div id="contact_map"></div>
-    </div>
+    </section>
 <!-- GOOGLE MAP section End -->
 
 @push('js')
