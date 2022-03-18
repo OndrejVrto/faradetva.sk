@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\StaticPage;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
@@ -20,7 +21,7 @@ class PageController extends Controller
         $links = $this->getAllLinks($nodes);
         $pageData = last($links);
 
-        if ($pageData AND View::exists($pageData['route'])) {
+        if ($pageData AND Arr::exists($pageData, 'route') AND View::exists($pageData['route'])) {
             $pageData['breadCrumb'] = (string) Breadcrumbs::render('pages.others', true, $links );
 
             return view($pageData['route'], compact('pageData'));
