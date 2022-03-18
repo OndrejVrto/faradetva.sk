@@ -1,6 +1,6 @@
 @props([
-    'css_general',
-    'js_general',
+    'css_general' => null,
+    'js_general' => null,
 ])
 @php($lang = str_replace('_', '-', app()->getLocale()))
 <!-- {{ Request::fullUrl() }} -->
