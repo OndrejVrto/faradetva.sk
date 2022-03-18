@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 //! routes only for develop
-Route::view(uri: '419', view: 'errors.419', status: 419);
-Route::view(uri: '403', view: 'errors.403', status: 403);
-Route::view(uri: '404', view: 'errors.404', status: 404);
-Route::view(uri: '500', view: 'errors.500', status: 500);
+Route::get('401', fn() => abort(401));
+Route::get('403', fn() => abort(403));
+Route::get('404', fn() => abort(404));
+Route::get('419', fn() => abort(419));
+Route::get('429', fn() => abort(429));
+Route::get('500', fn() => abort(500));
+Route::get('503', fn() => abort(503));
