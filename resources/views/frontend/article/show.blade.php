@@ -1,6 +1,6 @@
 @section('title', $oneNews->title )
-@section('description', $oneNews->title . ' --> '. $oneNews->teaser )
-@section('keywords', 'novinky, článkok, správa, informácia, farnosť Detva, oznamy')
+@section('description', $oneNews->teaser )
+@section('keywords', 'novinky, článok, správa, informácia, farnosť Detva, oznam, udalosť, správa')
 
 <x-frontend.layout.master>
 

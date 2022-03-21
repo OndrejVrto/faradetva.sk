@@ -1,6 +1,6 @@
 @section('title', 'Články' )
 @section('description', 'Novinky a čLánky farnosti Detva.' )
-@section('keywords', 'novinky, článkok, správa, informácia, farnosť Detva, oznamy')
+@section('keywords', 'novinky, články, správy, informácie, farnosť Detva, oznamy, ')
 
 <x-frontend.layout.master>
 
