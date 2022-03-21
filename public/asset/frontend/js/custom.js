@@ -24,7 +24,7 @@ Project: Church
 			this.Dropdown_Menu();
 			this.skill_counter();
 			this.wowanimation();
-			this.MailFunction();
+			// this.MailFunction();
 		},
 		/*-------------- Church Functions definition ---------------------------------------------------
 		---------------------------------------------------------------------------------------------------*/
@@ -156,45 +156,48 @@ Project: Church
 			wow.init();
 		},
 		//contact form mail script
-		MailFunction: function () {
-			$('.submit_btn').on('click', function () {
-				var name = $('#u_name').val();
-				var email = $('#u_email').val();
-				var phone = $('#u_phone').val();
-				var address = $('#u_address').val();
-				var u_msg = $('#u_message').val();
-				$.ajax({
-					type: "POST",
-					url: "contactmail.php",
-					data: {
-						'username': name,
-						'useremail': email,
-						'userphone': phone,
-						'useraddress': address,
-						'usermsg': u_msg,
-					},
-					success: function (msg) {
-						var full_msg = msg.split("#");
-						if (full_msg[0] == '1') {
-							$('#u_name').val("");
-							$('#u_email').val("");
-							$('#u_phone').val("");
-							$('#u_address').val("");
-							$('#u_message').val("");
-							$('#err_msg').html(full_msg[1]);
-						}
-						else {
-							$('#u_name').val(name);
-							$('#u_email').val(email);
-							$('#u_phone').val(phone);
-							$('#u_subject').val(address);
-							$('#u_message').val(u_msg);
-							$('#err_msg').html(full_msg[1]);
-						}
-					}
-				});
-			});
-		},
+		// MailFunction: function () {
+		// 	$('.submit_btn').on('click', function () {
+		// 		var token = $('#_token').val();
+		// 		var name = $('#u_name').val();
+		// 		var email = $('#u_email').val();
+		// 		var phone = $('#u_phone').val();
+		// 		var address = $('#u_address').val();
+		// 		var u_msg = $('#u_message').val();
+		// 		$.ajax({
+		// 			type: "POST",
+		// 			url: "/kontaktny-mail",
+		// 			data: {
+		// 				'_token': token,
+		// 				'username': name,
+		// 				'useremail': email,
+		// 				'userphone': phone,
+		// 				'useraddress': address,
+		// 				'usermsg': u_msg,
+		// 			},
+		// 			success: function (msg) {
+		// 				var full_msg = msg.split("#");
+		// 				if (full_msg[0] == '1') {
+		// 					$('#u_name').val("");
+		// 					$('#u_email').val("");
+		// 					$('#u_phone').val("");
+		// 					$('#u_address').val("");
+		// 					$('#u_message').val("");
+		// 					$('#err_msg').html(full_msg[1]);
+		// 				}
+		// 				else {
+		// 					$('#u_name').val(name);
+		// 					$('#u_name').val(name);
+		// 					$('#u_email').val(email);
+		// 					$('#u_phone').val(phone);
+		// 					$('#u_subject').val(address);
+		// 					$('#u_message').val(u_msg);
+		// 					$('#err_msg').html(full_msg[1]);
+		// 				}
+		// 			}
+		// 		});
+		// 	});
+		// },
 	};
 	Church.init();
 	//window load function

@@ -1,18 +1,13 @@
 <x-frontend.page.section
     name="CONTACT"
     row="true"
-    class="ch_contact_section"
+    class="ch_contact_section pt-5"
 >
     <div class="col-lg-6 col-12">
         <div class="ch_contact_form fromleft wow">
             <h2 class="contact_heading">Kontaktný formulár</h2>
             <div class="contact_form_wrap">
-                <form>
-                    @csrf
-
                     <x-frontend.sections.contact.form/>
-
-                </form>
             </div>
         </div>
     </div>

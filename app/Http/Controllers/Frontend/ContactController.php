@@ -4,17 +4,20 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Banner;
-use App\Models\Priest;
-use Illuminate\Contracts\View\View;
+use App\Mail\ContactMail;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ContactFormRequest;
 
 class ContactController extends Controller
 {
-    public function __invoke(): View  {
-        $banner = Banner::with('media')->get()->random(1)->first();
-        $priests = Priest::whereActive(1)->with('media')->get();
+    public function sendEmail(ContactFormRequest $request)  {
 
-        return view('frontend.contact.index', compact('priests', 'banner'));
+        $validated = $request->validated();
+
+        Mail::alwaysFrom('kontaktny-formular@faradetva.sk', 'WWW stránka farnosti Detva');
+        Mail::to('detva@fara.sk')->send(new ContactMail($validated));
+
+        return back()->with('success_message', 'Vaša správa bola odoslaná.');
     }
 }
