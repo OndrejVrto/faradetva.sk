@@ -46,6 +46,8 @@ class News extends Model implements HasMedia
 
     protected $casts = [
         'active' => 'boolean',
+        'published_at' => 'datetime',
+        'unpublished_at' => 'datetime',
     ];
 
     /* The number of models to return for pagination. */

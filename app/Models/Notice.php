@@ -26,14 +26,14 @@ class Notice extends Model implements HasMedia
     use SingleTableInheritanceTrait;
 
     protected $table = 'notices';
-    
+
     protected static $singleTableTypeField = 'type_model';
-    
+
     protected static $singleTableType = 'General';
 
     protected static $singleTableSubclasses = [
-        NoticeAcolyte::class, 
-        NoticeChurch::class, 
+        NoticeAcolyte::class,
+        NoticeChurch::class,
         NoticeLecturer::class
     ];
 
@@ -51,6 +51,8 @@ class Notice extends Model implements HasMedia
 
     protected $casts = [
         'active' => 'boolean',
+        'published_at' => 'datetime',
+        'unpublished_at' => 'datetime',
     ];
 
     public function getRouteKeyName() {
