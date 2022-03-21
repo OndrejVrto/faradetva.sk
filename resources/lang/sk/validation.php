@@ -92,7 +92,7 @@ return [
         'array'   => 'The value must have at least :min items.',
         'file'    => 'Veľkosť súboru musí byť minimálne :min kilobytov.',
         'numeric' => 'The value must be at least :min.',
-        'string'  => 'The string must be at least :min characters.',
+        'string'  => 'Hodnota musí obsahovať minimálne :min znakov.',
     ],
     'multiple_of'          => 'Hodnota musí byť násobkom :value',
     'not_in'               => 'Zvolená hodnota je neplatná.',

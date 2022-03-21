@@ -16,6 +16,7 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
+        "livewire/livewire": "^2.10",
         "meilisearch/meilisearch-php": "^0.23.1",
         "nanigans/single-table-inheritance": "~1.0",
         "rexlabs/enum": "^2.2",

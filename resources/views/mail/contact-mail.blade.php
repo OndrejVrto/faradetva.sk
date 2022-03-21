@@ -4,17 +4,17 @@
 <br>
 <br>
 ## E-Mail pre odpoveď:
-<span style="color: #f16565; font-weight: bold;">{{ $emailData['email'] }}</span>
+<span style="color: #f16565; font-weight: bold;">{{ $contact['email'] }}</span>
 ## Meno odosiľateľa:
-<span style="color: #f16565">{{ $emailData['name'] }}</span>
+<span style="color: #f16565">{{ $contact['name'] }}</span>
 ## Telefónne číslo:
-<span style="color: #f16565">{{ $emailData['contact'] }}</span>
+<span style="color: #f16565">{{ $contact['contact'] }}</span>
 ## Adresa:
-<span style="color: #f16565">{{ $emailData['address'] }}</span>
+<span style="color: #f16565">{{ $contact['address'] }}</span>
 <br>
 <br>
 ## Text správy:
-<span style="color: #f16565">{{ $emailData['message'] }}</span>
+<span style="color: #f16565">{{ $contact['message'] }}</span>
 <br>
 <br>
 <br>

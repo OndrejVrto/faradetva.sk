@@ -11,15 +11,30 @@ class ContactMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    private $emailData;
+    /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 2;
+
+    /**
+     * The number of seconds to wait before retrying the job.
+     *
+     * @var int
+     */
+    public $backoff = 5;
+
+
+    private $contact;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($emailData) {
-        $this->emailData = $emailData;
+    public function __construct($contact) {
+        $this->contact = $contact;
     }
 
     /**
@@ -29,6 +44,6 @@ class ContactMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->markdown('mail.contact-mail', ['emailData' => $this->emailData]);
+        return $this->markdown('mail.contact-mail', ['contact' => $this->contact]);
     }
 }
