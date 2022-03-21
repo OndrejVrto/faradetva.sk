@@ -27,6 +27,7 @@ class Setting extends Model
             ::$settings
             ->where('key', $key)
             ->first();
+
         if (empty($model)) {
             if (empty($default)) {
                 //Throw an exception, you cannot resume without the setting.
@@ -35,6 +36,8 @@ class Setting extends Model
                 return $default;
             }
         } else {
+            if($model->value == 'true') return true;
+            if($model->value == 'false') return false;
             return $model->value;
         }
     }
@@ -43,7 +46,7 @@ class Setting extends Model
         if (empty(self::$settings)) {
             self::$settings = self::all();
         }
-        if (is_string($value) || is_int($value)) {
+        if (is_string($value) || is_int($value) || is_null($value)) {
             $model = self
                 ::$settings
                 ->where('key', $key)
@@ -61,6 +64,23 @@ class Setting extends Model
             return true;
         } else {
             return false;
+        }
+    }
+
+    static function put($key) {
+        if (empty(self::$settings)) {
+            self::$settings = self::all();
+        }
+        $model = self
+            ::$settings
+            ->where('key', $key)
+            ->first();
+        if (empty($model)) {
+            //Throw an exception, you cannot resume without the setting.
+            throw new \Exception('Cannot find setting: '.$key);
+        } else {
+            $model->delete();
+            return true;
         }
     }
 }
