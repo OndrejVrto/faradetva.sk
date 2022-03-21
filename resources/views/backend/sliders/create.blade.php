@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.sliders_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.sliders_description_create') )
+@section('title', __('backend-texts.sliders.title'))
+@section('meta_description', __('backend-texts.sliders.description_create'))
 
 @section('content_breadcrumb')
     {{ Breadcrumbs::render('sliders.create') }}

@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.users_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.users_description_create') )
+@section('title', __('backend-texts.users.title'))
+@section('meta_description', __('backend-texts.users.description_create'))
 
 @section('content_breadcrumb')
     {{ Breadcrumbs::render('users.create') }}

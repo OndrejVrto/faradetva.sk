@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.testimonials_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.testimonials_description_edit') )
+@section('title', __('backend-texts.testimonials.title'))
+@section('meta_description', __('backend-texts.testimonials.description_edit'))
 
 @section('content_breadcrumb')
     {{  Breadcrumbs::render('testimonials.edit', false, $testimonial, $testimonial->name )}}

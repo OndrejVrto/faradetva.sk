@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.permissions_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.permissions_description') )
+@section('title', __('backend-texts.permissions.title'))
+@section('meta_description', __('backend-texts.permissions.description'))
 
 @section('content_breadcrumb')
     {{ Breadcrumbs::render('permissions.index') }}

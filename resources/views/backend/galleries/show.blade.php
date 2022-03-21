@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.galleries_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.galleries_description_show') )
+@section('title', __('backend-texts.galleries.title'))
+@section('meta_description', __('backend-texts.galleries.description_show'))
 
 @section('content_breadcrumb')
     {{  Breadcrumbs::render('galleries.show', false, $gallery, $gallery->title )}}

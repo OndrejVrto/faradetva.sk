@@ -21,8 +21,8 @@
     $maxMD = min($columns + 2, 12);
 
     $texts = Str::replace('.','-', $controlerName);
-    $headerTitle = config('farnost-detva.admin_texts.'.$texts.'_header_'.$typeForm );
-    $headerDescription = config('farnost-detva.admin_texts.'.$texts.'_description_'.$typeForm );
+    $headerTitle = __('backend-texts.'.$texts.'.header_'.$typeForm );
+    $headerDescription = __('backend-texts.'.$texts.'.description_'.$typeForm );
 
     if (is_null($linkBack)) {
         $linkBack = Route::has($controlerName . '.index') ? route($controlerName . '.index', $identificator) : null;

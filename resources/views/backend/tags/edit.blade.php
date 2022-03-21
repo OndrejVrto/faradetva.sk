@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.tags_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.tags_description_edit') )
+@section('title', __('backend-texts.tags.title'))
+@section('meta_description', __('backend-texts.tags.description_edit'))
 
 @section('content_breadcrumb')
     {{  Breadcrumbs::render('tags.edit', false, $tag, $tag->title )}}

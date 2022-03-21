@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.news_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.news_description_create') )
+@section('title', __('backend-texts.news.title'))
+@section('meta_description', __('backend-texts.news.description_create'))
 
 @section('content_breadcrumb')
     {{ Breadcrumbs::render('news.create') }}

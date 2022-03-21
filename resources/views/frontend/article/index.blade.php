@@ -7,7 +7,6 @@
     <x-frontend.sections.banner
         :header="$title"
         :breadcrumb="$breadCrumb"
-        titleSlug="vyzdoba-kostola-a-kaplnky, torta"
     />
 
     <x-frontend.page.section name="ARTICLE" class="ch_blog_section pt-5" row="true">
