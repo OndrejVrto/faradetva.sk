@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
 
 class QueryLogService
@@ -19,14 +20,15 @@ class QueryLogService
     private $final;
 
     public function __construct() {
-        $this->file_path = storage_path("logs\\".$this->file_name);
-        $this->total_query = 0;
-        $this->total_time = 0;
-        $this->final = [];
 
-        if (!Str::startsWith(request()->path(), '_debugbar')) {
+        if (config('farnost-detva.guery-loging', false) AND !Str::startsWith(request()->path(), '_debugbar')) {
 
-            // File::delete($this->file_path);
+            $this->file_path = storage_path("logs\\".$this->file_name);
+            $this->total_query = 0;
+            $this->total_time = 0;
+            $this->final = [];
+
+            File::delete($this->file_path);
 
             DB::listen(function ($query) {
                 // Not cache Query

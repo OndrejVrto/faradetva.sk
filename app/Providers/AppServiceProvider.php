@@ -6,6 +6,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Services\QueryLogService;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
@@ -36,19 +37,14 @@ class AppServiceProvider extends ServiceProvider
             $this->app->singleton(CacheResponseMiddleware::class);
 
             //! only for Dev
-            if ( $request->userAgent() !== 'fara-detva-crawl' AND App::environment(['local', 'dev', 'staging'])) {
-                //! register Ide-Helper Service only in local
-                $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-
+            if ($request->userAgent() !== 'fara-detva-crawl' AND App::environment(['local', 'dev', 'staging'])) {
                 //! correctly url adres in Nqrock
                 if (!empty(env('NGROK_URL')) && $request->server->has('HTTP_X_ORIGINAL_HOST')) {
                     $this->app['url']->forceRootUrl(env('NGROK_URL'));
                 }
 
                 //! Loging Query-s to log file
-                if (env('QUERY_LOG', false)) {
-                    new QueryLogService;
-                }
+                new QueryLogService;
             }
         }
     }

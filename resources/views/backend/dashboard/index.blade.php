@@ -90,8 +90,7 @@
             @endcan
 
             @can(
-                'cache.check.url',
-                'cache.check.all-url',
+                'cache.crawl-all-url',
             )
                 <div class="col-lg-4">
                     <div class="card">
@@ -101,8 +100,8 @@
                             </h3>
                         </div>
                         <div class="card-body d-flex flex-wrap justify-content-center">
-                            @can('cache.check.all-url')
-                                <a href="{{ route('cache.check.all-url') }}" class="btn btn-danger m-2">Scanovať všetky URL</a>
+                            @can('cache.crawl-all-url')
+                                <a href="{{ route('cache.crawl-all-url') }}" class="btn btn-danger m-2">Scanovať všetky URL</a>
                             @endcan
                         </div>
                     </div>

@@ -7,23 +7,18 @@ use Illuminate\Support\Arr;
 use Psr\Http\Message\UriInterface;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Cache;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\RequestException;
 use Spatie\Crawler\CrawlObservers\CrawlObserver;
 
-class CacheCrawlerObserver extends CrawlObserver
+class UrlCheckCrawlerObserver extends CrawlObserver
 {
-    private $pages;
+    private int $pages = 0;
 
     private $loging = false;
 
-    private $updateDB;
-
-    public function __construct(bool $updateDB = false)
+    public function __construct()
     {
-        $this->updateDB = $updateDB;
-
         if (App::environment(['local', 'dev', 'staging'])) {
             $this->loging = true;
         }
@@ -48,7 +43,6 @@ class CacheCrawlerObserver extends CrawlObserver
         ?UriInterface $foundOnUrl = null
     ): void {
 
-        // TODO:  Refactor this
         if( Arr::exists($response->getHeaders(), 'Content-Type') ){
 
             $mineTypes = [
@@ -59,20 +53,18 @@ class CacheCrawlerObserver extends CrawlObserver
             ];
 
             if (in_array($response->getHeader('Content-Type')[0], $mineTypes)) {
-                if ($this->updateDB) {
-                    $pageExistinDB = StaticPage::whereUrl(substr($url->getPath(), 1))->first();
-                    if ($pageExistinDB) {
-                        $pageExistinDB->update([
-                            'check_url' => true,
-                        ]);
-                    }
+                $pageExistinDB = StaticPage::whereUrl(substr($url->getPath(), 1))->first();
+
+                if ($pageExistinDB) {
+                    $pageExistinDB->update([
+                        'check_url' => true,
+                    ]);
                 }
 
-                $fullPath = (string) $url;
-                Cache::forever('X_FRONTEND_'.md5($fullPath), (string)$response->getBody());
                 if($this->loging){
+                    $fullPath = (string) $url;
                     Log::info("Process: ". $fullPath);
-                    $this->pages[] = $fullPath;
+                    $this->pages++;
                 }
             }
         }
@@ -97,7 +89,7 @@ class CacheCrawlerObserver extends CrawlObserver
     public function finishedCrawling(): void
     {
         if($this->loging){
-            Log::info('Crawled ' . count($this->pages) . ' urls');
+            Log::info('Crawled ' . $this->pages . ' urls');
         }
     }
 }

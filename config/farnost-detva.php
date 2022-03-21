@@ -2,6 +2,8 @@
 
 return [
 
+    'guery-loging' => env('QUERY_LOG', false),
+
     'cache-duration' => [
         'news' => env('CACHE_DURATION_NEWS', 60*60*24),   // 24 hodín
     ],

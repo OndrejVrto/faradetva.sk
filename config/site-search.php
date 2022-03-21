@@ -63,7 +63,8 @@ return [
      * This profile will be used when none is specified in the `profile_class` attribute
      * of a `SiteSearchIndex` model.
      */
-    'default_profile' => Spatie\SiteSearch\Profiles\DefaultSearchProfile::class,
+    // 'default_profile' => Spatie\SiteSearch\Profiles\DefaultSearchProfile::class,
+    'default_profile' => App\Crawler\CustomSearchProfile::class,
 
     /**
      * An indexer is a class that is responsible for converting the content of a page

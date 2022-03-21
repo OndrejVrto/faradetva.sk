@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Setting;
-use App\Services\CheckUrlsService;
+use App\Services\CrawlUrlsService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
@@ -65,10 +65,10 @@ class CacheController extends Controller
         return to_route('admin.dashboard');
     }
 
-    public function checkAllUrlStaticPages(): RedirectResponse {
-        (new CheckUrlsService)->run(updateDB: true);
-        toastr()->info(__('app.cache.check-all-url-static-pages'));
-        return to_route('static-pages.index');
+    public function crawlAllUrl(): RedirectResponse {
+        new CrawlUrlsService;
+        toastr()->info(__('app.cache.crawl-all-url'));
+        return to_route('admin.dashboard');
     }
 
     public function restartFailedJobs(): RedirectResponse {

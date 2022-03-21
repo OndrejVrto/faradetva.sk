@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Listeners\ReloadPageCache;
+use App\Listeners\CachePages;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -13,7 +13,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         Logout::class => [
-            ReloadPageCache::class,
+            CachePages::class,
         ],
     ];
 
