@@ -67,9 +67,20 @@ class CacheController extends Controller
 
     public function checkAllUrlStaticPages(): RedirectResponse {
         (new CheckUrlsService)->run(updateDB: true);
-
         toastr()->info(__('app.cache.check-all-url-static-pages'));
         return to_route('static-pages.index');
+    }
+
+    public function restartFailedJobs(): RedirectResponse {
+        Artisan::call('queue:restart');
+        toastr()->info(__('app.cache.restart-failed-jobs'));
+        return to_route('admin.dashboard');
+    }
+
+    public function deleteFailedJobs(): RedirectResponse {
+        Artisan::call('queue:flush');
+        toastr()->info(__('app.cache.delete-failed-jobs'));
+        return to_route('admin.dashboard');
     }
 
     public function infoPHP() {

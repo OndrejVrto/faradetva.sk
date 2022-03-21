@@ -101,11 +101,32 @@
                             </h3>
                         </div>
                         <div class="card-body d-flex flex-wrap justify-content-center">
-                            {{-- @can('cache.check.url')
-                                <a href="{{ route('cache.check.url') }}" class="btn btn-info m-2">Scanovať nové URL statických stránok</a>
-                            @endcan --}}
                             @can('cache.check.all-url')
                                 <a href="{{ route('cache.check.all-url') }}" class="btn btn-danger m-2">Scanovať všetky URL</a>
+                            @endcan
+                        </div>
+                    </div>
+                </div>
+            @endcan
+        </div>
+        <div class="row">
+            @can(
+                'cache.jobs.delete',
+                'cache.jobs.restart',
+            )
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-muted">
+                                Statické stránky
+                            </h3>
+                        </div>
+                        <div class="card-body d-flex flex-wrap justify-content-center">
+                            @can('cache.jobs.delete')
+                                <a href="{{ route('cache.jobs.delete') }}" class="btn btn-info m-2">Vymazať chybné úlohy</a>
+                            @endcan
+                            @can('cache.jobs.restart')
+                                <a href="{{ route('cache.jobs.restart') }}" class="btn btn-info m-2">Reštartovať nedokončené úlohy</a>
                             @endcan
                         </div>
                     </div>

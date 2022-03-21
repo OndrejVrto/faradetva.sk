@@ -53,6 +53,8 @@ Route::middleware(['auth', 'permission'])->prefix('admin')->group( function() {
         Route::get('caches-data-stop', 'cacheDataStop')->name('data.stop');
         Route::get('caches-data-start', 'cacheDataStart')->name('data.start');
         Route::get('caches-data-reset', 'cacheDataReset')->name('data.reset');
+        Route::get('failed-jobs-delete', 'deleteFailedJobs')->name('jobs.delete');
+        Route::get('failed-jobs-restart', 'restartFailedJobs')->name('jobs.restart');
         Route::get('check-all-url-static-pages', 'checkAllUrlStaticPages')->name('check.all-url');
     });
 
