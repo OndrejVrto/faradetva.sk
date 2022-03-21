@@ -13,7 +13,6 @@ class Testimonials extends Component
 
     public function __construct() {
         $this->testimonials = $this->getTestimonials();
-        // dd($this->testimonials);
     }
 
     public function render(): View|null {

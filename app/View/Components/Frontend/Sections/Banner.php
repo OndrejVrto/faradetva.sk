@@ -14,12 +14,22 @@ class Banner extends Component
     public $banner = null;
 
     public function __construct(
-        public string $dimensionSource = "off",
         public $header = null,
         public $breadcrumb = null,
-        private string|array $titleSlug,
+        private null|string|array $titleSlug = null,
+        public null|string $dimensionSourceBanner = "full",
     ) {
-        if($this->getName($titleSlug) != '') $this->banner = $this->getBanner($this->getName($titleSlug));
+        if(is_null($titleSlug)){
+            $titleSlug = BannerModel::select('slug')->pluck('slug')->toArray();
+        }
+
+        if(is_null($titleSlug)){
+            return;
+        }
+
+        if($this->getName($titleSlug) != ''){
+            $this->banner = $this->getBanner($this->getName($titleSlug));
+        }
     }
 
     public function render(): View|null {
