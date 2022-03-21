@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.charts-data_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.charts-data_description') )
+@section('title', __('backend-texts.charts-data.title'))
+@section('meta_description', __('backend-texts.charts-data.description'))
 
 @section('content_breadcrumb')
     {{-- TODO: BreadCrumbs for nested resources --}}

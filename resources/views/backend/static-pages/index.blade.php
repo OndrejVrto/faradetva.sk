@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.static-pages_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.static-pages_description') )
+@section('title', __('backend-texts.static-pages.title'))
+@section('meta_description', __('backend-texts.static-pages.description'))
 
 @section('content_breadcrumb')
     {{ Breadcrumbs::render('static-pages.index') }}

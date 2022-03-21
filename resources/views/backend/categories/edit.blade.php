@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.categories_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.categories_description_edit') )
+@section('title', __('backend-texts.categories.title'))
+@section('meta_description', __('backend-texts.categories.description_edit'))
 
 @section('content_breadcrumb')
     {{  Breadcrumbs::render('categories.edit', false, $category, $category->title )}}

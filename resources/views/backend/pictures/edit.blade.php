@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.pictures_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.pictures_description_edit') )
+@section('title', __('backend-texts.pictures.title'))
+@section('meta_description', __('backend-texts.pictures.description_edit'))
 
 @section('content_breadcrumb')
     {{  Breadcrumbs::render('pictures.edit', false, $picture, $picture->title )}}

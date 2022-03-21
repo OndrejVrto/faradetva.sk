@@ -5,7 +5,7 @@
     class="ch_banner_wrapper banner-img-{{$banner['id']}} h-100 mb-5"
 >
     <x-partials.source-sentence
-        :dimensionSource="$dimensionSource"
+        dimensionSource="{{ $dimensionSourceBanner }}"
         :sourceArray="$banner['sourceArr']"
         class="img-article img-article-left"
         title="{{ $banner['description'] }}"

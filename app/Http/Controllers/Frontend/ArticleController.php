@@ -46,7 +46,7 @@ class ArticleController extends Controller
         $articles = Cache::remember('NEWS_ALL_PAGE-' . request('page', 1), config('farnost-detva.cache-duration.news'), function () {
             return News::newsComplete();
         });
-        $title = config('farnost-detva.title-articles.all');
+        $title = __('frontend-texts.articles-title.all');
         $breadCrumb = (string) Breadcrumbs::render('articles.all', true);
         $emptyTitle = ['name'=> 'V článkoch', 'value' => ''];
 
@@ -59,7 +59,7 @@ class ArticleController extends Controller
         })->newsComplete();
 
         $userName = User::whereSlug($userSlug)->value('name');
-        $title = config('farnost-detva.title-articles.author') . $userName;
+        $title = __('frontend-texts.articles-title.author') . $userName;
         $breadCrumb = (string) Breadcrumbs::render('articles.author', true, $userSlug, $userName);
         $emptyTitle = ['name'=> 'Zvolený autor', 'value' => $userName];
 
@@ -72,7 +72,7 @@ class ArticleController extends Controller
         })->newsComplete();
 
         $categoryName = Category::whereSlug($categorySlug)->value('title');
-        $title = config('farnost-detva.title-articles.category') . $categoryName;
+        $title = __('frontend-texts.articles-title.category') . $categoryName;
         $breadCrumb = (string) Breadcrumbs::render('articles.category', true, $categorySlug, $categoryName);
         $emptyTitle = ['name'=> 'Vybraná kategória', 'value' => $categoryName];
 
@@ -81,7 +81,7 @@ class ArticleController extends Controller
 
     public function indexDate($year): View  {
         $articles = News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete();
-        $title = config('farnost-detva.title-articles.date') . $year;
+        $title = __('frontend-texts.articles-title.date') . $year;
         $breadCrumb = (string) Breadcrumbs::render('articles.date', true, $year, $year);
         $emptyTitle = ['name'=> 'Vybraný rok', 'value' => (string)$year];
 
@@ -94,7 +94,7 @@ class ArticleController extends Controller
         })->newsComplete();
 
         $tagName = Tag::whereSlug($tagSlug)->value('title');
-        $title = config('farnost-detva.title-articles.tags') . $tagName;
+        $title = __('frontend-texts.articles-title.tags') . $tagName;
         $breadCrumb = (string) Breadcrumbs::render('articles.tag', true, $tagSlug, $tagName);
         $emptyTitle = ['name'=> 'Klúčové slovo', 'value' => $tagName];
 
@@ -106,7 +106,7 @@ class ArticleController extends Controller
             return to_route('article.all');
         }
         $articles = News::whereFulltext(['title', 'content'], $search)->newsComplete();
-        $title = config('farnost-detva.title-articles.search') . $search;
+        $title = __('frontend-texts.articles-title.search') . $search;
         $breadCrumb = (string) Breadcrumbs::render('articles.search', true);
         $emptyTitle = ['name'=> 'Hľadaný výraz', 'value' => $search];
 

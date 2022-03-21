@@ -16,8 +16,8 @@
     $maxLG = min($columns + 2, 12);
     $maxMD = min($columns + 4, 12);
     $texts = Str::replace('.','-', $controlerName);
-    $headerTitle = config('farnost-detva.admin_texts.'.$texts.'_header' );
-    $headerDescription = config('farnost-detva.admin_texts.'.$texts.'_description' );
+    $headerTitle = __('backend-texts.'.$texts.'.header' );
+    $headerDescription = __('backend-texts.'.$texts.'.description' );
     if (is_null($createLink)) {
         $createLink = Route::has($controlerName . '.create') ? route($controlerName . '.create') : null;
     }

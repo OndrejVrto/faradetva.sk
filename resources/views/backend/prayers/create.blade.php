@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.prayers_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.prayers_description_create') )
+@section('title', __('backend-texts.prayers.title'))
+@section('meta_description', __('backend-texts.prayers.description_create'))
 
 @section('content_breadcrumb')
     {{ Breadcrumbs::render('prayers.create') }}

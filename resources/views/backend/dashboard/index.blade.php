@@ -1,8 +1,8 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.dashboard_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.dashboard_description') )
-{{-- @section('content_header', config('farnost-detva.admin_texts.dashboard_header') ) --}}
+@section('title', __('backend-texts.dashboard.title'))
+@section('meta_description', __('backend-texts.dashboard.description'))
+{{-- @section('content_header', __('backend-texts.dashboard.header')) --}}
 
 @section('content_breadcrumb')
     {{ Breadcrumbs::render('admin.home') }}

@@ -1,7 +1,7 @@
 @extends('backend._layouts.app')
 
-@section('title', config('farnost-detva.admin_texts.banners_title', 'Administrácia') )
-@section('meta_description', config('farnost-detva.admin_texts.banners_description_create') )
+@section('title', __('backend-texts.banners.title'))
+@section('meta_description', __('backend-texts.banners.description_create'))
 
 @section('content_breadcrumb')
     {{ Breadcrumbs::render('banners.create') }}
