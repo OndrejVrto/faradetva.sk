@@ -15,7 +15,6 @@ class Pray extends Component
         public $link = null,
     ) {
         $this->pray = $this->getPray();
-        // dd($this->pray);
     }
 
     public function render(): View|null {

@@ -43,11 +43,11 @@ class Picture extends Component
     ];
 
     public function __construct(
-        public int $columns = 4,
-        public string|null $animation = null,
-        public string|null $side = null,
-        public string $dimensionSource = 'full',
         private string $titleSlug,
+        public int|null $columns = 4,
+        public string|null $side = null,
+        public string|null $animation = null,
+        public string|null $dimensionSource = 'full',
     ) {
         $this->side = in_array($side, self::SIDE) ? $side : 'right';
         $this->animation = in_array($animation, self::ANIMATION_TYPE) ? $animation : 'fromright';

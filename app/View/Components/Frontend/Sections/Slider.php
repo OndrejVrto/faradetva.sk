@@ -13,7 +13,6 @@ class Slider extends Component
 
     public function __construct() {
         $this->sliders = $this->getSliders();
-        // dd($this->slider);
     }
 
     public function render(): View|null {
