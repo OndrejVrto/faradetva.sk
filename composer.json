@@ -12,7 +12,7 @@
         "intervention/image": "^2.7",
         "jeroennoten/laravel-adminlte": "^v3.8.0",
         "lab404/laravel-impersonate": "^1.7.3",
-        "laravel/framework": "^9.2",
+        "laravel/framework": "^9",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
-        "barryvdh/laravel-ide-helper": "^v2.12.3",
+        "barryvdh/laravel-ide-helper": "^2.12",
         "beyondcode/laravel-query-detector": "^1.6.0",
         "fakerphp/faker": "^1.9.1",
         "glhd/laravel-dumper": "^1.0",
