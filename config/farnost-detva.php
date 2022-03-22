@@ -6,6 +6,8 @@ return [
 
     'guery-loging' => env('QUERY_LOG', false),
 
+    'ngrok_url' => env('NGROK_URL'),
+
     'cache-duration' => [
         'news' => env('CACHE_DURATION_NEWS', 60*60*24),   // 24 hodín
     ],

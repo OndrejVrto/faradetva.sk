@@ -5,9 +5,6 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\ArticleController;
-use App\Http\Controllers\Frontend\ContactController;
-
-Route::post('kontaktny-email', [ContactController::class, 'sendEmail'])->name('contact.email');
 
 //! FrontEnd Routes
 Route::middleware('response.headers', 'csp.headers', 'cache.response', 'preety.html')->group(function (){

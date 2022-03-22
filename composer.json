@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0.2",
         "diglactic/laravel-breadcrumbs": "^v7.1.1",
+        "enlightn/enlightn": "^1.25",
         "guzzlehttp/guzzle": "^7.2",
         "haruncpi/laravel-user-activity": "^1.0",
         "intervention/image": "^2.7",
