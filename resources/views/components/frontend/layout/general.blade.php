@@ -64,6 +64,7 @@
 <body>
     <!-- BODY CONTENT Start -->
     {{ $slot }}
+    @stack('content_footer')
     <!-- BODY CONTENT End -->
     <!-- GENERAL SCRIPTS Start -->
     {{ $js_general }}
