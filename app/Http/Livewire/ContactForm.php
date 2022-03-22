@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Mail;
 class ContactForm extends Component
 {
 
-    public $name;
-    public $email;
-    public $contact;
-    public $address;
-    public $message;
-    public $successMesage = null;
+    public $name = '';
+    public $email = '';
+    public $contact = '';
+    public $address = '';
+    public $message = '';
+    public $successMesage = '';
 
     protected $rules = [
         'name' => [
@@ -56,19 +56,11 @@ class ContactForm extends Component
         $contact['address'] = $this->address;
         $contact['message'] = $this->message;
 
-        $this->resetForm();
+        $this->reset();
 
         Mail::to('detva@fara.sk')->send(new ContactMail($contact));
 
         $this->successMesage = 'Vaša správa bola odoslaná.';
-    }
-
-    public function resetForm(){
-        $this->name = '';
-        $this->email = '';
-        $this->contact = '';
-        $this->address = '';
-        $this->message = '';
     }
 
     public function render()
