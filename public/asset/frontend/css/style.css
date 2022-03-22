@@ -873,8 +873,8 @@ button:before {
 .event_desc {
 	display       : table-cell;
 	width         : 69%;
-	vertical-align: middle;
-	padding-left  : 30px;
+	vertical-align: top;
+	/* padding-left  : 30px; */
 }
 
 .event_desc h4 {

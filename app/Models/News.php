@@ -116,6 +116,10 @@ class News extends Model implements HasMedia
                 ->fit("crop", 848, 460)
                 ->optimize()
                 ->withResponsiveImages();
+            $this->addMediaConversion('large-square')
+                ->fit("crop", 335, 290)
+                ->optimize()
+                ->withResponsiveImages();
             $this->addMediaConversion('large-thin')
                 ->fit("crop", 650, 300)
                 ->optimize()

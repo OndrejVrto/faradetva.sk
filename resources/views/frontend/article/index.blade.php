@@ -18,51 +18,52 @@
         :breadcrumb="$breadCrumb"
     />
 
-    <x-frontend.page.section name="ARTICLE" class="ch_blog_section pt-5">
+    <x-frontend.page.section name="ARTICLE" class="ch_blog_section pt-0 pt-lg-5">
 
             @forelse ($articles as $oneNews)
 
                 @if ($loop->first)
-                    <div class="row">
-
-                    <!-- ARTICLE {{ $oneNews->id }} Start -->
+                    <div class="row pb-3 pb-lg-5">
                         <div class="col-lg-12">
-                            <div class="blog_item_cover">
-                                <div class="row">
-                                    <div class="col-6 blog_thumb">
-                                        <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionPicture, 'large-thin') ?: "http://via.placeholder.com/650x300" }}"
-                                            class="w-100"
-                                            alt="Malý obrázok k článku: {{ $oneNews->title }}."
-                                        />
-                                        <div class="blog_overlay">
-                                            <a href="{{ route('article.show', $oneNews->slug)}}" class="link_icon"><i class="fas fa-link"></i></a>
-                                        </div>
+
+                        <!-- ARTICLE {{ $oneNews->id }} Start -->
+                            <div class="event_box">
+                                <div class="event_thumb">
+                                    {{-- <img src="images/event/event-thumb1.jpg" class="img-responsive" alt=""> --}}
+                                    <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionPicture, 'large-thin') ?: "http://via.placeholder.com/650x300" }}"
+                                                {{-- class="w-100" --}}
+                                                class="mx-auto d-block d-lg-none img-fluid mt-0"
+                                                alt="Malý obrázok k článku: {{ $oneNews->title }}."
+                                    />
+                                    <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionPicture, 'large-square') ?: "http://via.placeholder.com/335x290" }}"
+                                                {{-- class="w-100" --}}
+                                                class="mx-auto d-none d-lg-block"
+                                                alt="Malý obrázok k článku: {{ $oneNews->title }}."
+                                    />
+                                </div>
+                                <div class="event_desc ps-0 ps-lg-4 ps-xl-5">
+                                    <a class="text-decoration-none link-template" href="{{ route('article.show', $oneNews->slug)}}">
+                                        <h2>{{ $oneNews->title }}</h2>
+                                    </a>
+                                    <div class="event_meta mt-4 mb-3">
+                                        <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}</a></span>
+                                        <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
+                                        <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}</a></span>
                                     </div>
-
-                                    <div class="col-6 blog_desc">
-                                        <div class="blog_info pb-3">
-                                            <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}</a></span>
-                                            <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
-                                            <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}</a></span>
-                                        </div>
-
-                                        <a class="text-decoration-none" href="{{ route('article.show', $oneNews->slug)}}">
-                                            <h2>{{ $oneNews->title }}</h2>
-                                        </a>
-                                        <div class="content pt-2 pb-3 text-justify pe-4">
-                                            {{$oneNews->teaser}}
-                                        </div>
-
-                                        <a href="{{ route('article.show', $oneNews->slug)}}" class="read_m_link">
-                                            Čítať viac
-                                            <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                    <p>
+                                        {{$oneNews->teaser}}
+                                    </p>
+                                    <a href="{{ route('article.show', $oneNews->slug)}}" class="event_btn read_btn">
+                                        Čítať viac
+                                        {{-- <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> --}}
+                                    </a>
                                 </div>
                             </div>
-                        </div>
                         <!-- ARTICLE {{ $oneNews->id }} End -->
+
+                        </div>
                     </div>
+
                     <div class="row" data-masonry='{"percentPosition": true }'>
                 @else
                         <!-- ARTICLE {{ $oneNews->id }} Start -->
