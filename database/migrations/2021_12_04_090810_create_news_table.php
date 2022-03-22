@@ -29,7 +29,7 @@ return new class extends Migration
             $table->timestamp('unpublished_at')->nullable()->default(NULL);
             $table->string('title', 200);
             $table->string('slug', 200);
-            $table->string('teaser', 400);
+            $table->string('teaser', 500);
             $table->text('content');
 
             $table->timestamps();

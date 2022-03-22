@@ -51,7 +51,7 @@ class News extends Model implements HasMedia
     ];
 
     /* The number of models to return for pagination. */
-    protected $perPage = 7;
+    protected $perPage = 10;
 
     public function getRouteKeyName() {
         return 'slug';
@@ -73,13 +73,13 @@ class News extends Model implements HasMedia
     }
 
     public function getTeaserMediumAttribute() {
-        // return Str::words($value, 10, '...');
-        return Str::limit($this->teaser,200, '...');
+        return Str::words($this->teaser, 20, '...');
+        // return Str::limit($this->teaser, 200, '...');
     }
 
     public function getTeaserLightAttribute() {
-        // return Str::words($this->teaser, 9, '...');
-        return Str::limit($this->teaser, 55, '...');
+        return Str::words($this->teaser, 9, '...');
+        // return Str::limit($this->teaser, 55, '...');
     }
 
     public function getCreatedAttribute() {
