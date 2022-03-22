@@ -2,6 +2,8 @@
 
 return [
 
+    'mail-contact-form' => 'detva@fara.sk',
+
     'guery-loging' => env('QUERY_LOG', false),
 
     'cache-duration' => [
