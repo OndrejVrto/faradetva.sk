@@ -1,10 +1,3 @@
-@pushOnce('css')
-    @livewireStyles
-@endpushonce
-@pushOnce('js')
-    @livewireScripts
-@endpushonce
-
 <x-frontend.page.section
     name="CONTACT"
     row="true"
@@ -14,7 +7,9 @@
         <div class="ch_contact_form fromleft wow">
             <h2 class="contact_heading">Kontaktný formulár</h2>
             <div class="contact_form_wrap">
+
                 <livewire:contact-form />
+
             </div>
         </div>
     </div>

@@ -1,8 +1,15 @@
+@pushOnce('css')
+    @livewireStyles
+@endpushonce
+@pushOnce('js')
+    @livewireScripts
+@endpushonce
+
 <form wire:submit.prevent="submitForm">
     @csrf
 
     @if ($successMesage)
-        <div class="alert alert-success alert-block alert-dismissible fade show" role="alert"">
+        <div class="alert alert-success alert-block alert-dismissible fade show" role="alert">
             <strong>{{ $successMesage }}</strong>
             <button type="button" wire:click="$set('successMesage', null)" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>

@@ -40,14 +40,9 @@
                         <div class="widget widget_newsletter">
                             <h2 class="widget-title">Novinky</h2>
                             <div class="newsletter_form">
-                                {{-- TODO: form --}}
-                                <form>
-                                    @csrf
-                                    <input type="text" name="n_name" placeholder="Vaše celé meno">
-                                    <input type="email" name="n_email" placeholder="Váš E-mail">
-                                    <button type="submit" class="news_btn read_btn">Zaregistrovať <i class="fas fa-long-arrow-alt-right"></i>
-                                    </button>
-                                </form>
+
+                                @livewire('subscribe-form', ['modelName' => 'News'])
+
                             </div>
                         </div>
                     </div>

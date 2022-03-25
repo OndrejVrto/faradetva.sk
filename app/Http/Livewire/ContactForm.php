@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactForm extends Component
 {
-
     public $name = '';
     public $email = '';
     public $contact = '';
@@ -47,7 +46,7 @@ class ContactForm extends Component
         $this->validateOnly($property);
     }
 
-    public function submitForm(){
+    public function submitForm() {
         $this->validate();
 
         $contact['name']    = $this->name;
@@ -57,15 +56,14 @@ class ContactForm extends Component
         $contact['message'] = $this->message;
 
         Mail::to(config('farnost-detva.mail-contact-form','detva@fara.sk'))
-        ->send(new ContactMail($contact));
+            ->send(new ContactMail($contact));
 
         $this->reset();
 
         $this->successMesage = 'Vaša správa bola odoslaná.';
     }
 
-    public function render()
-    {
+    public function render() {
         return view('livewire.contact-form');
     }
 }
