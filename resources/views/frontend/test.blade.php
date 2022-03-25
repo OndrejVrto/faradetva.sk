@@ -7,7 +7,27 @@
         dimensionSource="full"
     />
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page">
+    <x-frontend.page.section name="SUBSCRIBE" class="static-page">
+
+        <x-frontend.page.subsection title="Odoberať články">
+            @livewire('subscribe-form', ['modelName' => 'News'])
+        </x-frontend.page.subsection>
+
+        <x-frontend.page.subsection title="Odoberať farské oznamy">
+            @livewire('subscribe-form', ['modelName' => 'NoticeChurch'])
+        </x-frontend.page.subsection>
+
+        <x-frontend.page.subsection title="Odoberať rozpisy akolytov">
+            @livewire('subscribe-form', ['modelName' => 'NoticeAcolyte'])
+        </x-frontend.page.subsection>
+
+        <x-frontend.page.subsection title="Odoberať rozpisy lektorov">
+            @livewire('subscribe-form', ['modelName' => 'NoticeLecturer'])
+        </x-frontend.page.subsection>
+
+    </x-frontend.page.section>
+
+    {{-- <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page">
 
 
         <x-frontend.page.subsection title="Prílohy" icon="fas fa-paperclip me-3">
@@ -58,5 +78,5 @@
             </x-frontend.page.text-segment>
         </x-frontend.page.subsection>
 
-    </x-frontend.page.section>
+    </x-frontend.page.section> --}}
 </x-frontend.layout.master>

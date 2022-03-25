@@ -48,8 +48,9 @@ class User extends Authenticatable implements HasMedia
     ];
 
     protected $casts = [
-        'active' => 'boolean',
-        'email_verified_at' => 'datetime',
+        'active'              => 'boolean',
+        'can_be_impersonated' => 'boolean',
+        'email_verified_at'   => 'datetime',
     ];
 
     public function getRouteKeyName() {
