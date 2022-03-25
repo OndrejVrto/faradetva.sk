@@ -7,6 +7,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 
 class CacheResponseMiddleware
@@ -31,7 +33,10 @@ class CacheResponseMiddleware
     /**
      * Handle tasks after the response has been sent to the browser.
      */
-    public function terminate(Request $request, Response $response): void {
+    public function terminate(Request $request, Response|RedirectResponse $response): void {
+        if (get_class($response) != 'Illuminate\Http\Response') {
+            return;
+        }
         if ($this->hasCache) {
             return;
         }
