@@ -1,25 +1,19 @@
 @component('mail::message')
-# Správa z kontaktného formulára
-{{ config('app.url').'/kontakty' }}
+<h1>Správa z kontaktného formulára ({{ config('app.url').'/kontakty' }})</h1>
 <br>
-<br>
-## E-Mail pre odpoveď:
-<span style="color: #f16565; font-weight: bold;">{{ $contact['email'] }}</span>
-## Meno odosiľateľa:
-<span style="color: #f16565">{{ $contact['name'] }}</span>
-## Telefónne číslo:
-<span style="color: #f16565">{{ $contact['contact'] }}</span>
-## Adresa:
-<span style="color: #f16565">{{ $contact['address'] }}</span>
-<br>
-<br>
-## Text správy:
-<span style="color: #f16565">{{ $contact['message'] }}</span>
-<br>
-<br>
+E-Mail pre odpoveď:
+<p style="color: #f16565; font-weight: bold;">{{ $contact['email'] }}</p>
+Meno odosiľateľa:
+<p style="color: #f16565">{{ $contact['name'] }}</p>
+Telefónne číslo:
+<p style="color: #f16565">{{ $contact['contact'] }}</p>
+Adresa:
+<p style="color: #f16565">{{ $contact['address'] }}</p>
+Text správy:
+<p style="color: #f16565">{{ $contact['message'] }}</p>
 <br>
 <br>
 S pozdravom,
-<br>
-WWW stránka {{ config('app.name') }}
+<h3>{{ config('app.name') }}</h3>
+<p style="color: #f16565">{{ route('home') }}</p>
 @endcomponent
