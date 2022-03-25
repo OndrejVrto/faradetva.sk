@@ -1,15 +1,34 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\ArticleController;
+use App\Http\Controllers\Frontend\SubscribeController;
 
 //! FrontEnd Routes
 Route::middleware('response.headers', 'csp.headers', 'cache.response', 'preety.html')->group(function (){
 
     Route::get('/', HomeController::class)->name('home');
+
+    //! Subscribe and mail
+    Route::controller(SubscribeController::class)->group(function () {
+        Route::get('verifikovat-email/{slug}/{subscriber}/{token}', 'verifyMail')
+            ->whereUuid('subscriber')
+            ->missing(function () {
+                return Redirect::route('home');
+            })
+            ->name('verify-mail');
+
+        Route::get('zrusit-odber/{slug}/{subscriber}/{unsubscribetoken}', 'unsubscribe')
+            ->whereUuid('subscriber')
+            ->missing(function () {
+                return Redirect::route('home');
+            })
+            ->name('unsubscribe');
+    });
 
     //! Section News article
     Route::controller(ArticleController::class)->name('article.')->group(function () {
