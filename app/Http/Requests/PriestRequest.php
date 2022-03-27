@@ -54,7 +54,7 @@ class PriestRequest extends FormRequest
             'email' => [
                 'nullable',
                 'string',
-                'email',
+                'email:rfc,dns,filter',
                 'max:255',
             ],
             'description' => [

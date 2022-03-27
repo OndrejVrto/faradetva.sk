@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
             'email' => [
                 'required',
                 'string',
-                'email',
+                'email:rfc,dns,filter',
                 'max:255',
                 Rule::unique('users', 'email')->ignore($this->user),
             ],

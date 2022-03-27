@@ -22,7 +22,7 @@ class SubscribeForm extends Component
         ],
         'email' => [
             'required',
-            'email',
+            'email:rfc,dns,filter',
             'max:255',
         ],
     ];
