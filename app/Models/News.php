@@ -42,10 +42,12 @@ class News extends Model implements HasMedia
         'slug',
         'content',
         'teaser',
+        'notified',
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'notified' => 'boolean',
         'published_at' => 'datetime',
         'unpublished_at' => 'datetime',
     ];
@@ -55,14 +57,6 @@ class News extends Model implements HasMedia
 
     public function getRouteKeyName() {
         return 'slug';
-    }
-
-    public function scopeVisible(Builder $query) {
-        return $query
-                    ->where('active', 1)
-                    ->published()
-                    ->unpublished()
-                    ->latest();
     }
 
     public function scopeNewsComplete(Builder $query) {

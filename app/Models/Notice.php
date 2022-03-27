@@ -46,11 +46,13 @@ class Notice extends Model implements HasMedia
         'slug',
         'published_at',
         'unpublished_at',
+        'notified',
         'title',
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'notified' => 'boolean',
         'published_at' => 'datetime',
         'unpublished_at' => 'datetime',
     ];
