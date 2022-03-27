@@ -7,6 +7,10 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    protected $commands = [
+        'App\Console\Commands\SendNewNoticesToSubscribers'
+    ];
+
     /**
      * Define the application's command schedule.
      *
@@ -14,7 +18,7 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected function schedule(Schedule $schedule) {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('notification:send-news-subscriber')->everyMinute();
     }
 
     /**

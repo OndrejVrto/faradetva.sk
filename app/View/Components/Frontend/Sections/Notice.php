@@ -43,10 +43,8 @@ class Notice extends Component
     private function getNotice(string $fullModel): array {
         $cacheName = Str::of($this->model)->kebab();
         return Cache::rememberForever('NOTICE_'.$cacheName, function() use($fullModel): array {
-            return $fullModel::whereActive(1)
-                ->published()
-                ->unpublished()
-                ->latest()
+            return $fullModel::query()
+                ->visible()
                 ->with('media')
                 ->get()
                 ->map(function($notice): array {

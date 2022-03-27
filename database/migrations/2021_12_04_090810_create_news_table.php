@@ -27,6 +27,7 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->timestamp('published_at')->nullable()->default(NULL);
             $table->timestamp('unpublished_at')->nullable()->default(NULL);
+            $table->boolean('notified')->default(0);
             $table->string('title', 200);
             $table->string('slug', 200);
             $table->string('teaser', 500);

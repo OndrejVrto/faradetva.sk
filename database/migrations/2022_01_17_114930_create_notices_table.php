@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->timestamp('published_at')->nullable();
             $table->timestamp('unpublished_at')->nullable();
+            $table->boolean('notified')->default(0);
 
             $table->timestamps();
             $table->softDeletes();
