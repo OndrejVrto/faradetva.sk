@@ -20,7 +20,7 @@ class StaticPageController extends Controller
     }
 
     public function create(): View  {
-        $banners = Banner::with('media')->get();
+        $banners = Banner::with('media', 'source')->get();
         $selectedBanners = [];
 
         return view('backend.static-pages.create', compact('banners', 'selectedBanners'));
