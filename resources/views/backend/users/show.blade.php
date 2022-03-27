@@ -15,7 +15,7 @@
     $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $user ) ) {
         $typeForm = 'show';
-        $identificator = $user->id;
+        $identificator = $user->slug;
         $createdInfo = $user->created_at;
         $updatedInfo = $user->updated_at;
     }

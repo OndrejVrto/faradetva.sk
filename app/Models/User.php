@@ -92,6 +92,6 @@ class User extends Authenticatable implements HasMedia
     }
 
     public function adminlte_profile_url() {
-        return route('users.show', $this->id);
+        return route('users.show', $this->slug);
     }
 }
