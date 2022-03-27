@@ -23,11 +23,13 @@
     <meta name="keywords" content="@yield('keywords', config('farnost-detva.keywords', 'farnosť, Detva, svadba, krst, oznamy, predmanželská príprava, pohreb'))">
     <meta name="author" content="@yield('author', 'Ing. Ondrej VRŤO, IWE')">
     <meta name="author-aplication" content="Ing. Ondrej VRŤO, IWE">
+    <meta name="robots" content="index, follow">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="MobileOptimized" content="320">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="canonical" href="{{ Request::fullUrl() }}" />
     <!-- META properties End -->
     <!-- FAVICON - realfavicongenerator.net Start-->
     <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
