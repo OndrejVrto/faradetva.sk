@@ -21,6 +21,9 @@
     if (is_null($createLink)) {
         $createLink = Route::has($controlerName . '.create') ? route($controlerName . '.create') : null;
     }
+    $onlyClearLink   = route($controlerName . '.index');
+    $onlyArchiveLink = route($controlerName . '.index', ['only-deleted']);
+    $withArchiveLink = route($controlerName . '.index', ['with-deleted']);
 @endphp
 
 <div class="row justify-content-center">
@@ -84,6 +87,25 @@
                             <tr class="table-primary">
                                 {{ $table_header }}
                             </tr>
+
+                            @if (Route::has($controlerName . '.restore'))
+                                @canany([
+                                    $controlerName . '.restore',
+                                    $controlerName . '.force_delete',
+                                ])
+                                    <div class="card-footer d-flex justify-content-end">
+                                        <a href="{{ $onlyClearLink }}" class="btn btn-outline-secondary btn-flat btn-sm mr-2 px-3" title="Zobraziť aktívne položky">
+                                            Aktívne
+                                        </a>
+                                        <a href="{{ $withArchiveLink }}" class="btn btn-outline-secondary btn-flat btn-sm mx-2 px-3" title="Zobraziť všetky položky.">
+                                            Všetky
+                                        </a>
+                                        <a href="{{ $onlyArchiveLink }}" class="btn btn-outline-secondary btn-flat btn-sm ml-2 px-3" title="Zobraziť zmazané položky.">
+                                            Zmazané
+                                        </a>
+                                    </div>
+                                @endcanany
+                            @endif
                         </thead>
                         <tbody>
                             {{ $table_body }}
