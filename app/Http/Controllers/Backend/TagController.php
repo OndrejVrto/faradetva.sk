@@ -5,6 +5,8 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Tag;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Http\Requests\TagRequest;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -12,8 +14,10 @@ use Illuminate\Http\RedirectResponse;
 
 class TagController extends Controller
 {
-    public function index(): View  {
-        $tags = Tag::latest()->paginate(10);
+    public function index(Request $request): View {
+        $tags = Tag::latest()
+            ->archive($request, 'tags')
+            ->paginate(10);
 
         return view('backend.tags.index', compact('tags'));
     }
@@ -46,6 +50,24 @@ class TagController extends Controller
         $tag->delete();
 
         toastr()->success(__('app.tag.delete'));
+        return to_route('tags.index');
+    }
+
+    public function restore($id): RedirectResponse {
+        $tag = Tag::onlyTrashed()->findOrFail($id);
+        $tag->slug = Str::slug($tag->title).'-'.Str::random(5);
+        $tag->title = '*'.$tag->title;
+        $tag->restore();
+
+        toastr()->success(__('app.tag.restore'));
+        return to_route('tags.edit', $tag->slug);
+    }
+
+    public function force_delete($id): RedirectResponse {
+        $tag = Tag::onlyTrashed()->findOrFail($id);
+        $tag->forceDelete();
+
+        toastr()->success(__('app.tag.force-delete'));
         return to_route('tags.index');
     }
 }

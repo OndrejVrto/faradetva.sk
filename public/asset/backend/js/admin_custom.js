@@ -18,11 +18,55 @@
 
 		Swal.fire({
 			title: 'Si si istý?',
-			icon: 'info',
+			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#dc3545',
 			cancelButtonColor: '#007BFF',
-			confirmButtonText: 'Áno, chcem to vymazať!'
+			confirmButtonText: 'Áno, chcem to zmazať!'
+		}).then(function (result) {
+			if (result.isConfirmed) {
+				form.submit();
+			}
+		});
+	});
+
+	/**
+	 * RESTORE FORM submit
+	 */
+	$('.restore-form').on('click', 'button[type=submit]', function (event) {
+		event.preventDefault();
+
+		var form = $(this).parent();
+
+		Swal.fire({
+			title: 'Obnovenie záznamu',
+			icon: 'info',
+			showCancelButton: true,
+			confirmButtonColor: '#28A745',
+			cancelButtonColor: '#007BFF',
+			confirmButtonText: 'Chcem obnoviť!'
+		}).then(function (result) {
+			if (result.isConfirmed) {
+				form.submit();
+			}
+		});
+	});
+
+    /**
+	 * FORCE DELETE FORM submit
+	 */
+	$('.force-delete-form').on('click', 'button[type=submit]', function (event) {
+		event.preventDefault();
+
+		var form = $(this).parent();
+
+		Swal.fire({
+			title: 'Trvalé vymazanie z databázy',
+			icon: 'error',
+			showCancelButton: true,
+			confirmButtonColor: '#dc3545',
+			cancelButtonColor: '#007BFF',
+			confirmButtonText: 'Chcem ZMAZAŤ z databázy na trvalo!'
 		}).then(function (result) {
 			if (result.isConfirmed) {
 				form.submit();

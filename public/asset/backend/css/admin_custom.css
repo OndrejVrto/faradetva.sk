@@ -13,6 +13,14 @@
 .table-last-padding td:last-of-type {
     padding-right: 1rem !important;
 } */
+.w35 {
+    width: 35px;
+    height: 33px;
+}
+
+.table td, .table th {
+	border-top: 0;
+}
 
 .custom-file-label::after {
     color           : #495057;
