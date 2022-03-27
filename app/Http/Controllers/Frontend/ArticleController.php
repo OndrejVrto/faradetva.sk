@@ -55,10 +55,10 @@ class ArticleController extends Controller
 
     public function indexAuthor($userSlug): View  {
         $articles = News::whereHas('user', function($query) use ($userSlug) {
-            $query->whereSlug($userSlug);
+            $query->withTrashed()->whereSlug($userSlug);
         })->newsComplete();
 
-        $userName = User::whereSlug($userSlug)->value('name');
+        $userName = User::withTrashed()->whereSlug($userSlug)->value('name');
         $title = __('frontend-texts.articles-title.author') . $userName;
         $breadCrumb = (string) Breadcrumbs::render('articles.author', true, $userSlug, $userName);
         $emptyTitle = ['name'=> 'Zvolený autor', 'value' => $userName];
@@ -68,10 +68,10 @@ class ArticleController extends Controller
 
     public function indexCategory($categorySlug): View  {
         $articles = News::whereHas('category', function($query) use ($categorySlug) {
-            $query->whereSlug($categorySlug);
+            $query->withTrashed()->whereSlug($categorySlug);
         })->newsComplete();
 
-        $categoryName = Category::whereSlug($categorySlug)->value('title');
+        $categoryName = Category::withTrashed()->whereSlug($categorySlug)->value('title');
         $title = __('frontend-texts.articles-title.category') . $categoryName;
         $breadCrumb = (string) Breadcrumbs::render('articles.category', true, $categorySlug, $categoryName);
         $emptyTitle = ['name'=> 'Vybraná kategória', 'value' => $categoryName];
@@ -90,10 +90,10 @@ class ArticleController extends Controller
 
     public function indexTag($tagSlug): View  {
         $articles = News::whereHas('tags', function($query) use ($tagSlug) {
-            $query->whereSlug($tagSlug);
+            $query->withTrashed()->whereSlug($tagSlug);
         })->newsComplete();
 
-        $tagName = Tag::whereSlug($tagSlug)->value('title');
+        $tagName = Tag::withTrashed()->whereSlug($tagSlug)->value('title');
         $title = __('frontend-texts.articles-title.tags') . $tagName;
         $breadCrumb = (string) Breadcrumbs::render('articles.tag', true, $tagSlug, $tagName);
         $emptyTitle = ['name'=> 'Klúčové slovo', 'value' => $tagName];
