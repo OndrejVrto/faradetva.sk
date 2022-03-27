@@ -2,8 +2,9 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -36,5 +37,22 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Report or log an exception.
+     */
+    public function report(Throwable $e)
+    {
+        // Some exceptions don't have a message
+        $exception_message = (!empty($e->getMessage()) ? trim($e->getMessage()) : 'App Error Exception');
+        // Log message
+        $log_message = '['.$e->getCode().'] "'.$exception_message.'" on line ['.$e->getLine().'] of file "'.$e->getFile().'"';
+
+        if (!config('app.debug')) {
+            Log::error($log_message);
+        } else {
+            parent::report($e);
+        }
     }
 }
