@@ -37,7 +37,7 @@ class StaticPageController extends Controller
         $staticPage = StaticPage::create($validated);
 
         $banners = $request->input('banner');
-        $staticPage->banners()->sync($banners);
+        $staticPage->banners()->syncWithoutDetaching($banners);
 
         toastr()->success(__('app.static-page.store'));
         return to_route('static-pages.index');

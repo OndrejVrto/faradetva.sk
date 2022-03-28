@@ -64,7 +64,7 @@ class NewsController extends Controller
         $news = News::create($validated);
 
         $tags = $request->input('tags');
-        $news->tags()->sync($tags);
+        $news->tags()->syncWithoutDetaching($tags);
 
         if ($request->hasFile('picture')) {
             $mediaService->storeMediaOneFile($news, $news->collectionPicture, 'picture');
