@@ -39,6 +39,15 @@
                     </x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">{{$priest->full_name_titles}}</x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">{{$priest->function}}</x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        <a  href="{{ url($priest->getFirstMediaUrl($priest->collectionName) ?: '#') }}"
+                            class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
+                            title="Stiahnuť pôvodnú fotku kňaza"
+                            download
+                        >
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </x-backend.table.td>
                     <x-backend.table.td-actions
                         controlerName="priests"
                         identificator="{{ $priest->slug }}"

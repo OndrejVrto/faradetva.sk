@@ -40,6 +40,15 @@
                     </x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">{{$testimonial->name}}</x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">{{$testimonial->function}}</x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        <a  href="{{ url($testimonial->getFirstMediaUrl($testimonial->collectionName) ?: '#') }}"
+                            class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
+                            title="Stiahnuť pôvodnú fotku"
+                            download
+                        >
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </x-backend.table.td>
                     <x-backend.table.td-actions
                         controlerName="testimonials"
                         identificator="{{ $testimonial->slug }}"

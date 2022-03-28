@@ -41,7 +41,7 @@
                     <x-backend.table.td>{{ $prayer->quote_author }}</x-backend.table.td>
                     <x-backend.table.td class="text-center">
                         <a  href="{{ url($prayer->getFirstMediaUrl($prayer->collectionName) ?: '#') }}"
-                            class="btn btn-outline-warning btn-sm btn-flat"
+                            class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                             title="Stiahnuť pôvodný obrázok"
                             download
                         >

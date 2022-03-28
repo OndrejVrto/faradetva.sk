@@ -38,7 +38,7 @@
                 </x-backend.table.td>
                 <x-backend.table.td class="text-center">
                     <a  href="{{ route('galleries.download', $gallery->slug) }}"
-                        class="btn btn-outline-warning btn-sm btn-flat"
+                        class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                         title="Stiahnuť celý album (zip)"
                     >
                         <i class="fas fa-download"></i>

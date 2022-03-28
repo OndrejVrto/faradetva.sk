@@ -41,6 +41,15 @@
                     </x-backend.table.td>
                     <x-backend.table.td class="d-none d-md-table-cell text-wrap text-break text-bold">{{ $notice->title }}</x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">{{ $notice->media_file_name }}</x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        <a  href="{{ url($notice->getFirstMediaUrl($notice->collectionName) ?: '#') }}"
+                            class="w35 ml-1 btn btn-outline-secondary btn-sm btn-flat"
+                            title="Stiahnuť prílohu"
+                            download
+                        >
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </x-backend.table.td>
                     <x-backend.table.td-actions
                         controlerName="{{ $controller }}"
                         identificator="{{ $notice->slug }}"

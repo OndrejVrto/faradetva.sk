@@ -24,8 +24,8 @@
             <x-backend.table.th width="20%" class="d-none d-xl-table-cell">Zverejnenie</x-backend.table.th>
             <x-backend.table.th>Názov článku</x-backend.table.th>
             {{-- <x-backend.table.th>Obsah článku (skrátený)</x-backend.table.th> --}}
-            <x-backend.table.th width="5%" class="text-center d-none d-md-table-cell">Prílohy</x-backend.table.th>
-            <x-backend.table.th-actions/>
+            <x-backend.table.th width="5%" class="text-center d-none d-md-table-cell">Príloh</x-backend.table.th>
+            <x-backend.table.th-actions />
         </x-slot>
 
         <x-slot name="table_body">
@@ -60,6 +60,31 @@
                     <x-backend.table.td class="text-wrap text-break text-bold">{{ $news->title }}</x-backend.table.td>
 
                     {{-- <x-backend.table.td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</x-backend.table.td> --}}
+
+                    <x-backend.table.td class="text-center">
+                        <span class="badge bg-orange px-2 py-1">{{ $news->document_count }}</span>
+                    </x-backend.table.td>
+
+                    <x-backend.table.td class="text-left">
+                        <div class="d-inline-flex">
+                            <a  href="{{ url($news->getFirstMediaUrl($news->collectionPicture) ?: '#') }}"
+                                class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
+                                title="Stiahnuť pôvodný obrázok titulky"
+                                download
+                            >
+                                <i class="fas fa-download"></i>
+                            </a>
+                            @if ($news->document_count > 0)
+                                <a  href="{{ route('news.download', $news->slug) }}"
+                                    class="w35 ml-1 btn btn-outline-secondary btn-sm btn-flat"
+                                    title="Stiahnuť všetky prílohy (zip)"
+                                >
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            @endif
+
+                        </div>
+                    </x-backend.table.td>
 
                     <x-backend.table.td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</x-backend.table.td>
                     @if ( $news->user_id == auth()->user()->id OR auth()->user()->isAdmin())

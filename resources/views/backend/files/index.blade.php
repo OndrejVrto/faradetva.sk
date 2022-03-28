@@ -45,22 +45,22 @@
                         {{ $file['humanReadableSize'] }}
                     </x-backend.table.td>
                     <x-backend.table.td class="text-center">
-                        <a  href="{{ url($file['file_url']) }}"
-                            class="btn btn-outline-warning btn-sm btn-flat"
-                            title="Stiahnuť"
-                            download
-                        >
-                            <i class="fas fa-download"></i>
-                        </a>
-                    </x-backend.table.td>
-                    <x-backend.table.td class="text-center">
-                        <a  href="{{ url($file['file_url']) }}"
-                            class="btn btn-outline-success btn-sm btn-flat"
-                            title="Zobraziť v predvolenom prehliadači"
-                            target="_blank"
-                        >
-                            <i class="fas fa-eye"></i>
-                        </a>
+                        <div class="d-inline-flex">
+                            <a  href="{{ url($file['file_url']) }}"
+                                class="w35 ml-1 btn btn-outline-secondary btn-sm btn-flat"
+                                title="Zobraziť v predvolenom prehliadači"
+                                target="_blank"
+                            >
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a  href="{{ url($file['file_url']) }}"
+                                class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
+                                title="Stiahnuť"
+                                download
+                            >
+                                <i class="fas fa-download"></i>
+                            </a>
+                        </div>
                     </x-backend.table.td>
                     <x-backend.table.td-actions
                         controlerName="files"

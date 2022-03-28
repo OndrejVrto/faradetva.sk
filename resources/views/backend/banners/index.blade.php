@@ -40,7 +40,7 @@
                 </x-backend.table.td>
                 <x-backend.table.td class="text-center">
                     <a  href="{{ url($banner->getFirstMediaUrl($banner->collectionName) ?: '#') }}"
-                        class="btn btn-outline-warning btn-sm btn-flat"
+                        class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                         title="Stiahnuť pôvodný obrázok"
                         download
                     >

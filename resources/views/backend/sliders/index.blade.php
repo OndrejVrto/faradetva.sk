@@ -42,6 +42,15 @@
                         alt="Obrázok: {{ $slider->full_heading }}"/>
                     </x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">{{$slider->teaser}}</x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        <a  href="{{ url($slider->getFirstMediaUrl($slider->collectionName) ?: '#') }}"
+                            class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
+                            title="Stiahnuť pôvodný obrázok"
+                            download
+                        >
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </x-backend.table.td>
                     <x-backend.table.td-actions
                         controlerName="sliders"
                         identificator="{{ $slider->id }}"

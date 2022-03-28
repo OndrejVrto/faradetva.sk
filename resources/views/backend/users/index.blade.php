@@ -61,18 +61,27 @@
                             <span class="badge bg-orange px-2 py-1">{{ $user->permissions_count }}</span>
                         @endif
                     </x-backend.table.td>
-                    <x-backend.table.td class="text-center d-none d-md-table-cell">
-                        @if ( !is_impersonating() AND !$user->trashed() )
-                            @canImpersonate()
-                                @if ($user->canBeImpersonated() and $user->id != auth()->user()->id )
-                                    <a  href="{{ route('impersonate', $user->id) }}"
-                                        class="btn btn-outline-warning btn-sm btn-flat"
-                                        title="Stelesniť sa">
-                                        <i class="fas fa-people-arrows"></i>
-                                    </a>
-                                @endif
-                            @endCanImpersonate
-                        @endif
+                    <x-backend.table.td class="text-right">
+                        <div class="d-inline-flex">
+                            @if ( !is_impersonating() AND !$user->trashed() )
+                                @canImpersonate()
+                                    @if ($user->canBeImpersonated() and $user->id != auth()->user()->id )
+                                        <a  href="{{ route('impersonate', $user->id) }}"
+                                            class="w35 ml-1 btn btn-outline-dark btn-sm btn-flat"
+                                            title="Stelesniť sa">
+                                            <i class="fas fa-people-arrows"></i>
+                                        </a>
+                                    @endif
+                                @endCanImpersonate
+                            @endif
+                            <a  href="{{ url($user->getFirstMediaUrl($user->collectionName) ?: '#') }}"
+                                class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
+                                title="Stiahnuť fotku"
+                                download
+                            >
+                                <i class="fas fa-download"></i>
+                            </a>
+                        </div>
                     </x-backend.table.td>
                     @if ( $user->id > 2 OR auth()->user()->id == 1 )
                         <x-backend.table.td-actions

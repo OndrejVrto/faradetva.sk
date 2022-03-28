@@ -35,7 +35,7 @@
                     <x-backend.table.td class="text-wrap text-break">{{$picture->slug}}</x-backend.table.td>
                     <x-backend.table.td class="text-center">
                         <a  href="{{ url($picture->getFirstMediaUrl($picture->collectionName) ?: '#') }}"
-                            class="btn btn-outline-warning btn-sm btn-flat"
+                            class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                             title="Stiahnuť pôvodný obrázok"
                             download
                         >

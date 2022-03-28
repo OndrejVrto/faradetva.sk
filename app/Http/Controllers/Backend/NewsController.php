@@ -16,12 +16,14 @@ use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Spatie\MediaLibrary\Support\MediaStream;
 
 class NewsController extends Controller
 {
     public function index(Request $request): View {
         $allNews = News::query()
             ->latest()
+            ->withCount('document')
             ->with('user', 'media')
             ->archive($request, 'news')
             ->paginate(5)
@@ -123,6 +125,12 @@ class NewsController extends Controller
 
         toastr()->success(__('app.news.update'));
         return to_route('news.index');
+    }
+
+    public function download(News $news) {
+        $downloads = $news->getMedia($news->collectionDocument);
+
+        return MediaStream::create('Prilohy_'.$news->slug.'.zip')->addMedia($downloads);
     }
 
     public function destroy(News $news): RedirectResponse {

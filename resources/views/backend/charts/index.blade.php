@@ -35,7 +35,7 @@
                         @if (! $chart->trashed())
                             @can('charts.data.index')
                                 <a  href="{{ route('charts.data.index', $chart) }}"
-                                    class="btn btn-outline-warning btn-sm btn-flat"
+                                    class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                                     title="Vložiť dáta do grafu: {{ $chart->title }}">
                                     <i class="fas fa-chart-pie"></i>
                                 </a>

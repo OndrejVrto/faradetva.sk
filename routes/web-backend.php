@@ -32,12 +32,16 @@ use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 
 //!  Store files from dropzone and download zip files
 Route::prefix('admin')->group( function() {
-    Route::post('news/media', [NewsController::class, 'storeMedia'])->name('news.storeMedia');
     Route::get('impersonate/leave', [ImpersonateController::class, 'leave'])->name('impersonate.leave');
 
     Route::controller(GalleryController::class)->name('galleries.')->group(function () {
         Route::post('galleries/media', 'storeMedia')->name('storeMedia');
         Route::get('galleries/{gallery}/download', 'download')->name('download');
+    });
+
+    Route::controller(NewsController::class)->name('news.')->group(function () {
+        Route::post('news/media', 'storeMedia')->name('storeMedia');
+        Route::get('news/{news}/download', 'download')->name('download');
     });
 
     Route::middleware(['auth', 'permission'])->group( function() {

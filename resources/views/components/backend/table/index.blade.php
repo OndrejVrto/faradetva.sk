@@ -10,6 +10,7 @@
     'createBtn' => null,
     'createNote' => null,
     'paginator' => null,
+    'headerLeft' => null,
     'headerSpecial' => '',
     'linkBack' => route('admin.dashboard'),
     'table_header',
@@ -62,15 +63,16 @@
             @endif
 
             <div class="card-header row justify-content-end border-0">
-                @isset($createNote)
-                    <div class="col-md-8 mt-3 d-flex justify-content-start align-items-start">
+                <div class="col-md-8 mt-3 d-flex justify-content-start align-items-start">
+                    @isset($createNote)
                         <span class="pr-2 py-1 text-info hoverDiv">
                             <i class="mr-2 fas fa-info-circle"></i>
                             {{ $createNote }}
                         </span>
-                    </div>
-                @endisset
-
+                    @else
+                        {{ $headerLeft }}
+                    @endisset
+                </div>
                 @can([
                     $controlerName . '.create',
                     $controlerName . '.store'
