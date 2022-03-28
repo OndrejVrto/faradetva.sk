@@ -17,11 +17,7 @@
 
         <x-slot name="headerLeft">
             @can('cache.crawl-all-url')
-<<<<<<< HEAD
                 <a href="{{ route('cache.crawl-all-url') }}" class="btn btn-flat bg-gradient-pink flex-fill flex-md-grow-0 mb-2 mb-md-0">Scanovať <strong>všetky</strong> URL</a>
-=======
-                <a href="{{ route('cache.crawl-all-url') }}" class="btn btn-flat btn-outline-success flex-fill flex-md-grow-0 mb-2 mb-md-0">Scanovať <strong>všetky</strong> URL</a>
->>>>>>> aab914e41e41004c4c76b62d344014d435357d34
             @endcan
         </x-slot>
 
