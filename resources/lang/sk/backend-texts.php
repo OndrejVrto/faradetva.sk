@@ -179,15 +179,13 @@ return [
     ],
 
     'charts-data' => [
-        'title'              => 'Graf',
+        'title'              => 'Parametre grafu',
         'description'        => 'Štatistiky farnosti v grafoch',
-        'description_create' => 'Tu môžete pridať nový graf',
-        'description_edit'   => 'Tu môžete upraviť graf',
-        'description_show'   => 'Detailné informácie o grafoch s náhľadom',
-        'header'             => 'Grafy',
-        'header_create'      => 'Nový graf',
-        'header_edit'        => 'Úprava grafu',
-        'header_show'        => 'Prehliadanie grafu',
+        'description_create' => 'Tu môžete pridať nový parameter grafu',
+        'description_edit'   => 'Tu môžete upraviť parameter grafu',
+        'header'             => 'Parametre grafu',
+        'header_create'      => 'Nový parameter grafu',
+        'header_edit'        => 'Úprava parametra grafu',
     ],
 
     'notice-lecturer' => [

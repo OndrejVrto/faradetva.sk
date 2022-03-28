@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Prayer;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -14,8 +16,13 @@ use Illuminate\Http\RedirectResponse;
 
 class PrayerController extends Controller
 {
-    public function index(): View {
-        $prayers = Prayer::latest('updated_at')->with('media', 'source')->paginate(5);
+    public function index(Request $request): View {
+        $prayers = Prayer::query()
+            ->latest('updated_at')
+            ->with('media', 'source')
+            ->archive($request, 'prayers')
+            ->paginate(5)
+            ->withQueryString();
 
         return view('backend.prayers.index', compact('prayers'));
     }
@@ -66,11 +73,29 @@ class PrayerController extends Controller
     }
 
     public function destroy(Prayer $prayer): RedirectResponse {
-        $prayer->source()->delete();
         $prayer->delete();
-        $prayer->clearMediaCollection($prayer->collectionName);
 
         toastr()->success(__('app.prayer.delete'));
+        return to_route('prayers.index');
+    }
+
+    public function restore($id): RedirectResponse {
+        $prayer = Prayer::onlyTrashed()->findOrFail($id);
+        $prayer->slug = Str::slug($prayer->title).'-'.Str::random(5);
+        $prayer->title = '*'.$prayer->title;
+        $prayer->restore();
+
+        toastr()->success(__('app.prayer.restore'));
+        return to_route('prayers.edit', $prayer->slug);
+    }
+
+    public function force_delete($id): RedirectResponse {
+        $prayer = Prayer::onlyTrashed()->findOrFail($id);
+        $prayer->source()->delete();
+        $prayer->clearMediaCollection($prayer->collectionName);
+        $prayer->forceDelete();
+
+        toastr()->success(__('app.prayer.force-delete'));
         return to_route('prayers.index');
     }
 }

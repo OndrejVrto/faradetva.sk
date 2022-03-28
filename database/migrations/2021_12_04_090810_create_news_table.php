@@ -15,11 +15,15 @@ return new class extends Migration
             $table->foreignId('user_id')
                     ->nullable()
                     ->constrained()
-                    ->onUpdate('CASCADE')
-                    ->onDelete('SET NULL');
+                    ->onUpdate('NO ACTION')
+                    ->onDelete('NO ACTION');
+                    // ->onUpdate('CASCADE')
+                    // ->onDelete('SET NULL');
             $table->foreignId('category_id')
                     ->nullable()
                     ->constrained()
+                    // ->onUpdate('NO ACTION')
+                    // ->onDelete('NO ACTION');
                     ->onUpdate('SET NULL')
                     ->onDelete('SET NULL');
             $table->fulltext(['title', 'content']);

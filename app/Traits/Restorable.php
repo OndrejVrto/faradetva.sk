@@ -9,15 +9,15 @@ trait Restorable
 {
     public function scopeArchive(Builder $query, Request $request, string $modelName) {
         return $query
-            ->when($request->has('only-deleted') AND $this->can($modelName), function ($query) {
+            ->when($request->has('only-deleted') AND $this->canRestore($modelName), function ($query) {
                 $query->onlyTrashed();
             })
-            ->when($request->has('with-deleted') AND $this->can($modelName), function ($query) {
+            ->when($request->has('with-deleted') AND $this->canRestore($modelName), function ($query) {
                 $query->withTrashed();
             });
         }
 
-    private function can(string $modelName): bool
+    private function canRestore(string $modelName): bool
     {
         // prepare permissions name
         $permissions = [

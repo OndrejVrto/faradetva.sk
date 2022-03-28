@@ -80,33 +80,31 @@ Route::prefix('admin')->group( function() {
         Route:: post('tags/{id}/restore', [TagController::class, 'restore'])->name('tags.restore');
         Route:: post('news/{id}/restore', [NewsController::class, 'restore'])->name('news.restore');
         Route:: post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
+        Route:: post('charts/{id}/restore', [ChartController::class, 'restore'])->name('charts.restore');
         Route:: post('prayers/{id}/restore', [PrayerController::class, 'restore'])->name('prayers.restore');
         Route:: post('priests/{id}/restore', [PriestController::class, 'restore'])->name('priests.restore');
         Route:: post('sliders/{id}/restore', [SliderController::class, 'restore'])->name('sliders.restore');
-        Route:: post('charts/{id}/restore', [ChartDataController::class, 'restore'])->name('charts.restore');
         Route:: post('categories/{id}/restore', [CategoryController::class, 'restore'])->name('categories.restore');
         Route:: post('static-pages/{id}/restore', [StaticPageController::class, 'restore'])->name('static-pages.restore');
         Route:: post('testimonials/{id}/restore', [TestimonialController::class, 'restore'])->name('testimonials.restore');
         Route:: post('notice-church/{id}/restore', [NoticeChurchController::class, 'restore'])->name('notice-church.restore');
         Route:: post('notice-acolyte/{id}/restore', [NoticeAcolyteController::class, 'restore'])->name('notice-acolyte.restore');
         Route:: post('notice-lecturer/{id}/restore', [NoticeLecturerController::class, 'restore'])->name('notice-lecturer.restore');
-        Route:: post('charts/{chartId}/data/{dataId}/restore', [ChartDataController::class, 'restore'])->name('charts.data.restore');
 
         //!  Supplementing resource routes with force delete methods
         Route:: post('tags/{id}/force_delete', [TagController::class, 'force_delete'])->name('tags.force_delete');
         Route:: post('news/{id}/force_delete', [NewsController::class, 'force_delete'])->name('news.force_delete');
         Route:: post('users/{id}/force_delete', [UserController::class, 'force_delete'])->name('users.force_delete');
+        Route:: post('charts/{id}/force_delete', [ChartController::class, 'force_delete'])->name('charts.force_delete');
         Route:: post('prayers/{id}/force_delete', [PrayerController::class, 'force_delete'])->name('prayers.force_delete');
         Route:: post('priests/{id}/force_delete', [PriestController::class, 'force_delete'])->name('priests.force_delete');
         Route:: post('sliders/{id}/force_delete', [SliderController::class, 'force_delete'])->name('sliders.force_delete');
-        Route:: post('charts/{id}/force_delete', [ChartDataController::class, 'force_delete'])->name('charts.force_delete');
         Route:: post('categories/{id}/force_delete', [CategoryController::class, 'force_delete'])->name('categories.force_delete');
         Route:: post('static-pages/{id}/force_delete', [StaticPageController::class, 'force_delete'])->name('static-pages.force_delete');
         Route:: post('testimonials/{id}/force_delete', [TestimonialController::class, 'force_delete'])->name('testimonials.force_delete');
         Route:: post('notice-church/{id}/force_delete', [NoticeChurchController::class, 'force_delete'])->name('notice-church.force_delete');
         Route:: post('notice-acolyte/{id}/force_delete', [NoticeAcolyteController::class, 'force_delete'])->name('notice-acolyte.force_delete');
         Route:: post('notice-lecturer/{id}/force_delete', [NoticeLecturerController::class, 'force_delete'])->name('notice-lecturer.force_delete');
-        Route:: post('charts/{chartId}/data/{dataId}/force_delete', [ChartDataController::class, 'force_delete'])->name('charts.data.force_delete');
 
         //!  Resource routes
         Route::resources([

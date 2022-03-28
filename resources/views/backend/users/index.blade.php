@@ -29,7 +29,8 @@
 
         <x-slot name="table_body">
             @foreach($users as $user)
-                <tr>
+                <x-backend.table.tr trashed="{{ $user->trashed() }}">
+
                     {{-- <x-backend.table.td>{{$user->id}}</x-backend.table.td> --}}
                     <x-backend.table.td-check-active check="{{ $user->active }}"/>
                     <x-backend.table.td class="text-center">
@@ -73,15 +74,18 @@
                             @endCanImpersonate
                         @endif
                     </x-backend.table.td>
-                    @if ( $user->id != 1 OR auth()->user()->id == 1 )
+                    @if ( $user->id > 2 OR auth()->user()->id == 1 )
                         <x-backend.table.td-actions
                             controlerName="users"
                             identificator="{{ $user->slug }}"
+                            trashed="{{ $user->trashed() }}"
+                            trashedID="{{ $user->id }}"
                         />
                     @else
-                        <td colspan=3></td>
+                        <td colspan=2></td>
                     @endif
-                </tr>
+
+                </x-backend.table.tr>
             @endforeach
         </x-slot>
 

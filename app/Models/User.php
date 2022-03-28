@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Models\News;
+use App\Traits\Restorable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Permission\Traits\HasRoles;
@@ -21,6 +22,7 @@ class User extends Authenticatable implements HasMedia
 {
     use Loggable;
     use HasRoles;
+    use Restorable;
     use HasFactory;
     use Notifiable;
     use Impersonate;

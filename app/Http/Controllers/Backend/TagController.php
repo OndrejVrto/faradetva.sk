@@ -15,9 +15,11 @@ use Illuminate\Http\RedirectResponse;
 class TagController extends Controller
 {
     public function index(Request $request): View {
-        $tags = Tag::latest()
+        $tags = Tag::query()
+            ->latest()
             ->archive($request, 'tags')
-            ->paginate(10);
+            ->paginate(10)
+            ->withQueryString();
 
         return view('backend.tags.index', compact('tags'));
     }

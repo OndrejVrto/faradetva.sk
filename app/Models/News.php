@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Category;
+use App\Traits\Restorable;
 use App\Traits\Publishable;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
@@ -21,6 +22,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class News extends Model implements HasMedia
 {
     use Loggable;
+    use Restorable;
     use HasFactory;
     use Publishable;
     use SoftDeletes;

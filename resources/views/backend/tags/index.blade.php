@@ -24,18 +24,19 @@
 
         <x-slot name="table_body">
             @foreach($tags as $tag)
-                <tr>
+                <x-backend.table.tr trashed="{{ $tag->trashed() }}">
+
                     {{-- <x-backend.table.td>{{$tag->id}}</x-backend.table.td> --}}
                     <x-backend.table.td class="text-wrap text-break">{{$tag->title}}</x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">{{$tag->description}}</x-backend.table.td>
-
                     <x-backend.table.td-actions
                         controlerName="tags"
                         identificator="{{ $tag->slug }}"
                         trashed="{{ $tag->trashed() }}"
                         trashedID="{{ $tag->id }}"
                     />
-                </tr>
+
+                </x-backend.table.tr>
             @endforeach
         </x-slot>
 

@@ -1,6 +1,11 @@
 @props([
     'controlerName' => '',
     'columns' => null,
+
+    'onlyClearLink' => null,
+    'onlyArchiveLink' => null,
+    'withArchiveLink' => null,
+
     'createLink' => null,
     'createBtn' => null,
     'createNote' => null,
@@ -21,9 +26,15 @@
     if (is_null($createLink)) {
         $createLink = Route::has($controlerName . '.create') ? route($controlerName . '.create') : null;
     }
-    $onlyClearLink   = route($controlerName . '.index');
-    $onlyArchiveLink = route($controlerName . '.index', ['only-deleted']);
-    $withArchiveLink = route($controlerName . '.index', ['with-deleted']);
+    if (is_null($onlyClearLink)) {
+        $onlyClearLink   = route($controlerName . '.index');
+    }
+    if (is_null($onlyArchiveLink)) {
+        $onlyArchiveLink = route($controlerName . '.index', ['only-deleted=true']);
+    }
+    if (is_null($withArchiveLink)) {
+        $withArchiveLink = route($controlerName . '.index', ['with-deleted=true']);
+    }
 @endphp
 
 <div class="row justify-content-center">

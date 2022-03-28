@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Traits\Restorable;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Priest extends Model implements HasMedia
 {
     use Loggable;
+    use Restorable;
     use HasFactory;
     use SoftDeletes;
     use InteractsWithMedia;

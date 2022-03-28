@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Tag;
 use App\Models\News;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Helpers\DataFormater;
@@ -18,13 +19,18 @@ use Illuminate\Http\RedirectResponse;
 
 class NewsController extends Controller
 {
-    public function index(): View  {
-        $allNews = News::latest()->with('user', 'media')->paginate(5);
+    public function index(Request $request): View {
+        $allNews = News::query()
+            ->latest()
+            ->with('user', 'media')
+            ->archive($request, 'news')
+            ->paginate(5)
+            ->withQueryString();
 
         return view('backend.news.index', compact('allNews'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         $categories = Category::all();
         $tags = Tag::all();
         $selectedTags = [];
@@ -121,12 +127,30 @@ class NewsController extends Controller
 
     public function destroy(News $news): RedirectResponse {
         $this->authorize('delete', $news);
-
         $news->delete();
-        $news->clearMediaCollection($news->collectionPicture);
-        $news->clearMediaCollection($news->collectionDocument);
 
         toastr()->success(__('app.news.delete'));
+        return to_route('news.index');
+    }
+
+    public function restore($id): RedirectResponse {
+        $news = News::onlyTrashed()->findOrFail($id);
+        $news->slug = Str::slug($news->title).'-'.Str::random(5);
+        $news->title = '*'.$news->title;
+        $news->restore();
+
+        toastr()->success(__('app.news.restore'));
+        return to_route('news.edit', $news->slug);
+    }
+
+    public function force_delete($id): RedirectResponse {
+        $news = News::onlyTrashed()->findOrFail($id);
+        $news->tags()->detach($news->id);
+        $news->clearMediaCollection($news->collectionPicture);
+        $news->clearMediaCollection($news->collectionDocument);
+        $news->forceDelete();
+
+        toastr()->success(__('app.news.force-delete'));
         return to_route('news.index');
     }
 }

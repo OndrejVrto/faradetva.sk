@@ -5,6 +5,8 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Slider;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
@@ -14,8 +16,13 @@ use Illuminate\Http\RedirectResponse;
 
 class SliderController extends Controller
 {
-    public function index(): View  {
-        $sliders = Slider::latest('updated_at')->with('media')->paginate(5);
+    public function index(Request $request): View {
+        $sliders = Slider::query()
+            ->latest('updated_at')
+            ->with('media')
+            ->archive($request, 'sliders')
+            ->paginate(5)
+            ->withQueryString();
 
         return view('backend.sliders.index', compact('sliders'));
     }
@@ -60,11 +67,27 @@ class SliderController extends Controller
     }
 
     public function destroy(Slider $slider): RedirectResponse {
-        $slider->source()->delete();
         $slider->delete();
-        $slider->clearMediaCollection($slider->collectionName);
 
         toastr()->success(__('app.slider.delete'));
+        return to_route('sliders.index');
+    }
+
+    public function restore($id): RedirectResponse {
+        $slider = Slider::onlyTrashed()->findOrFail($id);
+        $slider->restore();
+
+        toastr()->success(__('app.slider.restore'));
+        return to_route('sliders.edit', $slider->id);
+    }
+
+    public function force_delete($id): RedirectResponse {
+        $slider = Slider::onlyTrashed()->findOrFail($id);
+        $slider->source()->delete();
+        $slider->clearMediaCollection($slider->collectionName);
+        $slider->forceDelete();
+
+        toastr()->success(__('app.slider.force-delete'));
         return to_route('sliders.index');
     }
 }

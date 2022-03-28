@@ -13,7 +13,7 @@
         controlerName="static-pages"
         createBtn="Pridať novú statickú stránku"
         {{-- paginator="{{ $pages->onEachSide(1)->links() }}" --}}
-        >
+    >
 
         <x-slot name="table_header">
             {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
@@ -27,9 +27,6 @@
 
         <x-slot name="top">
             <div class="d-flex justify-content-end">
-                {{-- @can('cache.check.url')
-                    <a href="{{ route('cache.check.url') }}" class="btn btn-outline-info mx-2">Scanovať iba nové URL</a>
-                @endcan --}}
                 @can('cache.crawl-all-url')
                     <a href="{{ route('cache.crawl-all-url') }}" class="btn btn-outline-info mx-2">Scanovať <strong>všetky</strong> URL</a>
                 @endcan
@@ -38,7 +35,8 @@
 
         <x-slot name="table_body">
             @foreach($pages as $page)
-                <tr>
+                <x-backend.table.tr trashed="{{ $page->trashed() }}">
+
                     {{-- <x-backend.table.td>{{$page->id}}</x-backend.table.td> --}}
                     <x-backend.table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-backend.table.td>
                     <x-backend.table.td-check-active check="{{ $page->check_url }}"/>
@@ -65,8 +63,11 @@
                     <x-backend.table.td-actions
                         controlerName="static-pages"
                         identificator="{{ $page->slug }}"
+                        trashed="{{ $page->trashed() }}"
+                        trashedID="{{ $page->id }}"
                     />
-                </tr>
+
+                </x-backend.table.tr>
             @endforeach
         </x-slot>
 

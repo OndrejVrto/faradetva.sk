@@ -36,6 +36,7 @@ class UserRequest extends FormRequest
             ],
             'slug' => [
                 'string',
+                Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
             ],
             'password' => [
                 'nullable',

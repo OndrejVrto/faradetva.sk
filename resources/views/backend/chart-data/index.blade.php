@@ -17,7 +17,10 @@
         createBtn="Pridať nový údaj"
         paginator="{{ $data->onEachSide(1)->links() }}"
         headerSpecial="<span class='h4 mr-3'>Údaje pre graf:</span> {{ $chart->title }}"
-        >
+        onlyClearLink=""
+        onlyArchiveLink=""
+        withArchiveLink=""
+    >
 
         <x-slot name="table_header">
             <x-backend.table.th width="15%">Parameter</x-backend.table.th>

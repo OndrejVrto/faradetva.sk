@@ -30,46 +30,50 @@
 
         <x-slot name="table_body">
             @foreach($allNews as $news)
-            <tr>
-                {{-- <x-backend.table.td>{{$news->id}}</x-backend.table.td> --}}
-                <x-backend.table.td-check-active check="{{$news->active}}"/>
+                <x-backend.table.tr trashed="{{ $news->trashed() }}">
 
-                <x-backend.table.td class="d-none d-md-table-cell text-center">
-                    <img src="{{ $news->getFirstMediaUrl($news->collectionPicture, 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"
-                    class="img-fluid px-2"
-                    alt="Titulná fotka článku: {{$news->title}}."/>
-                </x-backend.table.td>
+                    {{-- <x-backend.table.td>{{$news->id}}</x-backend.table.td> --}}
+                    <x-backend.table.td-check-active check="{{$news->active}}"/>
 
-                <x-backend.table.td class="d-none d-lg-table-cell small">
-                    <span class="text-muted mr-2">Vytvoril:</span>
-                    <span class="text-bold">{{$news->user->name}}</span>
-                    <br>
-                    <span class="text-muted mr-2">Dňa:</span>
-                    {{$news->created_at->format('d. m. Y \o H:i')}}
-                </x-backend.table.td>
+                    <x-backend.table.td class="d-none d-md-table-cell text-center">
+                        <img src="{{ $news->getFirstMediaUrl($news->collectionPicture, 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"
+                        class="img-fluid px-2"
+                        alt="Titulná fotka článku: {{$news->title}}."/>
+                    </x-backend.table.td>
 
-                <x-backend.table.td class="d-none d-xl-table-cell small">
-                        <span class="text-muted mr-2">Publikovať od:</span>
-                        <span class="text-success">{{$news->published_at}}</span>
-                    <br>
-                        <span class="text-muted mr-2">Publikovať do:</span>
-                        <span class="text-danger">{{$news->unpublished_at}}</span>
-                </x-backend.table.td>
+                    <x-backend.table.td class="d-none d-lg-table-cell small">
+                        <span class="text-muted mr-2">Vytvoril:</span>
+                        <span class="text-bold">{{$news->user->name ?? ''}}</span>
+                        <br>
+                        <span class="text-muted mr-2">Dňa:</span>
+                        {{$news->created_at->format('d. m. Y \o H:i')}}
+                    </x-backend.table.td>
 
-                <x-backend.table.td class="text-wrap text-break text-bold">{{ $news->title }}</x-backend.table.td>
+                    <x-backend.table.td class="d-none d-xl-table-cell small">
+                            <span class="text-muted mr-2">Publikovať od:</span>
+                            <span class="text-success">{{$news->published_at}}</span>
+                        <br>
+                            <span class="text-muted mr-2">Publikovať do:</span>
+                            <span class="text-danger">{{$news->unpublished_at}}</span>
+                    </x-backend.table.td>
 
-                {{-- <x-backend.table.td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</x-backend.table.td> --}}
+                    <x-backend.table.td class="text-wrap text-break text-bold">{{ $news->title }}</x-backend.table.td>
 
-                <x-backend.table.td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</x-backend.table.td>
-                @if ( $news->user_id == auth()->user()->id OR auth()->user()->isAdmin())
-                    <x-backend.table.td-actions
-                        controlerName="news"
-                        identificator="{{ $news->slug }}"
-                    />
-                @else
-                <td colspan="2"></td>
-                @endif
-            </tr>
+                    {{-- <x-backend.table.td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</x-backend.table.td> --}}
+
+                    <x-backend.table.td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</x-backend.table.td>
+                    @if ( $news->user_id == auth()->user()->id OR auth()->user()->isAdmin())
+                        <x-backend.table.td-actions
+                            controlerName="news"
+                            identificator="{{ $news->slug }}"
+                            trashed="{{ $news->trashed() }}"
+                            trashedID="{{ $news->id }}"
+                        />
+                    @else
+                    <td colspan="2"></td>
+                    @endif
+
+                </x-backend.table.tr>
             @endforeach
         </x-slot>
 
