@@ -38,9 +38,9 @@ class UserController extends Controller
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function store(UserRequest $request, User $user, MediaStoreService $mediaService): RedirectResponse {
+    public function store(UserRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $user->create($validated);
+        $user = User::create($validated);
 
         // store roles to user
         $role = collect($request->input('role'))
@@ -49,13 +49,11 @@ class UserController extends Controller
             })->when($user->id == 1, function ($collection) {
                 return $collection->push(1); // SuperAdmin add
             })->toArray();
-        $user->roles()->sync($role);
-
-        // FIXME:   pri vytváraní u6ivatťeľa je chyba
+        $user->roles()->syncWithoutDetaching($role);
 
         // store permissions to user
         $permissions = $request->input('permission');
-        $user->permissions()->sync($permissions);
+        $user->permissions()->syncWithoutDetaching($permissions);
 
         if ($request->hasFile('photo_avatar')) {
             $mediaService->storeMediaOneFile($user, $user->collectionName, 'photo_avatar');
