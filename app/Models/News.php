@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Category;
+use App\Traits\Restorable;
 use App\Traits\Publishable;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
@@ -21,6 +22,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class News extends Model implements HasMedia
 {
     use Loggable;
+    use Restorable;
     use HasFactory;
     use Publishable;
     use SoftDeletes;
@@ -89,15 +91,15 @@ class News extends Model implements HasMedia
     }
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     public function category() {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withTrashed();
     }
 
     public function tags() {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class)->withTrashed();
     }
 
     public function document() {

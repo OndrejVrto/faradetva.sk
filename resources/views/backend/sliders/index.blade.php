@@ -9,7 +9,7 @@
 
 @section('content')
     <x-backend.table
-        columns="7"
+        columns="9"
         controlerName="sliders"
         createBtn="Pridať nový obrázok s myšlienkou"
         createLink="{{ route('sliders.create') }}"
@@ -19,7 +19,7 @@
         <x-slot name="createNote">
             Na stránke sa zobrazujú iba tri náhodné obrázky!
             <br>
-            Pre fungovanie musia byť vložené minimálne dve.
+            Pre fungovanie musia byť vložené minimálne dva obrázky.
         </x-slot>
 
         <x-slot name="table_header">
@@ -32,20 +32,24 @@
 
         <x-slot name="table_body">
             @foreach($sliders as $slider)
-            <tr>
-                {{-- <x-backend.table.td>{{$slider->id}}</x-backend.table.td> --}}
-                <x-backend.table.td-check-active check="{{ $slider->active }}"/>
-                <x-backend.table.td class="text-center">
-                    <img src="{{ $slider->getFirstMediaUrl($slider->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/240x100" }}"
-                    class="img-fluid"
-                    alt="Obrázok: {{ $slider->full_heading }}"/>
-                </x-backend.table.td>
-                <x-backend.table.td class="text-wrap text-break">{{$slider->teaser}}</x-backend.table.td>
-                <x-backend.table.td-actions
-                    controlerName="sliders"
-                    identificator="{{ $slider->id }}"
-                />
-            </tr>
+                <x-backend.table.tr trashed="{{ $slider->trashed() }}">
+
+                    {{-- <x-backend.table.td>{{$slider->id}}</x-backend.table.td> --}}
+                    <x-backend.table.td-check-active check="{{ $slider->active }}"/>
+                    <x-backend.table.td class="text-center">
+                        <img src="{{ $slider->getFirstMediaUrl($slider->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/240x100" }}"
+                        class="img-fluid"
+                        alt="Obrázok: {{ $slider->full_heading }}"/>
+                    </x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{$slider->teaser}}</x-backend.table.td>
+                    <x-backend.table.td-actions
+                        controlerName="sliders"
+                        identificator="{{ $slider->id }}"
+                        trashed="{{ $slider->trashed() }}"
+                        trashedID="{{ $slider->id }}"
+                    />
+
+                </x-backend.table.tr>
             @endforeach
         </x-slot>
 

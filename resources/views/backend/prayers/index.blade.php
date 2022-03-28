@@ -27,31 +27,35 @@
 
         <x-slot name="table_body">
             @foreach($prayers as $prayer)
-            <tr>
-                {{-- <x-backend.table.td>{{$prayer->id}}</x-backend.table.td> --}}
-                <x-backend.table.td-check-active check="{{ $prayer->active }}"/>
-                <x-backend.table.td class="text-center">
-                    <img src="{{ $prayer->getFirstMediaUrl($prayer->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/192x80" }}"
-                    class="img-fluid px-3"
-                    alt="picture: {{ $prayer->title }}"/>
-                </x-backend.table.td>
-                <x-backend.table.td class="text-wrap text-break">{{ $prayer->title }}</x-backend.table.td>
-                <x-backend.table.td class="text-wrap text-break">{{ $prayer->quote_row1 }}<br>{{ $prayer->quote_row2 }}</x-backend.table.td>
-                <x-backend.table.td>{{ $prayer->quote_author }}</x-backend.table.td>
-                <x-backend.table.td class="text-center">
-                    <a  href="{{ url($prayer->getFirstMediaUrl($prayer->collectionName) ?: '#') }}"
-                        class="btn btn-outline-warning btn-sm btn-flat"
-                        title="Stiahnuť pôvodný obrázok"
-                        download
-                    >
-                        <i class="fas fa-download"></i>
-                    </a>
-                </x-backend.table.td>
-                <x-backend.table.td-actions
-                    controlerName="prayers"
-                    identificator="{{ $prayer->slug }}"
-                />
-            </tr>
+                <x-backend.table.tr trashed="{{ $prayer->trashed() }}">
+
+                    {{-- <x-backend.table.td>{{$prayer->id}}</x-backend.table.td> --}}
+                    <x-backend.table.td-check-active check="{{ $prayer->active }}"/>
+                    <x-backend.table.td class="text-center">
+                        <img src="{{ $prayer->getFirstMediaUrl($prayer->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/192x80" }}"
+                        class="img-fluid px-3"
+                        alt="picture: {{ $prayer->title }}"/>
+                    </x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{ $prayer->title }}</x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{ $prayer->quote_row1 }}<br>{{ $prayer->quote_row2 }}</x-backend.table.td>
+                    <x-backend.table.td>{{ $prayer->quote_author }}</x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        <a  href="{{ url($prayer->getFirstMediaUrl($prayer->collectionName) ?: '#') }}"
+                            class="btn btn-outline-warning btn-sm btn-flat"
+                            title="Stiahnuť pôvodný obrázok"
+                            download
+                        >
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </x-backend.table.td>
+                    <x-backend.table.td-actions
+                        controlerName="prayers"
+                        identificator="{{ $prayer->slug }}"
+                        trashed="{{ $prayer->trashed() }}"
+                        trashedID="{{ $prayer->id }}"
+                    />
+
+                </x-backend.table.tr>
             @endforeach
         </x-slot>
 

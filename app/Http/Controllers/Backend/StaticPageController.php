@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Banner;
 use App\Models\StaticPage;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -13,8 +15,12 @@ use App\Http\Requests\StaticPageRequest;
 
 class StaticPageController extends Controller
 {
-    public function index(): View  {
-        $pages = StaticPage::orderBy('slug')->withCount('banners')->get();
+    public function index(Request $request): View {
+        $pages = StaticPage::query()
+            ->orderBy('slug')
+            ->withCount('banners')
+            ->archive($request, 'pages')
+            ->get();
 
         return view('backend.static-pages.index', compact('pages'));
     }
@@ -60,6 +66,25 @@ class StaticPageController extends Controller
         $staticPage->delete();
 
         toastr()->success(__('app.static-page.delete'));
+        return to_route('static-pages.index');
+    }
+
+    public function restore($id): RedirectResponse {
+        $staticPage = StaticPage::onlyTrashed()->findOrFail($id);
+        $staticPage->slug = Str::slug( Str::replace('/', '-', $staticPage->url) ).'-'.Str::random(5);
+        $staticPage->title = '*'.$staticPage->title;
+        $staticPage->restore();
+
+        toastr()->success(__('app.static-page.restore'));
+        return to_route('static-pages.edit', $staticPage->slug);
+    }
+
+    public function force_delete($id): RedirectResponse {
+        $staticPage = StaticPage::onlyTrashed()->findOrFail($id);
+        $staticPage->banners()->detach($id);
+        $staticPage->forceDelete();
+
+        toastr()->success(__('app.static-page.force-delete'));
         return to_route('static-pages.index');
     }
 }

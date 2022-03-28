@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Backend;
 
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -38,8 +40,13 @@ class NoticeController extends Controller implements CrudInterface
         $this->instance = new $this->model;
     }
 
-    public function index(): View {
-        $notices = $this->model::with('media')->latest()->paginate(10);
+    public function index(Request $request): View {
+        $notices = $this->model::query()
+            ->with('media')
+            ->latest()
+            ->archive($request, $this->resource)
+            ->paginate(10)
+            ->withQueryString();
 
         return view('backend.notices.index', compact('notices'))->with('controller', $this->resource);
     }
@@ -53,7 +60,7 @@ class NoticeController extends Controller implements CrudInterface
         try {
             $notice = $this->instance::create($validated);
         } catch (\Throwable $th) {
-            dd($th->getCode());
+            info($th);
         }
 
         if ($request->hasFile('notice_file')) {
@@ -75,7 +82,7 @@ class NoticeController extends Controller implements CrudInterface
         try {
             $model->update($validated);
         } catch (\Throwable $th) {
-            dd($th);
+            info($th);
         }
         if ($request->hasFile('notice_file')) {
             $mediaService->storeMediaOneFile($model, $model->collectionName, 'notice_file');
@@ -87,9 +94,27 @@ class NoticeController extends Controller implements CrudInterface
 
     public function destroy(Model $model): RedirectResponse {
         $model->delete();
-        $model->clearMediaCollection($model->collectionName);
 
         toastr()->success(__('app.'.$this->resource.'.delete'));
+        return to_route($this->resource.'.index');
+    }
+
+    public function restore($id): RedirectResponse {
+        $model = $this->instance::onlyTrashed()->findOrFail($id);
+        $model->slug = Str::slug($model->title).'-'.Str::random(5);
+        $model->title = '*'. $model->title;
+        $model->restore();
+
+        toastr()->success(__('app.'.$this->resource.'.restore'));
+    return to_route($this->resource.'.edit',  $model->slug);
+    }
+
+    public function force_delete($id): RedirectResponse {
+        $model = $this->instance::onlyTrashed()->findOrFail($id);
+        $model->clearMediaCollection($model->collectionName);
+        $model->forceDelete();
+
+        toastr()->success(__('app.'.$this->resource.'.force-delete'));
         return to_route($this->resource.'.index');
     }
 }

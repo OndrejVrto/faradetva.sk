@@ -26,25 +26,29 @@
 
         <x-slot name="table_body">
             @foreach($charts as $chart)
-            <tr>
-                <x-backend.table.td-check-active check="{{ $chart->active }}"/>
-                <x-backend.table.td class="text-wrap text-break text-bold">{{ $chart->title }}</x-backend.table.td>
-                <x-backend.table.td class="text-wrap text-break">{{ $chart->description }}</x-backend.table.td>
-                <x-backend.table.td class="text-center">
-                    @can('charts.data.index')
-                        <a  href="{{ route('charts.data.index', $chart) }}"
-                            class="btn btn-outline-warning btn-sm btn-flat"
-                            title="Vložiť dáta do grafu: {{ $chart->title }}">
-                            <i class="fas fa-chart-pie"></i>
-                        </a>
-                    @endcan
-                </x-backend.table.td>
-                <x-backend.table.td class="text-center">{{ $chart->data_count }}</x-backend.table.td>
-                <x-backend.table.td-actions
-                    controlerName="charts"
-                    identificator="{{ $chart->slug }}"
-                />
-            </tr>
+                <x-backend.table.tr trashed="{{ $chart->trashed() }}">
+
+                    <x-backend.table.td-check-active check="{{ $chart->active }}"/>
+                    <x-backend.table.td class="text-wrap text-break text-bold">{{ $chart->title }}</x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{ $chart->description }}</x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        @can('charts.data.index')
+                            <a  href="{{ route('charts.data.index', $chart) }}"
+                                class="btn btn-outline-warning btn-sm btn-flat"
+                                title="Vložiť dáta do grafu: {{ $chart->title }}">
+                                <i class="fas fa-chart-pie"></i>
+                            </a>
+                        @endcan
+                    </x-backend.table.td>
+                    <x-backend.table.td class="text-center">{{ $chart->data_count }}</x-backend.table.td>
+                    <x-backend.table.td-actions
+                        controlerName="charts"
+                        identificator="{{ $chart->slug }}"
+                        trashed="{{ $chart->trashed() }}"
+                        trashedID="{{ $chart->id }}"
+                    />
+
+                </x-backend.table.tr>
             @endforeach
         </x-slot>
 

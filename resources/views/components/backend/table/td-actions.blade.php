@@ -3,53 +3,91 @@
     'showLink' => null,
     'editLink' => null,
     'deleteLink' => null,
+    'restoreLink' => null,
+    'forceDeleteLink' => null,
     'identificator' => null,
+    'trashed' => null,
+    'trashedID' => null,
 ])
 @php
-    if (is_null($showLink)) {
+    if(is_null($showLink)) {
         $showLink = Route::has($controlerName . '.show') ? route($controlerName . '.show', $identificator) : null;
     }
-    if (is_null($editLink)) {
+    if(is_null($editLink)) {
         $editLink = Route::has($controlerName . '.edit') ? route($controlerName . '.edit', $identificator) : null;
     }
-    if (is_null($deleteLink)) {
+    if(is_null($deleteLink)) {
         $deleteLink = Route::has($controlerName . '.destroy') ? route($controlerName . '.destroy', $identificator) : null;
     }
+    if(!is_null($trashed)) {
+        $restoreColumn = true;
+        if (is_null($restoreLink)) {
+            $restoreLink = Route::has($controlerName.'.restore') ? route($controlerName.'.restore', $trashedID) : null;
+        }
+        if (is_null($forceDeleteLink)) {
+            $forceDeleteLink = Route::has($controlerName.'.force_delete') ? route($controlerName.'.force_delete', $trashedID) : null;
+        }
+    }
+    $trashed = $trashed ? 'true' : 'false';
 @endphp
 
-@isset($showLink)
-    @can($controlerName . '.show')
-        <td>
-            <a href="{{ $showLink }}" class="btn btn-outline-success btn-sm btn-flat" title="Zobraziť"><i class="fas fa-eye"></i></a>
-        </td>
-    @else
-        <td></td>
-    @endcan
-@endisset
+@if ($trashed == 'false')
+    <td>
+        <div class="d-inline-flex">
+            @isset($showLink)
+                @can($controlerName . '.show')
+                    <a href="{{ $showLink }}" class="w35 ml-1 btn btn-outline-success btn-sm btn-flat" title="Zobraziť"><i class="fas fa-eye"></i></a>
+                @endcan
+            @endisset
 
-@isset($editLink)
-    @can([
-        $controlerName . '.edit',
-        $controlerName . '.update'
-    ])
-        <td>
-            <a href="{{ $editLink }}" class="btn btn-outline-primary btn-sm btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
-        </td>
-    @else
-        <td></td>
-    @endcan
-@endisset
+            @isset($editLink)
+                @can([
+                    $controlerName . '.edit',
+                    $controlerName . '.update'
+                ])
+                    <a href="{{ $editLink }}" class="w35 ml-1 btn btn-outline-primary btn-sm btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
+                @endcan
+            @endisset
 
-@isset($deleteLink)
-    @can($controlerName . '.destroy')
-        <td>
-            <form class="delete-form" action="{{ $deleteLink }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
-            </form>
-        </td>
-    @else
+            @isset($deleteLink)
+                @can($controlerName . '.destroy')
+                    <form class="delete-form" action="{{ $deleteLink }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="w35 ml-1 btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
+                    </form>
+                @endcan
+            @endisset
+        </div>
+    </td>
+    @isset($restoreColumn)
         <td></td>
-    @endcan
-@endisset
+    @endisset
+@elseif ($trashed == 'true')
+    <td></td>
+    <td>
+        <div class="d-inline-flex">
+            @isset($restoreLink)
+                @can($controlerName.'.restore')
+                    <form class="restore-form" action="{{ $restoreLink }}" method="post">
+                        @csrf
+                        <button class="w35 ml-1 btn btn-outline-success btn-sm btn-flat" type="submit" title="Obnoviť">
+                            <i class="far fa-thumbs-up"></i>
+                        </button>
+                    </form>
+                @endcan
+            @endisset
+
+            @isset($forceDeleteLink)
+                @can($controlerName.'.force_delete')
+                    <form class="force-delete-form" action="{{ $forceDeleteLink }}" method="post">
+                        @csrf
+                        <button class="w35 ml-1 btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať navždy">
+                            <i class="far fa-thumbs-down"></i>
+                        </button>
+                    </form>
+                @endcan
+            @endisset
+        </div>
+    </td>
+@endif

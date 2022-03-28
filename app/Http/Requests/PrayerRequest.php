@@ -30,7 +30,7 @@ class PrayerRequest extends SourceRequest
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('prayers', 'slug')->ignore($this->prayer),
+                Rule::unique('prayers', 'slug')->ignore($this->prayer)->withoutTrashed(),
             ],
             'quote_row1' => [
                 'required',

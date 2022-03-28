@@ -39,6 +39,8 @@ return [
         'store'  => 'Nová kategória bola pridaná!',
         'update' => 'Kategória bola upravená!',
         'delete' => 'Kategória bola odstránená!',
+        'delete-error' => 'Kategória ":name" nemôže byť vymazaná!',
+        'update-error' => 'Kategória ":name" nemôže byť upravovaná!',
     ],
     'news'   => [
         'store'  => 'Nový článok bol pridaný!',
@@ -61,10 +63,10 @@ return [
         'delete' => 'Parameter grafu bol odstránený!',
     ],
     'role'   => [
-        'store'        => 'Nová rola :name bola pridaná!',
-        'update'       => 'Rola :name bola upravená!',
-        'delete'       => 'Rola :name bola zmazaná!',
-        'delete-error' => 'Rola :name nemôže byť vymazaná!',
+        'store'        => 'Nová rola ":name" bola pridaná!',
+        'update'       => 'Rola ":name" bola upravená!',
+        'delete'       => 'Rola ":name" bola zmazaná!',
+        'delete-error' => 'Rola ":name" nemôže byť vymazaná!',
     ],
     'slider'   => [
         'store'  => 'Nový obrázok s myšlienkou bol pridaný!',
@@ -87,12 +89,12 @@ return [
         'delete' => 'Svedectvo bolo odstránené!',
     ],
     'user'   => [
-        'store'        => 'Uživateľ :name bol pridaný!',
-        'update'       => 'Uživateľ :name bol upravený!',
-        'update-error' => 'Uživateľ :name nemôže byť upravovaný!',
+        'store'        => 'Uživateľ ":name" bol pridaný!',
+        'update'       => 'Uživateľ ":name" bol upravený!',
+        'update-error' => 'Uživateľ ":name" nemôže byť upravovaný!',
         'update-self'  => 'Užívateľ sám sebe nemôže meniť status!',
-        'delete'       => 'Uživateľ :name bol odstránený!',
-        'delete-error' => 'Užívateľ :name nemôže byť vymazaný!',
+        'delete'       => 'Uživateľ ":name" bol odstránený!',
+        'delete-error' => 'Užívateľ ":name" nemôže byť vymazaný!',
         'delete-self'  => 'Užívateľ nemôže vymazať sám seba!',
     ],
     'file'   => [

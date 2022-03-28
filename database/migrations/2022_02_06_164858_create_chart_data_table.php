@@ -21,7 +21,6 @@ return new class extends Migration
             $table->float('value', $precision = 8, $scale = 2);
 
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

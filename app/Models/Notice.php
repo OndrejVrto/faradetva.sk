@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Traits\Restorable;
 use App\Traits\Publishable;
 use App\Models\NoticeChurch;
 use App\Models\NoticeAcolyte;
@@ -19,6 +20,7 @@ use Nanigans\SingleTableInheritance\SingleTableInheritanceTrait;
 class Notice extends Model implements HasMedia
 {
     use Loggable;
+    use Restorable;
     use HasFactory;
     use Publishable;
     use SoftDeletes;

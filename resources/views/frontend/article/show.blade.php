@@ -22,7 +22,7 @@
                         <div class="blog_info">
                             <span>
                                 <a href="{{ route('article.author', $oneNews->user->slug) }}">
-                                    <i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->createdBy }}
+                                    <i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->user->name}}
                                 </a>
                             </span>
                             <span>

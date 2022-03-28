@@ -1,6 +1,11 @@
 @props([
     'controlerName' => '',
     'columns' => null,
+
+    'onlyClearLink' => null,
+    'onlyArchiveLink' => null,
+    'withArchiveLink' => null,
+
     'createLink' => null,
     'createBtn' => null,
     'createNote' => null,
@@ -20,6 +25,15 @@
     $headerDescription = __('backend-texts.'.$texts.'.description' );
     if (is_null($createLink)) {
         $createLink = Route::has($controlerName . '.create') ? route($controlerName . '.create') : null;
+    }
+    if (is_null($onlyClearLink)) {
+        $onlyClearLink   = route($controlerName . '.index');
+    }
+    if (is_null($onlyArchiveLink)) {
+        $onlyArchiveLink = route($controlerName . '.index', ['only-deleted=true']);
+    }
+    if (is_null($withArchiveLink)) {
+        $withArchiveLink = route($controlerName . '.index', ['with-deleted=true']);
     }
 @endphp
 
@@ -84,6 +98,25 @@
                             <tr class="table-primary">
                                 {{ $table_header }}
                             </tr>
+
+                            @if (Route::has($controlerName . '.restore'))
+                                @canany([
+                                    $controlerName . '.restore',
+                                    $controlerName . '.force_delete',
+                                ])
+                                    <div class="card-footer d-flex justify-content-end">
+                                        <a href="{{ $onlyClearLink }}" class="btn btn-outline-secondary btn-flat btn-sm mr-2 px-3" title="Zobraziť aktívne položky">
+                                            Aktívne
+                                        </a>
+                                        <a href="{{ $withArchiveLink }}" class="btn btn-outline-secondary btn-flat btn-sm mx-2 px-3" title="Zobraziť všetky položky.">
+                                            Všetky
+                                        </a>
+                                        <a href="{{ $onlyArchiveLink }}" class="btn btn-outline-secondary btn-flat btn-sm ml-2 px-3" title="Zobraziť zmazané položky.">
+                                            Zmazané
+                                        </a>
+                                    </div>
+                                @endcanany
+                            @endif
                         </thead>
                         <tbody>
                             {{ $table_body }}

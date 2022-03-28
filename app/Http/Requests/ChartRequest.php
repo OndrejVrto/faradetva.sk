@@ -31,7 +31,7 @@ class ChartRequest extends FormRequest
                 'max:255',
             ],
             'slug' => [
-                Rule::unique('charts', 'slug')->ignore($this->chart),
+                Rule::unique('charts', 'slug')->ignore($this->chart)->withoutTrashed(),
             ],
             'name_x_axis' => [
                 'required',

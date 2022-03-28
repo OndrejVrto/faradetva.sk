@@ -26,24 +26,27 @@
 
         <x-slot name="table_body">
             @foreach($priests as $priest)
-            <tr>
-                {{-- <x-backend.table.td>{{$priest->id}}</x-backend.table.td> --}}
-                <x-backend.table.td-check-active check="{{ $priest->active }}"/>
-                <x-backend.table.td class="text-center">
-                    <img
-                        src="{{ $priest->getFirstMediaUrl($priest->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x80" }}"
-                        class="img-fluid priest-thumb"
-                        alt="Fotografia: {{ $priest->full_name_titles }}, {{ $priest->function }}"
-                    />
-                </x-backend.table.td>
-                <x-backend.table.td class="text-wrap text-break">{{$priest->full_name_titles}}</x-backend.table.td>
-                <x-backend.table.td class="text-wrap text-break">{{$priest->function}}</x-backend.table.td>
+                <x-backend.table.tr trashed="{{ $priest->trashed() }}">
 
-                <x-backend.table.td-actions
-                    controlerName="priests"
-                    identificator="{{ $priest->slug }}"
-                />
-            </tr>
+                    {{-- <x-backend.table.td>{{$priest->id}}</x-backend.table.td> --}}
+                    <x-backend.table.td-check-active check="{{ $priest->active }}"/>
+                    <x-backend.table.td class="text-center">
+                        <img
+                            src="{{ $priest->getFirstMediaUrl($priest->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x80" }}"
+                            class="img-fluid priest-thumb"
+                            alt="Fotografia: {{ $priest->full_name_titles }}, {{ $priest->function }}"
+                        />
+                    </x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{$priest->full_name_titles}}</x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{$priest->function}}</x-backend.table.td>
+                    <x-backend.table.td-actions
+                        controlerName="priests"
+                        identificator="{{ $priest->slug }}"
+                        trashed="{{ $priest->trashed() }}"
+                        trashedID="{{ $priest->id }}"
+                    />
+
+                </x-backend.table.tr>
             @endforeach
         </x-slot>
 
