@@ -22,7 +22,7 @@
             <x-backend.table.th>Titulka</x-backend.table.th>
             <x-backend.table.th>Text modlidby</x-backend.table.th>
             <x-backend.table.th>Autor / citácia</x-backend.table.th>
-            <x-backend.table.th-actions colspan="3"/>
+            <x-backend.table.th-actions />
         </x-slot>
 
         <x-slot name="table_body">

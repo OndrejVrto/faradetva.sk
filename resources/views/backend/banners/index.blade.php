@@ -20,7 +20,7 @@
             <x-backend.table.th width="30%" class="text-center">Obrázok</x-backend.table.th>
             <x-backend.table.th>Názov baneru</x-backend.table.th>
             <x-backend.table.th class="text-center">Počet využití</x-backend.table.th>
-            <x-backend.table.th-actions colspan="4"/>
+            <x-backend.table.th-actions />
         </x-slot>
 
         <x-slot name="table_body">

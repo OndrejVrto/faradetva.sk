@@ -20,7 +20,7 @@
             <x-backend.table.th width="20%" class="text-center">Prvý obrázok</x-backend.table.th>
             <x-backend.table.th width="50%">Pracovný názov</x-backend.table.th>
             <x-backend.table.th width="15%" class="text-center">Obrázkov</x-backend.table.th>
-            <x-backend.table.th-actions colspan="4"/>
+            <x-backend.table.th-actions />
         </x-slot>
 
         <x-slot name="table_body">

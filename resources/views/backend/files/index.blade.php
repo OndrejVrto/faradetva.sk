@@ -21,7 +21,7 @@
             <x-backend.table.th>Názov súboru</x-backend.table.th>
             <x-backend.table.th width="10%" class="pl-2 d-none d-md-table-cell">Prípona</x-backend.table.th>
             <x-backend.table.th width="10%" class="d-none d-lg-table-cell text-right pr-3">Veľkosť súboru</x-backend.table.th>
-            <x-backend.table.th-actions colspan="4"/>
+            <x-backend.table.th-actions />
         </x-slot>
 
         <x-slot name="table_body">

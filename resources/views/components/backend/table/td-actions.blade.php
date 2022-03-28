@@ -1,14 +1,19 @@
 @props([
     'controlerName' => '',
+
     'showLink' => null,
     'editLink' => null,
     'deleteLink' => null,
+
     'restoreLink' => null,
     'forceDeleteLink' => null,
+
     'identificator' => null,
-    'trashed' => null,
+
+    'trashed' => false,
     'trashedID' => null,
 ])
+
 @php
     if(is_null($showLink)) {
         $showLink = Route::has($controlerName . '.show') ? route($controlerName . '.show', $identificator) : null;
@@ -19,20 +24,18 @@
     if(is_null($deleteLink)) {
         $deleteLink = Route::has($controlerName . '.destroy') ? route($controlerName . '.destroy', $identificator) : null;
     }
-    if(!is_null($trashed)) {
-        $restoreColumn = true;
-        if (is_null($restoreLink)) {
-            $restoreLink = Route::has($controlerName.'.restore') ? route($controlerName.'.restore', $trashedID) : null;
-        }
-        if (is_null($forceDeleteLink)) {
-            $forceDeleteLink = Route::has($controlerName.'.force_delete') ? route($controlerName.'.force_delete', $trashedID) : null;
-        }
+    if (is_null($restoreLink)) {
+        $restoreLink = Route::has($controlerName.'.restore') ? route($controlerName.'.restore', $trashedID) : null;
     }
+    if (is_null($forceDeleteLink)) {
+        $forceDeleteLink = Route::has($controlerName.'.force_delete') ? route($controlerName.'.force_delete', $trashedID) : null;
+    }
+
     $trashed = $trashed ? 'true' : 'false';
 @endphp
 
-@if ($trashed == 'false')
-    <td>
+@if ($trashed === 'false')
+    <td class="text-center">
         <div class="d-inline-flex">
             @isset($showLink)
                 @can($controlerName . '.show')
@@ -60,34 +63,44 @@
             @endisset
         </div>
     </td>
-    @isset($restoreColumn)
+    @if ($restoreLink OR $forceDeleteLink)
+        @canany([
+            $controlerName . '.restore',
+            $controlerName . '.force_delete'
+        ])
+            <td></td>
+        @endcanany
+    @endif
+@elseif ($restoreLink OR $forceDeleteLink AND $trashed === 'true')
+    @canany([
+        $controlerName . '.restore',
+        $controlerName . '.force_delete'
+    ])
         <td></td>
-    @endisset
-@elseif ($trashed == 'true')
-    <td></td>
-    <td>
-        <div class="d-inline-flex">
-            @isset($restoreLink)
-                @can($controlerName.'.restore')
-                    <form class="restore-form" action="{{ $restoreLink }}" method="post">
-                        @csrf
-                        <button class="w35 ml-1 btn btn-outline-success btn-sm btn-flat" type="submit" title="Obnoviť">
-                            <i class="far fa-thumbs-up"></i>
-                        </button>
-                    </form>
-                @endcan
-            @endisset
+        <td class="text-center">
+            <div class="d-inline-flex">
+                @isset($restoreLink)
+                    @can($controlerName.'.restore')
+                        <form class="restore-form" action="{{ $restoreLink }}" method="post">
+                            @csrf
+                            <button class="w35 ml-1 btn btn-outline-success btn-sm btn-flat" type="submit" title="Obnoviť">
+                                <i class="far fa-thumbs-up"></i>
+                            </button>
+                        </form>
+                    @endcan
+                @endisset
 
-            @isset($forceDeleteLink)
-                @can($controlerName.'.force_delete')
-                    <form class="force-delete-form" action="{{ $forceDeleteLink }}" method="post">
-                        @csrf
-                        <button class="w35 ml-1 btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať navždy">
-                            <i class="far fa-thumbs-down"></i>
-                        </button>
-                    </form>
-                @endcan
-            @endisset
-        </div>
-    </td>
+                @isset($forceDeleteLink)
+                    @can($controlerName.'.force_delete')
+                        <form class="force-delete-form" action="{{ $forceDeleteLink }}" method="post">
+                            @csrf
+                            <button class="w35 ml-1 btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať navždy">
+                                <i class="far fa-thumbs-down"></i>
+                            </button>
+                        </form>
+                    @endcan
+                @endisset
+            </div>
+        </td>
+    @endcanany
 @endif

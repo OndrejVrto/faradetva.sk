@@ -24,7 +24,7 @@
             <x-backend.table.th width="15%" class="d-none d-lg-table-cell">Nick</x-backend.table.th>
             <x-backend.table.th width="10%">Roly</x-backend.table.th>
             <x-backend.table.th width="10%" class="text-center d-none d-md-table-cell">Povolenia</x-backend.table.th>
-            <x-backend.table.th-actions colspan="4"/>
+            <x-backend.table.th-actions />
         </x-slot>
 
         <x-slot name="table_body">
@@ -62,7 +62,7 @@
                         @endif
                     </x-backend.table.td>
                     <x-backend.table.td class="text-center d-none d-md-table-cell">
-                        @if (!is_impersonating())
+                        @if ( !is_impersonating() AND !$user->trashed() )
                             @canImpersonate()
                                 @if ($user->canBeImpersonated() and $user->id != auth()->user()->id )
                                     <a  href="{{ route('impersonate', $user->id) }}"

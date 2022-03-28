@@ -21,7 +21,7 @@
             <x-backend.table.th width="15%">Popis grafu</x-backend.table.th>
             <x-backend.table.th-actions colspan="1" class="text-center">Dáta</x-backend.table.th-actions>
             <x-backend.table.th width="1%" class="text-center">Počet hodnôt</x-backend.table.th>
-            <x-backend.table.th-actions colspan="3"/>
+            <x-backend.table.th-actions />
         </x-slot>
 
         <x-slot name="table_body">
@@ -32,13 +32,15 @@
                     <x-backend.table.td class="text-wrap text-break text-bold">{{ $chart->title }}</x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">{{ $chart->description }}</x-backend.table.td>
                     <x-backend.table.td class="text-center">
-                        @can('charts.data.index')
-                            <a  href="{{ route('charts.data.index', $chart) }}"
-                                class="btn btn-outline-warning btn-sm btn-flat"
-                                title="Vložiť dáta do grafu: {{ $chart->title }}">
-                                <i class="fas fa-chart-pie"></i>
-                            </a>
-                        @endcan
+                        @if (! $chart->trashed())
+                            @can('charts.data.index')
+                                <a  href="{{ route('charts.data.index', $chart) }}"
+                                    class="btn btn-outline-warning btn-sm btn-flat"
+                                    title="Vložiť dáta do grafu: {{ $chart->title }}">
+                                    <i class="fas fa-chart-pie"></i>
+                                </a>
+                            @endcan
+                        @endif
                     </x-backend.table.td>
                     <x-backend.table.td class="text-center">{{ $chart->data_count }}</x-backend.table.td>
                     <x-backend.table.td-actions
