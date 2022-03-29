@@ -1,9 +1,3 @@
-@props(['pageData' => null])
-@section('title', $pageData['title'] ?? null)
-@section('description', $pageData['description'] ?? null)
-@section('keywords', $pageData['keywords'] ?? null)
-@section('author', $pageData['author'] ?? null)
-
 <x-frontend.layout.general>
 
     <x-frontend.sections.preload />

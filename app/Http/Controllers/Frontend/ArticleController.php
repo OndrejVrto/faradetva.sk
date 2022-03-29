@@ -18,6 +18,8 @@ class ArticleController extends Controller
 {
     private $viewIndex = 'frontend.article.index';
 
+    // TODO:  add SEO META headers to all methods
+
     public function show($slug): View  {
         $oneNews = News::visible()
                         ->whereSlug($slug)
