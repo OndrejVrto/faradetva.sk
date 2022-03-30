@@ -1,6 +1,12 @@
 @props([
     'pageData',
 ])
+@if( isset($pageData['breadCrumbJsonLd']) AND Str::contains($pageData['breadCrumbJsonLd'], 'BreadcrumbList') )
+    @push('BreadCrumbJSonLd')
+        {!! $pageData['breadCrumbJsonLd'] !!}
+    @endpush
+@endif
+
 <x-frontend.layout.general>
 
     <x-frontend.sections.preload />

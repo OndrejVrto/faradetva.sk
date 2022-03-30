@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Cache;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\TwitterCard;
 
 class PageController extends Controller
@@ -27,33 +28,10 @@ class PageController extends Controller
         $pageData = last($links);
 
         if ($pageData AND Arr::exists($pageData, 'route') AND View::exists($pageData['route'])) {
-            $pageData['breadCrumb'] = (string) Breadcrumbs::render('pages.others', true, $links );
+            $pageData['breadCrumb'] = (string) Breadcrumbs::render('pages.others', true, $links);
+            $pageData['breadCrumbJsonLd'] = (string) Breadcrumbs::view('breadcrumbs::json-ld', 'pages.others', $links);
 
-            SEOMeta::setTitle($pageData['title']);
-            SEOMeta::setDescription($pageData['description']);
-            SEOMeta::addKeyword($pageData['keywords']);
-            SEOMeta::addMeta('author', $pageData['author'], 'name');
-
-            OpenGraph::setDescription($pageData['description']);
-            OpenGraph::addProperty('site_name', 'faraDetva');
-            OpenGraph::addProperty('locale', 'sk-SK');
-            OpenGraph::setTitle($pageData['title']);
-            OpenGraph::addImage('TODO: URL', [
-                'alt' => 'TODO:',
-                'type' => 'TODO: mime type',
-                'width' => 'TODO:',
-                'height' => 'TODO:',
-                'secure_url' => 'TODO:',
-            ]);
-
-            TwitterCard::setTitle($pageData['title']);
-            TwitterCard::setDescription($pageData['description']);
-            TwitterCard::setImage('TODO: https://codecasts.com.br/img/logo.jpg');
-            TwitterCard::addValue('image:alt', 'TODO: ALT');
-
-            JsonLd::setTitle($pageData['title']);
-            JsonLd::setDescription($pageData['description']);
-            JsonLd::addImage('TODO: https://codecasts.com.br/img/logo.jpg');
+            $this->setSeoMetaTags($pageData);
 
             return view($pageData['route'], compact('pageData'));
         }
@@ -99,5 +77,35 @@ class PageController extends Controller
             ];
         }
         return $arr;
+    }
+
+    private function setSeoMetaTags(array $pageData): void {
+        SEOMeta::setTitle($pageData['title']);
+        SEOMeta::setDescription($pageData['description']);
+        SEOMeta::addKeyword($pageData['keywords']);
+        SEOMeta::addMeta('author', $pageData['author'], 'name');
+
+        OpenGraph::setDescription($pageData['description']);
+        OpenGraph::setTitle($pageData['title']);
+        OpenGraph::addImage('TODO: URL', [
+            'alt' => 'TODO:',
+            'type' => 'TODO: mime type',
+            'width' => 'TODO:',
+            'height' => 'TODO:',
+            'secure_url' => 'TODO:',
+        ]);
+
+        TwitterCard::setTitle($pageData['title']);
+        TwitterCard::setDescription($pageData['description']);
+        TwitterCard::setImage('TODO: https://codecasts.com.br/img/logo.jpg');
+        TwitterCard::addValue('image:alt', 'TODO: ALT');
+
+        JsonLd::setTitle($pageData['title']);
+        JsonLd::setDescription($pageData['description']);
+        JsonLd::addImage('TODO: https://codecasts.com.br/img/logo.jpg');
+
+        // JsonLdMulti::setTitle($pageData['title']);
+        // JsonLdMulti::setDescription($pageData['description']);
+        // JsonLdMulti::addImage('TODO: https://codecasts.com.br/img/logo.jpg');
     }
 }
