@@ -1,3 +1,6 @@
+@props([
+    'pageData',
+])
 <x-frontend.layout.general>
 
     <x-frontend.sections.preload />
@@ -6,6 +9,14 @@
 
     <!-- MASTER CONTENT Start -->
     <main>
+        @if(isset($pageData['banners']) AND count($pageData['banners']) > 1)
+            <x-frontend.sections.banner
+                :header="$pageData['title']"
+                :breadcrumb="$pageData['breadCrumb']"
+                :titleSlug="$pageData['banners']"
+                dimensionSource="full"
+            />
+        @endisset
         {{ $slot }}
     </main>
     <!-- MASTER CONTENT End -->

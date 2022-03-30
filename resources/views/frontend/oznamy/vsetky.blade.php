@@ -1,12 +1,5 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.sections.banner
-        :header="$pageData['title']"
-        :breadcrumb="$pageData['breadCrumb']"
-        :titleSlug="$pageData['banners']"
-        dimensionSource="full"
-    />
-
     <x-frontend.page.section name="NOTICE" class="static-page pad_b_30">
 
         <x-frontend.page.subsection title="Rozpisy lektorov">
