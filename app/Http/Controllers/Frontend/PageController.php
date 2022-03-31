@@ -103,9 +103,5 @@ class PageController extends Controller
         JsonLd::setTitle($pageData['title']);
         JsonLd::setDescription($pageData['description']);
         JsonLd::addImage('TODO: https://codecasts.com.br/img/logo.jpg');
-
-        // JsonLdMulti::setTitle($pageData['title']);
-        // JsonLdMulti::setDescription($pageData['description']);
-        // JsonLdMulti::addImage('TODO: https://codecasts.com.br/img/logo.jpg');
     }
 }

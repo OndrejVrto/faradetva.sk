@@ -11,7 +11,7 @@ return [
         'defaults'       => [
             'title'        => "Farnosť Detva", // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'Webové stránky farnosťi Detva.', // set false to total remove
+            'description'  => 'Webová stránka farnosťi Detva.', // set false to total remove
             'separator'    => ' | ',
             'keywords'     => ['farnosť Detva', 'fara', 'svadba', 'krst', 'pohreb', 'farské oznamy', 'omša', 'predmanželská príprava', 'kňaz', 'cirkev'],
             'canonical'    => 'current', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
@@ -37,10 +37,12 @@ return [
          */
         'defaults' => [
             'title'       => 'Farnosť Detva', // set false to total remove
-            'description' => 'Webové stránky farnosťi Detva.', // set false to total remove
+            'description' => 'Webová stránka farnosťi Detva.', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove   (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards)
             'type'        => 'website',
-            'site_name'   => 'faradetva',
+            'site_name'   => 'faraDetva',
+            'locale'      => 'sk-SK',
+            "license"     => "https://creativecommons.org/licenses/by-nc-nd/4.0/",
             'images'      => [],
         ],
     ],
@@ -58,11 +60,13 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => 'Farnosť Detva', // set false to total remove
-            'description' => 'Webové stránky farnosťi Detva.', // set false to total remove
-            'url'         => 'full', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
-            'type'        => 'WebPage',
-            'images'      => [],
+            'title'              => 'Farnosť Detva',                                                 // set false to total remove
+            'description'        => 'Webová stránka farnosťi Detva.',                                // set false to total remove
+            'url'                => 'full',                                                          // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
+            'type'               => 'WebPage',
+            "license"            => "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
+            "acquireLicensePage" => "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+            'images'             => [],
         ],
     ],
 ];
