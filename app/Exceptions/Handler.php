@@ -35,7 +35,11 @@ class Handler extends ExceptionHandler
      */
     public function register() {
         $this->reportable(function (Throwable $e) {
-            //
+            Log::channel('slack')->error($e->getMessage(),[
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'code' => $e->getCode(),
+            ]);
         });
     }
 

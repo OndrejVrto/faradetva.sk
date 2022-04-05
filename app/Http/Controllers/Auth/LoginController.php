@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
@@ -55,11 +56,15 @@ class LoginController extends Controller
      * @return mixed
      */
     protected function authenticated() {
-        if(Auth::user()->active === 0) {
-            $name = Auth::user()->nick;
+
+        if(!Auth::user()->active) {
+            $name = Auth::user();
             Auth::logout();
 
-            return to_route('login')->withErrors("Konto {$name} nie je povolené!");
+            Log::channel('slack')
+                ->warning("Uživateľ {$name->name}, ({$name->email}) sa pokúsil prihlásiť do účtu aj napriek tomu, že má deaktivované konto.");
+
+            return to_route('login')->withErrors("Konto {$name->nick} nie je povolené!");
         }
     }
 }
