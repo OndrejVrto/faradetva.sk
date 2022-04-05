@@ -4,9 +4,11 @@ declare(strict_types = 1);
 
 namespace App\Http\Requests;
 
+use App\Enums\ChartType;
 use Illuminate\Support\Str;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
+use Illuminate\Foundation\Http\FormRequest;
 
 class ChartRequest extends FormRequest
 {
@@ -45,8 +47,7 @@ class ChartRequest extends FormRequest
             ],
             'type_chart' => [
                 'required',
-                'integer',
-                'between:1,255',
+                new Enum(ChartType::class),
             ],
             'color' => [
                 'required',

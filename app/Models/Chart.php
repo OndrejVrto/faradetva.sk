@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Enums\ChartType;
 use App\Models\ChartData;
 use App\Traits\Restorable;
 use Illuminate\Database\Eloquent\Model;
@@ -33,6 +34,7 @@ class Chart extends Model
 
     protected $casts = [
         'active' => 'boolean',
+        'type_chart' => ChartType::class,
     ];
 
     public function getRouteKeyName() {
