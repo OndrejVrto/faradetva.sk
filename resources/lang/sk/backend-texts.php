@@ -217,4 +217,14 @@ return [
         'header_create'      => 'Nové oznamy',
         'header_edit'        => 'Úprava farských oznamov',
     ],
+
+    'faqs' => [
+        'title'              => 'Otázky a odpovede',
+        'description'        => 'Najčastejšie otázky a odpovede pre rôzne statické stránky',
+        'description_create' => 'Tu môžete pridať novú otázku s odpoveďou a priradiť ju ku stránkam',
+        'description_edit'   => 'Tu môžete upraviť otázku s odpoveďou a upraviť priradenie ku stránkam',
+        'header'             => 'Otázky a odpovede',
+        'header_create'      => 'Nová otázka s odpoveďou',
+        'header_edit'        => 'Úprava otázok a odpovedí',
+    ],
 ];

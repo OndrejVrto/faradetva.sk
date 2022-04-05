@@ -43,7 +43,7 @@ class PageController extends Controller
     /** get Page Data for One nod in URL and Cache it **/
     private function getPageData(string $path): array|null {
         return Cache::rememberForever('PAGE_' . Str::slug($path), function () use($path): array|null {
-            return StaticPage::whereUrl($path)->with('banners')->get()->map(function($page): array {
+            return StaticPage::whereUrl($path)->with('banners', 'faqs')->get()->map(function($page): array {
                 return [
                     'id'          => $page->id,
                     'slug'        => $page->slug,
@@ -55,6 +55,7 @@ class PageController extends Controller
                     'description' => $page->description,
                     'keywords'    => $page->keywords,
                     'banners'     => $page->banners->pluck('slug')->toArray(),
+                    'faqs'        => $page->faqs->pluck('slug')->toArray(),
                 ];
             })->first();
         });

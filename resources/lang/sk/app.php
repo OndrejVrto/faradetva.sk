@@ -127,4 +127,9 @@ return [
         'update' => 'Modlidba bola upravená.',
         'delete' => 'Modlidba bola odstránená!',
     ],
+    'faq'   => [
+        'store'  => 'Otázka bola pridaná!',
+        'update' => 'Otázka bola upravená.',
+        'delete' => 'Otázka bola odstránená!',
+    ],
 ];

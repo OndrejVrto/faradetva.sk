@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Models\Faq;
 use App\Models\File;
 use App\Models\Banner;
 use App\Traits\Restorable;
@@ -45,5 +46,9 @@ class StaticPage extends Model
 
     public function banners() {
         return $this->belongsToMany(Banner::class, 'static_page_banner', 'static_page_id', 'banner_id');
+    }
+
+    public function faqs() {
+        return $this->belongsToMany(Faq::class, 'static_page_faq', 'static_page_id', 'faq_id');
     }
 }

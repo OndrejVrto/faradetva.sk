@@ -23,7 +23,14 @@
                 dimensionSource="full"
             />
         @endisset
+
         {{ $slot }}
+
+        @if(isset($pageData['faqs']) AND count($pageData['faqs']) > 0)
+            <x-frontend.sections.faq
+                :questionsSlug="$pageData['faqs']"
+            />
+        @endisset
     </main>
     <!-- MASTER CONTENT End -->
 

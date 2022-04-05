@@ -67,6 +67,7 @@ Breadcrumbs::resource('galleries', 'Galérie');
 Breadcrumbs::resource('tags', 'Kľúčové slová');
 Breadcrumbs::resource('prayers', 'Modlidby dňa');
 Breadcrumbs::resource('permissions', 'Povolenia');
+Breadcrumbs::resource('faqs', 'Otázky a odpovede');
 Breadcrumbs::resource('testimonials', 'Svedectvá');
 Breadcrumbs::resource('charts.data', 'Údaje do grafov');
 Breadcrumbs::resource('notice-church', 'Farské oznamy');

@@ -2,6 +2,7 @@
 
 use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\FileController;
 use App\Http\Controllers\Backend\NewsController;
@@ -121,6 +122,7 @@ Route::prefix('admin')->group( function() {
 
         Route::resources([
             'tags'            => TagController::class,
+            'faqs'            => FaqController::class,
             'news'            => NewsController::class,
             'files'           => FileController::class,
             'roles'           => RoleController::class,
