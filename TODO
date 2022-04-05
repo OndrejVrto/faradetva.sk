@@ -1,0 +1,72 @@
+
+Obsah stránky:
+  ☐ otváracie hodiny kostola
+  ☐ štandardné časy omší
+  ☐ dorobiť texty od Mariána
+  ☐ zoradiť stránky podľa zoznamu od Mariana
+  ☐ spoločenstvá - zoznam ako sekcia
+  ☐ osobnosti - zoznam ako sekcia
+  ☐ skills -> nejaké štatistiky
+  ☐ sumáre stránok v sekciách do stránky o nás...
+  ✔ spojazdniť Formulár v kontakoch
+  ☐ add section class in notice frontend
+
+Administrátorské rozhranie:
+  ✔ newsletter register/unscribe
+  ☐ doprogramovať grafy -> farba, typ, ...
+  ☐ facebook prepojenie - počet likes FB stránky farnosti
+  ☐ automatické zverejnenie článku na FaceBooku po zverejnení na stránke
+  ✔ CRUD modlidby s obrázkom na celú stránku a linkom na príspevok
+  ☐ BredCrumbs in Chard data
+  ☐ storage media in Storage folder and create link
+  ☐ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
+  ✔ prerobiť design dashboardu
+  ✔ prvý článok v zozname prerobiť do responzivneho režimu
+  ✘ move source in backend fomns to component?
+  ☐ premazať všetky nepotrebné obrázky v public/images
+  ☐ pridať component prílohy do článkov/upraviť ho podľa potreby
+  ☐ Orezanie / CROP obrázkov cez JS kde to treba
+    ☐ Datatable pre všetky backend tabuľky
+  ✔ search na celej stránke
+    https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
+    https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
+    https://spatie.be/docs/laravel-site-search/v1/introduction
+  ☐ webpack mix -> všetko v jenom css a js
+  ☐ vytvoriť logo a ikonu stránky / farnosti
+  ✔ mansonry layout pre články (https://getbootstrap.com/docs/5.1/examples/masonry/)
+  ✔ add robots index, follow to meta tag
+  ✔ pridať tlačítko na download všade kde sa vkladá súbor ( články, kňazi, slider, user, rozpisy, ....)
+  ✔ dorobiť restore a force-delete metódy v softdelete modeloch
+  ✔ pridať tlačítka zmazaných položiek pri softdelete modeloch a skryť tlačítka show metód
+  ✘ Apply SoftDelete Cascade in model user? (https://github.com/razisayyed/laravel-cascaded-soft-deletes)
+  ☐ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
+  ☐ Generovať Sitemap (https://github.com/ultrono/laravel-sitemap,  laravelium/sitemap alebo spatie)
+  ☐ implementovať RSS feed (spatie/laravel-feed)
+  ☐ implementovať trailing slash package alebo vyriešiť koncové lomítko inak (https://github.com/illuminatech/url-trailing-slash)
+  ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
+  ☐ implementovať do statických stránok referenčný obrázok pre facebook/twiter
+  ☐ vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
+  ☐ implemenotovať JsonLd  Schema.org/google structured data
+    poznámky
+    https://schema.org
+    https://developers.google.com/search/docs/advanced/structured-data/search-gallery
+    https://freek.dev/642-a-package-to-fluently-generate-schemaorg-markup
+    https://moz.com/blog/json-ld-for-beginners
+    WebPage, WebContent, ImageGallery, Person, ....
+  ✔ cache celej frontend stránky  (https://www.youtube.com/watch?v=P5WvRH71A5g&ab_channel=Laratips)
+  ☐ vyriešiť deployment celej aplikácie   http://www.youtube.com/results?search_query=deploy+laravel+app
+  ☐ štatistika a kontroly na dashboard
+    https://www.youtube.com/watch?v=iXH1RJJ4EUw&ab_channel=LaravelDaily
+    https://spatie.be/docs/laravel-dashboard/v2/introduction
+    https://freek.dev/2143-a-laravel-package-to-monitor-the-health-of-your-application
+    https://github.com/spatie/laravel-server-monitor
+  ☐ gooogle analytics dashboard
+    https://codelapan.com/post/google-analytics-laravel
+    https://spatie.be/docs/laravel-dashboard/v2/introduction
+    https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
+    https://github.com/fidum/laravel-dashboard-chart-tile
+    https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
+  ☐ vkladanie obrazkov galerie cez vue komponent  https://github.com/s1modev/media-upload
+  ☐ Implementovať Frequently Asked Question (FAQ) do všetkých stránok aj s JsonLd
+
+Archive:

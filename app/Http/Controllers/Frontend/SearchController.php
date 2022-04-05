@@ -16,6 +16,8 @@ class SearchController extends Controller
             ->limit(100)
             ->get() : null;
 
+        // TODO:  add SEO META headers
+
         return view('frontend.search.global', compact('searchResults', 'searchFrase'));
     }
 }

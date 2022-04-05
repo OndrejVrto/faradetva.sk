@@ -3,9 +3,14 @@
 namespace App\View\Components\Partials;
 
 use Illuminate\View\Component;
+use romanzipp\Seo\Schema\Schema;
 use Illuminate\Contracts\View\View;
+use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
+use Artesaos\SEOTools\Facades\JsonLdMulti;
+use Spatie\SchemaOrg\Schema as SpatieSchema;
+use romanzipp\Seo\Collections\SchemaCollection;
 
 class Picture extends Component
 {
@@ -62,6 +67,7 @@ class Picture extends Component
                                                 'alt' => $img->source->description,
                                                 'title' => $img->title,
                                             ]),
+                    'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
                     'sourceArr' => [
                         'source'      => $img->source->source,
                         'source_url'  => $img->source->source_url,
@@ -73,6 +79,8 @@ class Picture extends Component
                 ];
             })->first();
         });
+
+        $this->setSeoMetaTags($this->picture);
     }
 
     public function render(): View|null {
@@ -80,5 +88,24 @@ class Picture extends Component
             return view('components.partials.picture.index');
         }
         return null;
+    }
+
+    private function setSeoMetaTags(array $pictureData): void {
+        $JsonLD = SpatieSchema::imageObject()
+            ->url($pictureData['url'])
+            ->description('Popis obrázku')
+            ->alternateName('ALT')
+            ->width(100)
+            ->height(500)
+            ->encodingFormat('MIME')
+            ->uploadDate(now())
+            ->license($pictureData['sourceArr']['license'])
+            ->toArray();
+
+
+        unset($JsonLD['@context']);
+        JsonLd::addImage([
+            $JsonLD
+        ]);
     }
 }

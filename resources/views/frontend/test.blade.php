@@ -1,11 +1,11 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.sections.banner
-        :header="$pageData['title']"
-        :breadcrumb="$pageData['breadCrumb']"
-        :titleSlug="$pageData['banners']"
-        dimensionSource="full"
-    />
+
+    <x-partials.picture titleSlug="cb" side="left" animation="fromleft" dimensionSource="medium"/>
+    <x-partials.picture titleSlug="obr1" side="right" animation="sonarEffect" dimensionSource="medium" data-wow-delay="0.3s" class="pt-5 mt-5"/>
+    {{-- <x-partials.picture titleSlug="cb" side="left" animation="fromleft" dimensionSource="medium"/> --}}
+    {{-- <x-partials.picture titleSlug="obr1" side="right" animation="sonarEffect" dimensionSource="medium" data-wow-delay="0.3s" class="pt-5 mt-5"/> --}}
+
 
     <x-frontend.page.section name="SUBSCRIBE" class="static-page">
 

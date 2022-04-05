@@ -34,9 +34,15 @@ class Handler extends ExceptionHandler
      * @return void
      */
     public function register() {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
+        if (!config('app.debug')) {
+            $this->reportable(function (Throwable $e) {
+                Log::channel('slack')->error($e->getMessage(), [
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'code' => $e->getCode(),
+                ]);
+            });
+        }
     }
 
     /**

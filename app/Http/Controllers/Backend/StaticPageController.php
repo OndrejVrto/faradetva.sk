@@ -19,6 +19,7 @@ class StaticPageController extends Controller
         $pages = StaticPage::query()
             ->orderBy('slug')
             ->withCount('banners')
+            ->withCount('faqs')
             ->archive($request, 'pages')
             ->get();
 

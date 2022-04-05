@@ -10,6 +10,9 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     public function __invoke(): View  {
+
+        // TODO:  add SEO META headers
+
         return view('frontend.home.index');
     }
 }
