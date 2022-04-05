@@ -18,10 +18,10 @@ enum SubscribeModels: string
 
     public function url(): string {
         return match($this) {
-            self::NEWS            => config('app.ur').'/clanok',
-            self::NOTICE_CHURCH   => config('app.ur').'/oznamy-vsetky',
-            self::NOTICE_ACOLYTE  => config('app.ur').'/o-nas/pastoracia/akolyti',
-            self::NOTICE_LECTURER => config('app.ur').'/o-nas/pastoracia/lektori',
+            self::NEWS            => config('app.url').'/clanok',
+            self::NOTICE_CHURCH   => config('app.url').'/oznamy-vsetky',
+            self::NOTICE_ACOLYTE  => config('app.url').'/o-nas/pastoracia/akolyti',
+            self::NOTICE_LECTURER => config('app.url').'/o-nas/pastoracia/lektori',
         };
     }
 }
