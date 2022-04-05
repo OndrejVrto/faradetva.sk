@@ -45,6 +45,7 @@ Administrátorské rozhranie:
   ☐ implementovať trailing slash package alebo vyriešiť koncové lomítko inak (https://github.com/illuminatech/url-trailing-slash)
   ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
   ☐ implementovať do statických stránok referenčný obrázok pre facebook/twiter
+  ☐ vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
   ☐ implemenotovať JsonLd  Schema.org/google structured data
     poznámky
     https://schema.org

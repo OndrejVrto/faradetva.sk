@@ -39,7 +39,7 @@ class NewsRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
-                'max:200',
+                'max:110', //Google schema markup:  ... Headlines should not exceed 110 characters. ...
             ],
             'slug' => [
                 Rule::unique('news', 'slug')->ignore($this->news)->withoutTrashed(),

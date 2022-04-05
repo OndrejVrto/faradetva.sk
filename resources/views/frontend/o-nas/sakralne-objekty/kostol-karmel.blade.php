@@ -3,7 +3,7 @@
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V roku 2004 sa v mestskej časti Dolinky začalo s výstavbou kláštora pre kontemplatívne sestry z Rádu bosých karmelitánok Preblahoslavenej Panny Márie z Hory Karmel. Stavbu kláštora spolu s kostolom projektoval Ing. arch. Marián Sitarčík. Hoci väčšia časť kláštora je klauzurovaná, čiže verejnosti neprístupná, kláštorný kostol je možné navštíviť a denne sa v ňom slávia sväté omše za účasti veriacich farnosti. Celý kláštorný komplex bol požehnaný a kostol konsekrovaný biskupom Rudolfom Balážom 28. júla 2007.
@@ -15,7 +15,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 V roku 2018 bola na stenu presbytéria kostola nainštalovaná mozaika, poskladaná z množstva kamienkov rôzneho druhu, veľkosti, tvaru a farby. Autorom mozaiky je gréckokatolícky kňaz a redemptorista Kamil Dráb, umeleckým menom Don Camillo, ktorý je žiakom celosvetovo známeho umelca, jezuitu Marka Rupnika. Celá koncepcia mozaiky vychádza z patrocínia kostola. Hlavnou postavou celého priestoru je Ježiš Kristus zo zjavenia sv. Faustíne, v ikonografickom zobrazení. Mozaiku 10. septembra 2018 požehnal diecézny biskup Mons. Marián Chovanec.
@@ -29,7 +29,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Po Kristovej pravici stojí Panna Mária - Kráľovná Karmelu. Na rukách drží dieťa Ježiša a s vrúcnou láskou ho túli k sebe, akoby ho chcela chrániť pred temnotami, ktoré sú navôkol. Zatiaľ čo malý Ježiš má - podobne ako veľký - prenikavý milosrdný pohľad, Panna Mária má zatvorené oči. Nie žeby spala. Je to Panna započúvaná do Slova. Slovo nosí v sebe a nesie ho pred sebou; nespí, ale vo svojom srdci o ňom premýšľa. Ježiško ponúka škapuliar - znak zmluvy a vzájomného spoločenstva medzi Pannou Máriou a veriacimi. Škapuliar pripomína ustavičnú ochranu a nežnú Máriinu prítomnosť počas našej životnej púte, ale aj vo chvíli prechodu do plnosti večnej slávy.
