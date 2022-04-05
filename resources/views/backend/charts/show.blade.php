@@ -14,7 +14,7 @@
     $typeForm = $identificator = $createdInfo = $updatedInfo = null;
     if ( isset( $chart ) ) {
         $typeForm = 'show';
-        $identificator = $chart->id;
+        $identificator = $chart->slug;
     }
 @endphp
 

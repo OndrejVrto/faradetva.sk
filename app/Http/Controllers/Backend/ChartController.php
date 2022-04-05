@@ -26,10 +26,10 @@ class ChartController extends Controller
         return view('backend.charts.index', compact('charts'));
     }
 
-    public function create(): void {
-        // $chartTypes = collect(ChartType::values());
+    public function create(): View {
+        $chartTypes = ChartType::cases();
 
-        // return view('backend.charts.create', compact('chartTypes'));
+        return view('backend.charts.create', compact('chartTypes'));
     }
 
     public function store(ChartRequest $request): RedirectResponse {
@@ -44,10 +44,10 @@ class ChartController extends Controller
         return view('backend.charts.show', compact('chart'));
     }
 
-    public function edit(Chart $chart): void {
-        // $chartTypes = collect(ChartType::values());
+    public function edit(Chart $chart): View {
+        $chartTypes = ChartType::cases();
 
-        // return view('backend.charts.edit', compact('chart', 'chartTypes'));
+        return view('backend.charts.edit', compact('chart', 'chartTypes'));
     }
 
     public function update( ChartRequest $request, Chart $chart): RedirectResponse {

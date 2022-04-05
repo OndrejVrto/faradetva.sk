@@ -70,19 +70,17 @@
             </div>
         </x-slot>
         <option/>
-        @if ($chartTypes->count())
             @foreach($chartTypes as $chartType)
-            <option
-                    value="{{ $chartType['id'] }}"
-                    title="{{ $chartType['typeLocalize'] }}"
-                    @if( $chartType['id'] == ($chart->type_chart ?? '') OR $chartType['id'] == old('type_chart'))
+                <option
+                    value="{{ $chartType->value }}"
+                    title="{{ $chartType->typeLocalize() }}"
+                    @if( $chartType->value == ($chart->type_chart->value ?? '') OR $chartType->value == old('type_chart'))
                         selected
                     @endif
                     >
-                    {{ $chartType['typeLocalize'] }}
+                    {{ $chartType->typeLocalize() }}
                 </option>
             @endforeach
-        @endif
     </x-adminlte-select2>
 
     <x-adminlte-input

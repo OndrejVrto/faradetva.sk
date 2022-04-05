@@ -27,6 +27,16 @@
 
     </x-frontend.page.section>
 
+    <x-frontend.page.section name="GRAPHS" class="static-page">
+        <x-partials.statistics-graph name="krsty"/>
+        <x-partials.statistics-graph name="prve-svate-prijimanie"/>
+        <x-partials.statistics-graph name="birmovanie"/>
+        <x-partials.statistics-graph name="sobase"/>
+        <x-partials.statistics-graph name="pohreby"/>
+        <x-partials.statistics-graph name="scitanie-obyvatelov-detvy"/>
+        <x-partials.statistics-graph name="scitanie-rimsko-katolikov-v-meste-detva"/>
+    </x-frontend.page.section>
+
     {{-- <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page">
 
 
