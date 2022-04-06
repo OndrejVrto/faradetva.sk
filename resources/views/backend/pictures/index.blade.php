@@ -18,7 +18,7 @@
         <x-slot name="table_header">
             {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
             <x-backend.table.th width="20%" class="text-center">Obrázok</x-backend.table.th>
-            <x-backend.table.th>Názov obrázka</x-backend.table.th>
+            <x-backend.table.th>Pracovný názov</x-backend.table.th>
             <x-backend.table.th-actions />
         </x-slot>
 

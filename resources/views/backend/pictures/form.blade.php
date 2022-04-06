@@ -3,13 +3,14 @@
     $columns = 7;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = $source = null;
     if ( isset( $picture ) ) {
         $typeForm = 'edit';
         $identificator = $picture->slug;
         $createdInfo = $picture->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $picture->updated_at->format('d. m. Y \o H:i');
         $media_file_name = $picture->getFirstMedia($picture->collectionName)->file_name ?? '';
+        $source = $picture->source;
     }
 @endphp
 
@@ -49,112 +50,7 @@
         </x-slot>
     </x-adminlte-input>
 
-    <x-adminlte-input
-        fgroupClass=""
-        name="description"
-        label="Popis obrázku"
-        enableOldSupport="true"
-        value="{{ $picture->source->description ?? '' }}"
-        >
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-scroll"></i>
-            </div>
-        </x-slot>
-    </x-adminlte-input>
-
-    <div class="form-row">
-        <div class="col-xl-5">
-            <x-adminlte-input
-                name="source"
-                label="Zdroj obrázkov (text)"
-                enableOldSupport="true"
-                value="{{ $picture->source->source ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-cart-arrow-down"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-        <div class="col-xl-7">
-            <x-adminlte-input
-                name="source_url"
-                label="Link na zdroj obrázkov (url)"
-                enableOldSupport="true"
-                value="{{ $picture->source->source_url ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-link"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="col-xl-5">
-            <x-adminlte-input
-                name="author"
-                label="Meno autora obrázkov"
-                enableOldSupport="true"
-                value="{{ $picture->source->author ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-user-astronaut fa-lg"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-        <div class="col-xl-7">
-            <x-adminlte-input
-                name="author_url"
-                label="Kontakt na autora obrázkov (url)"
-                enableOldSupport="true"
-                value="{{ $picture->source->author_url ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fab fa-facebook"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="col-xl-5">
-            <x-adminlte-input
-                name="license"
-                label="Licencia obrázkov (text)"
-                enableOldSupport="true"
-                value="{{ $picture->source->license ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-copyright"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-        <div class="col-xl-7">
-            <x-adminlte-input
-                name="license_url"
-                label="Link na licenciu obrázkov (url)"
-                enableOldSupport="true"
-                value="{{ $picture->source->license_url ?? '' }}"
-                >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-info-circle"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-        </div>
-    </div>
+    <x-backend.form.source :source="$source" />
 
 </x-backend.form>
 

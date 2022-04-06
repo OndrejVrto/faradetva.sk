@@ -28,7 +28,7 @@
                 <tr>
                     {{-- <x-backend.table.td>{{$faq->id}}</x-backend.table.td> --}}
                     <x-backend.table.td class="text-wrap text-break">{{ $faq->question }}</x-backend.table.td>
-                    <x-backend.table.td class="text-wrap text-break">{{ str($faq->answer)->limit(90) }}</x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{ str($faq->answer)->limit(70) }}</x-backend.table.td>
                     <x-backend.table.td class="text-center">
                         @if( $faq->static_pages_count != 0 )
                             <span class="badge bg-orange px-2 py-1">{{ $faq->static_pages_count }}</span>
