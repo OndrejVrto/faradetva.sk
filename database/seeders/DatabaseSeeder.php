@@ -15,6 +15,7 @@ use Database\Seeders\ChartSeeder;
 use Database\Seeders\MediaSeeder;
 use Database\Seeders\BannerSeeder;
 use Database\Seeders\SliderSeeder;
+use Database\Seeders\DayIdeaSeeder;
 use Database\Seeders\ChartDataSeeder;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\PermissionSeeder;
@@ -46,6 +47,7 @@ class DatabaseSeeder extends Seeder
             StaticPageSeeder::class,
             ChartSeeder::class,
             ChartDataSeeder::class,
+            DayIdeaSeeder::class,
 
             //after StaticPages
             BannerSeeder::class,
