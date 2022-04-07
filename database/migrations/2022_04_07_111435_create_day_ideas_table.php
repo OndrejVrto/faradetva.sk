@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('day_ideas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('idea', 512);
+            $table->string('idea', 4096);
             $table->string('author')->nullable();
 
             $table->timestamps();
