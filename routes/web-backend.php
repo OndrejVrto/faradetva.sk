@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\PrayerController;
 use App\Http\Controllers\Backend\PriestController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\DayIdeaController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\PictureController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -129,6 +130,7 @@ Route::prefix('admin')->group( function() {
             'prayers'         => PrayerController::class,
             'priests'         => PriestController::class,
             'sliders'         => SliderController::class,
+            'day-ideas'        => DayIdeaController::class,
             'categories'      => CategoryController::class,
             'charts.data'     => ChartDataController::class,
             'permissions'     => PermissionController::class,
