@@ -22,45 +22,59 @@
         {{-- <x-partials.picture titleSlug="obr1" side="right" animation="sonarEffect" dimensionSource="medium" data-wow-delay="0.3s" class="pt-5 mt-5"/> --}}
     </x-frontend.page.section>
 
-    <x-frontend.page.section name="SUBSCRIBE" class="static-page pad_b_50">
+    <x-frontend.page.section name="SUBSCRIBE" class="ch_about_section pad_b_50">
 
-        <x-frontend.page.subsection title="Odoberať články">
+        {{-- <x-frontend.page.subsection title="Odoberať články">
             @livewire('subscribe-form', ['modelName' => 'News'])
         </x-frontend.page.subsection>
 
         <x-frontend.page.subsection title="Odoberať farské oznamy">
             @livewire('subscribe-form', ['modelName' => 'NoticeChurch'])
-        </x-frontend.page.subsection>
+        </x-frontend.page.subsection> --}}
 
         <x-frontend.page.subsection title="Odoberať rozpisy akolytov">
             @livewire('subscribe-form', ['modelName' => 'NoticeAcolyte'])
         </x-frontend.page.subsection>
 
-        <x-frontend.page.subsection title="Odoberať rozpisy lektorov">
+        {{-- <x-frontend.page.subsection title="Odoberať rozpisy lektorov">
             @livewire('subscribe-form', ['modelName' => 'NoticeLecturer'])
-        </x-frontend.page.subsection>
+        </x-frontend.page.subsection> --}}
 
     </x-frontend.page.section>
 
-    <x-frontend.page.section name="GRAPHS" row="true" class="static-page pad_b_50">
+    <x-frontend.page.section name="IMPORTANT PERSONALITIES" row="true" class="ch_ministry_section pad_t_50">
+
+        <x-frontend.page.section-header header="Významné osobnosti farnosti" />
+
+        <x-partials.page-card delay=".2s" routeStaticPage="o-nas.historia.anton-prokop" />
+        <x-partials.page-card delay=".4s" routeStaticPage="o-nas.historia.imrich-durica" />
+        <x-partials.page-card delay=".6s" routeStaticPage="o-nas.historia.jozef-zavodsky" />
+        <x-partials.page-card delay=".8s" routeStaticPage="o-nas.historia.karol-anton-medvecky" />
+        <x-partials.page-card delay="1s"  routeStaticPage="o-nas.historia.jan-strban" />
+        <x-partials.page-card delay="1.2s" routeStaticPage="o-nas.historia.jozef-buda" />
+
+    </x-frontend.page.section>
+
+    <x-frontend.page.section name="GRAPHS" row="true" class="ch_about_section pad_t_50">
+
+        <x-frontend.page.section-header header="Štatistiky" />
+
         <x-partials.statistics-graph name="krsty"/>
-        {{-- <x-partials.statistics-graph name="prve-svate-prijimanie"/> --}}
+        <x-partials.statistics-graph name="prve-svate-prijimanie"/>
         {{-- <x-partials.statistics-graph name="birmovanie"/> --}}
         {{-- <x-partials.statistics-graph name="sobase"/> --}}
-        {{-- <x-partials.statistics-graph name="pohreby"/> --}}
+        <x-partials.statistics-graph name="pohreby"/>
         <x-partials.statistics-graph name="scitanie-obyvatelov-detvy"/>
         {{-- <x-partials.statistics-graph name="scitanie-rimsko-katolikov-v-meste-detva"/> --}}
     </x-frontend.page.section>
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page pad_b_50">
+    <x-frontend.sections.pray />
 
+    <x-frontend.sections.skills />
 
-        <x-frontend.page.subsection title="Prílohy" icon="fas fa-paperclip me-3">
-            <x-partials.attachment nameSlug="excel-stary" />
-            <x-partials.attachment nameSlug="obrazok-gif" />
-            <x-partials.attachment nameSlug="gimp" />
-            <x-partials.attachment nameSlug="zip" />
-        </x-frontend.page.subsection>
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page pad_t_50">
+
+        <x-frontend.page.section-header header="Texty a prílohy" />
 
         <x-frontend.page.subsection title="Lorem ipsum dolor et my">
             {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="small"/> --}}
@@ -72,19 +86,37 @@
 
             {{-- <x-partials.picture titleSlug="cb" side="left" animation="fromleft" dimensionSource="medium"/> --}}
             {{-- <x-partials.picture titleSlug="obr1" side="right" animation="sonarEffect" dimensionSource="medium" data-wow-delay="0.3s" class="pt-5 mt-5"/> --}}
-
+{{--
             <x-frontend.page.text-segment animation="fromleft">
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. A suscipit id iste doloremque iusto rem cumque aliquam tenetur corrupti voluptatem. Soluta dignissimos, quos molestias tempora laborum maxime magnam error enim libero! Pariatur magni sunt iusto rerum exercitationem sapiente labore animi quas totam ad molestias tenetur, quo quod quam nemo a, maxime eos. Sequi deleniti maxime alias, beatae ullam fugit est perspiciatis modi repellendus veritatis quas illum aspernatur consectetur culpa quibusdam quae commodi molestias impedit, earum, blanditiis quisquam ipsa dolorum. Quo eligendi ipsa vero omnis sequi, inventore adipisci necessitatibus harum sint possimus, ipsam deleniti, at culpa illo. In velit, culpa ullam quaerat enim, iusto non earum eius esse porro, natus error aliquid corrupti dignissimos fugit officia aut qui illum placeat tempore quia soluta? Facilis ex illo fuga. Quaerat nihil possimus magni dolores vitae consectetur eaque ex natus voluptatum. Explicabo quasi, molestias voluptatum ipsum, aliquam quibusdam nihil natus nam iure numquam totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia odit voluptatum sit dolore expedita distinctio optio eius veniam eaque quaerat. Asperiores repellat sunt minus. Repellat ea fuga non veniam excepturi aliquam illum, quidem distinctio quis est mollitia aspernatur ab consequatur dolorum rerum neque sequi odit.
                 </p>
-            </x-frontend.page.text-segment>
+            </x-frontend.page.text-segment> --}}
+        </x-frontend.page.subsection>
+
+        <x-frontend.page.subsection title="Prílohy" icon="fas fa-paperclip me-3">
+            <x-partials.attachment nameSlug="excel-stary" />
+            <x-partials.attachment nameSlug="obrazok-gif" />
+            <x-partials.attachment nameSlug="gimp" />
+            <x-partials.attachment nameSlug="zip" />
         </x-frontend.page.subsection>
 
     </x-frontend.page.section>
 
-    <x-frontend.sections.pray />
+    <x-frontend.page.section name="MINISTIES" row="true" class="ch_ministry_section pad_t_50 pad_b_50">
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page pad_b_50">
+        <x-frontend.page.section-header header="Spoločenstvá"/>
+
+            <x-partials.page-card delay=".2s" routeStaticPage="spolocenstva.frantiskansky-svetstky-rad" />
+            <x-partials.page-card delay=".4s" routeStaticPage="spolocenstva.marianske-veceradlo" />
+            <x-partials.page-card delay=".6s" routeStaticPage="spolocenstva.rad-bosych-karmelitanok" />
+            <x-partials.page-card delay=".8s" routeStaticPage="spolocenstva.ruzencove-bratstvo" />
+            <x-partials.page-card delay="1s"  routeStaticPage="spolocenstva.svetsky-rad-bosych-karmelitanov" />
+            <x-partials.page-card delay="1.2s" routeStaticPage="spolocenstva.zdruzenie-salezianskych-spolupracovnikov" />
+
+        </x-frontend.page.section>
+
+    <x-frontend.page.section name="ALBUM" class="static-page pad_t_50 pad_b_50">
 
         <x-partials.photo-gallery titleSlug="historia-farnosti-detva" dimensionSource="medium"/>
 
@@ -103,4 +135,5 @@
         </x-frontend.page.subsection>
 
     </x-frontend.page.section>
+
 </x-frontend.layout.master>

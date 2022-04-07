@@ -1,17 +1,16 @@
 
 Obsah stránky:
-  ☐ otváracie hodiny kostola
-  ☐ štandardné časy omší
+  ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
   ☐ dorobiť texty od Mariána
   ☐ zoradiť stránky podľa zoznamu od Mariana
   ✔ spoločenstvá - zoznam ako sekcia
-  ☐ osobnosti - zoznam ako sekcia
-  ☐ skills -> nejaké štatistiky
-  ☐ sumáre stránok v sekciách do stránky o nás...
+  ✔ osobnosti - zoznam ako sekcia
+  ✔ skills -> nejaké štatistiky
   ✔ spojazdniť Formulár v kontakoch
   ✔ add section class in notice frontend
   ☐ vytvoriť logo a ikonu stránky / farnosti
   ✔ Myšlienky dňa do Footera stránky
+  ☐ design pre subscribe formulár vložený ako sekcia na stránke
 
 Administrátorské rozhranie:
   ✔ newsletter register/unscribe
