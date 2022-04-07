@@ -11,6 +11,7 @@ Obsah stránky:
   ✔ spojazdniť Formulár v kontakoch
   ✔ add section class in notice frontend
   ☐ vytvoriť logo a ikonu stránky / farnosti
+  ✔ Myšlienky dňa do Footera stránky
 
 Administrátorské rozhranie:
   ✔ newsletter register/unscribe
@@ -49,7 +50,7 @@ Administrátorské rozhranie:
     https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
     https://github.com/fidum/laravel-dashboard-chart-tile
     https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
-  ☐ myšlienka dňa do footera
+  ✔ Myšlienka dňa - komplet model, controller, migration, ....
 
 SEO:
   ☐ rozšíriť model Priest o kontakty na sociálne siete pre potreby SEO

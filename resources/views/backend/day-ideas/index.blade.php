@@ -9,7 +9,7 @@
 
 @section('content')
     <x-backend.table
-        columns="7"
+        columns="10"
         controlerName="day-ideas"
         createBtn="Pridať novú myšlienku dňa"
         paginator="{{ $ideas->onEachSide(1)->links() }}"
@@ -28,7 +28,7 @@
 
                     {{-- <x-backend.table.td>{{$idea->id}}</x-backend.table.td> --}}
                     <x-backend.table.td class="text-wrap text-break">{{ $idea->author }}</x-backend.table.td>
-                    <x-backend.table.td class="text-wrap text-break">{{ str($idea->idea)->limit(70) }}</x-backend.table.td>
+                    <x-backend.table.td class="text-wrap text-break">{{ str($idea->idea)->limit(120) }}</x-backend.table.td>
                     <x-backend.table.td-actions
                         controlerName="day-ideas"
                         identificator="{{ $idea->id }}"

@@ -132,4 +132,9 @@ return [
         'update' => 'Otázka bola upravená.',
         'delete' => 'Otázka bola odstránená!',
     ],
+    'day-idea'   => [
+        'store'  => 'Myšlienka bola pridaná!',
+        'update' => 'Myšlienka bola upravená.',
+        'delete' => 'Myšlienka bola odstránená!',
+    ],
 ];
