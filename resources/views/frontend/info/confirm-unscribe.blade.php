@@ -8,7 +8,7 @@
         header="Odhlásenie odberu"
     />
 
-    <x-frontend.page.section name="INFO - Unscribe" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="INFO - Unscribe" class="static-page pad_b_50">
         <x-frontend.page.subsection title="Ďakujeme za odber {{ $subscriber->name }}">
 
         <p>Ak v budúcnosti budete chcieť odoberať novinky, môžete využiť formulár v spodnej časti stránky.</p>

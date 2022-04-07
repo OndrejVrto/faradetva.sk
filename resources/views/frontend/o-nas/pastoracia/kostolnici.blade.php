@@ -1,9 +1,9 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Osobitné postavenie medzi spolupracovníkmi kňaza v spoločenstve veriacich má kostolník. Jeho úloha by sa dala opísať aj ako pomoc pri bohoslužbách a vysluhovaní sviatostí, zabezpečuje dozor v kostole, starostlivo dbá o priestor a predmety potrebné k liturgii. Kostolník veľakrát prispieva k vytvoreniu „duchovnej nálady“ pre bohoslužbu, svojou službou pripravuje „pôdu“ pre liturgické slávenia.
@@ -24,7 +24,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Medzi dôležité úlohy, ktoré je potrebné zabezpečiť pre dôstojnosť slávenia liturgie, spadá aj upratovanie kostola a kvetinová výzdoba. Tieto nemôže mať na starosti len jedna osoba, majú sa zveriť aj iným veriacim. Kostolník okrem iného dbá aj o čistotu liturgických rúch a iných textílií potrebných vo svätej omši.

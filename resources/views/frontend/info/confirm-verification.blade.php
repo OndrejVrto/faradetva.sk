@@ -8,7 +8,7 @@
         header="Overenie mailu"
     />
 
-    <x-frontend.page.section name="INFO - Verification email" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="INFO - Verification email" class="static-page pad_b_50">
         <x-frontend.page.subsection title="Ďakujeme {{ $subscriber->name }}">
 
             <p>Váš e-mail<span class="mx-2 link-template">{{ $subscriber->email }}</span> bol overený.</p>

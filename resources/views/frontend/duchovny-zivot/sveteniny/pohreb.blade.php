@@ -1,9 +1,9 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Cirkev sa modlí a verí: „Očakávam vzkriesenie mŕtvych a život budúceho veku.“ Pohrebné obrady sú posvätným úkonom, pri ktorom Cirkev zveruje Bohu svojich bratov a sestry vo viere, vyznáva svoju vieru a uznáva Božie pôsobenie v živote človeka.
@@ -18,7 +18,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Pri pohrebe svojich veriacich Cirkev s dôverou slávi veľkonočné tajomstvo, aby tí, čo boli krstom pričlenení k zomrelému a vzkriesenému Kristovi, smrťou vošli s ním do života. Ich duše sa majú očistiť a prejsť do spoločenstva svätých a vyvolených v nebi, ich telá očakávajú blaženú nádej Kristovho príchodu a vzkriesenie mŕtvych. Preto Cirkev prináša za zomrelých veľkonočnú eucharistickú Kristovu obetu a koná za nich prosebné modlitby. Chce zomrelým vyprosiť duchovnú pomoc a živým poskytnúť útechu nádeje. Veď všetky údy tajomného Kristovho tela tvoria jeho spoločenstvo.
@@ -33,7 +33,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Pochovávanie a uchovávanie popola v prípade kremácie">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Aby sme mohli vstať s Kristom z mŕtvych, musíme zomrieť s Kristom, „vzdialiť sa z tela a bývať u Pána“ (2Kor 5,8). Inštrukciou Piam et constantem z 5. júla 1963, Sväté ofícium ustanovilo, aby sa „verne zachovával zvyk pochovávať mŕtve telá veriacich“, pričom sa dodáva, že kremácia „neprotirečí kresťanskému náboženstvu“ a už sa nemajú odopierať sviatosti a pohrebné obrady tým, ktorí si želali byť spopolnení. Platí to však za podmienky, že ich želanie nie je motivované „popieraním kresťanských dogiem, alebo sektárskym zmýšľaním, alebo nenávisťou voči katolíckemu náboženstvu a Cirkvi“.
@@ -48,7 +48,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Nasledujúc najstaršiu kresťanskú tradíciu Cirkev neúnavne odporúča, aby boli telá zosnulých pochované na cintoríne alebo na inom posvätnom mieste. Pri pamiatke na Pánovu smrť, pochovanie do hrobu a vzkriesenie, teda tajomstvo, vo svetle ktorého sa vyjavuje kresťanský zmysel smrti, je pochovanie tela tou najvhodnejšou formou na vyjadrenie viery a nádeje vo vzkriesenie tela. Cirkev, ktorá ako matka sprevádza kresťana počas jeho pozemskej púte, v Kristovi obetuje Otcovi dieťa jeho milosti a s nádejou, že ho vzkriesi v sláve, ukladá jeho telesné pozostatky do zeme.
@@ -66,7 +66,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Tam, kde sa z hygienických, ekonomických alebo sociálnych dôvodov rozhodne pre kremáciu, ak toto rozhodnutie nie je proti výslovnému alebo oprávnene predpokladanému želaniu zosnulého veriaceho, nevidí Cirkev doktrinálne dôvody, aby sa takejto praxi bránilo, pretože kremácia tela sa nedotýka duše a nebráni Božej všemohúcnosti, aby vzkriesila telo, a teda neobsahuje objektívne popieranie kresťanskej náuky o nesmrteľnosti duše a vzkriesení tela.
@@ -81,7 +81,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Uchovávanie popola na posvätnom mieste môže prispieť k zmenšeniu rizika, že sa zosnulí vytratia z modlitieb a spomienok svojich príbuzných a kresťanského spoločenstva. Bráni to tiež zabúdaniu a nedostatku úcty - čo sa môže stať najmä vtedy, ak sa prvá generácia pominie - ale aj neprístojným praktikám či poverčivosti. Z vyššie uvedených dôvodov sa nedovoľuje uchovávať popol v domácnosti. Popol sa nesmie rozdeliť medzi rôznych členov rodiny a musí byť vždy zaistená náležitá úcta a primerané podmienky uchovávania.
@@ -96,7 +96,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Ako vybaviť pohreb">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Pohreb blízkej osoby sa vybavuje v spolupráci pohrebnej služby, farského i mestského úradu. V prípade úmrtia doma je potrebné bezodkladne kontaktovať pohotovosť (t. č. 112) a oznámiť úmrtie. Počkať na obhliadajúceho lekára, ktorý vystaví List o prehliadke mŕtveho a následne dohodnúť odvoz zomrelého s pohrebnou službou. V prípade úmrtia v nemocnici, v domove dôchodcov alebo v iných zariadeniach sociálnych služieb, po oznámení úmrtia kontaktovať pohrebnú službu kvôli odvozu zomrelého. Po dohode cirkevného pohrebu v našej farnosti sa úmrtie oznamuje verejnosti zvonením na kostolnej veži o 10.00 a 16.00 hod., každý deň až do konania pohrebu.
