@@ -10,7 +10,7 @@
 
 <x-frontend.page.section
     name="NOTICE"
-    class="TODO"
+    class="TODO:"
 >
     @push('js')
         <!-- NOTICE-PDF-{{ $typeNotice }} script Start -->

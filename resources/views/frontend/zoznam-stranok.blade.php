@@ -10,6 +10,7 @@
                             <li><a href="{{ url('o-nas/historia-farnosti') }}">História farnosti Detva</a></li>
                             <li class="pb-2"><a href="{{ url('o-nas/vianoce-v-detve') }}">Vianoce v Detve</a></li>
                             <span>Významné osobnosti</span>
+                            <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti') }}">Osobnosti</a></li>
                             <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/imrich-durica') }}">Imrich Ďurica</a></li>
                             <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/jozef-zavodsky') }}">Jozef Závodský</a></li>
                             <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/prof-thdr-jozef-buda') }}">prof. Jozef Búda</a></li>

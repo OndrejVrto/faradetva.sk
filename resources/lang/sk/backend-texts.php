@@ -227,4 +227,14 @@ return [
         'header_create'      => 'Nová otázka s odpoveďou',
         'header_edit'        => 'Úprava otázok a odpovedí',
     ],
+
+    'day-ideas' => [
+        'title'              => 'Myšlienky dňa',
+        'description'        => 'Citát pre zobrazenie v pätičké stránky',
+        'description_create' => 'Tu môžete pridať nový citát',
+        'description_edit'   => 'Tu môžete upraviť citát',
+        'header'             => 'Myšlienky dňa',
+        'header_create'      => 'Nová myšlienka dňa',
+        'header_edit'        => 'Úprava myšlienky dňa',
+    ],
 ];

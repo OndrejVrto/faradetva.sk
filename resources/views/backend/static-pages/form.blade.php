@@ -59,7 +59,7 @@
                 label="Autor obsahu stránky"
                 {{-- placeholder="Vlož celé meno autora obsahu" --}}
                 enableOldSupport="true"
-                value="{{ $staticPage->author ?? '' }}" >
+                value="{{ $staticPage->author_page ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-user-astronaut fa-lg"></i>
@@ -141,7 +141,7 @@
                 label="Popis obsahu stránky"
                 {{-- placeholder="Jedna rozvinutá veta." --}}
                 enableOldSupport="true"
-                value="{{ $staticPage->description ?? '' }}" >
+                value="{{ $staticPage->description_page ?? '' }}" >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-scroll"></i>

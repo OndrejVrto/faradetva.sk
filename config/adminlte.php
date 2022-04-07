@@ -331,6 +331,7 @@ return [
             'can'  => [
                 'categories.index',
                 'tags.index',
+                'day-ideas.index',
             ],
         ],
                 [
@@ -346,6 +347,13 @@ return [
                     'route' => 'tags.index',
                     'icon'  => 'fas fa-tag',
                     'can'  => 'tags.index',
+                ],
+                [
+                    'text' => 'Myšlienky dňa',
+                    'icon_color'  => 'green',
+                    'route' => 'day-ideas.index',
+                    'icon'  => 'far fa-lightbulb',
+                    'can'  => 'day-ideas.index',
                 ],
 
         [
