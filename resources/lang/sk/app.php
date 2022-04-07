@@ -15,9 +15,9 @@ return [
         'data-start'                 => 'Boli spustené dátové cache.',
         'data-stop'                  => 'Boli vymazané dátové cache.',
         'data-reset'                 => 'Boli vymazané a znovu spustené dátové cache.',
-        'info'                       => 'Informácie o behovom prostredí PHP.',
-        'check-all-url-static-pages' => 'Skenovanie všetkých URL prebehlo úspešne.',
-        'check-url-static-pages'     => 'Skenovanie neaktívnych URL prebehlo úspešne.',
+        'crawl-all-url'              => 'Skenovanie všetkých URL prebehlo úspešne.',
+        'restart-failed-jobs'        => 'TODO:',
+        'delete-failed-jobs'         => 'TODO:',
     ],
 
     'permission'   => [

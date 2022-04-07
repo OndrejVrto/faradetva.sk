@@ -6,7 +6,7 @@
         <h5>{{ $gallery['description'] }}</h5>
     @endisset
 
-    <div class="gallery w-100">
+    <div class="gallery mx-3 w-100">
         @forelse ($gallery['picture'] as $picture )
             <a
                 href="{{ $picture['href'] }}"
@@ -23,6 +23,7 @@
     <x-partials.source-sentence
         :dimensionSource="$dimensionSource"
         :sourceArray="$gallery['sourceArr']"
+        class="mx-2"
     />
 
 </div>

@@ -12,6 +12,7 @@ class ObserverServiceProvider extends ServiceProvider
         $MODELS = [
             \App\Models\Banner::class,
             \App\Models\Category::class,
+            \App\Models\Faq::class,
             \App\Models\File::class,
             \App\Models\Gallery::class,
             \App\Models\Chart::class,

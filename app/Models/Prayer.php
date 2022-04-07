@@ -66,6 +66,7 @@ class Prayer extends Model implements HasMedia {
             ->fit("crop", 720, 300)        // less than 576px
             ->optimize();
         $this->addMediaConversion('crop-thumb')
-            ->fit("crop", 192, 80);
+            ->fit("crop", 192, 80)
+            ->optimize();
     }
 }
