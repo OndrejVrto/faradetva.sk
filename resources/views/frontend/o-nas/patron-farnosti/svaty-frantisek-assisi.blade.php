@@ -1,9 +1,9 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <h6 class="text-church-template">* 1181/1182 Assisi, Taliansko</h6>
             <h6 class="text-church-template">† 3.10.1226 Kostol Porciunkula, dnes Bazilika Santa Maria degli Angeli pri Assisi, Taliansko</h6>
@@ -14,7 +14,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Mladosť">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 František sa narodil v umbrijskom meste Assisi na úpätí hory Monte Subasio. Jeho rodičmi boli zámožný obchodník so súknom Pietro di Bernardone a jeho manželka Giovanna, zvaná tiež Pika, ktorá pravdepodobne pochádzala z Provensálska. František bol pokrstený ako Giovanni (Ján), krátko nato mu však jeho otec, ktorý sa práve vrátil z obchodnej cesty po Francúzsku, dal meno Francesco („malý Francúz“). Podľa niektorých zdrojov si tak chcel uctiť krajinu, pri obchodovaní s ktorou nadobudol svoje bohatstvo. Okrem Františka mali manželia Bernardonovci ešte jedno dieťa, a to chlapca, ktorý sa volal Angelo.
@@ -23,7 +23,7 @@
                 František získal pomerne dobré vzdelanie a vo svojej mladosti viedol bezstarostný život s dostatkom finančných prostriedkov. Otec sa usiloval vychovať zo syna dobrého obchodníka a čiastočne sa mu to darilo. František sa ukazoval ako schopný obchodník. No na rozdiel od otca nevedel odkladať peniaze. Jeho prirodzená dobrosrdečnosť a romantická povaha ho zvádzali k márnotratnej štedrosti, či už dával peniaze žobrákom, alebo ich míňal pri zábavách s rovesníkmi.
             </p>
         </x-frontend.page.text-segment>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V roku 1199 vypukla v Assisi občianska vojna medzi mešťanmi a šľachtou. Mladý František sa do vojny zapojil v meštianskych oddieloch. V roku 1202 vytiahlo Assisi do boja proti susednému mestu Perugia, kam sa uchýlila veľká časť assiskej šľachty. V novembri toho roku skončila vojna pre Assisi porážkou v bitke pri Collestrade a František padol spolu so svojimi spolubojovníkmi do zajatia, z ktorého ho musel vykúpiť jeho otec. V zajatí František ťažko ochorel. Keď František po roku vychádzal z väzenia, mal za sebou viacero existenciálnych sklamaní: jeho mladíckym snom bolo stať sa široko-ďaleko známym rytierom, v boji však utrpel potupnú porážku. Namiesto užívania si mládeneckej sily, životaschopnosti a bojovnosti sa vo svojich dvadsiatich rokoch musel vyrovnávať s telesnou slabosťou a chorobou.
@@ -35,12 +35,12 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Povolanie">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 V opustenom poľnom kostolíku sv. Damiána zažil František videnie, ktoré dalo jeho životu nový smer. Prihovoril sa mu z oltárneho kríža ukrižovaný Kristus: „František, oprav mi kostol! Veď vidíš, že sa celkom rozpadáva!“ Mladý Bernardone bral Ježišovu výzvu doslovne a dal sa do opravy kostolíka, ako vedel. Táto práca sa stala predobrazom jeho neskoršej účasti na obnove Cirkvi. V latinčine i taliančine je totiž pre kostol a cirkev to isté slovo: ecclesia, la chiesa. Preto Kristova naliehavá prosba sa vzťahovala na Cirkev, hoci v prvej chvíli sa zdalo, že sa týka opusteného kostolíka. Neskôr podobne opravil aj dnes už neexistujúci kostol San Pietro della Spina a kostol Santa Maria degli Angeli neďaleko Assisi, známejší pod názvom Porciunkula.
             </p>
-            <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
             <p>
                 Na opravu kostolov a iné dobročinné účely si František bral finančné prostriedky z obchodu svojho otca. To viedlo k hádkam a dokonca k súdnemu sporu, pri ktorom Pietro Bernardone podal na svojho syna žalobu u miestneho biskupa. Pri súdnom pojednávaní, ktoré sa konalo na jar 1206 verejne na námestí, sa František odhodlal k radikálnemu gestu: celkom sa vyzliekol, šaty hodil otcovi a vyhlásil, že odteraz má už iba Otca, ktorý je na nebesiach. Biskup prikryl Františka svojím plášťom. Tým nielen zakryl jeho nahotu, ale vzal ho pod ochranu ako verejného kajúcnika a človeka zasväteného Bohu.
             </p>
@@ -51,7 +51,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Františkánske spoločenstvo">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 František ako kajúcnik nabádal aj ostatných, aby milovali Boha, kajali sa za svoje hriechy a takto postupne priťahoval ďalších mladých ľudí, ktorí boli ochotní zdieľať s ním jeho spôsob života. Medzi prvými, ktorí sa k nemu v roku 1208 pripojili, bol bohatý obchodník Bernardo da Quintavalle, právnik Pietro Cattani a brat Egídius. Začiatkom roka 1209 bolo bratov už osem a neskôr sa k nim pripojili ďalší štyria. Žili jednoduchým životom v opustenej nemocnici Rivo Torto neďaleko Assisi; mnoho času však trávili putovaním hornatými krajmi Umbrie, vždy v dobrej nálade a so spevom nabádali ľudí k pokániu.
@@ -69,7 +69,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Apoštolát">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Veľmi účinný sa ukázal Františkov apoštolát, ktorý pozostával z príkladu dôsledne prežívaného evanjelia a z kázania. Obsahom jeho kázania bol pokoj a dobro (lat. Pax et bonum), čo ohlasoval všetkým spoločenským triedam bez rozdielu. A jeho výzvy na pokánie a duchovnú obnovu sa naozaj stretli s porozumením všetkých, od jednoduchých ľudí až po univerzitných profesorov. Túžba získať nesmrteľné duše pre Krista viedla Františka k misijným cestám mimo Talianska. V rokoch 1212 - 1214 sa vydal na apoštolské cesty do Palestíny a do Maroka. No ani jeden z týchto cieľov sa mu nepodarilo dosiahnuť: raz pre morskú búrku, inokedy pre chorobu. Medzitým počet bratov stále rástol, takže v rokoch 1217 - 1219 mohol poslať viacej skupín do rozličných krajín Európy.
@@ -87,7 +87,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Posledné roky života">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Tajomstvo Kristovho narodenia vo vianočnú noc v roku 1223 prežíval František spolu s viacerými priateľmi zvláštnym spôsobom na vrchu Greccio. Jaskyňa, živé zvieratá a jednoduchí veriaci ľudia vytvárali scénu, ktorá bola veľmi blízka betlehemskej. A táto udalosť sa napokon stala aj základom pekného kresťanského zvyku stavať si cez vianočné sviatky v rodine alebo niekde i na verejných priestranstvách betlehem. Okrem tajomstva Kristovho narodenia pútalo Františka už od čias jeho obrátenia tajomstvo Kristovho utrpenia a jeho smrti na kríži. Podobne ako vianočný betlehem vznikla z františkánskej spirituality aj pobožnosť krížovej cesty. Sám František mal účasť na Kristovom utrpení ešte iným spôsobom.
@@ -105,7 +105,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Dianie po smrti">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Pre nezvyčajne živú úctu, prejavovanú zomretému zakladateľovi menších bratov a pre množstvo zázrakov, ktoré sa diali na jeho príhovor, pápež Gregor IX. ho vyhlásil za svätého už dva roky po smrti. O ďalšie dva roky neskôr už stála v Assisi nová bazilika zasvätená svätému Františkovi. Do nej preniesli i jeho telesné pozostatky. Ďalšia nepretržitá úcta assiského Chudáčika svedčí o tom, že išlo o naozaj mimoriadnu osobnosť. Každý svätý má svojich ctiteľov, ale aj odporcov. No o svätom Františkovi Assiskom sa hovorí, že nikdy nemal a doteraz nemá nepriateľov: nie všetci ho chápu, ale všetci, dokonca aj mnohí nekatolíci, ho milujú.
@@ -117,7 +117,7 @@
                 Veľká rehoľná rodina menších bratov časom prežívala vnútorné napätia, ktoré sa sústreďovali najmä na otázku zachovávania chudoby. Podľa stupňa tohto zachovávania sa v 16. storočí menší bratia rozdelili na tri autonómne celky. Od menej prísnych konventuálov, ktorých poznáme pod menom minoriti, sa v roku 1517 oddelili prísnejší nekonventuáli a napokon v roku 1528 vznikla ešte prísnejšia vetva kapucínov. Najznámejší a najpočetnejší sú nekonventuáli, známi aj pod menom hnedí františkáni. Zjednodušene sa menší bratia dnes rozlišujú na františkánov, kapucínov a minoritov.
             </p>
         </x-frontend.page.text-segment>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Popri mužských vetvách sa rozšíril aj druhý, čiže ženský rád sv. Františka, nazývaný podľa zakladateľky sv. Kláry. Keďže klarisky žili uzavretým kláštorným životom, nedosiahli taký počet ako apoštolsky činní menší bratia. No ostali obdivuhodne verné pôvodným ideálom sv. Františka a svojou duchovnosťou sa stali požehnaním pre celú Cirkev.

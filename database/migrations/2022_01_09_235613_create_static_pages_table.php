@@ -15,11 +15,14 @@ return new class extends Migration
             $table->string('url');
             $table->string('route_name')->unique();
             $table->string('slug');
-            $table->string('description')->nullable();
+            $table->string('description_page')->nullable();
             $table->string('keywords')->nullable();
-            $table->string('author')->nullable();
+            $table->string('author_page')->nullable();
             $table->string('header')->nullable();
-            $table->boolean('check')->nullable();
+            $table->boolean('check_url')->nullable();
+
+            $table->string('teaser', 512)->nullable();
+            $table->string('wikipedia', 512)->nullable();
 
             $table->timestamps();
             $table->softDeletes();

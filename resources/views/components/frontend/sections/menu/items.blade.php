@@ -1,6 +1,8 @@
-<li><a href="{{ url('test') }}">Test</a></li>
-<li><a href="{{ url('oznamy-vsetky') }}">Oznamy</a></li>
+<li><a href="{{ url('test') }}" class="text-muted"><em><small>Test</small></em></a></li>
+<li><a href="{{ url('zoznam-statickych-stranok') }}" class="text-muted"><em><small>Podstránky</small></em></a></li>
 
+
+<li><a href="{{ url('oznamy-vsetky') }}">Oznamy</a></li>
 <li><a href="{{ route('article.all') }}">Články</a></li>
 
 {{-- <li>
@@ -28,14 +30,14 @@
     </ul>
 </li> --}}
 
-{{-- <li><a href="#">Spoločenstvá</a></li>
+<li><a href="{{ url('spolocenstva') }}">Spoločenstvá</a></li>
     <!-- Bosé karmelitánky  -->
     <!-- Tretí rád OCD  -->
     <!-- Tretí rád OFM  -->
     <!-- Ružencové bratstvo  -->
     <!-- Faustínum  -->
     <!-- Modlitby za kňazov  -->
-    <!-- Deti a mládež  --> --}}
+    <!-- Deti a mládež  -->
 
 {{-- <li>
     <a href="#">Duchovný život</a>
@@ -62,7 +64,6 @@
     </ul>
 </li> --}}
 
-<li><a href="{{ url('zoznam-statickych-stranok') }}">Podstránky</a></li>
 <li><a href="{{ url('kontakty') }}">Kontakty</a></li>
 <li class="search_icon">
     <!-- Button trigger modal -->

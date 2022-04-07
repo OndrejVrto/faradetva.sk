@@ -14,7 +14,7 @@ return new class extends Migration
 
             $table->morphs('sourceable');
 
-            $table->string('description')->nullable();
+            $table->string('description', 420)->nullable();
             $table->string('author')->nullable();
             $table->string('author_url', 512)->nullable();
             $table->string('source')->nullable();

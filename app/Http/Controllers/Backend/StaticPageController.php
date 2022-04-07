@@ -6,8 +6,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Banner;
 use App\Models\StaticPage;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -18,6 +20,7 @@ class StaticPageController extends Controller
     public function index(Request $request): View {
         $pages = StaticPage::query()
             ->orderBy('slug')
+            ->with('media', 'source')
             ->withCount('banners')
             ->withCount('faqs')
             ->archive($request, 'pages')
@@ -33,9 +36,16 @@ class StaticPageController extends Controller
         return view('backend.static-pages.create', compact('banners', 'selectedBanners'));
     }
 
-    public function store(StaticPageRequest $request): RedirectResponse {
+    public function store(StaticPageRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $staticPage = StaticPage::create($validated);
+
+        $sourceData = Arr::only($validated, ['description', 'author', 'author_url', 'source', 'source_url', 'license', 'license_url',]);
+        $staticPage->source()->create($sourceData);
+
+        if ($request->hasFile('picture')) {
+            $mediaService->storeMediaOneFile($staticPage, $staticPage->collectionName, 'picture');
+        }
 
         $banners = $request->input('banner');
         $staticPage->banners()->syncWithoutDetaching($banners);
@@ -45,16 +55,24 @@ class StaticPageController extends Controller
     }
 
     public function edit(StaticPage $staticPage): View {
-        $staticPage->load('banners');
+        $staticPage->load('banners', 'source');
         $banners = Banner::with('media', 'source')->get();
         $selectedBanners = $staticPage->banners->pluck('id')->unique()->toArray();
 
         return view('backend.static-pages.edit', compact('staticPage', 'banners', 'selectedBanners'));
     }
 
-    public function update(StaticPageRequest $request, StaticPage $staticPage): RedirectResponse {
+    public function update(StaticPageRequest $request, StaticPage $staticPage, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $staticPage->update($validated);
+
+        $sourceData = Arr::only($validated, ['description', 'author', 'author_url', 'source', 'source_url', 'license', 'license_url',]);
+        $staticPage->source()->update($sourceData);
+        $staticPage->touch(); // Touch because i need start observer for delete cache
+
+        if ($request->hasFile('picture')) {
+            $mediaService->storeMediaOneFile($staticPage, $staticPage->collectionName, 'picture');
+        }
 
         $banners = $request->input('banner');
         $staticPage->banners()->sync($banners);
@@ -82,6 +100,8 @@ class StaticPageController extends Controller
 
     public function force_delete($id): RedirectResponse {
         $staticPage = StaticPage::onlyTrashed()->findOrFail($id);
+        $staticPage->source()->delete();
+        $staticPage->clearMediaCollection($staticPage->collectionName);
         $staticPage->banners()->detach($id);
         $staticPage->forceDelete();
 

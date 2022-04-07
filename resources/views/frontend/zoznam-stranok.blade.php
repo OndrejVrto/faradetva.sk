@@ -1,8 +1,6 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
-
-        <x-frontend.page.section-header :header="$pageData['header']" class="my-0"/>
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
         <div class="row text-left">
             <div class="col-md-6">
@@ -61,6 +59,7 @@
                 <x-frontend.page.subsection title="Spoločenstvá">
                     <x-frontend.page.text-segment animation="fromright">
                         <ol>
+                            <li><a href="{{ url('spolocenstva') }}">Spoločenstvá</a></li>
                             <li><a href="{{ url('spolocenstva/rad-bosych-karmelitanok') }}">Rád bosých karmelitánok (OCD)</a></li>
                             <li><a href="{{ url('spolocenstva/svetsky-rad-bosych-karmelitanov') }}">Svetský rád bosých karmelitánov (OCDS)</a></li>
                             <li><a href="{{ url('spolocenstva/frantiskansky-svetstky-rad') }}">Františkánsky svetský rád (OFS)</a></li>

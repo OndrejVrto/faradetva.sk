@@ -1,9 +1,9 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-frontend.page.subsection >
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Korene vzniku ružencových bratstiev siahajú hlboko do minulosti, prakticky už do prvej polovice 13. storočia, keď podľa legendy modlitbu posvätného ruženca prijal od Panny Márie sv. Dominik, zakladateľ Rehole kazateľov (dominikánov) ako účinný prostriedok rozjímania nad udalosťami Kristovho života a šírenia jeho lásky medzi ľuďmi. Na pôde dominikánov vzniklo prvé ružencové bratstvo. V roku 1470 ho založil blahoslavený Alan de la Roche (1428 - 1475). Zásluhou jeho a ďalších dominikánov sa modlitba posvätného ruženca a ružencové bratstvá rýchlo rozšírili v západnom kresťanstve a dominikáni sa stali ich hlavnými šíriteľmi.
@@ -41,7 +41,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Ružencové bratstvo je združenie duchovne zjednotených veriacich formovaných dominikánskou spiritualitou, ktorí si osobitným spôsobom uctievajú Pannu Máriu a modlitbou posvätného ruženca vyprosujú potrebné dobrá pre seba, Cirkev a svet. Cieľom každého člena ružencového bratstva je zároveň snaha o neustály pokrok v láske k Bohu a ľuďom, o neustále premieňanie modlitby na konkrétne skutky. Ružencové bratstvá sú organizované skupiny veriacich, ktoré svojou činnosťou sledujú spoločný cieľ - šírenie dobra cez osobné sebaposväcovanie, cez prehlbovanie viery jednotlivých členov, cez prehlbovanie ich lásky k Bohu a k ľuďom okolo nich.
@@ -53,7 +53,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Člen Živého ruženca je povinný modliť sa každý deň jeden desiatok posvätného ruženca na úmysel za obrátenie hriešnikov a za živých i zosnulých členov Ružencového bratstva, za Rehoľu dominikánov, za svoju farnosť a za svojich duchovných pastierov (biskupov a kňazov). Je povinný raz za mesiac sa zísť na spoločnom stretnutí - modlitbe, po ktorom sa uskutoční výmena tajomstiev.
@@ -68,7 +68,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Duchovné sprevádzanie členov ružencových bratstiev na Slovensku je zverené provinčnému promótorovi pre ruženec. Jemu je zverená služba zakladať ružencové bratstvá, koordinovať ružencový apoštolát a navštevovať jednotlivé bratstvá vo farnostiach na území Slovenska. Promótora pre ruženec vymenuje provinciál Rehole dominikánov a vymenovanie podlieha schváleniu generálnej kúrie dominikánov v Ríme. V lete 2017 sa provinčným promótorom pre ruženec na Slovensku stal brat Alan Ján Dely OP.

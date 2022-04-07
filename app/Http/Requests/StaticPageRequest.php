@@ -4,16 +4,22 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\SourceRequest;
 
-class StaticPageRequest extends FormRequest
+class StaticPageRequest extends SourceRequest
 {
     public function authorize() {
         return true;
     }
 
     public function rules() {
-        return [
+        if (request()->routeIs('static-pages.store')) {
+            $pictureRule = 'required';
+        } else if (request()->routeIs('static-pages.update')) {
+            $pictureRule = 'nullable';
+        }
+
+        return parent::rules() + [
             'route_name' => [
                 Rule::unique('static_pages', 'route_name')->ignore($this->static_page)->withoutTrashed(),
                 'required',
@@ -33,7 +39,7 @@ class StaticPageRequest extends FormRequest
                 'string',
                 'max:255'
             ],
-            'description' => [
+            'description_page' => [
                 'nullable',
                 'string',
                 'max:255'
@@ -43,16 +49,34 @@ class StaticPageRequest extends FormRequest
                 'string',
                 'max:255'
             ],
-            'author' => [
+            'author_page' => [
                 'nullable',
                 'string',
                 'max:255'
             ],
             'header' => [
-                'nullable',
+                'required',
                 'string',
                 'max:255'
             ],
+            'teaser' => [
+                'nullable',
+                'string',
+                'max:512'
+            ],
+            'wikipedia' => [
+                'nullable',
+                'string',
+                'url',
+                'max:512'
+            ],
+            'picture' => [
+                $pictureRule,
+                'file',
+                'mimes:jpg,gif,png,jpeg',
+                'dimensions:min_width=960,min_height=480',
+                'max:2048',
+            ]
             // 'banner' => [
             //     'required'
             // ],

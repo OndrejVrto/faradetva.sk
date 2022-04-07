@@ -1,6 +1,6 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-frontend.page.subsection >
         <x-frontend.page.text-segment animation="fromright">
@@ -11,7 +11,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Sv. Ján Nepomucký">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="5" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="5" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 V Detve sa do dnešných čias zachovala kamenná polychrómovaná socha sv. Jána Nepomuckého z roku 1768, ktorá stojí pred budovou bývalého chudobinca. Ján Nepomucký sa narodil okolo roku 1345 v Pomuku pri Plzni. Jeho otec bol zrejme nemeckého pôvodu. Meno „Nepomucký“ vzniklo nesprávnym čítaním latinskej verzie jeho mena „de Pomuk“. Vzdelanie nadobudol v kláštore cisterciánov, potom v Žatci v slávnych latinských školách a nakoniec na pražskej univerzite, ktorú práve v tom čase založil cisár Karol IV. Stal sa kňazom, notárom a pisárom v arcibiskupskej kancelárii. Bol takisto osobným tajomníkom biskupa a neskôr po štúdiu kánonického práva v Padove sa stal kanonikom a pražským generálnym vikárom.
@@ -20,7 +20,7 @@
                 Nástupom kráľa Václava IV. sa veľmi dobré vzťahy medzi cisárskym dvorom a arcibiskupstvom zmenili k oveľa horšiemu. Kráľ sa rád oddával poľovačkám a zábavám, bol veľmi zlostný a hnevlivý. Potom ako mu nevyšiel zálusk na benediktínske opátstvo v Kladruboch v západných Čechách, jeho hnev sa obrátil proti celej Cirkvi v Čechách. Zajal Jána a dvoch ďalších arcibiskupových spolupracovníkov. Arcibiskupa nezajal len kvôli tomu, že ho ochránili jeho zbrojnoši. Ostatných dvoch neskôr prepustil, ale Jána dal natiahnuť na škripec, dal ho páliť a mučiť aj iným spôsobom a nakoniec ho v noci dal odvliecť a zhodiť z pražského mosta do rieky Vltavy. Stalo sa to 20. marca 1393. Po niekoľkých dňoch našli Jánovo telo rybári, údajne podľa piatich svetiel (hviezd) okolo jeho hlavy. Bol pochovaný v Kostole Svätého kríža, neskôr ho preniesli do Chrámu sv. Víta.
             </p>
         </x-frontend.page.text-segment>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Traduje sa, že svätý Ján je mučeníkom spovedného tajomstva. Údajne sa ho mal kráľ vypytovať na hriechy svojej manželky Žofie, ktorá bola veľmi nábožná. Spovedať sa chodila práve k Jánovi. Kráľ ju podozrieval z nevery, pretože sám sa tejto neresti dopúšťal. Keďže však Ján nič nevyzradil, mučil ho a dal nakoniec zabiť. Túto tradíciu potvrdzuje aj fakt, že jazyk sv. Jána Nepomuckého sa zachoval neporušený. Za svätého bol vyhlásený v roku 1729. V nemecky hovoriacich krajinách sa jeho sviatok slávi 20. marca, avšak v Čechách a na Slovensku si ho osobitne uctievame 16. mája.
@@ -32,7 +32,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="5" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="5" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Štyridsať rokov po Jánovom svätorečení už boli v Detve k jeho úcte postavené dve prícestné sochy. Jedna pred chudobincom, druhá bola neskoršieho pôvodu a stála pri Dolnom mlyne. Neskôr sa podobizeň Jána Nepomuckého objavila aj vo farskom kostole na bočnom oltári. Na šírení jeho kultu v Detve mal zásluhu nielen zemepán, ale i jezuiti a františkáni. Kult bol spojený s protireformačnými a rekatolizačnými myšlienkami. Sporným bodom s protestantmi bol napríklad prvok spovede, ktorý mal v Nepomuckého legende mimoriadny význam. Bol v nej zvýraznený princíp mučeníctva za katolícke morálne hodnoty. Protestanti svätých neuznávali, pretože podľa ich učenia je svätý len Boh, kým katolíci ich vyzdvihovali ako príklad hodný nasledovania. Všetky tieto pravdy poslúžili rekatolizácii v misijnej činnosti.
@@ -47,7 +47,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection title="Sv. Florián">
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Na severnom konci pôvodnej rozlohy centrálnej časti mestečka je zachovaná prícestná socha sv. Floriána, ktorú detviansky ľud familiárne nazýva „Florianko“, čo deti ľahko skomolia a ešte i dnes niektorí povedia: „pri Froliankovi je odbočka na cintorín“. Je to neskorobaroková kamenná, polychrómovaná socha z druhej polovice 18. storočia, renovovaná v rokoch 1823 a 1850.
@@ -56,7 +56,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" />
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Svätý Florián bol dôstojníkom rímskej armády, zastával vysokú administratívnu funkciu v Noricum, v dnešnej časti Rakúska. Mučenícku smrť podstúpil za čias cisára Diokleciána začiatkom 4. storočia. Jeho legendárne „Skutky“ hovoria, že sa v Lorch vzdal vojakom z Aquilína, keď chytali kresťanov. Vojaci ho dvakrát zbičovali, napoly ho zdrali z kože, posadili do ohňa a nakoniec ho hodili do rieky Enns s kameňom okolo krku. Jeho telo našla a pochovala nábožná žena. Po čase jeho pozostatky preniesli do augustiniánskeho opátstva sv. Floriána blízko Linzu, neskôr do Ríma. Pápež Lucius III. v roku 1138 daroval niekoľko relikvií tohto svätca poľskému kráľovi Kazimírovi a biskupovi Krakova. Od toho času je svätý Florián považovaný za patróna Poľska, ale aj Linzu, Horného Rakúska a požiarnikov. Kedysi patril k tzv. štrnástim pomocníkom v núdzi. Tradícia jeho mučeníctva neďaleko miesta, kde sa rieka Enns vlieva do Dunaja, je veľmi stará a hodnoverná. Veľa zázrakov, pri ktorých došlo k uzdraveniu, sa pripisuje práve jeho príhovorom. Svätý Florián je patrónom hasičov, hrnčiarov, debnárov, peciarov, kominárov, kováčov, mydlárov, vinohradníkov, pivovarníkov. Je ochrancom proti nebezpečenstvu ohňa a vody, proti suchu, neúrode a búrke. Znázorňuje sa väčšinou ako rímsky vojak, s kópiou a vedrom v ruke, s malým domčekom (hradom) pri nohách, ktorý hasí vodou. Podľa rímskeho martyrológia si svätého Floriána pripomíname 4. mája.
@@ -65,7 +65,7 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/>
+        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Keďže Detva bola postihovaná častými požiarmi, niet divu, že miestny ľud chcel mať v mestečku práve sochu sv. Floriána ako ochrancu pred ohňom. Ničivé požiare vypukli v rokoch 1695, 1711, 1729, 1756, 1776 a 1799. Pokračovali i v nasledujúcom storočí v r. 1821, 1824 a 1828. Najničivejší požiar, ktorý pohltil 108 domov, bol v roku 1833. Patrocínium svätého Floriána sa počas baroka viazalo v prevažnej miere na malé objekty, ktoré boli umiestnené vo voľnej prírode alebo pri cestách a mali ľudový ráz. Ani najmenšie sakrálne pamiatky však nie sú bezvýznamné, pretože v určitom zmysle komunikujú svoju dobu a pre postavenie každej z nich vždy jestvoval nejaký dôvod.

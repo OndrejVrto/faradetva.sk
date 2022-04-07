@@ -1,6 +1,6 @@
 <x-frontend.layout.master>
 
-    <x-frontend.page.section name="SEARCH Global" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="SEARCH Global" class="static-page pad_b_50">
 
         <!-- GLOBAL Search Start -->
         <section class="widget widget_search mb-2">

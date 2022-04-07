@@ -1,6 +1,6 @@
 <x-frontend.layout.master :pageData="$pageData">
 
-    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <div class="ps-5 ps-md-0 col-lg-9 col-xl-8 m-auto">
 
