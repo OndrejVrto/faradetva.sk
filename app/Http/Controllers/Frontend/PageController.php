@@ -49,10 +49,10 @@ class PageController extends Controller
                     'slug'        => $page->slug,
                     'title'       => $page->title,
                     'header'      => $page->header,
-                    'author'      => $page->author,
-                    'url'         => url($page->url),
+                    'author'      => $page->author_page,
+                    'url'         => $page->full_url,
                     'route'       => $this->getFullRoute($page->route_name),
-                    'description' => $page->description,
+                    'description' => $page->description_page,
                     'keywords'    => $page->keywords,
                     'banners'     => $page->banners->pluck('slug')->toArray(),
                     'faqs'        => $page->faqs->pluck('slug')->toArray(),
@@ -81,6 +81,7 @@ class PageController extends Controller
     }
 
     private function setSeoMetaTags(array $pageData): void {
+        // TODO: meta tags
         SEOMeta::setTitle($pageData['title']);
         SEOMeta::setDescription($pageData['description']);
         SEOMeta::addKeyword($pageData['keywords']);

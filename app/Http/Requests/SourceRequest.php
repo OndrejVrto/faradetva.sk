@@ -15,7 +15,7 @@ class SourceRequest extends FormRequest
             'description' => [
                 'nullable',
                 'string',
-                'max:255',
+                'max:420',
             ],
             'author' => [
                 'nullable',

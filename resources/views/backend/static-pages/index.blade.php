@@ -23,9 +23,10 @@
 
         <x-slot name="table_header">
             <x-backend.table.th width="1%">#</x-backend.table.th>
-            <x-backend.table.th width="15%">Titulok záložky</x-backend.table.th>
+            <x-backend.table.th width="5%">Obrázok</x-backend.table.th>
+            <x-backend.table.th width="12%">Titulok záložky</x-backend.table.th>
             <x-backend.table.th-check-active/>
-            <x-backend.table.th width="40%" class="d-none d-md-table-cell">Url <small>(cesta ktorú vidí uživateľ)</small></x-backend.table.th>
+            <x-backend.table.th width="30%" class="d-none d-md-table-cell">Url <small>(cesta ktorú vidí uživateľ)</small></x-backend.table.th>
             <x-backend.table.th class="d-none d-xl-table-cell">Route <small>(vnútorná cesta aplikácie)</small></x-backend.table.th>
             <x-backend.table.th class="text-center d-none d-xl-table-cell">Počet banerov</x-backend.table.th>
             <x-backend.table.th
@@ -41,6 +42,11 @@
                 <x-backend.table.tr trashed="{{ $page->trashed() }}">
 
                     <x-backend.table.td>{{$page->id}}</x-backend.table.td>
+                    <x-backend.table.td class="text-center">
+                        <img src="{{ $page->getFirstMediaUrl($page->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x50" }}"
+                        class="img-fluid"
+                        alt="Obrázok: {{ $page->source->description ?? '' }}"/>
+                    </x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-backend.table.td>
                     <x-backend.table.td-check-active check="{{ $page->check_url }}"/>
                     <x-backend.table.td class="text-wrap text-break d-none d-md-table-cell">
@@ -70,6 +76,13 @@
                                     <i class="fas fa-eye"></i>
                                 </a>
                             @endif
+                            <a  href="{{ url($page->getFirstMediaUrl($page->collectionName) ?: '#') }}"
+                                class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
+                                title="Stiahnuť referenčný obrázok"
+                                download
+                            >
+                                <i class="fas fa-download"></i>
+                            </a>
                         </div>
                     </x-backend.table.td>
                     <x-backend.table.td-actions

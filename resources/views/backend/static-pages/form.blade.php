@@ -1,14 +1,16 @@
 @php
     $controlerName = 'static-pages';
     $columns = 12;
-    $uploadFiles = 'false';
+    $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = $source = null;
     if ( isset( $staticPage) ) {
         $typeForm = 'edit';
         $identificator = $staticPage->slug;
         $createdInfo = $staticPage->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $staticPage->updated_at->format('d. m. Y \o H:i');
+        $media_file_name = $staticPage->getFirstMedia($staticPage->collectionName)->file_name ?? '';
+        $source = $staticPage->source;
     }
 @endphp
 
@@ -53,7 +55,7 @@
 
         <div class="col-xl-4">
             <x-adminlte-input
-                name="author"
+                name="author_page"
                 label="Autor obsahu stránky"
                 {{-- placeholder="Vlož celé meno autora obsahu" --}}
                 enableOldSupport="true"
@@ -116,8 +118,26 @@
     <div class="form-row">
 
         <div class="col-xl-6">
+            <x-adminlte-textarea
+                {{-- fgroupClass="pb-4" --}}
+                name="teaser"
+                label="Krátky sumár stránky (teaser)"
+                enableOldSupport="true"
+                rows="9"
+            >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                </x-slot>
+                    {{ $staticPage->teaser ?? '' }}
+            </x-adminlte-textarea>
+        </div>
+
+        <div class="col-xl-6">
+
             <x-adminlte-input
-                name="description"
+                name="description_page"
                 label="Popis obsahu stránky"
                 {{-- placeholder="Jedna rozvinutá veta." --}}
                 enableOldSupport="true"
@@ -128,9 +148,7 @@
                     </div>
                 </x-slot>
             </x-adminlte-input>
-        </div>
 
-        <div class="col-xl-6">
             <x-adminlte-input
                 name="keywords"
                 label="Kľúčové slová"
@@ -146,9 +164,44 @@
                     Slová alebo slovné spojenia oddelené čiarkou
                 </x-slot>
             </x-adminlte-input>
+
+            <x-adminlte-input
+                name="wikipedia"
+                label="Link na referenčnú stránku wikipédie (URL)"
+                {{-- placeholder="slová oddelené čiarkou" --}}
+                enableOldSupport="true"
+                value="{{ $staticPage->wikipedia ?? '' }}" >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fab fa-wikipedia-w"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+
         </div>
 
     </div>
+
+    <hr class="bg-orange">
+
+    <x-adminlte-input-file
+        class="border-right-none"
+        name="picture"
+        label="Referenčný obrázok"
+        accept=".jpg,.png,.jpeg,.gif"
+
+        placeholder="{{ $media_file_name ?? '' }}">
+        <x-slot name="prependSlot">
+            <div class="input-group-text bg-gradient-orange">
+                <i class="fas fa-file-import"></i>
+            </div>
+        </x-slot>
+        <x-slot name="noteSlot">
+            Poznámka: veľkosť obrázka minimálne 960x480 px.
+        </x-slot>
+    </x-adminlte-input-file>
+
+    <x-backend.form.source :source="$source" />
 
     <hr class="bg-orange">
 
