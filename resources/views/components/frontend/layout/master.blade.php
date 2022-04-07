@@ -1,4 +1,5 @@
 @props([
+    'header' => null,
     'pageData',
 ])
 @if( isset($pageData['breadCrumbJsonLd']) AND Str::contains($pageData['breadCrumbJsonLd'], 'BreadcrumbList') )
@@ -15,21 +16,29 @@
 
     <!-- MASTER CONTENT Start -->
     <main>
-        @if(isset($pageData['banners']) AND count($pageData['banners']) > 1)
-            <x-frontend.sections.banner
-                :header="$pageData['title']"
-                :breadcrumb="$pageData['breadCrumb']"
-                :titleSlug="$pageData['banners']"
-                dimensionSource="full"
-            />
-        @endisset
+        @isset($pageData)
+            @if(count($pageData['banners']) > 0)
+                <x-frontend.sections.banner
+                    :header="$pageData['title']"
+                    :breadcrumb="$pageData['breadCrumb']"
+                    :titleSlug="$pageData['banners']"
+                    dimensionSource="full"
+                />
+            @elseif($header === null)
+                <x-frontend.page.section name="MASTER HEADER" class="static-page pad_t_50">
+                    <x-frontend.page.section-header :header="$pageData['header']"/>
+                </x-frontend.page.section>
+            @endif
 
-        {{ $slot }}
+            {{ $slot }}
 
-        @if(isset($pageData['faqs']) AND count($pageData['faqs']) > 0)
-            <x-frontend.sections.faq
-                :questionsSlug="$pageData['faqs']"
-            />
+            @if(count($pageData['faqs']) > 0)
+                <x-frontend.sections.faq
+                    :questionsSlug="$pageData['faqs']"
+                />
+            @endif
+        @else
+            {{ $slot }}
         @endisset
     </main>
     <!-- MASTER CONTENT End -->
