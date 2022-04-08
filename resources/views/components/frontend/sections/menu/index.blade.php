@@ -15,7 +15,7 @@
             <i></i>
             <i></i>
         </div>
-        <menu class="header_right_menu" id="header_right_menu">
+        <menu class="header_right_menu my-0" id="header_right_menu">
             <ul class="menu">
 
                 <x-frontend.sections.menu.items />
