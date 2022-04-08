@@ -75,6 +75,8 @@
                                 >
                                     <i class="fas fa-eye"></i>
                                 </a>
+                            @else
+                                <div class="w35 ml-1"></div>
                             @endif
                             <a  href="{{ url($page->getFirstMediaUrl($page->collectionName) ?: '#') }}"
                                 class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"

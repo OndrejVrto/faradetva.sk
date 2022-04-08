@@ -38,6 +38,12 @@ trait Publishable
         ]);
     }
 
+    public function getVisibleAttribute(): bool {
+        return  $this->active
+            AND ($this->published_at <= now() OR is_null($this->published_at))
+            AND ($this->unpublished_at > now() OR is_null($this->unpublished_at));
+    }
+
     public function getPublishedAtAttribute($value) {
         return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
     }

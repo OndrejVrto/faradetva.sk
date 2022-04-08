@@ -4,24 +4,31 @@
     overlay="true"
     class="ch_banner_wrapper banner-img-{{$banner['id']}} h-100 mb-5"
 >
-    <x-partials.source-sentence
-        dimensionSource="{{ $dimensionSourceBanner }}"
-        :sourceArray="$banner['sourceArr']"
-        class="img-article img-article-left"
-        title="{{ $banner['description'] }}"
-    />
+
     <div class="col-12">
+
+        <x-partials.source-sentence
+            dimensionSource="{{ $dimensionSourceBanner }}"
+            :sourceArray="$banner['sourceArr']"
+            class="img-article img-article-left"
+            title="{{ $banner['description'] }}"
+        />
+
         <div class="banner_heading">
+
             @isset($header)
-            <div class="page_heading">
-                <h1>{{ $header }}</h1>
-            </div>
+                <div class="page_heading">
+                    <h1>{{ $header }}</h1>
+                </div>
             @endisset
+
             @isset($breadcrumb)
                 {!! $breadcrumb !!}
             @endisset
+
         </div>
     </div>
+
 </x-frontend.page.section>
 
 @pushOnce('css')

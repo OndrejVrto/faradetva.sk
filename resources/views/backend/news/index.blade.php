@@ -62,11 +62,24 @@
                     {{-- <x-backend.table.td class="text-wrap text-break d-none d-xl-block">{{$news->teaser}}</x-backend.table.td> --}}
 
                     <x-backend.table.td class="text-center">
-                        <span class="badge bg-orange px-2 py-1">{{ $news->document_count }}</span>
+                        @if( $news->document_count != 0 )
+                            <span class="badge bg-orange px-2 py-1">{{ $news->document_count }}</span>
+                        @endif
                     </x-backend.table.td>
 
                     <x-backend.table.td class="text-left">
                         <div class="d-inline-flex">
+                            @if(!$news->trashed() AND $news->visible)
+                                <a  href="{{ route('article.show', $news->slug) }}"
+                                    class="w35 ml-1 btn btn-outline-success btn-sm btn-flat"
+                                    title="Zobraziť správnu v novom okne"
+                                    target="_blank"
+                                >
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            @else
+                            <div class="w35 ml-1"></div>
+                            @endif
                             <a  href="{{ url($news->getFirstMediaUrl($news->collectionPicture) ?: '#') }}"
                                 class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                                 title="Stiahnuť pôvodný obrázok titulky"
