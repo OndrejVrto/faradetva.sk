@@ -11,6 +11,7 @@ class SubscribeForm extends Component
     public $model = News::class;
     public $name = '';
     public $email = '';
+    public $type;
 
     public $successMesage = '';
 
@@ -27,8 +28,9 @@ class SubscribeForm extends Component
         ],
     ];
 
-    public function mount($modelName) {
+    public function mount($modelName, $section = false) {
         $className = "App\\Models\\".$modelName;
+        $this->type = $section ? true : false;
 
         if ($modelName AND class_exists($className, false)) {
             $this->model = $className;
@@ -44,7 +46,9 @@ class SubscribeForm extends Component
             'model_type' => $this->model,
         ]);
 
-        $this->reset();
+        // $this->reset();
+        $this->email = '';
+        $this->name = '';
 
         $this->successMesage = 'Boli ste zaregistrovaný k odberu noviniek.';
     }

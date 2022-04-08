@@ -173,6 +173,65 @@ button:before {
 	color          : #222222;
 }
 
+/*===== button Blue css start =====*/
+.read_btn_blue {
+	color              : #ffffff;
+	background         : #243A4F;
+	min-width          : 190px;
+	position           : relative;
+	border             : none;
+	padding            : 15px 23px;
+	text-align         : center;
+	font-size          : 14px;
+	font-weight        : 600;
+	border-radius      : 2em;
+	text-decoration    : none;
+	display            : inline-block;
+	overflow           : hidden;
+	backface-visibility: hidden;
+	transition         : all ease-in 0.25s;
+	-moz-transition    : all ease-in 0.25s;
+	-webkit-transition : all ease-in 0.25s;
+	z-index            : 9;
+	overflow           : hidden;
+}
+
+.read_btn_blue i {
+	margin-left: 7px;
+}
+
+.read_btn_blue:before {
+	position                : absolute;
+	content                 : "";
+	background-color        : #1B2E41;
+	height                  : 100%;
+	left                    : -35%;
+	top                     : 0;
+	transform               : skew(50deg);
+	transition              : all ease-in 0.25s;
+	-moz-transition         : all ease-in 0.25s;
+	-webkit-transition      : all ease-in 0.25s;
+	transform-origin        : top left;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin   : top left;
+	-ms-transform-origin    : top left;
+	-o-transform-origin     : top left;
+	width                   : 0;
+	z-index                 : -9;
+}
+
+.read_btn_blue:hover:before,
+.read_btn_blue:focus:before {
+	height: 100%;
+	width : 135%;
+}
+
+.read_btn_blue:hover,
+.read_btn_blue:focus {
+	text-decoration: none;
+	color          : #F2F2F2;
+}
+
 /*===== button css start =====*/
 /*==== preloader css Start ====*/
 .preloader {
@@ -342,7 +401,7 @@ button:before {
 
 .ch_logo {
 	float     : left;
-	margin-top: 35px;
+	margin-top: 21px;
 }
 
 .ch_logo>a {
@@ -2107,6 +2166,18 @@ blockquote cite {
 	border          : 1px solid rgb(255 255 255 / 58%);
 }
 
+.newsletter_section_form form input {
+	width           : 100%;
+	height          : 50px;
+	border-radius   : 2em;
+	border          : none;
+	/* background-color: rgb(255 255 255 / 0%); */
+	/* margin-top      : 15px; */
+	/* color           : #ffff; */
+	padding-left    : 25px;
+	border          : 1px solid #1B2E41;
+}
+
 .ch_bottom_footer {
 	float           : left;
 	width           : 100%;
@@ -2144,9 +2215,9 @@ blockquote cite {
 	-webkit-transform : rotateY(180deg);
 }
 
-.ch_skills_section {
+/* .ch_skills_section {
 	padding-bottom: 80px;
-}
+} */
 
 /* button hover effect */
 .blog_desc .read_m_link i {

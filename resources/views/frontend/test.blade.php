@@ -22,24 +22,9 @@
         {{-- <x-partials.picture titleSlug="obr1" side="right" animation="sonarEffect" dimensionSource="medium" data-wow-delay="0.3s" class="pt-5 mt-5"/> --}}
     </x-frontend.page.section>
 
-    <x-frontend.page.section name="SUBSCRIBE" class="ch_about_section pad_b_50">
-
-        {{-- <x-frontend.page.subsection title="Odoberať články">
-            @livewire('subscribe-form', ['modelName' => 'News'])
-        </x-frontend.page.subsection>
-
-        <x-frontend.page.subsection title="Odoberať farské oznamy">
-            @livewire('subscribe-form', ['modelName' => 'NoticeChurch'])
-        </x-frontend.page.subsection> --}}
-
-        <x-frontend.page.subsection title="Odoberať rozpisy akolytov">
-            @livewire('subscribe-form', ['modelName' => 'NoticeAcolyte'])
-        </x-frontend.page.subsection>
-
-        {{-- <x-frontend.page.subsection title="Odoberať rozpisy lektorov">
-            @livewire('subscribe-form', ['modelName' => 'NoticeLecturer'])
-        </x-frontend.page.subsection> --}}
-
+    <x-frontend.page.section name="SUBSCRIBE" class="ch_skills_section pad_t_50 pad_b_50">
+        <x-frontend.page.section-header header="Odoberať rozpisy akolytov" class="mb-3"/>
+        @livewire('subscribe-form', ['modelName' => 'NoticeAcolyte', 'section' => true])
     </x-frontend.page.section>
 
     <x-frontend.page.section name="IMPORTANT PERSONALITIES" row="true" class="ch_ministry_section pad_t_50">
@@ -54,6 +39,29 @@
         <x-partials.page-card delay="1.2s" routeStaticPage="o-nas.historia.jozef-buda" />
 
     </x-frontend.page.section>
+
+    <x-frontend.page.section name="SUBSCRIBE 2" class="ch_skills_section pad_t_50 pad_b_50">
+
+        <x-frontend.page.section-header header="Odoberať novinky" class="mb-3"/>
+
+        <x-frontend.page.subsection title="Články">
+            @livewire('subscribe-form', ['modelName' => 'News', 'section' => true])
+        </x-frontend.page.subsection>
+
+        <x-frontend.page.subsection title="Farské oznamy">
+            @livewire('subscribe-form', ['modelName' => 'NoticeChurch', 'section' => true])
+        </x-frontend.page.subsection>
+
+        <x-frontend.page.subsection title="Rozpisy akolytov">
+            @livewire('subscribe-form', ['modelName' => 'NoticeAcolyte', 'section' => true])
+        </x-frontend.page.subsection>
+
+        <x-frontend.page.subsection title="Rozpisy lektorov">
+            @livewire('subscribe-form', ['modelName' => 'NoticeLecturer', 'section' => true])
+        </x-frontend.page.subsection>
+
+    </x-frontend.page.section>
+
 
     <x-frontend.page.section name="GRAPHS" row="true" class="ch_about_section pad_t_50">
 
