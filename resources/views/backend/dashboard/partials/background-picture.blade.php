@@ -10,6 +10,7 @@
     'cache.jobs.restart',
     'cache.crawl-all-url',
     'cache.info',
+    'cache.xdebug',
 )
     <div class="row justify-content-center">
         <div class="col-10 col-md-6 col-lg-5 col-xl-4">

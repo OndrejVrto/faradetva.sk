@@ -86,4 +86,8 @@ class CacheController extends Controller
     public function infoPHP() {
         return phpinfo();
     }
+
+    public function xdebugPHP() {
+        return xdebug_info();
+    }
 }
