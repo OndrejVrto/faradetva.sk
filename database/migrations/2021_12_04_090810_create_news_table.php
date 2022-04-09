@@ -34,7 +34,7 @@ return new class extends Migration
             $table->boolean('notified')->default(0);
             $table->string('title', 200);
             $table->string('slug', 200);
-            $table->string('teaser', 500);
+            $table->string('teaser', 500)->nullable();
             $table->mediumtext('content')->nullable();
             $table->mediumtext('content_plain')->nullable();
             $table->smallinteger('count_words')->unsigned()->default(0)->nullable();

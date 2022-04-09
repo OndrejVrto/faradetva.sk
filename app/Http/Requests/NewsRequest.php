@@ -48,7 +48,7 @@ class NewsRequest extends FormRequest
                 'required',
             ],
             'teaser' => [
-                'required',
+                'nullable',
                 'string',
                 'max:500',
             ],

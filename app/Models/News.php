@@ -107,6 +107,12 @@ class News extends Model implements HasMedia
         $this->attributes['count_words'] = Str::wordCount($plainText);
     }
 
+    public function setTeaserAttribute($value) {
+        $this->attributes['teaser'] = empty($value)
+            ? Str::words($this->content_plain, 50)
+            : $value;
+    }
+
     public function user() {
         return $this->belongsTo(User::class)->withTrashed();
     }
