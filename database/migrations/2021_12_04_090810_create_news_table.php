@@ -26,7 +26,7 @@ return new class extends Migration
                     // ->onDelete('NO ACTION');
                     ->onUpdate('SET NULL')
                     ->onDelete('SET NULL');
-            $table->fulltext(['title', 'content']);
+            $table->fulltext(['title', 'teaser', 'content_plain']);
 
             $table->boolean('active')->default(1);
             $table->timestamp('published_at')->nullable()->default(NULL);
@@ -35,7 +35,9 @@ return new class extends Migration
             $table->string('title', 200);
             $table->string('slug', 200);
             $table->string('teaser', 500);
-            $table->text('content');
+            $table->mediumtext('content')->nullable();
+            $table->mediumtext('content_plain')->nullable();
+            $table->smallinteger('count_words')->unsigned()->default(0)->nullable();
 
             $table->timestamps();
             $table->softDeletes();

@@ -107,7 +107,7 @@ class ArticleController extends Controller
         if (!$search) {
             return to_route('article.all');
         }
-        $articles = News::whereFulltext(['title', 'content'], $search)->newsComplete();
+        $articles = News::whereFulltext(['title', 'teaser' ,'content_plain'], $search)->newsComplete();
         $title = __('frontend-texts.articles-title.search') . $search;
         $breadCrumb = (string) Breadcrumbs::render('articles.search', true);
         $emptyTitle = ['name'=> 'Hľadaný výraz', 'value' => $search];
