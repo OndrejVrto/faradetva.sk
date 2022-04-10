@@ -8,7 +8,7 @@
     <div class="row">
         @foreach ($faqs as $faq)
             <h5 class="text-church-template">{{ $faq['question'] }}</h5>
-            <p class="text-church-template-blue">{{ $faq['answer'] }}</p>
+            <p class="text-church-template-blue">{!! $faq['answer'] !!}</p>
         @endforeach
     </div>
 </x-frontend.page.section>

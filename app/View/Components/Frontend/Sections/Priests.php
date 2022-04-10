@@ -2,10 +2,11 @@
 
 namespace App\View\Components\Frontend\Sections;
 
-use App\Models\Priest as PriestModel;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use App\Models\Priest as PriestModel;
 use Illuminate\Support\Facades\Cache;
+use App\Services\PurifiAutolinkService;
 
 class Priests extends Component
 {
@@ -35,8 +36,8 @@ class Priests extends Component
                         'phone_digits'     => $priest->phone_digits,
                         'email'            => $priest->email,
                         'function'         => $priest->function,
-                        'description'      => $priest->description,
                         'img-url'          => $priest->getFirstMediaUrl('priest', 'crop'),
+                        'description'      => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
                     ];
             })->toArray();
         });

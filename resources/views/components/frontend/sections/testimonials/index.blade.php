@@ -20,7 +20,7 @@
                         />
                     </div>
                     <div class="test_paragraph">
-                        <p>“{{ $testimonial['description'] }}”</p>
+                        <p>“{!! $testimonial['description'] !!}”</p>
                     </div>
                 </div>
             </div>
