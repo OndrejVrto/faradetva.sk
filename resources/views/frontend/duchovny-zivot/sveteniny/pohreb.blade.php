@@ -1,5 +1,7 @@
 <x-frontend.layout.master :pageData="$pageData">
 
+    {{-- Pohreb --}}
+
     <x-frontend.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-frontend.page.subsection >
