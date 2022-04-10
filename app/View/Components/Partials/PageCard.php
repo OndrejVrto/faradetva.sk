@@ -29,6 +29,7 @@ class PageCard extends Component
                                                 'class' => 'img-fluid',
                                                 'alt' => $page->source->description,
                                                 'title' => $page->title,
+                                                'nonce' => csp_nonce(),
                                             ]),
                     // 'url_img'               => (string) $page->getFirstMediaUrl($page->media[0]->collection_name),
                     'sourceArr' => [

@@ -66,6 +66,7 @@ class Picture extends Component
                                                 'class' => 'w-100 img-fluid',
                                                 'alt' => $img->source->description,
                                                 'title' => $img->title,
+                                                'nonce' => csp_nonce(),
                                             ]),
                     'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
                     'sourceArr' => [
