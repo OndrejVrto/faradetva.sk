@@ -173,6 +173,7 @@ return [
         Lab404\Impersonate\ImpersonateServiceProvider::class,
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Stevebauman\Purify\PurifyServiceProvider::class,
 
         /*
          * Application Service Providers...

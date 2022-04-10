@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 use App\Models\Faq as FaqModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
+use App\Services\PurifiAutolinkService;
 
 class Faq extends Component
 {
@@ -20,7 +21,7 @@ class Faq extends Component
                     return [
                         'id'       => $faq->id,
                         'question' => $faq->question,
-                        'answer'   => $faq->answer,
+                        'answer'   => (new PurifiAutolinkService)->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                     ];
                 })->first();
             });

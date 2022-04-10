@@ -33,7 +33,7 @@
                             </a>
                         </div>
                     @endisset
-                    <p>{{ $priest['description'] }}</p>
+                    <p>{!! $priest['description'] !!}</p>
                 </div>
             </div>
         </div>

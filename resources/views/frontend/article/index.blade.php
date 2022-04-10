@@ -51,7 +51,7 @@
                                         <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}</a></span>
                                     </div>
                                     <p>
-                                        {{$oneNews->teaser}}
+                                        {!! $oneNews->clean_teaser !!}
                                     </p>
 
                                     <a href="{{ route('article.show', $oneNews->slug)}}" class="event_btn read_btn">
@@ -97,7 +97,7 @@
                                         <h3>{{ $oneNews->title }}</h3>
                                     </a>
                                     <div class="content pb-2 text-justify">
-                                        {{$oneNews->teaser}}
+                                        {!! $oneNews->clean_teaser !!}
                                     </div>
 
                                     <div class="d-flex align-items-end justify-content-between">

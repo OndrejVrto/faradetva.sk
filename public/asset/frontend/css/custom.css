@@ -29,6 +29,15 @@
 	color: #ff7b33 !important;
 }
 
+.link-template-light {
+    text-decoration: none;
+    color: #243a4fa6 !important;
+}
+
+.link-template-light:hover {
+	color: #ff7b33 !important;
+}
+
 .text-church-template-blue {
     color: #243a4f !important;
 }

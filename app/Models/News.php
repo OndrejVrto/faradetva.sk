@@ -11,6 +11,7 @@ use App\Traits\Restorable;
 use App\Traits\Publishable;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
+use App\Services\PurifiAutolinkService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -74,6 +75,16 @@ class News extends Model implements HasMedia
                     ->paginate();
     }
 
+    public function setTeaserAttribute($value) {
+        $this->attributes['teaser'] = empty($value)
+            ? Str::words($this->content_plain, 50)
+            : $value;
+    }
+
+    public function getCleanTeaserAttribute() {
+        return (new PurifiAutolinkService)->getCleanTextWithLinks($this->teaser);
+    }
+
     public function getTeaserMediumAttribute() {
         return Str::words($this->teaser, 20, '...');
         // return Str::limit($this->teaser, 200, '...');
@@ -105,12 +116,6 @@ class News extends Model implements HasMedia
         $this->attributes['content'] = $value;
         $this->attributes['content_plain'] = $plainText;
         $this->attributes['count_words'] = Str::wordCount($plainText);
-    }
-
-    public function setTeaserAttribute($value) {
-        $this->attributes['teaser'] = empty($value)
-            ? Str::words($this->content_plain, 50)
-            : $value;
     }
 
     public function user() {
