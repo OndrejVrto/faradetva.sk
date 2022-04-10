@@ -26,10 +26,11 @@
         'slidedown',
         'loader',
         'load_fade',
-    ]
-    // $type = in_array($animation, $ANIMATION_TYPE) ? $animation : 'fromright';
+    ];
+
+    $type = in_array($animation, $ANIMATION_TYPE) ? $animation : 'fromright';
 @endphp
 
-<div {{ $attributes->merge(['class' => 'wow '. in_array($animation, $ANIMATION_TYPE) ? $animation : 'fromright']) }}>
+<div {{ $attributes->merge([ "class" => "wow $type" ]) }}>
     {{ $slot }}
 </div>
