@@ -67,16 +67,19 @@ class Priest extends Model implements HasMedia
             ->optimize();
     }
 
-    public function getFullNameTitlesAttribute () {
+    public function getFullNameTitlesAttribute() {
         return $this->getFullNameWithTitles();
     }
 
-    public function getPhoneDigitsAttribute () {
-        $remove_plus = preg_replace("/^\+/", "00", $this->phone );
-        return preg_replace("/[^0-9]/", "", $remove_plus );
+    public function getPhoneDigitsAttribute() {
+        if(isset($this->phone)) {
+            $remove_plus = preg_replace("/^\+/", "00", $this->phone );
+            return preg_replace("/[^0-9]/", "", $remove_plus );
+        }
+        return;
     }
 
-    public function getFullNameAttribute () {
+    public function getFullNameAttribute() {
         return $this->getFullName();
     }
 
