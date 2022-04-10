@@ -19,21 +19,29 @@
                         {!! $oneNews->getFirstMedia($oneNews->collectionPicture)->img('large', ['class' => 'w-100 img-fluid']) !!}
                     </div>
                     <div class="blog_desc">
-                        <div class="blog_info">
-                            <span>
-                                <a href="{{ route('article.author', $oneNews->user->slug) }}">
-                                    <i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->user->name}}
-                                </a>
-                            </span>
-                            <span>
-                                <a href="{{ route('article.date', $oneNews->created_string) }}">
-                                    <i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}
-                                </a>
-                            </span>
-                            <span>
-                                <a href="{{ route('article.category', $oneNews->category->slug) }}">
-                                    <i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}
-                                </a>
+                        <div class="d-flex align-items-end justify-content-between">
+                            <div class="blog_info">
+                                <span>
+                                    <a href="{{ route('article.author', $oneNews->user->slug) }}">
+                                        <i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->user->name}}
+                                    </a>
+                                </span>
+                                <span>
+                                    <a href="{{ route('article.date', $oneNews->created_string) }}">
+                                        <i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}
+                                    </a>
+                                </span>
+                                <span>
+                                    <a href="{{ route('article.category', $oneNews->category->slug) }}">
+                                        <i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}
+                                    </a>
+                                </span>
+                            </div>
+
+                            <span class="small">
+                                {{ $oneNews->count_words }} {{ trans_choice('messages.slovo', $oneNews->count_words) }}
+                                /
+                                {{ $oneNews->read_duration }} {{ trans_choice('messages.minuta', $oneNews->read_duration) }} čítania
                             </span>
                         </div>
 
@@ -117,7 +125,7 @@
                                         alt="Malý obrázok článku: {{ $lastOneNews->title }}."
                                     />
                                     <div>
-                                        <a href="{{ route('article.show', $lastOneNews->slug)}}">{{ $lastOneNews->title }}</a>
+                                        <a href="{{ route('article.show', $lastOneNews->slug)}}" title="{{ $lastOneNews->teaser }}">{{ $lastOneNews->title }}</a>
                                         {{ $lastOneNews->teaser_light }}
                                     </div>
                                 </li>

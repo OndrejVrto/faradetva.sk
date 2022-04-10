@@ -59,6 +59,7 @@ Route::prefix('admin')->group( function() {
         //!  Cache and info
         Route::controller(CacheController::class)->name('cache.')->group(function () {
             Route::get('info-php', 'infoPHP')->name('info');
+            Route::get('xdebug-php', 'xdebugPHP')->name('xdebug');
             Route::get('caches-stop', 'cachesStop')->name('stop');
             Route::get('caches-start', 'cachesStart')->name('start');
             Route::get('caches-reset', 'cachesReset')->name('reset');

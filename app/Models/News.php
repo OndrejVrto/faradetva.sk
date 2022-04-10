@@ -50,8 +50,14 @@ class News extends Model implements HasMedia
     protected $casts = [
         'active' => 'boolean',
         'notified' => 'boolean',
+        'count_words' => 'integer',
+        'content_plain' => 'string',
         'published_at' => 'datetime',
         'unpublished_at' => 'datetime',
+    ];
+
+    protected $appends = [
+        'read_duration',
     ];
 
     /* The number of models to return for pagination. */
@@ -88,6 +94,23 @@ class News extends Model implements HasMedia
 
     public function getUpdatedAttribute() {
         return $this->updated_at->format("d. m. Y");
+    }
+
+    public function getReadDurationAttribute() {
+        return Str::readDurationWords($this->count_words);
+    }
+
+    public function setContentAttribute($value) {
+        $plainText = Str::plainText($value);
+        $this->attributes['content'] = $value;
+        $this->attributes['content_plain'] = $plainText;
+        $this->attributes['count_words'] = Str::wordCount($plainText);
+    }
+
+    public function setTeaserAttribute($value) {
+        $this->attributes['teaser'] = empty($value)
+            ? Str::words($this->content_plain, 50)
+            : $value;
     }
 
     public function user() {

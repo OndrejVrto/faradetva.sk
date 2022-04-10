@@ -53,10 +53,17 @@
                                     <p>
                                         {{$oneNews->teaser}}
                                     </p>
+
                                     <a href="{{ route('article.show', $oneNews->slug)}}" class="event_btn read_btn">
                                         Čítať viac
-                                        {{-- <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> --}}
                                     </a>
+                                </div>
+                                <div class="d-flex align-items-end justify-content-end">
+                                    <span class="small">
+                                        {{ $oneNews->count_words }} {{ trans_choice('messages.slovo', $oneNews->count_words) }}
+                                        /
+                                        {{ $oneNews->read_duration }} {{ trans_choice('messages.minuta', $oneNews->read_duration) }} čítania
+                                    </span>
                                 </div>
                             </div>
                         <!-- ARTICLE {{ $oneNews->id }} End -->
@@ -93,10 +100,17 @@
                                         {{$oneNews->teaser}}
                                     </div>
 
-                                    <a href="{{ route('article.show', $oneNews->slug)}}" class="read_m_link">
-                                        Čítať viac
-                                        <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
-                                    </a>
+                                    <div class="d-flex align-items-end justify-content-between">
+                                            <a href="{{ route('article.show', $oneNews->slug)}}" class="read_m_link">
+                                                Čítať viac
+                                                <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+                                            </a>
+                                        <span class="small">
+                                            {{ $oneNews->count_words }} {{ trans_choice('messages.slovo', $oneNews->count_words) }}
+                                            /
+                                            {{ $oneNews->read_duration }} {{ trans_choice('messages.minuta', $oneNews->read_duration) }} čítania
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
