@@ -6,6 +6,8 @@ return [
 
     'guery-loging' => env('QUERY_LOG', false),
 
+    'google-api-key' => env('GOOGLE_MAP_API_KEY'),
+
     'ngrok_url' => env('NGROK_URL'),
 
     'cache-duration' => [
