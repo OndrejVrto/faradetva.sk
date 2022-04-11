@@ -4,10 +4,13 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Frontend;
 
+use Spatie\Image\Image;
 use App\Models\StaticPage;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Spatie\SchemaOrg\Schema;
 use Illuminate\Http\Response;
+use Spatie\SchemaOrg\ImageObject;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
@@ -16,8 +19,8 @@ use Illuminate\Support\Facades\Cache;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Artesaos\SEOTools\Facades\OpenGraph;
-use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\TwitterCard;
+// use Artesaos\SEOTools\Facades\JsonLdMulti;
 
 class PageController extends Controller
 {
@@ -29,42 +32,14 @@ class PageController extends Controller
 
         if ($pageData AND Arr::exists($pageData, 'route') AND View::exists($pageData['route'])) {
             $pageData['breadCrumb'] = (string) Breadcrumbs::render('pages.others', true, $links);
-            $pageData['breadCrumbJsonLd'] = (string) Breadcrumbs::view('breadcrumbs::json-ld', 'pages.others', $links);
 
-            $this->setSeoMetaTags($pageData);
+            $this->setSeoMetaTags($links);
 
             return view($pageData['route'], compact('pageData'));
         }
 
         /** return 404 if page don't exist in DB **/
         abort(Response::HTTP_NOT_FOUND);
-    }
-
-    /** get Page Data for One nod in URL and Cache it **/
-    private function getPageData(string $path): array|null {
-        return Cache::rememberForever('PAGE_' . Str::slug($path), function () use($path): array|null {
-            return StaticPage::whereUrl($path)->with('banners', 'faqs')->get()->map(function($page): array {
-                return [
-                    'id'          => $page->id,
-                    'slug'        => $page->slug,
-                    'title'       => $page->title,
-                    'header'      => $page->header,
-                    'author'      => $page->author_page,
-                    'url'         => $page->full_url,
-                    'route'       => $this->getFullRoute($page->route_name),
-                    'description' => $page->description_page,
-                    'keywords'    => $page->keywords,
-                    'banners'     => $page->banners->pluck('slug')->toArray(),
-                    'faqs'        => $page->faqs->pluck('slug')->toArray(),
-                ];
-            })->first();
-        });
-    }
-
-    /** create full route name **/
-    private function getFullRoute(string $route_name): string {
-        $route = config('farnost-detva.preppend_route_static_pages','frontend') . '.' . $route_name;
-        return (! Str::startsWith($route, '.')) ? $route : substr($route, 1);
     }
 
     /** complet page data for all nodes in URL link **/
@@ -80,30 +55,148 @@ class PageController extends Controller
         return $arr;
     }
 
-    private function setSeoMetaTags(array $pageData): void {
-        // TODO: meta tags
-        SEOMeta::setTitle($pageData['title']);
-        SEOMeta::setDescription($pageData['description']);
-        SEOMeta::addKeyword($pageData['keywords']);
-        SEOMeta::addMeta('author', $pageData['author'], 'name');
+    /** get Page Data for One nod in URL and Cache it **/
+    private function getPageData(string $path): array|null {
+        return Cache::rememberForever('PAGE_' . Str::slug($path), function () use($path): array|null {
+            return StaticPage::whereUrl($path)->with('mediaOne', 'source', 'banners', 'faqs')->get()->map(function($page): array {
 
-        OpenGraph::setDescription($pageData['description']);
-        OpenGraph::setTitle($pageData['title']);
-        OpenGraph::addImage('TODO: URL', [
-            'alt' => 'TODO:',
-            'type' => 'TODO: mime type',
-            'width' => 'TODO:',
-            'height' => 'TODO:',
-            'secure_url' => 'TODO:',
+                $colectionName = $page->media[0]->collection_name;
+                $media = $page->getFirstMedia($colectionName);
+
+                return  [
+                    'id'              => $page->id,
+                    'author'          => $page->author_page,
+                    'description'     => $page->description_page,
+                    'header'          => $page->header,
+                    'keywords'        => $page->keywords,
+                    'route'           => $this->getFullRoute($page->route_name),
+                    'slug'            => $page->slug,
+                    'teaser'          => $page->teaser,
+                    'title'           => $page->title,
+                    'url'             => $page->full_url,
+                    'wikipedia'       => $page->wikipedia,
+
+                    'banners'         => $page->banners->pluck('slug')->toArray(),
+                    'faqs'            => $page->faqs->pluck('slug')->toArray(),
+
+                    'img-optimize'    => $media->getUrl('optimize'),
+                    'img-thumb'       => $media->getUrl('thumb'),
+                    'img-twitter'     => $media->getUrl('twitter'),
+                    'img-facebook'    => $media->getUrl('facebook'),
+                    'img-file-name'   => $media->file_name,
+                    'img-mime-type'   => $media->mime_type,
+                    'img-size'        => $media->size,
+                    'img-updated_at'  => $media->updated_at,
+                    'img-height'      => Image::load( $media->getPath('optimize') )->getHeight(),
+                    'img-width'       => Image::load( $media->getPath('optimize') )->getWidth(),
+                    'img-description' => $page->source->description,
+                    'img-source'      => $page->source->source,
+                    'img-source_url'  => $page->source->source_url,
+                    'img-author'      => $page->source->author,
+                    'img-author_url'  => $page->source->author_url,
+                    'img-license'     => $page->source->license,
+                    'img-license_url' => $page->source->license_url,
+                ];
+            })->first();
+        });
+    }
+
+    /** create full route name **/
+    private function getFullRoute(string $route_name): string {
+        $route = config('farnost-detva.preppend_route_static_pages','frontend') . '.' . $route_name;
+        return (! Str::startsWith($route, '.')) ? $route : substr($route, 1);
+    }
+
+    private function setSeoMetaTags(array $allPageData): void {
+
+        $page = last($allPageData);
+
+        SEOMeta::setTitle($page['title']);
+        SEOMeta::setDescription($page['description']);
+        SEOMeta::addKeyword($page['keywords']);
+        SEOMeta::addMeta('author', $page['author'], 'name');
+
+        OpenGraph::setDescription($page['description']);
+        OpenGraph::setTitle($page['title']);
+        OpenGraph::addImage($page['img-facebook'], [
+            'alt' => $page['description'],
+            'type' => $page['img-mime-type'],
+            'width' => $page['img-width'],
+            'height' => $page['img-height'],
         ]);
 
-        TwitterCard::setTitle($pageData['title']);
-        TwitterCard::setDescription($pageData['description']);
-        TwitterCard::setImage('TODO: https://codecasts.com.br/img/logo.jpg');
-        TwitterCard::addValue('image:alt', 'TODO: ALT');
+        TwitterCard::setTitle($page['title']);
+        TwitterCard::setDescription($page['description']);
+        TwitterCard::setImage($page['img-twitter']);
+        TwitterCard::addValue('image:alt', $page['img-description']);
 
-        JsonLd::setTitle($pageData['title']);
-        JsonLd::setDescription($pageData['description']);
-        JsonLd::addImage('TODO: https://codecasts.com.br/img/logo.jpg');
+        JsonLd::setTitle($page['title']);
+        JsonLd::setDescription($page['description']);
+        JsonLd::addValue('sameAs', $page['wikipedia']);
+
+        JsonLd::addValue('breadcrumb', $this->getBreadcrumbJsonLD($allPageData));
+
+        JsonLd::addValue('primaryImageOfPage', $this->getPrimaryImagePage($page) );
+    }
+
+    private function getPrimaryImagePage($page): array {
+
+        return Schema::imageObject()
+            ->url($page['img-optimize'])
+            ->thumbnailUrl($page['img-thumb'])
+            ->name($page['img-file-name'])
+            ->description($page['img-description'])
+            ->alternateName($page['img-description'])
+            ->encodingFormat($page['img-mime-type'])
+            ->height($page['img-height'])
+            ->width($page['img-width'])
+            ->uploadDate($page['img-updated_at'])
+            ->if(isset($page['img-author']) OR isset($page['img-author_url']), function (ImageObject $schema) use ($page) {
+                $schema->author(
+                    Schema::person()
+                        ->name($page['img-author'])
+                        ->sameAs($page['img-author_url'])
+                );
+            })
+            ->license($page['img-license'])
+            ->usageInfo($page['img-license_url'])
+            ->if( isset($page['img-source_url']) OR isset($page['img-source']), function (ImageObject $schema) use ($page) {
+                $schema->copyrightHolder(
+                    Schema::organization()
+                        ->name($page['img-source'])
+                        ->url($page['img-source_url'])
+                );
+            })
+            ->toArray();
+    }
+
+    private function getBreadcrumbJsonLD($allPageData): array {
+
+        $items[] = Schema::listItem()
+            ->position(1)
+            ->item(
+                Schema::thing()
+                    ->identifier(config('app.url'))
+                    ->url(config('app.url'))
+                    ->name('Farnosť Detva')
+            );
+
+        foreach ($allPageData as $i => $page) {
+            $items[] = Schema::listItem()
+                ->position($i + 2)
+                ->item(
+                    Schema::thing()
+                        ->identifier($page['url'])
+                        ->url($page['url'])
+                        ->name($page['title'])
+                );
+        }
+
+        return Schema::breadcrumbList()
+            ->numberOfItems(count($items))
+            ->itemListElement(
+                $items
+            )
+            ->toArray();
     }
 }

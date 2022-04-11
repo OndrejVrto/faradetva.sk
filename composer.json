@@ -23,6 +23,7 @@
         "nanigans/single-table-inheritance": "~1.0",
         "osiemsiedem/laravel-autolink": "^6.0",
         "spatie/crawler": "^7.1",
+        "spatie/image": "^2.2",
         "spatie/laravel-collection-macros": "^7.10",
         "spatie/laravel-csp": "^2.7",
         "spatie/laravel-medialibrary": "^10.0",
