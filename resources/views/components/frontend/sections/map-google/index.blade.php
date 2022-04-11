@@ -56,6 +56,6 @@
 
     </script>
 
-    <script @nonce async src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_API_KEY') }}&callback=initMap"></script>
+    <script @nonce async src="https://maps.googleapis.com/maps/api/js?key={{ config('farnost-detva.google-api-key') }}&callback=initMap"></script>
 <!-- GOOGLE MAP script End -->
 @endpush

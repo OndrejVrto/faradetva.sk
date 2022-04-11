@@ -11,6 +11,7 @@
             <a
                 href="{{ $picture['href'] }}"
                 title="{{ $picture['title'] }}"
+                nonce="{{ csp_nonce() }}"
                 data-srcset="{{ $picture['srcset'] }}"
             >
                 {!! $picture['responsivePicture'] !!}

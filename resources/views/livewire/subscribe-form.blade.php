@@ -1,8 +1,8 @@
 @pushOnce('css')
-    @livewireStyles
+    @livewireStyles(['nonce' => csp_nonce()])
 @endpushonce
 @pushOnce('js')
-    @livewireScripts
+    @livewireScripts(['nonce' => csp_nonce()])
 @endpushonce
 
 @if ($type)

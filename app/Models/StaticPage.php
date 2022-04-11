@@ -69,20 +69,36 @@ class StaticPage extends Model implements HasMedia
         return $this->morphOne(Source::class, 'sourceable');
     }
 
+    public function mediaOne() {
+        return $this->morphOne(config('media-library.media_model'), 'model');
+    }
+
     public function picture() {
         return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionName);
     }
 
     public function registerMediaConversions(Media $media = null) : void {
         if ($media->collection_name == $this->collectionName) {
+
             $this->addMediaConversion('crop-thumb')
                 ->fit("crop", 100, 50)
                 ->optimize();
-            $this->addMediaConversion('facebook')
-                ->height(480)
+            $this->addMediaConversion('optimize')
+                // ->height(960)
+                // ->width(1024)
+                ->fit('contain', 1920, 1440)
+                ->quality(30)
                 ->optimize();
-            $this->addMediaConversion('twiter')
+            $this->addMediaConversion('thumb')
+                ->fit('contain', 256, 256)
+                ->optimize();
+            $this->addMediaConversion('facebook')
+                ->fit('contain', 960, 480)
+                ->quality(30)
+                ->optimize();
+            $this->addMediaConversion('twitter')
                 ->fit("crop", 960, 480)    // ratio 2:1  minimum 300x157 or maximum 4096x4096 px
+                ->quality(30)
                 ->optimize();
             $this->addMediaConversion('section-list')
                 ->fit("crop", 232, 272)

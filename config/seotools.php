@@ -43,7 +43,6 @@ return [
             'site_name'   => 'faraDetva',
             'locale'      => 'sk-SK',
             "license"     => "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-            'images'      => [],
         ],
     ],
     'twitter' => [
@@ -66,7 +65,6 @@ return [
             'type'               => 'WebPage',
             "license"            => "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
             "acquireLicensePage" => "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-            'images'             => [],
         ],
     ],
 ];

@@ -7,7 +7,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 
@@ -15,16 +14,20 @@ class CacheResponseMiddleware
 {
     private $key;
 
-    private $hasCache;
+    private $cachePage;
     /**
      * Handle an incoming request.
      */
     public function handle(Request $request, Closure $next) {
         $this->key = $this->cacheKey($request);
-        $this->hasCache = Cache::get($this->key);
 
-        if ($this->hasCache) {
-            return response($this->hasCache)->header('Content-Length', strlen($this->hasCache));
+        $this->cachePage = Cache::get($this->key);
+
+        if ($this->cachePage) {
+            // CSP problem with nonce key in cache string
+            $page = preg_replace('/nonce=".*"/mU', 'nonce="'.csp_nonce().'"', $this->cachePage);
+
+            return response($page)->header('Content-Length', strlen($page));
         }
 
         return $next($request);
@@ -37,7 +40,7 @@ class CacheResponseMiddleware
         if (get_class($response) != 'Illuminate\Http\Response') {
             return;
         }
-        if ($this->hasCache) {
+        if ($this->cachePage) {
             return;
         }
         if ($response->getStatusCode() === Response::HTTP_OK) {

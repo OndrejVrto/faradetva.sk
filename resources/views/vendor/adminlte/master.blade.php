@@ -41,7 +41,7 @@
     {{-- Livewire Styles --}}
     @if(config('adminlte.livewire'))
         @if(app()->version() >= 7)
-            @livewireStyles
+            @livewireStyles(['nonce' => csp_nonce()])
         @else
             <livewire:styles />
         @endif
@@ -101,7 +101,7 @@
     {{-- Livewire Script --}}
     @if(config('adminlte.livewire'))
         @if(app()->version() >= 7)
-            @livewireScripts
+            @livewireScripts(['nonce' => csp_nonce()])
         @else
             <livewire:scripts />
         @endif
