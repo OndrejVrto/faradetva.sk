@@ -137,11 +137,26 @@ class PageController extends Controller
         JsonLd::addValue('breadcrumb', $this->getBreadcrumbJsonLD($allPageData));
 
         JsonLd::addValue('primaryImageOfPage', $this->getPrimaryImagePage($page) );
+
+        JsonLd::addValue('potentialAction', $this->getSearchAction($page) );
+
+    }
+
+    private function getSearchAction(): array {
+        $JsonLD = Schema::searchAction()
+            ->target(
+                Schema::entryPoint()
+                    ->urlTemplate("http://fara.detva.adminlte/hladat/{search_term_string}")
+            )
+            ->setProperty('query-input', 'required name=search_term_string')
+            ->toArray();
+            unset($JsonLD['@context']);
+
+            return $JsonLD;
     }
 
     private function getPrimaryImagePage($page): array {
-
-        return Schema::imageObject()
+        $JsonLD = Schema::imageObject()
             ->url($page['img-optimize'])
             ->thumbnailUrl($page['img-thumb'])
             ->name($page['img-file-name'])
@@ -168,10 +183,12 @@ class PageController extends Controller
                 );
             })
             ->toArray();
+            unset($JsonLD['@context']);
+
+            return $JsonLD;
     }
 
     private function getBreadcrumbJsonLD($allPageData): array {
-
         $items[] = Schema::listItem()
             ->position(1)
             ->item(
@@ -192,11 +209,15 @@ class PageController extends Controller
                 );
         }
 
-        return Schema::breadcrumbList()
+        $JsonLD = Schema::breadcrumbList()
             ->numberOfItems(count($items))
             ->itemListElement(
                 $items
             )
             ->toArray();
+            unset($JsonLD['@context']);
+
+        return $JsonLD;
+
     }
 }

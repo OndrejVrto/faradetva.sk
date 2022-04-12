@@ -2,15 +2,12 @@
 
 namespace App\View\Components\Partials;
 
+use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
-use romanzipp\Seo\Schema\Schema;
 use Illuminate\Contracts\View\View;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
-use Artesaos\SEOTools\Facades\JsonLdMulti;
-use Spatie\SchemaOrg\Schema as SpatieSchema;
-use romanzipp\Seo\Collections\SchemaCollection;
 
 class Picture extends Component
 {
@@ -92,7 +89,7 @@ class Picture extends Component
     }
 
     private function setSeoMetaTags(array $pictureData): void {
-        $JsonLD = SpatieSchema::imageObject()
+        $JsonLD = Schema::imageObject()
             ->url($pictureData['url'])
             ->description('Popis obrázku')
             ->alternateName('ALT')
