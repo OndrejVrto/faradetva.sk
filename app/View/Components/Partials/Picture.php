@@ -89,6 +89,7 @@ class Picture extends Component
     }
 
     private function setSeoMetaTags(array $pictureData): void {
+        // TODO: SEO
         $JsonLD = Schema::imageObject()
             ->url($pictureData['url'])
             ->description('Popis obrázku')

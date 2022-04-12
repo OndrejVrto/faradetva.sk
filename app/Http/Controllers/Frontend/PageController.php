@@ -133,13 +133,10 @@ class PageController extends Controller
         JsonLd::setTitle($page['title']);
         JsonLd::setDescription($page['description']);
         JsonLd::addValue('sameAs', $page['wikipedia']);
-
-        JsonLd::addValue('breadcrumb', $this->getBreadcrumbJsonLD($allPageData));
-
-        JsonLd::addValue('primaryImageOfPage', $this->getPrimaryImagePage($page) );
-
+        JsonLd::addValue('keywords', $page['keywords']);
         JsonLd::addValue('potentialAction', $this->getSearchAction($page) );
-
+        JsonLd::addValue('breadcrumb', $this->getBreadcrumbJsonLD($allPageData));
+        JsonLd::addValue('primaryImageOfPage', $this->getPrimaryImagePage($page) );
     }
 
     private function getSearchAction(): array {

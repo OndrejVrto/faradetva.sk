@@ -14,6 +14,7 @@ class Testimonials extends Component
 
     public function __construct() {
         $this->testimonials = $this->getTestimonials();
+        // TODO: SEO Person
     }
 
     public function render(): View|null {

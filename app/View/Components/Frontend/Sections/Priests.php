@@ -14,6 +14,7 @@ class Priests extends Component
 
     public function __construct() {
         $this->priests = $this->getPriests();
+        // TODO: SEO Person
     }
 
     public function render(): View|null {

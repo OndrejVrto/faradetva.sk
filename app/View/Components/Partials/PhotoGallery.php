@@ -3,8 +3,11 @@
 namespace App\View\Components\Partials;
 
 use App\Models\Gallery;
+use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
+use Spatie\SchemaOrg\ImageGallery;
 use Illuminate\Contracts\View\View;
+use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\Cache;
 
 class PhotoGallery extends Component
@@ -16,6 +19,7 @@ class PhotoGallery extends Component
         public string|null $dimensionSource = 'full',
     ) {
         $this->gallery = $this->getGallery($titleSlug);
+        $this->setSeoMetaTags($this->gallery);
     }
 
     public function render(): View|null {
@@ -51,5 +55,42 @@ class PhotoGallery extends Component
             })->first();
         });
 
+    }
+
+    private function setSeoMetaTags(array $album): void {
+        $pictures = [];
+        foreach ($album['picture'] as $picture) {
+            $pictures[] = Schema::imageObject()
+                ->contentUrl($picture['href'])
+                ->name($picture['title']);
+        }
+
+        $JsonLD = Schema::imageGallery()
+            ->name($album['title'])
+            ->description($album['description'])
+            ->if(isset($album['sourceArr']['author']) OR isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album) {
+                $schema->author(
+                    Schema::person()
+                        ->name($album['sourceArr']['author'])
+                        ->sameAs($album['sourceArr']['author_url'])
+                );
+            })
+            ->license($album['sourceArr']['license'])
+            ->usageInfo($album['sourceArr']['license_url'])
+            ->if( isset($album['sourceArr']['source_url']) OR isset($album['sourceArr']['source']), function (ImageGallery $schema) use ($album) {
+                $schema->copyrightHolder(
+                    Schema::organization()
+                        ->name($album['sourceArr']['source'])
+                        ->url($album['sourceArr']['source_url'])
+                );
+            })
+            ->associatedMedia( $pictures )
+            ->toArray();
+
+        unset($JsonLD['@context']);
+
+        JsonLd::addImage([
+            $JsonLD
+        ]);
     }
 }
