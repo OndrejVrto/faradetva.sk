@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Traits\Restorable;
 use Illuminate\Support\Str;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -58,15 +59,6 @@ class Priest extends Model implements HasMedia
         });
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
-        $this->addMediaConversion('crop')
-            ->fit("crop", 230, 270)
-            ->optimize();
-        $this->addMediaConversion('crop-thumb')
-            ->fit("crop", 60, 80)
-            ->optimize();
-    }
-
     public function getFullNameTitlesAttribute() {
         return $this->getFullNameWithTitles();
     }
@@ -93,6 +85,17 @@ class Priest extends Model implements HasMedia
 
     private function getFullName() {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function registerMediaConversions( Media $media = null ) : void {
+        $this->addMediaConversion('crop')
+            ->fit(Manipulations::FIT_CROP, 230, 270)
+            ->sharpen(2)
+            ->quality(60);
+        $this->addMediaConversion('crop-thumb')
+            ->fit(Manipulations::FIT_CROP, 60, 80)
+            ->sharpen(2)
+            ->quality(60);
     }
 }
 

@@ -60,7 +60,7 @@ class TestimonialRequest extends FormRequest
 
     protected function prepareForValidation() {
         $this->merge([
-            'slug' => Str::slug($this->name)
+            'slug' => Str::slug($this->name.'-'.$this->function)
         ]);
     }
 }

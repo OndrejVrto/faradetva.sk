@@ -83,6 +83,7 @@ class PageController extends Controller
                     'img-thumb'       => $media->getUrl('thumb'),
                     'img-twitter'     => $media->getUrl('twitter'),
                     'img-facebook'    => $media->getUrl('facebook'),
+                    'img-section-list'=> $media->getUrl('section-list'),
                     'img-file-name'   => $media->file_name,
                     'img-mime-type'   => $media->mime_type,
                     'img-size'        => $media->size,

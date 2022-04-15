@@ -30,12 +30,12 @@
                             <div class="event_box">
                                 <div class="event_thumb">
                                     {{-- <img src="images/event/event-thumb1.jpg" class="img-responsive" alt=""> --}}
-                                    <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionPicture, 'large-thin') ?: "http://via.placeholder.com/650x300" }}"
+                                    <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionName, 'large-thin') ?: "http://via.placeholder.com/650x300" }}"
                                                 {{-- class="w-100" --}}
                                                 class="mx-auto d-block d-lg-none img-fluid mt-0"
                                                 alt="Malý obrázok k článku: {{ $oneNews->title }}."
                                     />
-                                    <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionPicture, 'large-square') ?: "http://via.placeholder.com/335x290" }}"
+                                    <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionName, 'large-square') ?: "http://via.placeholder.com/335x290" }}"
                                                 {{-- class="w-100" --}}
                                                 class="mx-auto d-none d-lg-block"
                                                 alt="Malý obrázok k článku: {{ $oneNews->title }}."
@@ -77,7 +77,7 @@
                         <div class=" col-sm-6 col-lg-4">
                             <div class="blog_item_cover">
                                 <div class="blog_thumb">
-                                    <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionPicture, 'thumb-all-news') ?: "http://via.placeholder.com/370x248" }}"
+                                    <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionName, 'thumb-all-news') ?: "http://via.placeholder.com/370x248" }}"
                                         class="w-100"
                                         alt="Malý obrázok k článku: {{ $oneNews->title }}."
                                     />

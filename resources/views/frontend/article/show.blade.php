@@ -16,7 +16,7 @@
                 <!-- ARTICLE {{ $oneNews->title }} - Start -->
                 <div class="wh_new">
                     <div class="blog_thumb">
-                        {!! $oneNews->getFirstMedia($oneNews->collectionPicture)->img('large', ['class' => 'w-100 img-fluid']) !!}
+                        {!! $oneNews->getFirstMedia($oneNews->collectionName)->img('large', ['class' => 'w-100 img-fluid']) !!}
                     </div>
                     <div class="blog_desc">
                         <div class="d-flex align-items-end justify-content-between">
@@ -120,7 +120,7 @@
                             @foreach ($lastNews as $lastOneNews)
                                 <li>
                                     {{-- <img src="images/blog/post_1.jpg" alt="Recent blog"> --}}
-                                    <img src="{{ $lastOneNews->getFirstMediaUrl($lastOneNews->collectionPicture, 'thumb-latest-news') ?: "http://via.placeholder.com/80x80" }}"
+                                    <img src="{{ $lastOneNews->getFirstMediaUrl($lastOneNews->collectionName, 'thumb-latest-news') ?: "http://via.placeholder.com/80x80" }}"
                                         class="img-fluid"
                                         alt="Malý obrázok článku: {{ $lastOneNews->title }}."
                                     />

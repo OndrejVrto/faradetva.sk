@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Traits\Restorable;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -42,17 +43,19 @@ class Testimonial extends Model implements HasMedia
         return 'slug';
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
-        $this->addMediaConversion('crop')
-            ->fit("crop", 800, 800);
-            // ->optimize();
-            // ->withResponsiveImages();
-        $this->addMediaConversion('crop-thumb')
-            ->fit("crop", 60, 60);
-    }
-
     public function getMediaFileNameAttribute() {
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
+    }
+
+    public function registerMediaConversions( Media $media = null ) : void {
+        $this->addMediaConversion('crop')
+            ->fit(Manipulations::FIT_CROP, 120, 120)
+            ->sharpen(2)
+            ->quality(60);
+        $this->addMediaConversion('crop-thumb')
+            ->fit(Manipulations::FIT_CROP, 60, 60)
+            ->sharpen(2)
+            ->quality(60);
     }
 }
 

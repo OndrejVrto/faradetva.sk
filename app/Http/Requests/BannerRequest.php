@@ -35,7 +35,7 @@ class BannerRequest extends SourceRequest
                 'file',
                 'mimes:jpg,bmp,png,jpeg',
                 'dimensions:min_width=1920,min_height=480',
-                'max:10000',
+                'max:5000',
             ],
         ];
     }

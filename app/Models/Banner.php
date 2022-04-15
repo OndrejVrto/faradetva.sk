@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Models\Source;
 use App\Models\StaticPage;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -41,23 +42,29 @@ class Banner extends Model implements HasMedia
     }
 
     public function registerMediaConversions(Media $media = null) : void {
-        //1920x480px (240*60)
         $this->addMediaConversion('extra-large')
-            ->fit("crop", 1920, 480)    // 1200px and up
-            ->optimize();
+            ->fit(Manipulations::FIT_CROP, 1920, 480)    // 1200px and up
+            ->sharpen(2)
+            ->quality(60);
         $this->addMediaConversion('large')
-            ->fit("crop", 1440, 360)    // 992px to 1200px
-            ->optimize();
+            ->fit(Manipulations::FIT_CROP, 1440, 360)    // 992px to 1200px
+            ->sharpen(2)
+            ->quality(60);
         $this->addMediaConversion('medium')
-            ->fit("crop", 1200, 300)    // 768px to 992px
-            ->optimize();
+            ->fit(Manipulations::FIT_CROP, 1200, 300)    // 768px to 992px
+            ->sharpen(2)
+            ->quality(60);
         $this->addMediaConversion('small')
-            ->fit("crop", 960, 240)        // 576px to 768px
-            ->optimize();
+            ->fit(Manipulations::FIT_CROP, 960, 240)     // 576px to 768px
+            ->sharpen(2)
+            ->quality(60);
         $this->addMediaConversion('extra-small')
-            ->fit("crop", 720, 180)        // less than 576px
-            ->optimize();
+            ->fit(Manipulations::FIT_CROP, 720, 180)     // less than 576px
+            ->sharpen(2)
+            ->quality(60);
         $this->addMediaConversion('crop-thumb')
-            ->fit("crop", 360, 90);
+            ->fit(Manipulations::FIT_CROP, 360, 90)
+            ->sharpen(2)
+            ->quality(60);
     }
 }

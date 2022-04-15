@@ -9,6 +9,7 @@ use App\Models\File;
 use App\Models\Banner;
 use App\Models\Source;
 use App\Traits\Restorable;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -79,32 +80,30 @@ class StaticPage extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null) : void {
         if ($media->collection_name == $this->collectionName) {
-
             $this->addMediaConversion('crop-thumb')
-                ->fit("crop", 100, 50)
-                ->optimize();
+                ->fit(Manipulations::FIT_CROP, 100, 50)
+                ->sharpen(2)
+                ->quality(60);
             $this->addMediaConversion('optimize')
-                // ->height(960)
-                // ->width(1024)
-                ->fit('contain', 1920, 1440)
-                ->quality(30)
-                ->optimize();
+                ->fit(Manipulations::FIT_CONTAIN, 1920, 1440)
+                ->sharpen(2)
+                ->quality(60);
             $this->addMediaConversion('thumb')
-                ->fit('contain', 256, 256)
-                ->optimize();
+                ->fit(Manipulations::FIT_CONTAIN, 256, 256)
+                ->sharpen(2)
+                ->quality(60);
             $this->addMediaConversion('facebook')
-                ->fit('contain', 960, 480)
-                ->quality(30)
-                ->optimize();
+                ->fit(Manipulations::FIT_CONTAIN, 960, 480)
+                ->sharpen(2)
+                ->quality(60);
             $this->addMediaConversion('twitter')
-                ->fit("crop", 960, 480)    // ratio 2:1  minimum 300x157 or maximum 4096x4096 px
-                ->quality(30)
-                ->optimize();
+                ->fit(Manipulations::FIT_CROP, 960, 480)    // ratio 2:1  minimum 300x157 or maximum 4096x4096 px
+                ->sharpen(2)
+                ->quality(60);
             $this->addMediaConversion('section-list')
-                ->fit("crop", 232, 272)
-                ->optimize()
-                ->withResponsiveImages();
+                ->fit(Manipulations::FIT_CROP, 232, 272)
+                ->sharpen(2)
+                ->quality(60);
         }
     }
-
 }
