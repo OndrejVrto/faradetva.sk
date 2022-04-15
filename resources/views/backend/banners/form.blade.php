@@ -1,6 +1,6 @@
 @php
     $controlerName = 'banners';
-    $columns = 7;
+    $columns = 11;
     $uploadFiles = 'true';
 
     $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = $source = null;
@@ -51,9 +51,36 @@
                 <i class="far fa-flag"></i>
             </div>
         </x-slot>
+        @error('slug')
+            <x-slot name="errorManual">
+                {{ $errors->first('slug') }}
+            </x-slot>
+        @enderror
     </x-adminlte-input>
 
     <x-backend.form.source :source="$source" />
+
+    <hr class="bg-orange">
+
+    <div class="form-group">
+        <label>Stránky v ktorých sa bude zobrazovať tento banner</label>
+    </div>
+
+    <div class="row pb-2 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+        @foreach($pages as $page)
+            <div class="col text-break" title="{{ $page->description }}">
+                <input type="checkbox"
+                    name="page[{{ $page->id }}]"
+                    value="{{ $page->id }}"
+                    class='d-inline m-2'
+                    {{ in_array($page->id, $selectedPages)
+                        ? 'checked'
+                        : '' }}
+                >
+                {{ $page->title }}
+            </div>
+        @endforeach
+    </div>
 
 </x-backend.form>
 

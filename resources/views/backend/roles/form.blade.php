@@ -31,6 +31,11 @@
                 <i class="fas fa-chess-queen"></i>
             </div>
         </x-slot>
+        @error('slug')
+            <x-slot name="errorManual">
+                {{ $errors->first('slug') }}
+            </x-slot>
+        @enderror
     </x-adminlte-input>
 
     <label for="permissions" class="form-label">Udelené povolenia tejto roly</label>
