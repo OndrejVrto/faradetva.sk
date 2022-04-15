@@ -1,7 +1,7 @@
 
 Obsah stránky:
   ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
-  ☐ dorobiť texty od Mariána
+  ✔ dorobiť texty od Mariána
   ☐ zoradiť stránky podľa zoznamu od Mariana
   ✔ spoločenstvá - zoznam ako sekcia
   ✔ osobnosti - zoznam ako sekcia
@@ -10,15 +10,28 @@ Obsah stránky:
   ✔ add section class in notice frontend
   ☐ vytvoriť logo a ikonu stránky / farnosti
   ✔ Myšlienky dňa do Footera stránky
-  ☐ design pre subscribe formulár vložený ako sekcia na stránke
+  ✔ design pre subscribe formulár vložený ako sekcia na stránke
+  ☐ customize Bootstrap
+  ☐ webpack mix -> všetko v jenom css a js pre frontend aj backend
+  ☐ opraviť veľkosť obrázkov v texte pri zmenšovaní rozmeru stránky
+  ☐ stránka s kompletne všetkými FaQ
+  ✔ v titulku článku uvádzať počet slov v článku a dĺžka čítania v minútach
+  ☐ do článku na začiatku vkladať Teaser?  Či nie?
+  ✔ autolink generátor pre niektoré texty vkladané v administrátorskom rozhraní
+  ✘ autolink generátor pre statické stránky
 
 Administrátorské rozhranie:
+  ☐ analyzovať a zrýchliť bootovanie stránky
+  ✔ nastaviť správne rozmery obrázkom a optimalizáciu
+  ✔ automatické premenovanie vkladaných súborov
+  ✔ opraviť načítavanie obrázkov pri zapnutom CSP
   ✔ newsletter register/unscribe
   ✔ doprogramovať grafy -> farba, typ, ...
   ✔ CRUD modlidby s obrázkom na celú stránku a linkom na príspevok
   ✔ Frequently Asked Question (FAQ) pre každú stránku
   ✔ vytvoriť komponent sekcie FAQ
   ✔ move sources in backend fomns to separe component?
+  ✔ tlačítko na priame zobrazenie správy
   ☐ storage media in Storage folder and create link
   ☐ premazať všetky nepotrebné obrázky v public/images
   ☐ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
@@ -30,7 +43,6 @@ Administrátorské rozhranie:
     https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
     https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
     https://spatie.be/docs/laravel-site-search/v1/introduction
-  ☐ webpack mix -> všetko v jenom css a js
   ✔ mansonry layout pre články (https://getbootstrap.com/docs/5.1/examples/masonry/)
   ✔ add robots index, follow to meta tag
   ✔ pridať tlačítko na download všade kde sa vkladá súbor ( články, kňazi, slider, user, rozpisy, ....)
@@ -50,6 +62,8 @@ Administrátorské rozhranie:
     https://github.com/fidum/laravel-dashboard-chart-tile
     https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
   ✔ Myšlienka dňa - komplet model, controller, migration, ....
+  ✔ nainštalovať X-Debug
+  ✔ automatický teaser v správach
 
 SEO:
   ☐ rozšíriť model Priest o kontakty na sociálne siete pre potreby SEO
