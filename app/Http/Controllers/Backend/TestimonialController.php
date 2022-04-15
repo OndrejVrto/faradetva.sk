@@ -34,9 +34,7 @@ class TestimonialController extends Controller
         $validated = $request->validated();
         $testimonial = Testimonial::create($validated);
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($testimonial, $testimonial->collectionName, 'photo');
-        }
+        $mediaService->handle($testimonial, $request, 'photo', $validated['slug'] );
 
         toastr()->success(__('app.testimonial.store'));
         return to_route('testimonials.index');
@@ -50,9 +48,7 @@ class TestimonialController extends Controller
         $validated = $request->validated();
         $testimonial->update($validated);
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($testimonial, $testimonial->collectionName, 'photo');
-        }
+        $mediaService->handle($testimonial, $request, 'photo', $validated['slug'] );
 
         toastr()->success(__('app.testimonial.update'));
         return to_route('testimonials.index');

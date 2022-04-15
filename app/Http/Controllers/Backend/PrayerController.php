@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Prayer;
+use App\Models\Source;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -34,12 +35,11 @@ class PrayerController extends Controller
     public function store(PrayerRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $prayer = Prayer::create($validated);
-        $sourceData = Arr::only($validated, ['description', 'author', 'author_url', 'source', 'source_url', 'license', 'license_url',]);
+
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
         $prayer->source()->create($sourceData);
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($prayer, $prayer->collectionName, 'photo');
-        }
+        $mediaService->handle($prayer, $request, 'photo', $validated['slug'] );
 
         toastr()->success(__('app.prayer.store'));
         return to_route('prayers.index');
@@ -60,13 +60,13 @@ class PrayerController extends Controller
     public function update(PrayerRequest $request, Prayer $prayer, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $prayer->update($validated);
-        $sourceData = Arr::only($validated, ['description', 'author', 'author_url', 'source', 'source_url', 'license', 'license_url',]);
-        $prayer->source()->update($sourceData);
-        $prayer->touch(); // Touch because i need start observer for delete cache
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($prayer, $prayer->collectionName, 'photo');
-        }
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
+        $prayer->source()->update($sourceData);
+
+        $mediaService->handle($prayer, $request, 'photo', $validated['slug'] );
+
+        $prayer->touch(); // Touch because i need start observer for delete cache
 
         toastr()->success(__('app.prayer.update'));
         return to_route('prayers.index');

@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Source;
 use App\Models\Picture;
 use Illuminate\Support\Arr;
 use App\Services\MediaStoreService;
@@ -27,12 +28,11 @@ class PictureController extends Controller
     public function store(PictureRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $picture = Picture::create($validated);
-        $sourceData = Arr::except($validated, ['title', 'slug', 'photo']);
+
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
         $picture->source()->create($sourceData);
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($picture, $picture->collectionName, 'photo');
-        }
+        $mediaService->handle($picture, $request, 'photo', $validated['slug'] );
 
         toastr()->success(__('app.picture.store'));
         return to_route('pictures.index');
@@ -53,13 +53,13 @@ class PictureController extends Controller
     public function update(PictureRequest $request, Picture $picture, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $picture->update($validated);
-        $sourceData = Arr::except($validated, ['title', 'slug', 'photo']);
-        $picture->source()->update($sourceData);
-        $picture->touch(); // Touch because i need start observer for delete cache
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($picture, $picture->collectionName, 'photo');
-        }
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
+        $picture->source()->update($sourceData);
+
+        $mediaService->handle($picture, $request, 'photo', $validated['slug'] );
+
+        $picture->touch(); // Touch because i need start observer for delete cache
 
         toastr()->success(__('app.picture.update'));
         return to_route('pictures.index');

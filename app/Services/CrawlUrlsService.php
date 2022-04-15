@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Setting;
 use Spatie\Crawler\Crawler;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;

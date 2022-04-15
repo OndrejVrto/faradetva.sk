@@ -14,6 +14,7 @@ class Priests extends Component
 
     public function __construct() {
         $this->priests = $this->getPriests();
+        // TODO: SEO Person
     }
 
     public function render(): View|null {
@@ -30,14 +31,14 @@ class Priests extends Component
                 ->get()
                 ->map(function($priest): array {
                     return [
-                        'id'               => $priest->id,
-                        'full_name_titles' => $priest->full_name_titles,
-                        'phone'            => $priest->phone,
-                        'phone_digits'     => $priest->phone_digits,
-                        'email'            => $priest->email,
-                        'function'         => $priest->function,
-                        'img-url'          => $priest->getFirstMediaUrl('priest', 'crop'),
-                        'description'      => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
+                        'id'                => $priest->id,
+                        'full_name_titles'  => $priest->full_name_titles,
+                        'phone'             => $priest->phone,
+                        'phone_digits'      => $priest->phone_digits,
+                        'email'             => $priest->email,
+                        'function'          => $priest->function,
+                        'img-url'           => $priest->getFirstMediaUrl('priest', 'crop'),
+                        'description'       => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
                     ];
             })->toArray();
         });

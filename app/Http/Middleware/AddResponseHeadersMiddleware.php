@@ -28,19 +28,19 @@ class AddResponseHeadersMiddleware
             ->header('Referrer-Policy', 'strict-origin-when-cross-origin')
             ->header('Feature-Policy', "microphone 'none'; camera 'none'; geolocation 'none';");
 
-            if ($time = Cache::get('___LAST_MODIFIED')) {
-                $modifiedSince = $request->headers->get('If-Modified-Since');
+        if ($time = Cache::get('___LAST_MODIFIED')) {
+            $modifiedSince = $request->headers->get('If-Modified-Since');
 
-                if ($modifiedSince && $time <= strtotime($modifiedSince)) {
-                    $response->setStatusCode(Response::HTTP_NOT_MODIFIED);
-                } else {
-                    $response->header('Last-Modified', gmdate("D, d M Y H:i:s", $time)." GMT");
-                }
+            if ($modifiedSince && $time <= strtotime($modifiedSince)) {
+                $response->setStatusCode(Response::HTTP_NOT_MODIFIED);
             } else {
-                Cache::forever('___LAST_MODIFIED', Carbon::now()->timestamp);
-                Cache::forever('___RELOAD', true);
+                $response->header('Last-Modified', gmdate("D, d M Y H:i:s", $time)." GMT");
             }
+        } else {
+            Cache::forever('___LAST_MODIFIED', Carbon::now()->timestamp);
+            Cache::forever('___RELOAD', true);
+        }
 
-            return $response;
+        return $response;
     }
 }

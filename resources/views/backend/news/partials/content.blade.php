@@ -37,7 +37,7 @@
             toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | link image media",
             toolbar_mode: 'floating',
 
-            height: 550,
+            height: 500,
             image_caption: true,
 
             file_picker_callback : function(callback, value, meta) {

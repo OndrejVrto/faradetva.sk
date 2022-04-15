@@ -34,6 +34,11 @@
         <x-slot name="noteSlot">
             Pre kód povolenia môžete použiť aj 'Wildcard'. (Napr. news.*)
         </x-slot>
+        @error('slug')
+            <x-slot name="errorManual">
+                {{ $errors->first('slug') }}
+            </x-slot>
+        @enderror
     </x-adminlte-input>
 
 </x-backend.form>

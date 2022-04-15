@@ -6,6 +6,7 @@ namespace App\Models;
 
 
 use App\Models\Source;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -39,12 +40,18 @@ class Gallery extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null) : void {
         if ($media->collection_name == $this->collectionName) {
             $this->addMediaConversion('orginal')
-                ->optimize()
+                ->fit(Manipulations::FIT_MAX, 1920, 1440)
+                ->sharpen(2)
+                ->quality(60)
                 ->withResponsiveImages();
             $this->addMediaConversion('thumb')
-                ->height(200);
+                ->height(200)
+                ->sharpen(2)
+                ->quality(60);
             $this->addMediaConversion('crop-thumb')
-                ->fit("crop", 100, 100);
+                ->fit(Manipulations::FIT_CROP, 100, 100)
+                ->sharpen(2)
+                ->quality(60);
         }
     }
 }

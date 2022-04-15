@@ -30,6 +30,11 @@
                 <i class="fas fa-question"></i>
             </div>
         </x-slot>
+        @error('slug')
+            <x-slot name="errorManual">
+                {{ $errors->first('slug') }}
+            </x-slot>
+        @enderror
     </x-adminlte-input>
 
     <x-adminlte-textarea

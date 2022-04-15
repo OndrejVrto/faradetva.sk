@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Models\News;
 use App\Traits\Restorable;
+use Spatie\Image\Manipulations;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Permission\Traits\HasRoles;
@@ -78,13 +79,6 @@ class User extends Authenticatable implements HasMedia
         return $this->can_be_impersonated == 1;
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
-        $this->addMediaConversion('crop')
-            ->fit("crop", 100, 100);
-        $this->addMediaConversion('crop-thumb')
-            ->fit("crop", 40, 40);
-    }
-
     public function adminlte_image() {
         return $this->getFirstMediaUrl($this->collectionName, 'crop') ?: "http://via.placeholder.com/100x100";
     }
@@ -95,5 +89,16 @@ class User extends Authenticatable implements HasMedia
 
     public function adminlte_profile_url() {
         return route('users.show', $this->slug);
+    }
+
+    public function registerMediaConversions( Media $media = null ) : void {
+        $this->addMediaConversion('crop')
+            ->fit(Manipulations::FIT_CROP, 100, 100)
+            ->sharpen(2)
+            ->quality(60);
+        $this->addMediaConversion('crop-thumb')
+            ->fit(Manipulations::FIT_CROP, 40, 40)
+            ->sharpen(2)
+            ->quality(60);
     }
 }

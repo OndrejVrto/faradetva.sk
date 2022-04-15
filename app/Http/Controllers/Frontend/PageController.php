@@ -83,6 +83,7 @@ class PageController extends Controller
                     'img-thumb'       => $media->getUrl('thumb'),
                     'img-twitter'     => $media->getUrl('twitter'),
                     'img-facebook'    => $media->getUrl('facebook'),
+                    'img-section-list'=> $media->getUrl('section-list'),
                     'img-file-name'   => $media->file_name,
                     'img-mime-type'   => $media->mime_type,
                     'img-size'        => $media->size,
@@ -133,15 +134,27 @@ class PageController extends Controller
         JsonLd::setTitle($page['title']);
         JsonLd::setDescription($page['description']);
         JsonLd::addValue('sameAs', $page['wikipedia']);
-
+        JsonLd::addValue('keywords', $page['keywords']);
+        JsonLd::addValue('potentialAction', $this->getSearchAction($page) );
         JsonLd::addValue('breadcrumb', $this->getBreadcrumbJsonLD($allPageData));
-
         JsonLd::addValue('primaryImageOfPage', $this->getPrimaryImagePage($page) );
     }
 
-    private function getPrimaryImagePage($page): array {
+    private function getSearchAction(): array {
+        $JsonLD = Schema::searchAction()
+            ->target(
+                Schema::entryPoint()
+                    ->urlTemplate("http://fara.detva.adminlte/hladat/{search_term_string}")
+            )
+            ->setProperty('query-input', 'required name=search_term_string')
+            ->toArray();
+            unset($JsonLD['@context']);
 
-        return Schema::imageObject()
+            return $JsonLD;
+    }
+
+    private function getPrimaryImagePage($page): array {
+        $JsonLD = Schema::imageObject()
             ->url($page['img-optimize'])
             ->thumbnailUrl($page['img-thumb'])
             ->name($page['img-file-name'])
@@ -168,10 +181,12 @@ class PageController extends Controller
                 );
             })
             ->toArray();
+            unset($JsonLD['@context']);
+
+            return $JsonLD;
     }
 
     private function getBreadcrumbJsonLD($allPageData): array {
-
         $items[] = Schema::listItem()
             ->position(1)
             ->item(
@@ -192,11 +207,15 @@ class PageController extends Controller
                 );
         }
 
-        return Schema::breadcrumbList()
+        $JsonLD = Schema::breadcrumbList()
             ->numberOfItems(count($items))
             ->itemListElement(
                 $items
             )
             ->toArray();
+            unset($JsonLD['@context']);
+
+        return $JsonLD;
+
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Banner;
+use App\Models\Source;
 use App\Models\StaticPage;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -38,17 +39,12 @@ class StaticPageController extends Controller
 
     public function store(StaticPageRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $staticPage = StaticPage::create($validated);
-
-        $sourceData = Arr::only($validated, ['description', 'author', 'author_url', 'source', 'source_url', 'license', 'license_url',]);
-        $staticPage->source()->create($sourceData);
-
-        if ($request->hasFile('picture')) {
-            $mediaService->storeMediaOneFile($staticPage, $staticPage->collectionName, 'picture');
-        }
-
         $banners = $request->input('banner');
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
+        $staticPage = StaticPage::create($validated);
+        $staticPage->source()->create($sourceData);
         $staticPage->banners()->syncWithoutDetaching($banners);
+        $mediaService->handle($staticPage, $request, 'picture', Str::slug($validated['description']) );
 
         toastr()->success(__('app.static-page.store'));
         return to_route('static-pages.index');
@@ -64,18 +60,13 @@ class StaticPageController extends Controller
 
     public function update(StaticPageRequest $request, StaticPage $staticPage, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $staticPage->update($validated);
-
-        $sourceData = Arr::only($validated, ['description', 'author', 'author_url', 'source', 'source_url', 'license', 'license_url',]);
-        $staticPage->source()->update($sourceData);
-        $staticPage->touch(); // Touch because i need start observer for delete cache
-
-        if ($request->hasFile('picture')) {
-            $mediaService->storeMediaOneFile($staticPage, $staticPage->collectionName, 'picture');
-        }
-
         $banners = $request->input('banner');
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
+        $staticPage->update($validated);
+        $staticPage->source()->update($sourceData);
         $staticPage->banners()->sync($banners);
+        $staticPage->touch(); // Touch because i need start observer for delete cache
+        $mediaService->handle($staticPage, $request, 'picture', Str::slug($validated['description']) );
 
         toastr()->success(__('app.static-page.update'));
         return to_route('static-pages.index');

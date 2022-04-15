@@ -9,5 +9,8 @@
             <i class="fab fa-diaspora"></i>
         </div>
     </x-slot>
+    <x-slot name="noteSlot">
+        Poznámka: cca. 50 slov
+    </x-slot>
         {{ $news->teaser ?? '' }}
 </x-adminlte-textarea>

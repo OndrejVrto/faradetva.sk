@@ -1,3 +1,18 @@
+<!-- JSonLd -->
+{!! JsonLd::generate() !!}
+
+<!-- JsonLdMulti -->
+{!! JsonLdMulti::generate() !!}
+
+{{-- <!-- BreadCrumb JsonLd --> --}}
+{{-- @stack('BreadCrumbJSonLd') --}}
+
+
+
+
+
+
+
 <!-- SEOMeta -->
 {!! SEOMeta::generate() !!}
 
@@ -16,12 +31,12 @@
 <!-- Twitter -->
 {!! Twitter::generate() !!}
 
-<!-- JSonLd -->
+{{-- <!-- JSonLd -->
 {!! JsonLd::generate() !!}
 
 <!-- JsonLdMulti -->
-{!! JsonLdMulti::generate() !!}
-
+{!! JsonLdMulti::generate() !!} --}}
+{{--
 
 <!-- BreadCrumb JsonLd -->
-@stack('BreadCrumbJSonLd')
+@stack('BreadCrumbJSonLd') --}}

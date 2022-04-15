@@ -62,10 +62,7 @@ class NoticeController extends Controller implements CrudInterface
         } catch (\Throwable $th) {
             info($th);
         }
-
-        if ($request->hasFile('notice_file')) {
-            $mediaService->storeMediaOneFile($notice, $notice->collectionName, 'notice_file');
-        }
+        $mediaService->handle($notice, $request, 'notice_file', $validated['slug'] );
 
         toastr()->success(__('app.'.$this->resource.'.store'));
         return to_route($this->resource.'.index');
@@ -84,9 +81,7 @@ class NoticeController extends Controller implements CrudInterface
         } catch (\Throwable $th) {
             info($th);
         }
-        if ($request->hasFile('notice_file')) {
-            $mediaService->storeMediaOneFile($model, $model->collectionName, 'notice_file');
-        }
+        $mediaService->handle($model, $request, 'notice_file', $validated['slug'] );
 
         toastr()->success(__('app.'.$this->resource.'.update'));
         return to_route($this->resource.'.index');
@@ -106,7 +101,7 @@ class NoticeController extends Controller implements CrudInterface
         $model->restore();
 
         toastr()->success(__('app.'.$this->resource.'.restore'));
-    return to_route($this->resource.'.edit',  $model->slug);
+        return to_route($this->resource.'.edit',  $model->slug);
     }
 
     public function force_delete($id): RedirectResponse {

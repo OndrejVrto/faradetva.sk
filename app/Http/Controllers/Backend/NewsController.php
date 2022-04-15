@@ -6,7 +6,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Tag;
 use App\Models\News;
+use App\Models\Source;
 use App\Models\Category;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -68,9 +70,10 @@ class NewsController extends Controller
         $tags = $request->input('tags');
         $news->tags()->syncWithoutDetaching($tags);
 
-        if ($request->hasFile('picture')) {
-            $mediaService->storeMediaOneFile($news, $news->collectionPicture, 'picture');
-        }
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
+        $news->source()->create($sourceData);
+
+        $mediaService->handle($news, $request, 'picture', Str::slug($validated['description']) );
 
         foreach ($request->input('document', []) as $file) {
             $news
@@ -101,9 +104,10 @@ class NewsController extends Controller
         $tags = $request->input('tags');
         $news->tags()->sync($tags);
 
-        if ($request->hasFile('picture')) {
-            $mediaService->storeMediaOneFile($news, $news->collectionPicture, 'picture');
-        }
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
+        $news->source()->update($sourceData);
+
+        $mediaService->handle($news, $request, 'picture', Str::slug($validated['description']) );
 
         if (count($news->document) > 0) {
             foreach ($news->document as $media) {
@@ -154,7 +158,7 @@ class NewsController extends Controller
     public function force_delete($id): RedirectResponse {
         $news = News::onlyTrashed()->findOrFail($id);
         $news->tags()->detach($news->id);
-        $news->clearMediaCollection($news->collectionPicture);
+        $news->clearMediaCollection($news->collectionName);
         $news->clearMediaCollection($news->collectionDocument);
         $news->forceDelete();
 

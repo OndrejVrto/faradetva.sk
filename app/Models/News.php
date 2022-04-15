@@ -6,10 +6,12 @@ namespace App\Models;
 
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Source;
 use App\Models\Category;
 use App\Traits\Restorable;
 use App\Traits\Publishable;
 use Illuminate\Support\Str;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use App\Services\PurifiAutolinkService;
 use Illuminate\Database\Eloquent\Model;
@@ -31,7 +33,7 @@ class News extends Model implements HasMedia
 
     protected $table = 'news';
 
-    public $collectionPicture = 'front_picture';
+    public $collectionName = 'front_picture';
 
     public $collectionDocument = 'attachment';
 
@@ -71,7 +73,7 @@ class News extends Model implements HasMedia
     public function scopeNewsComplete(Builder $query) {
         return $query
                     ->visible()
-                    ->with('media', 'user', 'category')
+                    ->with('media', 'user', 'category', 'source')
                     ->paginate();
     }
 
@@ -134,26 +136,39 @@ class News extends Model implements HasMedia
         return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionDocument);
     }
 
+    public function source() {
+        return $this->morphOne(Source::class, 'sourceable');
+    }
+
     public function registerMediaConversions(Media $media = null) : void {
-        if ($media->collection_name == $this->collectionPicture) {
+        if ($media->collection_name == $this->collectionName) {
             $this->addMediaConversion('large')
-                ->fit("crop", 848, 460)
-                ->optimize()
+                ->fit(Manipulations::FIT_CROP, 848, 460)
+                ->sharpen(2)
+                ->quality(60)
                 ->withResponsiveImages();
             $this->addMediaConversion('large-square')
-                ->fit("crop", 335, 290)
-                ->optimize()
+                ->fit(Manipulations::FIT_CROP, 335, 290)
+                ->sharpen(2)
+                ->quality(60)
                 ->withResponsiveImages();
             $this->addMediaConversion('large-thin')
-                ->fit("crop", 650, 300)
-                ->optimize()
+                ->fit(Manipulations::FIT_CROP, 650, 300)
+                ->sharpen(2)
+                ->quality(60)
                 ->withResponsiveImages();
             $this->addMediaConversion('thumb-latest-news')
-                ->fit("crop", 80, 80);
+                ->fit(Manipulations::FIT_CROP, 80, 80)
+                ->sharpen(2)
+                ->quality(60);
             $this->addMediaConversion('thumb-all-news')
-                ->fit("crop", 370, 248);
+                ->fit(Manipulations::FIT_CROP, 370, 248)
+                ->sharpen(2)
+                ->quality(60);
             $this->addMediaConversion('crop-thumb')
-                ->fit("crop", 170, 92);
+                ->fit(Manipulations::FIT_CROP, 170, 92)
+                ->sharpen(2)
+                ->quality(60);
         }
     }
 }

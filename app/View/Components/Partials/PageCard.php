@@ -15,23 +15,26 @@ class PageCard extends Component
         public string $routeStaticPage,
         public string $delay
     ) {
-        $this->pageCard = Cache::rememberForever('MINISTRY_'.$routeStaticPage, function () use($routeStaticPage) {
-            return StaticPage::where('route_name',$routeStaticPage)->with('media', 'source')->get()->map(function($page) {
-                return [
-                    'id' => $page->id,
-                    'teaser' => $page->teaser,
-                    'title' => $page->title,
-                    'url_page' => $page->full_url,
-                    'desription' => $page->description_page,
-                    'responsivePicture' => (string) $page
-                                            ->getFirstMedia($page->media[0]->collection_name)
-                                            ->img('section-list', [
-                                                'class' => 'img-fluid',
-                                                'alt' => $page->source->description,
-                                                'title' => $page->title,
-                                                'nonce' => csp_nonce(),
-                                            ]),
-                    // 'url_img'               => (string) $page->getFirstMediaUrl($page->media[0]->collection_name),
+        $this->pageCard = Cache::rememberForever('PAGE_CARD_'.$routeStaticPage, function () use($routeStaticPage) {
+            return StaticPage::where('route_name',$routeStaticPage)->with('mediaOne', 'source')->get()->map(function($page) {
+                $colectionName = $page->media[0]->collection_name;
+                $media = $page->getFirstMedia($colectionName);
+
+                return  [
+                    'id'              => $page->id,
+                    'author'          => $page->author_page,
+                    'description'     => $page->description_page,
+                    'header'          => $page->header,
+                    'keywords'        => $page->keywords,
+                    'slug'            => $page->slug,
+                    'teaser'          => $page->teaser,
+                    'title'           => $page->title,
+                    'url'             => $page->full_url,
+                    'wikipedia'       => $page->wikipedia,
+
+                    'img-section-list'=> $media->getUrl('section-list'),
+                    'img-description' => $page->source->description,
+
                     'sourceArr' => [
                         'source'      => $page->source->source,
                         'source_url'  => $page->source->source_url,

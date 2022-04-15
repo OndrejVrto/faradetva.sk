@@ -48,6 +48,11 @@
                 <i class="far fa-flag"></i>
             </div>
         </x-slot>
+        @error('slug')
+            <x-slot name="errorManual">
+                {{ $errors->first('slug') }}
+            </x-slot>
+        @enderror
     </x-adminlte-input>
 
     <x-backend.form.source :source="$source" />

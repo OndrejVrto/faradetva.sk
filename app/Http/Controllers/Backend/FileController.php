@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\File;
+use App\Models\Source;
 use Illuminate\Support\Arr;
 use App\Http\Requests\FileRequest;
 use App\Services\MediaStoreService;
@@ -29,12 +30,11 @@ class FileController extends Controller
     public function store(FileRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $file = File::create($validated);
-        $sourceData = Arr::except($validated, ['title', 'slug', 'attachment']);
+
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
         $file->source()->create($sourceData);
 
-        if ($request->hasFile('attachment')) {
-            $mediaService->storeMediaOneFile($file, $file->collectionName, 'attachment');
-        }
+        $mediaService->handle($file, $request, 'attachment', $validated['slug'] );
 
         toastr()->success(__('app.file.store'));
         return to_route('files.index');
@@ -49,13 +49,13 @@ class FileController extends Controller
     public function update(FileRequest $request, File $file, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $file->update($validated);
-        $sourceData = Arr::except($validated, ['title', 'slug', 'attachment']);
+
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
         $file->source()->update($sourceData);
+
         $file->touch(); // Touch because i need start observer for delete cache
 
-        if ($request->hasFile('attachment')) {
-            $mediaService->storeMediaOneFile($file, $file->collectionName, 'attachment');
-        }
+        $mediaService->handle($file, $request, 'attachment', $validated['slug'] );
 
         toastr()->success(__('app.file.update'));
         return to_route('files.index');

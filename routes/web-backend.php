@@ -2,51 +2,34 @@
 
 use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\FaqController;
-use App\Http\Controllers\Backend\TagController;
-use App\Http\Controllers\Backend\FileController;
-use App\Http\Controllers\Backend\NewsController;
-use App\Http\Controllers\Backend\RoleController;
-use App\Http\Controllers\Backend\UserController;
-use App\Http\Controllers\Backend\CacheController;
-use App\Http\Controllers\Backend\ChartController;
-use App\Http\Controllers\Backend\BannerController;
-use App\Http\Controllers\Backend\PrayerController;
-use App\Http\Controllers\Backend\PriestController;
-use App\Http\Controllers\Backend\SliderController;
-use App\Http\Controllers\Backend\DayIdeaController;
-use App\Http\Controllers\Backend\GalleryController;
-use App\Http\Controllers\Backend\PictureController;
-use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\ChartDataController;
-use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\PermissionController;
-use App\Http\Controllers\Backend\StaticPageController;
-use App\Http\Controllers\Backend\FileManagerController;
-use App\Http\Controllers\Backend\TestimonialController;
-use App\Http\Controllers\Backend\NoticeChurchController;
-use App\Http\Controllers\Backend\NoticeAcolyteController;
 use Lab404\Impersonate\Controllers\ImpersonateController;
 use App\Http\Controllers\Backend\NoticeLecturerController;
 use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 
-//!  Inpersonate OUT Route
+use App\Http\Controllers\Backend\{FaqController, TagController,
+    FileController, NewsController, RoleController, UserController,
+    CacheController, ChartController, BannerController, PrayerController,
+    PriestController, SliderController, DayIdeaController, GalleryController,
+    PictureController, CategoryController, ChartDataController, DashboardController,
+    PermissionController, StaticPageController, FileManagerController, TestimonialController,
+    NoticeChurchController, NoticeAcolyteController};
 
-//!  Store files from dropzone and download zip files
 Route::prefix('admin')->group( function() {
+    //!  Inpersonate OUT Route
     Route::get('impersonate/leave', [ImpersonateController::class, 'leave'])->name('impersonate.leave');
 
+    //!  Store files from dropzone and download zip files
     Route::controller(GalleryController::class)->name('galleries.')->group(function () {
         Route::post('galleries/media', 'storeMedia')->name('storeMedia');
         Route::get('galleries/{gallery}/download', 'download')->name('download');
     });
-
     Route::controller(NewsController::class)->name('news.')->group(function () {
         Route::post('news/media', 'storeMedia')->name('storeMedia');
         Route::get('news/{news}/download', 'download')->name('download');
     });
 
-    Route::middleware(['auth', 'permission'])->group( function() {
+
+    Route::middleware(['auth', 'permission', 'preety.html'])->group( function() {
         //!  Main routes
         Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
         Route::permanentRedirect('/', '/admin/dashboard');
@@ -131,7 +114,7 @@ Route::prefix('admin')->group( function() {
             'prayers'         => PrayerController::class,
             'priests'         => PriestController::class,
             'sliders'         => SliderController::class,
-            'day-ideas'        => DayIdeaController::class,
+            'day-ideas'       => DayIdeaController::class,
             'categories'      => CategoryController::class,
             'charts.data'     => ChartDataController::class,
             'permissions'     => PermissionController::class,
