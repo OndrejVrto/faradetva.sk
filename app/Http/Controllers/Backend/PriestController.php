@@ -34,9 +34,7 @@ class PriestController extends Controller
         $validated = $request->validated();
         $priest = Priest::create($validated);
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($priest, $priest->collectionName, 'photo');
-        }
+        $mediaService->handle($priest, $request, 'photo', Str::slug($priest->full_name_titles.'-'.$priest->function) );
 
         toastr()->success(__('app.priest.store'));
         return to_route('priests.index');
@@ -50,9 +48,7 @@ class PriestController extends Controller
         $validated = $request->validated();
         $priest->update($validated);
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($priest, $priest->collectionName, 'photo');
-        }
+        $mediaService->handle($priest, $request, 'photo', Str::slug($priest->full_name_titles.'-'.$priest->function) );
 
         toastr()->success(__('app.priest.update'));
         return to_route('priests.index');

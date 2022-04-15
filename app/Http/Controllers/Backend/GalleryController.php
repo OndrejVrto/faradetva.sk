@@ -4,9 +4,11 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Source;
 use App\Models\Gallery;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Helpers\DataFormater;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -26,7 +28,7 @@ class GalleryController extends Controller
         return view('backend.galleries.create');
     }
 
-    public function storeMedia(Request $request) {
+    public function storeMedia(Request $request): JsonResponse {
         $path = storage_path('tmp/uploads');
 
         if (!file_exists($path)) {
@@ -48,7 +50,8 @@ class GalleryController extends Controller
     public function store(GalleryRequest $request): RedirectResponse {
         $validated = $request->validated();
         $gallery = Gallery::create($validated);
-        $sourceData = Arr::except($validated, ['title', 'slug', 'picture']);
+
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
         $gallery->source()->create($sourceData);
 
         set_time_limit(300); // 5 minutes
@@ -78,7 +81,7 @@ class GalleryController extends Controller
     public function update(GalleryRequest $request, Gallery $gallery): RedirectResponse {
         $validated = $request->validated();
         $gallery->update($validated);
-        $sourceData = Arr::except($validated, ['title', 'slug', 'picture']);
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
         $gallery->source()->update($sourceData);
         $gallery->touch(); // Touch because i need start observer for delete cache
 

@@ -55,9 +55,7 @@ class UserController extends Controller
         $permissions = $request->input('permission');
         $user->permissions()->syncWithoutDetaching($permissions);
 
-        if ($request->hasFile('photo_avatar')) {
-            $mediaService->storeMediaOneFile($user, $user->collectionName, 'photo_avatar');
-        }
+        $mediaService->handle($user, $request, 'photo_avatar', $validated['slug'] );
 
         toastr()->success(__('app.user.store', ['name'=> $user->name]));
         return to_route('users.index');
@@ -113,9 +111,7 @@ class UserController extends Controller
         $permissions = $request->input('permission');
         $user->permissions()->sync($permissions);
 
-        if ($request->hasFile('photo_avatar')) {
-            $mediaService->storeMediaOneFile($user, $user->collectionName, 'photo_avatar');
-        }
+        $mediaService->handle($user, $request, 'photo_avatar', $validated['slug'] );
 
         return to_route('users.index');
     }

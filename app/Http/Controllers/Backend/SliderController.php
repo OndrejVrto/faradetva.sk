@@ -5,9 +5,10 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Slider;
+use App\Models\Source;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -34,12 +35,11 @@ class SliderController extends Controller
     public function store(SliderRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $slider = Slider::create($validated);
-        $sourceData = Arr::except($validated, ['active', 'heading_1', 'heading_2', 'heading_3']);
+
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
         $slider->source()->create($sourceData);
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($slider, $slider->collectionName, 'photo');
-        }
+        $mediaService->handle($slider, $request, 'photo', Str::slug($slider->breadcrumb_teaser) );
 
         toastr()->success(__('app.slider.store'));
         return to_route('sliders.index');
@@ -54,13 +54,13 @@ class SliderController extends Controller
     public function update(SliderRequest $request, Slider $slider, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $slider->update($validated);
-        $sourceData = Arr::except($validated, ['active', 'heading_1', 'heading_2', 'heading_3']);
-        $slider->source()->update($sourceData);
-        $slider->touch(); // Touch because i need start observer for delete cache
 
-        if ($request->hasFile('photo')) {
-            $mediaService->storeMediaOneFile($slider, $slider->collectionName, 'photo');
-        }
+        $sourceData = Arr::only($validated, (new Source)->getFillable());
+        $slider->source()->update($sourceData);
+
+        $mediaService->handle($slider, $request, 'photo', Str::slug($slider->breadcrumb_teaser) );
+
+        $slider->touch(); // Touch because i need start observer for delete cache
 
         toastr()->success(__('app.slider.update'));
         return to_route('sliders.index');
