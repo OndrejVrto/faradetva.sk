@@ -39,14 +39,21 @@
 
     <div class="form-row">
         <div class="col-xl-4 order-xl-2">
+            @include('backend.news.partials.teaser')
             @include('backend.news.partials.category_id')
             @include('backend.news.partials.tags')
-            @include('backend.news.partials.picture')
             @include('backend.news.partials.dropzone_attachment')
         </div>
         <div class="col-xl-8 order-xl-1">
-            @include('backend.news.partials.teaser')
             @include('backend.news.partials.content')
+        </div>
+    </div>
+
+    <hr class="bg-orange">
+
+    <div class="form-row">
+        <div class="col-12">
+            @include('backend.news.partials.picture')
         </div>
     </div>
 

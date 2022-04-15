@@ -36,7 +36,7 @@
                     <x-backend.table.td-check-active check="{{$news->active}}"/>
 
                     <x-backend.table.td class="d-none d-md-table-cell text-center">
-                        <img src="{{ $news->getFirstMediaUrl($news->collectionPicture, 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"
+                        <img src="{{ $news->getFirstMediaUrl($news->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"
                         class="img-fluid px-2"
                         alt="Titulná fotka článku: {{$news->title}}."/>
                     </x-backend.table.td>
@@ -80,7 +80,7 @@
                             @else
                             <div class="w35 ml-1"></div>
                             @endif
-                            <a  href="{{ url($news->getFirstMediaUrl($news->collectionPicture) ?: '#') }}"
+                            <a  href="{{ url($news->getFirstMediaUrl($news->collectionName) ?: '#') }}"
                                 class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                                 title="Stiahnuť pôvodný obrázok titulky"
                                 download

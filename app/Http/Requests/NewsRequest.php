@@ -5,9 +5,9 @@ namespace App\Http\Requests;
 use Illuminate\Support\Str;
 use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\SourceRequest;
 
-class NewsRequest extends FormRequest
+class NewsRequest extends SourceRequest
 {
     public function authorize() {
         return true;
@@ -20,7 +20,7 @@ class NewsRequest extends FormRequest
             $imageRule = 'nullable';
         }
 
-        return [
+        $rules = parent::rules() + [
             'active' => [
                 'boolean',
                 'required'
@@ -68,6 +68,10 @@ class NewsRequest extends FormRequest
             ],
             // 'tags' => 'required',
         ];
+
+        $rules['description'][0] = 'required';
+
+        return $rules;
     }
 
     public function messages() {
@@ -83,7 +87,7 @@ class NewsRequest extends FormRequest
             'slug' => Str::slug($this->title),
         ]);
 
-        is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s' ,strtotime($this->published_at))]);
-        is_null($this->unpublished_at) ?: $this->merge(['unpublished_at' => date('Y-m-d H:i:s' ,strtotime($this->unpublished_at))]);
+        is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s', strtotime($this->published_at))]);
+        is_null($this->unpublished_at) ?: $this->merge(['unpublished_at' => date('Y-m-d H:i:s', strtotime($this->unpublished_at))]);
     }
 }
