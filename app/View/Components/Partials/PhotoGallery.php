@@ -8,6 +8,7 @@ use Illuminate\View\Component;
 use Spatie\SchemaOrg\ImageGallery;
 use Illuminate\Contracts\View\View;
 use Artesaos\SEOTools\Facades\JsonLd;
+use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Illuminate\Support\Facades\Cache;
 
 class PhotoGallery extends Component
@@ -89,8 +90,14 @@ class PhotoGallery extends Component
 
         unset($JsonLD['@context']);
 
-        JsonLd::addImage([
-            $JsonLD
-        ]);
+        // JsonLd::addValue('hasPart1', $JsonLD );
+
+        if(! JsonLdMulti::isEmpty()) {
+            JsonLdMulti::newJsonLd();
+            JsonLdMulti::select(0);
+
+            JsonLdMulti::setType('ImageGallery');
+            JsonLdMulti::addValue('key', $JsonLD);
+        }
     }
 }
