@@ -174,6 +174,7 @@ return [
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Stevebauman\Purify\PurifyServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -241,6 +242,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Debugbar' => Barryvdh\Debugbar\Facade\Debugbar::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
 
         // SEO
         'SEOMeta'       => Artesaos\SEOTools\Facades\SEOMeta::class,

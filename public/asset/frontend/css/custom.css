@@ -98,3 +98,30 @@
 	color: #f8f8f8 !important;
 }
 
+#social-links {
+	/* padding-left: 0; */
+	list-style  : none;
+	/* margin-top  : 22px; */
+}
+
+#social-links li {
+	display     : inline-block;
+	margin-right: 8px;
+}
+
+#social-links li a {
+	display     : inline-block;
+	margin-right: 8px;
+}
+
+#social-links li a {
+	font-weight    : 500;
+	font-size      : 22px;
+	text-transform : capitalize;
+	color          : #333;
+	text-decoration: none;
+}
+
+#social-links li a:hover {
+	color: #ff7b33;
+}
