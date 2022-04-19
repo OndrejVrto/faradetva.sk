@@ -19,12 +19,8 @@ class PreetyHtmlMiddleware
         $response = $next($request);
 
         // if (in_array(env('APP_ENV'), ['local', 'dev'])) {
-            $code = $response->getStatusCode();
-
-            if ($code === 200) {
-                $content = $response->getContent();
-
-                $beautify = new BeautifyHtml(array(
+            if ($response->getStatusCode() === 200) {
+                $beautify = new BeautifyHtml([
                     'indent_inner_html' => false,
                     'indent_char' => "    ",
                     'indent_size' => 1,
@@ -33,9 +29,9 @@ class PreetyHtmlMiddleware
                     'preserve_newlines' => false,
                     'max_preserve_newlines' => 32786,
                     'indent_scripts'    => 'normal' // keep|separate|normal
-                ));
+                ]);
 
-                $output = $beautify->beautify($content);
+                $output = $beautify->beautify( $response->getContent() );
 
                 $response->setContent($output);
             }
