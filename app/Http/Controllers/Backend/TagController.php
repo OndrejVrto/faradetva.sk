@@ -30,7 +30,7 @@ class TagController extends Controller
 
     public function store(TagRequest $request): RedirectResponse {
         $validated = $request->validated();
-        Tag::create($validated);
+        Tag::create(Tag::sanitize($validated));
 
         toastr()->success(__('app.tag.store'));
         return to_route('tags.index');
@@ -42,7 +42,7 @@ class TagController extends Controller
 
     public function update(TagRequest $request, Tag $tag): RedirectResponse {
         $validated = $request->validated();
-        $tag->update($validated);
+        $tag->update(Tag::sanitize($validated));
 
         toastr()->success(__('app.tag.update'));
         return to_route('tags.index');

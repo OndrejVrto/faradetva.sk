@@ -8,16 +8,16 @@ use App\Models\Faq;
 use App\Models\File;
 use App\Models\Banner;
 use App\Models\Source;
+use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class StaticPage extends Model implements HasMedia
+class StaticPage extends BaseModel implements HasMedia
 {
     use Restorable;
     use HasFactory;
@@ -45,10 +45,6 @@ class StaticPage extends Model implements HasMedia
     protected $casts = [
         'check_url' => 'boolean',
     ];
-
-    public function getRouteKeyName() {
-        return 'slug';
-    }
 
     public function files() {
         return $this->hasMany(File::class);

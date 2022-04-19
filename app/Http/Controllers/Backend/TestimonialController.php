@@ -32,7 +32,7 @@ class TestimonialController extends Controller
 
     public function store(TestimonialRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $testimonial = Testimonial::create($validated);
+        $testimonial = Testimonial::create(Testimonial::sanitize($validated));
 
         $mediaService->handle($testimonial, $request, 'photo', $validated['slug'] );
 
@@ -46,7 +46,7 @@ class TestimonialController extends Controller
 
     public function update(TestimonialRequest $request, Testimonial $testimonial, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $testimonial->update($validated);
+        $testimonial->update(Testimonial::sanitize($validated));
 
         $mediaService->handle($testimonial, $request, 'photo', $validated['slug'] );
 

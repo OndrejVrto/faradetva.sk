@@ -4,10 +4,13 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
+use Touhidurabir\ModelSanitize\Sanitizable;
 
-class Source extends Model
+class Source extends BaseModel
 {
+    use Sanitizable;
+
     protected $table = 'source';
 
     protected $fillable = [
@@ -19,6 +22,10 @@ class Source extends Model
         'license',
         'license_url',
     ];
+
+    public function getRouteKeyName() {
+        return 'id';
+    }
 
     public function sourceable() {
         return $this->morphTo();

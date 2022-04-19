@@ -4,18 +4,18 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Illuminate\Support\Str;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Priest extends Model implements HasMedia
+class Priest extends BaseModel implements HasMedia
 {
     use Loggable;
     use Restorable;
@@ -42,10 +42,6 @@ class Priest extends Model implements HasMedia
     protected $casts = [
         'active' => 'boolean',
     ];
-
-    public function getRouteKeyName() {
-        return 'slug';
-    }
 
     protected static function boot() {
         parent::boot();

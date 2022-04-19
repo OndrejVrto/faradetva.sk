@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Source;
 use App\Models\Gallery;
-use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Helpers\DataFormater;
@@ -49,10 +48,9 @@ class GalleryController extends Controller
 
     public function store(GalleryRequest $request): RedirectResponse {
         $validated = $request->validated();
-        $gallery = Gallery::create($validated);
-
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $gallery->source()->create($sourceData);
+        
+        $gallery = Gallery::create(Gallery::sanitize($validated));
+        $gallery->source()->create(Source::sanitize($validated));
 
         set_time_limit(300); // 5 minutes
         foreach ($request->input('picture', []) as $file) {
@@ -80,9 +78,9 @@ class GalleryController extends Controller
 
     public function update(GalleryRequest $request, Gallery $gallery): RedirectResponse {
         $validated = $request->validated();
-        $gallery->update($validated);
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $gallery->source()->update($sourceData);
+
+        $gallery->update(Gallery::sanitize($validated));
+        $gallery->source()->update(Source::sanitize($validated));
         $gallery->touch(); // Touch because i need start observer for delete cache
 
         set_time_limit(300); // 5 minutes

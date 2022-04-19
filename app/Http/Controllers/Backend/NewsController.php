@@ -8,7 +8,6 @@ use App\Models\Tag;
 use App\Models\News;
 use App\Models\Source;
 use App\Models\Category;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -65,13 +64,10 @@ class NewsController extends Controller
 
     public function store(NewsRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated() + [ 'user_id' => auth()->id() ];
-        $news = News::create($validated);
 
-        $tags = $request->input('tags');
-        $news->tags()->syncWithoutDetaching($tags);
-
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $news->source()->create($sourceData);
+        $news = News::create(News::sanitize($validated));
+        $news->tags()->syncWithoutDetaching($request->input('tags'));
+        $news->source()->create(Source::sanitize($validated));
 
         $mediaService->handle($news, $request, 'picture', Str::slug($validated['description']) );
 
@@ -99,13 +95,10 @@ class NewsController extends Controller
 
     public function update(NewsRequest $request, News $news, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $news->update($validated);
-
-        $tags = $request->input('tags');
-        $news->tags()->sync($tags);
-
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $news->source()->update($sourceData);
+        
+        $news->update(News::sanitize($validated));
+        $news->tags()->sync($request->input('tags'));
+        $news->source()->update(Source::sanitize($validated));
 
         $mediaService->handle($news, $request, 'picture', Str::slug($validated['description']) );
 

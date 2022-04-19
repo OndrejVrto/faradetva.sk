@@ -5,17 +5,17 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Models\Source;
+use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Prayer extends Model implements HasMedia {
+class Prayer extends BaseModel implements HasMedia {
 
     use Loggable;
     use Restorable;
@@ -41,10 +41,6 @@ class Prayer extends Model implements HasMedia {
     protected $casts = [
         'active' => 'boolean',
     ];
-
-    public function getRouteKeyName() {
-        return 'slug';
-    }
 
     public function source() {
         return $this->morphOne(Source::class, 'sourceable');

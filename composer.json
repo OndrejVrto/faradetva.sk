@@ -33,6 +33,7 @@
         "spatie/schema-org": "^3.10",
         "stevebauman/purify": "^4.0",
         "tinymce/tinymce": "^5.10",
+        "touhidurabir/laravel-model-sanitize": "^1.1",
         "unisharp/laravel-filemanager": "^2.4",
         "yoeunes/toastr": "^1.2"
     },

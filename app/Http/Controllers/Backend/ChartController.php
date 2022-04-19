@@ -34,7 +34,7 @@ class ChartController extends Controller
 
     public function store(ChartRequest $request): RedirectResponse {
         $validated = $request->validated();
-        Chart::create($validated);
+        Chart::create(Chart::sanitize($validated));
 
         toastr()->success(__('app.chart.store'));
         return to_route('charts.index');
@@ -52,7 +52,7 @@ class ChartController extends Controller
 
     public function update( ChartRequest $request, Chart $chart): RedirectResponse {
         $validated = $request->validated();
-        $chart->update($validated);
+        $chart->update(Chart::sanitize($validated));
 
         toastr()->success(__('app.chart.update'));
         return to_route('charts.index');

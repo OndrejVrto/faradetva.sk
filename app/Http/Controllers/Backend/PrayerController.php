@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Prayer;
 use App\Models\Source;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Services\MediaStoreService;
@@ -34,10 +33,9 @@ class PrayerController extends Controller
 
     public function store(PrayerRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $prayer = Prayer::create($validated);
 
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $prayer->source()->create($sourceData);
+        $prayer = Prayer::create(Prayer::sanitize($validated));
+        $prayer->source()->create(Source::sanitize($validated));
 
         $mediaService->handle($prayer, $request, 'photo', $validated['slug'] );
 
@@ -59,14 +57,12 @@ class PrayerController extends Controller
 
     public function update(PrayerRequest $request, Prayer $prayer, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $prayer->update($validated);
 
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $prayer->source()->update($sourceData);
+        $prayer->update(Prayer::sanitize($validated));
+        $prayer->source()->update(Source::sanitize($validated));
+        $prayer->touch(); // Touch because i need start observer for delete cache
 
         $mediaService->handle($prayer, $request, 'photo', $validated['slug'] );
-
-        $prayer->touch(); // Touch because i need start observer for delete cache
 
         toastr()->success(__('app.prayer.update'));
         return to_route('prayers.index');

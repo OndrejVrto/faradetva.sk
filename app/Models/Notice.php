@@ -4,20 +4,20 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Models\BaseModel;
 use App\Traits\Restorable;
 use App\Traits\Publishable;
 use App\Models\NoticeChurch;
 use App\Models\NoticeAcolyte;
 use App\Models\NoticeLecturer;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Nanigans\SingleTableInheritance\SingleTableInheritanceTrait;
 
-class Notice extends Model implements HasMedia
+class Notice extends BaseModel implements HasMedia
 {
     use Loggable;
     use Restorable;
@@ -58,8 +58,4 @@ class Notice extends Model implements HasMedia
         'published_at' => 'datetime',
         'unpublished_at' => 'datetime',
     ];
-
-    public function getRouteKeyName() {
-        return 'slug';
-    }
 }

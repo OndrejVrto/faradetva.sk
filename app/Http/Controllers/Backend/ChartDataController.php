@@ -25,7 +25,7 @@ class ChartDataController extends Controller
 
     public function store(ChartDataRequest $request, Chart $chart): RedirectResponse {
         $validated = $request->validated() + ['chart_id' => $chart->id];
-        ChartData::create($validated);
+        ChartData::create(ChartData::sanitize($validated));
 
         toastr()->success(__('app.chart-data.store'));
         return to_route('charts.data.index', $chart);
@@ -37,7 +37,7 @@ class ChartDataController extends Controller
 
     public function update(ChartDataRequest $request, Chart $chart, ChartData $data): RedirectResponse {
         $validated = $request->validated() + ['chart_id' => $chart->id];
-        $data->update($validated);
+        $data->update(ChartData::sanitize($validated));
 
         toastr()->success(__('app.chart-data.update'));
         return to_route('charts.data.index', $chart);

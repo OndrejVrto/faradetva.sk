@@ -27,7 +27,7 @@ class DayIdeaController extends Controller
 
     public function store(DayIdeaRequest $request): RedirectResponse {
         $validated = $request->validated();
-        DayIdea::create($validated);
+        DayIdea::create(DayIdea::sanitize($validated));
 
         toastr()->success(__('app.day-idea.store'));
         return to_route('day-ideas.index');
@@ -39,7 +39,7 @@ class DayIdeaController extends Controller
 
     public function update(DayIdeaRequest $request, DayIdea $dayIdea): RedirectResponse {
         $validated = $request->validated();
-        $dayIdea->update($validated);
+        $dayIdea->update(DayIdea::sanitize($validated));
 
         toastr()->success(__('app.day-idea.update'));
         return to_route('day-ideas.index');

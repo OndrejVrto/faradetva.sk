@@ -4,17 +4,17 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Testimonial extends Model implements HasMedia
+class Testimonial extends BaseModel implements HasMedia
 {
     use Loggable;
     use Restorable;
@@ -38,10 +38,6 @@ class Testimonial extends Model implements HasMedia
     protected $casts = [
         'active' => 'boolean',
     ];
-
-    public function getRouteKeyName() {
-        return 'slug';
-    }
 
     public function getMediaFileNameAttribute() {
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
