@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Notice;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Services\MediaStoreService;
@@ -58,7 +59,7 @@ class NoticeController extends Controller implements CrudInterface
     public function store(NoticeRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         try {
-            $notice = $this->instance::create($validated);
+            $notice = $this->instance::create(Notice::sanitize($validated));
         } catch (\Throwable $th) {
             info($th);
         }
@@ -77,7 +78,7 @@ class NoticeController extends Controller implements CrudInterface
     public function update(NoticeRequest $request, Model $model, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         try {
-            $model->update($validated);
+            $model->update(Notice::sanitize($validated));
         } catch (\Throwable $th) {
             info($th);
         }

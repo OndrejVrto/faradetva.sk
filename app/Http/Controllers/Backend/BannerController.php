@@ -7,7 +7,6 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Banner;
 use App\Models\Source;
 use App\Models\StaticPage;
-use Illuminate\Support\Arr;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -35,13 +34,10 @@ class BannerController extends Controller
 
     public function store(BannerRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $banner = Banner::create($validated);
 
-        $pages = $request->input('page');
-        $banner->staticPages()->syncWithoutDetaching($pages);
-
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $banner->source()->create($sourceData);
+        $banner = Banner::create(Banner::sanitize($validated));
+        $banner->staticPages()->syncWithoutDetaching($request->input('page'));
+        $banner->source()->create(Source::sanitize($validated));
 
         $mediaService->handle($banner, $request, 'photo', $validated['slug'] );
 
@@ -65,17 +61,13 @@ class BannerController extends Controller
 
     public function update(BannerRequest $request, Banner $banner, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $banner->update($validated);
 
-        $pages = $request->input('page');
-        $banner->staticPages()->sync($pages);
-
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $banner->source()->update($sourceData);
+        $banner->update(Banner::sanitize($validated));
+        $banner->source()->update(Source::sanitize($validated));
+        $banner->staticPages()->sync($request->input('page'));
+        $banner->touch(); // Touch because i need start observer for delete cache
 
         $mediaService->handle($banner, $request, 'photo', $validated['slug'] );
-
-        $banner->touch(); // Touch because i need start observer for delete cache
 
         toastr()->success(__('app.banner.update'));
         return to_route('banners.index');

@@ -32,10 +32,8 @@ class FaqController extends Controller
 
     public function store(FaqRequest $request): RedirectResponse {
         $validated = $request->validated();
-        $faq = Faq::create($validated);
-
-        $pages = $request->input('page');
-        $faq->staticPages()->syncWithoutDetaching($pages);
+        $faq = Faq::create(Faq::sanitize($validated));
+        $faq->staticPages()->syncWithoutDetaching($request->input('page'));
 
         toastr()->success(__('app.faq.store'));
         return to_route('faqs.index');
@@ -51,10 +49,8 @@ class FaqController extends Controller
 
     public function update(FaqRequest $request, Faq $faq): RedirectResponse {
         $validated = $request->validated();
-        $faq->update($validated);
-
-        $pages = $request->input('page');
-        $faq->staticPages()->sync($pages);
+        $faq->update(Faq::sanitize($validated));
+        $faq->staticPages()->sync($request->input('page'));
 
         toastr()->success(__('app.faq.update'));
         return to_route('faqs.index');

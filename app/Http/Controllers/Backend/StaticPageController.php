@@ -7,7 +7,6 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Banner;
 use App\Models\Source;
 use App\Models\StaticPage;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Services\MediaStoreService;
@@ -39,11 +38,11 @@ class StaticPageController extends Controller
 
     public function store(StaticPageRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $banners = $request->input('banner');
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $staticPage = StaticPage::create($validated);
-        $staticPage->source()->create($sourceData);
-        $staticPage->banners()->syncWithoutDetaching($banners);
+
+        $staticPage = StaticPage::create(StaticPage::sanitize($validated));
+        $staticPage->source()->create(Source::sanitize($validated));
+        $staticPage->banners()->syncWithoutDetaching($request->input('banner'));
+
         $mediaService->handle($staticPage, $request, 'picture', Str::slug($validated['description']) );
 
         toastr()->success(__('app.static-page.store'));
@@ -60,12 +59,12 @@ class StaticPageController extends Controller
 
     public function update(StaticPageRequest $request, StaticPage $staticPage, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $banners = $request->input('banner');
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $staticPage->update($validated);
-        $staticPage->source()->update($sourceData);
-        $staticPage->banners()->sync($banners);
+
+        $staticPage->update(StaticPage::sanitize($validated));
+        $staticPage->source()->update(Source::sanitize($validated));
+        $staticPage->banners()->sync($request->input('banner'));
         $staticPage->touch(); // Touch because i need start observer for delete cache
+
         $mediaService->handle($staticPage, $request, 'picture', Str::slug($validated['description']) );
 
         toastr()->success(__('app.static-page.update'));

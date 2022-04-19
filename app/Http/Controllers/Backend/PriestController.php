@@ -32,8 +32,7 @@ class PriestController extends Controller
 
     public function store(PriestRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $priest = Priest::create($validated);
-
+        $priest = Priest::create(Priest::sanitize($validated));
         $mediaService->handle($priest, $request, 'photo', Str::slug($priest->full_name_titles.'-'.$priest->function) );
 
         toastr()->success(__('app.priest.store'));
@@ -47,7 +46,6 @@ class PriestController extends Controller
     public function update(PriestRequest $request, Priest $priest, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
         $priest->update($validated);
-
         $mediaService->handle($priest, $request, 'photo', Str::slug($priest->full_name_titles.'-'.$priest->function) );
 
         toastr()->success(__('app.priest.update'));

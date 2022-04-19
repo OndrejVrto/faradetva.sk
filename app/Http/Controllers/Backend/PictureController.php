@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Source;
 use App\Models\Picture;
-use Illuminate\Support\Arr;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -27,10 +26,9 @@ class PictureController extends Controller
 
     public function store(PictureRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $picture = Picture::create($validated);
 
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $picture->source()->create($sourceData);
+        $picture = Picture::create(Picture::sanitize($validated));
+        $picture->source()->create(Source::sanitize($validated));
 
         $mediaService->handle($picture, $request, 'photo', $validated['slug'] );
 
@@ -52,14 +50,12 @@ class PictureController extends Controller
 
     public function update(PictureRequest $request, Picture $picture, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $picture->update($validated);
 
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $picture->source()->update($sourceData);
+        $picture->update(Picture::sanitize($validated));
+        $picture->source()->update(Source::sanitize($validated));
+        $picture->touch(); // Touch because i need start observer for delete cache
 
         $mediaService->handle($picture, $request, 'photo', $validated['slug'] );
-
-        $picture->touch(); // Touch because i need start observer for delete cache
 
         toastr()->success(__('app.picture.update'));
         return to_route('pictures.index');

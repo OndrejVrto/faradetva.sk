@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Slider;
 use App\Models\Source;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Services\MediaStoreService;
@@ -34,10 +33,9 @@ class SliderController extends Controller
 
     public function store(SliderRequest $request, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $slider = Slider::create($validated);
 
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $slider->source()->create($sourceData);
+        $slider = Slider::create(Slider::sanitize($validated));
+        $slider->source()->create(Source::sanitize($validated));
 
         $mediaService->handle($slider, $request, 'photo', Str::slug($slider->breadcrumb_teaser) );
 
@@ -53,14 +51,12 @@ class SliderController extends Controller
 
     public function update(SliderRequest $request, Slider $slider, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        $slider->update($validated);
 
-        $sourceData = Arr::only($validated, (new Source)->getFillable());
-        $slider->source()->update($sourceData);
+        $slider->update(Slider::sanitize($validated));
+        $slider->source()->update(Source::sanitize($validated));
+        $slider->touch(); // Touch because i need start observer for delete cache
 
         $mediaService->handle($slider, $request, 'photo', Str::slug($slider->breadcrumb_teaser) );
-
-        $slider->touch(); // Touch because i need start observer for delete cache
 
         toastr()->success(__('app.slider.update'));
         return to_route('sliders.index');

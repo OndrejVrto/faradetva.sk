@@ -30,7 +30,7 @@ class CategoryController extends Controller
 
     public function store(CategoryRequest $request): RedirectResponse {
         $validated = $request->validated();
-        Category::create($validated);
+        Category::create(Category::sanitize($validated));
 
         toastr()->success(__('app.category.store'));
         return to_route('categories.index');
@@ -47,7 +47,7 @@ class CategoryController extends Controller
 
     public function update(CategoryRequest $request, Category $category): RedirectResponse {
         $validated = $request->validated();
-        $category->update($validated);
+        $category->update(Category::sanitize($validated));
 
         toastr()->success(__('app.category.update'));
         return to_route('categories.index');
@@ -76,7 +76,6 @@ class CategoryController extends Controller
 
     public function force_delete($id): RedirectResponse {
         $category = Category::onlyTrashed()->findOrFail($id);
-
         $category->news()->update(['category_id' => 1]);
         $category->forceDelete();
 
