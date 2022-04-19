@@ -10,7 +10,7 @@
         titleSlug="vyzdoba-kostola-a-kaplnky, torta"
     />
 
-    <x-frontend.page.section name="ARTICLE" class="blog_single_page pad_t_50 pad_b_30" row="true">
+    <x-frontend.page.section name="ARTICLE" class="blog_single_page pad_t_10 pad_b_30" row="true">
 
             <article class="col-lg-9 col-md-8 col-xs-12">
                 <!-- ARTICLE {{ $oneNews->title }} - Start -->
@@ -19,7 +19,7 @@
                         {!! $oneNews->getFirstMedia($oneNews->collectionName)->img('large', ['class' => 'w-100 img-fluid']) !!}
                     </div>
                     <div class="blog_desc">
-                        <div class="d-flex align-items-end justify-content-between">
+                        <div class="d-flex align-items-end flex-wrap justify-content-center flex-lg-nowrap justify-content-lg-between">
                             <div class="blog_info">
                                 <span>
                                     <a href="{{ route('article.author', $oneNews->user->slug) }}">
@@ -41,7 +41,8 @@
                             <span class="small">
                                 {{ $oneNews->count_words }} {{ trans_choice('messages.slovo', $oneNews->count_words) }}
                                 /
-                                {{ $oneNews->read_duration }} {{ trans_choice('messages.minuta', $oneNews->read_duration) }} čítania
+                                {{ $oneNews->read_duration }} {{ trans_choice('messages.minuta', $oneNews->read_duration) }}
+                                čítania
                             </span>
                         </div>
 
@@ -62,17 +63,27 @@
                             <!-- ARTICLE ATTACHMENTS End -->
                         @endif
 
-                        <ul class="tag-list">
-                            <li><i class="fas fa-tag" aria-hidden="true"></i></li>
-                            @foreach ($oneNews->tags as $tag)
-                                <li>
-                                    <a href="{{ route('article.tag', $tag->slug) }}" title="{{ $tag->description }}">
-                                        {{ $tag->title }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
+                        <div class="d-flex align-items-end flex-wrap flex-lg-nowrap justify-content-lg-between">
 
+                            <ul class="tag-list">
+                                <li><i class="fas fa-tag" aria-hidden="true"></i></li>
+                                @foreach ($oneNews->tags as $tag)
+                                    <li>
+                                        <a href="{{ route('article.tag', $tag->slug) }}" title="{{ $tag->description }}">
+                                            {{ $tag->title }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                            {!!
+                                Share::currentPage($oneNews->title)
+                                    ->facebook()
+                                    ->twitter()
+                                    ->linkedin($oneNews->teaser)
+                                    ->whatsapp()
+                            !!}
+                        </div>
                     </div>
                 </div>
                 <!-- ARTICLE {{ $oneNews->title }} - End -->

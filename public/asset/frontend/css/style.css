@@ -25,24 +25,24 @@ body {
 ----------------------------------------------------------------------------------*/
 /*====== padding css start ======*/
 
-.pad_t_80 {
-	padding-top: 76px;
-}
-
 .pad_t_10 {
-	padding-top: 80px;
-}
-
-.pad_t_50 {
-	padding-top: 50px;
+    padding-top: 10px;
 }
 
 .pad_t_30 {
 	padding-top: 30px;
 }
 
+.pad_t_50 {
+	padding-top: 50px;
+}
+
 .pad_t_60 {
 	padding-top: 60px;
+}
+
+.pad_t_80 {
+	padding-top: 80px;
 }
 
 .pad_b_80 {

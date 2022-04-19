@@ -17,7 +17,7 @@ class PageCard extends Component
     ) {
         $this->pageCard = Cache::rememberForever('PAGE_CARD_'.$routeStaticPage, function () use($routeStaticPage) {
             return StaticPage::where('route_name',$routeStaticPage)->with('mediaOne', 'source')->get()->map(function($page) {
-                $colectionName = $page->media[0]->collection_name;
+                $colectionName = $page->mediaOne->collection_name;
                 $media = $page->getFirstMedia($colectionName);
 
                 return  [
