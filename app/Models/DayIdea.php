@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class DayIdea extends Model
+class DayIdea extends BaseModel
 {
     protected $table = 'day_ideas';
 
@@ -14,4 +14,8 @@ class DayIdea extends Model
         'author',
         'idea',
     ];
+
+    public function getRouteKeyName() {
+        return 'id';
+    }
 }

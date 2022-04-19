@@ -6,13 +6,13 @@ namespace App\Models;
 
 
 use App\Models\Source;
+use App\Models\BaseModel;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Picture extends Model implements HasMedia
+class Picture extends BaseModel implements HasMedia
 {
     use InteractsWithMedia;
 
@@ -24,10 +24,6 @@ class Picture extends Model implements HasMedia
         'title',
         'slug',
     ];
-
-    public function getRouteKeyName() {
-        return 'slug';
-    }
 
     public function source() {
         return $this->morphOne(Source::class, 'sourceable');

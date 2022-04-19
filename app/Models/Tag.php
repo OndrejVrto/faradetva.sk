@@ -5,13 +5,13 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Models\News;
+use App\Models\BaseModel;
 use App\Traits\Restorable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Tag extends Model
+class Tag extends BaseModel
 {
     use Loggable;
     use Restorable;
@@ -25,10 +25,6 @@ class Tag extends Model
         'slug',
         'description',
     ];
-
-    public function getRouteKeyName() {
-        return 'slug';
-    }
 
     public function news() {
         return $this->belongsToMany(News::class);
