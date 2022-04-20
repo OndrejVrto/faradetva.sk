@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
+use Illuminate\Support\Collection;
 
 class Faq extends Component
 {
@@ -17,18 +18,24 @@ class Faq extends Component
     public function __construct(
         public array $questionsSlug
     ) {
-        foreach ($questionsSlug as $slug) {
-            $this->faqs[] = Cache::rememberForever('FAQ_'.$slug, function () use($slug) {
-                return FaqModel::whereSlug($slug)->get()->map(function($faq) {
+
+        $listOfFaqs = prepareInput($questionsSlug);
+
+        if ($listOfFaqs) {
+            $cacheName = getCacheName($listOfFaqs);
+
+            $this->faqs = Cache::rememberForever('FAQ_'.$cacheName, function () use($listOfFaqs) {
+                return FaqModel::whereIn('slug', $listOfFaqs)->get()->map(function($faq) {
                     return [
                         'id'           => $faq->id,
                         'question'     => $faq->question,
                         'answer-clean' => trim( preg_replace('!\s+!', ' ', preg_replace( "/\r|\n/", " ", $faq->answer ) ) ),
                         'answer'       => (new PurifiAutolinkService)->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                     ];
-                })->first();
+                });
             });
         }
+
         $this->setSeoMetaTags($this->faqs);
     }
 
@@ -36,7 +43,7 @@ class Faq extends Component
         return view('components.frontend.sections.faq.index');
     }
 
-    private function setSeoMetaTags(array $faqData): void {
+    private function setSeoMetaTags(array|Collection $faqData): void {
         $questions = [];
         foreach ($faqData as $faq) {
             $questions[] = Schema::question()

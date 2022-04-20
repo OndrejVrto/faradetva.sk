@@ -3,6 +3,7 @@
 namespace App\View\Components\Partials;
 
 use App\Models\File;
+use Illuminate\Support\Arr;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
@@ -10,15 +11,22 @@ use App\Services\FilePropertiesService;
 
 class Attachment extends Component
 {
-    public $attachment;
+    public $attachments = null;
 
     public function __construct(
-        public string $nameSlug
+        public string|array|null $nameSlugs = null
     ) {
-        $this->attachment = Cache::rememberForever('ATTACHMENT_'.$nameSlug, function () use($nameSlug) {
-            $file = File::whereSlug($nameSlug)->with('media', 'source')->first();
-            return (new FilePropertiesService())->getFileItemProperties($file);
-        });
+        $listOfAttachments = prepareInput($nameSlugs);
+
+        if ($listOfAttachments) {
+            $cacheName = getCacheName($listOfAttachments);
+
+            $this->attachments = Cache::rememberForever('ATTACHMENT_'.$cacheName, function () use ($listOfAttachments) {
+                return File::whereIn('slug', $listOfAttachments)->with('media', 'source')->get()->map(function($file) {
+                    return (new FilePropertiesService())->getFileItemProperties($file);
+                });
+            });
+        }
     }
 
     public function render(): View {

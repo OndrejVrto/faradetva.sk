@@ -29,14 +29,16 @@
 
     <x-frontend.page.section name="IMPORTANT PERSONALITIES" row="true" class="ch_ministry_section pad_t_50">
 
-        <x-frontend.page.section-header header="Významné osobnosti farnosti" />
+        <x-frontend.page.section-header header="Významné osobnosti farnosti - Jeden component" />
 
-        <x-partials.page-card delay=".2s" routeStaticPage="o-nas.historia.anton-prokop" />
-        <x-partials.page-card delay=".4s" routeStaticPage="o-nas.historia.imrich-durica" />
-        <x-partials.page-card delay=".6s" routeStaticPage="o-nas.historia.jozef-zavodsky" />
-        <x-partials.page-card delay=".8s" routeStaticPage="o-nas.historia.karol-anton-medvecky" />
-        <x-partials.page-card delay="1s"  routeStaticPage="o-nas.historia.jan-strban" />
-        <x-partials.page-card delay="1.2s" routeStaticPage="o-nas.historia.jozef-buda" />
+        <x-partials.page-card routeStaticPages="
+            o-nas.historia.anton-prokop,
+            o-nas.historia.imrich-durica,
+            o-nas.historia.jozef-zavodsky,
+            o-nas.historia.karol-anton-medvecky,
+            o-nas.historia.jan-strban,
+            o-nas.historia.jozef-buda
+        "/>
 
     </x-frontend.page.section>
 
@@ -67,13 +69,15 @@
 
         <x-frontend.page.section-header header="Štatistiky" />
 
-        <x-partials.statistics-graph name="krsty"/>
-        <x-partials.statistics-graph name="prve-svate-prijimanie"/>
-        {{-- <x-partials.statistics-graph name="birmovanie"/> --}}
-        {{-- <x-partials.statistics-graph name="sobase"/> --}}
-        <x-partials.statistics-graph name="pohreby"/>
-        <x-partials.statistics-graph name="scitanie-obyvatelov-detvy"/>
-        {{-- <x-partials.statistics-graph name="scitanie-rimsko-katolikov-v-meste-detva"/> --}}
+        <x-partials.statistics-graph names="
+            krsty,
+            prve-svate-prijimanie,
+            birmovanie,
+            sobase,
+            pohreby,
+            scitanie-obyvatelov-detvy,
+            scitanie-rimsko-katolikov-v-meste-detva
+        "/>
     </x-frontend.page.section>
 
     <x-frontend.sections.pray />
@@ -103,10 +107,12 @@
         </x-frontend.page.subsection>
 
         <x-frontend.page.subsection title="Prílohy" icon="fas fa-paperclip me-3">
-            <x-partials.attachment nameSlug="excel-stary" />
-            <x-partials.attachment nameSlug="obrazok-gif" />
-            <x-partials.attachment nameSlug="gimp" />
-            <x-partials.attachment nameSlug="zip" />
+            <x-partials.attachment nameSlugs="
+                excel-stary,
+                obrazok-gif,
+                gimp,
+                zip"
+            />
         </x-frontend.page.subsection>
 
     </x-frontend.page.section>
@@ -115,14 +121,16 @@
 
         <x-frontend.page.section-header header="Spoločenstvá"/>
 
-            <x-partials.page-card delay=".2s" routeStaticPage="spolocenstva.frantiskansky-svetstky-rad" />
-            <x-partials.page-card delay=".4s" routeStaticPage="spolocenstva.marianske-veceradlo" />
-            <x-partials.page-card delay=".6s" routeStaticPage="spolocenstva.rad-bosych-karmelitanok" />
-            <x-partials.page-card delay=".8s" routeStaticPage="spolocenstva.ruzencove-bratstvo" />
-            <x-partials.page-card delay="1s"  routeStaticPage="spolocenstva.svetsky-rad-bosych-karmelitanov" />
-            <x-partials.page-card delay="1.2s" routeStaticPage="spolocenstva.zdruzenie-salezianskych-spolupracovnikov" />
+            <x-partials.page-card routeStaticPages="
+                spolocenstva.frantiskansky-svetstky-rad
+                spolocenstva.marianske-veceradlo,
+                spolocenstva.rad-bosych-karmelitanok,
+                spolocenstva.ruzencove-bratstvo,
+                spolocenstva.svetsky-rad-bosych-karmelitanov,
+                spolocenstva.zdruzenie-salezianskych-spolupracovnikov
+            " />
 
-        </x-frontend.page.section>
+    </x-frontend.page.section>
 
     <x-frontend.page.section name="ALBUM" class="static-page pad_t_50 pad_b_50">
 

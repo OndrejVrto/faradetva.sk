@@ -1,7 +1,7 @@
 <x-frontend.page.section
     name="SKILLS"
     row="true"
-    class="ch_skills_section pad_t_10 wh_pad_b_80"
+    class="ch_skills_section pad_t_80 wh_pad_b_80"
 >
 
     <div class="col-sm-6 col-lg-3">
