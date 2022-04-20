@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use BeautifyHtml;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PreetyHtmlMiddleware
 {
@@ -19,7 +20,7 @@ class PreetyHtmlMiddleware
         $response = $next($request);
 
         // if (in_array(env('APP_ENV'), ['local', 'dev'])) {
-            if ($response->getStatusCode() === 200) {
+            if ($response->getStatusCode() === Response::HTTP_OK) {
                 $beautify = new BeautifyHtml([
                     'indent_inner_html' => false,
                     'indent_char' => "    ",

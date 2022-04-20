@@ -16,7 +16,7 @@ Obsah stránky:
   ☐ opraviť veľkosť obrázkov v texte pri zmenšovaní rozmeru stránky
   ☐ stránka s kompletne všetkými FaQ
   ✔ v titulku článku uvádzať počet slov v článku a dĺžka čítania v minútach
-  ☐ do článku na začiatku vkladať Teaser?  Či nie?
+  ✘ do článku na začiatku vkladať Teaser?
   ✔ autolink generátor pre niektoré texty vkladané v administrátorskom rozhraní
   ✘ autolink generátor pre statické stránky
 
@@ -49,7 +49,7 @@ Administrátorské rozhranie:
   ✔ dorobiť restore a force-delete metódy v softdelete modeloch
   ✔ pridať tlačítka zmazaných položiek pri softdelete modeloch a skryť tlačítka show metód
   ✘ Apply SoftDelete Cascade in model user? (https://github.com/razisayyed/laravel-cascaded-soft-deletes)
-  ☐ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
+  ✘ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
   ✔ cache celej frontend stránky  (https://www.youtube.com/watch?v=P5WvRH71A5g&ab_channel=Laratips)
   ☐ vyriešiť deployment celej aplikácie   http://www.youtube.com/results?search_query=deploy+laravel+app
   ☐ štatistika, rôzne kontroly a gooogle analytics na dashboard
