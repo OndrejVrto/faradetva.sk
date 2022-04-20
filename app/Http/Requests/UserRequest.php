@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserRequest extends FormRequest
@@ -13,6 +14,13 @@ class UserRequest extends FormRequest
     }
 
     public function rules() {
+
+        if (request()->routeIs('users.store')) {
+            $passwordRule = 'required';
+        } else if (request()->routeIs('users.update')) {
+            $passwordRule = 'nullable';
+        }
+
         return [
             'active' => [
                 'boolean',
@@ -39,11 +47,15 @@ class UserRequest extends FormRequest
                 Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
             ],
             'password' => [
-                'nullable',
-                'string',
-                'min:8',
-                'max:255',
+                $passwordRule,
                 'confirmed',
+                'max:255',
+                Password::min(8)
+                    ->mixedCase()
+                    ->letters()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised(),
             ],
             'can_be_impersonated' => [
                 'boolean',
