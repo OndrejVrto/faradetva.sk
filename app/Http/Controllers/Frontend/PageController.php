@@ -60,7 +60,15 @@ class PageController extends Controller
         return Cache::rememberForever('PAGE_' . Str::slug($path), function () use($path): array|null {
             return StaticPage::whereUrl($path)->with('mediaOne', 'source', 'banners', 'faqs')->get()->map(function($page): array {
 
-                $colectionName = $page->media[0]->collection_name;
+                try {
+                    // Nemáš vložený referenčný obrázok podstránky
+                    // Doplň ho z administrátorského rozhrania a nezamýšľaj sa nad chybou ani sekundu
+                    // TODO: Zmazať throw v produkcii
+                    $colectionName = $page->mediaOne->collection_name;
+                } catch (\Throwable $th) {
+                    throw $th;
+                }
+
                 $media = $page->getFirstMedia($colectionName);
 
                 return  [
