@@ -3,6 +3,7 @@ class Main {
     pageNum = 1;
     numPages = 0;
     libLoadedCallback = null;
+    libLoadedCallbackB = null;
 
     constructor(_url, _selector, prevID, nextID, counterID) {
         this.selector = _selector;
@@ -41,13 +42,14 @@ class Main {
         };
 
         const renderPageNum = () => {
-            counter.innerHTML = 'Strana ' + this.pageNum;
+            counter.innerHTML = 'Strana ' + this.pageNum + ' z ' + this.numPages;
         }
 
         disabledSetter();
         renderPageNum();
 
         this.libLoadedCallback = disabledSetter;
+        this.libLoadedCallbackB = renderPageNum;
 
         prev.addEventListener('click', () => {
             this.showPrevPage();
@@ -71,6 +73,9 @@ class Main {
 
                 if (this.libLoadedCallback) {
                     this.libLoadedCallback();
+                }
+                if (this.libLoadedCallbackB) {
+                    this.libLoadedCallbackB();
                 }
             });
     }

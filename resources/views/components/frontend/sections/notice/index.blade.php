@@ -21,12 +21,11 @@
         <div class="col-md-11 col-lg-10 col-xl-9 m-auto">
             <div class="notice_heading_section">
                 <h3>{{ $notice['title'] }}</h3>
-                <div class="d-flex justify-content-evenly align-items-center  mt-3">
+                <div class="d-flex justify-content-evenly align-items-center">
                     <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" id="btn-prev-{{ $notice['id'] }}">
                         Predošlá strana
                     </button>
-                    <div class="text-church-template fs-6" id="counter-{{ $notice['id'] }}">
-                    </div>
+                    <div class="text-church-template fs-6" id="counter-{{ $notice['id'] }}"></div>
                     <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" id="btn-next-{{ $notice['id'] }}">
                         Ďalšia strana
                     </button>
@@ -40,7 +39,9 @@
             </div>
         </div>
         <div class="col-md-11 col-lg-10 col-xl-9 m-auto pb-2">
-            <canvas id="pdfArea{{ $notice['id'] }}" class="pdfArea justify-content-center w-100">
+            <canvas
+                id="pdfArea{{ $notice['id'] }}"
+                class="pdfArea justify-content-center w-100">
             </canvas>
         </div>
 
