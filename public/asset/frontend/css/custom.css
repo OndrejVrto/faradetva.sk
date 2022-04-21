@@ -125,3 +125,7 @@
 #social-links li a:hover {
 	color: #ff7b33;
 }
+
+.notice_heading_section button:disabled {
+    opacity: 0.3;
+}
