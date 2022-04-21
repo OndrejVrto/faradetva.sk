@@ -218,7 +218,7 @@ Project: Church
 		else {
 			$('.header_menu_section').removeClass('sticky_header');
 		}
-		console.log(slider_height);
+		// console.log(slider_height);
 	});
 
 	$('#search-form').on('submit', function(event) {
