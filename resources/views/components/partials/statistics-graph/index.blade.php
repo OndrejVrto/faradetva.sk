@@ -1,47 +1,35 @@
 @pushOnce('js')
     <script @nonce src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-@endpushOnce
 
-@foreach ($graphs as $graph)
-    
-    <div class="heading_section pad_t_50 pad_b_50 text-church-template-blue">
-        <h2>{{ $graph['title'] }}</h2>
-        <canvas id="Chart-{{ $graph['id'] }}"></canvas>
-    </div>
-
-    @push('js')
-        <script @nonce>
-            const data{{ $graph['id'] }} = {
-                labels: [
-                    {{ $graph['labelGraph'] }}
-                ],
+    <script>
+        function generateGraph(id, labelGraph, dataGraph, title, color, type, desc, name_x_axis, name_y_axis) {
+            const data = {
+                labels: labelGraph,
                 datasets: [{
-                    label: '{{ $graph['title'] }}',
-                    backgroundColor: '{{ $graph['color'] }}6c',
-                    borderColor: '{{ $graph['color'] }}',
+                    label: title,
+                    backgroundColor: color + '6c',
+                    borderColor: color,
                     fill: 'start',
                     pointStyle: 'circle',
                     pointRadius: 5,
                     pointHoverRadius: 8,
-                    data: [
-                        {{ $graph['dataGraph'] }}
-                    ],
+                    data: dataGraph,
                 }],
             };
 
-            const config{{ $graph['id'] }} = {
-                type: '{{ $graph['type'] }}',
-                data: data{{ $graph['id'] }},
+            const config = {
+                type,
+                data,
                 options: {
                     responsive: true,
                     plugins: {
                         title: {
                             display: false,
-                            text: '{{ $graph['title'] }}',
+                            text: title,
                         },
                         subtitle: {
                             display: true,
-                            text: '{{ $graph['desription'] }}',
+                            text: desc,
                             color: '#243A4F',
                             font: {
                                 size: 16,
@@ -59,7 +47,7 @@
                             display: true,
                             title: {
                                 display: true,
-                                text: '{{ $graph['name_x_axis'] }}',
+                                text: name_x_axis,
                                 color: '#ff7b33',
                                 font: {
                                     size: 20,
@@ -74,7 +62,7 @@
                             min: 0,
                             title: {
                                 display: true,
-                                text: '{{ $graph['name_y_axis'] }}',
+                                text: name_y_axis,
                                 color: '#ff7b33',
                                 font: {
                                     size: 20,
@@ -88,9 +76,33 @@
                 }
             };
 
-            const myChart{{ $graph['id'] }} = new Chart(
-                document.getElementById('Chart-{{ $graph['id'] }}'),
-                config{{ $graph['id'] }}
+            const chart = new Chart(
+                document.getElementById(id),
+                config
+            );
+        }
+    </script>
+@endpushOnce
+
+@foreach ($graphs as $graph)
+    
+    <div class="heading_section pad_t_50 pad_b_50 text-church-template-blue">
+        <h2>{{ $graph['title'] }}</h2>
+        <canvas id="Chart-{{ $graph['id'] }}"></canvas>
+    </div>
+
+    @push('js')
+        <script @nonce>
+            generateGraph(
+                'Chart-{{ $graph['id'] }}',
+                [{{ $graph['labelGraph'] }}],
+                [{{ $graph['dataGraph'] }}],
+                '{{ $graph['title'] }}',
+                '{{ $graph['color'] }}',
+                '{{ $graph['type'] }}',
+                '{{ $graph['desription'] }}',
+                '{{ $graph['name_x_axis'] }}',
+                '{{ $graph['name_y_axis'] }}'
             );
         </script>
     @endpush
