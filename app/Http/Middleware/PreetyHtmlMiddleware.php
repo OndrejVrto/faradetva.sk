@@ -19,8 +19,9 @@ class PreetyHtmlMiddleware
     public function handle(Request $request, Closure $next) {
         $response = $next($request);
 
-        // if (in_array(env('APP_ENV'), ['local', 'dev'])) {
-            if ($response->getStatusCode() === Response::HTTP_OK) {
+        if ($response->getStatusCode() === Response::HTTP_OK) {
+
+            if (in_array(env('APP_ENV'), ['local', 'dev'])) {
                 $beautify = new BeautifyHtml([
                     'indent_inner_html' => false,
                     'indent_char' => "    ",
@@ -31,12 +32,13 @@ class PreetyHtmlMiddleware
                     'max_preserve_newlines' => 32786,
                     'indent_scripts'    => 'normal' // keep|separate|normal
                 ]);
-
                 $output = $beautify->beautify( $response->getContent() );
-
-                $response->setContent($output);
+            } else {
+                $output = minifyHtml( $response->getContent() );
             }
-        // }
+
+            $response->setContent($output);
+        }
 
         return $response;
     }
