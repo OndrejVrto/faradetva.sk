@@ -52,7 +52,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    // 'url' => env('APP_URL', 'https://faradetva.sk'),
+    'url' => env('APP_URL', 'https://fara.detva.adminlte'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -175,6 +176,7 @@ return [
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Stevebauman\Purify\PurifyServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
+        Ecrmnn\LaravelHttps\Providers\ServiceProvider::class,
 
         /*
          * Application Service Providers...
