@@ -1,4 +1,4 @@
-class Main {
+class generatePdf {
     pdfDoc = null;
     pageNum = 1;
     numPages = 0;

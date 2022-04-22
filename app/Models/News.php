@@ -48,12 +48,14 @@ class News extends BaseModel implements HasMedia
         'content',
         'teaser',
         'notified',
+        'deleted_at'
     ];
 
     protected $casts = [
         'active' => 'boolean',
         'notified' => 'boolean',
         'count_words' => 'integer',
+        'deleted_at' => 'datetime',
         'content_plain' => 'string',
         'published_at' => 'datetime',
         'unpublished_at' => 'datetime',

@@ -50,11 +50,13 @@ class Notice extends BaseModel implements HasMedia
         'unpublished_at',
         'notified',
         'title',
+        'deleted_at',
     ];
 
     protected $casts = [
         'active' => 'boolean',
         'notified' => 'boolean',
+        'deleted_at' => 'datetime',
         'published_at' => 'datetime',
         'unpublished_at' => 'datetime',
     ];

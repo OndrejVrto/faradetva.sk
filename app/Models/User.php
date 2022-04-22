@@ -43,6 +43,7 @@ class User extends Authenticatable implements HasMedia
         'slug',
         'password',
         'can_be_impersonated',
+        'deleted_at',
     ];
 
     protected $hidden = [
@@ -54,6 +55,7 @@ class User extends Authenticatable implements HasMedia
         'active'              => 'boolean',
         'can_be_impersonated' => 'boolean',
         'email_verified_at'   => 'datetime',
+        'deleted_at'          => 'datetime',
     ];
 
     public function getRouteKeyName() {

@@ -40,10 +40,12 @@ class StaticPage extends BaseModel implements HasMedia
         'check_url',
         'teaser',
         'wikipedia',
+        'deleted_at',
     ];
 
     protected $casts = [
         'check_url' => 'boolean',
+        'deleted_at' => 'datetime',
     ];
 
     public function files() {
@@ -64,10 +66,6 @@ class StaticPage extends BaseModel implements HasMedia
 
     public function source() {
         return $this->morphOne(Source::class, 'sourceable');
-    }
-
-    public function mediaOne() {
-        return $this->morphOne(config('media-library.media_model'), 'model');
     }
 
     public function picture() {

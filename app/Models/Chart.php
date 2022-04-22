@@ -30,10 +30,12 @@ class Chart extends BaseModel
         'name_y_axis',
         'type_chart',
         'color',
+        'deleted_at',
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'deleted_at' => 'datetime',
         'type_chart' => ChartType::class,
     ];
 

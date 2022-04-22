@@ -80,6 +80,7 @@ class UrlCheckCrawlerObserver extends CrawlObserver
     ): void {
         if($this->loging){
             Log::info('Failed: ' . (string) $url);
+            Log::error( (string)$requestException );
         }
     }
 

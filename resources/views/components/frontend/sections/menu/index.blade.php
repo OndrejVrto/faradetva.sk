@@ -7,7 +7,7 @@
     <div class="col">
         <div class="ch_logo">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('images/church_logo.png') }}" alt="logo TODO:">
+                <img src="{{ asset('images/church_logo.png') }}" alt="logo TODO:" height="50" width="160">
             </a>
         </div>
         <div class="nav_toggle" id="nav_toggle">

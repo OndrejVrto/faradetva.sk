@@ -1,10 +1,3 @@
-@pushOnce('css')
-    @livewireStyles(['nonce' => csp_nonce()])
-@endpushonce
-@pushOnce('js')
-    @livewireScripts(['nonce' => csp_nonce()])
-@endpushonce
-
 @if ($type)
     {{-- section type --}}
     <div class="newsletter_section_form">

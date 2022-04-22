@@ -9,8 +9,6 @@ use Touhidurabir\ModelSanitize\Sanitizable;
 
 class Source extends BaseModel
 {
-    use Sanitizable;
-
     protected $table = 'source';
 
     protected $fillable = [

@@ -37,10 +37,12 @@ class Priest extends BaseModel implements HasMedia
         'email',
         'function',
         'description',
+        'deleted_at',
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'deleted_at' => 'datetime',
     ];
 
     protected static function boot() {
@@ -61,7 +63,7 @@ class Priest extends BaseModel implements HasMedia
 
     public function getPhoneDigitsAttribute() {
         if(isset($this->phone)) {
-            $remove_plus = preg_replace("/^\+/", "00", $this->phone );
+            $remove_plus = preg_replace("/\+/", "00", $this->phone );
             return preg_replace("/[^0-9]/", "", $remove_plus );
         }
         return;

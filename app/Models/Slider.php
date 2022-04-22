@@ -33,16 +33,18 @@ class Slider extends BaseModel implements HasMedia {
         'heading_1',
         'heading_2',
         'heading_3',
+        'deleted_at',
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'deleted_at' => 'datetime',
     ];
 
     public function getRouteKeyName() {
         return 'id';
     }
-    
+
     public function source() {
         return $this->morphOne(Source::class, 'sourceable');
     }

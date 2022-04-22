@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'csp.headers'      => \Spatie\Csp\AddCspHeaders::class,
         'auth'             => \App\Http\Middleware\Authenticate::class,
         'can'              => \Illuminate\Auth\Middleware\Authorize::class,
+        'header.http2.link' => \App\Http\Middleware\AddHttp2ServerPush::class,
         'permission'       => \App\Http\Middleware\PermissionMiddleware::class,
         'preety.html'      => \App\Http\Middleware\PreetyHtmlMiddleware::class,
         'cache.headers'    => \Illuminate\Http\Middleware\SetCacheHeaders::class,

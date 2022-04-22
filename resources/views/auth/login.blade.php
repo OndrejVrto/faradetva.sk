@@ -1,7 +1,7 @@
 @extends('adminlte::auth.login')
 
 @section('css')
-    <link rel="stylesheet" href="{{ mix('asset/backend/css/admin_custom.css') }}">
+    <link @nonce rel="stylesheet" href="{{ mix('asset/backend/css/admin_custom.css') }}">
 @stop
 
 @section('js')

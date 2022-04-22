@@ -26,7 +26,7 @@ class FilePropertiesService
                 'file_extension'    => pathinfo($item->file_name, PATHINFO_EXTENSION),
                 'name'              => $item->name,
                 'size'              => $item->size,
-                'humanReadableSize' => DataFormater::formatBytes($item->size),
+                'humanReadableSize' => formatBytes($item->size),
             ];
         })->toArray();
     }
@@ -47,7 +47,7 @@ class FilePropertiesService
             'file_extension'    => pathinfo($fileMedia->file_name, PATHINFO_EXTENSION),
             'name'              => $fileMedia->name,
             'size'              => $fileMedia->size,
-            'humanReadableSize' => DataFormater::formatBytes($fileMedia->size),
+            'humanReadableSize' => formatBytes($fileMedia->size),
 
             'sourceArr' => [
                 'source'        => $item->source->source,

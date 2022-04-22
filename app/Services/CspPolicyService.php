@@ -12,6 +12,12 @@ class CspPolicyService extends Basic
     public function configure()
     {
         $this
+            ->addDirective(Directive::DEFAULT, [
+                Keyword::SELF,
+                'fonts.gstatic.com',
+                'cdn.jsdelivr.net',
+                'cdnjs.cloudflare.com',
+            ])
             ->addDirective(Directive::BASE, [
                 Keyword::SELF,
             ])
@@ -35,21 +41,15 @@ class CspPolicyService extends Basic
                 Keyword::UNSAFE_HASHES, // this line is for saptie media library responsive pistures
                 'sha256-x1e8vcgVIbQJccF2wQ79XGq1vniIt0sZSGt/eFcfzag=',  // this line is for saptie media library responsive pistures
                 'sha256-9K+fEDqIyD+XahBDIsS1HJfWaTCI321eBrwKwbRaQ1g=',
-                'cdnjs.cloudflare.com',
-                'cdn.jsdelivr.net',
                 'maps.googleapis.com',
+                'cdnjs.cloudflare.com',
             ])
             ->addDirective(Directive::STYLE, [
                 Keyword::SELF,
                 Keyword::UNSAFE_INLINE,
                 'fonts.googleapis.com',
                 'maps.googleapis.com',
-                'cdn.jsdelivr.net',
-            ])
-            ->addDirective(Directive::DEFAULT, [
-                Keyword::SELF,
-                'fonts.gstatic.com',
-                'cdn.jsdelivr.net',
+                'cdnjs.cloudflare.com',
             ])
             ->addNonceForDirective(Directive::SCRIPT)
             ->addNonceForDirective(Directive::IMG)

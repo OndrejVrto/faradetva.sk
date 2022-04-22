@@ -33,10 +33,12 @@ class Testimonial extends BaseModel implements HasMedia
         'phone',
         'function',
         'description',
+        'deleted_at'
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'deleted_at' => 'datetime',
     ];
 
     public function getMediaFileNameAttribute() {

@@ -52,7 +52,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    // 'url' => env('APP_URL', 'https://faradetva.sk'),
+    'url' => env('APP_URL', 'https://fara.detva.adminlte'),
 
     'asset_url' => env('ASSET_URL', null),
 

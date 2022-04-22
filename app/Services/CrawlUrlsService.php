@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use Spatie\Crawler\Crawler;
+use App\Crawler\MyCrawler;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Cache;
@@ -20,7 +20,7 @@ class CrawlUrlsService
 
         Artisan::call('site-search:crawl');
 
-        Crawler::create()
+        MyCrawler::create()
             ->setCrawlProfile(new CrawlInternalUrls(config('app.url')))
             ->setCrawlObserver(new UrlCheckCrawlerObserver())
             ->setUserAgent('fara-detva-crawl')

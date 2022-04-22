@@ -40,12 +40,12 @@ class StaticPageRequest extends SourceRequest
                 'max:255'
             ],
             'description_page' => [
-                'nullable',
+                'nullable',   //TODO: change to required
                 'string',
                 'max:255'
             ],
             'keywords' => [
-                'nullable',
+                'nullable',  //TODO: change to required
                 'string',
                 'max:255'
             ],
@@ -60,7 +60,7 @@ class StaticPageRequest extends SourceRequest
                 'max:255'
             ],
             'teaser' => [
-                'nullable',
+                'nullable',  //TODO: change to required
                 'string',
                 'max:512'
             ],

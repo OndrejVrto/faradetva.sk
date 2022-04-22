@@ -4,4 +4,6 @@
 
     <x-frontend.sections.map-google />
 
+    <x-frontend.sections.priests />
+
 </x-frontend.layout.master>

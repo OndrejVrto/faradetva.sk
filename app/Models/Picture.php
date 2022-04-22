@@ -29,6 +29,10 @@ class Picture extends BaseModel implements HasMedia
         return $this->morphOne(Source::class, 'sourceable');
     }
 
+    public function mediaOne() {
+        return $this->morphOne(config('media-library.media_model'), 'model');
+    }
+
     public function getMediaFileNameAttribute() {
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }

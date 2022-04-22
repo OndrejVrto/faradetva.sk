@@ -13,15 +13,21 @@ Obsah stránky:
   ✔ design pre subscribe formulár vložený ako sekcia na stránke
   ☐ customize Bootstrap
   ☐ webpack mix -> všetko v jenom css a js pre frontend aj backend
-  ☐ opraviť veľkosť obrázkov v texte pri zmenšovaní rozmeru stránky
+  ✔ opraviť veľkosť obrázkov v texte pri zmenšovaní rozmeru stránky
   ☐ stránka s kompletne všetkými FaQ
   ✔ v titulku článku uvádzať počet slov v článku a dĺžka čítania v minútach
   ✘ do článku na začiatku vkladať Teaser?
   ✔ autolink generátor pre niektoré texty vkladané v administrátorskom rozhraní
   ✘ autolink generátor pre statické stránky
+  ☐ doplniť do všetkých obrázkov height a width
+  ✔ prepísať všetky externé knižnice na CDN-ká
+  ☐ zmeniť url adresu v manifest.json pri nasadení na server
+  ☐ root folder in meta tags ?
+  ☐ repare validate errors iv login form
 
 Administrátorské rozhranie:
   ☐ analyzovať a zrýchliť bootovanie stránky
+  ✔ opraviť Crawler pri HTTPS schéme
   ✔ nastaviť správne rozmery obrázkom a optimalizáciu
   ✔ automatické premenovanie vkladaných súborov
   ✔ opraviť načítavanie obrázkov pri zapnutom CSP

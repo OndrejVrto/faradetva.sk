@@ -1,11 +1,13 @@
 @php
     // master classes
-    $classes[] = 'position-relative mb-3 rounded-3';
+    $classes[] = 'position-relative mb-4 mt-1';
     // set width picture
-    $maxXL = max(0, min($columns, 12));
-    $maxLG = max(0, min($columns - 1, 12));
-    $maxMD = max(0, min($columns - 2, 12));
-    $classes[] = "col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL;
+    $maxXXL = max(0, min($columns, 12));
+    $maxXL = max(0, min($columns + 1, 12));
+    $maxLG = max(0, min($columns + 2, 12));
+    $maxMD = max(0, min($columns + 3, 12));
+    $maxSM = max(0, min($columns + 4, 12));
+    $classes[] = "col-12 col-sm-".$maxSM." col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL." col-xxl-".$maxXXL;
     // set side picture in page
     if($side == 'left'){
         $classes[] = 'me-sm-4 float-sm-start';

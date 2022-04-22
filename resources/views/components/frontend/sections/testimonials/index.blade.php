@@ -5,7 +5,7 @@
 >
     <x-frontend.page.section-header header="Svedectvá" />
 
-    <div class="owl-carousel owl-theme testimonial_crousel">
+    <div class="testimonial_crousel owl-carousel owl-theme">
         @foreach ($testimonials as $testimonial)
             <div class="item">
                 <div class="testimonial_box">

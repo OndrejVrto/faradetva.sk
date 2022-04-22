@@ -24,6 +24,11 @@ class Tag extends BaseModel
         'title',
         'slug',
         'description',
+        'deleted_at',
+    ];
+
+    protected $casts = [
+        'deleted_at' => 'datetime',
     ];
 
     public function news() {

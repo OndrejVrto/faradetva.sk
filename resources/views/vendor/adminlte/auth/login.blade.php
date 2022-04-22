@@ -22,7 +22,7 @@
 
 @section('auth_body')
 
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-warning p-0 d-flex justify-content-center">
             <ul class="list-unstyled align-self-center my-2">
                 @foreach ($errors->all() as $error)
@@ -30,7 +30,8 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
+    {{-- TODO:  Error messages --}}
 
     <form action="{{ $login_url }}" method="post">
         @csrf
