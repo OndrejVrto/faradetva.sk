@@ -129,3 +129,8 @@
 .notice_heading_section button:disabled {
     opacity: 0.3;
 }
+
+.owl-carousel .owl-item img {
+    width: unset;
+    max-width: 100%;
+}

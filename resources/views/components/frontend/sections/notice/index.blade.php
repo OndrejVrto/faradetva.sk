@@ -1,21 +1,7 @@
-{{-- !! MUST BE IN FRONT !!--}}
-    @pushOnce('js')
-        <!-- NOTICE-PDF script Start -->
-            <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
-            <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
-            <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/mainPDF.js') }}"></script>
-        <!-- NOTICE-PDF script End -->
-    @endPushOnce
-{{-- !! MUST BE IN FRONT !!--}}
-
 <x-frontend.page.section
     name="NOTICE"
     class="TODO:"
 >
-    @push('js')
-        <!-- NOTICE-PDF-{{ $typeNotice }} script Start -->
-    @endpush
-
     @forelse ($notices as $notice)
 
         <div class="col-md-11 col-lg-10 col-xl-9 m-auto">
@@ -45,17 +31,17 @@
             </canvas>
         </div>
 
-        @push('js')
-            <script @nonce>
-                new Main(
-                    "{{ $notice['url'] }}",
-                    "#pdfArea{{ $notice['id'] }}",
-                    "btn-prev-{{ $notice['id'] }}",
-                    "btn-next-{{ $notice['id'] }}",
-                    "counter-{{ $notice['id'] }}"
-                );
-            </script>
-        @endpush
+        @php
+            $scripts[] = sprintf(
+                "new generatePdf('%s', '#pdfArea%s', 'btn-prev-%s', 'btn-next-%s', 'counter-%s');",
+                $notice['url'],
+                $notice['id'],
+                $notice['id'],
+                $notice['id'],
+                $notice['id']
+            );
+        @endphp
+
     @empty
         <div class="p-5 m-5">
             <h3>
@@ -82,7 +68,20 @@
         </div>
     @endforelse
 
-    @push('js')
-        <!-- NOTICE-PDF-{{ $typeNotice }} script End -->
-    @endpush
 </x-frontend.page.section>
+
+@pushOnce('js')
+    <!-- NOTICE-PDF script Start -->
+    <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
+    <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-pdf.js') }}"></script>
+    <!-- NOTICE-PDF script End -->
+@endPushOnce
+
+@push('js')
+    <!-- NOTICE-PDF-{{ $typeNotice }} script Start -->
+    <script @nonce>
+        {!! implode(PHP_EOL."\t", $scripts ?? null) !!}
+    </script>
+    <!-- NOTICE-PDF-{{ $typeNotice }} script End -->
+@endpush
