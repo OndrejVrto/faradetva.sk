@@ -1,13 +1,15 @@
 @foreach ($pageCards as $pageCard)
 
     <div class="col-md-6 col-lg-4">
-        <div class="ministry_box fromright wow" data-wow-delay="{{ 0.2 * $loop->iteration }}s">
+        <div class="ministry_box fromright wow" data-wow-delay="{{ 0.2 * $loop->iteration }}">
             <div class="ministry_thumb">
 
                 {{-- {!! $pageCard['responsivePicture'] !!} --}}
                 <img src="{{ $pageCard['img-section-list'] }}"
                     class="img-fluid"
                     alt="{{ $pageCard['img-description'] }}"
+                    height="{{ $pageCard['img-height'] }}"
+                    width="{{ $pageCard['img-width'] }}"
                 />
 
                 <span class="d-none" rel="license" for="Ministry_{{ $pageCard['title'] }}">

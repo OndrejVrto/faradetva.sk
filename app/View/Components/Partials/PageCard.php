@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Partials;
 
+use Spatie\Image\Image;
 use App\Models\StaticPage;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
@@ -21,6 +22,10 @@ class PageCard extends Component
 
             $this->pageCards = Cache::rememberForever('PAGE_CARDS_'.$cacheName, function () use($listOfPages) {
                 return StaticPage::whereIn('route_name',$listOfPages)->with('mediaOne', 'source')->get()->map(function($page) {
+
+                    $colectionName = $page->mediaOne->collection_name;
+                    $media = $page->getFirstMedia($colectionName);
+
                     return  [
                         'id'              => $page->id,
                         'author'          => $page->author_page,
@@ -33,8 +38,10 @@ class PageCard extends Component
                         'url'             => $page->full_url,
                         'wikipedia'       => $page->wikipedia,
 
-                        'img-section-list'=> $page->mediaOne->getUrl('section-list'),
+                        'img-section-list'=> $media->getUrl('section-list'),
                         'img-description' => $page->source->description,
+                        'img-height'      => Image::load( $media->getPath('section-list') )->getHeight(),
+                        'img-width'       => Image::load( $media->getPath('section-list') )->getWidth(),
 
                         'sourceArr' => [
                             'source'      => $page->source->source,
