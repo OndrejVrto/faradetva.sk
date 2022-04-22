@@ -2,7 +2,8 @@
 
 namespace App\Services;
 
-use App\Crawler\MyCrawler;
+use Spatie\Crawler\Crawler;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Cache;
@@ -20,7 +21,18 @@ class CrawlUrlsService
 
         Artisan::call('site-search:crawl');
 
-        MyCrawler::create()
+        $crawlerClientOptions = [
+            RequestOptions::COOKIES => true,
+            RequestOptions::CONNECT_TIMEOUT => 10,
+            RequestOptions::TIMEOUT => 10,
+            RequestOptions::ALLOW_REDIRECTS => false,
+            RequestOptions::HEADERS => [
+                'User-Agent' => '*',
+            ],
+            'verify' => false // HTTP2 problem -  https://github.com/spatie/crawler/discussions/348
+        ];
+
+        Crawler::create($crawlerClientOptions)
             ->setCrawlProfile(new CrawlInternalUrls(config('app.url')))
             ->setCrawlObserver(new UrlCheckCrawlerObserver())
             ->setUserAgent('fara-detva-crawl')
