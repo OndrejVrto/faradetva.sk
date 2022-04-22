@@ -12,6 +12,7 @@ return [
         '',
         '/',
         '/media/*',
+        '/hladat/*',
         '/clanky',
         '/clanky-z-roku/*',
         '/clanky-podla-autora/*',
@@ -29,6 +30,9 @@ return [
     'ignore_content_by_css_selector' => [
         '[data-no-index]',
         'nav',
+        'menu',
+        '.header_menu_section',
+        '.ch_banner_wrapper',
         'script',
         'aside',
         'footer',
