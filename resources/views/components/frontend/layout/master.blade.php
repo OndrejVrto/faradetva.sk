@@ -92,6 +92,8 @@
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/counter/jquery.countTo.js') }}"></script> --}}
         <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js"></script>
 
+        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+
         <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-share.js') }}"></script>
         <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom.js') }}"></script>
         @livewireScripts(['nonce' => csp_nonce()])
