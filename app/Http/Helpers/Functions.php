@@ -1,20 +1,7 @@
 <?php
 
 use Illuminate\Support\Arr;
-
-// if(!function_exists('canRestore'))
-// {
-
-//     function can(array $permissions): bool
-//     {
-//         return
-//             auth()->user()->hasAnyPermission($permissions)
-//             OR
-//             auth()->user()->hasRole('Super Administrátor')
-//             ? true
-//             : false;
-//     }
-// }
+use PhpParser\Node\Expr\Cast\Double;
 
 if(!function_exists('prepareInput'))
 {
@@ -33,18 +20,17 @@ if(!function_exists('prepareInput'))
     }
 }
 
+
 if (!function_exists('getCacheName'))
 {
-    function getCacheName(array $listOfItems): string
-    {
+    function getCacheName(array $listOfItems): string {
         return md5(implode('|', $listOfItems));
     }
 }
 
 if (!function_exists('minifyHtml'))
 {
-    function minifyHtml(string $html): string
-    {
+    function minifyHtml(string $html): string {
         // Author:  https://github.com/dipeshsukhia/laravel-html-minify
         $replace = [
             //remove tabs before and after HTML tags
@@ -86,5 +72,22 @@ if (!function_exists('minifyHtml'))
             '/=\s+(\"|\')/' => "=$1"
         ];
         return preg_replace(array_keys($replace), array_values($replace), $html);
+    }
+}
+
+if (!function_exists('formatBytes'))
+{
+    function formatBytes(null|float|int $size, int $precision = 2): string {
+        if ($size === 0 || $size === null) {
+            return "0B";
+        }
+
+        $sign = $size < 0 ? '-' : '';
+        $size = abs($size);
+
+        $base = log($size) / log(1024);
+        $suffixes = array('B', 'kB', 'MB', 'GB', 'TB');
+
+        return $sign . round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
     }
 }
