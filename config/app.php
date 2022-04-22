@@ -176,7 +176,6 @@ return [
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Stevebauman\Purify\PurifyServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
-        Ecrmnn\LaravelHttps\Providers\ServiceProvider::class,
 
         /*
          * Application Service Providers...
