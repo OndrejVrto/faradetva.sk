@@ -66,10 +66,6 @@ class StaticPage extends BaseModel implements HasMedia
         return $this->morphOne(Source::class, 'sourceable');
     }
 
-    public function mediaOne() {
-        return $this->morphOne(config('media-library.media_model'), 'model');
-    }
-
     public function picture() {
         return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionName);
     }

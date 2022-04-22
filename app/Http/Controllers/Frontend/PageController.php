@@ -58,19 +58,8 @@ class PageController extends Controller
     /** get Page Data for One nod in URL and Cache it **/
     private function getPageData(string $path): array|null {
         return Cache::rememberForever('PAGE_' . Str::slug($path), function () use($path): array|null {
-            return StaticPage::whereUrl($path)->with('mediaOne', 'source', 'banners', 'faqs')->get()->map(function($page): array {
-
-                try {
-                    // Nemáš vložený referenčný obrázok podstránky
-                    // Doplň ho z administrátorského rozhrania a nezamýšľaj sa nad chybou ani sekundu
-                    // TODO: Zmazať throw v produkcii
-                    $colectionName = $page->mediaOne->collection_name;
-                } catch (\Throwable $th) {
-                    throw $th;
-                }
-
-                $media = $page->getFirstMedia($colectionName);
-
+            return StaticPage::whereUrl($path)->with('picture', 'source', 'banners', 'faqs')->get()->map(function($page): array {
+                $media = $page->picture[0];
                 return  [
                     'id'              => $page->id,
                     'author'          => $page->author_page,
@@ -139,6 +128,7 @@ class PageController extends Controller
         TwitterCard::setImage($page['img-twitter']);
         TwitterCard::addValue('image:alt', $page['img-description']);
 
+        JsonLd::setType('xxx');
         JsonLd::setTitle($page['title']);
         JsonLd::setDescription($page['description']);
         JsonLd::addValue('sameAs', $page['wikipedia']);

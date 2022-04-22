@@ -21,11 +21,8 @@ class PageCard extends Component
             $cacheName = getCacheName($listOfPages);
 
             $this->pageCards = Cache::rememberForever('PAGE_CARDS_'.$cacheName, function () use($listOfPages) {
-                return StaticPage::whereIn('route_name',$listOfPages)->with('mediaOne', 'source')->get()->map(function($page) {
-
-                    $colectionName = $page->mediaOne->collection_name;
-                    $media = $page->getFirstMedia($colectionName);
-
+                return StaticPage::whereIn('route_name',$listOfPages)->with('picture', 'source')->get()->map(function($page) {
+                    $media = $page->picture[0];
                     return  [
                         'id'              => $page->id,
                         'author'          => $page->author_page,
