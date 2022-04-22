@@ -2,14 +2,14 @@
 
     <x-frontend.page.section name="PICTURE" class="static-page pad_b_50">
 
-        <x-partials.picture titleSlug="cb" side="left" animation="fromleft" dimensionSource="medium" class="mb-4"/>
+        <x-partials.picture titleSlug="cb" side="left" animation="fromleft" dimensionSource="medium" />
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. A suscipit id iste doloremque iusto rem cumque aliquam tenetur corrupti voluptatem. Soluta dignissimos, quos molestias tempora laborum maxime magnam error enim libero! Pariatur magni sunt iusto rerum exercitationem sapiente labore animi quas totam ad molestias tenetur, quo quod quam nemo a, maxime eos. Sequi deleniti maxime alias, beatae ullam fugit est perspiciatis modi repellendus veritatis quas illum aspernatur consectetur culpa quibusdam quae commodi molestias impedit, earum, blanditiis quisquam ipsa dolorum. Quo eligendi ipsa vero omnis sequi, inventore adipisci necessitatibus harum sint possimus, ipsam deleniti, at culpa illo. In velit, culpa ullam quaerat enim, iusto non earum eius esse porro, natus error aliquid corrupti dignissimos fugit officia aut qui illum placeat tempore quia soluta? Facilis ex illo fuga. Quaerat nihil possimus magni dolores vitae consectetur eaque ex natus voluptatum. Explicabo quasi, molestias voluptatum ipsum, aliquam quibusdam nihil natus nam iure numquam totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia odit voluptatum sit dolore expedita distinctio optio eius veniam eaque quaerat. Asperiores repellat sunt minus. Repellat ea fuga non veniam excepturi aliquam illum, quidem distinctio quis est mollitia aspernatur ab consequatur dolorum rerum neque sequi odit.
             </p>
         </x-frontend.page.text-segment>
         {{-- <x-partials.picture titleSlug="obr1" side="right" animation="sonarEffect" dimensionSource="medium" data-wow-delay="0.3s" class="mt-1"/> --}}
-        <x-partials.picture titleSlug="obr1" side="right" animation="fromright" dimensionSource="medium" data-wow-delay="0.3s" class="mt-1 mb-4"/>
+        <x-partials.picture titleSlug="obr1" side="right" animation="fromright" dimensionSource="medium" data-wow-delay="0.3s"/>
         <x-frontend.page.text-segment animation="fromleft">
             <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe pariatur esse laboriosam cum eaque asperiores rerum natus ea perferendis, officia quia sequi culpa, eos nobis harum iure, dolores praesentium perspiciatis ipsam sunt corrupti fuga architecto. Architecto excepturi dignissimos ab eveniet nesciunt voluptas inventore ipsam similique fuga veniam sequi nobis nemo odit incidunt, consequuntur animi magni sed repellat nulla quaerat cupiditate eaque! Illum architecto illo at animi dolorem ut cupiditate voluptatibus dolores, incidunt mollitia itaque hic quidem repellat dignissimos debitis odio eum sint? Laudantium, ratione. Maiores officia eveniet doloribus minus accusamus molestias beatae doloremque suscipit, voluptatibus alias sit at. Esse, deserunt ab voluptatibus sed dolores aut tempore nemo alias. Natus deleniti accusantium est veritatis minima atque esse ullam nostrum recusandae voluptate. Vel iusto sapiente, omnis ut ad odit animi, nisi quae maiores, inventore optio tempore quos laborum accusamus deserunt illo sint odio illum. Voluptatibus deserunt blanditiis debitis autem ipsa quidem cumque accusamus possimus ducimus, odio dicta veniam officiis, voluptatem eius! Tempore quidem quod voluptatem! Praesentium dolore molestias consequuntur id veniam eius mollitia a! Tempora nulla sed perspiciatis porro velit ducimus, mollitia facilis qui aliquam! Quas aliquam rem cum praesentium consequatur omnis id, facere harum quaerat perspiciatis doloremque? Et unde voluptates necessitatibus.
@@ -27,17 +27,32 @@
         @livewire('subscribe-form', ['modelName' => 'NoticeAcolyte', 'section' => true])
     </x-frontend.page.section>
 
-    <x-frontend.page.section name="IMPORTANT PERSONALITIES" row="true" class="ch_ministry_section pad_t_50">
+    <x-frontend.page.section name="IMPORTANT PERSONALITIES" class="ch_ministry_section pad_t_50">
 
-        <x-frontend.page.section-header header="Významné osobnosti farnosti - Jeden component" />
+        <x-frontend.page.section-header header="Významné osobnosti farnosti" />
 
         <x-partials.page-card routeStaticPages="
-            o-nas.historia.anton-prokop,
+            o-nas.pastoracia.akolyti,
             o-nas.historia.imrich-durica,
             o-nas.historia.jozef-zavodsky,
             o-nas.historia.karol-anton-medvecky,
             o-nas.historia.jan-strban,
             o-nas.historia.jozef-buda
+        "/>
+
+        <x-frontend.page.section-header header="Pastorácia" />
+
+        <x-partials.page-card routeStaticPages="
+            o-nas.pastoracia.akolyti,
+            o-nas.pastoracia.farari-v-detve,
+            o-nas.pastoracia.farska-rada,
+            o-nas.pastoracia.kaplani-v-detve,
+            o-nas.pastoracia.kostolnici,
+            o-nas.pastoracia.lektori,
+            o-nas.pastoracia.ministranti,
+            o-nas.pastoracia.organisti-spevaci,
+            o-nas.pastoracia.spevokoly-a-dychovka,
+            o-nas.pastoracia.vyucovanie-nabozenstva,
         "/>
 
     </x-frontend.page.section>
@@ -71,12 +86,12 @@
 
         <x-partials.statistics-graph names="
             krsty,
-            prve-svate-prijimanie,
+            {{-- prve-svate-prijimanie,
             birmovanie,
             sobase,
             pohreby,
             scitanie-obyvatelov-detvy,
-            scitanie-rimsko-katolikov-v-meste-detva
+            scitanie-rimsko-katolikov-v-meste-detva --}}
         "/>
     </x-frontend.page.section>
 
@@ -117,12 +132,12 @@
 
     </x-frontend.page.section>
 
-    <x-frontend.page.section name="MINISTIES" row="true" class="ch_ministry_section pad_t_50 pad_b_50">
+    <x-frontend.page.section name="MINISTIES" class="ch_ministry_section pad_t_50">
 
         <x-frontend.page.section-header header="Spoločenstvá"/>
 
             <x-partials.page-card routeStaticPages="
-                spolocenstva.frantiskansky-svetstky-rad
+                spolocenstva.frantiskansky-svetstky-rad,
                 spolocenstva.marianske-veceradlo,
                 spolocenstva.rad-bosych-karmelitanok,
                 spolocenstva.ruzencove-bratstvo,
@@ -132,7 +147,7 @@
 
     </x-frontend.page.section>
 
-    <x-frontend.page.section name="ALBUM" class="static-page pad_t_50 pad_b_50">
+    <x-frontend.page.section name="ALBUM" class="static-page pad_t_30 pad_b_10">
 
         <x-partials.photo-gallery titleSlug="historia-farnosti-detva" dimensionSource="medium"/>
 
