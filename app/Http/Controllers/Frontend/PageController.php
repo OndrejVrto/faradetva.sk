@@ -73,6 +73,8 @@ class PageController extends Controller
                     'url'             => $page->full_url,
                     'wikipedia'       => $page->wikipedia,
 
+                    //  TODO: pridať typ SEO Pages
+
                     'banners'         => $page->banners->pluck('slug')->toArray(),
                     'faqs'            => $page->faqs->pluck('slug')->toArray(),
 
@@ -128,7 +130,7 @@ class PageController extends Controller
         TwitterCard::setImage($page['img-twitter']);
         TwitterCard::addValue('image:alt', $page['img-description']);
 
-        JsonLd::setType('xxx');
+        // JsonLd::setType('xxx');  //TODO: Typ seo page
         JsonLd::setTitle($page['title']);
         JsonLd::setDescription($page['description']);
         JsonLd::addValue('sameAs', $page['wikipedia']);
