@@ -12,6 +12,8 @@
                     <img src="{{ $priest['img-url'] }}"
                         class="img-fluid"
                         alt="Fotografia: {{ $priest['full_name_titles'] }}, {{ $priest['function'] }}"
+                        height="{{ $priest['img-height'] }}"
+                        width="{{ $priest['img-width'] }}"
                     />
                 </div>
                 <div class="ministry_desc">

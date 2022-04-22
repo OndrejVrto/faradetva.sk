@@ -1,6 +1,6 @@
 <!-- SLIDER section Start -->
     <section class="section ch_slider_wrapper">
-        <div class="ch_home_slider">
+        <div class="ch_home_slider owl-carousel owl-theme">
 
             @forelse ( $sliders as $slider )
                 <!-- SLIDER-ITEM-{{ $slider['id'] }} start-->
