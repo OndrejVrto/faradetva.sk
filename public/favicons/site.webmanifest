@@ -2,7 +2,7 @@
     "name": "Farnosť Detva",
     "short_name": "FaraDT",
     "description": "WWW stránka farnosti Detva",
-    "start_url": "http://fara.detva.adminlte",
+    "start_url": "https://fara.detva.adminlte",
     "lang": "sk-SK",
     "icons": [
         {
@@ -14,10 +14,16 @@
             "src": "/favicons/android-chrome-256x256.png",
             "sizes": "256x256",
             "type": "image/png"
+        },
+        {
+            "src": "/favicons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
         }
     ],
     "theme_color": "#e3b359",
     "background_color": "#e3b359",
     "display": "standalone",
-    "orientation": "portrait-primary"
+    "orientation": "portrait-primary",
+    "prefer_related_applications": true
 }
