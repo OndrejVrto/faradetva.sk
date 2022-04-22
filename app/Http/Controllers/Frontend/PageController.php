@@ -152,7 +152,7 @@ class PageController extends Controller
         $JsonLD = Schema::searchAction()
             ->target(
                 Schema::entryPoint()
-                    ->urlTemplate("http://fara.detva.adminlte/hladat/{search_term_string}")
+                    ->urlTemplate(config('app.url')."/hladat/{search_term_string}")
             )
             ->setProperty('query-input', 'required name=search_term_string')
             ->toArray();

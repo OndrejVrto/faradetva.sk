@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Partials;
 
+use Spatie\Image\Image;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
@@ -55,17 +56,28 @@ class Picture extends Component
         $this->animation = in_array($animation, self::ANIMATION_TYPE) ? $animation : 'fromright';
 
         $this->picture = Cache::rememberForever('PICTURE_'.$titleSlug, function () use($titleSlug) {
-            return PictureModel::whereSlug($titleSlug)->with('media', 'source')->get()->map(function($img){
+            return PictureModel::whereSlug($titleSlug)->with('mediaOne', 'source')->get()->map(function($img){
+
+                $colectionName = $img->mediaOne->collection_name;
+                $media = $img->getFirstMedia($colectionName);
+                // $height = Image::load( $media->getPath('optimize') )->getHeight();
+                // $width = Image::load( $media->getPath('optimize') )->getWidth();
+
                 return [
-                    'responsivePicture' => (string) $img
-                                            ->getFirstMedia($img->media[0]->collection_name)
+                    'img-description' => $img->source->description,
+                    // 'img-height'      => $height,
+                    // 'img-width'       => $width,
+                    'responsivePicture' => (string) $media
                                             ->img('optimize', [
                                                 'class' => 'w-100 img-fluid',
                                                 'alt' => $img->source->description,
                                                 'title' => $img->title,
                                                 'nonce' => csp_nonce(),
+                                                // 'height' => $height,
+                                                // 'width' => $width,
                                             ]),
-                    'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
+                    // 'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
+                    'url'               => $media->getUrl('optimize'),
                     'sourceArr' => [
                         'source'      => $img->source->source,
                         'source_url'  => $img->source->source_url,
