@@ -40,10 +40,12 @@ class StaticPage extends BaseModel implements HasMedia
         'check_url',
         'teaser',
         'wikipedia',
+        'deleted_at',
     ];
 
     protected $casts = [
         'check_url' => 'boolean',
+        'deleted_at' => 'datetime',
     ];
 
     public function files() {

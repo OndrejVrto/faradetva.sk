@@ -37,10 +37,12 @@ class Priest extends BaseModel implements HasMedia
         'email',
         'function',
         'description',
+        'deleted_at',
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'deleted_at' => 'datetime',
     ];
 
     protected static function boot() {

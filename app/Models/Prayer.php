@@ -36,10 +36,12 @@ class Prayer extends BaseModel implements HasMedia {
         'quote_author',
         'quote_link_text',
         'quote_link_url',
+        'deleted_at',
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'deleted_at' => 'datetime',
     ];
 
     public function source() {
