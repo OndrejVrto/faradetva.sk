@@ -136,14 +136,17 @@
 
         <x-frontend.page.section-header header="Spoločenstvá"/>
 
-            <x-partials.page-card routeStaticPages="
-                spolocenstva.frantiskansky-svetstky-rad,
-                spolocenstva.marianske-veceradlo,
-                spolocenstva.rad-bosych-karmelitanok,
-                spolocenstva.ruzencove-bratstvo,
-                spolocenstva.svetsky-rad-bosych-karmelitanov,
-                spolocenstva.zdruzenie-salezianskych-spolupracovnikov
-            " />
+        <x-partials.page-card routeStaticPages="
+            spolocenstva.frantiskansky-svetstky-rad,
+            spolocenstva.marianske-veceradlo,
+            spolocenstva.rad-bosych-karmelitanok,
+            spolocenstva.ruzencove-bratstvo,
+            spolocenstva.svetsky-rad-bosych-karmelitanov,
+            spolocenstva.zdruzenie-salezianskych-spolupracovnikov,
+            spolocenstva.hnutie-krestanskych-rodin,
+            spolocenstva.katolicka-charizmaticka-obnova,
+            spolocenstva.sluzobnici-jezisovho-velknazskeho-srdca,
+        " />
 
     </x-frontend.page.section>
 

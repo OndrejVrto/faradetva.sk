@@ -28,8 +28,8 @@
                     <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/imrich-durica') }}">Imrich Ďurica</a></li>
                     <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/jozef-zavodsky') }}">Jozef Závodský</a></li>
                     <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/mons-jan-strban') }}">Mons. Ján Štrbáň</a></li>
-                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/karol-anton-medvecky') }}">Karol Anton Medvecký</a></li>
                     <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/prof-thdr-jozef-buda') }}">prof. Jozef Búda</a></li>
+                    <li><a href="{{ url('o-nas/historia/vyznamne-osobnosti/karol-anton-medvecky') }}">Karol Anton Medvecký</a></li>
 
                     <hr>
                     <div class="mt-3 h5">Pastorizácia</div>
@@ -37,10 +37,10 @@
                     <li><a href="{{ url('o-nas/pastoracia/lektori') }}">Lektori</a></li>
                     <li><a href="{{ url('o-nas/pastoracia/kostolnici') }}">Kostolníci</a></li>
                     <li><a href="{{ url('o-nas/pastoracia/ministranti') }}">Miništranti</a></li>
+                    <li><a href="{{ url('o-nas/pastoracia/kaplani-v-detve') }}">Kapláni</a></li>
                     <li><a href="{{ url('o-nas/pastoracia/farska-rada') }}">Farská rada</a></li>
                     <li><a href="{{ url('o-nas/pastoracia/farari-v-detve') }}">Farári v Detve</a></li>
                     <li><a href="{{ url('o-nas/pastoracia/organisti-spevaci') }}">Organisti, speváci</a></li>
-                    <li><a href="{{ url('o-nas/pastoracia/kaplani-v-detve') }}">Kapláni</a></li>
                     <li><a href="{{ url('o-nas/pastoracia/spevokoly-a-dychovka') }}">Spevokoly a dychovka</a></li>
                     <li><a href="{{ url('o-nas/pastoracia/vyucovanie-nabozenstva') }}">Vyučovanie náboženstva</a></li>
 
@@ -59,9 +59,13 @@
                     <li><a href="{{ url('spolocenstva/ruzencove-bratstvo') }}">Ružencové bratstvo</a></li>
                     <li><a href="{{ url('spolocenstva/marianske-veceradlo') }}">Mariánske večeradlo</a></li>
                     <li><a href="{{ url('spolocenstva/rad-bosych-karmelitanok') }}">Bosé karmelitánky</a></li>
-                    <li><a href="{{ url('spolocenstva/frantiskansky-svetstky-rad') }}">Františkánsky svetský rád</a></li>
                     <li><a href="{{ url('spolocenstva/svetsky-rad-bosych-karmelitanov') }}">Bosí Karmelitáni</a></li>
+                    <li><a href="{{ url('spolocenstva/hnutie-krestanskych-rodin') }}">Hnutie kresťanských rodín</a></li>
+                    <li><a href="{{ url('spolocenstva/frantiskansky-svetstky-rad') }}">Františkánsky svetský rád</a></li>
+                    <li><a href="{{ url('spolocenstva/katolicka-charizmaticka-obnova') }}">Katolícka charizmatická obnova</a></li>
                     <li><a href="{{ url('spolocenstva/zdruzenie-salezianskych-spolupracovnikov') }}">Saleziánsky spolupracovníci</a></li>
+                    <li><a href="{{ url('spolocenstva/sluzobnici-jezisovho-velknazskeho-srdca') }}">Služobníci Ježišovho Veľkňazského Srdca</a></li>
+
 
                     <hr>
                     <div class="mt-3 h5">Sviatosti</div>
