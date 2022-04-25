@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Services\QueryLogService;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
@@ -61,6 +62,12 @@ class AppServiceProvider extends ServiceProvider
                 //! Loging Query-s to log file
                 new QueryLogService;
             }
+
+            // force website to load with HTTPS
+            //! Bug - Causes automatic logout
+            // if (App::environment(['production'])) {
+            //     URL::forceScheme('https');
+            // }
         }
     }
 }
