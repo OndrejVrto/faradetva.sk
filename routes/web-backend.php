@@ -46,6 +46,7 @@ Route::prefix('admin')->group( function() {
             Route::get('caches-stop', 'cachesStop')->name('stop');
             Route::get('caches-start', 'cachesStart')->name('start');
             Route::get('caches-reset', 'cachesReset')->name('reset');
+            Route::get('crawl-search', 'crawlSearch')->name('crawl-search');
             Route::get('crawl-all-url', 'crawlAllUrl')->name('crawl-all-url');
             Route::get('caches-data-stop', 'cacheDataStop')->name('data.stop');
             Route::get('caches-data-start', 'cacheDataStart')->name('data.start');

@@ -57,7 +57,7 @@ class PageController extends Controller
 
     /** get Page Data for One nod in URL and Cache it **/
     private function getPageData(string $path): array|null {
-        return Cache::rememberForever('PAGE_' . Str::slug($path), function () use($path): array|null {
+        return Cache::rememberForever('PAGE_' . Str::slug(Str::replace('/', '-', $path)), function () use($path): array|null {
             return StaticPage::whereUrl($path)->with('picture', 'source', 'banners', 'faqs')->get()->map(function($page): array {
                 $media = $page->picture[0];
                 return  [

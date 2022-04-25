@@ -71,6 +71,12 @@ class CacheController extends Controller
         return to_route('admin.dashboard');
     }
 
+    public function crawlSearch(): RedirectResponse {
+        Artisan::call('site-search:crawl');
+        toastr()->info(__('app.cache.crawl-search'));
+        return to_route('admin.dashboard');
+    }
+
     public function restartFailedJobs(): RedirectResponse {
         Artisan::call('queue:restart');
         toastr()->info(__('app.cache.restart-failed-jobs'));

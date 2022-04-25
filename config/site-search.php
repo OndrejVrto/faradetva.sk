@@ -11,6 +11,7 @@ return [
     'ignore_content_on_urls' => [
         '',
         '/',
+        '/admin/*',
         '/media/*',
         '/hladat/*',
         '/clanky',
@@ -57,6 +58,8 @@ return [
     'do_not_crawl_urls' => [
         '/login',
         '/register',
+        '/admin/*',
+        '/media/*',
     ],
 
     /**
