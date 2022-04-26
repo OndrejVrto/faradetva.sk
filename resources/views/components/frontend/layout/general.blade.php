@@ -1,10 +1,9 @@
 @props([
+    'lang' => str_replace('_', '-', app()->getLocale()),
     'css_general' => null,
     'js_general' => null,
 ])
-@php($lang = str_replace('_', '-', app()->getLocale()))
-
-<!-- {{ Request::fullUrl() }} -->
+<!-- {{ Request::fullUrl().' ('.now().')' }} -->
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="{{ $lang }}" class="ie8 no-js"> <![endif]-->

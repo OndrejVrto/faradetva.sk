@@ -63,8 +63,8 @@ return [
             'description'        => 'Webová stránka farnosťi Detva.',                                // set false to total remove
             'url'                => 'full',                                                          // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'               => 'WebPage',
-            "license"            => "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
-            "acquireLicensePage" => "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+            // "license"            => "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
+            // "acquireLicensePage" => "https://creativecommons.org/licenses/by-nc-nd/4.0/",
         ],
     ],
 ];

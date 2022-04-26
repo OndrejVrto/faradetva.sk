@@ -2,14 +2,14 @@
 
 namespace App\View\Components\Frontend\Sections;
 
+use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use App\Models\Faq as FaqModel;
+use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
-use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
-use Illuminate\Support\Collection;
 
 class Faq extends Component
 {
@@ -47,10 +47,10 @@ class Faq extends Component
         $questions = [];
         foreach ($faqData as $faq) {
             $questions[] = Schema::question()
-                    ->name($faq['question'])
+                    ->name(e($faq['question']))
                     ->acceptedAnswer(
                         Schema::answer()
-                            ->text($faq['answer-clean'])
+                            ->text(e($faq['answer-clean']))
                     );
         }
 
@@ -59,6 +59,11 @@ class Faq extends Component
             ->toArray();
         unset($JsonLD['@context']);
 
-        JsonLd::addValue('hasPart', $JsonLD );
+        if (SeoSchema::hasValue('hasPart')) {
+            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]) );
+        } else {
+            SeoSchema::addValue('hasPart', [$JsonLD] );
+        }
+
     }
 }

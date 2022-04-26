@@ -3,11 +3,11 @@
 namespace App\View\Components\Frontend\Sections;
 
 use Spatie\Image\Image;
+use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Priest as PriestModel;
-use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
 
@@ -97,6 +97,6 @@ class Priests extends Component
             $persons[] = $value;
         }
 
-        JsonLd::addValue('alumni', $persons );
+        SeoSchema::addValue('alumni', $persons );
     }
 }
