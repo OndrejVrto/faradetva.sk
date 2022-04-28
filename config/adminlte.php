@@ -542,17 +542,27 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/select2/js/select2.full.min.js',
+                    // 'location' => 'vendor/select2/js/select2.full.min.js',
+                    // 'location' => 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/sk.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/select2/css/select2.min.css',
+                    // 'location' => 'vendor/select2/css/select2.min.css',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
+                    // 'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
+                    'location' => 'https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css',
+
                 ],
             ],
         ],
@@ -582,17 +592,20 @@ return [
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/sweetalert2/sweetalert2.min.css',
+                    // 'location' => 'vendor/sweetalert2/sweetalert2.min.css',
+                    'location' => 'https://cdn.jsdelivr.net/npm/sweetalert2@11.4.9/dist/sweetalert2.min.css',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css',
+                    // 'location' => 'vendor/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css',
+                    'location' => 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4@5.0.10/bootstrap-4.min.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/sweetalert2/sweetalert2.min.js',
+                    // 'location' => 'vendor/sweetalert2/sweetalert2.min.js',
+                    'location' => 'https://cdn.jsdelivr.net/npm/sweetalert2@11.4.9/dist/sweetalert2.min.js',
                 ],
             ],
         ],
@@ -617,27 +630,31 @@ return [
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/toastr/toastr.min.css',
+                    // 'location' => 'vendor/toastr/toastr.min.css',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/toastr/toastr.min.js',
+                    // 'location' => 'vendor/toastr/toastr.min.js',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js',
                 ],
             ],
         ],
         'Dropzone' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/dropzone/5.9.3/dropzone.min.css',
+                    // 'location' => 'vendor/dropzone/5.9.3/dropzone.min.css',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/dropzone/5.9.3/dropzone.min.js',
+                    // 'location' => 'vendor/dropzone/5.9.3/dropzone.min.js',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js',
                 ],
             ],
         ],
@@ -647,7 +664,14 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/moment/moment-with-locales.min.js',
+                    // 'location' => 'vendor/moment/moment-with-locales.min.js',
+                    // 'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/sk.min.js',
                 ],
             ],
         ],
@@ -657,17 +681,19 @@ return [
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
+                    // 'location' => 'vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
+                    // 'location' => 'vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js',
                 ],
             ],
         ],
         'Summernote' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',

@@ -2,13 +2,11 @@
 
 namespace App\Services;
 
-use App\Crawler\MyCrawler;
+use App\Jobs\CheckUrlsJob;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Artisan;
-use App\Crawler\UrlCheckCrawlerObserver;
-use Spatie\Crawler\CrawlProfiles\CrawlInternalUrls;
 
 class CrawlUrlsService
 {
@@ -17,15 +15,9 @@ class CrawlUrlsService
         // File::delete(storage_path('/logs/query.log'));
 
         DB::select('UPDATE `static_pages` SET `check_url` = NULL WHERE `check_url` = 1;');
+        dispatch(new CheckUrlsJob());
 
         Artisan::call('site-search:crawl');
-
-        MyCrawler::create()
-            ->setCrawlProfile(new CrawlInternalUrls(config('app.url')))
-            ->setCrawlObserver(new UrlCheckCrawlerObserver())
-            ->setUserAgent('fara-detva-crawl')
-            ->setConcurrency(30)
-            ->startCrawling(config('app.url'));
 
         Cache::forever('___RELOAD', false);
     }

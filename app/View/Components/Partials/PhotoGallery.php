@@ -3,12 +3,11 @@
 namespace App\View\Components\Partials;
 
 use App\Models\Gallery;
+use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Spatie\SchemaOrg\ImageGallery;
 use Illuminate\Contracts\View\View;
-use Artesaos\SEOTools\Facades\JsonLd;
-use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Illuminate\Support\Facades\Cache;
 
 class PhotoGallery extends Component
@@ -43,6 +42,7 @@ class PhotoGallery extends Component
                 }
                 return $picture + [
                     'title' => $album->title,
+                    'slug'  => $album->slug,
                     'description' => $album->source->description,
                     'sourceArr' => [
                         'source'      => $album->source->source,
@@ -62,27 +62,27 @@ class PhotoGallery extends Component
         $pictures = [];
         foreach ($album['picture'] as $picture) {
             $pictures[] = Schema::imageObject()
-                ->contentUrl($picture['href'])
-                ->name($picture['title']);
+                ->contentUrl(e($picture['href']))
+                ->name(e($picture['title']));
         }
 
         $JsonLD = Schema::imageGallery()
-            ->name($album['title'])
-            ->description($album['description'])
+            ->name(e($album['title']))
+            ->description(e($album['description']))
             ->if(isset($album['sourceArr']['author']) OR isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album) {
                 $schema->author(
                     Schema::person()
-                        ->name($album['sourceArr']['author'])
-                        ->sameAs($album['sourceArr']['author_url'])
+                        ->name(e($album['sourceArr']['author']))
+                        ->sameAs(e($album['sourceArr']['author_url']))
                 );
             })
-            ->license($album['sourceArr']['license'])
-            ->usageInfo($album['sourceArr']['license_url'])
+            ->license(e($album['sourceArr']['license']))
+            ->usageInfo(e($album['sourceArr']['license_url']))
             ->if( isset($album['sourceArr']['source_url']) OR isset($album['sourceArr']['source']), function (ImageGallery $schema) use ($album) {
                 $schema->copyrightHolder(
                     Schema::organization()
-                        ->name($album['sourceArr']['source'])
-                        ->url($album['sourceArr']['source_url'])
+                        ->name(e($album['sourceArr']['source']))
+                        ->url(e($album['sourceArr']['source_url']))
                 );
             })
             ->associatedMedia( $pictures )
@@ -90,14 +90,10 @@ class PhotoGallery extends Component
 
         unset($JsonLD['@context']);
 
-        // JsonLd::addValue('hasPart1', $JsonLD );
-
-        if(! JsonLdMulti::isEmpty()) {
-            JsonLdMulti::newJsonLd();
-            JsonLdMulti::select(0);
-
-            JsonLdMulti::setType('ImageGallery');
-            JsonLdMulti::addValue('key', $JsonLD);
+        if (SeoSchema::hasValue('hasPart')) {
+            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]) );
+        } else {
+            SeoSchema::addValue('hasPart', [$JsonLD] );
         }
     }
 }

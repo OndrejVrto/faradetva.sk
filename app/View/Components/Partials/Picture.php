@@ -2,8 +2,9 @@
 
 namespace App\View\Components\Partials;
 
-use Spatie\Image\Image;
+use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Schema;
+use App\Overides\CustomJsonLd;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Artesaos\SEOTools\Facades\JsonLd;
@@ -64,6 +65,8 @@ class Picture extends Component
                 // $width = Image::load( $media->getPath('optimize') )->getWidth();
 
                 return [
+                    'img-title'       => $img->title,
+                    'img-slug'        => $img->slug,
                     'img-description' => $img->source->description,
                     // 'img-height'      => $height,
                     // 'img-width'       => $width,
@@ -103,19 +106,22 @@ class Picture extends Component
     private function setSeoMetaTags(array $pictureData): void {
         // TODO: SEO
         $JsonLD = Schema::imageObject()
-            ->url($pictureData['url'])
-            ->description('Popis obrázku')
-            ->alternateName('ALT')
+            ->name(e($pictureData['img-title']))
+            ->identifier(e($pictureData['url']))
+            ->url(e($pictureData['url']))
+            ->description('TODO:')
+            ->alternateName('TODO:')
             ->width(100)
             ->height(500)
-            ->encodingFormat('MIME')
-            ->uploadDate(now())
-            ->license($pictureData['sourceArr']['license'])
+            ->encodingFormat('TODO:')
+            ->uploadDate(now())  //TODO:
+            ->license(e($pictureData['sourceArr']['license']))
+            ->acquireLicensePage(e($pictureData['sourceArr']['license_url']))
             ->toArray();
 
 
         unset($JsonLD['@context']);
-        JsonLd::addImage([
+        SeoSchema::addImage([
             $JsonLD
         ]);
     }

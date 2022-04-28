@@ -37,8 +37,9 @@ class NewsController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $selectedTags = [];
+        $documents = null;
 
-        return view('backend.news.create', compact('categories', 'tags', 'selectedTags'));
+        return view('backend.news.create', compact('documents', 'categories', 'tags', 'selectedTags'));
     }
 
     public function storeMedia(Request $request): JsonResponse {
@@ -95,7 +96,7 @@ class NewsController extends Controller
 
     public function update(NewsRequest $request, News $news, MediaStoreService $mediaService): RedirectResponse {
         $validated = $request->validated();
-        
+
         $news->update(News::sanitize($validated));
         $news->tags()->sync($request->input('tags'));
         $news->source()->update(Source::sanitize($validated));

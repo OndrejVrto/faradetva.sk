@@ -1,7 +1,7 @@
 @php
     $config_select = [
         // "placeholder" => " Vyber niekoľko slov popisujúcich obsah ...",
-        "allowClear" => 'true',
+        // "allowClear" => 'true',
     ];
 @endphp
 
@@ -21,15 +21,15 @@
     @if ($tags->count())
 
     @foreach($tags as $tag)
-    <option
-        value="{{ $tag->id }}"
-        title="{{ $tag->description }}"
-        @if( in_array($tag->id, old("tags") ?: []) OR in_array($tag->id, $selectedTags) )
-            selected
-        @endif
-    >
-        {{ $tag->title }}
-    </option>
+        <option
+            value="{{ $tag->id }}"
+            title="{{ $tag->description }}"
+            @if( in_array($tag->id, old("tags") ?: []) OR in_array($tag->id, $selectedTags) )
+                selected
+            @endif
+        >
+            {{ $tag->title }}
+        </option>
     @endforeach
 
     @endif

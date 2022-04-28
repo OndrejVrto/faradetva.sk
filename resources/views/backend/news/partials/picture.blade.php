@@ -1,7 +1,7 @@
 @php
     $media_file_name = $source = null;
     if (isset($news)) {
-        $media_file_name = $news->getFirstMedia($banner->collectionName)->file_name ?? '';
+        $media_file_name = $news->getFirstMedia($news->collectionName)->file_name ?? '';
         $source = $news->source;
     }
 @endphp

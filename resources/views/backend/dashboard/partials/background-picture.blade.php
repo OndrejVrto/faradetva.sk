@@ -9,6 +9,7 @@
     'cache.jobs.delete',
     'cache.jobs.restart',
     'cache.crawl-all-url',
+    'cache.crawl-search',
     'cache.info',
     'cache.xdebug',
 )

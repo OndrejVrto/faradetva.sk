@@ -22,17 +22,23 @@
         </x-slot>
 
         <x-slot name="table_header">
-            <x-backend.table.th width="1%">#</x-backend.table.th>
-            <x-backend.table.th width="5%">Obrázok</x-backend.table.th>
-            <x-backend.table.th width="12%">Titulok záložky</x-backend.table.th>
-            <x-backend.table.th-check-active/>
-            <x-backend.table.th width="30%" class="d-none d-md-table-cell">Url <small>(cesta ktorú vidí uživateľ)</small></x-backend.table.th>
-            <x-backend.table.th class="d-none d-xl-table-cell">Route <small>(vnútorná cesta aplikácie)</small></x-backend.table.th>
-            <x-backend.table.th class="text-center d-none d-xl-table-cell">Počet banerov</x-backend.table.th>
+            {{-- <x-backend.table.th width="1%">#</x-backend.table.th> --}}
+            <x-backend.table.th class="text-center" width="10%">Obrázok</x-backend.table.th>
+            <x-backend.table.th width="20%">Titulok záložky</x-backend.table.th>
+            <x-backend.table.th-check-active class="d-none d-md-table-cell"/>
+            <x-backend.table.th width="50%" class="d-none d-md-table-cell">
+                Url <small>(cesta ktorú vidí uživateľ)</small>
+                <br>
+                Route <small>(vnútorná cesta aplikácie)</small>
+            </x-backend.table.th>
             <x-backend.table.th
+                width="5%"
+                colspan="2"
                 class="text-center d-none d-xl-table-cell"
                 title="Otázky sa ku stránke priraďujú na karte 'Otázky a odpovede'">
-                    Počet otázok
+                    Banerov
+                    <br>
+                    FaQ
             </x-backend.table.th>
             <x-backend.table.th-actions />
         </x-slot>
@@ -41,31 +47,32 @@
             @foreach($pages as $page)
                 <x-backend.table.tr trashed="{{ $page->trashed() }}">
 
-                    <x-backend.table.td>{{$page->id}}</x-backend.table.td>
+                    {{-- <x-backend.table.td>{{$page->id}}</x-backend.table.td> --}}
                     <x-backend.table.td class="text-center">
                         <img src="{{ $page->getFirstMediaUrl($page->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x50" }}"
                         class="img-fluid"
                         alt="Obrázok: {{ $page->source->description ?? '' }}"/>
                     </x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-backend.table.td>
-                    <x-backend.table.td-check-active check="{{ $page->check_url }}"/>
+                    <x-backend.table.td-check-active check="{{ $page->check_url }}" class="d-none d-md-table-cell"/>
                     <x-backend.table.td class="text-wrap text-break d-none d-md-table-cell">
                         <a href="{{ config('app.url').'/'.$page->url }}" target="_blank" rel="noopener noreferrer">
                             <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}
                         </a>
+                        <br>
+                        {{ $page->route_name }}
                     </x-backend.table.td>
-                    <x-backend.table.td class="text-wrap text-break d-none d-xl-table-cell">{{ $page->route_name }}</x-backend.table.td>
                     <x-backend.table.td class="text-center d-none d-xl-table-cell">
                         @if( $page->banners_count != 0 )
-                            <span class="badge bg-orange px-2 py-1">{{ $page->banners_count }}</span>
+                            <span class="badge bg-orange px-2 py-1" title="Počet banerov použitých na stránke.">{{ $page->banners_count }}</span>
                         @endif
                     </x-backend.table.td>
                     <x-backend.table.td class="text-center d-none d-xl-table-cell">
                         @if( $page->faqs_count != 0 )
-                            <span class="badge bg-orange px-2 py-1">{{ $page->faqs_count }}</span>
+                            <span class="badge bg-purple px-2 py-1" title="Počet otázok priradených stránke.">{{ $page->faqs_count }}</span>
                         @endif
                     </x-backend.table.td>
-                    <x-backend.table.td class="text-center">
+                    <x-backend.table.td class="text-center d-none d-md-table-cell">
                         <div class="d-inline-flex">
                             @if(!$page->trashed())
                                 <a  href="{{ config('app.url').'/'.$page->url }}"

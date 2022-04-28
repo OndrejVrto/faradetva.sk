@@ -4,10 +4,11 @@ namespace App\Providers;
 
 use App\Models\Setting;
 use Illuminate\Support\Str;
+use Spatie\SchemaOrg\Graph;
 use Illuminate\Http\Request;
+use App\Overrides\CustomJsonLd;
 use App\Services\QueryLogService;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
@@ -51,6 +52,9 @@ class AppServiceProvider extends ServiceProvider
             //! singleton for aplly cache time whole page
             $this->app->singleton(CacheResponseMiddleware::class);
 
+            $this->app->singleton('seo.graph', fn() => new Graph() );
+            $this->app->singleton('seo.schema-org', fn() => new CustomJsonLd(config('seotools.json-ld.defaults', [])) );
+
             //! only for Dev
             if ($request->userAgent() !== 'fara-detva-crawl' AND App::environment(['local', 'dev', 'staging'])) {
                 //! correctly url adres in Nqrock
@@ -61,6 +65,12 @@ class AppServiceProvider extends ServiceProvider
                 //! Loging Query-s to log file
                 new QueryLogService;
             }
+
+            // force website to load with HTTPS
+            //! Bug - Causes automatic logout
+            // if (App::environment(['production'])) {
+            //     URL::forceScheme('https');
+            // }
         }
     }
 }

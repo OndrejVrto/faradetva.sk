@@ -33,7 +33,7 @@
 
 @pushOnce('css')
     <style @nonce>
-    /* Responsive background images for Banner */
+    /* Responsive background images for Banner N.{{ $banner['id'] }} */
 
     /* Extra small devices (portrait phones, less than 576px) */
         .banner-img-{{$banner['id']}} {

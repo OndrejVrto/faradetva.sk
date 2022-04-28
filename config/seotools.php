@@ -14,8 +14,8 @@ return [
             'description'  => 'Webová stránka farnosťi Detva.', // set false to total remove
             'separator'    => ' | ',
             'keywords'     => ['farnosť Detva', 'fara', 'svadba', 'krst', 'pohreb', 'farské oznamy', 'omša', 'predmanželská príprava', 'kňaz', 'cirkev'],
-            'canonical'    => 'current', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'robots'       => 'index, follow', // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
+            'canonical'    => 'current', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
         ],
         /**
          * Webmaster tags are always added.
@@ -50,7 +50,7 @@ return [
          * The default values to be used by the twitter cards generator.
          */
         'defaults' => [
-            'card'        => 'summary_large_image',    // “summary”, “summary_large_image”, “app”, or “player”.
+            'card'        => 'summary_large_image', // “summary”, “summary_large_image”, “app”, or “player”.
             // 'site'        => '@faraDetva',
         ],
     ],
@@ -59,12 +59,12 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'              => 'Farnosť Detva',                                                 // set false to total remove
-            'description'        => 'Webová stránka farnosťi Detva.',                                // set false to total remove
-            'url'                => 'full',                                                          // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'               => 'WebPage',
-            "license"            => "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
-            "acquireLicensePage" => "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+            'url'                => 'full', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
+            'title'              => 'Farnosť Detva', // set false to total remove
+            'description'        => 'Webová stránka farnosťi Detva.', // set false to total remove
+            // "license"            => "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
+            // "acquireLicensePage" => "https://creativecommons.org/licenses/by-nc-nd/4.0/",
         ],
     ],
 ];

@@ -5,7 +5,10 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Frontend;
 
 use Spatie\Image\Image;
+use App\Facades\SeoGraph;
+use App\Facades\SeoSchema;
 use App\Models\StaticPage;
+use Spatie\SchemaOrg\Type;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Spatie\SchemaOrg\Schema;
@@ -14,13 +17,11 @@ use Spatie\SchemaOrg\ImageObject;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
-use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\Cache;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
-// use Artesaos\SEOTools\Facades\JsonLdMulti;
 
 class PageController extends Controller
 {
@@ -57,7 +58,7 @@ class PageController extends Controller
 
     /** get Page Data for One nod in URL and Cache it **/
     private function getPageData(string $path): array|null {
-        return Cache::rememberForever('PAGE_' . Str::slug($path), function () use($path): array|null {
+        return Cache::rememberForever('PAGE_' . Str::slug(Str::replace('/', '-', $path)), function () use($path): array|null {
             return StaticPage::whereUrl($path)->with('picture', 'source', 'banners', 'faqs')->get()->map(function($page): array {
                 $media = $page->picture[0];
                 return  [
@@ -111,73 +112,134 @@ class PageController extends Controller
 
         $page = last($allPageData);
 
-        SEOMeta::setTitle($page['title']);
-        SEOMeta::setDescription($page['description']);
-        SEOMeta::addKeyword($page['keywords']);
-        SEOMeta::addMeta('author', $page['author'], 'name');
+        SEOMeta::setTitle(e($page['title']));
+        SEOMeta::setDescription(e($page['description']));
+        SEOMeta::addKeyword(e($page['keywords']));
+        SEOMeta::addMeta('author', e($page['author']), 'name');
 
-        OpenGraph::setDescription($page['description']);
-        OpenGraph::setTitle($page['title']);
-        OpenGraph::addImage($page['img-facebook'], [
-            'alt' => $page['description'],
-            'type' => $page['img-mime-type'],
-            'width' => $page['img-width'],
-            'height' => $page['img-height'],
+        OpenGraph::setDescription(e($page['description']));
+        OpenGraph::setTitle(e($page['title']));
+        OpenGraph::addImage(e($page['img-facebook']), [
+            'alt' => e($page['description']),
+            'type' => e($page['img-mime-type']),
+            'width' => e($page['img-width']),
+            'height' => e($page['img-height']),
         ]);
 
-        TwitterCard::setTitle($page['title']);
-        TwitterCard::setDescription($page['description']);
-        TwitterCard::setImage($page['img-twitter']);
-        TwitterCard::addValue('image:alt', $page['img-description']);
+        TwitterCard::setTitle(e($page['title']));
+        TwitterCard::setDescription(e($page['description']));
+        TwitterCard::setImage(e($page['img-twitter']));
+        TwitterCard::addValue('image:alt', e($page['img-description']));
 
-        // JsonLd::setType('xxx');  //TODO: Typ seo page
-        JsonLd::setTitle($page['title']);
-        JsonLd::setDescription($page['description']);
-        JsonLd::addValue('sameAs', $page['wikipedia']);
-        JsonLd::addValue('keywords', $page['keywords']);
-        JsonLd::addValue('potentialAction', $this->getSearchAction($page) );
-        JsonLd::addValue('breadcrumb', $this->getBreadcrumbJsonLD($allPageData));
-        JsonLd::addValue('primaryImageOfPage', $this->getPrimaryImagePage($page) );
+
+        if (e($page['url']) == url('kontakty')) {
+            SeoSchema::setType('ContactPage');
+        }
+
+        SeoSchema::setTitle(e($page['title']));
+        SeoSchema::setDescription(e($page['description']));
+        if (e($page['wikipedia'])) {
+            SeoSchema::addValue('sameAs', e($page['wikipedia']));
+        }
+        SeoSchema::addValue('keywords', e($page['keywords']));
+        SeoSchema::addValue('primaryImageOfPage', $this->getPrimaryImagePageSchema($page) );
+
+        SeoGraph::add($this->getWebSiteSchema(), 'WebSite');
+        SeoGraph::add($this->getOrganizationSchema(), 'Organization');
+        SeoGraph::add($this->getBreadcrumbSchema($allPageData), 'BreadCrumb');
     }
 
-    private function getSearchAction(): array {
-        $JsonLD = Schema::searchAction()
+    private function getWebSiteSchema(): Type {
+        return Schema::webSite()
+            ->url(config('app.url'))
+            ->name('Farnosť Detva')
+            ->description('Webové stránky farnosti a dekanátu Detva.')
+            ->publisher(
+                Schema::organization()->identifier('#FaraDetva')
+            )
+            ->inLanguage('sk-SK')
+            ->potentialAction(
+                $this->getSearchActionSchema()
+            );
+    }
+
+    private function getSearchActionSchema(): Type {
+        return Schema::searchAction()
             ->target(
                 Schema::entryPoint()
                     ->urlTemplate(config('app.url')."/hladat/{search_term_string}")
             )
-            ->setProperty('query-input', 'required name=search_term_string')
-            ->toArray();
-            unset($JsonLD['@context']);
-
-            return $JsonLD;
+            ->setProperty('query-input', 'required name=search_term_string');
     }
 
-    private function getPrimaryImagePage($page): array {
+    private function getOrganizationSchema(): Type {
+        return Schema::organization()
+            ->identifier('#FaraDetva')
+            ->name('Farnosť Detva')
+            ->url(url('kontakty'))
+            ->alternateName(['Farský kostol svätého Františka z Assisi v Detve', 'Rímskokatolícka cirkev, Farnosť Detva', 'dekanát Detva'])
+            ->sameAs('https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148')
+            ->logo(
+                Schema::imageObject()
+                    ->identifier('#LogoFaraDetva')
+                    ->url('TODO:')
+                    ->width(100)
+                    ->height(100)
+                    ->caption('Logo farnosti Detva')
+            )
+            ->image(
+                Schema::imageObject()
+                    ->url('TODO:')
+                    ->width(100)
+                    ->height(100)
+                    ->caption('Referenčný obrázok farnosti Detva')
+            )
+            ->email('detva@fara.sk')
+            ->telephone('(+421) (045) 54 55 243')
+            ->address(
+                Schema::postalAddress()
+                    ->streetAddress('Partizánska ul. 64')
+                    ->addressLocality('Detva')
+                    ->postalCode('96212')
+                    ->addressCountry('Slovakia')
+            )
+            ->location(
+                Schema::place()
+                    ->geo(
+                        Schema::geoCoordinates()
+                            ->latitude('48.559227162468375')
+                            ->longitude('19.41894706403129')
+                    )
+                    ->hasMap('https://www.google.com/maps/@48.5583932,19.4172204,334m')
+            );
+    }
+
+    private function getPrimaryImagePageSchema($page): array {
         $JsonLD = Schema::imageObject()
-            ->url($page['img-optimize'])
-            ->thumbnailUrl($page['img-thumb'])
-            ->name($page['img-file-name'])
-            ->description($page['img-description'])
-            ->alternateName($page['img-description'])
-            ->encodingFormat($page['img-mime-type'])
-            ->height($page['img-height'])
-            ->width($page['img-width'])
-            ->uploadDate($page['img-updated_at'])
+            ->url(e($page['img-optimize']))
+            ->thumbnailUrl(e($page['img-thumb']))
+            ->name(e($page['img-file-name']))
+            ->description(e($page['img-description']))
+            ->alternateName(e($page['img-description']))
+            ->encodingFormat(e($page['img-mime-type']))
+            ->height(e($page['img-height']))
+            ->width(e($page['img-width']))
+            ->uploadDate(e($page['img-updated_at']))
             ->if(isset($page['img-author']) OR isset($page['img-author_url']), function (ImageObject $schema) use ($page) {
                 $schema->author(
                     Schema::person()
-                        ->name($page['img-author'])
-                        ->sameAs($page['img-author_url'])
+                        ->name(e($page['img-author']))
+                        ->sameAs(e($page['img-author_url']))
                 );
             })
-            ->license($page['img-license'])
-            ->usageInfo($page['img-license_url'])
+            ->license(e($page['img-license']))
+            ->acquireLicensePage(e($page['img-license_url']))
+            ->usageInfo(e($page['img-license_url']))
             ->if( isset($page['img-source_url']) OR isset($page['img-source']), function (ImageObject $schema) use ($page) {
                 $schema->copyrightHolder(
                     Schema::organization()
-                        ->name($page['img-source'])
-                        ->url($page['img-source_url'])
+                        ->name(e($page['img-source']))
+                        ->url(e($page['img-source_url']))
                 );
             })
             ->toArray();
@@ -186,7 +248,7 @@ class PageController extends Controller
             return $JsonLD;
     }
 
-    private function getBreadcrumbJsonLD($allPageData): array {
+    private function getBreadcrumbSchema($allPageData): Type {
         $items[] = Schema::listItem()
             ->position(1)
             ->item(
@@ -201,21 +263,16 @@ class PageController extends Controller
                 ->position($i + 2)
                 ->item(
                     Schema::thing()
-                        ->identifier($page['url'])
-                        ->url($page['url'])
-                        ->name($page['title'])
+                        ->identifier(e($page['url']))
+                        ->url(e($page['url']))
+                        ->name(e($page['title']))
                 );
         }
 
-        $JsonLD = Schema::breadcrumbList()
+        return Schema::breadcrumbList()
             ->numberOfItems(count($items))
             ->itemListElement(
                 $items
-            )
-            ->toArray();
-            unset($JsonLD['@context']);
-
-        return $JsonLD;
-
+            );
     }
 }

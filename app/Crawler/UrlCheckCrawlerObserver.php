@@ -29,9 +29,9 @@ class UrlCheckCrawlerObserver extends CrawlObserver
      */
     public function willCrawl(UriInterface $url): void
     {
-        // if($this->loging){
-        //     Log::info("Now crawling: " . (string) $url);
-        // }
+        if($this->loging){
+            Log::info("Crawling: " . (string) $url);
+        }
     }
 
     /**
@@ -63,7 +63,8 @@ class UrlCheckCrawlerObserver extends CrawlObserver
 
                 if($this->loging){
                     $fullPath = (string) $url;
-                    Log::info("Process: ". $fullPath);
+                    Log::info("Process_: ". $fullPath);
+                    Log::info("Found in: ". $foundOnUrl);
                     $this->pages++;
                 }
             }

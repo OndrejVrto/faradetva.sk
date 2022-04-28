@@ -1,7 +1,7 @@
 @props([
     'check' => 1,
 ])
-<td>
+<td {{ $attributes }}>
     @if ($check == 1)
         <i class="fas fa-check fa-lg text-success"></i>
     @else

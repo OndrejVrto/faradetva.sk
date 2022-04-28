@@ -82,7 +82,7 @@ class User extends Authenticatable implements HasMedia
     }
 
     public function adminlte_image() {
-        return $this->getFirstMediaUrl($this->collectionName, 'crop') ?: "http://via.placeholder.com/100x100";
+        return $this->getFirstMediaUrl($this->collectionName, 'crop') ?: "https://via.placeholder.com/100x100";
     }
 
     public function adminlte_desc() {
