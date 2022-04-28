@@ -10,18 +10,17 @@
     </div>
 @stop
 
-@push('css')
-    <link rel="stylesheet" href="{{ asset('asset/backend/css/admin_custom.css') }}">
-@endpush
+@prepend('css')
+    <link @nonce rel="stylesheet" href="{{ asset('asset/backend/css/admin_custom.css') }}">
+@endprepend
 
-@push('js')
-    <script @nonce src="{{ asset('asset/backend/js/admin_app.js') }}"></script>
-    <script @nonce src="{{ asset('asset/backend/js/admin_custom.js') }}"></script>
+@prepend('js')
+    <script @nonce type="text/javascript" src="{{ asset('asset/backend/js/admin_custom.js') }}"></script>
 
     @toastr_render(csp_nonce())
 
     <script @nonce>
-        var myTimer = new Timer({
+        const myTimer = new Timer({
             minutes: {{ config('session.lifetime') }},
             seconds: 0,
             element: document.querySelector('#time')
@@ -29,4 +28,4 @@
 
         myTimer.start();
     </script>
-@endpush
+@endprepend

@@ -19,12 +19,3 @@
         </div>
     </section>
 <!-- GLOBAL SEARCH End - Modal -->
-
-@push('js')
-    <!-- GLOBAL SEARCH Start - Script -->
-        <script @nonce>
-            var myModal = document.getElementById('modalSearch');
-            var myInput = document.getElementById('inputSearch');
-        </script>
-    <!-- GLOBAL SEARCH End - Script -->
-@endpush
