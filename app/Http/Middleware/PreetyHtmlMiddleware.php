@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use BeautifyHtml;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -36,6 +37,11 @@ class PreetyHtmlMiddleware
             } else {
                 $output = minifyHtml( $response->getContent() );
             }
+
+            // $output = Str::replace((string)config('app.url').'/', "/", $output);
+            // $output = Str::replace('<link rel="canonical" href="/', '<link rel="canonical" href="'.(string)config('app.url').'/', $output);
+            // $output = Str::replace('<base href="">', '<base href="'.(string)config('app.url').'">', $output);
+            // $output = Str::replace('": "/', '": "'.(string)config('app.url').'/', $output);
 
             $response->setContent($output);
         }
