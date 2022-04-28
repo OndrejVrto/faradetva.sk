@@ -24,7 +24,7 @@ class GalleryController extends Controller
     }
 
     public function create(): View {
-        return view('backend.galleries.create');
+        return view('backend.galleries.create', ['pictures' => null]);
     }
 
     public function storeMedia(Request $request): JsonResponse {
@@ -48,7 +48,7 @@ class GalleryController extends Controller
 
     public function store(GalleryRequest $request): RedirectResponse {
         $validated = $request->validated();
-        
+
         $gallery = Gallery::create(Gallery::sanitize($validated));
         $gallery->source()->create(Source::sanitize($validated));
 
