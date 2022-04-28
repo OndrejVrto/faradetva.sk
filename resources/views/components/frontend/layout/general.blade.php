@@ -1,16 +1,11 @@
 @props([
-    'lang' => str_replace('_', '-', app()->getLocale()),
     'css_general' => null,
     'js_general' => null,
 ])
 <!-- {{ Request::fullUrl().' ('.now().')' }} -->
 <!DOCTYPE html>
 
-<!--[if IE 8]> <html lang="{{ $lang }}" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="{{ $lang }}" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]> -->
-<html lang="{{ $lang }}">
-<!-- <![endif]-->
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <!-- META PROPERTIES Start -->
