@@ -11,19 +11,21 @@
     </title>
     <meta name="description" content="@yield('meta_description', config('farnost-detva.description', 'Administrácia - Webové stránky farnosťi Detva.'))">
 
-    {{-- Base Meta Tags --}}
+    <!-- Base Meta Tags -->
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow, nosnippet, noarchive, nocache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="canonical" href="{{ Request::fullUrl() }}" />
+    <!-- Custom Meta Tags -->
     @stack('meta_tags')
 
-    {{-- Custom stylesheets (pre AdminLTE) --}}
+    <!--  Custom stylesheets (pre AdminLTE) -->
     @yield('adminlte_css_pre')
+    <!--  Custom stylesheets (pre AdminLTE) End-->
 
-    {{-- Base Stylesheets --}}
+    <!--  Base Stylesheets -->
     @if(!config('adminlte.enabled_laravel_mix'))
 
         {{-- <link @nonce rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}"> --}}
@@ -51,11 +53,13 @@
             <livewire:styles />
         @endif
     @endif
+    <!--  Base Stylesheets End-->
 
-    {{-- Custom Stylesheets (post AdminLTE) --}}
+    <!-- Custom Stylesheets (post AdminLTE) -->
     @yield('adminlte_css')
+    <!-- Custom Stylesheets (post AdminLTE) End -->
 
-    {{-- Favicon --}}
+    <!-- Favicon -->
     @if(config('adminlte.use_ico_only'))
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
     @elseif(config('adminlte.use_full_favicon'))
@@ -81,15 +85,16 @@
         <meta name="msapplication-config" content="{{ asset('favicons/browserconfig.xml') }}">
         <meta name="theme-color" content="#e3b359">
     @endif
+    <!-- Favicon End-->
 
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>
 
-    {{-- Body Content --}}
+    <!-- Body Content -->
     @yield('body')
 
-    {{-- Base Scripts --}}
+    <!-- Base Scripts -->
     @if(!config('adminlte.enabled_laravel_mix'))
         {{-- <script @nonce src="{{ asset('vendor/jquery/jquery.min.js') }}"></script> --}}
         <script @nonce type="text/javascript" crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -116,9 +121,11 @@
             <livewire:scripts />
         @endif
     @endif
+    <!-- Base Scripts End-->
 
-    {{-- Custom Scripts --}}
+    <!-- Custom Scripts -->
     @yield('adminlte_js')
+    <!-- Custom Scripts End-->
 
 </body>
 
