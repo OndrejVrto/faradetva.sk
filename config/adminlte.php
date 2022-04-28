@@ -546,11 +546,11 @@ return [
                     // 'location' => 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js',
                     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js',
                 ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/sk.min.js',
-                ],
+                // [
+                //     'type' => 'js',
+                //     'asset' => false,
+                //     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/sk.min.js',
+                // ],
                 [
                     'type' => 'css',
                     'asset' => true,
@@ -668,11 +668,11 @@ return [
                     // 'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js',
                     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js',
                 ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/sk.min.js',
-                ],
+                // [
+                //     'type' => 'js',
+                //     'asset' => true,
+                //     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/sk.min.js',
+                // ],
             ],
         ],
         'Tempus Dominus for Bootstrap 4' => [
