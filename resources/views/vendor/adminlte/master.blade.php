@@ -18,8 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="canonical" href="{{ Request::fullUrl() }}" />
-    {{-- Custom Meta Tags --}}
-    @yield('meta_tags')
+    @stack('meta_tags')
 
     {{-- Custom stylesheets (pre AdminLTE) --}}
     @yield('adminlte_css_pre')

@@ -1,5 +1,9 @@
 @extends('adminlte::page')
 
+@push('meta_tags')
+    <base href="{{ config('app.url') }}">
+@endpush
+
 @section('footer')
     <div class="text-center text-lg-right small mt-3 mt-lg-0">
         Aplikáciu naprogramoval <span class="text-bold mx-2">Ing. Ondrej VRŤO</span> v roku pána 2022.
