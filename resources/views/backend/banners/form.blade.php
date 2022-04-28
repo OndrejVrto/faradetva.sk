@@ -92,86 +92,87 @@
 
 </x-backend.form>
 
+@push('css')
+    <link @nonce href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
+@endpush
+
 @push('js')
+    <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js"></script>
 
-<script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js"></script>
-<link @nonce href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet"> 
+    <script @nonce>
+        console.log('fff', document.getElementById('pokus'));
 
-<script @nonce>
-    console.log('fff', document.getElementById('pokus'));
+        function readFile(file) {
+            const reader = new FileReader();
 
-    function readFile(file) {
-        const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = document.createElement('img');
+                img.onload = () => {
+                    const maxWidth = 1280;
+                    const maxHeight = 720;
+                    const originalRatio = img.width / img.height;
 
-        reader.onload = (event) => {
-            const img = document.createElement('img');
-            img.onload = () => {
-                const maxWidth = 1280;
-                const maxHeight = 720;
-                const originalRatio = img.width / img.height;
+                    let finalWidth = img.width;
+                    let finalHeight = img.height;
 
-                let finalWidth = img.width;
-                let finalHeight = img.height;
-
-                if (img.width > maxWidth || img.height > maxHeight) {
-                    if (originalRatio > maxWidth / maxHeight) {
-                    finalWidth = maxWidth;
-                    finalHeight = maxWidth / originalRatio;
-                    } else {
-                    finalWidth = maxHeight * originalRatio;
-                    finalHeight = maxHeight;
+                    if (img.width > maxWidth || img.height > maxHeight) {
+                        if (originalRatio > maxWidth / maxHeight) {
+                        finalWidth = maxWidth;
+                        finalHeight = maxWidth / originalRatio;
+                        } else {
+                        finalWidth = maxHeight * originalRatio;
+                        finalHeight = maxHeight;
+                        }
                     }
-                }
 
-                const canvas = document.createElement('canvas');
-                canvas.width = finalWidth;
-                canvas.height = finalHeight;
+                    const canvas = document.createElement('canvas');
+                    canvas.width = finalWidth;
+                    canvas.height = finalHeight;
 
-                const ctx = canvas.getContext('2d');
-                if (ctx) {
-                    const imgX = document.createElement('image');
-                    const img2 = document.getElementById('croperElement');
-                    ctx.drawImage(imgX, 0, 0, finalWidth, finalHeight);
+                    const ctx = canvas.getContext('2d');
+                    if (ctx) {
+                        const imgX = document.createElement('image');
+                        const img2 = document.getElementById('croperElement');
+                        ctx.drawImage(imgX, 0, 0, finalWidth, finalHeight);
 
-                    cropper = new Cropper(img2, {
-                        aspectRatio: 1,
-                        viewMode: 1,
-                    });
-
-
-                    $("body").on("click", "#crop", function() {
-                        const canvas2 = cropper.getCroppedCanvas({
-                            width: 160,
-                            height: 160,
+                        cropper = new Cropper(img2, {
+                            aspectRatio: 1,
+                            viewMode: 1,
                         });
-                        canvas2.toBlob(function(blob) {
-                            url = URL.createObjectURL(blob);
-                            const reader2 = new FileReader();
-                            reader2.readAsDataURL(blob);
-                            reader2.onloadend = function() {
-                                var base64data = reader.result;
-                                console.log('hotovo', reader.result);
-                                document.getElementById('jozkodurko').value = reader.result;
-                            }
-                        });
-                    })
 
-                }
+
+                        $("body").on("click", "#crop", function() {
+                            const canvas2 = cropper.getCroppedCanvas({
+                                width: 160,
+                                height: 160,
+                            });
+                            canvas2.toBlob(function(blob) {
+                                url = URL.createObjectURL(blob);
+                                const reader2 = new FileReader();
+                                reader2.readAsDataURL(blob);
+                                reader2.onloadend = function() {
+                                    var base64data = reader.result;
+                                    console.log('hotovo', reader.result);
+                                    document.getElementById('jozkodurko').value = reader.result;
+                                }
+                            });
+                        })
+
+                    }
+                };
+                img.src = event.target?.result;
             };
-            img.src = event.target?.result;
-        };
-        reader.readAsDataURL(file);
+            reader.readAsDataURL(file);
 
-    }
+        }
 
-    function handleFiles() {
-        const file = this.files[0]; /* now you can work with the file list */
-        readFile(file);
-    }
+        function handleFiles() {
+            const file = this.files[0]; /* now you can work with the file list */
+            readFile(file);
+        }
 
-    const inputElement = document.getElementById("pokus");
-    inputElement.addEventListener("change", handleFiles, false);
+        const inputElement = document.getElementById("pokus");
+        inputElement.addEventListener("change", handleFiles, false);
 
-</script>
-
+    </script>
 @endpush
