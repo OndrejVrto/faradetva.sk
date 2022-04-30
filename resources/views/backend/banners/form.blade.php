@@ -14,6 +14,34 @@
     }
 @endphp
 
+<style>
+    .container > * {
+        height: 500px;
+        max-height: 500px;
+    }
+    .container img {
+        margin: auto;
+        object-fit: scale-down;
+        margin-bottom: 15px;
+    }
+    .upload-area {
+        border: 5px dotted #dadada;
+        height: 500px;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        cursor: pointer;
+    }
+    .upload-area input {
+        margin: auto;
+    }
+    .crop-container {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+</style>
+
 <x-backend.form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
@@ -21,8 +49,7 @@
     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
-    <x-adminlte-input-file
-        id="pokus"
+    <!-- <x-adminlte-input-file
         class="border-right-none"
         name="photox"
         label="Obrázok"
@@ -37,14 +64,31 @@
         <x-slot name="noteSlot">
             Poznámka: veľkosť obrázka minimálne 1920x480 px.
         </x-slot>
-    </x-adminlte-input-file>
+    </x-adminlte-input-file> -->
 
-    <div id="containter">
-        <img id="croperElement">
+
+    <!-- toto je container kde ma fungovat cropper -->
+    <div class="container">
+        <img id="cropperElement" class="d-none">
     </div>
 
-    <input name="photo_data" id="photo-data" type="text">
-    <button id="crop" type="button">CROP</button>
+    <!-- toto je button na vytvorenie cropu -->
+    <div class="crop-container">
+        <button id="cropButton" type="button" class="btn bg-gradient-success d-none">Orezat</button>
+    </div>
+
+    <!-- toto je preview container toho co sa prave nahrava -->
+    <div class="container">
+        <img id="preview" class="d-none">
+    </div>
+
+    <!-- toto je vstupny input pre subor -->
+    <label for="uploadFileInput" class="upload-area" id="uploadFileContainer">
+        <input id="uploadFileInput" name="upload-file" type=file>
+    </label>
+
+    <!-- toto je hidden input field kde sa ulozi finalna base64 -->
+    <input id="photo-base64" name="photo-base64" type="text" hidden>
 
     <x-adminlte-input
         fgroupClass="pb-4"
@@ -92,87 +136,167 @@
 
 </x-backend.form>
 
-@push('css')
-    <link @nonce href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
-@endpush
-
 @push('js')
-    <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js"></script>
 
-    <script @nonce>
-        console.log('fff', document.getElementById('pokus'));
+<script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js"></script>
+<link @nonce href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet"> 
+
+<!-- tento skript definuje to co je potrebne a mozes si ho vytiahnut do suboru -->
+<script @nonce>
+    // config args: minWidth, minHeight, ratio, maxSize, input, output, preview, cropperContainer, cropButton
+    function watchImageUploader(config) {
+
+        function showResult() {
+            $(config.cropButton).addClass('d-none');
+            $(config.cropperContainer).addClass('d-none');
+            $(config.preview).removeClass('d-none');
+        }
+
+        function showCropper() {
+            $(config.input).addClass('d-none');
+            $(config.inputContainer).addClass('d-none');
+            $(config.cropButton).removeClass('d-none');
+            $(config.cropperContainer).removeClass('d-none');
+        }
+
+        function setToForm(base64) {
+            $(config.output).val(base64);
+            $(config.preview).attr("src", (base64));
+            showResult();
+        }
+
+        function checkDimensions(img) {
+            if (img.width < config.minWidth || img.height < config.minHeight) {
+                alert('Obrazok nesplna minimalne rozmery');
+                return false;
+            }
+            return true;
+        }
 
         function readFile(file) {
             const reader = new FileReader();
 
             reader.onload = (event) => {
                 const img = document.createElement('img');
+
                 img.onload = () => {
-                    const maxWidth = 1280;
-                    const maxHeight = 720;
-                    const originalRatio = img.width / img.height;
 
-                    let finalWidth = img.width;
-                    let finalHeight = img.height;
-
-                    if (img.width > maxWidth || img.height > maxHeight) {
-                        if (originalRatio > maxWidth / maxHeight) {
-                        finalWidth = maxWidth;
-                        finalHeight = maxWidth / originalRatio;
-                        } else {
-                        finalWidth = maxHeight * originalRatio;
-                        finalHeight = maxHeight;
-                        }
+                    if (!checkDimensions(img)) {
+                        return;
                     }
 
-                    const canvas = document.createElement('canvas');
-                    canvas.width = finalWidth;
-                    canvas.height = finalHeight;
+                    showCropper();
 
-                    const ctx = canvas.getContext('2d');
-                    if (ctx) {
-                        const imgX = document.createElement('image');
-                        const img2 = document.getElementById('croperElement');
-                        ctx.drawImage(imgX, 0, 0, finalWidth, finalHeight);
+                    const cropperEntryPoint = $(config.cropperContainer)[0];
 
-                        cropper = new Cropper(img2, {
-                            aspectRatio: 1,
-                            viewMode: 1,
-                        });
+                    cropperEntryPoint.src = reader.result;
 
+                    cropper = new Cropper(cropperEntryPoint, {
+                        aspectRatio: config.ratio,
+                        viewMode: 1,
+                    });
 
-                        $("body").on("click", "#crop", function() {
-                            const canvas2 = cropper.getCroppedCanvas({
-                                width: 160,
-                                height: 160,
-                            });
-                            canvas2.toBlob(function(blob) {
-                                url = URL.createObjectURL(blob);
-                                const reader2 = new FileReader();
-                                reader2.readAsDataURL(blob);
-                                reader2.onloadend = function() {
-                                    var base64data = reader.result;
-                                    console.log('hotovo', reader.result);
-                                    document.getElementById('jozkodurko').value = reader.result;
+                    $(config.cropButton).click(() => {
+                        cropper.crop();
+
+                        const base64 = cropper.getCroppedCanvas({fillColor: '#fff'})
+                            .toDataURL(file.type);
+
+                        const cropped = document.createElement('img');
+
+                        cropped.onload = () => {
+                            if (!checkDimensions(cropped)) {
+                                return;
+                            }
+
+                            const croppedSize = cropped.width * cropped.height;
+                    
+                            if (croppedSize > config.maxSize) {
+                                const reduction = Math.sqrt(croppedSize / config.maxSize);
+                                const finalWidth = cropped.width / reduction;
+                                const finalHeight = cropped.height / reduction;
+                        
+                                const canvas = document.createElement('canvas');
+                                canvas.width = finalWidth;
+                                canvas.height = finalHeight;
+                        
+                                const ctx = canvas.getContext('2d');
+                        
+                                if (ctx) {
+                                    ctx.drawImage(cropped, 0, 0, finalWidth, finalHeight);
+                                    setToForm(canvas.toDataURL(file.type));
                                 }
-                            });
-                        })
 
-                    }
+                            } else {
+                                setToForm(base64);
+                            }
+
+                            cropper.destroy();
+                        }
+
+                        cropped.src = base64;
+
+                    });
                 };
+
                 img.src = event.target?.result;
             };
+
             reader.readAsDataURL(file);
-
         }
 
-        function handleFiles() {
-            const file = this.files[0]; /* now you can work with the file list */
-            readFile(file);
-        }
+        $(config.input).on('change', (e) => {
+            readFile($(config.input)[0].files[0]);
+        });
 
-        const inputElement = document.getElementById("pokus");
-        inputElement.addEventListener("change", handleFiles, false);
+        // nasledujuce tri JQuery by mali handlovat aj drop file ale dnes mi nejak blbne chrome takze to neviem otestovat
+        // kludne zmaz ked ti to nepojde a nechces to
 
-    </script>
+        $(config.inputContainer).on(
+            'dragover',
+            function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        );
+
+        $(config.inputContainer).on(
+            'dragenter',
+            function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        );
+
+        $(config.inputContainer).on(
+            'drop',
+            function(e){
+                if (e.originalEvent.dataTransfer && e.originalEvent.dataTransfer.files.length) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    /*UPLOAD FILES HERE*/
+                    readFile(e.originalEvent.dataTransfer.files[0]);
+                }
+            }
+        );
+    }
+
+</script>
+
+<!-- tento skript tu ostane ako konkretne volanie funkcie -->
+<script @nonce>
+    watchImageUploader({
+        minWidth: 1000,
+        minHeight: 500,
+        ratio: 2,
+        maxSize: 1024*768,
+        input: '#uploadFileInput',
+        inputContainer: '#uploadFileContainer',
+        output: '#photo-base64',
+        preview: '#preview',
+        cropperContainer: '#cropperElement',
+        cropButton: '#cropButton'
+    });
+</script>
+
 @endpush
