@@ -14,34 +14,6 @@
     }
 @endphp
 
-<style>
-    .container > * {
-        height: 500px;
-        max-height: 500px;
-    }
-    .container img {
-        margin: auto;
-        object-fit: scale-down;
-        margin-bottom: 15px;
-    }
-    .upload-area {
-        border: 5px dotted #dadada;
-        height: 500px;
-        width: 100%;
-        border-radius: 10px;
-        display: flex;
-        cursor: pointer;
-    }
-    .upload-area input {
-        margin: auto;
-    }
-    .crop-container {
-        display: flex;
-        justify-content: center;
-        padding: 10px;
-    }
-</style>
-
 <x-backend.form
     controlerName="{{ $controlerName }}" columns="{{ $columns }}"
     typeForm="{{ $typeForm }}" uploadFiles="{{ $uploadFiles }}"
@@ -49,7 +21,7 @@
     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
-    <!-- <x-adminlte-input-file
+    {{-- <!-- <x-adminlte-input-file
         class="border-right-none"
         name="photox"
         label="Obrázok"
@@ -64,21 +36,25 @@
         <x-slot name="noteSlot">
             Poznámka: veľkosť obrázka minimálne 1920x480 px.
         </x-slot>
-    </x-adminlte-input-file> -->
+    </x-adminlte-input-file> --> --}}
+
+
 
 
     <!-- toto je container kde ma fungovat cropper -->
-    <div class="container">
+    <div class="preview-container">
         <img id="cropperElement" class="d-none">
     </div>
 
     <!-- toto je button na vytvorenie cropu -->
     <div class="crop-container">
-        <button id="cropButton" type="button" class="btn bg-gradient-success d-none">Orezat</button>
+        <button id="cropButton" type="button" class="btn bg-gradient-warning d-none">
+            Orezať
+        </button>
     </div>
 
     <!-- toto je preview container toho co sa prave nahrava -->
-    <div class="container">
+    <div class="preview-container">
         <img id="preview" class="d-none">
     </div>
 
@@ -89,6 +65,11 @@
 
     <!-- toto je hidden input field kde sa ulozi finalna base64 -->
     <input id="photo-base64" name="photo-base64" type="text" hidden>
+
+
+
+
+
 
     <x-adminlte-input
         fgroupClass="pb-4"
@@ -139,7 +120,6 @@
 @push('js')
 
 <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js"></script>
-<link @nonce href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet"> 
 
 <!-- tento skript definuje to co je potrebne a mozes si ho vytiahnut do suboru -->
 <script @nonce>
@@ -191,9 +171,40 @@
 
                     cropperEntryPoint.src = reader.result;
 
+                    if(config.ratio == true) {
+                        ratio = config.minWidth / config.minHeight;
+                    } else {
+                        ratio = null;
+                    }
+
                     cropper = new Cropper(cropperEntryPoint, {
-                        aspectRatio: config.ratio,
+                        aspectRatio: ratio,
                         viewMode: 1,
+                        zoomable: false,
+                        movable: false,
+                        rotatable: false,
+                        scalable: false,
+                        
+                        data: {
+                            width: config.minWidth,
+                            height: config.minHeight,
+                        },
+
+                        crop: function (event) {
+                            var width = event.detail.width;
+                            var height = event.detail.height;
+
+                            if (
+                                width < config.minWidth
+                                || height < config.minHeight
+                            ) {
+                                cropper.setData({
+                                    width: Math.max(config.minWidth, width),
+                                    height: Math.max(config.minHeight, height),
+                                });
+                            }
+                        },
+
                     });
 
                     $(config.cropButton).click(() => {
@@ -286,10 +297,10 @@
 <!-- tento skript tu ostane ako konkretne volanie funkcie -->
 <script @nonce>
     watchImageUploader({
-        minWidth: 1000,
-        minHeight: 500,
-        ratio: 2,
-        maxSize: 1024*768,
+        minWidth: 1920,
+        minHeight: 480,
+        ratio: true,
+        maxSize: 2400*1600,
         input: '#uploadFileInput',
         inputContainer: '#uploadFileContainer',
         output: '#photo-base64',
@@ -299,4 +310,37 @@
     });
 </script>
 
+@endpush
+
+@push('css')
+    <link @nonce href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet"> 
+    <style>
+        .preview-container > * {
+            margin: 20px auto;
+            /* height: 500px; */
+            max-height: 300px;
+        }
+        .preview-container img {
+            margin: auto;
+            object-fit: scale-down;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .upload-area {
+            border: 5px dotted #dadada;
+            height: 100px;
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            cursor: pointer;
+        }
+        .upload-area input {
+            margin: auto;
+        }
+        .crop-container {
+            display: flex;
+            justify-content: center;
+            padding: 0px;
+        }
+    </style>
 @endpush
