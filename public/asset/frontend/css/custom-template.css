@@ -1874,7 +1874,7 @@ blockquote cite {
 .blog_single_page .tag-list li a {
 	font-weight    : 500;
 	font-size      : 14px;
-	text-transform : capitalize;
+	/* text-transform : capitalize; */
 	color          : #333;
 	text-decoration: none;
 }

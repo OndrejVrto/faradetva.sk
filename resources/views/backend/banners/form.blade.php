@@ -1,6 +1,6 @@
 @php
     $controlerName = 'banners';
-    $columns = 11;
+    $columns = 12;
     $uploadFiles = 'true';
 
     $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = $source = null;
@@ -9,7 +9,7 @@
         $identificator = $banner->slug;
         $createdInfo = $banner->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $banner->updated_at->format('d. m. Y \o H:i');
-        $media_file_name = $banner->getFirstMedia($banner->collectionName)->file_name ?? '';
+        $media_file_name = $banner->getFirstMedia($banner->collectionName) ?? '';
         $source = $banner->source;
     }
 @endphp
@@ -21,44 +21,36 @@
     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
-    <x-adminlte-input-file
-        class="border-right-none"
-        name="photo"
-        label="Obrázok"
-        placeholder="{{ $media_file_name }}"
-        accept=".jpg,.bmp,.png,.jpeg"
-    >
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-file-import"></i>
-            </div>
-        </x-slot>
-        <x-slot name="noteSlot">
-            Poznámka: veľkosť obrázka minimálne 1920x480 px.
-        </x-slot>
-    </x-adminlte-input-file>
+    <div class="form-row">
+        <div class="col-xl-6">
+            <x-adminlte-input
+                fgroupClass=""
+                name="title"
+                label="Názov"
+                {{-- placeholder="Názov baneru ..." --}}
+                enableOldSupport="true"
+                value="{{ $banner->title ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="far fa-flag"></i>
+                    </div>
+                </x-slot>
+                @error('slug')
+                    <x-slot name="errorManual">
+                        {{ $errors->first('slug') }}
+                    </x-slot>
+                @enderror
+            </x-adminlte-input>
 
-    <x-adminlte-input
-        fgroupClass="pb-4"
-        name="title"
-        label="Názov"
-        {{-- placeholder="Názov baneru ..." --}}
-        enableOldSupport="true"
-        value="{{ $banner->title ?? '' }}"
-        >
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-flag"></i>
-            </div>
-        </x-slot>
-        @error('slug')
-            <x-slot name="errorManual">
-                {{ $errors->first('slug') }}
-            </x-slot>
-        @enderror
-    </x-adminlte-input>
+            <x-backend.form.crop label="Obrázok pre banner" minWidth="1920" minHeight="480" :media_file_name="$media_file_name" />
 
-    <x-backend.form.source :source="$source" />
+        </div>
+        <div class="col-xl-6">
+            <hr class="d-xl-none bg-orange mt-4">
+            <x-backend.form.source :source="$source" />
+        </div>
+    </div>
 
     <hr class="bg-orange">
 
@@ -83,4 +75,3 @@
     </div>
 
 </x-backend.form>
-

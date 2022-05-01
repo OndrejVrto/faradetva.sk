@@ -32,8 +32,8 @@ return new class extends Migration
             $table->timestamp('published_at')->nullable()->default(NULL);
             $table->timestamp('unpublished_at')->nullable()->default(NULL);
             $table->boolean('notified')->default(0);
-            $table->string('title', 200);
-            $table->string('slug', 200);
+            $table->string('title', 110);
+            $table->string('slug', 110);
             $table->string('teaser', 500)->nullable();
             $table->mediumtext('content')->nullable();
             $table->mediumtext('content_plain')->nullable();

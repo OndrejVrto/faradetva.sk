@@ -4,49 +4,23 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\SourceRequest;
+use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Traits\HasSourceFields;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
-class PrayerRequest extends SourceRequest
+class PrayerRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
+    use HasSourceFields;
+    use HasCropPictureFields;
 
-    public function rules() {
-        if (request()->routeIs('prayers.store')) {
-            $photoRule = 'required';
-        } else if (request()->routeIs('prayers.update')) {
-            $photoRule = 'nullable';
-        }
-
-        return parent::rules() + [
-            'active' => [
-                'boolean',
-                'required'
-            ],
-            'title' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                Rule::unique('prayers', 'slug')->ignore($this->prayer)->withoutTrashed(),
-            ],
-            'quote_row1' => [
-                'required',
-                'string',
-                'max:255'
-            ],
-            'quote_row2' => [
-                'nullable',
-                'string',
-                'max:255'
-            ],
-            'quote_author' => [
-                'nullable',
-                'string',
-                'max:255'
-            ],
+    public function rules(): array {
+        return [
+            'active'       => $this->reqBoolRule(),
+            'title'        => $this->reqStrRule(),
+            'slug'         => Rule::unique('prayers', 'slug')->ignore($this->prayer)->withoutTrashed(),
+            'quote_row1'   => $this->reqStrRule(),
+            'quote_row2'   => $this->nullStrRule(),
+            'quote_author' => $this->nullStrRule(),
             'quote_link_url' => [
                 'required_with:quote_link_text',
                 'nullable',
@@ -60,19 +34,13 @@ class PrayerRequest extends SourceRequest
                 'string',
                 'max:255'
             ],
-            'photo' => [
-                $photoRule,
-                'file',
-                'mimes:jpg,bmp,png,jpeg',
-                'dimensions:min_width=1920,min_height=800',
-                'max:10000'
-            ],
+            // 'photo' => [
+            // 'dimensions:min_width=1920,min_height=800',
         ];
     }
 
-    public function messages() {
+    public function messages(): array {
         return [
-            'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
             'quote_link_url.required_with' => 'Musí byť vyplnené vždy, keď je vyplnené pole "Text tlačítka".',
             'quote_link_text.required_with' => 'Musí byť vyplnené vždy, keď je vyplnené pole "Link tlačítka (url)".',
         ];
@@ -80,7 +48,8 @@ class PrayerRequest extends SourceRequest
 
     protected function prepareForValidation() {
         $this->merge([
-            'slug' => Str::slug($this->title)
+            'title' => Str::replace(',', ' ', $this->title),
+            'slug'  => Str::slug($this->title)
         ]);
     }
 }

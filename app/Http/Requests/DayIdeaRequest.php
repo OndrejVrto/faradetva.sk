@@ -2,26 +2,14 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class DayIdeaRequest extends FormRequest
+class DayIdeaRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
-
-    public function rules() {
+    public function rules(): array {
         return [
-            'author' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'idea' => [
-                'required',
-                'string',
-                'max:4096'
-            ],
+            'author' => $this->reqStrRule(),
+            'idea'   => $this->reqStrRule(4096),
         ];
     }
 }

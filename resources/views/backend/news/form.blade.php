@@ -3,12 +3,14 @@
     $columns = 12;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = $source = null;
     if ( isset( $news ) ) {
         $typeForm = 'edit';
         $identificator = $news->slug;
         $createdInfo = $news->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $news->updated_at->format('d. m. Y \o H:i');
+        $media_file_name = $news->getFirstMedia($news->collectionName) ?? '';
+        $source = $news->source;
     }
 @endphp
 
@@ -52,8 +54,11 @@
     <hr class="bg-orange">
 
     <div class="form-row">
-        <div class="col-12">
-            @include('backend.news.partials.picture')
+        <div class="col-xl-4">
+            <x-backend.form.crop label="Hlavný obrázok na titulku" minWidth="848" minHeight="460" :media_file_name="$media_file_name" />
+        </div>
+        <div class="col-xl-8">
+            <x-backend.form.source :source="$source" />
         </div>
     </div>
 

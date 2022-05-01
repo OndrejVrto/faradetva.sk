@@ -4,28 +4,19 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\BaseRequest;
 use Illuminate\Validation\Rules\Password;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
-class UserRequest extends FormRequest
+class UserRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
+    use HasCropPictureFields;
 
-    public function rules() {
-
-        if (request()->routeIs('users.store')) {
-            $passwordRule = 'required';
-        } else if (request()->routeIs('users.update')) {
-            $passwordRule = 'nullable';
-        }
-
+    public function rules(): array {
         return [
-            'active' => [
-                'boolean',
-                'required',
-            ],
+            'active' => $this->reqBoolRule(),
+            'name'   => $this->reqStrRule(),
+            'slug'   => Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
             'nick' => [
                 'required',
                 Rule::unique('users', 'nick')->ignore($this->user),
@@ -37,17 +28,8 @@ class UserRequest extends FormRequest
                 'max:255',
                 Rule::unique('users', 'email')->ignore($this->user),
             ],
-            'name' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                'string',
-                Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
-            ],
             'password' => [
-                $passwordRule,
+                $this->requireORnullable(),
                 'confirmed',
                 'max:255',
                 Password::min(8)
@@ -60,19 +42,8 @@ class UserRequest extends FormRequest
             'can_be_impersonated' => [
                 'boolean',
             ],
-            'photo_avatar' => [
-                'nullable',
-                'file',
-                'mimes:jpg,bmp,png,jpeg,svg',
-                'dimensions:min_width=100,min_height=100',
-                'max:3000',
-            ],
-        ];
-    }
-
-    public function messages() {
-        return [
-            'photo_avatar.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
+            // 'photo_avatar' => [
+            // 'dimensions:min_width=100,min_height=100',
         ];
     }
 

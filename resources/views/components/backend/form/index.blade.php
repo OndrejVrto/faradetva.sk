@@ -38,7 +38,7 @@
     }
 
 @endphp
-
+<!--  Component: Form - Start -->
 <div class="row">
     <div {{ $attributes->merge(['class' => "col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL." mx-auto"]) }}>
         <div class="card">
@@ -68,7 +68,9 @@
 
                     @csrf
 
+                    <!--  SLOT - Start -->
                     {{ $slot }}
+                    <!--  SLOT - End -->
 
                     <div class="mt-3 d-flex justify-content-end">
                         <a href="{{ $linkBack }}" class="btn btn-outline-secondary px-5">
@@ -129,3 +131,4 @@
         </div>
     </div>
 </div>
+<!--  Component: Form - End -->

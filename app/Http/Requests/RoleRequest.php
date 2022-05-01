@@ -3,29 +3,22 @@
 namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class RoleRequest extends FormRequest
+class RoleRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
-
-    public function rules() {
+    public function rules(): array {
         return [
             'name' => [
                 'required',
+                'max:255',
                 Rule::unique('users_roles', 'name')->ignore($this->role),
-                'max:255',
             ],
-            'permission' => [
-                'required',
-                'max:255',
-            ],
+            'permission' => $this->reqStrRule(),
         ];
     }
 
-    public function messages() {
+    public function messages(): array {
         return [
             'permission.required' => 'Musíte vybrať aspoň jedno povolenie s nasledovného zoznamu.',
         ];

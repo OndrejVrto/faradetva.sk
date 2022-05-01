@@ -63,14 +63,14 @@ class NewsController extends Controller
         ]);
     }
 
-    public function store(NewsRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(NewsRequest $request): RedirectResponse {
         $validated = $request->validated() + [ 'user_id' => auth()->id() ];
 
         $news = News::create(News::sanitize($validated));
         $news->tags()->syncWithoutDetaching($request->input('tags'));
         $news->source()->create(Source::sanitize($validated));
 
-        $mediaService->handle($news, $request, 'picture', Str::slug($validated['description']) );
+        (new MediaStoreService)->handleCropPicture($news, $request);
 
         foreach ($request->input('document', []) as $file) {
             $news
@@ -94,14 +94,14 @@ class NewsController extends Controller
         return view('backend.news.edit', compact('news', 'documents', 'categories', 'tags', 'selectedTags'));
     }
 
-    public function update(NewsRequest $request, News $news, MediaStoreService $mediaService): RedirectResponse {
+    public function update(NewsRequest $request, News $news): RedirectResponse {
         $validated = $request->validated();
 
         $news->update(News::sanitize($validated));
         $news->tags()->sync($request->input('tags'));
         $news->source()->update(Source::sanitize($validated));
 
-        $mediaService->handle($news, $request, 'picture', Str::slug($validated['description']) );
+        (new MediaStoreService)->handleCropPicture($news, $request);
 
         if (count($news->document) > 0) {
             foreach ($news->document as $media) {

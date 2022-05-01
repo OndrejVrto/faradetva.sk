@@ -11,22 +11,10 @@ class DateTimeAfterNow implements Rule
 {
     private $user_timezone;
 
-    /**
-     * Create a new rule instance.
-     *
-     * @return void
-     */
     public function __construct($timezone) {
         $this->user_timezone = $timezone;
     }
 
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
     public function passes($attribute, $value) {
         $app_timezone = Config::get('app.timezone');
 
@@ -37,11 +25,6 @@ class DateTimeAfterNow implements Rule
         return $valueFromTZ->greaterThanOrEqualTo($nowInApp);
     }
 
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
     public function message() {
         return 'Zvolený čas musí byť v "budúcnosti".';
     }
