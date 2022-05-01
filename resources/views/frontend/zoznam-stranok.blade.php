@@ -11,6 +11,7 @@
                     <li><a href="{{ url('test') }}">Test</a></li>
                     <li><a href="{{ url('zoznam-statickych-stranok') }}">Všetky podstránky</a></li>
                     <li><a href="{{ route('article.all') }}">Články</a></li>
+                    <li><a href="{{ route('faq') }}">Otázky a odpovede</a></li>
                     <li><a href="{{ url('oznamy-vsetky') }}">Všetky oznamy</a></li>
                     <li><a href="{{ url('kontakty') }}">Kontakty</a></li>
 

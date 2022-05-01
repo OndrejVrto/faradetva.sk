@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\Frontend\FaqController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\SearchController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Frontend\SubscribeController;
 Route::middleware('response.headers', 'csp.headers', 'cache.response', 'preety.html', 'header.http2.link')->group(function() {
 
     Route::get('/', HomeController::class)->name('home');
+    Route::get('/otazky-a-odpovede', FaqController::class)->name('faq');
 
     //! Subscribe and mail
     Route::controller(SubscribeController::class)->group(function () {
