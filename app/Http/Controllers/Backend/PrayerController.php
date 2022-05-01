@@ -31,13 +31,13 @@ class PrayerController extends Controller
         return view('backend.prayers.create');
     }
 
-    public function store(PrayerRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(PrayerRequest $request): RedirectResponse {
         $validated = $request->validated();
 
         $prayer = Prayer::create(Prayer::sanitize($validated));
         $prayer->source()->create(Source::sanitize($validated));
 
-        $mediaService->handle($prayer, $request, 'photo', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($prayer, $request);
 
         toastr()->success(__('app.prayer.store'));
         return to_route('prayers.index');
@@ -55,14 +55,14 @@ class PrayerController extends Controller
         return view('backend.prayers.edit', compact('prayer'));
     }
 
-    public function update(PrayerRequest $request, Prayer $prayer, MediaStoreService $mediaService): RedirectResponse {
+    public function update(PrayerRequest $request, Prayer $prayer): RedirectResponse {
         $validated = $request->validated();
 
         $prayer->update(Prayer::sanitize($validated));
         $prayer->source()->update(Source::sanitize($validated));
         $prayer->touch(); // Touch because i need start observer for delete cache
 
-        $mediaService->handle($prayer, $request, 'photo', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($prayer, $request);
 
         toastr()->success(__('app.prayer.update'));
         return to_route('prayers.index');

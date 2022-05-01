@@ -34,8 +34,6 @@ class PrayerRequest extends BaseRequest
                 'string',
                 'max:255'
             ],
-            // 'photo' => [
-            // 'dimensions:min_width=1920,min_height=800',
         ];
     }
 
