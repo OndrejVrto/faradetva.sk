@@ -6,70 +6,32 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasSourceFields;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
 class StaticPageRequest extends BaseRequest
 {
     use HasSourceFields;
+    use HasCropPictureFields;
 
     public function rules(): array {
         return  [
+            'title'            => $this->reqStrRule(),
+            'slug'             => Rule::unique('static_pages', 'slug')->ignore($this->static_page)->withoutTrashed(),
+            'url'              => $this->reqStrRule(),
+            'description_page' => $this->reqStrRule(),
+            'keywords'         => $this->reqStrRule(),
+            'author_page'      => $this->nullStrRule(),
+            'header'           => $this->reqStrRule(),
+            'teaser'           => $this->reqStrRule(),
+            'wikipedia'        => $this->nullUrlRule(),
             'route_name' => [
                 Rule::unique('static_pages', 'route_name')->ignore($this->static_page)->withoutTrashed(),
                 'required',
                 'string',
                 'max:255',
             ],
-            'slug' => [
-                Rule::unique('static_pages', 'slug')->ignore($this->static_page)->withoutTrashed(),
-            ],
-            'url' => [
-                'required',
-                'string',
-                'max:255'
-            ],
-            'title' => [
-                'required',
-                'string',
-                'max:255'
-            ],
-            'description_page' => [
-                'nullable',   //TODO: change to required
-                'string',
-                'max:255'
-            ],
-            'keywords' => [
-                'nullable',  //TODO: change to required
-                'string',
-                'max:255'
-            ],
-            'author_page' => [
-                'nullable',
-                'string',
-                'max:255'
-            ],
-            'header' => [
-                'required',
-                'string',
-                'max:255'
-            ],
-            'teaser' => [
-                'nullable',  //TODO: change to required
-                'string',
-                'max:512'
-            ],
-            'wikipedia' => [
-                'nullable',
-                'string',
-                'url',
-                'max:512'
-            ],
-            'picture' => [
-                $this->requiredNullableRule(),
-                'file',
-                'mimes:jpg,gif,png,jpeg',
-                'dimensions:min_width=960,min_height=480',
-                'max:2048',
-            ]
+            // 'picture' => [
+            //     'dimensions:min_width=960,min_height=480',
             // 'banner' => [
             //     'required'
             // ],

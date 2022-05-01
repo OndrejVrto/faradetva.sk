@@ -12,19 +12,9 @@ class FaqRequest extends BaseRequest
 {
     public function rules(): array {
         return [
-            'question' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                Rule::unique('faqs', 'slug')->ignore($this->faq),
-            ],
-            'answer' => [
-                'required',
-                'string',
-                'max:1024',
-            ],
+            'question' => $this->reqStrRule(),
+            'slug'     => Rule::unique('faqs', 'slug')->ignore($this->faq),
+            'answer'   => $this->reqStrRule(1024),
         ];
     }
 

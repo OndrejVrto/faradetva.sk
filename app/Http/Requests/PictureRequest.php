@@ -17,14 +17,8 @@ class PictureRequest extends BaseRequest
 
     public function rules(): array {
         return [
-            'title' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                Rule::unique('pictures', 'slug')->ignore($this->picture),
-            ],
+            'title' => $this->reqStrRule(),
+            'slug'  => Rule::unique('pictures', 'slug')->ignore($this->picture),
         ];
     }
 

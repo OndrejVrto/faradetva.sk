@@ -15,10 +15,9 @@ class NoticeRequest extends BaseRequest
         $modelName = Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"]);
         // dd(Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),);
         return [
-            'active' => [
-                'boolean',
-                'required'
-            ],
+            'active' => $this->reqBoolRule(),
+            'title'  => $this->reqStrRule(),
+            'slug'   => Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),
             'published_at' => [
                 'nullable',
                 'date',
@@ -30,18 +29,10 @@ class NoticeRequest extends BaseRequest
                 'after:published_at',
                 new DateTimeAfterNow($this->timezone),
             ],
-            'title' => [
-                'required',
-                'string',
-                'max:200',
-            ],
             'notice_file' => [
                 'file',
                 'mimes:pdf',
                 'max:10000',
-            ],
-            'slug' => [
-                Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),
             ],
         ];
     }

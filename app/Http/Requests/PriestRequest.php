@@ -3,40 +3,20 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
 class PriestRequest extends BaseRequest
 {
+    use HasCropPictureFields;
+
     public function rules(): array {
         return [
-            'active' => [
-                'boolean',
-                'required',
-            ],
-            'titles_before' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'first_name' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'last_name' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'titles_after' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'function' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
+            'active'        => $this->reqBoolRule(),
+            'titles_before' => $this->nullStrRule(),
+            'first_name'    => $this->reqStrRule(),
+            'last_name'     => $this->reqStrRule(),
+            'titles_after'  => $this->nullStrRule(),
+            'function'      => $this->nullStrRule(),
             'phone' => [
                 'nullable',
                 'regex:/[\d\+\-\ ]+/',
@@ -51,19 +31,8 @@ class PriestRequest extends BaseRequest
                 'required',
                 'string',
             ],
-            'photo' => [
-                $this->requiredNullableRule(),
-                'file',
-                'mimes:jpg,bmp,png,jpeg,svg',
-                'dimensions:min_width=230,min_height=270',
-                'max:2048',
-            ],
-        ];
-    }
-
-    public function messages(): array {
-        return [
-            'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
+            // 'photo' => [
+            //     'dimensions:min_width=230,min_height=270',
         ];
     }
 }

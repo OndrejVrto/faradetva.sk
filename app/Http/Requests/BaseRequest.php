@@ -11,6 +11,42 @@ abstract class BaseRequest extends FormRequest
 {
     use CanAuthorizeTrait;
 
+    protected function requireORnullable(): string {
+        return $this->getMethod() == 'POST' ? 'required' : 'nullable';
+    }
+
+    protected function reqBoolRule(): array {
+        return [
+            'boolean',
+            'required',
+        ];
+    }
+
+    protected function reqStrRule(int $max = 255): array {
+        return [
+            'required',
+            'string',
+            'max:'.$max,
+        ];
+    }
+
+    protected function nullStrRule(int $max = 255): array {
+        return [
+            'nullable',
+            'string',
+            'max:'.$max,
+        ];
+    }
+
+    protected function nullUrlRule(): array {
+        return [
+            'nullable',
+            'url',
+            'string',
+            'max:512',
+        ];
+    }
+
     public function withValidator(Validator $validator) {
         if ($rulesAndMessages = $this->getTraitRulesAndMessages()) {
             $validator->addRules($rulesAndMessages['rules']);
@@ -41,9 +77,5 @@ abstract class BaseRequest extends FormRequest
         $methodName = Str::camel($traitSubject) . 'Messages';
 
         return method_exists($this, $methodName) ? $this->{$methodName}() : [];
-    }
-
-    protected function requiredNullableRule(): string {
-        return $this->getMethod() == 'POST' ? 'required' : 'nullable';
     }
 }

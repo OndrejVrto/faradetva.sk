@@ -14,34 +14,13 @@ class ChartRequest extends BaseRequest
 {
     public function rules(): array {
         return [
-            'active' => [
-                'boolean',
-                'required',
-            ],
-            'title' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'description' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                Rule::unique('charts', 'slug')->ignore($this->chart)->withoutTrashed(),
-            ],
-            'name_x_axis' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'name_y_axis' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'type_chart' => [
+            'active'      => $this->reqBoolRule(),
+            'title'       => $this->reqStrRule(),
+            'description' => $this->nullStrRule(),
+            'slug'        => Rule::unique('charts', 'slug')->ignore($this->chart)->withoutTrashed(),
+            'name_x_axis' => $this->reqStrRule(),
+            'name_y_axis' => $this->reqStrRule(),
+            'type_chart'  => [
                 'required',
                 new Enum(ChartType::class),
             ],

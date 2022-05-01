@@ -15,17 +15,11 @@ class GalleryRequest extends BaseRequest
 
     public function rules(): array {
         return [
-            'title' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                Rule::unique('galleries', 'slug')->ignore($this->gallery),
-            ],
+            'title'     => $this->reqStrRule(),
+            'slug'      => Rule::unique('galleries', 'slug')->ignore($this->gallery),
             'picture.*' => [
-                $this->requiredNullableRule(),
-                'max:10000'
+                $this->requireORnullable(),
+                'max:2000'
             ],
         ];
     }

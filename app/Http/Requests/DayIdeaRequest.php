@@ -8,16 +8,8 @@ class DayIdeaRequest extends BaseRequest
 {
     public function rules(): array {
         return [
-            'author' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'idea' => [
-                'required',
-                'string',
-                'max:4096'
-            ],
+            'author' => $this->reqStrRule(),
+            'idea'   => $this->reqStrRule(4096),
         ];
     }
 }

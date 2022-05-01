@@ -6,15 +6,17 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\BaseRequest;
 use Illuminate\Validation\Rules\Password;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
 class UserRequest extends BaseRequest
 {
+    use HasCropPictureFields;
+
     public function rules(): array {
         return [
-            'active' => [
-                'boolean',
-                'required',
-            ],
+            'active' => $this->reqBoolRule(),
+            'name'   => $this->reqStrRule(),
+            'slug'   => Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
             'nick' => [
                 'required',
                 Rule::unique('users', 'nick')->ignore($this->user),
@@ -26,17 +28,8 @@ class UserRequest extends BaseRequest
                 'max:255',
                 Rule::unique('users', 'email')->ignore($this->user),
             ],
-            'name' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                'string',
-                Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
-            ],
             'password' => [
-                $this->requiredNullableRule(),
+                $this->requireORnullable(),
                 'confirmed',
                 'max:255',
                 Password::min(8)
@@ -49,19 +42,8 @@ class UserRequest extends BaseRequest
             'can_be_impersonated' => [
                 'boolean',
             ],
-            'photo_avatar' => [
-                'nullable',
-                'file',
-                'mimes:jpg,bmp,png,jpeg,svg',
-                'dimensions:min_width=100,min_height=100',
-                'max:3000',
-            ],
-        ];
-    }
-
-    public function messages(): array {
-        return [
-            'photo_avatar.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
+            // 'photo_avatar' => [
+            // 'dimensions:min_width=100,min_height=100',
         ];
     }
 

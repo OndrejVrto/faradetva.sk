@@ -14,13 +14,8 @@ class CategoryRequest extends BaseRequest
                 'required',
                 'max:30',
             ],
-            'slug' => [
-                Rule::unique('categories', 'slug')->ignore($this->category)->withoutTrashed(),
-            ],
-            'description' => [
-                'required',
-                'max:255',
-            ],
+            'slug'        => Rule::unique('categories', 'slug')->ignore($this->category)->withoutTrashed(),
+            'description' => $this->reqStrRule(),
         ];
     }
 

@@ -5,45 +5,24 @@ namespace App\Http\Requests;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
 class TestimonialRequest extends BaseRequest
 {
+    use HasCropPictureFields;
+
     public function rules(): array {
         return [
-            'active' => [
-                'boolean',
-                'required',
-            ],
-            'name' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                Rule::unique('testimonials', 'slug')->ignore($this->testimonial)->withoutTrashed(),
-            ],
-            'function' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
+            'active'      => $this->reqBoolRule(),
+            'name'        => $this->reqStrRule(),
+            'slug'        => Rule::unique('testimonials', 'slug')->ignore($this->testimonial)->withoutTrashed(),
+            'function'    => $this->nullStrRule(),
             'description' => [
                 'nullable',
                 'string',
             ],
-            'photo' => [
-                $this->requiredNullableRule(),
-                'file',
-                'mimes:jpg,bmp,png,jpeg,svg',
-                'dimensions:min_width=100,min_height=100',
-                'max:2048',
-            ],
-        ];
-    }
-
-    public function messages(): array {
-        return [
-            'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
+            // 'photo' => [
+            //     'dimensions:min_width=100,min_height=100',
         ];
     }
 

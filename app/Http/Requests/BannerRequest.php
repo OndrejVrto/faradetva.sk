@@ -17,20 +17,8 @@ class BannerRequest extends BaseRequest
 
     public function rules(): array {
         return [
-            'title' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                Rule::unique('banners', 'slug')->ignore($this->banner),
-            ],
-        ];
-    }
-
-    public function messages(): array {
-        return [
-            'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
+            'title' => $this->reqStrRule(),
+            'slug'  => Rule::unique('banners', 'slug')->ignore($this->banner),
         ];
     }
 

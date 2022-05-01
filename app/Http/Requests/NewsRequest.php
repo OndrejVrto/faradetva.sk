@@ -16,10 +16,10 @@ class NewsRequest extends BaseRequest
 
     public function rules(): array {
         return [
-            'active' => [
-                'boolean',
-                'required'
-            ],
+            'active' => $this->reqBoolRule(),
+            'title'  => $this->reqStrRule(110),  //Google schema markup:  ... Headlines should not exceed 110 characters. ...
+            'teaser' => $this->nullStrRule(500),
+            'slug'   => Rule::unique('news', 'slug')->ignore($this->news)->withoutTrashed(),
             'published_at' => [
                 'nullable',
                 'date',
@@ -31,21 +31,8 @@ class NewsRequest extends BaseRequest
                 'after:published_at',
                 new DateTimeAfterNow($this->timezone),
             ],
-            'title' => [
-                'required',
-                'string',
-                'max:110', //Google schema markup:  ... Headlines should not exceed 110 characters. ...
-            ],
-            'slug' => [
-                Rule::unique('news', 'slug')->ignore($this->news)->withoutTrashed(),
-            ],
             'content' => [
                 'required',
-            ],
-            'teaser' => [
-                'nullable',
-                'string',
-                'max:500',
             ],
             'category_id' => [
                 'required',
@@ -60,7 +47,6 @@ class NewsRequest extends BaseRequest
 
     public function messages(): array {
         return [
-            'picture.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
             'unpublished_at.after' => 'Dátum a čas musí byť väčší ako je v poli: Publikovať Od',
             'content.required' => 'Nejaký obsah článku by mal byť. Napíš aspoň pár viet.',
         ];

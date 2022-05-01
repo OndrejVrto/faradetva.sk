@@ -9,11 +9,11 @@ trait HasCropPictureFields
     protected function cropPictureRules(): array {
         return [
             'crop_file_name' => [
-                $this->requiredNullableRule(),
+                $this->requireORnullable(),
                 'string',
             ],
             'crop_base64_output' => [
-                $this->requiredNullableRule(),
+                $this->requireORnullable(),
                 'string',
                 new IsBase64Encoded(),
             ],

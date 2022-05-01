@@ -15,16 +15,10 @@ class FileRequest extends BaseRequest
 
     public function rules(): array {
         return [
-            'title' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'slug' => [
-                Rule::unique('files', 'slug')->ignore($this->file),
-            ],
+            'title'      => $this->reqStrRule(),
+            'slug'       => Rule::unique('files', 'slug')->ignore($this->file),
             'attachment' => [
-                $this->requiredNullableRule(),
+                $this->requireORnullable(),
                 'file',
                 'max:10000'
             ],
