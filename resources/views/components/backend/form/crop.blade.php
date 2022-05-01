@@ -83,18 +83,18 @@
     {{-- tento skript tu ostane ako konkretne volanie funkcie --}}
     <script @nonce>
         watchImageUploader({
-            minWidth: {{ $minWidth }},
-            minHeight: {{ $minHeight }},
-            ratio: {{ $ratio }},
-            maxSize: {{ $maxSize }},
-            input: '#upload-corp-file-input',
-            output: '#crop-base64-output',
-            preview: '#crop-preview',
+            minWidth        : {{ $minWidth }},
+            minHeight       : {{ $minHeight }},
+            ratio           : {{ $ratio }},
+            maxSize         : {{ $maxSize }},
+            input           : '#upload-corp-file-input',
+            output          : '#crop-base64-output',
+            fileName        : '#crop-file-name',
+            preview         : '#crop-preview',
+            modal           : '#crop-modal',
             cropperContainer: '#cropper-element',
-            cropButton: '#crop-button',
+            cropButton      : '#crop-button',
             cancelCropButton: '#crop-cancel-button',
-            modal: '#crop-modal',
-            fileName: '#crop-file-name',
         });
     </script>
 @endpush
