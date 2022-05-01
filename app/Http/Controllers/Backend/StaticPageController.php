@@ -36,14 +36,14 @@ class StaticPageController extends Controller
         return view('backend.static-pages.create', compact('banners', 'selectedBanners'));
     }
 
-    public function store(StaticPageRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(StaticPageRequest $request): RedirectResponse {
         $validated = $request->validated();
 
         $staticPage = StaticPage::create(StaticPage::sanitize($validated));
         $staticPage->source()->create(Source::sanitize($validated));
         $staticPage->banners()->syncWithoutDetaching($request->input('banner'));
 
-        $mediaService->handle($staticPage, $request, 'picture', Str::slug($validated['description']) );
+        (new MediaStoreService)->handleCropPicture($staticPage, $request);
 
         toastr()->success(__('app.static-page.store'));
         return to_route('static-pages.index');
@@ -57,7 +57,7 @@ class StaticPageController extends Controller
         return view('backend.static-pages.edit', compact('staticPage', 'banners', 'selectedBanners'));
     }
 
-    public function update(StaticPageRequest $request, StaticPage $staticPage, MediaStoreService $mediaService): RedirectResponse {
+    public function update(StaticPageRequest $request, StaticPage $staticPage): RedirectResponse {
         $validated = $request->validated();
 
         $staticPage->update(StaticPage::sanitize($validated));
@@ -65,7 +65,7 @@ class StaticPageController extends Controller
         $staticPage->banners()->sync($request->input('banner'));
         $staticPage->touch(); // Touch because i need start observer for delete cache
 
-        $mediaService->handle($staticPage, $request, 'picture', Str::slug($validated['description']) );
+        (new MediaStoreService)->handleCropPicture($staticPage, $request);
 
         toastr()->success(__('app.static-page.update'));
         return to_route('static-pages.index');

@@ -9,7 +9,7 @@
         $identificator = $staticPage->slug;
         $createdInfo = $staticPage->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $staticPage->updated_at->format('d. m. Y \o H:i');
-        $media_file_name = $staticPage->getFirstMedia($staticPage->collectionName)->file_name ?? '';
+        $media_file_name = $staticPage->getFirstMedia($staticPage->collectionName) ?? '';
         $source = $staticPage->source;
     }
 @endphp
@@ -182,26 +182,17 @@
 
     </div>
 
-    <hr class="bg-orange">
+    <hr class="bg-orange mt-4">
 
-    <x-adminlte-input-file
-        class="border-right-none"
-        name="picture"
-        label="Referenčný obrázok"
-        accept=".jpg,.png,.jpeg,.gif"
-
-        placeholder="{{ $media_file_name ?? '' }}">
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-file-import"></i>
-            </div>
-        </x-slot>
-        <x-slot name="noteSlot">
-            Poznámka: veľkosť obrázka minimálne 960x480 px.
-        </x-slot>
-    </x-adminlte-input-file>
-
-    <x-backend.form.source :source="$source" />
+    <div class="form-row">
+        <div class="col-xl-4">
+            <x-backend.form.crop label="Referenčný obrázok" minWidth="960" minHeight="480" :media_file_name="$media_file_name" />
+        </div>
+        <div class="col-xl-8">
+            <hr class="d-xl-none bg-orange mt-4">
+            <x-backend.form.source :source="$source" />
+        </div>
+    </div>
 
     <hr class="bg-orange">
 

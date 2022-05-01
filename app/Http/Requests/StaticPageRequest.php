@@ -30,11 +30,6 @@ class StaticPageRequest extends BaseRequest
                 'string',
                 'max:255',
             ],
-            // 'picture' => [
-            //     'dimensions:min_width=960,min_height=480',
-            // 'banner' => [
-            //     'required'
-            // ],
         ];
     }
 
