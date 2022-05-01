@@ -7,18 +7,6 @@
     'media_file_name' => null,
 ])
 <!--  Component: CROP - Start -->
-    {{-- TODO: ZMAZAŤ - iba pre vývoj --}}
-        @if ($errors->any())
-            <div class="alert alert-warning p-0 d-flex justify-content-center">
-                <ul class="list-unstyled align-self-center my-2">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    {{-- TODO: ZMAZAŤ - iba pre vývoj --}}
-
     {{-- toto je vstupny input pre subor --}}
     <x-adminlte-input-file
         class="border-right-none"
@@ -56,9 +44,9 @@
 
     {{-- toto je preview container toho co sa prave nahrava --}}
     <div class="form-group ">
-        <label for="title">Náhľad</label>
+        {{-- <label for="title">Náhľad</label> --}}
         <div class="preview-container">
-            <img id="crop_preview" src="{{ old('crop_base64_output', empty($media_file_name) ? '' : $media_file_name->getFullUrl()) }}" alt="Po orezaní obrázka tu budete vidieť jeho náhľad.">
+            <img id="crop_preview" src="{{ old('crop_base64_output', empty($media_file_name) ? '' : $media_file_name->getFullUrl()) }}" alt="Po vložení obrázka tu bude zobrazený náhľad.">
         </div>
     </div>
 

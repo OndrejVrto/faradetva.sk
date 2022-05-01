@@ -1,14 +1,15 @@
 @php
     $controlerName = 'testimonials';
-    $columns = 7;
+    $columns = 10;
     $uploadFiles = 'true';
 
-    $typeForm = $identificator = $createdInfo = $updatedInfo = null;
+    $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
     if ( isset( $testimonial) ) {
         $typeForm = 'edit';
         $identificator = $testimonial->slug;
         $createdInfo = $testimonial->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $testimonial->updated_at->format('d. m. Y \o H:i');
+        $media_file_name = $testimonial->getFirstMedia($testimonial->collectionName) ?? '';
     }
 @endphp
 
@@ -35,72 +36,69 @@
     </div>
 
     <div class="form-row">
-        <div class="col-6">
-            <x-adminlte-input
-                name="name"
-                label="Meno alebo prezývka"
-                {{-- placeholder="Vlož meno svedka ..." --}}
+        <div class="col-xl-8">
+
+            <div class="form-row">
+                <div class="col-6">
+
+                    <x-adminlte-input
+                        name="name"
+                        label="Meno alebo prezývka"
+                        enableOldSupport="true"
+                        value="{{ $testimonial->name ?? '' }}"
+                        >
+                        <x-slot name="prependSlot">
+                            <div class="input-group-text bg-gradient-orange">
+                                <i class="fas fa-signature"></i>
+                            </div>
+                        </x-slot>
+                        @error('slug')
+                            <x-slot name="errorManual">
+                                {{ $errors->first('slug') }}
+                            </x-slot>
+                        @enderror
+                    </x-adminlte-input>
+
+                </div>
+                <div class="col-6">
+
+                    <x-adminlte-input
+                        name="function"
+                        label="Charakteristika osoby"
+                        enableOldSupport="true"
+                        value="{{ $testimonial->function ?? '' }}"
+                    >
+                        <x-slot name="prependSlot">
+                            <div class="input-group-text bg-gradient-orange">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                        </x-slot>
+                    </x-adminlte-input>
+
+                </div>
+            </div>
+
+            <x-adminlte-textarea
+                name="description"
+                label="Svedectvo"
                 enableOldSupport="true"
-                value="{{ $testimonial->name ?? '' }}"
+                rows="8"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-signature"></i>
+                        <i class="fas fa-pen-nib"></i>
                     </div>
                 </x-slot>
-                @error('slug')
-                    <x-slot name="errorManual">
-                        {{ $errors->first('slug') }}
-                    </x-slot>
-                @enderror
-            </x-adminlte-input>
+                    {{ $testimonial->description ?? '' }}
+            </x-adminlte-textarea>
+
         </div>
-        <div class="col-6">
-            <x-adminlte-input
-                name="function"
-                label="Charakteristika osoby"
-                {{-- placeholder="Akú prácu vykonáva svedok ..." --}}
-                enableOldSupport="true"
-                value="{{ $testimonial->function ?? '' }}"
-            >
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
+        <div class="col-xl-4">
+
+            <hr class="d-xl-none bg-orange mt-4">
+            <x-backend.form.crop label="Fotka alebo avatar" minWidth="100" minHeight="100" :media_file_name="$media_file_name" />
+
         </div>
     </div>
-
-    <x-adminlte-textarea
-        name="description"
-        label="Svedectvo"
-        enableOldSupport="true"
-        rows="5"
-        >
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-pen-nib"></i>
-            </div>
-        </x-slot>
-            {{ $testimonial->description ?? '' }}
-    </x-adminlte-textarea>
-
-    <x-adminlte-input-file
-        class="border-right-none"
-        name="photo"
-        label="Fotka alebo avatar"
-        accept=".jpg,.bmp,.png,.jpeg,.svg"
-        {{-- placeholder="{{ $testimonial->media_file_name ?? 'Vložiť fotku ...' }}"> --}}
-        placeholder="{{ $testimonial->media_file_name ?? '' }}">
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-file-import"></i>
-            </div>
-        </x-slot>
-        <x-slot name="noteSlot">
-            Poznámka: veľkosť obrázka minimálne 100x100 px.
-        </x-slot>
-    </x-adminlte-input-file>
 
 </x-backend.form>
