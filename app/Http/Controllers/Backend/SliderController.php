@@ -31,13 +31,13 @@ class SliderController extends Controller
         return view('backend.sliders.create');
     }
 
-    public function store(SliderRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(SliderRequest $request): RedirectResponse {
         $validated = $request->validated();
 
         $slider = Slider::create(Slider::sanitize($validated));
         $slider->source()->create(Source::sanitize($validated));
 
-        $mediaService->handle($slider, $request, 'photo', Str::slug($slider->breadcrumb_teaser) );
+        (new MediaStoreService)->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
 
         toastr()->success(__('app.slider.store'));
         return to_route('sliders.index');
@@ -49,14 +49,14 @@ class SliderController extends Controller
         return view('backend.sliders.edit', compact('slider'));
     }
 
-    public function update(SliderRequest $request, Slider $slider, MediaStoreService $mediaService): RedirectResponse {
+    public function update(SliderRequest $request, Slider $slider): RedirectResponse {
         $validated = $request->validated();
 
         $slider->update(Slider::sanitize($validated));
         $slider->source()->update(Source::sanitize($validated));
         $slider->touch(); // Touch because i need start observer for delete cache
 
-        $mediaService->handle($slider, $request, 'photo', Str::slug($slider->breadcrumb_teaser) );
+        (new MediaStoreService)->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
 
         toastr()->success(__('app.slider.update'));
         return to_route('sliders.index');

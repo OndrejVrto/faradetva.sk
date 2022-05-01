@@ -1,6 +1,6 @@
 @php
     $controlerName = 'sliders';
-    $columns = 7;
+    $columns = 10;
     $uploadFiles = 'true';
 
     $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = $source = null;
@@ -9,7 +9,7 @@
         $identificator = $slider->id;
         $createdInfo = $slider->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $slider->updated_at->format('d. m. Y \o H:i');
-        $media_file_name = $slider->getFirstMedia($slider->collectionName)->file_name ?? '';
+        $media_file_name = $slider->getFirstMedia($slider->collectionName) ?? '';
         $source = $slider->source;
     }
 @endphp
@@ -78,23 +78,16 @@
         </x-slot>
     </x-adminlte-input>
 
-    <x-adminlte-input-file
-        class="border-right-none"
-        name="photo"
-        label="Obrázok"
-        accept=".jpg,.bmp,.png,.jpeg"
-        {{-- placeholder="{{ $slider->media_file_name ?? 'Vložiť obrázok ...' }}"> --}}
-        placeholder="{{ $media_file_name ?? '' }}">
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-file-import"></i>
-            </div>
-        </x-slot>
-        <x-slot name="noteSlot">
-            Poznámka: veľkosť obrázka minimálne 1920x800 px.
-        </x-slot>
-    </x-adminlte-input-file>
+    <hr class="bg-orange mt-4">
 
-    <x-backend.form.source :source="$source" />
+    <div class="form-row">
+        <div class="col-xl-5">
+            <x-backend.form.crop label="Obrázok" minWidth="1920" minHeight="800" :media_file_name="$media_file_name" />
+        </div>
+        <div class="col-xl-7">
+            <hr class="d-xl-none bg-orange mt-4">
+            <x-backend.form.source :source="$source" />
+        </div>
+    </div>
 
 </x-backend.form>

@@ -17,8 +17,6 @@ class SliderRequest extends BaseRequest
             'heading_1' => $this->nullStrRule(),
             'heading_2' => $this->nullStrRule(),
             'heading_3' => $this->nullStrRule(),
-            // 'photo' => [
-            //     'dimensions:min_width=1920,min_height=800',
         ];
     }
 }
