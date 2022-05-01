@@ -56,6 +56,15 @@
 
     <div class="form-group">
         <label>Stránky v ktorých sa bude zobrazovať táto otázka</label>
+        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby bol banner na všetkých stránkach.">
+            <input
+                type="checkbox"
+                class="custom-control-input"
+                id="Switch3"
+                name="all_pages"
+            >
+            <label class="custom-control-label" for="Switch3">Všetko</label>
+        </div>
     </div>
 
     <div class="row pb-2 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
@@ -64,7 +73,7 @@
                 <input type="checkbox"
                     name="page[{{ $page->id }}]"
                     value="{{ $page->id }}"
-                    class='d-inline m-2'
+                    class='d-inline page m-2'
                     {{ in_array($page->id, $selectedPages)
                         ? 'checked'
                         : '' }}
@@ -76,3 +85,11 @@
 
 </x-backend.form>
 
+@push('js')
+    <script @nonce>
+        toggleChceckerAll({
+            button: '[name="all_pages"]',
+            items: '.page',
+        });
+    </script>
+@endpush

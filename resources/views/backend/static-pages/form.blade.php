@@ -239,20 +239,10 @@
 </x-backend.form>
 
 @push('js')
-    <script @nonce type="text/javascript">
-        $(document).ready(function() {
-            $('[name="all_banners"]').on('click', function() {
-
-                if($(this).is(':checked')) {
-                    $.each($('.banner'), function() {
-                        $(this).prop('checked',true);
-                    });
-                } else {
-                    $.each($('.banner'), function() {
-                        $(this).prop('checked',false);
-                    });
-                }
-            });
+    <script @nonce>
+        toggleChceckerAll({
+            button: '[name="all_banners"]',
+            items: '.banner',
         });
     </script>
 @endpush

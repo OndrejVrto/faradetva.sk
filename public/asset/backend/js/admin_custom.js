@@ -131,3 +131,18 @@ var Timer = function(opts) {
         self.element.textContent = ("0" + self.minutes).slice(-2) + ':' + self.seconds;
     }
 };
+
+function toggleChceckerAll(config) {
+    $(config.button).on('click', function() {
+
+        if($(this).is(':checked')) {
+            $.each($(config.items), function() {
+                $(this).prop('checked',true);
+            });
+        } else {
+            $.each($(config.items), function() {
+                $(this).prop('checked',false);
+            });
+        }
+    });
+};
