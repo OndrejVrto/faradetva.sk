@@ -1,18 +1,20 @@
 @props([
-    'minWidth'  => "480",
-    'minHeight' => "1920",
-    'ratio'     => "true",
-    'maxSize'   => "2600*1600",
+    'label'           => "Obrázok",
+    'minWidth'        => "480",
+    'minHeight'       => "1920",
+    'ratio'           => "true",
+    'maxSize'         => "2600*1600",
+    'media_file_name' => null,
 ])
 <!--  Component: CROP - Start -->
     {{-- toto je vstupny input pre subor --}}
     <x-adminlte-input-file
         class="border-right-none"
-        name="upload-crop-file"
+        name="upload_crop_file"
         id="upload-corp-file-input"
-        label="Obrázok"
-        {{-- placeholder="{{ $media_file_name }}" --}}
-        accept=".jpg,.bmp,.png,.jpeg"
+        label="{{ $label }}"
+        placeholder="{{ old('crop_file_name', (empty($media_file_name) ?: $media_file_name->getCustomProperty('oldFileName'))) }}"
+        accept=".jpg,.bmp,.png,.jpeg,.tiff"
     >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
@@ -22,40 +24,50 @@
         <x-slot name="noteSlot">
             Poznámka: veľkosť obrázka minimálne {{ $minWidth }}x{{ $minHeight }} px.
         </x-slot>
+        @error('crop_base64_output')
+            <x-slot name="errorManual">
+                {{ $errors->first('crop_base64_output') }}
+            </x-slot>
+        @enderror
+        @error('crop_file_name')
+            <x-slot name="errorManual">
+                {{ $errors->first('crop_file_name') }}
+            </x-slot>
+        @enderror
     </x-adminlte-input-file>
 
     {{-- toto je hidden input field kde sa ulozi finalna base64 --}}
-    <input id="crop-base64-output" name="crop-base64-output" type="text" hidden>
+    <input id="crop_base64_output" name="crop_base64_output" type="text" value="{{ old('crop_base64_output') }}" hidden>
 
     {{-- toto je hidden input field kde sa ulozi názov pôvodného súboru --}}
-    <input id="crop-file-name" name="crop-file-name" type="text" hidden>
+    <input id="crop_file_name" name="crop_file_name" type="text" value="{{ old('crop_file_name') }}" hidden>
 
     {{-- toto je preview container toho co sa prave nahrava --}}
     <div class="form-group ">
         <label for="title">Náhľad</label>
         <div class="preview-container">
-            <img id="crop-preview">
+            <img id="crop_preview" src="{{ old('crop_base64_output', empty($media_file_name) ?: $media_file_name->getFullUrl()) }}" alt="Po orezaní obrázka tu budete vidieť jeho náhľad.">
         </div>
     </div>
 
     {{-- toto je modálne okno pre zobrazenie croppera --}}
-    <div class="modal" id="crop-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="crop_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-body">
                     {{-- toto je container kde ma fungovat cropper --}}
                     <div class="crop-container">
-                        <img id="cropper-element">
+                        <img id="cropper_element">
                     </div>
                 </div>
                 <div class="modal-footer">
                     {{-- toto je button na vytvorenie cropu --}}
-                    <button id="crop-button" type="button" class="btn bg-gradient-orange px-5 mr-2">
+                    <button id="crop_button" type="button" class="btn bg-gradient-orange px-5 mr-2">
                         <i class="fa-solid fa-crop-simple mr-1"></i>
                         Orezať
                     </button>
                     {{-- toto je button cancel --}}
-                    <button id="crop-cancel-button" type="button" class="btn bg-gradient-danger px-5">
+                    <button id="crop_cancel_button" type="button" class="btn bg-gradient-danger px-5">
                         <i class="fa-solid fa-ban mr-1"></i>
                         Zrušiť
                     </button>
@@ -88,13 +100,13 @@
             ratio           : {{ $ratio }},
             maxSize         : {{ $maxSize }},
             input           : '#upload-corp-file-input',
-            output          : '#crop-base64-output',
-            fileName        : '#crop-file-name',
-            preview         : '#crop-preview',
-            modal           : '#crop-modal',
-            cropperContainer: '#cropper-element',
-            cropButton      : '#crop-button',
-            cancelCropButton: '#crop-cancel-button',
+            output          : '#crop_base64_output',
+            fileName        : '#crop_file_name',
+            preview         : '#crop_preview',
+            modal           : '#crop_modal',
+            cropperContainer: '#cropper_element',
+            cropButton      : '#crop_button',
+            cancelCropButton: '#crop_cancel_button',
         });
     </script>
 @endpush

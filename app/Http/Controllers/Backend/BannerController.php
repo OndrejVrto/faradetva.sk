@@ -32,14 +32,14 @@ class BannerController extends Controller
         return view('backend.banners.create', compact('pages', 'selectedPages'));
     }
 
-    public function store(BannerRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(BannerRequest $request): RedirectResponse {
         $validated = $request->validated();
 
         $banner = Banner::create(Banner::sanitize($validated));
         $banner->staticPages()->syncWithoutDetaching($request->input('page'));
         $banner->source()->create(Source::sanitize($validated));
 
-        $mediaService->handle($banner, $request, 'photo', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($banner, $request);
 
         toastr()->success(__('app.banner.store'));
         return to_route('banners.index');
@@ -59,7 +59,7 @@ class BannerController extends Controller
         return view('backend.banners.edit', compact('banner', 'pages', 'selectedPages'));
     }
 
-    public function update(BannerRequest $request, Banner $banner, MediaStoreService $mediaService): RedirectResponse {
+    public function update(BannerRequest $request, Banner $banner): RedirectResponse {
         $validated = $request->validated();
 
         $banner->update(Banner::sanitize($validated));
@@ -67,7 +67,7 @@ class BannerController extends Controller
         $banner->staticPages()->sync($request->input('page'));
         $banner->touch(); // Touch because i need start observer for delete cache
 
-        $mediaService->handle($banner, $request, 'photo', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($banner, $request);
 
         toastr()->success(__('app.banner.update'));
         return to_route('banners.index');

@@ -7,10 +7,12 @@ use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasSourceFields;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
 class NewsRequest extends BaseRequest
 {
     use HasSourceFields;
+    use HasCropPictureFields;
 
     public function rules(): array {
         return [
@@ -49,13 +51,6 @@ class NewsRequest extends BaseRequest
                 'required',
                 'exists:categories,id'
             ],
-            'picture' => [
-                $this->requiredNullableRule(),
-                'file',
-                'mimes:jpg,bmp,png,jpeg',
-                'dimensions:min_width=848,min_height=460',
-                'max:5000'
-            ],
             'doc.*' => [
                 'nullable',
             ],
@@ -75,7 +70,6 @@ class NewsRequest extends BaseRequest
         $this->merge([
             'title' => Str::replace(',', ' ', $this->title),
             'slug'  => Str::slug($this->title)
-
         ]);
 
         is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s', strtotime($this->published_at))]);

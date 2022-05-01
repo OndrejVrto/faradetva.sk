@@ -9,7 +9,7 @@
         $identificator = $banner->slug;
         $createdInfo = $banner->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $banner->updated_at->format('d. m. Y \o H:i');
-        $media_file_name = $banner->getFirstMedia($banner->collectionName)->file_name ?? '';
+        $media_file_name = $banner->getFirstMedia($banner->collectionName) ?? '';
         $source = $banner->source;
     }
 @endphp
@@ -43,7 +43,7 @@
             @enderror
         </x-adminlte-input>
 
-        <x-backend.form.crop minWidth="1920" minHeight="480" ratio="true" maxSize="2600*1600"/>
+        <x-backend.form.crop label="Obrázok" minWidth="1920" minHeight="480" :media_file_name="$media_file_name" />
 
     </div>
     <div class="col-xl-6">
