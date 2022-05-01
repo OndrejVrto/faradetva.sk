@@ -12,11 +12,18 @@ class PriestRequest extends BaseRequest
     public function rules(): array {
         return [
             'active'        => $this->reqBoolRule(),
-            'titles_before' => $this->nullStrRule(),
+
             'first_name'    => $this->reqStrRule(),
             'last_name'     => $this->reqStrRule(),
+
+            'titles_before' => $this->nullStrRule(),
             'titles_after'  => $this->nullStrRule(),
             'function'      => $this->nullStrRule(),
+            'twiter_name'   => $this->nullStrRule(),
+
+            'facebook_url'  => $this->nullUrlRule(),
+            'www_page'      => $this->nullUrlRule(),
+
             'phone' => [
                 'nullable',
                 'regex:/[\d\+\-\ ]+/',
@@ -31,8 +38,6 @@ class PriestRequest extends BaseRequest
                 'required',
                 'string',
             ],
-            // 'photo' => [
-            //     'dimensions:min_width=230,min_height=270',
         ];
     }
 }

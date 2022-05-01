@@ -30,10 +30,11 @@ class PriestController extends Controller
         return view('backend.priests.create');
     }
 
-    public function store(PriestRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(PriestRequest $request): RedirectResponse {
         $validated = $request->validated();
         $priest = Priest::create(Priest::sanitize($validated));
-        $mediaService->handle($priest, $request, 'photo', Str::slug($priest->full_name_titles.'-'.$priest->function) );
+
+        (new MediaStoreService)->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
 
         toastr()->success(__('app.priest.store'));
         return to_route('priests.index');
@@ -43,10 +44,11 @@ class PriestController extends Controller
         return view('backend.priests.edit', compact('priest'));
     }
 
-    public function update(PriestRequest $request, Priest $priest, MediaStoreService $mediaService): RedirectResponse {
+    public function update(PriestRequest $request, Priest $priest): RedirectResponse {
         $validated = $request->validated();
         $priest->update($validated);
-        $mediaService->handle($priest, $request, 'photo', Str::slug($priest->full_name_titles.'-'.$priest->function) );
+
+        (new MediaStoreService)->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
 
         toastr()->success(__('app.priest.update'));
         return to_route('priests.index');
