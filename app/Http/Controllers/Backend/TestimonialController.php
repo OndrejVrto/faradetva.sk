@@ -30,11 +30,11 @@ class TestimonialController extends Controller
         return view('backend.testimonials.create');
     }
 
-    public function store(TestimonialRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(TestimonialRequest $request): RedirectResponse {
         $validated = $request->validated();
         $testimonial = Testimonial::create(Testimonial::sanitize($validated));
 
-        $mediaService->handle($testimonial, $request, 'photo', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($testimonial, $request, $validated['slug']);
 
         toastr()->success(__('app.testimonial.store'));
         return to_route('testimonials.index');
@@ -44,11 +44,11 @@ class TestimonialController extends Controller
         return view('backend.testimonials.edit', compact('testimonial'));
     }
 
-    public function update(TestimonialRequest $request, Testimonial $testimonial, MediaStoreService $mediaService): RedirectResponse {
+    public function update(TestimonialRequest $request, Testimonial $testimonial): RedirectResponse {
         $validated = $request->validated();
         $testimonial->update(Testimonial::sanitize($validated));
 
-        $mediaService->handle($testimonial, $request, 'photo', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($testimonial, $request, $validated['slug']);
 
         toastr()->success(__('app.testimonial.update'));
         return to_route('testimonials.index');

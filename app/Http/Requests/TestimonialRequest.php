@@ -21,8 +21,6 @@ class TestimonialRequest extends BaseRequest
                 'nullable',
                 'string',
             ],
-            // 'photo' => [
-            //     'dimensions:min_width=100,min_height=100',
         ];
     }
 
