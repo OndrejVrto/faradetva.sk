@@ -41,7 +41,6 @@
         fgroupClass=""
         name="title"
         label="Pracovný názov súboru"
-        {{-- placeholder="Názov dokumentu ..." --}}
         enableOldSupport="true"
         value="{{ $file->title ?? '' }}"
         >

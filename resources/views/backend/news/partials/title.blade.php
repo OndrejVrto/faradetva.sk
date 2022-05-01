@@ -1,7 +1,7 @@
 <x-adminlte-input
     name="title"
     label="Nadpis článku"
-    {{-- placeholder="Nadpis článku ..." --}}
+
     enableOldSupport="true"
     value="{{ $news->title ?? '' }}" >
     <x-slot name="prependSlot">

@@ -40,7 +40,7 @@
             <x-adminlte-input
                 name="title"
                 label="Názov modlidby"
-                {{-- placeholder="Názov modlidby ..." --}}
+
                 enableOldSupport="true"
                 value="{{ $prayer->title ?? '' }}"
                 >
@@ -59,7 +59,7 @@
         <div class="col-xl-7">
             <x-adminlte-input
                 name="quote_author"
-                {{-- placeholder="Tretí riadok ..." --}}
+
                 label="Autor modlidby / odkaz do svätého písma"
                 enableOldSupport="true"
                 value="{{ $prayer->quote_author ?? '' }}"
@@ -77,7 +77,6 @@
         {{-- fgroupClass="mb-1" --}}
         name="quote_row1"
         label="Prvý riadok modlidby"
-        {{-- placeholder="Prvý riadok ..." --}}
         enableOldSupport="true"
         value="{{ $prayer->quote_row1 ?? '' }}"
         >
@@ -92,7 +91,6 @@
         {{-- fgroupClass="mb-1" --}}
         name="quote_row2"
         label="Druhý riadok modlidby"
-        {{-- placeholder="Druhá modlidba..." --}}
         enableOldSupport="true"
         value="{{ $prayer->quote_row2 ?? '' }}"
         >

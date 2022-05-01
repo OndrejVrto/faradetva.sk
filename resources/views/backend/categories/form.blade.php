@@ -22,7 +22,6 @@
     <x-adminlte-input
         name="title"
         label="Názov kategórie"
-        {{-- placeholder="Názov kategórie ..." --}}
         enableOldSupport="true"
         value="{{ $category->title ?? '' }}"
         >
@@ -41,7 +40,6 @@
     <x-adminlte-input
         name="description"
         label="Popis kategórie"
-        {{-- placeholder="Popis ..." --}}
         enableOldSupport="true"
         value="{{ $category->description ?? '' }}"
         >

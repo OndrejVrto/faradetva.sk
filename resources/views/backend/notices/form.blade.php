@@ -47,7 +47,7 @@
         class="border-right-none"
         label="Pdf súbor"
         accept=".pdf"
-        {{-- placeholder="{{ $notice->media_file_name ?? 'Vložiť obrázok ...' }}" --}}
+
         placeholder="{{ $media_file_name }}"
         >
         <x-slot name="prependSlot">
@@ -72,7 +72,7 @@
                     <input
                         name="published_at"
                         type="text"
-                        {{-- placeholder="Vyber dátum a čas ..." --}}
+
                         class="form-control datetimepicker-input @error('published_at') is-invalid @enderror"
                         data-target="#published_at"
                         value="{{ $notice->published_at ?? old('published_at') }}"
@@ -105,7 +105,7 @@
                     <input
                         name="unpublished_at"
                         type="text"
-                        {{-- placeholder="Vyber dátum a čas ..." --}}
+
                         class="form-control datetimepicker-input @error('unpublished_at') is-invalid @enderror"
                         data-target="#unpublished_at"
                         value="{{ $notice->unpublished_at ?? old('unpublished_at') }}"
@@ -131,7 +131,6 @@
     <x-adminlte-input
         name="title"
         label="Nadpis oznamu"
-        {{-- placeholder="Nadpis oznamu ..." --}}
         enableOldSupport="true"
         value="{{ $notice->title ?? '' }}" >
         <x-slot name="prependSlot">

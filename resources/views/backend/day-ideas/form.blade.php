@@ -22,7 +22,6 @@
     <x-adminlte-input
         name="author"
         label="Autor citátu"
-        {{-- placeholder="Jediné slovo" --}}
         enableOldSupport="true"
         value="{{ $dayIdea->author ?? '' }}"
     >

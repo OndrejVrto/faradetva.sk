@@ -27,7 +27,7 @@
                 fgroupClass=""
                 name="title"
                 label="Názov"
-                {{-- placeholder="Názov baneru ..." --}}
+
                 enableOldSupport="true"
                 value="{{ $banner->title ?? '' }}"
                 >

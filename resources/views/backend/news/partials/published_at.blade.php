@@ -9,7 +9,7 @@
         <input
             name="published_at"
             type="text"
-            {{-- placeholder="Vyber dátum a čas ..." --}}
+
             class="form-control datetimepicker-input @error('published_at') is-invalid @enderror"
             data-target="#published_at"
             value="{{ $news->published_at ?? old('published_at') }}"

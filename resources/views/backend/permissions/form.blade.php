@@ -22,7 +22,6 @@
     <x-adminlte-input
         name="name"
         label="Povolenie"
-        {{-- placeholder="Pre kód povolenia môžete použiť aj 'Wildcard'" --}}
         enableOldSupport="true"
         value="{{ $permission->name ?? '' }}"
         >
