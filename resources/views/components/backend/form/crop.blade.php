@@ -5,62 +5,61 @@
     'maxSize'   => "2600*1600",
 ])
 <!--  Component: CROP - Start -->
+    {{-- toto je vstupny input pre subor --}}
+    <x-adminlte-input-file
+        class="border-right-none"
+        name="upload-crop-file"
+        id="upload-corp-file-input"
+        label="Obrázok"
+        {{-- placeholder="{{ $media_file_name }}" --}}
+        accept=".jpg,.bmp,.png,.jpeg"
+    >
+        <x-slot name="prependSlot">
+            <div class="input-group-text bg-gradient-orange">
+                <i class="fas fa-file-import"></i>
+            </div>
+        </x-slot>
+        <x-slot name="noteSlot">
+            Poznámka: veľkosť obrázka minimálne {{ $minWidth }}x{{ $minHeight }} px.
+        </x-slot>
+    </x-adminlte-input-file>
 
-{{-- toto je vstupny input pre subor --}}
-<x-adminlte-input-file
-    class="border-right-none"
-    name="upload-crop-file"
-    id="upload-corp-file-input"
-    label="Obrázok"
-    {{-- placeholder="{{ $media_file_name }}" --}}
-    accept=".jpg,.bmp,.png,.jpeg"
->
-    <x-slot name="prependSlot">
-        <div class="input-group-text bg-gradient-orange">
-            <i class="fas fa-file-import"></i>
+    {{-- toto je hidden input field kde sa ulozi finalna base64 --}}
+    <input id="crop-base64-output" name="crop-base64-output" type="text" hidden>
+
+    {{-- toto je preview container toho co sa prave nahrava --}}
+    <div class="form-group ">
+        <label for="title">Náhľad</label>
+        <div class="preview-container">
+            <img id="crop-preview">
         </div>
-    </x-slot>
-    <x-slot name="noteSlot">
-        Poznámka: veľkosť obrázka minimálne {{ $minWidth }}x{{ $minHeight }} px.
-    </x-slot>
-</x-adminlte-input-file>
-
-{{-- toto je hidden input field kde sa ulozi finalna base64 --}}
-<input id="crop-base64-output" name="crop-base64-output" type="text" hidden>
-
-{{-- toto je preview container toho co sa prave nahrava --}}
-<div class="form-group ">
-    <label for="title">Náhľad</label>
-    <div class="preview-container">
-        <img id="crop-preview">
     </div>
-</div>
 
-{{-- toto je modálne okno pre zobrazenie croppera --}}
-<div class="modal" id="cropModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-            <div class="modal-body">
-                {{-- toto je container kde ma fungovat cropper --}}
-                <div class="crop-container">
-                    <img id="cropper-element">
+    {{-- toto je modálne okno pre zobrazenie croppera --}}
+    <div class="modal" id="cropModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {{-- toto je container kde ma fungovat cropper --}}
+                    <div class="crop-container">
+                        <img id="cropper-element">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {{-- toto je button na vytvorenie cropu --}}
+                    <button id="crop-button" type="button" class="btn bg-gradient-orange px-5 mr-2">
+                        <i class="fa-solid fa-crop-simple mr-1"></i>
+                        Orezať
+                    </button>
+                    {{-- toto je button cancel --}}
+                    <button id="crop-cancel-button" type="button" class="btn bg-gradient-danger px-5">
+                        <i class="fa-solid fa-ban mr-1"></i>
+                        Zrušiť
+                    </button>
                 </div>
             </div>
-            <div class="modal-footer">
-                {{-- toto je button na vytvorenie cropu --}}
-                <button id="crop-button" type="button" class="btn bg-gradient-orange px-5 mr-2">
-                    <i class="fa-solid fa-crop-simple mr-1"></i>
-                    Orezať
-                </button>
-                {{-- toto je button cancel --}}
-                <button id="crop-cancel-button" type="button" class="btn bg-gradient-danger px-5">
-                    <i class="fa-solid fa-ban mr-1"></i>
-                    Zrušiť
-                </button>
-            </div>
         </div>
     </div>
-</div>
 <!--  Component: CROP - End -->
 
 @push('css')
@@ -100,20 +99,10 @@
 
     {{-- tento skript definuje to co je potrebne a mozes si ho vytiahnut do suboru --}}
     <script @nonce>
-        /* config args: minWidth, minHeight, ratio, maxSize, input, output, preview, cropperContainer, cropButton */
+        /* config args: (int)minWidth, (int)minHeight, (bool)ratio, (int)maxSize, (id) input, output, preview, cropperContainer, cropButton, cancelCropButton */
         function watchImageUploader(config) {
 
-            function showResult() {
-                // $(config.cropButton).addClass('d-none');
-                // $(config.cancelCropButton).addClass('d-none');
-                // $(config.cropperContainer).addClass('d-none');
-                // $(config.preview).removeClass('d-none');
-            }
-
             function cancelCroper() {
-                // $(config.cropButton).addClass('d-none');
-                // $(config.cancelCropButton).addClass('d-none');
-                // $(config.cropperContainer).addClass('d-none');
                 $('#cropModal').modal('hide');
                 if (!$(config.preview).attr("src")) {
                     $(config.input).val('');
@@ -123,25 +112,12 @@
 
             function showCropper() {
                 $('#cropModal').modal('show');
-                // $('.iframe-full-height').on('load', function(){
-                //     this.style.height=this.contentWindow.document.body.scrollHeight + 'px'
-                // });
-                // $('#cropModal').modal({
-                //     keyboard: false
-                // }).focus();
-                // $(config.input).addClass('d-none');
-                // $(config.preview).addClass('d-none');
-                // $(config.cropButton).removeClass('d-none');
-                // $(config.cancelCropButton).removeClass('d-none');
-                // $(config.cropperContainer).removeClass('d-none');
             }
 
             function setToForm(base64) {
+                $('#cropModal').modal('hide');
                 $(config.output).val(base64);
                 $(config.preview).attr("src", (base64));
-                $('#cropModal').modal('hide');
-                // $(config.input).removeClass('d-none');
-                // showResult();
             }
 
             function checkDimensions(img) {
