@@ -37,7 +37,7 @@
         $withArchiveLink = route($controlerName . '.index', ['with-deleted=true']);
     }
 @endphp
-
+<!--  Component: Table - Start -->
 <div class="row justify-content-center">
 
     <div {{ $attributes->merge(['class' => "col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL]) }}>
@@ -120,9 +120,11 @@
                                 @endcanany
                             @endif
                         </thead>
+                        <!--  Table Body - Start -->
                         <tbody>
                             {{ $table_body }}
                         </tbody>
+                        <!--  Table Body - End -->
 
                         @isset($table_footer)
                             <tfoot>
@@ -146,3 +148,4 @@
         </div>
     </div>
 </div>
+<!--  Component: Table - End -->

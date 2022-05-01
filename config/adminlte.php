@@ -331,7 +331,6 @@ return [
             'can'  => [
                 'categories.index',
                 'tags.index',
-                'day-ideas.index',
             ],
         ],
                 [
@@ -348,40 +347,14 @@ return [
                     'icon'  => 'fas fa-tag',
                     'can'  => 'tags.index',
                 ],
-                [
-                    'text' => 'Myšlienky dňa',
-                    'icon_color'  => 'green',
-                    'route' => 'day-ideas.index',
-                    'icon'  => 'far fa-lightbulb',
-                    'can'  => 'day-ideas.index',
-                ],
-
         [
-            'header' => 'Stránky',
+            'header' => 'Automatický obsah',
             'can'  => [
-                'static-pages.index',
-                'galleries.index',
                 'banners.index',
                 'faqs.index',
-                'pictures.index',
-                'files.index',
-                'file-manager',
+                'day-ideas.index',
             ],
         ],
-                [
-                    'text' => 'Vlastnosti stránok',
-                    'icon_color'  => 'cyan',
-                    'icon'  => 'fas fa-cubes',
-                    'route' => 'static-pages.index',
-                    'can'  => 'static-pages.index',
-                ],
-                [
-                    'text' => 'Galérie',
-                    'icon_color'  => 'cyan',
-                    'icon'  => 'fas fa-images',
-                    'route' => 'galleries.index',
-                    'can'  => 'galleries.index',
-                ],
                 [
                     'text'  => 'Banery',
                     'icon_color'  => 'cyan',
@@ -397,22 +370,54 @@ return [
                     'can'  => 'faqs.index',
                 ],
                 [
-                    'text'  => 'Obrázky',
+                    'text' => 'Myšlienky dňa',
                     'icon_color'  => 'cyan',
+                    'route' => 'day-ideas.index',
+                    'icon'  => 'far fa-lightbulb',
+                    'can'  => 'day-ideas.index',
+                ],
+        [
+            'header' => 'Stránky',
+            'can'  => [
+                'static-pages.index',
+                'galleries.index',
+                'pictures.index',
+                'files.index',
+                'file-manager',
+            ],
+        ],
+                [
+                    'text' => 'Vlastnosti stránok',
+                    'icon_color'  => 'purple',
+                    'icon'  => 'fas fa-cubes',
+                    'route' => 'static-pages.index',
+                    'can'  => 'static-pages.index',
+                ],
+                [
+                    'text' => 'Galérie',
+                    'icon_color'  => 'purple',
+                    'icon'  => 'fas fa-images',
+                    'route' => 'galleries.index',
+                    'can'  => 'galleries.index',
+                ],
+
+                [
+                    'text'  => 'Obrázky',
+                    'icon_color'  => 'purple',
                     'icon'  => 'far fa-image',
                     'route' => 'pictures.index',
                     'can'  => 'pictures.index',
                 ],
                 [
                     'text'  => 'Prílohy',
-                    'icon_color'  => 'cyan',
+                    'icon_color'  => 'purple',
                     'icon'  => 'fas fa-file-import',
                     'route' => 'files.index',
                     'can'  => 'files.index',
                 ],
                 [
                     'text'  => 'Správca šablon',
-                    'icon_color'  => 'cyan',
+                    'icon_color'  => 'purple',
                     'icon'  => 'fas fa-warehouse',
                     'route' => 'file-manager',
                     'can'  => 'file-manager',
