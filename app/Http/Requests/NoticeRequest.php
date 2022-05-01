@@ -7,14 +7,10 @@ namespace App\Http\Requests;
 use Illuminate\Support\Str;
 use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class NoticeRequest extends FormRequest
+class NoticeRequest extends BaseRequest
 {
-    public function authorize(): bool {
-        return true;
-    }
-
     public function rules(): array {
         $modelName = Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"]);
         // dd(Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),);
@@ -50,7 +46,7 @@ class NoticeRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages(): array {
         return [
             'slug.unique' => 'Takýto nadpis už existuje medzi farskými oznamami alebo medzi rozpismi lektorov/akolytov. Zvoľ iný.',
         ];
@@ -58,7 +54,8 @@ class NoticeRequest extends FormRequest
 
     protected function prepareForValidation() {
         $this->merge([
-            'slug' => Str::slug($this->title)
+            'title' => Str::replace(',', ' ', $this->title),
+            'slug'  => Str::slug($this->title)
         ]);
 
         is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s', strtotime($this->published_at))]);

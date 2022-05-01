@@ -5,15 +5,11 @@ namespace App\Http\Requests;
 use App\Rules\SingleWord;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class TagRequest extends FormRequest
+class TagRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
-
-    public function rules() {
+    public function rules(): array {
         return [
             'title' => [
                 'required',
@@ -33,7 +29,8 @@ class TagRequest extends FormRequest
 
     protected function prepareForValidation() {
         $this->merge([
-            'slug' => Str::slug($this->title)
+            'title' => Str::replace(',', ' ', $this->title),
+            'slug'  => Str::slug($this->title)
         ]);
     }
 }

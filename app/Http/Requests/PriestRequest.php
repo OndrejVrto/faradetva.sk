@@ -2,21 +2,11 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class PriestRequest extends FormRequest
+class PriestRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
-
-    public function rules() {
-        if (request()->routeIs('priests.store')) {
-            $photoRule = 'required';
-        } else if (request()->routeIs('priests.update')) {
-            $photoRule = 'nullable';
-        }
-
+    public function rules(): array {
         return [
             'active' => [
                 'boolean',
@@ -62,7 +52,7 @@ class PriestRequest extends FormRequest
                 'string',
             ],
             'photo' => [
-                $photoRule,
+                $this->requiredNullableRule(),
                 'file',
                 'mimes:jpg,bmp,png,jpeg,svg',
                 'dimensions:min_width=230,min_height=270',
@@ -71,7 +61,7 @@ class PriestRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages(): array {
         return [
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];

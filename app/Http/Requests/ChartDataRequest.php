@@ -4,14 +4,10 @@ declare(strict_types = 1);
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class ChartDataRequest extends FormRequest
+class ChartDataRequest extends BaseRequest
 {
-    public function authorize(): bool {
-        return true;
-    }
-
     public function rules(): array {
         return [
             'key' => [

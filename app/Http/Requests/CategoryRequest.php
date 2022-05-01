@@ -4,15 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class CategoryRequest extends FormRequest
+class CategoryRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
-
-    public function rules() {
+    public function rules(): array {
         return [
             'title' => [
                 'required',

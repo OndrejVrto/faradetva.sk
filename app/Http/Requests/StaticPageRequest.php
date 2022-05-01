@@ -4,22 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\SourceRequest;
+use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Traits\HasSourceFields;
 
-class StaticPageRequest extends SourceRequest
+class StaticPageRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
+    use HasSourceFields;
 
-    public function rules() {
-        if (request()->routeIs('static-pages.store')) {
-            $pictureRule = 'required';
-        } else if (request()->routeIs('static-pages.update')) {
-            $pictureRule = 'nullable';
-        }
-
-        return parent::rules() + [
+    public function rules(): array {
+        return  [
             'route_name' => [
                 Rule::unique('static_pages', 'route_name')->ignore($this->static_page)->withoutTrashed(),
                 'required',
@@ -71,7 +64,7 @@ class StaticPageRequest extends SourceRequest
                 'max:512'
             ],
             'picture' => [
-                $pictureRule,
+                $this->requiredNullableRule(),
                 'file',
                 'mimes:jpg,gif,png,jpeg',
                 'dimensions:min_width=960,min_height=480',

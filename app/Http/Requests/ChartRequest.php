@@ -7,15 +7,11 @@ namespace App\Http\Requests;
 use App\Enums\ChartType;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\BaseRequest;
 use Illuminate\Validation\Rules\Enum;
-use Illuminate\Foundation\Http\FormRequest;
 
-class ChartRequest extends FormRequest
+class ChartRequest extends BaseRequest
 {
-    public function authorize(): bool {
-        return true;
-    }
-
     public function rules(): array {
         return [
             'active' => [
@@ -59,7 +55,8 @@ class ChartRequest extends FormRequest
 
     protected function prepareForValidation() {
         $this->merge([
-            'slug' => Str::slug($this->title)
+            'title' => Str::replace(',', ' ', $this->title),
+            'slug'  => Str::slug($this->title)
         ]);
     }
 }

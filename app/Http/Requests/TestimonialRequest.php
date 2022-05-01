@@ -4,22 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class TestimonialRequest extends FormRequest
+class TestimonialRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
-
-    public function rules() {
-
-        if (request()->routeIs('testimonials.store')) {
-            $photoRule = 'required';
-        } else if (request()->routeIs('testimonials.update')) {
-            $photoRule = 'nullable';
-        }
-
+    public function rules(): array {
         return [
             'active' => [
                 'boolean',
@@ -43,7 +32,7 @@ class TestimonialRequest extends FormRequest
                 'string',
             ],
             'photo' => [
-                $photoRule,
+                $this->requiredNullableRule(),
                 'file',
                 'mimes:jpg,bmp,png,jpeg,svg',
                 'dimensions:min_width=100,min_height=100',
@@ -52,7 +41,7 @@ class TestimonialRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages(): array {
         return [
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];

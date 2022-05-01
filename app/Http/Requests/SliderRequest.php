@@ -2,22 +2,15 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\SourceRequest;
+use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Traits\HasSourceFields;
 
-class SliderRequest extends SourceRequest
+class SliderRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
+    use HasSourceFields;
 
-    public function rules() {
-        if (request()->routeIs('sliders.store')) {
-            $photoRule = 'required';
-        } else if (request()->routeIs('sliders.update')) {
-            $photoRule = 'nullable';
-        }
-
-        return parent::rules() + [
+    public function rules(): array {
+        return [
             'active' => [
                 'boolean',
                 'required'
@@ -38,7 +31,7 @@ class SliderRequest extends SourceRequest
                 'max:255'
             ],
             'photo' => [
-                $photoRule,
+                $this->requiredNullableRule(),
                 'file',
                 'mimes:jpg,bmp,png,jpeg',
                 'dimensions:min_width=1920,min_height=800',
@@ -47,7 +40,7 @@ class SliderRequest extends SourceRequest
         ];
     }
 
-    public function messages() {
+    public function messages(): array {
         return [
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];

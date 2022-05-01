@@ -4,23 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\BaseRequest;
 use Illuminate\Validation\Rules\Password;
-use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class UserRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
-
-    public function rules() {
-
-        if (request()->routeIs('users.store')) {
-            $passwordRule = 'required';
-        } else if (request()->routeIs('users.update')) {
-            $passwordRule = 'nullable';
-        }
-
+    public function rules(): array {
         return [
             'active' => [
                 'boolean',
@@ -47,7 +36,7 @@ class UserRequest extends FormRequest
                 Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
             ],
             'password' => [
-                $passwordRule,
+                $this->requiredNullableRule(),
                 'confirmed',
                 'max:255',
                 Password::min(8)
@@ -70,7 +59,7 @@ class UserRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages(): array {
         return [
             'photo_avatar.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.',
         ];

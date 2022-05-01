@@ -6,22 +6,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\SourceRequest;
+use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Traits\HasSourceFields;
 
-class PictureRequest extends SourceRequest
+class PictureRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
+    use HasSourceFields;
 
-    public function rules() {
-        if (request()->routeIs('pictures.store')) {
-            $photoRule = 'required';
-        } else if (request()->routeIs('pictures.update')) {
-            $photoRule = 'nullable';
-        }
-
-        return parent::rules() + [
+    public function rules(): array {
+        return [
             'title' => [
                 'required',
                 'string',
@@ -31,7 +24,7 @@ class PictureRequest extends SourceRequest
                 Rule::unique('pictures', 'slug')->ignore($this->picture),
             ],
             'photo' => [
-                $photoRule,
+                $this->requiredNullableRule(),
                 'file',
                 'mimes:jpg,bmp,png,jpeg,svg,tif',
                 'max:10000',
@@ -41,7 +34,8 @@ class PictureRequest extends SourceRequest
 
     protected function prepareForValidation() {
         $this->merge([
-            'slug' => Str::slug($this->title)
+            'title' => Str::replace(',', ' ', $this->title),
+            'slug'  => Str::slug($this->title)
         ]);
     }
 }

@@ -6,22 +6,17 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\SourceRequest;
+use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Traits\HasSourceFields;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
-class BannerRequest extends SourceRequest
+class BannerRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
+    use HasSourceFields;
+    use HasCropPictureFields;
 
-    public function rules() {
-        if (request()->routeIs('banners.store')) {
-            $photoRule = 'required';
-        } else if (request()->routeIs('banners.update')) {
-            $photoRule = 'nullable';
-        }
-
-        return parent::rules() + [
+    public function rules(): array {
+        return [
             'title' => [
                 'required',
                 'string',
@@ -30,17 +25,10 @@ class BannerRequest extends SourceRequest
             'slug' => [
                 Rule::unique('banners', 'slug')->ignore($this->banner),
             ],
-            'photo' => [
-                $photoRule,
-                'file',
-                'mimes:jpg,bmp,png,jpeg',
-                'dimensions:min_width=1920,min_height=480',
-                'max:5000',
-            ],
         ];
     }
 
-    public function messages() {
+    public function messages(): array {
         return [
             'photo.dimensions' => 'Obrázok musí byť minimálne :min_width px široký a :min_height px vysoký.'
         ];
@@ -49,7 +37,7 @@ class BannerRequest extends SourceRequest
     protected function prepareForValidation() {
         $this->merge([
             'title' => Str::replace(',', ' ', $this->title),
-            'slug' => Str::slug($this->title)
+            'slug'  => Str::slug($this->title)
         ]);
     }
 }

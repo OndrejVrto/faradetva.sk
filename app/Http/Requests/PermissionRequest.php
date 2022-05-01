@@ -3,20 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class PermissionRequest extends FormRequest
+class PermissionRequest extends BaseRequest
 {
-    public function authorize() {
-        return true;
-    }
-
     public function rules() {
         return [
             'name' => [
                 'required',
-                Rule::unique('users_permissions', 'name')->ignore($this->permission),
                 'max:255',
+                Rule::unique('users_permissions', 'name')->ignore($this->permission),
             ]
         ];
     }
