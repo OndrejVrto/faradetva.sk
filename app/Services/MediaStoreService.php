@@ -24,13 +24,18 @@ class MediaStoreService
         }
     }
 
-    public function handleCropPicture(Model $model, FormRequest $request): void {
+    public function handleCropPicture(Model $model, FormRequest $request, string $name = null): void {
         if (!empty($request->crop_base64_output) AND !empty($request->crop_file_name)) {
             $colectionName = $model->collectionName;
             $fileExtension = explode("image/", explode(";base64,", $request->crop_base64_output)[0])[1];
-            $fileName = isset($request->description)
-                ? Str::slug($request->description).'.'.$fileExtension
-                : DataFormater::filterFilename($request->crop_file_name, true);
+
+            if(isset($name)) {
+                $fileName = Str::slug($name).'.'.$fileExtension;
+            } elseif(isset($request->description)) {
+                $fileName = Str::slug($request->description).'.'.$fileExtension;
+            } else {
+                $fileName = DataFormater::filterFilename($request->crop_file_name, true);
+            }
 
             $model->clearMediaCollection($colectionName);
             $model->addMediaFromBase64($request->crop_base64_output)
