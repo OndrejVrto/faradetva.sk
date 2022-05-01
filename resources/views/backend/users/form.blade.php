@@ -6,7 +6,7 @@
 @endphp
 @php
     $controlerName = 'users';
-    $columns = 10;
+    $columns = 9;
     $uploadFiles = 'true';
 
     $typeForm = $identificator = $createdInfo = $updatedInfo = $media_file_name = null;
@@ -15,7 +15,7 @@
         $identificator = $user->slug;
         $createdInfo = $user->created_at->format('d. m. Y \o H:i');
         $updatedInfo = $user->updated_at->format('d. m. Y \o H:i');
-        $media_file_name = $user->getFirstMedia($user->collectionName)->file_name ?? '';
+        $media_file_name = $user->getFirstMedia($user->collectionName) ?? '';
     }
 @endphp
 
@@ -57,12 +57,11 @@
     </div>
 
     <div class="form-row">
-        <div class="col-6">
+        <div class="col-xl-6">
 
             <x-adminlte-input
                 name="name"
                 label="Celé meno"
-                {{-- placeholder="Vlož meno ..." --}}
                 enableOldSupport="true"
                 value="{{ $user->name ?? '' }}"
                 >
@@ -79,12 +78,11 @@
             </x-adminlte-input>
 
         </div>
-        <div class="col-6">
+        <div class="col-xl-6">
 
             <x-adminlte-input
                 name="nick"
                 label="Prezývka / Nick"
-                {{-- placeholder="Prezývka ..." --}}
                 enableOldSupport="true"
                 value="{{ $user->nick ?? '' }}"
                 >
@@ -96,7 +94,6 @@
             </x-adminlte-input>
 
         </div>
-
     </div>
 
     <div class="form-row">
@@ -106,7 +103,6 @@
                 name="password"
                 label="Heslo"
                 {{-- type="password" --}}
-                {{-- placeholder="Vlož heslo ..." --}}
                 enableOldSupport="false"
                 {{-- value="{{ $user->password ?? '' }}" --}}
                 >
@@ -124,7 +120,6 @@
                 name="password_confirmation"
                 label="Heslo potvrdenie"
                 {{-- type="password" --}}
-                {{-- placeholder="Zopakuj heslo ..." --}}
                 enableOldSupport="false"
                 >
                 <x-slot name="prependSlot">
@@ -137,13 +132,14 @@
         </div>
     </div>
 
+    <hr class="bg-orange mt-4">
+
     <div class="form-row">
-        <div class="col-6">
+        <div class="col-xl-8">
 
             <x-adminlte-input
                 name="email"
                 label="E-mail"
-                {{-- placeholder="E-mail ..." --}}
                 enableOldSupport="true"
                 value="{{ $user->email ?? '' }}"
                 >
@@ -154,25 +150,65 @@
                 </x-slot>
             </x-adminlte-input>
 
-        </div>
-        <div class="col-6">
-
-            <x-adminlte-input-file
-                class="border-right-none"
-                name="photo_avatar"
-                label="Fotka alebo avatar"
-                placeholder="{{ $media_file_name }}"
-                accept=".jpg,.bmp,.png,.jpeg,.svg"
+            <x-adminlte-input
+                name="phone"
+                label="Telefón"
+                placeholder="(+421) 905 123 456"
+                enableOldSupport="true"
+                value="{{ $user->phone ?? '' }}"
                 >
                 <x-slot name="prependSlot">
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-file-import"></i>
+                        <i class="fas fa-mobile-alt fa-lg"></i>
                     </div>
                 </x-slot>
-                <x-slot name="noteSlot">
-                    Poznámka: veľkosť obrázka minimálne 100x100 px.
+            </x-adminlte-input>
+
+            <x-adminlte-input
+                name="twiter_name"
+                label="Twitter"
+                placeholder="@mojemeno"
+                enableOldSupport="true"
+                value="{{ $user->twiter_name ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
                 </x-slot>
-            </x-adminlte-input-file>
+            </x-adminlte-input>
+
+            <x-adminlte-input
+                name="facebook_url"
+                label="Facebook (url)"
+                enableOldSupport="true"
+                value="{{ $user->facebook_url ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+
+            <x-adminlte-input
+                name="www_page"
+                label="Osobná www stránka (url)"
+                enableOldSupport="true"
+                value="{{ $user->www_page ?? '' }}"
+                >
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fa-brands fa-html5"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+
+        </div>
+        <div class="col-xl-4">
+
+            <hr class="d-xl-none bg-orange mt-4">
+            <x-backend.form.crop label="Fotka alebo avatar" minWidth="100" minHeight="100" :media_file_name="$media_file_name" />
 
         </div>
     </div>

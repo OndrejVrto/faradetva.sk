@@ -14,6 +14,10 @@ return new class extends Migration
             $table->string('slug')->after('nick');
             $table->boolean('can_be_impersonated')->after('email')->default(1);
             $table->boolean('active')->after('id')->default(1);
+            $table->string('phone')->nullable()->after('email');
+            $table->string('facebook_url', 512)->nullable()->after('email');
+            $table->string('twiter_name')->nullable()->after('email');
+            $table->string('www_page', 512)->nullable()->after('email');
         });
     }
 
@@ -25,6 +29,10 @@ return new class extends Migration
             $table->dropColumn('slug');
             $table->dropColumn('can_be_impersonated');
             $table->dropColumn('active');
+            $table->dropColumn('phone');
+            $table->dropColumn('facebook_url');
+            $table->dropColumn('twiter_name');
+            $table->dropColumn('www_page');
         });
     }
 };

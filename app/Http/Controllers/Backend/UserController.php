@@ -38,7 +38,7 @@ class UserController extends Controller
         return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function store(UserRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(UserRequest $request): RedirectResponse {
         $validated = $request->validated();
         $user = User::create($validated);
 
@@ -55,7 +55,7 @@ class UserController extends Controller
         $permissions = $request->input('permission');
         $user->permissions()->syncWithoutDetaching($permissions);
 
-        $mediaService->handle($user, $request, 'photo_avatar', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($user, $request, $validated['name']);
 
         toastr()->success(__('app.user.store', ['name'=> $user->name]));
         return to_route('users.index');
@@ -80,7 +80,7 @@ class UserController extends Controller
         return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
-    public function update(UserRequest $request, User $user, MediaStoreService $mediaService): RedirectResponse {
+    public function update(UserRequest $request, User $user): RedirectResponse {
         $validated = $request->validated();
 
         // if no password is entered, it is removed from the request
@@ -111,7 +111,7 @@ class UserController extends Controller
         $permissions = $request->input('permission');
         $user->permissions()->sync($permissions);
 
-        $mediaService->handle($user, $request, 'photo_avatar', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($user, $request, $validated['name']);
 
         return to_route('users.index');
     }

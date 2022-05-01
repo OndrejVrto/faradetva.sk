@@ -14,9 +14,12 @@ class UserRequest extends BaseRequest
 
     public function rules(): array {
         return [
-            'active' => $this->reqBoolRule(),
-            'name'   => $this->reqStrRule(),
-            'slug'   => Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
+            'active'       => $this->reqBoolRule(),
+            'name'         => $this->reqStrRule(),
+            'twiter_name'  => $this->nullStrRule(),
+            'facebook_url' => $this->nullUrlRule(),
+            'www_page'     => $this->nullUrlRule(),
+            'slug'         => Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
             'nick' => [
                 'required',
                 Rule::unique('users', 'nick')->ignore($this->user),
@@ -42,8 +45,13 @@ class UserRequest extends BaseRequest
             'can_be_impersonated' => [
                 'boolean',
             ],
-            // 'photo_avatar' => [
-            // 'dimensions:min_width=100,min_height=100',
+            'role' => [
+                'required',
+            ],
+            'phone' => [
+                'nullable',
+                'regex:/[\d\+\-\ ]+/',
+            ],
         ];
     }
 
