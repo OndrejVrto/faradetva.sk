@@ -7,13 +7,25 @@
     'media_file_name' => null,
 ])
 <!--  Component: CROP - Start -->
+    {{-- TODO: ZMAZAŤ - iba pre vývoj --}}
+        @if ($errors->any())
+            <div class="alert alert-warning p-0 d-flex justify-content-center">
+                <ul class="list-unstyled align-self-center my-2">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    {{-- TODO: ZMAZAŤ - iba pre vývoj --}}
+
     {{-- toto je vstupny input pre subor --}}
     <x-adminlte-input-file
         class="border-right-none"
         name="upload_crop_file"
         id="upload-corp-file-input"
         label="{{ $label }}"
-        placeholder="{{ old('crop_file_name', (empty($media_file_name) ?: $media_file_name->getCustomProperty('oldFileName'))) }}"
+        placeholder="{{ old('crop_file_name', (empty($media_file_name) ? '' : $media_file_name->getCustomProperty('oldFileName'))) }}"
         accept=".jpg,.bmp,.png,.jpeg,.tiff"
     >
         <x-slot name="prependSlot">
@@ -22,7 +34,7 @@
             </div>
         </x-slot>
         <x-slot name="noteSlot">
-            Poznámka: veľkosť obrázka minimálne {{ $minWidth }}x{{ $minHeight }} px.
+            Poznámky: Veľkosť obrázka minimálne {{ $minWidth }}x{{ $minHeight }} px. @if ($ratio == 'true')Pomer strán je uzamknutý.@endif
         </x-slot>
         @error('crop_base64_output')
             <x-slot name="errorManual">
@@ -46,7 +58,7 @@
     <div class="form-group ">
         <label for="title">Náhľad</label>
         <div class="preview-container">
-            <img id="crop_preview" src="{{ old('crop_base64_output', empty($media_file_name) ?: $media_file_name->getFullUrl()) }}" alt="Po orezaní obrázka tu budete vidieť jeho náhľad.">
+            <img id="crop_preview" src="{{ old('crop_base64_output', empty($media_file_name) ? '' : $media_file_name->getFullUrl()) }}" alt="Po orezaní obrázka tu budete vidieť jeho náhľad.">
         </div>
     </div>
 
@@ -81,7 +93,7 @@
     <link @nonce rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" >
     <style>
         .preview-container img {
-            /* max-height: {{ $minHeight }}px; */
+            max-height: 300px;
             object-fit: scale-down;
             width: 100%;
         }
