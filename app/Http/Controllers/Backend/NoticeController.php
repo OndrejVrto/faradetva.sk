@@ -56,14 +56,15 @@ class NoticeController extends Controller implements CrudInterface
         return view('backend.notices.create')->with('controller', $this->resource);
     }
 
-    public function store(NoticeRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(NoticeRequest $request): RedirectResponse {
         $validated = $request->validated();
         try {
             $notice = $this->instance::create(Notice::sanitize($validated));
         } catch (\Throwable $th) {
             info($th);
         }
-        $mediaService->handle($notice, $request, 'notice_file', $validated['slug'] );
+
+        (new MediaStoreService)->handle($notice, $request, 'notice_file', $validated['slug'] );
 
         toastr()->success(__('app.'.$this->resource.'.store'));
         return to_route($this->resource.'.index');
@@ -75,14 +76,15 @@ class NoticeController extends Controller implements CrudInterface
         return view('backend.notices.edit')->with('notice', $model)->with('controller', $this->resource);
     }
 
-    public function update(NoticeRequest $request, Model $model, MediaStoreService $mediaService): RedirectResponse {
+    public function update(NoticeRequest $request, Model $model): RedirectResponse {
         $validated = $request->validated();
         try {
             $model->update(Notice::sanitize($validated));
         } catch (\Throwable $th) {
             info($th);
         }
-        $mediaService->handle($model, $request, 'notice_file', $validated['slug'] );
+
+        (new MediaStoreService)->handle($model, $request, 'notice_file', $validated['slug'] );
 
         toastr()->success(__('app.'.$this->resource.'.update'));
         return to_route($this->resource.'.index');

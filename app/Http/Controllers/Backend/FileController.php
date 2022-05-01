@@ -26,13 +26,13 @@ class FileController extends Controller
         return view('backend.files.create');
     }
 
-    public function store(FileRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(FileRequest $request): RedirectResponse {
         $validated = $request->validated();
 
         $file = File::create(File::sanitize($validated));
         $file->source()->create(Source::sanitize($validated));
 
-        $mediaService->handle($file, $request, 'attachment', $validated['slug'] );
+        (new MediaStoreService)->handle($file, $request, 'attachment', $validated['slug'] );
 
         toastr()->success(__('app.file.store'));
         return to_route('files.index');
@@ -44,14 +44,14 @@ class FileController extends Controller
         return view('backend.files.edit', compact('file'));
     }
 
-    public function update(FileRequest $request, File $file, MediaStoreService $mediaService): RedirectResponse {
+    public function update(FileRequest $request, File $file): RedirectResponse {
         $validated = $request->validated();
 
         $file->update(File::sanitize($validated));
         $file->source()->update(Source::sanitize($validated));
         $file->touch(); // Touch because i need start observer for delete cache
 
-        $mediaService->handle($file, $request, 'attachment', $validated['slug'] );
+        (new MediaStoreService)->handle($file, $request, 'attachment', $validated['slug'] );
 
         toastr()->success(__('app.file.update'));
         return to_route('files.index');

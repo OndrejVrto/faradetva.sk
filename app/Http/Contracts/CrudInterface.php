@@ -14,8 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 interface CrudInterface {
     public function index(Request $request): View;
     public function create(): View;
-    public function store(NoticeRequest $request, MediaStoreService $mediaService): RedirectResponse;
+    public function store(NoticeRequest $request): RedirectResponse;
     public function edit(Model $model): View;
-    public function update(NoticeRequest $request, Model $model, MediaStoreService $mediaService): RedirectResponse;
+    public function update(NoticeRequest $request, Model $model): RedirectResponse;
     public function destroy(Model $model): RedirectResponse;
 }
