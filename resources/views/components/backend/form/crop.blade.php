@@ -27,6 +27,9 @@
     {{-- toto je hidden input field kde sa ulozi finalna base64 --}}
     <input id="crop-base64-output" name="crop-base64-output" type="text" hidden>
 
+    {{-- toto je hidden input field kde sa ulozi názov pôvodného súboru --}}
+    <input id="crop-file-name" name="crop-file-name" type="text" hidden>
+
     {{-- toto je preview container toho co sa prave nahrava --}}
     <div class="form-group ">
         <label for="title">Náhľad</label>
@@ -36,7 +39,7 @@
     </div>
 
     {{-- toto je modálne okno pre zobrazenie croppera --}}
-    <div class="modal" id="cropModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="crop-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-body">
@@ -89,7 +92,9 @@
             preview: '#crop-preview',
             cropperContainer: '#cropper-element',
             cropButton: '#crop-button',
-            cancelCropButton: '#crop-cancel-button'
+            cancelCropButton: '#crop-cancel-button',
+            modal: '#crop-modal',
+            fileName: '#crop-file-name',
         });
     </script>
 @endpush
@@ -103,7 +108,7 @@
         function watchImageUploader(config) {
 
             function cancelCroper() {
-                $('#cropModal').modal('hide');
+                $(config.modal).modal('hide');
                 if (!$(config.preview).attr("src")) {
                     $(config.input).val('');
                     $('.custom-file-label').empty();
@@ -111,19 +116,20 @@
             }
 
             function showCropper() {
-                $('#cropModal').modal('show');
+                $(config.modal).modal('show');
             }
 
             function setToForm(base64) {
-                $('#cropModal').modal('hide');
+                $(config.modal).modal('hide');
                 $(config.output).val(base64);
                 $(config.preview).attr("src", (base64));
+                $(config.input).val('');
             }
 
             function checkDimensions(img) {
                 if (img.width < config.minWidth || img.height < config.minHeight) {
                     alert('Obrázok má malé rozmery:\n\nŠírka najmenej '+ config.minWidth +'px\nVýška najmenej '+ config.minHeight +'px');
-                    $('.custom-file-label').empty();
+                    cancelCroper();
                     return false;
                 }
                 return true;
@@ -223,6 +229,7 @@
                                     setToForm(base64);
                                 }
 
+                                $(config.fileName).val(file.name);
                                 cropper.destroy();
                             }
 
