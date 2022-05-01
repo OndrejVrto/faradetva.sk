@@ -8,10 +8,12 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasSourceFields;
+use App\Http\Requests\Traits\HasCropPictureFields;
 
 class PictureRequest extends BaseRequest
 {
     use HasSourceFields;
+    use HasCropPictureFields;
 
     public function rules(): array {
         return [
@@ -22,12 +24,6 @@ class PictureRequest extends BaseRequest
             ],
             'slug' => [
                 Rule::unique('pictures', 'slug')->ignore($this->picture),
-            ],
-            'photo' => [
-                $this->requiredNullableRule(),
-                'file',
-                'mimes:jpg,bmp,png,jpeg,svg,tif',
-                'max:10000',
             ],
         ];
     }

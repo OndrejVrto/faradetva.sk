@@ -24,13 +24,13 @@ class PictureController extends Controller
         return view('backend.pictures.create');
     }
 
-    public function store(PictureRequest $request, MediaStoreService $mediaService): RedirectResponse {
+    public function store(PictureRequest $request): RedirectResponse {
         $validated = $request->validated();
 
         $picture = Picture::create(Picture::sanitize($validated));
         $picture->source()->create(Source::sanitize($validated));
 
-        $mediaService->handle($picture, $request, 'photo', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($picture, $request);
 
         toastr()->success(__('app.picture.store'));
         return to_route('pictures.index');
@@ -48,14 +48,14 @@ class PictureController extends Controller
         return view('backend.pictures.edit', compact('picture'));
     }
 
-    public function update(PictureRequest $request, Picture $picture, MediaStoreService $mediaService): RedirectResponse {
+    public function update(PictureRequest $request, Picture $picture): RedirectResponse {
         $validated = $request->validated();
 
         $picture->update(Picture::sanitize($validated));
         $picture->source()->update(Source::sanitize($validated));
         $picture->touch(); // Touch because i need start observer for delete cache
 
-        $mediaService->handle($picture, $request, 'photo', $validated['slug'] );
+        (new MediaStoreService)->handleCropPicture($picture, $request);
 
         toastr()->success(__('app.picture.update'));
         return to_route('pictures.index');
