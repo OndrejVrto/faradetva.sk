@@ -11,7 +11,7 @@ Obsah stránky:
   ☐ vytvoriť logo a ikonu stránky / farnosti
   ✔ Myšlienky dňa do Footera stránky
   ✔ design pre subscribe formulár vložený ako sekcia na stránke
-  ☐ customize Bootstrap
+  ✘ customize Bootstrap?
   ☐ webpack mix -> všetko v jenom css a js pre frontend aj backend
   ✔ opraviť veľkosť obrázkov v texte pri zmenšovaní rozmeru stránky
   ☐ stránka s kompletne všetkými FaQ
@@ -22,11 +22,11 @@ Obsah stránky:
   ☐ doplniť do všetkých obrázkov height a width
   ✔ prepísať všetky externé knižnice na CDN-ká
   ☐ zmeniť url adresu v manifest.json pri nasadení na server
-  ☐ root folder in meta tags ?
-  ☐ repare validate errors iv login form
+  ✔ base folder in meta tags
+  ☐ repare validate errors in login form
 
 Administrátorské rozhranie:
-  ☐ analyzovať a zrýchliť bootovanie stránky
+  ✔ analyzovať a zrýchliť bootovanie stránky
   ✔ opraviť Crawler pri HTTPS schéme
   ✔ nastaviť správne rozmery obrázkom a optimalizáciu
   ✔ automatické premenovanie vkladaných súborov
@@ -93,8 +93,8 @@ Testy:
   ☐ vytvoriť testy na všetko
 
 Navyše:
-  ☐ vkladanie obrazkov galerie cez vue komponent  https://github.com/s1modev/media-upload
-  ☐ Orezanie / CROP obrázkov cez JS kde to treba
+  ☐ vkladanie obrazkov galerie cez vue komponent  https://github.com/simmodev/vue-media-upload
+  ✔ Orezanie / CROP obrázkov cez JS kde to treba
   ☐ facebook prepojenie - počet likes FB stránky farnosti
   ☐ automatické zverejnenie článku na FaceBooku po zverejnení na stránke
   ☐ BredCrumbs in Chard data
