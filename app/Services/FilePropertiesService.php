@@ -37,12 +37,12 @@ class FilePropertiesService
             'id'                => $item->id,
             'slug'              => $item->slug,
             'title'             => $item->title,
-            'description'       => $item->source->description,
+            'source_description'=> $item->source->source_description,
 
             'mime_type'         => $fileMedia->mime_type,
             'icon'              => $this->getFileIcon($fileMedia->mime_type),
 
-            'file_url'         => $fileMedia->getUrl(),
+            'file_url'          => $fileMedia->getUrl(),
             'file_name'         => $fileMedia->file_name,
             'file_extension'    => pathinfo($fileMedia->file_name, PATHINFO_EXTENSION),
             'name'              => $fileMedia->name,
@@ -50,12 +50,12 @@ class FilePropertiesService
             'humanReadableSize' => formatBytes($fileMedia->size),
 
             'sourceArr' => [
-                'source'        => $item->source->source,
-                'source_url'    => $item->source->source_url,
-                'author'        => $item->source->author,
-                'author_url'    => $item->source->author_url,
-                'license'       => $item->source->license,
-                'license_url'   => $item->source->license_url,
+                'source_source'        => $item->source->source_source,
+                'source_source_url'    => $item->source->source_source_url,
+                'source_author'        => $item->source->source_author,
+                'source_author_url'    => $item->source->source_author_url,
+                'source_license'       => $item->source->source_license,
+                'source_license_url'   => $item->source->source_license_url,
             ],
         ];
     }
