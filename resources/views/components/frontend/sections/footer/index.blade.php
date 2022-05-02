@@ -8,7 +8,8 @@
                             <div class="text_widget">
                                 <div class="ftr_logo">
                                     <a href="{{ route('home') }}">
-                                        <img src="{{ URL::asset('images/church_logo.png') }}" alt="logo" height="50" width="160">
+                                        {{-- TODO: logo --}}
+                                        <img src="{{ URL::asset('images/logo/church_logo.png') }}" alt="logo" height="50" width="160">
                                     </a>
                                 </div>
 

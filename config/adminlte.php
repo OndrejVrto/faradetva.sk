@@ -46,8 +46,8 @@ return [
     */
 
     'logo' => '<b>Farnosť</b>Detva',
-    'logo_img' => 'images/logo-farnost-detva.svg',
-    'logo_img_dark' => 'images/logo-farnost-detva-tmave.svg',
+    'logo_img' => 'images/logo/logo-farnost-detva.svg',
+    'logo_img_dark' => 'images/logo/logo-farnost-detva-tmave.svg',
     'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
