@@ -1,4 +1,5 @@
-<div class="row" data-masonry='{"percentPosition": true }'>
+{{-- <div class="row" data-masonry='{"percentPosition": true, "itemSelector": ".grid-item" }'> --}}
+<div class="row">
 
     @foreach ($pageCards as $pageCard)
 
