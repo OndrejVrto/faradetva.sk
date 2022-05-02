@@ -98,6 +98,10 @@ class StaticPage extends BaseModel implements HasMedia
                 ->fit(Manipulations::FIT_CROP, 232, 272)
                 ->sharpen(2)
                 ->quality(60);
+            $this->addMediaConversion('single-blog-list')
+                ->fit(Manipulations::FIT_CROP, 370, 248)
+                ->sharpen(2)
+                ->quality(60);
         }
     }
 }
