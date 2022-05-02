@@ -1,4 +1,3 @@
-
 Obsah stránky:
   ☐ vytvoriť logo a ikonu stránky / farnosti
   ☐ zoradiť stránky podľa zoznamu od Mariana
@@ -29,8 +28,8 @@ Obsah stránky:
 
 Administrátorské rozhranie:
   ☐ prepísať názvy polí Source tak aby nekolidovali z inými
-  ☐ storage media in Storage folder and create link
-  ☐ premazať všetky nepotrebné obrázky v public/images
+  ✔ storage media in Storage folder and create link
+  ✔ premazať všetky nepotrebné obrázky v public/images
   ☐ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
   ☐ LiveWire Datatable pre všetky backend tabuľky
   ☐ BredCrumbs in Chard data
