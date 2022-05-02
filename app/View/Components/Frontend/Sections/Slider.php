@@ -44,14 +44,14 @@ class Slider extends Component
                         'large_image'       => $img->getFirstMediaUrl('slider', 'large'),
                         'extra_large_image' => $img->getFirstMediaUrl('slider', 'extra-large'),
 
-                        'description'       => $img->source->description,
+                        'source_description'       => $img->source->source_description,
                         'sourceArr' => [
-                            'source'        => $img->source->source,
-                            'source_url'    => $img->source->source_url,
-                            'author'        => $img->source->author,
-                            'author_url'    => $img->source->author_url,
-                            'license'       => $img->source->license,
-                            'license_url'   => $img->source->license_url,
+                            'source_source'        => $img->source->source_source,
+                            'source_source_url'    => $img->source->source_source_url,
+                            'source_author'        => $img->source->source_author,
+                            'source_author_url'    => $img->source->source_author_url,
+                            'source_license'       => $img->source->source_license,
+                            'source_license_url'   => $img->source->source_license_url,
                         ],
                     ];
             })->toArray();

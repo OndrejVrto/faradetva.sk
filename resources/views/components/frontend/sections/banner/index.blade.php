@@ -11,7 +11,7 @@
             dimensionSource="{{ $dimensionSourceBanner }}"
             :sourceArray="$banner['sourceArr']"
             class="img-article img-article-left"
-            title="{{ $banner['description'] }}"
+            title="{{ $banner['source_description'] }}"
         />
 
         <div class="banner_heading">
@@ -33,7 +33,7 @@
 
 @pushOnce('css')
     <style @nonce>
-    /* Responsive background images for Banner N.{{ $banner['id'] }} */
+    /* Banner N.{{ $banner['id'] }} - Responsive background images */
 
     /* Extra small devices (portrait phones, less than 576px) */
         .banner-img-{{$banner['id']}} {
