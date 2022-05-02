@@ -176,6 +176,7 @@ return [
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Stevebauman\Purify\PurifyServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
+        Spatie\DirectoryCleanup\DirectoryCleanupServiceProvider::class,
 
         /*
          * Application Service Providers...

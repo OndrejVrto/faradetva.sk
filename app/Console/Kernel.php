@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule) {
         $schedule->command('notification:send-news-subscriber')->everyMinute();
+        $schedule->command('clean:directories')->daily();
     }
 
     /**
