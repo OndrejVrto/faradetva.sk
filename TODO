@@ -1,31 +1,50 @@
 
 Obsah stránky:
-  ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
-  ✔ dorobiť texty od Mariána
+  ☐ vytvoriť logo a ikonu stránky / farnosti
   ☐ zoradiť stránky podľa zoznamu od Mariana
+  ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
+  ☐ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
+  ☐ repare validate errors in login form
+  ☐ zmeniť url adresu v manifest.json pri nasadení na server
+  ☐ webpack mix -> všetko v jenom css a js pre frontend aj backend
+  ☐ doplniť do všetkých obrázkov height a width
+  ☐ facebook prepojenie - počet likes FB stránky farnosti
+  ✔ dorobiť texty od Mariána
   ✔ spoločenstvá - zoznam ako sekcia
   ✔ osobnosti - zoznam ako sekcia
   ✔ skills -> nejaké štatistiky
   ✔ spojazdniť Formulár v kontakoch
   ✔ add section class in notice frontend
-  ☐ vytvoriť logo a ikonu stránky / farnosti
   ✔ Myšlienky dňa do Footera stránky
   ✔ design pre subscribe formulár vložený ako sekcia na stránke
-  ✘ customize Bootstrap?
-  ☐ webpack mix -> všetko v jenom css a js pre frontend aj backend
   ✔ opraviť veľkosť obrázkov v texte pri zmenšovaní rozmeru stránky
-  ☐ stránka s kompletne všetkými FaQ
+  ✔ stránka s kompletne všetkými FaQ
   ✔ v titulku článku uvádzať počet slov v článku a dĺžka čítania v minútach
-  ✘ do článku na začiatku vkladať Teaser?
   ✔ autolink generátor pre niektoré texty vkladané v administrátorskom rozhraní
-  ✘ autolink generátor pre statické stránky
-  ☐ doplniť do všetkých obrázkov height a width
   ✔ prepísať všetky externé knižnice na CDN-ká
-  ☐ zmeniť url adresu v manifest.json pri nasadení na server
   ✔ base folder in meta tags
-  ☐ repare validate errors in login form
+  ✘ customize Bootstrap?
+  ✘ do článku na začiatku vkladať Teaser?
+  ✘ autolink generátor pre statické stránky
 
 Administrátorské rozhranie:
+  ☐ prepísať názvy polí Source tak aby nekolidovali z inými
+  ☐ storage media in Storage folder and create link
+  ☐ premazať všetky nepotrebné obrázky v public/images
+  ☐ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
+  ☐ LiveWire Datatable pre všetky backend tabuľky
+  ☐ BredCrumbs in Chard data
+  ☐ vyriešiť deployment celej aplikácie   http://www.youtube.com/results?search_query=deploy+laravel+app
+  ☐ štatistika, rôzne kontroly a gooogle analytics na dashboard
+    https://www.youtube.com/watch?v=iXH1RJJ4EUw&ab_channel=LaravelDaily
+    https://spatie.be/docs/laravel-dashboard/v2/introduction
+    https://freek.dev/2143-a-laravel-package-to-monitor-the-health-of-your-application
+    https://github.com/spatie/laravel-server-monitor
+    https://codelapan.com/post/google-analytics-laravel
+    https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
+    https://github.com/fidum/laravel-dashboard-chart-tile
+    https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
+  ✔ Orezanie / CROP obrázkov cez JS kde to treba
   ✔ analyzovať a zrýchliť bootovanie stránky
   ✔ opraviť Crawler pri HTTPS schéme
   ✔ nastaviť správne rozmery obrázkom a optimalizáciu
@@ -38,65 +57,40 @@ Administrátorské rozhranie:
   ✔ vytvoriť komponent sekcie FAQ
   ✔ move sources in backend fomns to separe component?
   ✔ tlačítko na priame zobrazenie správy
-  ☐ storage media in Storage folder and create link
-  ☐ premazať všetky nepotrebné obrázky v public/images
-  ☐ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
   ✔ prerobiť design dashboardu
   ✔ prvý článok v zozname prerobiť do responzivneho režimu
   ✔ pridať component prílohy do článkov/upraviť ho podľa potreby
-  ☐ LiveWire Datatable pre všetky backend tabuľky
-  ✔ search na celej stránke
-    https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
-    https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
-    https://spatie.be/docs/laravel-site-search/v1/introduction
   ✔ mansonry layout pre články (https://getbootstrap.com/docs/5.1/examples/masonry/)
   ✔ add robots index, follow to meta tag
   ✔ pridať tlačítko na download všade kde sa vkladá súbor ( články, kňazi, slider, user, rozpisy, ....)
   ✔ dorobiť restore a force-delete metódy v softdelete modeloch
   ✔ pridať tlačítka zmazaných položiek pri softdelete modeloch a skryť tlačítka show metód
-  ✘ Apply SoftDelete Cascade in model user? (https://github.com/razisayyed/laravel-cascaded-soft-deletes)
-  ✘ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
   ✔ cache celej frontend stránky  (https://www.youtube.com/watch?v=P5WvRH71A5g&ab_channel=Laratips)
-  ☐ vyriešiť deployment celej aplikácie   http://www.youtube.com/results?search_query=deploy+laravel+app
-  ☐ štatistika, rôzne kontroly a gooogle analytics na dashboard
-    https://www.youtube.com/watch?v=iXH1RJJ4EUw&ab_channel=LaravelDaily
-    https://spatie.be/docs/laravel-dashboard/v2/introduction
-    https://freek.dev/2143-a-laravel-package-to-monitor-the-health-of-your-application
-    https://github.com/spatie/laravel-server-monitor
-    https://codelapan.com/post/google-analytics-laravel
-    https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
-    https://github.com/fidum/laravel-dashboard-chart-tile
-    https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
   ✔ Myšlienka dňa - komplet model, controller, migration, ....
   ✔ nainštalovať X-Debug
   ✔ automatický teaser v správach
+  ✔ search na celej stránke
+    https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
+    https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
+    https://spatie.be/docs/laravel-site-search/v1/introduction
+  ✘ Apply SoftDelete Cascade in model user? (https://github.com/razisayyed/laravel-cascaded-soft-deletes)
+  ✘ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
+  ✘ vkladanie obrazkov galerie cez vue komponent  https://github.com/simmodev/vue-media-upload
+  ✘ automatické zverejnenie článku na FaceBooku po zverejnení na stránke
 
 SEO:
-  ☐ rozšíriť model Priest o kontakty na sociálne siete pre potreby SEO
-  ☐ rozšíriť model User o kontakty na sociálne siete pre potreby SEO
+  ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
   ☐ Generovať Sitemap (https://github.com/ultrono/laravel-sitemap,  laravelium/sitemap alebo spatie)
   ☐ implementovať RSS feed (spatie/laravel-feed)
-  ☐ implementovať trailing slash package alebo vyriešiť koncové lomítko inak (https://github.com/illuminatech/url-trailing-slash)
-  ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
-  ✔ implementovať do statických stránok referenčný obrázok pre facebook/twiter
   ☐ vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
   ☐ Implementovať FAQ do JsonLd formátu
-  ☐ implemenotovať JsonLd  Schema.org/google structured data
-    poznámky
-    https://schema.org
-    https://developers.google.com/search/docs/advanced/structured-data/search-gallery
-    https://freek.dev/642-a-package-to-fluently-generate-schemaorg-markup
-    https://moz.com/blog/json-ld-for-beginners
-    WebPage, WebContent, ImageGallery, Person, ....
+  ☐ implemenotovať JsonLd Schema.org/google structured data
+  ✔ rozšíriť model Priest o kontakty na sociálne siete pre potreby SEO
+  ✔ rozšíriť model User o kontakty na sociálne siete pre potreby SEO
+  ✔ implementovať do statických stránok referenčný obrázok pre facebook/twiter
+  ✘ implementovať trailing slash package alebo vyriešiť koncové lomítko inak (https://github.com/illuminatech/url-trailing-slash)
 
 Testy:
   ☐ vytvoriť testy na všetko
-
-Navyše:
-  ☐ vkladanie obrazkov galerie cez vue komponent  https://github.com/simmodev/vue-media-upload
-  ✔ Orezanie / CROP obrázkov cez JS kde to treba
-  ☐ facebook prepojenie - počet likes FB stránky farnosti
-  ☐ automatické zverejnenie článku na FaceBooku po zverejnení na stránke
-  ☐ BredCrumbs in Chard data
 
 Archive:
