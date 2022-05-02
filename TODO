@@ -27,27 +27,28 @@ Obsah stránky:
   ✘ autolink generátor pre statické stránky
 
 Administrátorské rozhranie:
-  ☐ prepísať názvy polí Source tak aby nekolidovali z inými
-  ✔ storage media in Storage folder and create link
-  ✔ premazať všetky nepotrebné obrázky v public/images
-  ✔ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
   ☐ LiveWire Datatable pre všetky backend tabuľky
   ☐ BredCrumbs in Chard data
   ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
   ☐ štatistika, rôzne kontroly a gooogle analytics na dashboard
-    https://www.youtube.com/watch?v=iXH1RJJ4EUw&ab_channel=LaravelDaily
-    https://spatie.be/docs/laravel-dashboard/v2/introduction
-    https://freek.dev/2143-a-laravel-package-to-monitor-the-health-of-your-application
-    https://github.com/spatie/laravel-server-monitor
-    https://codelapan.com/post/google-analytics-laravel
-    https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
-    https://github.com/fidum/laravel-dashboard-chart-tile
-    https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
+  https://www.youtube.com/watch?v=iXH1RJJ4EUw&ab_channel=LaravelDaily
+  https://spatie.be/docs/laravel-dashboard/v2/introduction
+  https://freek.dev/2143-a-laravel-package-to-monitor-the-health-of-your-application
+  https://github.com/spatie/laravel-server-monitor
+  https://codelapan.com/post/google-analytics-laravel
+  https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
+  https://github.com/fidum/laravel-dashboard-chart-tile
+  https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
+  ✔ prepísať názvy polí Source tak aby nekolidovali z inými @started(22-05-02 15:10) @done(22-05-02 17:49) @lasted(2h39m29s)
+  ✔ storage media in Storage folder and create link
+  ✔ premazať všetky nepotrebné obrázky v public/images
+  ✔ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
   ✔ Orezanie / CROP obrázkov cez JS kde to treba
   ✔ analyzovať a zrýchliť bootovanie stránky
+  ✔ automatické premenovanie vkladaných súborov
+
   ✔ opraviť Crawler pri HTTPS schéme
   ✔ nastaviť správne rozmery obrázkom a optimalizáciu
-  ✔ automatické premenovanie vkladaných súborov
   ✔ opraviť načítavanie obrázkov pri zapnutom CSP
   ✔ newsletter register/unscribe
   ✔ doprogramovať grafy -> farba, typ, ...
@@ -79,7 +80,8 @@ Administrátorské rozhranie:
 
 SEO:
   ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
-  ☐ Generovať Sitemap (https://github.com/ultrono/laravel-sitemap,  laravelium/sitemap alebo spatie)
+  ✔ Generovať Sitemap (https://github.com/ultrono/laravel-sitemap,  laravelium/sitemap alebo spatie)
+  ☐ vylepšiť sitemap, prioritu, čas poslednej aktualizácie aj spustenie crawlera
   ☐ implementovať RSS feed (spatie/laravel-feed)
   ☐ vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
   ☐ Implementovať FAQ do JsonLd formátu

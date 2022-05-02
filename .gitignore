@@ -32,3 +32,4 @@ public/photo
 resources/views/BACKUP/*
 data.ms/*
 meilisearch.exe
+public/sitemap.xml
