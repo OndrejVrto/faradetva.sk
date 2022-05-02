@@ -13,7 +13,7 @@
     <x-frontend.page.section name="ARTICLE" class="blog_single_page pad_t_10 pad_b_30" row="true">
 
             <article class="col-lg-9 col-md-8 col-xs-12">
-                <!-- ARTICLE {{ $oneNews->title }} - Start -->
+                <!-- ARTICLE ({{ $oneNews->title }}) - Start -->
                 <div class="wh_new">
                     <div class="blog_thumb">
                         {!! $oneNews->getFirstMedia($oneNews->collectionName)->img('large', ['class' => 'w-100 img-fluid']) !!}
@@ -48,11 +48,11 @@
 
                         <h3>{{ $oneNews->title }}</h3>
 
-                        <!-- ARTICLE CONTENT from Sumernote Start -->
+                        <!-- ARTICLE CONTENT (TinyMCE) Start -->
                         <div class="content">
                             {!! $oneNews->content !!}
                         </div>
-                        <!-- ARTICLE CONTENT from Sumernote End -->
+                        <!-- ARTICLE CONTENT (TinyMCE) End -->
 
                         @if(!empty($attachments))
                             <!-- ARTICLE ATTACHMENTS Start -->
@@ -65,6 +65,7 @@
 
                         <div class="d-flex align-items-end flex-wrap flex-lg-nowrap justify-content-lg-between">
 
+                            <!-- ARTICLE TAGS Start -->
                             <ul class="tag-list">
                                 <li><i class="fas fa-tag" aria-hidden="true"></i></li>
                                 @foreach ($oneNews->tags as $tag)
@@ -75,7 +76,8 @@
                                     </li>
                                 @endforeach
                             </ul>
-
+                            <!-- ARTICLE TAGS End -->
+                            <!-- ARTICLE SOCIALITE LINKS Start -->
                             {!!
                                 Share::currentPage($oneNews->title)
                                     ->facebook()
@@ -83,10 +85,11 @@
                                     ->linkedin($oneNews->teaser)
                                     ->whatsapp()
                             !!}
+                            <!-- ARTICLE SOCIALITE LINKS End -->
                         </div>
                     </div>
                 </div>
-                <!-- ARTICLE {{ $oneNews->title }} - End -->
+                <!-- ARTICLE ({{ $oneNews->title }}) - End -->
             </article>
 
             <!-- SIDEBAR Start -->
@@ -130,7 +133,6 @@
 
                             @foreach ($lastNews as $lastOneNews)
                                 <li>
-                                    {{-- <img src="images/blog/post_1.jpg" alt="Recent blog"> --}}
                                     <img src="{{ $lastOneNews->getFirstMediaUrl($lastOneNews->collectionName, 'thumb-latest-news') ?: "http://via.placeholder.com/80x80" }}"
                                         class="img-fluid"
                                         alt="Malý obrázok článku: {{ $lastOneNews->title }}."
