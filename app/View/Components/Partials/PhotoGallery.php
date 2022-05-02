@@ -43,14 +43,14 @@ class PhotoGallery extends Component
                 return $picture + [
                     'title' => $album->title,
                     'slug'  => $album->slug,
-                    'description' => $album->source->description,
+                    'source_description' => $album->source->source_description,
                     'sourceArr' => [
-                        'source'      => $album->source->source,
-                        'source_url'  => $album->source->source_url,
-                        'author'      => $album->source->author,
-                        'author_url'  => $album->source->author_url,
-                        'license'     => $album->source->license,
-                        'license_url' => $album->source->license_url,
+                        'source_source'      => $album->source->source_source,
+                        'source_source_url'  => $album->source->source_source_url,
+                        'source_author'      => $album->source->source_author,
+                        'source_author_url'  => $album->source->source_author_url,
+                        'source_license'     => $album->source->source_license,
+                        'source_license_url' => $album->source->source_license_url,
                     ],
                 ];
             })->first();
@@ -68,21 +68,21 @@ class PhotoGallery extends Component
 
         $JsonLD = Schema::imageGallery()
             ->name(e($album['title']))
-            ->description(e($album['description']))
-            ->if(isset($album['sourceArr']['author']) OR isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album) {
+            ->description(e($album['source_description']))
+            ->if(isset($album['sourceArr']['source_author']) OR isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album) {
                 $schema->author(
                     Schema::person()
-                        ->name(e($album['sourceArr']['author']))
-                        ->sameAs(e($album['sourceArr']['author_url']))
+                        ->name(e($album['sourceArr']['source_author']))
+                        ->sameAs(e($album['sourceArr']['source_author_url']))
                 );
             })
-            ->license(e($album['sourceArr']['license']))
-            ->usageInfo(e($album['sourceArr']['license_url']))
-            ->if( isset($album['sourceArr']['source_url']) OR isset($album['sourceArr']['source']), function (ImageGallery $schema) use ($album) {
+            ->license(e($album['sourceArr']['source_license']))
+            ->usageInfo(e($album['sourceArr']['source_license_url']))
+            ->if( isset($album['sourceArr']['source_source_url']) OR isset($album['sourceArr']['source_source']), function (ImageGallery $schema) use ($album) {
                 $schema->copyrightHolder(
                     Schema::organization()
-                        ->name(e($album['sourceArr']['source']))
-                        ->url(e($album['sourceArr']['source_url']))
+                        ->name(e($album['sourceArr']['source_source']))
+                        ->url(e($album['sourceArr']['source_source_url']))
                 );
             })
             ->associatedMedia( $pictures )

@@ -64,7 +64,7 @@ class PageController extends Controller
                 return  [
                     'id'              => $page->id,
                     'author'          => $page->author_page,
-                    'description'     => $page->description_page,
+                    'page-description'=> $page->description_page,
                     'header'          => $page->header,
                     'keywords'        => $page->keywords,
                     'route'           => $this->getFullRoute($page->route_name),
@@ -90,13 +90,13 @@ class PageController extends Controller
                     'img-updated_at'  => $media->updated_at,
                     'img-height'      => Image::load( $media->getPath('optimize') )->getHeight(),
                     'img-width'       => Image::load( $media->getPath('optimize') )->getWidth(),
-                    'img-description' => $page->source->description,
-                    'img-source'      => $page->source->source,
-                    'img-source_url'  => $page->source->source_url,
-                    'img-author'      => $page->source->author,
-                    'img-author_url'  => $page->source->author_url,
-                    'img-license'     => $page->source->license,
-                    'img-license_url' => $page->source->license_url,
+                    'img-description' => $page->source->source_description,
+                    'img-source'      => $page->source->source_source,
+                    'img-source_url'  => $page->source->source_source_url,
+                    'img-author'      => $page->source->source_author,
+                    'img-author_url'  => $page->source->source_author_url,
+                    'img-license'     => $page->source->source_license,
+                    'img-license_url' => $page->source->source_license_url,
                 ];
             })->first();
         });
@@ -113,21 +113,21 @@ class PageController extends Controller
         $page = last($allPageData);
 
         SEOMeta::setTitle(e($page['title']));
-        SEOMeta::setDescription(e($page['description']));
+        SEOMeta::setDescription(e($page['page-description']));
         SEOMeta::addKeyword(e($page['keywords']));
         SEOMeta::addMeta('author', e($page['author']), 'name');
 
-        OpenGraph::setDescription(e($page['description']));
+        OpenGraph::setDescription(e($page['page-description']));
         OpenGraph::setTitle(e($page['title']));
         OpenGraph::addImage(e($page['img-facebook']), [
-            'alt' => e($page['description']),
+            'alt' => e($page['img-description']),
             'type' => e($page['img-mime-type']),
             'width' => e($page['img-width']),
             'height' => e($page['img-height']),
         ]);
 
         TwitterCard::setTitle(e($page['title']));
-        TwitterCard::setDescription(e($page['description']));
+        TwitterCard::setDescription(e($page['page-description']));
         TwitterCard::setImage(e($page['img-twitter']));
         TwitterCard::addValue('image:alt', e($page['img-description']));
 
@@ -137,7 +137,7 @@ class PageController extends Controller
         }
 
         SeoSchema::setTitle(e($page['title']));
-        SeoSchema::setDescription(e($page['description']));
+        SeoSchema::setDescription(e($page['page-description']));
         if (e($page['wikipedia'])) {
             SeoSchema::addValue('sameAs', e($page['wikipedia']));
         }

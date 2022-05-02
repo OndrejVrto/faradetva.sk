@@ -18,12 +18,12 @@ class SourceSentence extends Component
         public array $sourceArray = [],
         public string $dimensionSource = 'full',
     ) {
-        $this->source = $sourceArray['source'];
-        $this->source_url = $sourceArray['source_url'];
-        $this->author = $sourceArray['author'];
-        $this->author_url = $sourceArray['author_url'];
-        $this->license = $sourceArray['license'];
-        $this->license_url = $sourceArray['license_url'];
+        $this->source = $sourceArray['source_source'];
+        $this->source_url = $sourceArray['source_source_url'];
+        $this->author = $sourceArray['source_author'];
+        $this->author_url = $sourceArray['source_author_url'];
+        $this->license = $sourceArray['source_license'];
+        $this->license_url = $sourceArray['source_license_url'];
     }
 
     public function render(): View {

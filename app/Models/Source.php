@@ -11,13 +11,13 @@ class Source extends BaseModel
     protected $table = 'source';
 
     protected $fillable = [
-        'description',
-        'author',
-        'author_url',
-        'source',
-        'source_url',
-        'license',
-        'license_url',
+        'source_description',
+        'source_author',
+        'source_author_url',
+        'source_source',
+        'source_source_url',
+        'source_license',
+        'source_license_url',
     ];
 
     public function getRouteKeyName() {

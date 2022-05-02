@@ -44,7 +44,7 @@
 
 @push('css')
     <style @nonce>
-        /* Responsive background images for Slider N.{{ $pray['id'] }} */
+        /* Prayer N.{{ $pray['id'] }} - Responsive background images */
 
         /* Extra small devices (portrait phones, less than 576px) */
             .prayer-img-{{ $pray['id'] }} {

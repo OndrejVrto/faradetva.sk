@@ -1,5 +1,5 @@
 @foreach ($attachments as $attachment)
-    
+
     <div {{ $attributes->merge(['class' => 'my-2']) }}>
         <a  href="{{ url($attachment['file_url']) }}"
             id="Attachment_{{ $attachment['slug'] }}"
@@ -14,9 +14,9 @@
                 <i class="fas fa-xs fa-download"></i>
             </span>
         </a>
-        @isset($attachment['description'])
+        @isset($attachment['source_description'])
             <label class="text-sm" for="Attachment_{{ $attachment['slug'] }}">
-                {{ $attachment['description'] }}
+                {{ $attachment['source_description'] }}
             </label>
         @endisset
 

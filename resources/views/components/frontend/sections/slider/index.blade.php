@@ -21,7 +21,7 @@
 
             @push('css')
                 <style @nonce>
-                    /* Responsive background images for Slider N.{{ $slider['id'] }} */
+                    /* Slider N.{{ $slider['id'] }} - Responsive background images */
 
                     /* Extra small devices (portrait phones, less than 576px) */
                         .slider-img-{{ $slider['id'] }} {

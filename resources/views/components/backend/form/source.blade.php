@@ -4,10 +4,10 @@
 <!--  Component: Source - Start -->
 <x-adminlte-input
     fgroupClass=""
-    name="description"
+    name="source_description"
     label="Popis"
     enableOldSupport="true"
-    value="{{ $source->description ?? '' }}"
+    value="{{ $source->source_description ?? '' }}"
 >
     <x-slot name="prependSlot">
         <div class="input-group-text bg-gradient-orange">
@@ -21,10 +21,10 @@
 <div class="form-row">
     <div class="col-xl-5">
         <x-adminlte-input
-            name="source"
+            name="source_source"
             label="Zdroj (text)"
             enableOldSupport="true"
-            value="{{ $source->source ?? '' }}"
+            value="{{ $source->source_source ?? '' }}"
             >
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-orange">
@@ -35,10 +35,10 @@
     </div>
     <div class="col-xl-7">
         <x-adminlte-input
-            name="source_url"
+            name="source_source_url"
             label="Link na zdroj (url)"
             enableOldSupport="true"
-            value="{{ $source->source_url ?? '' }}"
+            value="{{ $source->source_source_url ?? '' }}"
             >
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-orange">
@@ -52,10 +52,10 @@
 <div class="form-row">
     <div class="col-xl-5">
         <x-adminlte-input
-            name="author"
+            name="source_author"
             label="Meno autora"
             enableOldSupport="true"
-            value="{{ $source->author ?? '' }}"
+            value="{{ $source->source_author ?? '' }}"
             >
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-orange">
@@ -66,10 +66,10 @@
     </div>
     <div class="col-xl-7">
         <x-adminlte-input
-            name="author_url"
+            name="source_author_url"
             label="Kontakt na autora (url)"
             enableOldSupport="true"
-            value="{{ $source->author_url ?? '' }}"
+            value="{{ $source->source_author_url ?? '' }}"
             >
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-orange">
@@ -83,10 +83,10 @@
 <div class="form-row">
     <div class="col-xl-5">
         <x-adminlte-input
-            name="license"
+            name="source_license"
             label="Licencia (text)"
             enableOldSupport="true"
-            value="{{ $source->license ?? '' }}"
+            value="{{ $source->source_license ?? '' }}"
             >
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-orange">
@@ -97,10 +97,10 @@
     </div>
     <div class="col-xl-7">
         <x-adminlte-input
-            name="license_url"
+            name="source_license_url"
             label="Link na licenciu (url)"
             enableOldSupport="true"
-            value="{{ $source->license_url ?? '' }}"
+            value="{{ $source->source_license_url ?? '' }}"
             >
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-gradient-orange">

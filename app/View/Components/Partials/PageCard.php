@@ -36,17 +36,17 @@ class PageCard extends Component
                         'wikipedia'       => $page->wikipedia,
 
                         'img-section-list'=> $media->getUrl('section-list'),
-                        'img-description' => $page->source->description,
+                        'img-description' => $page->source->source_description,
                         'img-height'      => Image::load( $media->getPath('section-list') )->getHeight(),
                         'img-width'       => Image::load( $media->getPath('section-list') )->getWidth(),
 
                         'sourceArr' => [
-                            'source'      => $page->source->source,
-                            'source_url'  => $page->source->source_url,
-                            'author'      => $page->source->author,
-                            'author_url'  => $page->source->author_url,
-                            'license'     => $page->source->license,
-                            'license_url' => $page->source->license_url,
+                            'source_source'      => $page->source->source_source,
+                            'source_source_url'  => $page->source->source_source_url,
+                            'source_author'      => $page->source->source_author,
+                            'source_author_url'  => $page->source->source_author_url,
+                            'source_license'     => $page->source->source_license,
+                            'source_license_url' => $page->source->source_license_url,
                         ],
                     ];
                 });

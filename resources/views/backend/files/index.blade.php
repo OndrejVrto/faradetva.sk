@@ -32,7 +32,7 @@
                         {{ $file['slug'] }}
                     </x-backend.table.td>
                     <x-backend.table.td class="text-wrap d-none d-xl-table-cell">
-                        {{ $file['description'] }}
+                        {{ $file['source_description'] }}
                     </x-backend.table.td>
                     <x-backend.table.td class="text-wrap text-break">
                         {{ $file['name'] }}
