@@ -31,8 +31,8 @@ class MediaStoreService
 
             if(isset($name)) {
                 $fileName = Str::slug($name).'.'.$fileExtension;
-            } elseif(isset($request->description)) {
-                $fileName = Str::slug($request->description).'.'.$fileExtension;
+            } elseif(isset($request->source_description)) {
+                $fileName = Str::slug($request->source_description).'.'.$fileExtension;
             } else {
                 $fileName = DataFormater::filterFilename($request->crop_file_name, true);
             }
