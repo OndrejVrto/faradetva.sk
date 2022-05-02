@@ -94,6 +94,18 @@ class CacheController extends Controller
     }
 
     public function xdebugPHP() {
-        return xdebug_info();
+        // return xdebug_info();
+        toastr()->info(__('Nič sa nevykoná lebo nemáš zapnutý xDebug v php.'));
+        return to_route('admin.dashboard');
+    }
+
+    public function testFeatures() {
+        // sem doplň hocijaký testovací kód alebo službu
+
+        // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
+
+
+        toastr()->info(__('Novinka otestovaná'));
+        return to_route('admin.dashboard');
     }
 }

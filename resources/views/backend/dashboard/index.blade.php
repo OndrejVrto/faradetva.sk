@@ -14,6 +14,9 @@
         <div class="col-xl-5 order-xl-2">
             <div class="row">
                 <div class="col-md-6 col-xl-12">
+                    @include('backend.dashboard.partials.test-features')
+                </div>
+                <div class="col-md-6 col-xl-12">
                     @include('backend.dashboard.partials.optimize')
                 </div>
                 <div class="col-md-6 col-xl-12">
