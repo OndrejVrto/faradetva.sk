@@ -1,10 +1,10 @@
 <footer class="main-footer">
     @hasSection('content_breadcrumb')
-        <div class="row">
-            <div class="col-lg-6 d-flex justify-content-center justify-content-lg-start">
+        <div class="d-md-flex justify-content-md-between align-content-center">
+            <div>
                 @yield('content_breadcrumb')
             </div>
-            <div class="col-lg-6">
+            <div class="text-center">
                 @yield('footer')
             </div>
         </div>
