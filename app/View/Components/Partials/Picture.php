@@ -67,13 +67,13 @@ class Picture extends Component
                 return [
                     'img-title'       => $img->title,
                     'img-slug'        => $img->slug,
-                    'img-description' => $img->source->description,
+                    'img-description' => $img->source->source_description,
                     // 'img-height'      => $height,
                     // 'img-width'       => $width,
                     'responsivePicture' => (string) $media
                                             ->img('optimize', [
                                                 'class' => 'w-100 img-fluid',
-                                                'alt' => $img->source->description,
+                                                'alt' => $img->source->source_description,
                                                 'title' => $img->title,
                                                 'nonce' => csp_nonce(),
                                                 // 'height' => $height,
@@ -82,12 +82,12 @@ class Picture extends Component
                     // 'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
                     'url'               => $media->getUrl('optimize'),
                     'sourceArr' => [
-                        'source'      => $img->source->source,
-                        'source_url'  => $img->source->source_url,
-                        'author'      => $img->source->author,
-                        'author_url'  => $img->source->author_url,
-                        'license'     => $img->source->license,
-                        'license_url' => $img->source->license_url,
+                        'source_source'      => $img->source->source_source,
+                        'source_source_url'  => $img->source->source_source_url,
+                        'source_author'      => $img->source->source_author,
+                        'source_author_url'  => $img->source->source_author_url,
+                        'source_license'     => $img->source->source_license,
+                        'source_license_url' => $img->source->source_license_url,
                     ],
                 ];
             })->first();
@@ -115,8 +115,8 @@ class Picture extends Component
             ->height(500)
             ->encodingFormat('TODO:')
             ->uploadDate(now())  //TODO:
-            ->license(e($pictureData['sourceArr']['license']))
-            ->acquireLicensePage(e($pictureData['sourceArr']['license_url']))
+            ->license(e($pictureData['sourceArr']['source_license']))
+            ->acquireLicensePage(e($pictureData['sourceArr']['source_license_url']))
             ->toArray();
 
 
