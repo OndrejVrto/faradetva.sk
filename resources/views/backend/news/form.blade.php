@@ -55,7 +55,7 @@
 
     <div class="form-row">
         <div class="col-xl-4">
-            <x-backend.form.crop label="Hlavný obrázok na titulku" minWidth="848" minHeight="460" :media_file_name="$media_file_name" />
+            <x-backend.form.crop label="Hlavný obrázok na titulku" minWidth="848" minHeight="460" maxSize="1920*1440" :media_file_name="$media_file_name" />
         </div>
         <div class="col-xl-8">
             <x-backend.form.source :source="$source" />

@@ -186,7 +186,7 @@
 
     <div class="form-row">
         <div class="col-xl-4">
-            <x-backend.form.crop label="Referenčný obrázok" minWidth="960" minHeight="480" :media_file_name="$media_file_name" />
+            <x-backend.form.crop label="Referenčný obrázok" minWidth="1440" minHeight="720" :media_file_name="$media_file_name" />
         </div>
         <div class="col-xl-8">
             <hr class="d-xl-none bg-orange mt-4">

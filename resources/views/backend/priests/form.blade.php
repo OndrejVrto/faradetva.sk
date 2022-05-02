@@ -209,7 +209,7 @@
         </div>
         <div class="col-xl-4">
 
-            <x-backend.form.crop label="Fotka kňaza" minWidth="230" minHeight="270" maxSize="1024*768" :media_file_name="$media_file_name" />
+            <x-backend.form.crop label="Fotka kňaza" minWidth="230" minHeight="270" maxSize="1024*1024" :media_file_name="$media_file_name" />
 
         </div>
     </div>

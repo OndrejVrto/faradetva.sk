@@ -36,7 +36,7 @@ class Gallery extends BaseModel implements HasMedia
     public function registerMediaConversions(Media $media = null) : void {
         if ($media->collection_name == $this->collectionName) {
             $this->addMediaConversion('orginal')
-                ->fit(Manipulations::FIT_MAX, 1920, 1440)
+                ->fit(Manipulations::FIT_MAX, 1280, 960)
                 ->sharpen(2)
                 ->quality(60)
                 ->withResponsiveImages();

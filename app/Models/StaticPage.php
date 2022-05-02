@@ -79,7 +79,7 @@ class StaticPage extends BaseModel implements HasMedia
                 ->sharpen(2)
                 ->quality(60);
             $this->addMediaConversion('optimize')
-                ->fit(Manipulations::FIT_CONTAIN, 1920, 1440)
+                ->fit(Manipulations::FIT_CONTAIN, 1440, 1440)
                 ->sharpen(2)
                 ->quality(60);
             $this->addMediaConversion('thumb')

@@ -41,7 +41,7 @@
                 @enderror
             </x-adminlte-input>
 
-            <x-backend.form.crop label="Obrázok" minWidth="100" minHeight="50" ratio="false" :media_file_name="$media_file_name" />
+            <x-backend.form.crop label="Obrázok" minWidth="100" minHeight="50" ratio="false" maxSize="1920*1440" :media_file_name="$media_file_name" />
 
         </div>
         <div class="col-xl-7">

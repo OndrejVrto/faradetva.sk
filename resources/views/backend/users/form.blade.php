@@ -208,7 +208,7 @@
         <div class="col-xl-4">
 
             <hr class="d-xl-none bg-orange mt-4">
-            <x-backend.form.crop label="Fotka alebo avatar" minWidth="100" minHeight="100" :media_file_name="$media_file_name" />
+            <x-backend.form.crop label="Fotka alebo avatar" minWidth="100" minHeight="100" maxSize="460*460" :media_file_name="$media_file_name" />
 
         </div>
     </div>
