@@ -116,7 +116,8 @@ button:before {
 
 /*===== button css start =====*/
 .read_btn {
-	color              : #ffffff;
+	cursor             : pointer;
+    color              : #ffffff;
 	background         : #ff7b33;
 	min-width          : 170px;
 	position           : relative;
@@ -175,6 +176,7 @@ button:before {
 
 /*===== button Blue css start =====*/
 .read_btn_blue {
+	cursor             : pointer;
 	color              : #ffffff;
 	background         : #243A4F;
 	min-width          : 190px;

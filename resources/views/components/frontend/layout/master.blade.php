@@ -11,6 +11,8 @@
 
 <x-frontend.layout.general>
 
+    @include('cookie-consent::index')
+
     @if ( !$disablePreload )
         <x-frontend.sections.preload />
     @endif
