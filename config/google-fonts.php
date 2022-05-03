@@ -28,7 +28,7 @@ return [
      * By default, CSS will be inlined to reduce the amount of round trips
      * browsers need to make in order to load the requested font files.
      */
-    'inline' => ! env('APP_DEBUG'),
+    'inline' => env('INLINE_GOOGLE_FONTS') OR env('APP_ENV') == 'production',
 
     /**
      * When something goes wrong fonts are loaded directly from Google.
