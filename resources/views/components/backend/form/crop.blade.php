@@ -37,12 +37,10 @@
     </x-adminlte-input-file>
 
     {{-- toto je hidden input field kde sa ulozi finalna base64 --}}
-    <input id="crop_base64_output" name="crop_base64_output" type="text" value="{{ old('crop_base64_output') }}" >
-    {{-- <input id="crop_base64_output" name="crop_base64_output" type="text" value="{{ old('crop_base64_output') }}" hidden> --}}
+    <input id="crop_base64_output" name="crop_base64_output" type="text" value="{{ old('crop_base64_output') }}" hidden>
 
     {{-- toto je hidden input field kde sa ulozi názov pôvodného súboru --}}
-    <input id="crop_file_name" name="crop_file_name" type="text" value="{{ old('crop_file_name') }}" >
-    {{-- <input id="crop_file_name" name="crop_file_name" type="text" value="{{ old('crop_file_name') }}" hidden> --}}
+    <input id="crop_file_name" name="crop_file_name" type="text" value="{{ old('crop_file_name') }}" hidden>
 
     {{-- toto je preview container toho co sa prave nahrava --}}
     <div class="form-group ">
@@ -117,6 +115,7 @@
             cropperContainer: '#cropper_element',
             cropButton      : '#crop_button',
             cancelCropButton: '#crop_cancel_button',
+            lastFileLabel   : 'label[class~="custom-file-label"][for="upload-corp-file-input"]',
         });
     </script>
 @endpush
@@ -129,14 +128,17 @@
         /* config args: (int)minWidth, (int)minHeight, (bool)ratio, (int)maxSize, (id) input, output, preview, cropperContainer, cropButton, cancelCropButton */
         function watchImageUploader(config) {
 
-            let lastFileName = $('.custom-file-label').html();
+            let lastFileName = $(config.lastFileLabel).html();
+
+            function setLabel() {
+                $(config.lastFileLabel).html(lastFileName);
+            }
 
             function cancelCroper(cropper) {
                 cropper.destroy();
                 $(config.modal).modal('hide');
                 $(config.cropButton).unbind();
                 $(config.cancelCropButton).unbind();
-                $('.custom-file-label').html(lastFileName);
             }
 
             function showCropper(onDisplayed) {
@@ -175,6 +177,7 @@
                     img.onload = () => {
 
                         if (!checkDimensions(img)) {
+                            setLabel();
                             return;
                         }
 
@@ -215,6 +218,7 @@
 
                             $(config.cancelCropButton).click(() => {
                                 cancelCroper(cropper);
+                                setLabel();
                                 return;
                             });
 
@@ -249,6 +253,7 @@
                                     }
 
                                     cancelCroper(cropper);
+                                    setLabel();
                                 }
 
                                 cropped.src = base64;
