@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
-use App\Models\Setting;
 use Illuminate\Support\Str;
 use Spatie\SchemaOrg\Graph;
 use Illuminate\Http\Request;
 use App\Overrides\CustomJsonLd;
 use App\Services\QueryLogService;
+use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\App;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
@@ -25,9 +25,10 @@ class AppServiceProvider extends ServiceProvider
         if ($request->userAgent() !== 'Symfony') {
             Paginator::useBootstrap();
 
-            //! rewrite some global site setting from DB
-            foreach (Setting::all() as $setting) {
-                Config::set($setting->key, $setting->value);
+            //! rewrite some global site setting from ValueStore Json
+            $configSettings = Valuestore::make(config('farnost-detva.value_store'))->allStartingWith('config');
+            foreach ($configSettings as $key => $value) {
+                Config::set($key, $value);
             }
 
             //! Blade extensions
