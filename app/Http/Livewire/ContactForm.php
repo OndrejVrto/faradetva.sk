@@ -55,7 +55,7 @@ class ContactForm extends Component
         $contact['address'] = $this->address;
         $contact['message'] = $this->message;
 
-        Mail::to(config('farnost-detva.mail-contact-form','detva@fara.sk'))
+        Mail::to(config('farnost-detva.mail_contact_form','detva@fara.sk'))
             ->send(new ContactMail($contact));
 
         $this->reset();

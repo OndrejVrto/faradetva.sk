@@ -21,7 +21,7 @@ class QueryLogService
 
     public function __construct() {
 
-        if (config('farnost-detva.guery-loging', false) AND !Str::startsWith(request()->path(), '_debugbar')) {
+        if (config('farnost-detva.guery_loging', false) AND !Str::startsWith(request()->path(), '_debugbar')) {
 
             $this->file_path = storage_path("logs\\".$this->file_name);
             $this->total_query = 0;

@@ -28,16 +28,16 @@ class ArticleController extends Controller
         $attachments = (new FilePropertiesService)->allNewsAttachmentData($oneNews);
         $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
 
-        $lastNews = Cache::remember('NEWS_LAST', config('farnost-detva.cache-duration.news'), function () {
+        $lastNews = Cache::remember('NEWS_LAST', config('farnost-detva.cache_duration.news'), function () {
             return  News::visible()
                         ->take(3)
                         ->with('media')
                         ->get();
         });
-        $allCategories = Cache::remember('CATEGORIES_ALL', config('farnost-detva.cache-duration.news'), function () {
+        $allCategories = Cache::remember('CATEGORIES_ALL', config('farnost-detva.cache_duration.news'), function () {
             return Category::withCount('news')->get();
         });
-        $allTags = Cache::remember('TAGS_ALL', config('farnost-detva.cache-duration.news'), function () {
+        $allTags = Cache::remember('TAGS_ALL', config('farnost-detva.cache_duration.news'), function () {
             return Tag::withCount('news')->get();
         });
 
@@ -45,7 +45,7 @@ class ArticleController extends Controller
     }
 
     public function indexAll(): View  {
-        $articles = Cache::remember('NEWS_ALL_PAGE-' . request('page', 1), config('farnost-detva.cache-duration.news'), function () {
+        $articles = Cache::remember('NEWS_ALL_PAGE-' . request('page', 1), config('farnost-detva.cache_duration.news'), function () {
             return News::newsComplete();
         });
         $title = __('frontend-texts.articles-title.all');
