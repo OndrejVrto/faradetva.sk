@@ -10,7 +10,7 @@ use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\SubscribeController;
 
 //! FrontEnd Routes
-Route::middleware('response.headers', 'csp.headers', 'cache.response', 'preety.html', 'header.http2.link')->group(function() {
+Route::middleware('header.http2.link', 'csp.headers', 'response.headers', 'preety.html', 'cache.response')->group(function() {
 
     Route::get('/', HomeController::class)->name('home');
     Route::get('/otazky-a-odpovede', FaqController::class)->name('faq');
