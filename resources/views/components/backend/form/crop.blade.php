@@ -7,7 +7,7 @@
     'media_file_name' => null,
 ])
 <!--  Component: CROP - Start -->
-    {{-- toto je vstupny input pre subor --}}
+    {{-- This is input field for File --}}
     <x-adminlte-input-file
         class="border-right-none"
         name="upload_crop_file"
@@ -36,37 +36,36 @@
         @enderror
     </x-adminlte-input-file>
 
-    {{-- toto je hidden input field kde sa ulozi finalna base64 --}}
+    {{-- This is hidden input field where is stored final string base64 --}}
     <input id="crop_base64_output" name="crop_base64_output" type="text" value="{{ old('crop_base64_output') }}" hidden>
 
-    {{-- toto je hidden input field kde sa ulozi názov pôvodného súboru --}}
+    {{-- This is hidden input field where is stored orginal file name string --}}
     <input id="crop_file_name" name="crop_file_name" type="text" value="{{ old('crop_file_name') }}" hidden>
 
-    {{-- toto je preview container toho co sa prave nahrava --}}
+    {{-- This is preview container --}}
     <div class="form-group ">
-        {{-- <label for="title">Náhľad</label> --}}
         <div class="preview-container">
             <img id="crop_preview" src="{{ old('crop_base64_output', empty($media_file_name) ? '' : $media_file_name->getFullUrl()) }}" alt="Po vložení obrázka tu bude zobrazený náhľad.">
         </div>
     </div>
 
-    {{-- toto je modálne okno pre zobrazenie croppera --}}
+    {{-- This is modal window toto for cropper --}}
     <div class="modal fade" id="crop_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered crop-modal">
             <div class="modal-content">
                 <div class="modal-body">
-                    {{-- toto je container kde ma fungovat cropper --}}
+                    {{-- container for cropper --}}
                     <div class="crop-container">
                         <img id="cropper_element">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    {{-- toto je button na vytvorenie cropu --}}
+                    {{-- button to create croped image --}}
                     <button id="crop_button" type="button" class="btn bg-gradient-orange px-5 mr-2">
                         <i class="fa-solid fa-crop-simple mr-1"></i>
                         Orezať
                     </button>
-                    {{-- toto je button cancel --}}
+                    {{-- cancel button --}}
                     <button id="crop_cancel_button" type="button" class="btn bg-gradient-danger px-5">
                         <i class="fa-solid fa-ban mr-1"></i>
                         Zrušiť
@@ -100,7 +99,6 @@
 @endpush
 
 @push('js')
-    {{-- tento skript tu ostane ako konkretne volanie funkcie --}}
     <script @nonce>
         watchImageUploader({
             minWidth        : {{ $minWidth }},
@@ -123,9 +121,9 @@
 @prepend('js')
     <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    {{-- tento skript definuje to co je potrebne a mozes si ho vytiahnut do suboru --}}
     <script @nonce>
-        /* config args: (int)minWidth, (int)minHeight, (bool)ratio, (int)maxSize, (id) input, output, preview, cropperContainer, cropButton, cancelCropButton */
+        /* config args: (int)minWidth, (int)minHeight, (bool)ratio, (int)maxSize,
+                        (attributes) input, output, preview, cropperContainer, cropButton, cancelCropButton, lastFileLabel */
         function watchImageUploader(config) {
 
             let lastFileName = $(config.lastFileLabel).html();
