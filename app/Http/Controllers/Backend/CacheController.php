@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Setting;
+use Spatie\Valuestore\Valuestore;
 use App\Services\CrawlUrlsService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -43,23 +43,27 @@ class CacheController extends Controller
     }
 
     public function cacheDataStart(): RedirectResponse {
-        // Setting::set('cache.default', 'file');
-        Setting::set('cache.default', 'database');
+        Valuestore::make(config('farnost-detva.value_store'))
+            ->put('config.cache.default', 'database');
+
         Artisan::call('cache:clear');
         toastr()->info(__('app.cache.data-start'));
         return to_route('admin.dashboard');
     }
 
     public function cacheDataStop(): RedirectResponse {
-        Setting::set('cache.default', 'none');
+        Valuestore::make(config('farnost-detva.value_store'))
+        ->put('config.cache.default', 'none');
+
         Artisan::call('cache:clear');
         toastr()->info(__('app.cache.data-stop'));
         return to_route('admin.dashboard');
     }
 
     public function cacheDataReset(): RedirectResponse {
-        // Setting::set('cache.default', 'file');
-        Setting::set('cache.default', 'database');
+        Valuestore::make(config('farnost-detva.value_store'))
+            ->put('config.cache.default', 'database');
+
         Artisan::call('cache:clear');
         toastr()->info(__('app.cache.data-reset'));
         return to_route('admin.dashboard');
@@ -104,6 +108,8 @@ class CacheController extends Controller
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
 
+        Valuestore::make(config('farnost-detva.value_store'))->put('config.b', 'B value');
+        dd(Valuestore::make(config('farnost-detva.value_store'))->allStartingWith('config'));
 
         toastr()->info(__('Novinka otestovaná'));
         return to_route('admin.dashboard');

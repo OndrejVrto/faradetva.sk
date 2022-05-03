@@ -4,6 +4,8 @@ return [
     // TODO: declare mails in .env
     'mail_contact_form' => 'detva@fara.sk',
 
+    'value_store' => storage_path('app\value-store\config.json'),
+
     'guery_loging' => env('QUERY_LOG', false),
 
     'google_api_key' => env('GOOGLE_MAP_API_KEY'),
