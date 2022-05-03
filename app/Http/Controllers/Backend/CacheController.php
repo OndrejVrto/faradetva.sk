@@ -53,7 +53,7 @@ class CacheController extends Controller
 
     public function cacheDataStop(): RedirectResponse {
         Valuestore::make(config('farnost-detva.value_store'))
-        ->put('config.cache.default', 'none');
+            ->put('config.cache.default', 'none');
 
         Artisan::call('cache:clear');
         toastr()->info(__('app.cache.data-stop'));

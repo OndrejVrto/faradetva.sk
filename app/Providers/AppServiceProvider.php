@@ -26,9 +26,9 @@ class AppServiceProvider extends ServiceProvider
             Paginator::useBootstrap();
 
             //! rewrite some global site setting from ValueStore Json
-            $configSettings = Valuestore::make(config('farnost-detva.value_store'))->allStartingWith('config');
+            $configSettings = Valuestore::make(config('farnost-detva.value_store'))->allStartingWith('config.');
             foreach ($configSettings as $key => $value) {
-                Config::set($key, $value);
+                Config::set(Str::after($key, 'config.'), $value);
             }
 
             //! Blade extensions
