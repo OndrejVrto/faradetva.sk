@@ -22,7 +22,7 @@
 
                     <hr>
                     <div class="mt-3 h5">História</div>
-                    <li><a href="#">História</a></li>
+                    <li><a href="{{ url('o-nas/historia') }}">História</a></li>
                     <li><a href="#">Duchovné povolania</a></li>
                     <li><a href="#">Kňazi pochovaní v Detve</a></li>
                     <li><a href="#">Štatistiky od r. 2000</a></li>
