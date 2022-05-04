@@ -2,7 +2,9 @@
 
 
 return [
-    'size_limit' => '6000', // in bytes
-    'base_path' => '/',
-    'exclude_keywords' => []
+    'size_limit' => '12000', // in bytes
+    'base_path' => config('app.url') .'/',
+    'exclude_keywords' => [
+        'site.webmanifest',
+    ]
 ];
