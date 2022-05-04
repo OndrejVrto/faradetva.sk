@@ -8,13 +8,10 @@ use Closure;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Cache;
+use Spatie\Valuestore\Valuestore;
 
 class AddResponseHeadersMiddleware
 {
-    /**
-     * Handle an incoming request.
-     */
     public function handle(Request $request, Closure $next) {
 
         $response = $next($request)
@@ -28,7 +25,10 @@ class AddResponseHeadersMiddleware
             ->header('Referrer-Policy', 'strict-origin-when-cross-origin')
             ->header('Feature-Policy', "microphone 'none'; camera 'none'; geolocation 'none';");
 
-        if ($time = Cache::get('___LAST_MODIFIED')) {
+        $store = Valuestore::make(config('farnost-detva.value_store'));
+
+        if ($store->has('___LAST_MODIFIED') ) {
+            $time = (int)$store->get('___LAST_MODIFIED');
             $modifiedSince = $request->headers->get('If-Modified-Since');
 
             if ($modifiedSince && $time <= strtotime($modifiedSince)) {
@@ -37,8 +37,8 @@ class AddResponseHeadersMiddleware
                 $response->header('Last-Modified', gmdate("D, d M Y H:i:s", $time)." GMT");
             }
         } else {
-            Cache::forever('___LAST_MODIFIED', Carbon::now()->timestamp);
-            Cache::forever('___RELOAD', true);
+            $store->put('___LAST_MODIFIED', Carbon::now()->timestamp);
+            $store->put('___RELOAD', true);
         }
 
         return $response;
