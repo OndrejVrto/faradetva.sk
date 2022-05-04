@@ -155,25 +155,34 @@ Project: Church
 
     //window load function
 	$(window).on("load", function () {
-		$(".preloader").fadeOut("slow").delay("300");
+		// $(".preloader").fadeOut("slow").delay("300");
+		$(".preloader").fadeOut("slow");
 	});
 
 	//window scroll function
 	$(window).on('scroll', function () {
-		var wind_scroll = $(window).scrollTop();
+        // if($(this).scrollTop() !== 0) {
+        //     $('#toTop').fadeIn(400);
+        // } else {
+        //     $('#toTop').fadeOut(1000);
+        // }
+
+        var wind_scroll = $(window).scrollTop();
 		var slider_height = $(".ch_slider_wrapper").outerHeight();
 		var slider_div = $(".ch_slider_wrapper");
-		if (wind_scroll > slider_height && slider_div.length > 0) {
+
+        if (wind_scroll > slider_height && slider_div.length > 0) {
 			$('.header_menu_section').addClass('sticky_header');
-		}
-		else if (wind_scroll > 200) {
+		} else if (wind_scroll > 200) {
 			$('.header_menu_section').addClass('sticky_header');
-		}
-		else {
+		} else {
 			$('.header_menu_section').removeClass('sticky_header');
 		}
-		// console.log(slider_height);
 	});
+
+    $('#toTop').on('click', function(){
+        $('body,html').animate({scrollTop:0}, 1000);
+    });
 
 	$('#search-form').on('submit', function(event) {
 		event.preventDefault();
@@ -192,5 +201,4 @@ Project: Church
 		var search_frase_B = $('#inputSearch2').val();
 		window.location.replace('/hladat/' + search_frase_B);
 	})
-
 })(jQuery);

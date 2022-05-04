@@ -50,6 +50,9 @@
 
     <x-frontend.sections.footer />
 
+    <!-- BUTTON for Scroll up -->
+    <a id="toTop">&#10148;</a>
+
     <x-frontend.sections.search-global />
 
     <x-slot name="css_general">
