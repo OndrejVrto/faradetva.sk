@@ -114,7 +114,7 @@ class AddHttp2ServerPush
 
         $baseUrl = $crawler->getBaseHref();
         $actualUrlFromCannonicalLink = $crawler->filter('link[rel="canonical"]')->extract(['href'])[0] ?? '';
-        preg_match_all("/src: url\((.*\.woff2)\)/m", $response->getOriginalContent(), $woffFontsLinks);
+        preg_match_all("/src: url\((.*?)\)/sm", $response->getOriginalContent(), $woffFontsLinks);
 
         return collect([
                 $crawler->filter('link:not([rel*="icon"]), script[src], img[src], object[data]')->extract(['src', 'href', 'data']),
