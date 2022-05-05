@@ -18,7 +18,11 @@ use Spatie\MediaLibrary\Support\MediaStream;
 class GalleryController extends Controller
 {
     public function index(): View {
-        $galleries = Gallery::latest()->with('media', 'source')->withCount('picture')->paginate(5);
+        $galleries = Gallery::query()
+            ->latest()
+            ->with('media', 'source')
+            ->withCount('picture')
+            ->paginate(5);
 
         return view('backend.galleries.index', compact('galleries'));
     }
