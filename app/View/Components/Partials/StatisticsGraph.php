@@ -5,7 +5,6 @@ namespace App\View\Components\Partials;
 use App\Models\Chart;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Cache;
 
 class StatisticsGraph extends Component
 {
@@ -18,10 +17,11 @@ class StatisticsGraph extends Component
         $listOfGraphs = prepareInput($names);
 
         if ($listOfGraphs) {
-            $cacheName = getCacheName($listOfGraphs);
-
-            $this->graphs = Cache::rememberForever('CHART_'.$cacheName, function () use ($listOfGraphs) {
-                return Chart::whereIn('slug', $listOfGraphs)->with('data')->get()->map(function ($chart) {
+            $this->graphs = Chart::query()
+                ->whereIn('slug', $listOfGraphs)
+                ->with('data')
+                ->get()
+                ->map(function ($chart) {
                     return [
                         'id' => $chart->id,
                         'title' => $chart->title,
@@ -34,7 +34,6 @@ class StatisticsGraph extends Component
                         'dataGraph' => $chart->data->pluck('value')->implode(','),
                     ];
                 });
-            });
         }
     }
 

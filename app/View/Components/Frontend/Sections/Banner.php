@@ -7,7 +7,6 @@ use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Banner as BannerModel;
-use Illuminate\Support\Facades\Cache;
 
 class Banner extends Component
 {
@@ -20,7 +19,10 @@ class Banner extends Component
         public null|string $dimensionSourceBanner = "full",
     ) {
         if(is_null($titleSlug)){
-            $titleSlug = BannerModel::select('slug')->pluck('slug')->toArray();
+            $titleSlug = BannerModel::query()
+                ->select('slug')
+                ->pluck('slug')
+                ->toArray();
         }
 
         if(is_null($titleSlug)){
@@ -45,10 +47,13 @@ class Banner extends Component
     }
 
     private function getBanner(string $slug): array {
-        return Cache::rememberForever('BANNER_'.$slug, function() use($slug): array {
-            return BannerModel::whereSlug($slug)->with('media', 'source')->get()->map(function($img): array {
+        return BannerModel::query()
+            ->whereSlug($slug)
+            ->with('media', 'source')
+            ->get()
+            ->map(function($img): array {
                 return [
-                    'id'                => $img->id,
+                    'id' => $img->id,
 
                     'extra_small_image' => $img->getFirstMediaUrl('banner', 'extra-small'),
                     'small_image'       => $img->getFirstMediaUrl('banner', 'small'),
@@ -66,8 +71,8 @@ class Banner extends Component
                         'source_license_url'   => $img->source->source_license_url,
                     ],
                 ];
-            })->first();
-        });
+            })
+            ->first();
     }
 
     private function getName(string|array $namesBanners): string {

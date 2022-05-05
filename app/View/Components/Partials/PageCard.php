@@ -6,7 +6,6 @@ use Spatie\Image\Image;
 use App\Models\StaticPage;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Cache;
 
 class PageCard extends Component
 {
@@ -18,10 +17,11 @@ class PageCard extends Component
         $listOfPages = prepareInput($routeStaticPages);
 
         if ($listOfPages) {
-            $cacheName = getCacheName($listOfPages);
-
-            $this->pageCards = Cache::rememberForever('PAGE_CARDS_'.$cacheName, function () use($listOfPages) {
-                return StaticPage::whereIn('route_name',$listOfPages)->with('picture', 'source')->get()->map(function($page) {
+            $this->pageCards = StaticPage::query()
+                ->whereIn('route_name',$listOfPages)
+                ->with('picture', 'source')
+                ->get()
+                ->map(function($page) {
                     $media = $page->picture[0];
                     return  [
                         'id'              => $page->id,
@@ -50,7 +50,6 @@ class PageCard extends Component
                         ],
                     ];
                 });
-            });
         }
     }
 

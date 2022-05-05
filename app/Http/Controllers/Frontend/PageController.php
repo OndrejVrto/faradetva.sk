@@ -17,7 +17,6 @@ use Spatie\SchemaOrg\ImageObject;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Cache;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Artesaos\SEOTools\Facades\OpenGraph;
@@ -58,8 +57,11 @@ class PageController extends Controller
 
     /** get Page Data for One nod in URL and Cache it **/
     private function getPageData(string $path): array|null {
-        return Cache::rememberForever('PAGE_' . Str::slug(Str::replace('/', '-', $path)), function () use($path): array|null {
-            return StaticPage::whereUrl($path)->with('picture', 'source', 'banners', 'faqs')->get()->map(function($page): array {
+        return StaticPage::query()
+            ->whereUrl($path)
+            ->with('picture', 'source', 'banners', 'faqs')
+            ->get()
+            ->map(function($page): array {
                 $media = $page->picture[0];
                 return  [
                     'id'              => $page->id,
@@ -98,8 +100,8 @@ class PageController extends Controller
                     'img-license'     => $page->source->source_license,
                     'img-license_url' => $page->source->source_license_url,
                 ];
-            })->first();
-        });
+            })
+            ->first();
     }
 
     /** create full route name **/

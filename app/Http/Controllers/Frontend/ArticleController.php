@@ -10,44 +10,46 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use App\Services\FilePropertiesService;
+
+// TODO:  add SEO META headers to all methods
+// TODO:  refactor Title in all methods to View::composer
 
 class ArticleController extends Controller
 {
     private $viewIndex = 'frontend.article.index';
 
-    // TODO:  add SEO META headers to all methods
-
     public function show($slug): View  {
-        $oneNews = News::visible()
-                        ->whereSlug($slug)
-                        ->with('media', 'category', 'tags', 'user')
-                        ->firstOrFail();
-        $attachments = (new FilePropertiesService)->allNewsAttachmentData($oneNews);
-        $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
+        $oneNews = News::query()
+            ->visible()
+            ->whereSlug($slug)
+            ->with('media', 'category', 'tags', 'user')
+            ->firstOrFail();
 
-        $lastNews = Cache::remember('NEWS_LAST', config('farnost-detva.cache_duration.news'), function () {
-            return  News::visible()
-                        ->take(3)
-                        ->with('media')
-                        ->get();
-        });
-        $allCategories = Cache::remember('CATEGORIES_ALL', config('farnost-detva.cache_duration.news'), function () {
-            return Category::withCount('news')->get();
-        });
-        $allTags = Cache::remember('TAGS_ALL', config('farnost-detva.cache_duration.news'), function () {
-            return Tag::withCount('news')->get();
-        });
+        $lastNews = News::query()
+            ->visible()
+            ->take(3)
+            ->with('media')
+            ->get();
+
+        $allCategories = Category::query()
+            ->withCount('news')
+            ->get();
+
+        $allTags = Tag::query()
+            ->withCount('news')
+            ->get();
+
+        $attachments = (new FilePropertiesService)->allNewsAttachmentData($oneNews);
+
+        $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
 
         return view('frontend.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
     }
 
     public function indexAll(): View  {
-        $articles = Cache::remember('NEWS_ALL_PAGE-' . request('page', 1), config('farnost-detva.cache_duration.news'), function () {
-            return News::newsComplete();
-        });
+        $articles = News::newsComplete();
         $title = __('frontend-texts.articles-title.all');
         $breadCrumb = (string) Breadcrumbs::render('articles.all', true);
         $emptyTitle = ['name'=> 'V článkoch', 'value' => ''];

@@ -4,11 +4,8 @@ namespace App\View\Components\Partials;
 
 use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Schema;
-use App\Overides\CustomJsonLd;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
-use Artesaos\SEOTools\Facades\JsonLd;
-use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
 
 class Picture extends Component
@@ -56,9 +53,11 @@ class Picture extends Component
         $this->side = in_array($side, self::SIDE) ? $side : 'right';
         $this->animation = in_array($animation, self::ANIMATION_TYPE) ? $animation : 'fromright';
 
-        $this->picture = Cache::rememberForever('PICTURE_'.$titleSlug, function () use($titleSlug) {
-            return PictureModel::whereSlug($titleSlug)->with('mediaOne', 'source')->get()->map(function($img){
-
+        $this->picture = PictureModel::query()
+            ->whereSlug($titleSlug)
+            ->with('mediaOne', 'source')
+            ->get()
+            ->map(function($img) {
                 $colectionName = $img->mediaOne->collection_name;
                 $media = $img->getFirstMedia($colectionName);
                 // $height = Image::load( $media->getPath('optimize') )->getHeight();
@@ -90,8 +89,8 @@ class Picture extends Component
                         'source_license_url' => $img->source->source_license_url,
                     ],
                 ];
-            })->first();
-        });
+            })
+            ->first();
 
         $this->setSeoMetaTags($this->picture);
     }
