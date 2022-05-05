@@ -9,9 +9,16 @@ use App\Services\CrawlUrlsService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
+use Spatie\ResponseCache\Facades\ResponseCache;
 
 class CacheController extends Controller
 {
+    private $valueStorage;
+
+    public function __construct() {
+        $this->valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+    }
+
     public function cachesStart(): RedirectResponse {
         Artisan::call('view:cache');
         Artisan::call('optimize');
@@ -38,33 +45,37 @@ class CacheController extends Controller
         Artisan::call('permission:cache-reset');
         Artisan::call('schedule:clear-cache');
         Artisan::call('debugbar:clear');
+
         toastr()->info(__('app.cache.reset'));
         return to_route('admin.dashboard');
     }
 
     public function cacheDataStart(): RedirectResponse {
-        Valuestore::make(config('farnost-detva.value_store'))
-            ->put('config.cache.default', 'database');
+        $this->valueStorage->put('config.cache.default', 'database');
+        $this->valueStorage->put('config.responsecache.enabled', true);
 
+        ResponseCache::clear();
         Artisan::call('cache:clear');
+
         toastr()->info(__('app.cache.data-start'));
         return to_route('admin.dashboard');
     }
 
     public function cacheDataStop(): RedirectResponse {
-        Valuestore::make(config('farnost-detva.value_store'))
-            ->put('config.cache.default', 'none');
+        $this->valueStorage->put('config.cache.default', 'none');
+        $this->valueStorage->put('config.responsecache.enabled', false);
 
+        ResponseCache::clear();
         Artisan::call('cache:clear');
+
         toastr()->info(__('app.cache.data-stop'));
         return to_route('admin.dashboard');
     }
 
     public function cacheDataReset(): RedirectResponse {
-        Valuestore::make(config('farnost-detva.value_store'))
-            ->put('config.cache.default', 'database');
-
+        ResponseCache::clear();
         Artisan::call('cache:clear');
+
         toastr()->info(__('app.cache.data-reset'));
         return to_route('admin.dashboard');
     }
@@ -108,8 +119,6 @@ class CacheController extends Controller
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
 
-        Valuestore::make(config('farnost-detva.value_store'))->put('config.b', 'B value');
-        dd(Valuestore::make(config('farnost-detva.value_store'))->allStartingWith('config'));
 
         toastr()->info(__('Novinka otestovaná'));
         return to_route('admin.dashboard');
