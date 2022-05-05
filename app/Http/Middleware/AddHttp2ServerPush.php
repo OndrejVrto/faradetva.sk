@@ -56,11 +56,9 @@ class AddHttp2ServerPush
     {
         $excludeKeywords = $excludeKeywords ?? $this->getConfig('exclude_keywords', []);
         $headers = $this->fetchLinkableNodes($response)
-            ->flatten(1)
             ->map(function ($url) {
                 return $this->buildLinkHeaderString($url);
             })
-            ->unique()
             ->filter(function($value, $key) use ($excludeKeywords){
                 if(!$value) return false;
                 $exclude_keywords = collect($excludeKeywords)->map(function ($keyword) {
@@ -114,7 +112,17 @@ class AddHttp2ServerPush
     {
         $crawler = $this->getCrawler($response);
 
-        return collect($crawler->filter('link:not([rel*="icon"]), script[src], img[src], object[data]')->extract(['src', 'href', 'data']));
+        $baseUrl = $crawler->getBaseHref();
+        $actualUrlFromCannonicalLink = $crawler->filter('link[rel="canonical"]')->extract(['href'])[0] ?? '';
+        preg_match_all("/src: url\((.*?)\)/sm", $response->getOriginalContent(), $woffFontsLinks);
+
+        return collect([
+                $crawler->filter('link:not([rel*="icon"]), script[src], img[src], object[data]')->extract(['src', 'href', 'data']),
+                $woffFontsLinks[1]
+            ])
+            ->flatten()
+            ->unique()
+            ->reject(fn ($value) => $value == $baseUrl OR $value == $actualUrlFromCannonicalLink OR !$value);
     }
 
     /**
@@ -127,15 +135,16 @@ class AddHttp2ServerPush
     private function buildLinkHeaderString($url)
     {
         $linkTypeMap = [
-            '.CSS'  => 'style',
-            '.JS'   => 'script',
-            '.BMP'  => 'image',
-            '.GIF'  => 'image',
-            '.JPG'  => 'image',
-            '.JPEG' => 'image',
-            '.PNG'  => 'image',
-            '.SVG'  => 'image',
-            '.TIFF' => 'image',
+            '.CSS'   => 'style',
+            '.JS'    => 'script',
+            '.BMP'   => 'image',
+            '.GIF'   => 'image',
+            '.JPG'   => 'image',
+            '.JPEG'  => 'image',
+            '.PNG'   => 'image',
+            '.SVG'   => 'image',
+            '.TIFF'  => 'image',
+            '.WOFF2' => 'font',
         ];
 
         $type = collect($linkTypeMap)->first(function ($type, $extension) use ($url) {
@@ -148,7 +157,7 @@ class AddHttp2ServerPush
 
         if(!preg_match('%^(https?:)?//%i', $url)) {
             $basePath = $this->getConfig('base_path', '/');
-            $url = $basePath . ltrim($url, $basePath);
+            $url = $basePath . ltrim($url, '/');
         }
 
         return is_null($type) ? null : "<{$url}>; rel=preload; as={$type}";

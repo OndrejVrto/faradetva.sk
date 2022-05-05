@@ -1,4 +1,5 @@
 Obsah stránky:
+  ☐ vytvoriť komponent čistého obrázka
   ☐ vytvoriť logo a ikonu stránky / farnosti
   ☐ zoradiť stránky podľa zoznamu od Mariana
   ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
@@ -8,6 +9,7 @@ Obsah stránky:
   ☐ webpack mix -> všetko v jenom css a js pre frontend aj backend
   ☐ doplniť do všetkých obrázkov height a width
   ☐ facebook prepojenie - počet likes FB stránky farnosti
+  ✔ na spodok stránky pridať tlačítko na odskrolovanie nahor
   ✔ dorobiť texty od Mariána
   ✔ spoločenstvá - zoznam ako sekcia
   ✔ osobnosti - zoznam ako sekcia
@@ -39,6 +41,10 @@ Administrátorské rozhranie:
   https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
   https://github.com/fidum/laravel-dashboard-chart-tile
   https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
+  ✔ refaktorovať Cache vo všetkých komponentoch
+  ✔ pridať čistenie všetkých dočasných adresárov
+  ✔ prehodiť crawlery z Listener-a do Schedule-ra a Job-ov
+  ✔ implementovať ukladanie dočasných premenných mimo databázu
   ✔ prepísať názvy polí Source tak aby nekolidovali z inými @started(22-05-02 15:10) @done(22-05-02 17:49) @lasted(2h39m29s)
   ✔ storage media in Storage folder and create link
   ✔ premazať všetky nepotrebné obrázky v public/images
@@ -79,6 +85,7 @@ Administrátorské rozhranie:
   ✘ automatické zverejnenie článku na FaceBooku po zverejnení na stránke
 
 SEO:
+  ✔ implementovať Cookie oznam
   ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
   ✔ Generovať Sitemap (https://github.com/ultrono/laravel-sitemap,  laravelium/sitemap alebo spatie)
   ☐ vylepšiť sitemap, prioritu, čas poslednej aktualizácie aj spustenie crawlera

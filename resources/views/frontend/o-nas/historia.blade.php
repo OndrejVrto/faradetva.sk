@@ -6,7 +6,7 @@
                 <div class="col-md-6 col-xs-12">
                     <div class="ch_about_thumb fromleft wow">
                         {{-- <img src="images/about/about-thumb2.jpg" alt="" class="img-fluid"> --}}
-                        <x-partials.picture titleSlug="et-id-unde-velit-vo-xxx" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/>
+                        {{-- <x-partials.picture titleSlug="et-id-unde-velit-vo-xxx" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/> --}}
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
@@ -15,7 +15,7 @@
                         <p class="text-justify">
                             Podpoľanie je oblasť situovaná na južných a juhovýchodných svahoch najvyššieho sopečného pohoria na Slovensku - Poľany, územie na rozhraní medzi Slovenským rudohorím a Slovenským stredohorím. Roztratené osídlenie po svahoch nečinného vulkánu predstavuje špecifiká, ktoré výrazne ovplyvňovali život miestnych obyvateľov. Táto rozsiahla časť Zvolenskej kotliny dostala svoj rázovitý charakter vďaka kopaničiarskej kolonizácii 17. storočia. Centrom tejto kolonizácie na území Vígľašského panstva sa stala Detva, ktorá bola založená priamo na podnet svojho zemepána. Sťahovali sa sem obyvatelia okolitých dedín, klčovali lesy na okolí majera a stavali si domy. Farnosť v Detve bola oficiálne zriadená v roku 1644.
                         </p>
-                        <a href="{{ url('o-nas/historia/dejiny-farnosti') }}" class="about_btn read_btn">Čítať ďalej</a>
+                        <a href="{{ secure_url('o-nas/historia/dejiny-farnosti') }}" class="about_btn read_btn">Čítať ďalej</a>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="blog_item_cover frombottom wow">
                 <div class="blog_thumb">
-                    <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/>
+                    {{-- <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/> --}}
                     {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
                     <!-- overlay -->
                     <div class="blog_overlay">
@@ -100,7 +100,7 @@
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="blog_item_cover frombottom wow">
                 <div class="blog_thumb">
-                    <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/>
+                    {{-- <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/> --}}
                     {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
                     <!-- overlay -->
                     <div class="blog_overlay">
@@ -123,7 +123,7 @@
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="blog_item_cover frombottom wow">
                 <div class="blog_thumb">
-                    <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/>
+                    {{-- <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/> --}}
                     {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
                     <!-- overlay -->
                     <div class="blog_overlay">

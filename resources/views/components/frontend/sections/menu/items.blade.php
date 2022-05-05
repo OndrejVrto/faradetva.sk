@@ -1,8 +1,8 @@
-<li><a href="{{ url('test') }}" class="text-muted"><em><small>Test</small></em></a></li>
-<li><a href="{{ url('zoznam-statickych-stranok') }}" class="text-muted"><em><small>Podstránky</small></em></a></li>
+<li><a href="{{ secure_url('test') }}" class="text-muted"><em><small>Test</small></em></a></li>
+<li><a href="{{ secure_url('zoznam-statickych-stranok') }}" class="text-muted"><em><small>Podstránky</small></em></a></li>
 
 
-<li><a href="{{ url('oznamy-vsetky') }}">Oznamy</a></li>
+<li><a href="{{ secure_url('oznamy-vsetky') }}">Oznamy</a></li>
 <li><a href="{{ route('article.all') }}">Články</a></li>
 
 {{-- <li>
@@ -14,7 +14,7 @@
         <!-- Kňazi pochovaní v Detve  -->
         <!-- Kňazi pôsobiaci v Detve  -->
         <!-- Štatistiky od roku 2010  -->
-        <li><a href="{{ url('o-nas/patron-farnosti') }}">Patrón farnosti</a></li>
+        <li><a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a></li>
         <li><a href="#">Sakrálne objekty</a></li>
         <!-- Kostoly  -->
         <!-- Kostol sv.Františka Assiského v Detve  -->
@@ -30,7 +30,7 @@
     </ul>
 </li> --}}
 
-<li><a href="{{ url('spolocenstva') }}">Spoločenstvá</a></li>
+<li><a href="{{ secure_url('spolocenstva') }}">Spoločenstvá</a></li>
     <!-- Bosé karmelitánky  -->
     <!-- Tretí rád OCD  -->
     <!-- Tretí rád OFM  -->
@@ -64,7 +64,7 @@
     </ul>
 </li> --}}
 
-<li><a href="{{ url('kontakty') }}">Kontakty</a></li>
+<li><a href="{{ secure_url('kontakty') }}">Kontakty</a></li>
 <li class="search_icon">
     <!-- Button trigger modal -->
     <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fas fa-search"></i></span>

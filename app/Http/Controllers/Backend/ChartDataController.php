@@ -14,7 +14,10 @@ use App\Http\Requests\ChartDataRequest;
 class ChartDataController extends Controller
 {
     public function index(Chart $chart): View {
-        $data = ChartData::where('chart_id', $chart->id)->latest('key')->paginate(25);
+        $data = ChartData::query()
+            ->where('chart_id', $chart->id)
+            ->latest('key')
+            ->paginate(25);
 
         return view('backend.chart-data.index', compact('chart', 'data'));
     }

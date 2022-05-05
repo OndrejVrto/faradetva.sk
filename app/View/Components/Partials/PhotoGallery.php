@@ -8,7 +8,6 @@ use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Spatie\SchemaOrg\ImageGallery;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Cache;
 
 class PhotoGallery extends Component
 {
@@ -30,9 +29,12 @@ class PhotoGallery extends Component
     }
 
     private function getGallery($slug): array {
-        return Cache::rememberForever('GALLERY_'.$slug, function () use($slug): array {
-            return Gallery::whereSlug($slug)->with('media', 'source')->get()->map(function($album): array {
-                foreach ($album->picture as $pic ) {
+        return Gallery::query()
+            ->whereSlug($slug)
+            ->with('media', 'source')
+            ->get()
+            ->map(function($album): array {
+                foreach ($album->picture as $pic) {
                     $picture['picture'][] = [
                         'href' => $pic->getUrl(),
                         'title' => $pic->name,
@@ -54,8 +56,6 @@ class PhotoGallery extends Component
                     ],
                 ];
             })->first();
-        });
-
     }
 
     private function setSeoMetaTags(array $album): void {

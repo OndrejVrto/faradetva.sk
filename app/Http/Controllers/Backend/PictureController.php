@@ -15,7 +15,10 @@ use Illuminate\Http\RedirectResponse;
 class PictureController extends Controller
 {
     public function index(): View {
-        $pictures = Picture::latest('updated_at')->with('media', 'source')->paginate(5);
+        $pictures = Picture::query()
+            ->latest('updated_at')
+            ->with('media', 'source')
+            ->paginate(5);
 
         return view('backend.pictures.index', compact('pictures'));
     }

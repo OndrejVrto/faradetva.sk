@@ -1,9 +1,23 @@
 {
-    "name": "laravel/laravel",
+    "name": "ondrej-vrto/faradetva.sk",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "Web page faradetva.sk",
+    "keywords": [
+        "church",
+        "religion",
+        "Web page",
+        "Laravel"
+    ],
+    "homepage": "https://faradetva.sk",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Ing. Ondrej VRŤO, IWE",
+            "email": "ondrej.vrto@gmail.com",
+            "homepage": "https://ondrejvrto.eu",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^8.0.2",
         "artesaos/seotools": "^0.22.0",
@@ -32,6 +46,7 @@
         "spatie/laravel-google-fonts": "^1.2",
         "spatie/laravel-medialibrary": "^10.0",
         "spatie/laravel-permission": "^5.5",
+        "spatie/laravel-responsecache": "^7.2",
         "spatie/laravel-site-search": "^1.2.0",
         "spatie/laravel-sitemap": "^6.1",
         "spatie/schema-org": "^3.10",
@@ -66,6 +81,7 @@
 		"files": [
             "app/Overrides/toastr/ToastrServiceProvider.php",
             "app/Overrides/toastr/Toastr.php",
+            "app/Overrides/spatie/SiteSearch.php",
 
 			"app/Http/Helpers/BeautifyHtml.php",
 			"app/Http/Helpers/DataFormater.php",

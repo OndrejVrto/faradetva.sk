@@ -7,32 +7,30 @@ namespace App\Jobs;
 use Spatie\Crawler\Crawler;
 use Illuminate\Bus\Queueable;
 use GuzzleHttp\RequestOptions;
-use App\Crawler\CustomCrawlProfile;
+use Spatie\Valuestore\Valuestore;
+use Illuminate\Support\Facades\DB;
+use App\Crawler\UrlCheckCrawlProfile;
+use Illuminate\Support\Facades\File;
+use Illuminate\Queue\SerializesModels;
 use App\Crawler\UrlCheckCrawlerObserver;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
 
-class CheckUrlsJob implements ShouldQueue
+class UrlsCheckJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Queueable;
+    use Dispatchable;
+    use SerializesModels;
+    use InteractsWithQueue;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct() {
-        //
-    }
-
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle() {
+        Valuestore::make(config('farnost-detva.value_store'))->put('___RELOAD', false);
+
+        File::delete(storage_path('/logs/laravel.log'));
+        // File::delete(storage_path('/logs/query.log'));
+
+        DB::select('UPDATE `static_pages` SET `check_url` = NULL WHERE `check_url` = 1;');
 
         $crawlerClientOptions = [
             RequestOptions::COOKIES => true,
@@ -46,10 +44,9 @@ class CheckUrlsJob implements ShouldQueue
         ];
 
         Crawler::create($crawlerClientOptions)
-            ->setCrawlProfile(new CustomCrawlProfile(config('app.url')))
+            ->setConcurrency(10)
             ->setCrawlObserver(new UrlCheckCrawlerObserver())
-            ->setUserAgent('fara-detva-crawl')
-            ->setConcurrency(20)
+            ->setCrawlProfile(new UrlCheckCrawlProfile(config('app.url')))
             ->startCrawling(config('app.url'));
     }
 }

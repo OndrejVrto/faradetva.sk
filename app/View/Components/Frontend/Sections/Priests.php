@@ -8,7 +8,6 @@ use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Priest as PriestModel;
-use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
 
 class Priests extends Component
@@ -28,41 +27,41 @@ class Priests extends Component
     }
 
     private function getPriests(): array {
-        return Cache::rememberForever('PRIESTS', function(): array {
-            return PriestModel::whereActive(1)
-                ->with('media')
-                ->get()
-                ->map(function($priest): array {
+        return PriestModel::query()
+            ->whereActive(1)
+            ->with('media')
+            ->get()
+            ->map(function($priest): array {
 
-                    $colectionName = $priest->media[0]->collection_name;
-                    $media = $priest->getFirstMedia($colectionName);
+                $colectionName = $priest->media[0]->collection_name;
+                $media = $priest->getFirstMedia($colectionName);
 
-                    return [
-                        'id'                => $priest->id,
+                return [
+                    'id'                => $priest->id,
 
-                        'titles_before'     => $priest->titles_before,
-                        'first_name'        => $priest->first_name,
-                        'last_name'         => $priest->last_name,
-                        'titles_after'      => $priest->titles_after,
-                        'full_name_titles'  => $priest->full_name_titles,
+                    'titles_before'     => $priest->titles_before,
+                    'first_name'        => $priest->first_name,
+                    'last_name'         => $priest->last_name,
+                    'titles_after'      => $priest->titles_after,
+                    'full_name_titles'  => $priest->full_name_titles,
 
-                        'phone'             => $priest->phone,
-                        'phone_digits'      => $priest->phone_digits,
-                        'email'             => $priest->email,
-                        'personal_url'      => null,  //TODO:
-                        'facebook'          => null,  //TODO:
-                        'twitter'           => null,  //TODO:
+                    'phone'             => $priest->phone,
+                    'phone_digits'      => $priest->phone_digits,
+                    'email'             => $priest->email,
+                    'personal_url'      => null,  //TODO:
+                    'facebook'          => null,  //TODO:
+                    'twitter'           => null,  //TODO:
 
-                        'function'          => $priest->function,
-                        'img-url'           => $media->getUrl('crop'),
-                        'img-height'        => Image::load( $media->getPath('crop') )->getHeight(),
-                        'img-width'         => Image::load( $media->getPath('crop') )->getWidth(),
+                    'function'          => $priest->function,
+                    'img-url'           => $media->getUrl('crop'),
+                    'img-height'        => Image::load( $media->getPath('crop') )->getHeight(),
+                    'img-width'         => Image::load( $media->getPath('crop') )->getWidth(),
 
-                        'description_clean' => $priest->description,
-                        'description'       => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
-                    ];
-            })->toArray();
-        });
+                    'description_clean' => $priest->description,
+                    'description'       => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
+                ];
+        })
+        ->toArray();
     }
 
     private function setSeoMetaTags(array $priestData): void {

@@ -39,6 +39,14 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
+        'fast_web' => [
+            'header.http2.link',
+            'csp.headers',
+            'response.headers',
+            'preety.html',
+            'cacheResponse',
+        ],
+
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
@@ -61,6 +69,9 @@ class Kernel extends HttpKernel
         'auth.basic'         => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 
+        'cacheResponse'      => \Spatie\ResponseCache\Middlewares\CacheResponse::class,
+        'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
+
         'csp.headers'        => \Spatie\Csp\AddCspHeaders::class,
         'auth'               => \App\Http\Middleware\Authenticate::class,
         'can'                => \Illuminate\Auth\Middleware\Authorize::class,
@@ -69,7 +80,6 @@ class Kernel extends HttpKernel
         'preety.html'        => \App\Http\Middleware\PreetyHtmlMiddleware::class,
         'cache.headers'      => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'guest'              => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'cache.response'     => \App\Http\Middleware\CacheResponseMiddleware::class,
         'throttle'           => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'response.headers'   => \App\Http\Middleware\AddResponseHeadersMiddleware::class,
     ];

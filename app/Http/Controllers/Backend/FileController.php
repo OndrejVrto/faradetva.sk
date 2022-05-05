@@ -16,7 +16,10 @@ use App\Services\FilePropertiesService;
 class FileController extends Controller
 {
     public function index(): View {
-        $paginator = File::with('media','source')->latest()->paginate(10);
+        $paginator = File::query()
+            ->with('media','source')
+            ->latest()
+            ->paginate(10);
         $files = (new FilePropertiesService())->allFileData($paginator->items());
 
         return view('backend.files.index', compact('paginator', 'files'));

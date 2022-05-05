@@ -11,10 +11,12 @@ use App\Http\Controllers\Controller;
 class SearchController extends Controller
 {
     public function __invoke($searchFrase = null): View {
-        $searchResults = $searchFrase ? Search::onIndex('FullSearchFaraDetva')
-            ->query($searchFrase)
-            ->limit(100)
-            ->get() : null;
+        $searchResults = $searchFrase
+            ? Search::query($searchFrase)
+                ->onIndex('FullSearchFaraDetva')
+                ->limit(100)
+                ->get()
+            : null;
 
         // TODO:  add SEO META headers
 
