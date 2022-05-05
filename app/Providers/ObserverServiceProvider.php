@@ -2,16 +2,16 @@
 
 namespace App\Providers;
 
-use App\Models\Prayer;
 use App\Observers\GlobalObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class ObserverServiceProvider extends ServiceProvider
 {
     public function boot() {
-        $MODELS = [
+        $models = [
             \App\Models\Banner::class,
             \App\Models\Category::class,
+            \App\Models\DayIdea::class,
             \App\Models\Faq::class,
             \App\Models\File::class,
             \App\Models\Gallery::class,
@@ -22,16 +22,18 @@ class ObserverServiceProvider extends ServiceProvider
             \App\Models\NoticeAcolyte::class,
             \App\Models\NoticeLecturer::class,
             \App\Models\Picture::class,
-            \App\Models\Priest::class,
             \App\Models\Prayer::class,
+            \App\Models\Priest::class,
             \App\Models\Slider::class,
             \App\Models\Source::class,
+            \App\Models\StaticPage::class,
             \App\Models\Tag::class,
             \App\Models\Testimonial::class,
+            \App\Models\User::class,
         ];
 
-        foreach ($MODELS as $MODEL) {
-            $MODEL::observe(GlobalObserver::class);
+        foreach ($models as $model) {
+            $model::observe(GlobalObserver::class);
         }
     }
 }

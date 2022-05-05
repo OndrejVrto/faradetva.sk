@@ -5,7 +5,7 @@ namespace App\Crawler;
 use Psr\Http\Message\UriInterface;
 use Spatie\Crawler\CrawlProfiles\CrawlInternalUrls;
 
-class CustomCrawlProfile extends CrawlInternalUrls
+class UrlCheckCrawlProfile extends CrawlInternalUrls
 {
     public function __construct(
         protected mixed $baseUrl,

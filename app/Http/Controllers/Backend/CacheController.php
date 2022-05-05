@@ -4,8 +4,9 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Backend;
 
+use App\Jobs\UrlsCheckJob;
+use App\Jobs\SiteSearchCrawlJob;
 use Spatie\Valuestore\Valuestore;
-use App\Services\CrawlUrlsService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
@@ -80,17 +81,23 @@ class CacheController extends Controller
         return to_route('admin.dashboard');
     }
 
+
+
     public function crawlAllUrl(): RedirectResponse {
-        new CrawlUrlsService;
+        dispatch(new UrlsCheckJob());
+
         toastr()->info(__('app.cache.crawl-all-url'));
         return to_route('admin.dashboard');
     }
 
     public function crawlSearch(): RedirectResponse {
-        Artisan::call('site-search:crawl');
+        (new SiteSearchCrawlJob())->handle();
+
         toastr()->info(__('app.cache.crawl-search'));
         return to_route('admin.dashboard');
     }
+
+
 
     public function restartFailedJobs(): RedirectResponse {
         Artisan::call('queue:restart');
