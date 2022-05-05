@@ -43,7 +43,9 @@ class SendNewNoticesToSubscribers extends Command
 
             foreach ($subscribers as $subscriber) {
                 $counterSubscribers++;
-                info($counterSubscribers.'. Send Email to '.$subscriber->email.' with '.count($items).' items.');
+
+                // info($counterSubscribers.'. Send Email to '.$subscriber->email.' with '.count($items).' items.');
+
                 // TODO: Enable send email only in production because in Mailtrap.io is free only 500email/month
                 // Mail::to($subscriber->email)->send(new NewsNoticesMail($items));
             }

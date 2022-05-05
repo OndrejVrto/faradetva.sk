@@ -4,10 +4,8 @@ namespace App\View\Components\Frontend;
 
 use App\Facades\SeoGraph;
 use App\Facades\SeoSchema;
-use App\Overides\CustomJsonLd;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
-use Artesaos\SEOTools\Facades\JsonLd;
 
 class SeoJsonLd extends Component
 {
