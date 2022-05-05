@@ -10,13 +10,13 @@ use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\SubscribeController;
 
 //! FrontEnd Routes
-Route::middleware('header.http2.link', 'csp.headers', 'response.headers', 'preety.html', 'cache.response')->group(function() {
+Route::middleware('fast_web')->group(function() {
 
     Route::get('/', HomeController::class)->name('home');
     Route::get('/otazky-a-odpovede', FaqController::class)->name('faq');
 
     //! Subscribe and mail
-    Route::controller(SubscribeController::class)->group(function () {
+    Route::controller(SubscribeController::class)->withoutMiddleware('cacheResponse')->group(function () {
         Route::get('verifikovat-email/{slug}/{subscriber}/{token}', 'verifyMail')
             ->whereUuid('subscriber')
             ->missing(function () {
@@ -40,11 +40,11 @@ Route::middleware('header.http2.link', 'csp.headers', 'response.headers', 'preet
         Route::get('clanky-podla-klucoveho-slova/{slug}', 'indexTag')->name('tag');
         Route::get('clanky-podla-autora/{slug}', 'indexAuthor')->name('author');
         Route::get('clanky-z-roku/{year}', 'indexDate')->where('year', '^(20\d\d)$')->name('date');
-        Route::get('hladat-v-clankoch/{search?}', 'indexSearch')->withoutMiddleware('cache.response')->name('search');
+        Route::get('hladat-v-clankoch/{search?}', 'indexSearch')->withoutMiddleware('cacheResponse')->name('search');
     });
 
     //! Section Search
-    Route::get('hladat/{search?}', SearchController::class)->withoutMiddleware('cache.response')->name('search.all');
+    Route::get('hladat/{search?}', SearchController::class)->withoutMiddleware('cacheResponse')->name('search.all');
 
     //! Section - ALL others websites
     Route::get('{First}/{Second?}/{Third?}/{Fourth?}/{Fifth?}', PageController::class)->name('pages.others');

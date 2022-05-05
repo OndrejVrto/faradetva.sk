@@ -6,11 +6,14 @@ use Carbon\Carbon;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Artisan;
+use Spatie\ResponseCache\Facades\ResponseCache;
 
 class GlobalObserver
 {
     private function clearAllCache() {
         Artisan::call('cache:clear');
+        ResponseCache::clear();
+
         $store = Valuestore::make(config('farnost-detva.value_store'));
         $store->put('___LAST_MODIFIED', Carbon::now()->timestamp);
         $store->put('___RELOAD', true);
