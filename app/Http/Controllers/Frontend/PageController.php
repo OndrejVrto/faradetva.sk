@@ -134,7 +134,7 @@ class PageController extends Controller
         TwitterCard::addValue('image:alt', e($page['img-description']));
 
 
-        if (e($page['url']) == url('kontakty')) {
+        if (e($page['url']) == secure_url('kontakty')) {
             SeoSchema::setType('ContactPage');
         }
 
