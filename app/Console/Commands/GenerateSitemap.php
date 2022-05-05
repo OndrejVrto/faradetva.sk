@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Spatie\Sitemap\SitemapGenerator;
+use App\Jobs\GenerateSitemapJob;
 
 class GenerateSitemap extends Command
 {
@@ -11,11 +11,13 @@ class GenerateSitemap extends Command
 
     protected $description = 'Generate the sitemap.';
 
+    public function __construct() {
+        parent::__construct();
+    }
+
     public function handle() {
-        info('Start Generate SiteMap - '.config('app.url'));
-        // modify this to your own needs
-        SitemapGenerator::create(config('app.url'))
-            // ->maxTagsPerSitemap(20000)
-            ->writeToFile(public_path('sitemap.xml'));
+        dispatch((new GenerateSitemapJob()));
+
+        $this->warn('Add generate sitemap to jobs.');
     }
 }

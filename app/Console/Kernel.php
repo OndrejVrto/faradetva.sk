@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Jobs\UrlsCheckJob;
+use App\Jobs\GenerateSitemapJob;
 use App\Jobs\SiteSearchCrawlJob;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\App;
@@ -21,10 +22,12 @@ class Kernel extends ConsoleKernel
         if($this->needRenew()){
             if(App::environment(['local', 'dev'])) {
                 $schedule->job(new UrlsCheckJob())->everyMinute();
+                $schedule->job(new GenerateSitemapJob())->everyMinute();
                 $schedule->job(new SiteSearchCrawlJob())->everyMinute();
                 $schedule->command('clean:directories')->everyFifteenMinutes();
             } else {
                 $schedule->job(new UrlsCheckJob())->everyFifteenMinutes();
+                $schedule->job(new GenerateSitemapJob())->dailyAt('03:00');
                 $schedule->job(new SiteSearchCrawlJob())->dailyAt('04:00');
                 $schedule->command('clean:directories')->dailyAt('05:00');
             }
