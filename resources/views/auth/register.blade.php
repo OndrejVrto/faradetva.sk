@@ -1,9 +1,9 @@
 @extends('adminlte::auth.register')
 
 @section('css')
-    <link @nonce rel="stylesheet" href="{{ mix('asset/backend/css/admin_custom.css') }}">
+    <link @nonce rel="stylesheet" href="{{ asset(mix('asset/admin-app.css'), true) }}">
 @stop
 
 @section('js')
-    <script @nonce type="text/javascript" src="{{ mix('asset/backend/js/admin_custom.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset(mix('asset/admin-app.js'), true) }}"></script>
 @stop

@@ -1,0 +1,1 @@
+$(".gallery").each((function(e,t){$(t).justifiedGallery({rel:"gallery-item-"+e,lastRow:"nojustify",rowHeight:140,maxRowHeight:200,margins:4,border:0}).on("jg.complete",(function(){$(this).on("click",(function(e){var t=(e=e||window.event).target||e.srcElement,n=t.src?t.parentNode:t,i=this.getElementsByTagName("a"),l={index:n,event:e,closeOnEscape:!0};blueimp.Gallery(i,l)}))}))}));

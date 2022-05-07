@@ -1,6 +1,6 @@
 Obsah stránky:
   ☐ vytvoriť komponent čistého obrázka
-  ☐ vytvoriť logo a ikonu stránky / farnosti
+  ✔ vytvoriť logo a ikonu stránky / farnosti
   ☐ zoradiť stránky podľa zoznamu od Mariana
   ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
   ☐ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
@@ -8,7 +8,6 @@ Obsah stránky:
   ☐ zmeniť url adresu v manifest.json pri nasadení na server
   ☐ webpack mix -> všetko v jenom css a js pre frontend aj backend
   ☐ doplniť do všetkých obrázkov height a width
-  ☐ facebook prepojenie - počet likes FB stránky farnosti
   ✔ na spodok stránky pridať tlačítko na odskrolovanie nahor
   ✔ dorobiť texty od Mariána
   ✔ spoločenstvá - zoznam ako sekcia
@@ -25,6 +24,7 @@ Obsah stránky:
   ✔ prepísať všetky externé knižnice na CDN-ká
   ✔ base folder in meta tags
   ✘ customize Bootstrap?
+  ✘ facebook prepojenie - počet likes FB stránky farnosti
   ✘ do článku na začiatku vkladať Teaser?
   ✘ autolink generátor pre statické stránky
 

@@ -51,7 +51,7 @@
         <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         {{-- <script @nonce type="text/javascript" src="{{ asset('vendor/blueimp-gallery/js/blueimp-gallery.min.js', true) }}"></script> --}}
         <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/3.4.0/js/blueimp-gallery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-gallery.js', true) }}"></script>
+        <script @nonce type="text/javascript" src="{{ asset(mix('asset/app-gallery.js'), true) }}"></script>
         <!-- CHART script End -->
     @endpush
 

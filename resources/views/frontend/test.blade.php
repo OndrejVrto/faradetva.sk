@@ -156,7 +156,7 @@
 
         {{-- <x-partials.photo-gallery titleSlug="testovacia" dimensionSource="medium"/> --}}
 
-        {{-- <x-partials.photo-gallery titleSlug="historia-farnosti-detva" dimensionSource="medium"/> --}}
+        <x-partials.photo-gallery titleSlug="historia-farnosti-detva" dimensionSource="medium"/>
 
         <x-frontend.page.subsection title="Podnadpis sekcie">
 

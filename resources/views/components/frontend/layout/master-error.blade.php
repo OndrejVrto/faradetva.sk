@@ -7,10 +7,10 @@
         <link @nonce rel="stylesheet" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/font-awesome-5.15.4.css', true) }}"> --}}
         <link @nonce rel="stylesheet" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-        <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-template.css', true) }}">
-        <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-responsive.css', true) }}">
+        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-template.css', true) }}"> --}}
+        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-responsive.css', true) }}"> --}}
         {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-animation.css', true) }}"> --}}
-        <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom.css', true) }}">
+        <link @nonce rel="stylesheet" type="text/css" href="{{ asset(mix('asset/app.css'), true) }}">
     </x-slot>
 
     <x-slot name="js_general">

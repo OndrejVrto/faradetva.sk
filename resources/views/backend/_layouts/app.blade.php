@@ -11,11 +11,11 @@
 @stop
 
 @prepend('css')
-    <link @nonce rel="stylesheet" href="{{ asset('asset/backend/css/admin_custom.css', true) }}">
+    <link @nonce rel="stylesheet" href="{{ asset(mix('asset/admin-app.css'), true) }}">
 @endprepend
 
 @prepend('js')
-    <script @nonce type="text/javascript" src="{{ asset('asset/backend/js/admin_custom.js', true) }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset(mix('asset/admin-app.js'), true) }}"></script>
 
     @toastr_render(csp_nonce())
 

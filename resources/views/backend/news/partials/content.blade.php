@@ -15,5 +15,5 @@
 
 @push('js')
     <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.2/tinymce.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script @nonce type="text/javascript" src="{{ asset('asset/backend/js/custom-tinymce.js', true) }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset(mix('asset/admin-app-tinymce.js'), true) }}"></script>
 @endpush

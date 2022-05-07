@@ -40,10 +40,11 @@
         {{-- Configured Stylesheets --}}
         @include('adminlte::plugins', ['type' => 'css'])
 
-        <link @nonce rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css', true) }}">
+        {{-- <link @nonce rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css', true) }}"> --}}
+        <link @nonce rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer"  href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css"/>
 
     @else
-        <link @nonce rel="stylesheet" href="{{ mix(config('adminlte.laravel_mix_css_path', 'css/app.css')) }}">
+        <link @nonce rel="stylesheet" href="{{ asset(mix(config('adminlte.laravel_mix_css_path', 'css/app.css')), true) }}">
     @endif
 
     {{-- Livewire Styles --}}
@@ -64,27 +65,9 @@
     @if(config('adminlte.use_ico_only'))
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico', true) }}" />
     @elseif(config('adminlte.use_full_favicon'))
-        <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico', true) }}" />
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png', true) }}">
-        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicons/apple-touch-icon-57x57.png', true) }}">
-        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicons/apple-touch-icon-60x60x.png', true) }}">
-        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('favicons/apple-touch-icon-72x72.png', true) }}">
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicons/apple-touch-icon-76x76x.png', true) }}">
-        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('favicons/apple-touch-icon-114x114.png', true) }}">
-        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('favicons/apple-touch-icon-120x120.png', true) }}">
-        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('favicons/apple-touch-icon-144x144.png', true) }}">
-        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('favicons/apple-touch-icon-152x152.png', true) }}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon-180x180.png', true) }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png', true) }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png', true) }}">
-        <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('favicons/android-chrome-192x192.png', true) }}">
-        <link rel="icon" type="image/png" sizes="256x256"  href="{{ asset('favicons/android-chrome-256x256.png', true) }}">
-        <link rel="manifest" href="{{ asset('favicons/site.webmanifest', true) }}">
-        <link rel="mask-icon" href="{{ asset('favicons/safari-pinned-tab.svg', true) }}" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-TileImage" content="{{ asset('favicon/mstile-144x144.png', true) }}">
-        <meta name="msapplication-config" content="{{ asset('favicons/browserconfig.xml', true) }}">
-        <meta name="theme-color" content="#e3b359">
+        <!-- FAVICON Start - realfavicongenerator.net -->
+        <x-frontend.layout.partials.icons />
+        <!-- FAVICON End - realfavicongenerator.net -->
     @endif
     <!-- Favicon End-->
 
@@ -109,9 +92,10 @@
         {{-- Configured Scripts --}}
         @include('adminlte::plugins', ['type' => 'js'])
 
-        <script @nonce type="text/javascript" src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js', true) }}"></script>
+        {{-- <script @nonce type="text/javascript" src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js', true) }}"></script> --}}
+        <script @nonce type="text/javascript" crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
     @else
-        <script @nonce src="{{ mix(config('adminlte.laravel_mix_js_path', 'js/app.js')) }}"></script>
+        <script @nonce src="{{ asset(mix(config('adminlte.laravel_mix_js_path', 'js/app.js')), true) }}"></script>
     @endif
 
     {{-- Livewire Script --}}

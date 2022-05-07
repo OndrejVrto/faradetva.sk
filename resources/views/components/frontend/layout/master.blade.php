@@ -71,10 +71,11 @@
 
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/flaticon.css', true) }}"> --}}
 
-        <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-template.css', true) }}">
-        <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-responsive.css', true) }}">
-        <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-animation.css', true) }}">
-        <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom.css', true) }}">
+        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-template.css', true) }}"> --}}
+        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-responsive.css', true) }}"> --}}
+        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom-animation.css', true) }}"> --}}
+        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/custom.css', true) }}"> --}}
+        <link @nonce rel="stylesheet" type="text/css" href="{{ asset(mix('asset/app.css'), true) }}">
         @livewireStyles(['nonce' => csp_nonce()])
     </x-slot>
 
@@ -100,8 +101,9 @@
 
         <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
 
-        <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-share.js', true) }}"></script>
-        <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom.js', true) }}"></script>
+        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-share.js', true) }}"></script> --}}
+        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom.js', true) }}"></script> --}}
+        <script @nonce type="text/javascript" src="{{ asset(mix('asset/app.js'), true) }}"></script>
         @livewireScripts(['nonce' => csp_nonce()])
     </x-slot>
 
