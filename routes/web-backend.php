@@ -3,16 +3,17 @@
 use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Route;
 use Lab404\Impersonate\Controllers\ImpersonateController;
-use App\Http\Controllers\Backend\NoticeLecturerController;
+use App\Http\Controllers\Admin\NoticeLecturerController;
 use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 
-use App\Http\Controllers\Backend\{FaqController, TagController,
-    FileController, NewsController, RoleController, UserController,
-    CacheController, ChartController, BannerController, PrayerController,
-    PriestController, SliderController, DayIdeaController, GalleryController,
-    PictureController, CategoryController, ChartDataController, DashboardController,
-    PermissionController, StaticPageController, FileManagerController, TestimonialController,
-    NoticeChurchController, NoticeAcolyteController};
+use App\Http\Controllers\Admin\{
+    FaqController, TagController, FileController, NewsController,
+    RoleController, UserController, CacheController, ChartController,
+    BannerController, PrayerController, PriestController, SliderController,
+    DayIdeaController, GalleryController, PictureController, CategoryController,
+    ChartDataController, DashboardController, PermissionController, StaticPageController,
+    TestimonialController, NoticeChurchController, NoticeAcolyteController
+};
 
 Route::prefix('admin')->group( function() {
     //!  Inpersonate OUT Route

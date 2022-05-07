@@ -2,12 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Controllers\Frontend\FaqController;
-use App\Http\Controllers\Frontend\HomeController;
-use App\Http\Controllers\Frontend\PageController;
-use App\Http\Controllers\Frontend\SearchController;
-use App\Http\Controllers\Frontend\ArticleController;
-use App\Http\Controllers\Frontend\SubscribeController;
+use App\Http\Controllers\Web\{
+    FaqController, HomeController, PageController,
+    SearchController, ArticleController, SubscribeController
+};
 
 //! FrontEnd Routes
 Route::middleware('fast_web')->group(function() {
