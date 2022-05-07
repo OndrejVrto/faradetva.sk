@@ -1,5 +1,13 @@
-* text=auto
-*.css linguist-vendored
-*.scss linguist-vendored
-*.js linguist-vendored
-CHANGELOG.md export-ignore
+*       text=auto
+
+*.jpg   binary
+*.png   binary
+*.ico   binary
+
+*.css   linguist-vendored
+*.scss  linguist-vendored
+*.js    linguist-vendored
+
+/.gitattributes  export-ignore
+/.gitignore      export-ignore
+CHANGELOG.md     export-ignore
