@@ -3,7 +3,7 @@
 @section('description', 'Je nám ľúto. Požadovaná stránka neexistuje.')
 @section('keywords', 'Stránka neexistuje, 404, chyba')
 
-<x-frontend.layout.master-error errorNumber="404">
+<x-web.layout.master-error errorNumber="404">
 
     <x-slot name="image">
         <img
@@ -18,4 +18,4 @@
     <p class="pt-4">Medzitým skúste ísť</p>
     <a class="btn btn-outline-secondary" href="{{ route('home') }}" role="button">Domov</a>
 
-</x-frontend.layout.master-error>
+</x-web.layout.master-error>

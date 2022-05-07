@@ -40,8 +40,8 @@ return [
 
     // 'files' => base_path('routes/breadcrumbs.php'),
     'files' => [
-        base_path('routes/breadcrumbs-backend.php'),
-        base_path('routes/breadcrumbs-frontend.php'),
+        base_path('routes/breadcrumbs-admin.php'),
+        base_path('routes/breadcrumbs-web.php'),
     ],
 
     /*

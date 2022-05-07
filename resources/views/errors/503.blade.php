@@ -2,7 +2,7 @@
 @section('description', 'Služba je dočasne nedostupná. Stránka je v procese údržby.')
 @section('keywords', 'Stánka je v údržbovom režime, 503, chyba')
 
-<x-frontend.layout.master-error errorNumber="Vitajte">
+<x-web.layout.master-error errorNumber="Vitajte">
 
     <x-slot name="image">
         <img
@@ -20,4 +20,4 @@
         Facebooku
     </a>
 
-</x-frontend.layout.master-error>
+</x-web.layout.master-error>

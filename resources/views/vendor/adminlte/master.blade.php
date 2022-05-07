@@ -66,7 +66,7 @@
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico', true) }}" />
     @elseif(config('adminlte.use_full_favicon'))
         <!-- FAVICON Start - realfavicongenerator.net -->
-        <x-frontend.layout.partials.icons />
+        <x-web.layout.partials.icons />
         <!-- FAVICON End - realfavicongenerator.net -->
     @endif
     <!-- Favicon End-->

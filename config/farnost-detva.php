@@ -15,7 +15,7 @@ return [
     'cache_duration' => [
         'news' => env('CACHE_DURATION_NEWS', 60*60*24),   // 24 hodín
     ],
-    'preppend_route_static_pages' => 'frontend',
+    'preppend_route_static_pages' => 'web',
 
     /**
      * When crawling your site, we will not follow any of these links.
