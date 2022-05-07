@@ -415,13 +415,6 @@ return [
                     'route' => 'files.index',
                     'can'  => 'files.index',
                 ],
-                [
-                    'text'  => 'Správca šablon',
-                    'icon_color'  => 'purple',
-                    'icon'  => 'fas fa-warehouse',
-                    'route' => 'file-manager',
-                    'can'  => 'file-manager',
-                ],
         [
             'header' => 'Prístupové práva',
             'can'  => [

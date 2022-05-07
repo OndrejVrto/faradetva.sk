@@ -56,9 +56,6 @@ Route::prefix('admin')->group( function() {
             Route::get('failed-jobs-restart', 'restartFailedJobs')->name('jobs.restart');
         });
 
-        //!  Filemanager for Static-pages
-        Route::get('file-manager', FileManagerController::class)->name('file-manager');
-
         //!  Inpersonate IN Route
         Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->whereNumber('id')->name('impersonate');
 
