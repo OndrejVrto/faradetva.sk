@@ -9,7 +9,7 @@ class MyCustomCleanupPolicy implements CleanupPolicy
 {
     public function shouldDelete(SplFileInfo $file) : bool
     {
-        $filesToKeep = ['.gitignore'];
+        $filesToKeep = ['.gitignore', 'robots.txt'];
 
         return ! in_array($file->getFilename(), $filesToKeep);
     }
