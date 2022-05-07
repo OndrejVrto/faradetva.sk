@@ -1,5 +1,7 @@
 <x-frontend.layout.master :pageData="$pageData">
 
+    @include('frontend.icons')
+
     <x-frontend.page.section name="PICTURE" class="static-page pad_b_50">
 
         <x-partials.picture titleSlug="cb" side="left" animation="fromleft" dimensionSource="medium" />
@@ -22,14 +24,14 @@
         {{-- <x-partials.picture titleSlug="obr1" side="right" animation="sonarEffect" dimensionSource="medium" data-wow-delay="0.3s" class="pt-5 mt-5"/> --}}
     </x-frontend.page.section>
 
-    <x-frontend.page.section name="SUBSCRIBE" class="ch_skills_section pad_t_50 pad_b_50">
+    {{-- <x-frontend.page.section name="SUBSCRIBE" class="ch_skills_section pad_t_50 pad_b_50">
         <x-frontend.page.section-header header="Odoberať rozpisy akolytov" class="mb-3"/>
         @livewire('subscribe-form', ['modelName' => 'NoticeAcolyte', 'section' => true])
-    </x-frontend.page.section>
+    </x-frontend.page.section> --}}
 
     <x-frontend.page.section name="IMPORTANT PERSONALITIES" class="ch_ministry_section pad_t_50">
 
-        <x-frontend.page.section-header header="Významné osobnosti farnosti" />
+        {{-- <x-frontend.page.section-header header="Významné osobnosti farnosti" />
 
         <x-partials.page-card routeStaticPages="
             o-nas.pastoracia.akolyti,
@@ -53,7 +55,7 @@
             o-nas.pastoracia.organisti-spevaci,
             o-nas.pastoracia.spevokoly-a-dychovka,
             o-nas.pastoracia.vyucovanie-nabozenstva,
-        "/>
+        "/> --}}
 
     </x-frontend.page.section>
 
@@ -61,7 +63,7 @@
 
         <x-frontend.page.section-header header="Odoberať novinky" class="mb-3"/>
 
-        <x-frontend.page.subsection title="Články">
+        {{-- <x-frontend.page.subsection title="Články">
             @livewire('subscribe-form', ['modelName' => 'News', 'section' => true])
         </x-frontend.page.subsection>
 
@@ -75,7 +77,7 @@
 
         <x-frontend.page.subsection title="Rozpisy lektorov">
             @livewire('subscribe-form', ['modelName' => 'NoticeLecturer', 'section' => true])
-        </x-frontend.page.subsection>
+        </x-frontend.page.subsection> --}}
 
     </x-frontend.page.section>
 
@@ -136,7 +138,7 @@
 
         <x-frontend.page.section-header header="Spoločenstvá"/>
 
-        <x-partials.page-card routeStaticPages="
+        {{-- <x-partials.page-card routeStaticPages="
             spolocenstva.frantiskansky-svetstky-rad,
             spolocenstva.marianske-veceradlo,
             spolocenstva.rad-bosych-karmelitanok,
@@ -146,7 +148,7 @@
             spolocenstva.hnutie-krestanskych-rodin,
             spolocenstva.katolicka-charizmaticka-obnova,
             spolocenstva.sluzobnici-jezisovho-velknazskeho-srdca,
-        " />
+        " /> --}}
 
     </x-frontend.page.section>
 
@@ -154,7 +156,7 @@
 
         {{-- <x-partials.photo-gallery titleSlug="testovacia" dimensionSource="medium"/> --}}
 
-        <x-partials.photo-gallery titleSlug="historia-farnosti-detva" dimensionSource="medium"/>
+        {{-- <x-partials.photo-gallery titleSlug="historia-farnosti-detva" dimensionSource="medium"/> --}}
 
         <x-frontend.page.subsection title="Podnadpis sekcie">
 
