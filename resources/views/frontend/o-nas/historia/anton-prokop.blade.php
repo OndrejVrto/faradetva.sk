@@ -5,7 +5,6 @@
     {{-- Anton Prokop --}}
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <h6 class="text-church-template">* 20.6.1894 Detva</h6>
             <h6 class="text-church-template">† 8.6.1919 Detva</h6>
@@ -21,7 +20,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Prokopova reč sa nepáčila promaďarsky zmýšľajúcim občanom, najmä Židom. Jeden z nich, Markus Löwy z Detvy, udal Prokopa ako pansláva a československého agitátora. Anton bol asertívny mladík, nebál sa nepriateľa, jeho reč bola odvážna a za pravdu sa nebál položiť i vlastný život. Keď ho zradca Markus navštívil, hovoril mu: „Vážim si každého poriadneho človeka. Nie som antisemitista, ale mnohí židia sú hmotári, chamtiví po bohatstve, kšefty sú ich modlou, i v synagóge myslia na obchod. Za nič nemáte našu slovenskú kultúru, prispôsobujete sa Maďarom, nie Slovákom, hoci už dlhé roky žijete z našich mozoľov. Lenže vám je i národné prispôsobenie iba kšeftom. Prispôsobíte sa tej národnosti, ktorá vládne a je politicky silnejšia. Za Bacha ste nemčili, za Tizsu ste maďarčili, za Kúna boľševičíte, za Čechov budete češtiť, len k nám Slovákom nemáte úctu. Aj my máme právo na svoj život ako hociktorý iný národ, preto už raz musí prestať doterajšie maďarónske zúrenie proti slovenčine.“ Po tomto stretnutí ho šiel Markus udať boľševickým pohlavárom. Tí ho 8. júna na Turíčnu nedeľu včasráno prišli zatknúť. Odviedli ho do Vagačovho domu, zavreli ho do pivnice a potom vyšetrovali. Jeho matka mohla byť prítomná. Obžalobcom bol Markus Löwy a obžaloba znela: „Búril Detvanov proti vám, štval aj proti Židom, je nebezpečný antisemitista.“ Bol vynesený rozsudok smrti obesením: „Vyvesiť tohto rebela na vhodné miesto, aby Detvanci, až prídu z lazov do kostola videli, že s nepriateľmi nežartujeme.“ Boľševici mu pred smrťou odopreli kňaza. Prv než odvisol na konári lipy pred kostolom, kde predtým rečnil, mohol sa rozlúčiť s matkou a mladším bratom Jánom. Matka prosila vojakov, aby ho mohli zvesiť z lipy, ale to im bolo dovolené až po troch hodinách a len potom, ako mu kat prerezal žily na zápästiach. Ľud bol veľmi pobúrený popravou obľúbeného mladíka a jeho srdce volalo k Bohu o spravodlivý trest pre vrahov. Pochovali ho na cintoríne v Detve, vedľa hrobu jeho otca Emila, ktorý bol v roku 1897 aj detvianskym richtárom.
@@ -35,7 +33,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Tragické miesto popravy dnes pripomína pamätná tabuľa, ktorá je umiestnená na skale pod lipou, kde sa Prokopova poprava uskutočnila. Na tabuli je nápis: „K večnej pamiatke hrdinovi Antonovi Prokopovi, ktorý za slobodu slovenskej vlasti dňa 8. júna 1919 na tomto mieste zákerníckou boľševickou rukou usmrtený bol.“

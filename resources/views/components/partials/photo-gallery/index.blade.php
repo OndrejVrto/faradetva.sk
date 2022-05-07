@@ -32,9 +32,9 @@
 
 @once
     @push('css')
-        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('vendor/justified-gallery/css/justifiedGallery.min.css') }}"> --}}
+        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('vendor/justified-gallery/css/justifiedGallery.min.css', true) }}"> --}}
         <link @nonce rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('vendor/blueimp-gallery/css/blueimp-gallery.min.css') }}" /> --}}
+        {{-- <link @nonce rel="stylesheet" type="text/css" href="{{ asset('vendor/blueimp-gallery/css/blueimp-gallery.min.css', true) }}" /> --}}
         <link @nonce rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/3.4.0/css/blueimp-gallery.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style @nonce>
             .justified-gallery > .jg-entry:hover img {
@@ -47,11 +47,11 @@
 
     @push('js')
         <!-- GALLERY script Start -->
-        {{-- <script @nonce type="text/javascript" src="{{ asset('vendor/justified-gallery/js/jquery.justifiedGallery.min.js') }}"></script> --}}
+        {{-- <script @nonce type="text/javascript" src="{{ asset('vendor/justified-gallery/js/jquery.justifiedGallery.min.js', true) }}"></script> --}}
         <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        {{-- <script @nonce type="text/javascript" src="{{ asset('vendor/blueimp-gallery/js/blueimp-gallery.min.js') }}"></script> --}}
+        {{-- <script @nonce type="text/javascript" src="{{ asset('vendor/blueimp-gallery/js/blueimp-gallery.min.js', true) }}"></script> --}}
         <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/3.4.0/js/blueimp-gallery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-gallery.js') }}"></script>
+        <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-gallery.js', true) }}"></script>
         <!-- CHART script End -->
     @endpush
 

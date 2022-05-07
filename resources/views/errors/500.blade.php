@@ -7,7 +7,7 @@
     <x-slot name="image">
         <img
             id="freepik_stories-500-internal-server-error"
-            src="{{ URL::asset('images/errors/500-internal-server-error-amico.svg') }}"
+            src="{{ asset('images/errors/500-internal-server-error-amico.svg', true) }}"
             class="w-100"
             alt="Chlapček rozmýšľa ako opraviť skrinku kvôli chybe číslo 500.">
     </x-slot>

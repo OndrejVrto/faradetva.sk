@@ -25,7 +25,7 @@
 @pushOnce('js')
     <!-- CHART script Start -->
     <script @nonce type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-chart.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-chart.js', true) }}"></script>
 @endpushOnce
 
 @push('js')

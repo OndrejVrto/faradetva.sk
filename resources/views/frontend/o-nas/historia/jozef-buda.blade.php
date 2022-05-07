@@ -5,7 +5,6 @@
     {{-- prof. ThDr. Jozef Búda --}}
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <h6 class="text-church-template">* 14.9.1898 Nemecká (okr. Brezno)</h6>
             <h6 class="text-church-template">† 23.6.1994 Báč (okr. Dunajská Streda)</h6>
@@ -21,7 +20,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Po piatich rokoch svojho účinkovania v pastorácii ako kaplán sa stal správcom novozriadenej farnosti v Hriňovej, o ktorej vznik sa sám pričinil. V Hriňovej najskôr začínal v roku 1927 ako „capelanus expositus“, kaplán v osobitnej expozitúre Hriňová, čiže samostatného územného celku, vyčleneného z farnosti Detva. Poldruha roka býval na viacerých miestach v súkromných domoch, až kým sa v júli 1928 nepodarilo postaviť novú faru a stal sa správcom novozriadenej farnosti. V Hriňovej nepobudol dlho. Jeho nadanie a nadobudnuté skúsenosti bolo treba zužitkovať inde. V ukrutnej zime na prelome rokov 1928 - 1929 vážne ochorel a v obave, že pre nedostatok kňazov nebude mať pri sebe kaplána, požiadal biskupa Mariána Blahu o preloženie na miesto, kde by to jeho ochabnuté pľúca vydržali. K 1. marcu 1929 dostal dispozíciu na uprázdnenú faru v Radvani pri Banskej Bystrici.
@@ -35,7 +33,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 1. septembra 1934 Jozef Búda abdikoval zo svojho úradu farára v Radvani a bol vymenovaný za riadneho profesora biblika. Opustil farnosť a presťahoval sa do profesorského bytu v kňazskom seminári. Naďalej vyučoval aj na gymnáziu v Banskej Bystrici. Od roku 1936 bol diecéznym cenzorom a od roku 1938 prosynodálnym sudcom. V roku 1936 vznikla Cyrilometodská bohoslovecká fakulta Univerzity Komenského v Bratislave. Dr. Búda sa v Bratislave stal suplentom pre biblické jazyky - gréčtinu a hebrejčinu. Súbežne prednášal ešte aj v banskobystrickom seminári, ale v roku 1937 sa už presťahoval do Bratislavy a od roku 1938 prednášal biblické jazyky ako docent. V roku 1939 ho vymenovali za mimoriadneho a v roku 1942 za riadneho univerzitného profesora biblického štúdia Starého zákona. V rokoch 1942 - 1945 viedol kurz gréckeho jazyka a grécky seminár aj na Filozofickej fakulte Slovenskej univerzity. V 40. rokoch 20. storočia bol ako univerzitný profesor ustanovený z poverenia Slovenského biskupského zboru za prvého kazateľa pre vysokoškolskú mládež v jezuitskom kostole v Bratislave.
@@ -49,7 +46,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Jeho plodné vedecko-pedagogické pôsobenie bolo prerušené administratívnym zásahom komunistického režimu. Obdobie od 28. februára 1950, po domovej prehliadke a po vzatí do väzby, až do 18. apríla 1954 prežil v rozličných väzniciach po celom Československu, z toho vyše šesť mesiacov bez súdu. Vyšetrovaciu väzbu strávil v Bratislave, Mučeníkoch, Nových Zámkoch, Podolínci a v Prešove. Odsúdený bol 9. júna 1952 na stratu slobody na štyri roky, prepad celého majetku a stratu čestných občianskych práv, pretože neschvaľoval proces s tzv. vlastizradnými biskupmi a neoznámil úmysel Dr. Mitošinku a spoločníkov utiecť za hranice. Vo väzení bol v Leopoldove, Ilave a na Mírove. Po návrate z väzenia sa mohol zamestnať len civilne, nemohol účinkovať ako kňaz a profesor, lebo nedostal štátny súhlas. Do roku 1961 pracoval v Laboratórnych potrebách v Bratislave a potom ako brigádnik v Zberných surovinách na Miletičovej ulici. Od roku 1963 účinkoval ako duchovný správca rehoľných sestier v českom Zvíkovci.
@@ -63,7 +59,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V roku 1976 skončil svoju vedecko-pedagogickú činnosť profesora a odišiel do dôchodku. Od 1. októbra 1978 bol duchovným v Charitnom domove v Báči, kde dožil v opatere rehoľných sestier Inštitútu preblahoslavenej Panny Márie, ľudovo nazývané ako anglické panny (Congregatio Jesu). V roku 1992 na 70. výročie kňazskej vysviacky mu pápež Ján Pavol II. udelil za celoživotný kňazský vzor a charakter, titul pápežského preláta. Zomrel v Báči 23. júna 1994 v 96. roku života a 72. roku kňazstva. 27. júna 1994 ho v Báči pochoval biskup Rudolf Baláž. Pohrebnú svätú omšu s ním koncelebrovali štyria biskupi a približne 60 kňazov.

@@ -6,7 +6,7 @@
 
     <x-slot name="image">
         <img
-            src="{{ URL::asset('images/errors/503-service-in-maitenence-mode-amico.svg') }}"
+            src="{{ asset('images/errors/503-service-in-maitenence-mode-amico.svg', true) }}"
             class="w-100"
             alt="Pracujeme na stránke ako včielky."
         >

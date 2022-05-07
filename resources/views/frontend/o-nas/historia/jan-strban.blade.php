@@ -5,7 +5,6 @@
     {{-- Mons. Ján Štrbáň --}}
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <h6 class="text-church-template">* 25.6.1878 Trstená (okr. Tvrdošín)</h6>
             <h6 class="text-church-template">† 11.12.1960 Detva</h6>
@@ -22,7 +21,6 @@
     </x-frontend.page.subsection>
 
         <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 19. marca 1909 bol inštalovaný za opatovského farára a s najväčšou rozhodnosťou vystúpil proti zlozvykom vo svojej novej farnosti. Založil spolok striezlivosti, oživil spolok Božského Srdca Ježišovho a spolok svätého ruženca. Postaral sa o opravu farskej budovy a jej hospodárskych stavísk. Hneď po príchode do Horných Opatoviec sa horlivý a predvídavý Ján Štrbáň presvedčil o tom, že tamojší starobylý kostol po svojom plánovanom obnovení nebude môcť pojať všetkých jeho farníkov. Cirkevnému výboru navrhol myšlienku, či by vďaka príspevku Ostrihomskej kapituly, ktorá bola vtedajším patrónom farnosti, namiesto obnovy starého kostola nebolo lepšie postaviť nový a priestrannejší kostol. Po dosiahnutí dohody s Ostrihomskou kapitulou sa v roku 1910 začalo s rozoberaním a rúcaním starého kostola, následne sa začali stavebné práce, ktoré boli ukončené už nasledujúci rok, zvlášť neúnavnou zásluhou Jána Štrbáňa. Posviacka nového neogotického Kostola sv. Vavrinca sa konala 17. septembra 1911. V roku 1920 bol Štrbáň vymenovaný za cirkevného škôldozorcu svätokrížskeho dištriktu.
@@ -36,7 +34,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Ján Štrbáň bol za nového detvianskeho farára vymenovaný v októbri 1921. Pamätníkmi bol opísaný ako muž výzorom nevysoký, usmievavý, v spoločnosti skromný, pokorný, plný horlivosti za spásu duší. Oravská, Bohu oddaná duša, s horlivou túžbou po svätosti. Veľmi mnoho spovedal. V dlhých rozjímaniach a modlitbách  trávil aj noci. To vyžarovalo aj v jeho nadšenom kázaní. Angažoval sa v sociálnej i kultúrnej oblasti. Prispieval do cirkevných časopisov Náš priateľ, Kráľovná svätého ruženca a Svätá rodina. Zostavil tri modlitebné knižky: Modlitby a piesne (1924); Môj poklad (1929); Ježiš, náš tešiteľ. Modlitebná knižočka pre starších ľudí a najlepší priateľ v staršom veku (1933). V roku 1934 bol pápežom Piom XI. ocenený titulom pápežský komorník (Monsignor). V Detve pôsobil 32 rokov ako farár a od roku 1937 aj ako dekan zvolenského dekanátu. Svoje rozhodnutie odísť od františkánov síce viackrát oľutoval, pokúšal sa dokonca opakovane odísť z Detvy k redemptoristom, tešiteľom, i jezuitom, jeho pastoračnú horlivosť vo farnosti to však neumenšilo.
@@ -50,7 +47,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V Detve si Štrbáň pripomínal v roku 1926 strieborné (25 rokov) a v roku 1951 aj zlaté (50 rokov) jubileum kňazskej vysviacky. Ako bývalý člen františkánskej rehole obnovil v Detve laický Tretí rád sv. Františka. Počas jeho pôsobenia boli v detvianskej farnosti zakúpené nové zvony do farského kostola, elektrifikovaný kostol a bol postavený nový chudobinec. Štrbáň sa pravidelne zúčastňoval ľudových misií, počas ktorých ho vo farnosti zastupovali jeho kapláni. Mnohopočetné žiadosti pre odchod z náročnej správy detvianskej farnosti, do penzie zo zdravotných dôvodov a neskôr kvôli veku, boli biskupmi odmietané aj kvôli neústupčivosti a naliehaní farníkov, ktorí si svojho vzácneho dušpastiera nechceli pustiť za žiadnych okolností. Jeho stálou túžbou bolo zomrieť ako rehoľník, okrem iných spomínaných reholí, zvažoval aj vstup k školským bratom či lazaristom.

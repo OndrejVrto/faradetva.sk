@@ -5,7 +5,6 @@
     {{-- Jozef Závodský --}}
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <h6 class="text-church-template">* 30.1.1927  Sučany (okr. Martin)</h6>
             <h6 class="text-church-template">† 17.2.1993  Handlová (okr. Prievidza)</h6>
@@ -21,7 +20,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V roku 1953 začal pracovať ako brigádnik v národnom podniku Stavoindustria v Martine a od roku 1954 pokračoval ďalej ako brigádnik vo Váhostave v Sučanoch. V roku 1956 sa zamestnal v Štátnych majetkoch v Martine a od roku 1958 pracoval v Drevine Turany. V rokoch 1958 - 1960 absolvoval stredoškolskú nadstavbu na Priemyselnej škole elektrotechnickej v Martine. Za chrabrosť a zásluhy počas druhej svetovej vojny mu bol udelený Československý vojnový kríž. Vrátiť sa do kňazského seminára a dokončiť teologické štúdium bolo Závodskému umožnené až v roku 1966. Aby sa mohol stať kňazom, musel cez mnohé skúšky a utrpenia, vynaložiť veľké úsilie a odhodlanie.
@@ -35,7 +33,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Od 1. decembra 1980 bol poverený správou farnosti Detva. Po príchode do Detvy sa Závodský usiloval o zveľadenie duchovnej i hmotnej stránky farnosti. Pre zastrašovanie komunistami sa v 80. rokoch 20. storočia malo odvahu v Detve prihlásiť na vyučovanie náboženskej výchovy v základných školách len menšia časť žiakov. Detvianski kňazi boli v roku 1982 udaní, že vyučujú deti náboženstvo v kostole a to v stredu a v piatok. Dekan Závodský poslal na odbor kultúry Okresného národného výboru, oddeleniu pre veci cirkevné list, v ktorom celú záležitosť veľmi diplomaticky vysvetlil a zažehnal.
@@ -49,7 +46,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V roku 1986 vrcholili snahy zo strany totalitného režimu o odvolanie a preloženie dekana Závodského, pretože nevyhovoval jeho ideológii. Hľadali sa rôzne dôvody ako napríklad:
@@ -69,7 +65,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V roku 1988 sa uskutočnili oslavy 350. výročia založenia Detvy. Dekan Závodský chcel nadviazať na oslavy 300. výročia, kedy sa oslavy uskutočnili pred farským kostolom a na kalvárii. Svätú omšu mal prísť celebrovať biskup Feranec, avšak štátna moc to zamietla. Svätá omša bola napokon bez biskupa a len v Kostole sv. Františka z Assisi.
@@ -83,7 +78,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 Jozef Závodský zomrel náhle, v zápale práce, počas svojej pracovnej cesty do Prievidze. 17. februára 1993 mu na čerpacej stanici v Handlovej prišlo nevoľno a azda len Božím riadením ho tam našiel kňaz Jozef Kaniansky. Ten mu stihol udeliť posledné sviatosti a v jeho prítomnosti zomrel vo veku 66 rokov, v 24. roku kňazstva. Pohrebné obrady vykonal v Detve pomocný biskup Peter Dubovský a následne boli jeho telesné ostatky prevezené na cintorín do rodných Sučian, kde ho biskup Dubovský pochoval 20. februára 1993.

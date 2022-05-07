@@ -7,7 +7,7 @@
 
     <x-slot name="image">
         <img
-            src="{{ URL::asset('images/errors/404-error-with-a-brokenrobot-amico.svg') }}"
+            src="{{ asset('images/errors/404-error-with-a-brokenrobot-amico.svg', true) }}"
             class="w-100"
             alt="Detektív s lupou hľadá chybu na stránke."
         >

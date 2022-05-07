@@ -74,7 +74,7 @@
     <!-- NOTICE-PDF script Start -->
     <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
     <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
-    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-pdf.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-pdf.js', true) }}"></script>
     <!-- NOTICE-PDF script End -->
 @endPushOnce
 

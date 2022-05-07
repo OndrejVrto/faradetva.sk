@@ -5,7 +5,6 @@
     {{-- Imrich Ďurica --}}
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <h6 class="text-church-template">* 7.10.1915 Detva</h6>
             <h6 class="text-church-template">† 12.9.1992 Dunajská Lužná (okr. Senec)</h6>
@@ -21,7 +20,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V roku 1949 bol vymenovaný za archivára biskupského úradu v Banskej Bystrici a mal sa zároveň stať aj prednášajúcim pastorálky na Vysokej škole bohosloveckej. Po smrti biskupa Andreja Škrábika v roku 1950 ho štátna moc zbavila tejto funkcie. Na nahováranie svojho švagra Juraja Lakotu uvažoval nad emigráciou, no svoj úmysel vzápätí zmenil. Jeho švagra zatkli pri pokuse o útek cez hranice a na tomto základe bol obvinený aj Ďurica spolu s jeho bratom a ďalším švagrom. 4. marca 1950 bol zatknutý Štátnou bezpečnosťou, ktorá zinscenovala organizovanú protištátnu skupinu. Štátny súd v Bratislave ho 28. septembra 1950 odsúdil na tri roky väzenia. Po odvolaní štátneho prokurátora Najvyšší súd v Prahe 8. augusta 1951 zmenil tento rozsudok na desať rokov väzenia za trestný čin velezrady, prepadnutie celého majetku, peňažný trest 10 000,- Kč a stratu občianskych práv na päť rokov. Väznili ho v Banskej Bystrici, Bratislave, Ilave, Leopoldove, Mladej Boleslavi a vo Valdiciach. Na slobodu ho prepustili až v roku 1960. Pracoval ako zásobovač v Stredoslovenských mliekarňach v Rimavskej Sobote. Býval pri matke v Hodejove, odkiaľ denne dochádzal do zamestnania.
@@ -35,7 +33,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V zložitom období normalizácie sa mu podarilo oživiť duchovný život v Banskej Bystrici i v jej okolí. Bolo to aj preto, že bol otvorený voči všetkým vrstvám obyvateľstva. Napriek tomu, že bol skromný a nekládol do popredia seba, požíval vysoký kredit a rešpekt. Mal talent objavovať v ľuďoch dobro. Nedal sa aktívne vtiahnuť do prorežimnej organizácie kňazov Pacem in terris. Jednu z jeho životných predstáv sa mu žiaľ „vďaka“ režimu nepodarilo uskutočniť, totiž prevziať prednášanie biblických vied budúcim teológom, po legendárnom univerzitnom profesorovi Jozefovi Búdovi, ktorého si veľmi vážil. Nikdy nezatrpkol, hoci počas života skúsil veľa utrpenia, tlakov a nespravodlivosti. Dokázal nájsť východiská aj zo zdanlivo neriešiteľných, až zúfalých situácií. Svoje zlaté kňazské jubileum oslávil začiatkom leta 1989 aj slávnostnou svätou omšou v rodnej Detve.
@@ -49,7 +46,6 @@
     </x-frontend.page.subsection>
 
     <x-frontend.page.subsection>
-        {{-- <x-frontend.page.subsection.img columns="4" animation="fromleft" alt="" url="{{ asset('images/.jpg') }}" /> --}}
         <x-frontend.page.text-segment animation="fromright">
             <p>
                 V roku 1998 bola na budove biskupskej rezidencie v Banskej Bystrici odhalená pamätná tabuľa väznených a umučených kňazov diecézy, na ktorej sa nachádza aj Ďuricovo meno. Osobitne jemu, ako nespravodlivo odsúdenému trpiteľovi pre vieru, bola 15. apríla 1999 odhalená pamätná tabuľa na budove farského úradu na Námestí Štefana Moysesa v Banskej Bystrici. O prežitom utrpení nikdy nerozprával, hoci bol najdlhšie väzneným kňazom Banskobystrickej diecézy.

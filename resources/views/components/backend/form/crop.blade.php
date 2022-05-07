@@ -100,7 +100,7 @@
 
 @push('js')
     <script @nonce src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script @nonce type="text/javascript" src="{{ asset('asset/backend/js/custom-crop.js') }}"></script>
+    <script @nonce type="text/javascript" src="{{ asset('asset/backend/js/custom-crop.js', true) }}"></script>
     <script @nonce>
         watchImageUploader({
             minWidth        : {{ $minWidth }},

@@ -5,7 +5,7 @@
 <x-frontend.layout.master-error errorNumber="419">
 
     <x-slot name="image">
-        <img src="{{ URL::asset('images/errors/419-time-management-amico.svg') }}" class="w-100" alt="Dievčatko sedí na hodinách vedľa kalendára.">
+        <img src="{{ asset('images/errors/419-time-management-amico.svg', true) }}" class="w-100" alt="Dievčatko sedí na hodinách vedľa kalendára.">
     </x-slot>
 
     <h4>
