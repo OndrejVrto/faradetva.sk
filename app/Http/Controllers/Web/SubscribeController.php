@@ -25,7 +25,7 @@ class SubscribeController extends Controller
 
         Mail::to($subscriber->email)->send(new ConfirmVerificationMail($subscriber));
         Log::debug('CONFIRM: Email '.$subscriber->email.' verifikovaný');
-        return view('frontend.info.confirm-verification', compact('subscriber'));
+        return view('web.info.confirm-verification', compact('subscriber'));
     }
 
     public function unsubscribe($slug, Subscriber $subscriber, $unsubscribetoken) {
@@ -36,6 +36,6 @@ class SubscribeController extends Controller
         $subscriber->delete();
         Mail::to($subscriber->email)->send(new ConfirmUnscribeMail($subscriber));
         Log::info('DELETE: Email '.$subscriber->email.' zmazaný');
-        return view('frontend.info.confirm-unscribe', compact('subscriber'));
+        return view('web.info.confirm-unscribe', compact('subscriber'));
     }
 }

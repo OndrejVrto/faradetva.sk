@@ -22,11 +22,11 @@ class FileController extends Controller
             ->paginate(10);
         $files = (new FilePropertiesService())->allFileData($paginator->items());
 
-        return view('backend.files.index', compact('paginator', 'files'));
+        return view('admin.files.index', compact('paginator', 'files'));
     }
 
     public function create(): View {
-        return view('backend.files.create');
+        return view('admin.files.create');
     }
 
     public function store(FileRequest $request): RedirectResponse {
@@ -44,7 +44,7 @@ class FileController extends Controller
     public function edit(File $file): View {
         $file->load('source');
 
-        return view('backend.files.edit', compact('file'));
+        return view('admin.files.edit', compact('file'));
     }
 
     public function update(FileRequest $request, File $file): RedirectResponse {

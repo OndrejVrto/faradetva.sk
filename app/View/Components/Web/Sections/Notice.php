@@ -1,0 +1,56 @@
+<?php
+
+namespace App\View\Components\Web\Sections;
+
+use Illuminate\Support\Str;
+use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
+
+class Notice extends Component
+{
+    public $notices;
+
+    private $model;
+
+    private const NAMESPACE = '\\App\\Models\\';
+
+    private const TYPE = [
+        'church'  => 'NoticeChurch',
+        'acolyta' => 'NoticeAcolyte',
+        'lector'  => 'NoticeLecturer'
+    ];
+
+    public function __construct(
+        public $typeNotice
+    ) {
+        $this->model = $this->getModelName($typeNotice);
+        $this->notices = $this->getNotice(self::NAMESPACE.$this->model);
+    }
+
+    public function render(): View|null {
+        if (!is_null($this->notices)) {
+            return view('components.web.sections.notice.index');
+        }
+        return null;
+    }
+
+    private function getModelName(string|null $type): string {
+        $nameModel = Str::of($type)->lower()->ucfirst()->start('Notice');
+        return in_array($nameModel, self::TYPE) ? $nameModel : self::TYPE['church'];
+    }
+
+    private function getNotice(string $fullModel): array {
+        return $fullModel::query()
+            ->visible()
+            ->with('media')
+            ->get()
+            ->map(function($notice): array {
+                return [
+                    'id'    => $notice->id,
+                    'title' => $notice->title,
+                    'url'   => $notice->getFirstMedia('notice_pdf')->getFullUrl(),
+                ];
+            })
+            ->toArray();
+    }
+}

@@ -24,11 +24,11 @@ class PrayerController extends Controller
             ->paginate(5)
             ->withQueryString();
 
-        return view('backend.prayers.index', compact('prayers'));
+        return view('admin.prayers.index', compact('prayers'));
     }
 
     public function create(): View {
-        return view('backend.prayers.create');
+        return view('admin.prayers.create');
     }
 
     public function store(PrayerRequest $request): RedirectResponse {
@@ -46,13 +46,13 @@ class PrayerController extends Controller
     public function show(Prayer $prayer): View {
         $prayer->load('media', 'source');
 
-        return view('backend.prayers.show', compact('prayer'));
+        return view('admin.prayers.show', compact('prayer'));
     }
 
     public function edit(Prayer $prayer): View {
         $prayer->load('source');
 
-        return view('backend.prayers.edit', compact('prayer'));
+        return view('admin.prayers.edit', compact('prayer'));
     }
 
     public function update(PrayerRequest $request, Prayer $prayer): RedirectResponse {

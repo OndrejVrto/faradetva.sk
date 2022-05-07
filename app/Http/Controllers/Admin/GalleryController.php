@@ -24,11 +24,11 @@ class GalleryController extends Controller
             ->withCount('picture')
             ->paginate(5);
 
-        return view('backend.galleries.index', compact('galleries'));
+        return view('admin.galleries.index', compact('galleries'));
     }
 
     public function create(): View {
-        return view('backend.galleries.create', ['pictures' => null]);
+        return view('admin.galleries.create', ['pictures' => null]);
     }
 
     public function storeMedia(Request $request): JsonResponse {
@@ -70,14 +70,14 @@ class GalleryController extends Controller
     public function show(Gallery $gallery): View {
         $gallery->load('media', 'source');
 
-        return view('backend.galleries.show', compact('gallery'));
+        return view('admin.galleries.show', compact('gallery'));
     }
 
     public function edit(Gallery $gallery): View {
         $gallery->load('media', 'source');
         $pictures = $gallery->getMedia($gallery->collectionName);
 
-        return view('backend.galleries.edit', compact('gallery', 'pictures'));
+        return view('admin.galleries.edit', compact('gallery', 'pictures'));
     }
 
     public function update(GalleryRequest $request, Gallery $gallery): RedirectResponse {

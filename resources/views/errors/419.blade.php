@@ -2,7 +2,7 @@
 @section('description', 'Boli ste automaticky odhlesený po dlhšej nečinnosti.')
 @section('keywords', 'Automatické odhlásenie, 419, chyba, session expires')
 
-<x-frontend.layout.master-error errorNumber="419">
+<x-web.layout.master-error errorNumber="419">
 
     <x-slot name="image">
         <img src="{{ asset('images/errors/419-time-management-amico.svg', true) }}" class="w-100" alt="Dievčatko sedí na hodinách vedľa kalendára.">
@@ -25,4 +25,4 @@
         </p>
     </p>
 
-</x-frontend.layout.master-error>
+</x-web.layout.master-error>

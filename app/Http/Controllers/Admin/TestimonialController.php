@@ -23,11 +23,11 @@ class TestimonialController extends Controller
             ->paginate(6)
             ->withQueryString();
 
-        return view('backend.testimonials.index', compact('testimonials'));
+        return view('admin.testimonials.index', compact('testimonials'));
     }
 
     public function create(): View  {
-        return view('backend.testimonials.create');
+        return view('admin.testimonials.create');
     }
 
     public function store(TestimonialRequest $request): RedirectResponse {
@@ -41,7 +41,7 @@ class TestimonialController extends Controller
     }
 
     public function edit(Testimonial $testimonial): View  {
-        return view('backend.testimonials.edit', compact('testimonial'));
+        return view('admin.testimonials.edit', compact('testimonial'));
     }
 
     public function update(TestimonialRequest $request, Testimonial $testimonial): RedirectResponse {

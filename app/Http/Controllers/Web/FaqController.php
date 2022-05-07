@@ -34,6 +34,6 @@ class FaqController extends Controller
 
         // TODO:  add SEO META headers
 
-        return view('frontend.faq.index', compact('faqs'));
+        return view('web.faq.index', compact('faqs'));
     }
 }

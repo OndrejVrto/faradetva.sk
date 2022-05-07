@@ -20,6 +20,6 @@ class DashboardController extends Controller
             ->orderBy('slug')
             ->get();
 
-        return view('backend.dashboard.index', compact('pages'));
+        return view('admin.dashboard.index', compact('pages'));
     }
 }

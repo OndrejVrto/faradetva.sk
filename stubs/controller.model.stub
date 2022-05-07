@@ -16,11 +16,11 @@ class {{ class }} extends Controller
     public function index(): View {
         ${{ modelVariable }}s = {{ model }}::latest()->paginate(10);
 
-        return view('backend.{{ modelVariable }}s.index', compact('{{ modelVariable }}s'));
+        return view('admin.{{ modelVariable }}s.index', compact('{{ modelVariable }}s'));
     }
 
     public function create(): View {
-        return view('backend.{{ modelVariable }}s.create');
+        return view('admin.{{ modelVariable }}s.create');
     }
 
     public function store({{ model }}Request $request): RedirectResponse {
@@ -32,11 +32,11 @@ class {{ class }} extends Controller
     }
 
     public function show({{ model }} ${{ modelVariable }}): View {
-        return view('backend.{{ modelVariable }}s.show', compact('{{ modelVariable }}'));
+        return view('admin.{{ modelVariable }}s.show', compact('{{ modelVariable }}'));
     }
 
     public function edit({{ model }} ${{ modelVariable }}): View {
-        return view('backend.{{ modelVariable }}s.edit', compact('{{ modelVariable }}'));
+        return view('admin.{{ modelVariable }}s.edit', compact('{{ modelVariable }}'));
     }
 
     public function update( {{ model }}Request $request, {{ model }} ${{ modelVariable }}): RedirectResponse {

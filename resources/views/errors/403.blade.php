@@ -2,7 +2,7 @@
 @section('description', 'Je nám ľúto. K požadovanej stránke nemáte oprávnenia.')
 @section('keywords', 'Nemáte oprávnenia, 403, chyba')
 
-<x-frontend.layout.master-error errorNumber="403">
+<x-web.layout.master-error errorNumber="403">
 
     <x-slot name="image">
         <img
@@ -43,4 +43,4 @@
         </form>
     </div>
 
-</x-frontend.layout.master-error>
+</x-web.layout.master-error>

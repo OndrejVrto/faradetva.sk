@@ -54,15 +54,15 @@ class RouteServiceProvider extends ServiceProvider
             if (App::environment(['local', 'dev', 'staging'])) {
                 Route::middleware('web')
                     ->namespace($this->namespace)
-                    ->group(base_path('routes/web-dev.php'));
+                    ->group(base_path('routes/develop.php'));
             }
 
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group([
-                    base_path('routes/web-auth.php'),
-                    base_path('routes/web-backend.php'),
-                    base_path('routes/web-frontend.php'),
+                    base_path('routes/auth.php'),
+                    base_path('routes/admin.php'),
+                    base_path('routes/web.php'),
                 ]);
         });
 

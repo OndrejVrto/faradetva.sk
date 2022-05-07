@@ -22,14 +22,14 @@ class BannerController extends Controller
             ->with('media', 'source', 'staticPages')
             ->paginate(10);
 
-        return view('backend.banners.index', compact('banners'));
+        return view('admin.banners.index', compact('banners'));
     }
 
     public function create(): View  {
         $pages = StaticPage::select(['id','title','description_page'])->where('check_url', '=', true)->orderBy('title')->get();
         $selectedPages = [];
 
-        return view('backend.banners.create', compact('pages', 'selectedPages'));
+        return view('admin.banners.create', compact('pages', 'selectedPages'));
     }
 
     public function store(BannerRequest $request): RedirectResponse {
@@ -48,7 +48,7 @@ class BannerController extends Controller
     public function show(Banner $banner): View {
         $banner->load('media', 'source', 'staticPages');
 
-        return view('backend.banners.show', compact('banner'));
+        return view('admin.banners.show', compact('banner'));
     }
 
     public function edit(Banner $banner): View  {
@@ -56,7 +56,7 @@ class BannerController extends Controller
         $pages = StaticPage::select(['id','title','description_page'])->where('check_url', '=', true)->orderBy('title')->get();
         $selectedPages = $banner->staticPages->pluck('id')->unique()->toArray();
 
-        return view('backend.banners.edit', compact('banner', 'pages', 'selectedPages'));
+        return view('admin.banners.edit', compact('banner', 'pages', 'selectedPages'));
     }
 
     public function update(BannerRequest $request, Banner $banner): RedirectResponse {

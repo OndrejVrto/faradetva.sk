@@ -30,7 +30,7 @@ class NewsController extends Controller
             ->paginate(5)
             ->withQueryString();
 
-        return view('backend.news.index', compact('allNews'));
+        return view('admin.news.index', compact('allNews'));
     }
 
     public function create(): View {
@@ -39,7 +39,7 @@ class NewsController extends Controller
         $selectedTags = [];
         $documents = null;
 
-        return view('backend.news.create', compact('documents', 'categories', 'tags', 'selectedTags'));
+        return view('admin.news.create', compact('documents', 'categories', 'tags', 'selectedTags'));
     }
 
     public function storeMedia(Request $request): JsonResponse {
@@ -91,7 +91,7 @@ class NewsController extends Controller
         $tags = Tag::all();
         $selectedTags = $news->tags->pluck('id')->unique()->toArray();
 
-        return view('backend.news.edit', compact('news', 'documents', 'categories', 'tags', 'selectedTags'));
+        return view('admin.news.edit', compact('news', 'documents', 'categories', 'tags', 'selectedTags'));
     }
 
     public function update(NewsRequest $request, News $news): RedirectResponse {

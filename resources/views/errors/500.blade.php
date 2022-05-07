@@ -2,7 +2,7 @@
 @section('description', 'Chyba serveru.')
 @section('keywords', 'Chyba serveru, 500, chyba, MySQL error, administrátor')
 
-<x-frontend.layout.master-error errorNumber="500">
+<x-web.layout.master-error errorNumber="500">
 
     <x-slot name="image">
         <img
@@ -25,4 +25,4 @@
         </p>
     </p>
 
-</x-frontend.layout.master-error>
+</x-web.layout.master-error>

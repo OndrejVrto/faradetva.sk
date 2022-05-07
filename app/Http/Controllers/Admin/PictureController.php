@@ -20,11 +20,11 @@ class PictureController extends Controller
             ->with('media', 'source')
             ->paginate(5);
 
-        return view('backend.pictures.index', compact('pictures'));
+        return view('admin.pictures.index', compact('pictures'));
     }
 
     public function create(): View {
-        return view('backend.pictures.create');
+        return view('admin.pictures.create');
     }
 
     public function store(PictureRequest $request): RedirectResponse {
@@ -42,13 +42,13 @@ class PictureController extends Controller
     public function show(Picture $picture): View {
         $picture->load('media', 'source');
 
-        return view('backend.pictures.show', compact('picture'));
+        return view('admin.pictures.show', compact('picture'));
     }
 
     public function edit(Picture $picture): View {
         $picture->load('source');
 
-        return view('backend.pictures.edit', compact('picture'));
+        return view('admin.pictures.edit', compact('picture'));
     }
 
     public function update(PictureRequest $request, Picture $picture): RedirectResponse {

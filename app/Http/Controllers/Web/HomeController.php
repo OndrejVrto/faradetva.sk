@@ -13,6 +13,6 @@ class HomeController extends Controller
 
         // TODO:  add SEO META headers
 
-        return view('frontend.home.index');
+        return view('web.home.index');
     }
 }

@@ -19,11 +19,11 @@ class ChartDataController extends Controller
             ->latest('key')
             ->paginate(25);
 
-        return view('backend.chart-data.index', compact('chart', 'data'));
+        return view('admin.chart-data.index', compact('chart', 'data'));
     }
 
     public function create(Chart $chart): View {
-        return view('backend.chart-data.create', compact('chart'));
+        return view('admin.chart-data.create', compact('chart'));
     }
 
     public function store(ChartDataRequest $request, Chart $chart): RedirectResponse {
@@ -35,7 +35,7 @@ class ChartDataController extends Controller
     }
 
     public function edit(Chart $chart, ChartData $data): View {
-        return view('backend.chart-data.edit', compact('chart', 'data'));
+        return view('admin.chart-data.edit', compact('chart', 'data'));
     }
 
     public function update(ChartDataRequest $request, Chart $chart, ChartData $data): RedirectResponse {

@@ -18,11 +18,11 @@ class DayIdeaController extends Controller
             ->latest()
             ->paginate(100);
 
-        return view('backend.day-ideas.index', compact('ideas'));
+        return view('admin.day-ideas.index', compact('ideas'));
     }
 
     public function create(): View  {
-        return view('backend.day-ideas.create');
+        return view('admin.day-ideas.create');
     }
 
     public function store(DayIdeaRequest $request): RedirectResponse {
@@ -34,7 +34,7 @@ class DayIdeaController extends Controller
     }
 
     public function edit(DayIdea $dayIdea): View  {
-        return view('backend.day-ideas.edit', compact('dayIdea'));
+        return view('admin.day-ideas.edit', compact('dayIdea'));
     }
 
     public function update(DayIdeaRequest $request, DayIdea $dayIdea): RedirectResponse {

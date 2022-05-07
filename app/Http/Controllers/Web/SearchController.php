@@ -20,6 +20,6 @@ class SearchController extends Controller
 
         // TODO:  add SEO META headers
 
-        return view('frontend.search.global', compact('searchResults', 'searchFrase'));
+        return view('web.search.global', compact('searchResults', 'searchFrase'));
     }
 }

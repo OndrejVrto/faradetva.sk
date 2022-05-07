@@ -49,11 +49,11 @@ class NoticeController extends Controller implements CrudInterface
             ->paginate(10)
             ->withQueryString();
 
-        return view('backend.notices.index', compact('notices'))->with('controller', $this->resource);
+        return view('admin.notices.index', compact('notices'))->with('controller', $this->resource);
     }
 
     public function create(): View {
-        return view('backend.notices.create')->with('controller', $this->resource);
+        return view('admin.notices.create')->with('controller', $this->resource);
     }
 
     public function store(NoticeRequest $request): RedirectResponse {
@@ -73,7 +73,7 @@ class NoticeController extends Controller implements CrudInterface
     public function edit(Model $model): View {
         $model->load('media');
 
-        return view('backend.notices.edit')->with('notice', $model)->with('controller', $this->resource);
+        return view('admin.notices.edit')->with('notice', $model)->with('controller', $this->resource);
     }
 
     public function update(NoticeRequest $request, Model $model): RedirectResponse {

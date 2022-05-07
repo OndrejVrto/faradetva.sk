@@ -18,11 +18,11 @@ class PermissionController extends Controller
             ->orderBy('name')
             ->paginate(100);
 
-        return view( 'backend.permissions.index', compact( 'permissions' ) );
+        return view( 'admin.permissions.index', compact( 'permissions' ) );
     }
 
     public function create(): View  {
-        return view('backend.permissions.create');
+        return view('admin.permissions.create');
     }
 
     public function store(PermissionRequest $request): RedirectResponse {
@@ -35,7 +35,7 @@ class PermissionController extends Controller
     }
 
     public function edit(Permission $permission): View  {
-        return view( 'backend.permissions.edit', compact( 'permission' ) );
+        return view( 'admin.permissions.edit', compact( 'permission' ) );
     }
 
     public function update(PermissionRequest $request, $id): RedirectResponse {

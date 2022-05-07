@@ -20,14 +20,14 @@ class FaqController extends Controller
             ->with('staticPages')
             ->paginate(10);
 
-        return view('backend.faqs.index', compact('faqs'));
+        return view('admin.faqs.index', compact('faqs'));
     }
 
     public function create(): View {
         $pages = StaticPage::select(['id','title','description_page'])->where('check_url', '=', true)->orderBy('title')->get();
         $selectedPages = [];
 
-        return view('backend.faqs.create', compact('pages', 'selectedPages'));
+        return view('admin.faqs.create', compact('pages', 'selectedPages'));
     }
 
     public function store(FaqRequest $request): RedirectResponse {
@@ -44,7 +44,7 @@ class FaqController extends Controller
         $pages = StaticPage::select(['id','title','description_page'])->where('check_url', '=', true)->orderBy('title')->get();
         $selectedPages = $faq->staticPages->pluck('id')->unique()->toArray();
 
-        return view('backend.faqs.edit', compact('faq', 'pages', 'selectedPages'));
+        return view('admin.faqs.edit', compact('faq', 'pages', 'selectedPages'));
     }
 
     public function update(FaqRequest $request, Faq $faq): RedirectResponse {

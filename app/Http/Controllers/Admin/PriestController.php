@@ -23,11 +23,11 @@ class PriestController extends Controller
             ->paginate(5)
             ->withQueryString();
 
-        return view('backend.priests.index', compact('priests'));
+        return view('admin.priests.index', compact('priests'));
     }
 
     public function create(): View  {
-        return view('backend.priests.create');
+        return view('admin.priests.create');
     }
 
     public function store(PriestRequest $request): RedirectResponse {
@@ -41,7 +41,7 @@ class PriestController extends Controller
     }
 
     public function edit(Priest $priest): View  {
-        return view('backend.priests.edit', compact('priest'));
+        return view('admin.priests.edit', compact('priest'));
     }
 
     public function update(PriestRequest $request, Priest $priest): RedirectResponse {

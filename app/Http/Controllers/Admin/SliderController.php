@@ -24,11 +24,11 @@ class SliderController extends Controller
             ->paginate(5)
             ->withQueryString();
 
-        return view('backend.sliders.index', compact('sliders'));
+        return view('admin.sliders.index', compact('sliders'));
     }
 
     public function create(): View  {
-        return view('backend.sliders.create');
+        return view('admin.sliders.create');
     }
 
     public function store(SliderRequest $request): RedirectResponse {
@@ -46,7 +46,7 @@ class SliderController extends Controller
     public function edit(Slider $slider): View {
         $slider->load('source');
 
-        return view('backend.sliders.edit', compact('slider'));
+        return view('admin.sliders.edit', compact('slider'));
     }
 
     public function update(SliderRequest $request, Slider $slider): RedirectResponse {

@@ -21,11 +21,11 @@ class CategoryController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('backend.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     public function create(): View  {
-        return view('backend.categories.create');
+        return view('admin.categories.create');
     }
 
     public function store(CategoryRequest $request): RedirectResponse {
@@ -42,7 +42,7 @@ class CategoryController extends Controller
             return to_route('categories.index');
         }
 
-        return view('backend.categories.edit', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     public function update(CategoryRequest $request, Category $category): RedirectResponse {

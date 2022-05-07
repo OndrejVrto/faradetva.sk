@@ -1,0 +1,12 @@
+@extends('admin._layouts.app')
+
+@section('title', __('backend-texts.'.$controller.'.title'))
+@section('meta_description', __('backend-texts.'.$controller.'.description_create'))
+
+@section('content_breadcrumb')
+    {{ Breadcrumbs::render($controller.'.create') }}
+@stop
+
+@section('content')
+    @include('admin.notices.form')
+@endsection

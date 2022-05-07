@@ -18,14 +18,14 @@ class RoleController extends Controller
     public function index(Request $request): View  {
         $roles = Role::paginate(10);
 
-        return view('backend.roles.index', compact( 'roles' ) );
+        return view('admin.roles.index', compact( 'roles' ) );
     }
 
     public function create(): View  {
         $permissions = (new ChunkPermissionService())->permission;
         $rolePermissions = [];
 
-        return view('backend.roles.create', compact('permissions', 'rolePermissions'));
+        return view('admin.roles.create', compact('permissions', 'rolePermissions'));
     }
 
     public function store(RoleRequest $request): RedirectResponse {
@@ -43,7 +43,7 @@ class RoleController extends Controller
         $rolePermissions = $role->permissions->pluck('name')->toArray();
         $permissions = (new ChunkPermissionService())->permission;
 
-        return view('backend.roles.edit', compact('role', 'rolePermissions', 'permissions'));
+        return view('admin.roles.edit', compact('role', 'rolePermissions', 'permissions'));
     }
 
     public function update(RoleRequest $request, $id): RedirectResponse {

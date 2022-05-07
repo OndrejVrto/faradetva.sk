@@ -23,13 +23,13 @@ class ChartController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('backend.charts.index', compact('charts'));
+        return view('admin.charts.index', compact('charts'));
     }
 
     public function create(): View {
         $chartTypes = ChartType::cases();
 
-        return view('backend.charts.create', compact('chartTypes'));
+        return view('admin.charts.create', compact('chartTypes'));
     }
 
     public function store(ChartRequest $request): RedirectResponse {
@@ -41,13 +41,13 @@ class ChartController extends Controller
     }
 
     public function show(Chart $chart): View {
-        return view('backend.charts.show', compact('chart'));
+        return view('admin.charts.show', compact('chart'));
     }
 
     public function edit(Chart $chart): View {
         $chartTypes = ChartType::cases();
 
-        return view('backend.charts.edit', compact('chart', 'chartTypes'));
+        return view('admin.charts.edit', compact('chart', 'chartTypes'));
     }
 
     public function update( ChartRequest $request, Chart $chart): RedirectResponse {

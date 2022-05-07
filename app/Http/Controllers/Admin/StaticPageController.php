@@ -26,14 +26,14 @@ class StaticPageController extends Controller
             ->archive($request, 'pages')
             ->get();
 
-        return view('backend.static-pages.index', compact('pages'));
+        return view('admin.static-pages.index', compact('pages'));
     }
 
     public function create(): View  {
         $banners = Banner::with('media', 'source')->get();
         $selectedBanners = [];
 
-        return view('backend.static-pages.create', compact('banners', 'selectedBanners'));
+        return view('admin.static-pages.create', compact('banners', 'selectedBanners'));
     }
 
     public function store(StaticPageRequest $request): RedirectResponse {
@@ -54,7 +54,7 @@ class StaticPageController extends Controller
         $banners = Banner::with('media', 'source')->get();
         $selectedBanners = $staticPage->banners->pluck('id')->unique()->toArray();
 
-        return view('backend.static-pages.edit', compact('staticPage', 'banners', 'selectedBanners'));
+        return view('admin.static-pages.edit', compact('staticPage', 'banners', 'selectedBanners'));
     }
 
     public function update(StaticPageRequest $request, StaticPage $staticPage): RedirectResponse {

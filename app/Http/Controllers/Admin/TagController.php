@@ -21,11 +21,11 @@ class TagController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('backend.tags.index', compact('tags'));
+        return view('admin.tags.index', compact('tags'));
     }
 
     public function create(): View  {
-        return view('backend.tags.create');
+        return view('admin.tags.create');
     }
 
     public function store(TagRequest $request): RedirectResponse {
@@ -37,7 +37,7 @@ class TagController extends Controller
     }
 
     public function edit(Tag $tag): View  {
-        return view('backend.tags.edit', compact('tag'));
+        return view('admin.tags.edit', compact('tag'));
     }
 
     public function update(TagRequest $request, Tag $tag): RedirectResponse {

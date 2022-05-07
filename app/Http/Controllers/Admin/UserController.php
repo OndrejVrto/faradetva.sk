@@ -26,7 +26,7 @@ class UserController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('backend.users.index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     public function create(): View {
@@ -35,7 +35,7 @@ class UserController extends Controller
         $permissions = (new ChunkPermissionService())->permission;
         $userPermissions = [];
 
-        return view('backend.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
+        return view('admin.users.create', compact('roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
     public function store(UserRequest $request): RedirectResponse {
@@ -64,7 +64,7 @@ class UserController extends Controller
     public function show(User $user): View  {
         $user->with('roles', 'media')->withCount('permissions');
 
-        return view('backend.users.show', compact('user') );
+        return view('admin.users.show', compact('user') );
     }
 
     public function edit(User $user): View|RedirectResponse  {
@@ -77,7 +77,7 @@ class UserController extends Controller
         $permissions = (new ChunkPermissionService())->permission;
         $userPermissions = $user->permissions->pluck('id')->toArray();
 
-        return view('backend.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
+        return view('admin.users.edit', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
     }
 
     public function update(UserRequest $request, User $user): RedirectResponse {

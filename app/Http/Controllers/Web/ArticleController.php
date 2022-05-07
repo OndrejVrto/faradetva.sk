@@ -18,7 +18,7 @@ use App\Services\FilePropertiesService;
 
 class ArticleController extends Controller
 {
-    private $viewIndex = 'frontend.article.index';
+    private $viewIndex = 'web.article.index';
 
     public function show($slug): View  {
         $oneNews = News::query()
@@ -45,7 +45,7 @@ class ArticleController extends Controller
 
         $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
 
-        return view('frontend.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
+        return view('web.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
     }
 
     public function indexAll(): View  {

@@ -88,7 +88,7 @@ class CacheController extends Controller
 
 
     public function crawlAllUrl(): RedirectResponse {
-        dispatch(new UrlsCheckJob());
+        $this->dispatch(new UrlsCheckJob());
 
         toastr()->info(__('app.cache.crawl-all-url'));
         return to_route('admin.dashboard');
