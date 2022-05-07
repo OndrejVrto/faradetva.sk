@@ -23,7 +23,7 @@ composer.lock
 /public/vendor
 /public/mix*
 
-/package-lock.json
+package-lock.json
 /zmaz
 database/raw
 resources/views/BACKUP/*
