@@ -2,11 +2,12 @@ Obsah stránky:
   ☐ vytvoriť komponent čistého obrázka
   ✔ vytvoriť logo a ikonu stránky / farnosti
   ☐ zoradiť stránky podľa zoznamu od Mariana
+  ☐ prepísať teaser texty v databáze
   ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
   ☐ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
   ☐ repare validate errors in login form
-  ☐ zmeniť url adresu v manifest.json pri nasadení na server
-  ☐ webpack mix -> všetko v jenom css a js pre frontend aj backend
+  ✔ zmeniť url adresu v manifest.json pri nasadení na server
+  ✔ webpack mix -> všetko v jenom css a js pre frontend aj backend
   ☐ doplniť do všetkých obrázkov height a width
   ✔ na spodok stránky pridať tlačítko na odskrolovanie nahor
   ✔ dorobiť texty od Mariána
@@ -99,6 +100,6 @@ SEO:
   ✘ implementovať trailing slash package alebo vyriešiť koncové lomítko inak (https://github.com/illuminatech/url-trailing-slash)
 
 Testy:
-  ☐ vytvoriť testy na všetko
+  ✘ vytvoriť testy na všetko
 
 Archive:
