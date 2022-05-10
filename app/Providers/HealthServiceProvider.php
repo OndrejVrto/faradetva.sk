@@ -48,7 +48,9 @@ class HealthServiceProvider extends ServiceProvider
             CorrectPhpVersionInstalledCheck::new(),
             ComposerDependenciesUpToDateCheck::new(),
             AppKeySetCheck::new(),
-            SslCertificateValidCheck::new(),
+            SslCertificateValidCheck::new()
+                ->warnWhenSslCertificationExpiringDay(20)
+                ->failWhenSslCertificationExpiringDay(10),
             CspMiddlerwareEnabledCheck::new(),
 
         ]);

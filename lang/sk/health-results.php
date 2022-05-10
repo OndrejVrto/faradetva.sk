@@ -146,8 +146,9 @@ return [
 
         'failed-bad-url'               => 'Neplatná adresa URL. :eol :url',
         'failed-certificate-non-exist' => 'Certifikát neexistuje. :eol :url',
-        'failed-expired'               => 'Certifikát pre :host expiroval dňa :dateExpiration.',
         'failed_uncovered_host'        => 'Certifikát nepokrýva hostiteľa tejto stránky. :eol Požadovaný HOST: :host',
+        'failed_expired_soon'          => 'Certifikát pre :host o :daysRemaining dní expiruje.',
+        'failed-expired'               => 'Certifikát pre :host expiroval dňa :dateExpiration.',
 
         'ok'                           => 'Certifikát je v poriadku. :eol Expiruje dňa :dateExpiration (o :daysRemaining dní).',
         'short'                        => 'Expirácia dňa: :dateExpiration',
@@ -157,11 +158,5 @@ return [
         'label'        => 'Content Security Policy',
         'ok'           => 'Je povolené',
         'failed'       => 'Zakázané. Možné ohrozenie aplikácie.',
-    ],
-
-    '' => [
-        'label'        => '',
-        'ok'           => 'Funguje',
-        'failed'       => '',
     ],
 ];
