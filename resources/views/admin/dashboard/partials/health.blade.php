@@ -33,9 +33,9 @@
                 @foreach ($checkResults->storedCheckResults as $result)
                     <div class="col-lg-6 my-2">
 
-                        <div class="info-box shadow-lg h-100">
+                        <div class="info-box shadow h-100">
                             <span class="info-box-icon">
-                                <x-partials.health-status-icon :result="$result" height="45"/>
+                                <x-partials.health-status-icon :result="$result" height="40"/>
                             </span>
                             <div class="info-box-content justify-content-start">
                                 <span class="info-box-text text-bold">{{ __(($result->label)) }}</span>

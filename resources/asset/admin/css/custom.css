@@ -128,3 +128,8 @@ dd {
 	/* text-transform: capitalize; */
 	font-weight   : 700;
 }
+
+.info-box {
+    min-height: unset;
+    margin-bottom: unset;
+}
