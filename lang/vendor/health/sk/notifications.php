@@ -2,7 +2,7 @@
 
 return [
     // 'laravel_health' => 'Laravel Health',
-    'laravel_health' => 'Aktuálne "zdravie" aplikácie',
+    'laravel_health' => 'Stav stránky',
 
     'check_failed_mail_subject' => 'Niektoré kontroly stavu aplikácie :application_name zlyhali.',
 

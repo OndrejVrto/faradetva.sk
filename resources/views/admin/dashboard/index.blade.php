@@ -37,25 +37,8 @@
             </div>
         </div>
         <div class="col-xl-9 order-xl-1">
-            {{-- @include('admin.dashboard.partials.health') --}}
             {{-- @include('admin.dashboard.partials.list-pages') --}}
-
-            <div class="card card-outline card-orange">
-                <div class="card-header">
-                    <h3 class="card-title">{{ __('health::notifications.laravel_health') }}</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                    </div>
-
-                </div>
-
-                <div class="card-body">
-                    @include('admin.dashboard.partials.health')
-                </div>
-
-            </div>
+            @include('admin.dashboard.partials.health')
         </div>
     </div>
 

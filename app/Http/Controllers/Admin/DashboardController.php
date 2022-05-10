@@ -28,10 +28,10 @@ class DashboardController extends Controller
         return view('admin.dashboard.index', [
             'lastRanAt'    => new Carbon($checkResults?->finishedAt),
             'checkResults' => $checkResults,
-            'pages'        => StaticPage::query()
-                                ->select(['title', 'url', 'check_url'])
-                                ->orderBy('slug')
-                                ->get(),
+            // 'pages'        => StaticPage::query()
+            //                     ->select(['title', 'url', 'check_url'])
+            //                     ->orderBy('slug')
+            //                     ->get(),
         ]);
     }
 }
