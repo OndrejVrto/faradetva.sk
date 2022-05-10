@@ -6,7 +6,7 @@ use function app;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class CustomEnvironmentCheck extends Check
+class EnvironmentCheck extends Check
 {
     protected string $expectedEnvironment = 'production';
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class CustomPingCheck extends Check
+class PingCheck extends Check
 {
     public ?string $url = null;
     public ?string $failureMessage = null;

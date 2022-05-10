@@ -7,7 +7,7 @@ use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 use Spatie\Valuestore\Valuestore;
 
-class CustomDebugModeCheck extends Check
+class DebugModeCheck extends Check
 {
     public function run(): Result
     {

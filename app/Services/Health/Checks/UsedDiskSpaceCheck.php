@@ -3,12 +3,11 @@
 namespace App\Services\Health\Checks;
 
 use Spatie\Regex\Regex;
-use Illuminate\Support\Arr;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 use Symfony\Component\Process\Process;
 
-class CustomUsedDiskSpaceCheck extends Check
+class UsedDiskSpaceCheck extends Check
 {
     protected int $warningThreshold = 70;
     protected int $errorThreshold = 90;

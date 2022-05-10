@@ -9,7 +9,7 @@ use Spatie\Health\Checks\Result;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\Cache;
 
-class CustomCacheCheck extends Check
+class CacheCheck extends Check
 {
     public function run(): Result {
         $driver = $this->defaultDriver();

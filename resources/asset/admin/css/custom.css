@@ -46,7 +46,12 @@
 }
 
 .bg-backend {
-    background-color: #e7e7e7;
+    background-color     : #e7e7e7;
+    background           : url('/images/svg/dashboard-visual-data-amico.svg') no-repeat;
+	background-size      : auto;
+	position             : relative;
+	background-position  : center center;
+	background-attachment: fixed;
 }
 
 .lh-1 {
@@ -122,4 +127,9 @@ dd {
 	color         : #ffffff;
 	/* text-transform: capitalize; */
 	font-weight   : 700;
+}
+
+.info-box {
+    min-height: unset;
+    margin-bottom: unset;
 }

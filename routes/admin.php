@@ -61,7 +61,7 @@ Route::prefix('admin')->group( function() {
         Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->whereNumber('id')->name('impersonate');
 
         //!  Activity plugin
-        Route::controller(ActivityController::class)->name('log-activity.')->group(function () {
+        Route::controller(ActivityController::class)->name('log-activity.')->withoutMiddleware('preety.html')->group(function () {
             Route::get('users-activity', 'getIndex')->name('index');
             Route::post('users-activity', 'handlePostRequest')->name('post');
         });
