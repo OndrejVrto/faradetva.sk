@@ -29,61 +29,75 @@ Obsah stránky:
   ✘ do článku na začiatku vkladať Teaser?
   ✘ autolink generátor pre statické stránky
 
-Administrátorské rozhranie:
-  ☐ LiveWire Datatable pre všetky backend tabuľky
-  ☐ BredCrumbs in Chard data
-  ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
-  ☐ štatistika, rôzne kontroly a gooogle analytics na dashboard
-  https://www.youtube.com/watch?v=iXH1RJJ4EUw&ab_channel=LaravelDaily
-  https://spatie.be/docs/laravel-dashboard/v2/introduction
-  https://freek.dev/2143-a-laravel-package-to-monitor-the-health-of-your-application
-  https://github.com/spatie/laravel-server-monitor
-  https://codelapan.com/post/google-analytics-laravel
-  https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
-  https://github.com/fidum/laravel-dashboard-chart-tile
-  https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
-  ✔ refaktorovať Cache vo všetkých komponentoch
-  ✔ pridať čistenie všetkých dočasných adresárov
-  ✔ prehodiť crawlery z Listener-a do Schedule-ra a Job-ov
-  ✔ implementovať ukladanie dočasných premenných mimo databázu
-  ✔ prepísať názvy polí Source tak aby nekolidovali z inými @started(22-05-02 15:10) @done(22-05-02 17:49) @lasted(2h39m29s)
-  ✔ storage media in Storage folder and create link
-  ✔ premazať všetky nepotrebné obrázky v public/images
-  ✔ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
-  ✔ Orezanie / CROP obrázkov cez JS kde to treba
-  ✔ analyzovať a zrýchliť bootovanie stránky
-  ✔ automatické premenovanie vkladaných súborov
 
-  ✔ opraviť Crawler pri HTTPS schéme
-  ✔ nastaviť správne rozmery obrázkom a optimalizáciu
-  ✔ opraviť načítavanie obrázkov pri zapnutom CSP
-  ✔ newsletter register/unscribe
-  ✔ doprogramovať grafy -> farba, typ, ...
-  ✔ CRUD modlidby s obrázkom na celú stránku a linkom na príspevok
-  ✔ Frequently Asked Question (FAQ) pre každú stránku
-  ✔ vytvoriť komponent sekcie FAQ
-  ✔ move sources in backend fomns to separe component?
-  ✔ tlačítko na priame zobrazenie správy
-  ✔ prerobiť design dashboardu
-  ✔ prvý článok v zozname prerobiť do responzivneho režimu
-  ✔ pridať component prílohy do článkov/upraviť ho podľa potreby
-  ✔ mansonry layout pre články (https://getbootstrap.com/docs/5.1/examples/masonry/)
-  ✔ add robots index, follow to meta tag
-  ✔ pridať tlačítko na download všade kde sa vkladá súbor ( články, kňazi, slider, user, rozpisy, ....)
-  ✔ dorobiť restore a force-delete metódy v softdelete modeloch
-  ✔ pridať tlačítka zmazaných položiek pri softdelete modeloch a skryť tlačítka show metód
-  ✔ cache celej frontend stránky  (https://www.youtube.com/watch?v=P5WvRH71A5g&ab_channel=Laratips)
-  ✔ Myšlienka dňa - komplet model, controller, migration, ....
-  ✔ nainštalovať X-Debug
-  ✔ automatický teaser v správach
-  ✔ search na celej stránke
-    https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
-    https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
-    https://spatie.be/docs/laravel-site-search/v1/introduction
-  ✘ Apply SoftDelete Cascade in model user? (https://github.com/razisayyed/laravel-cascaded-soft-deletes)
-  ✘ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
-  ✘ vkladanie obrazkov galerie cez vue komponent  https://github.com/simmodev/vue-media-upload
-  ✘ automatické zverejnenie článku na FaceBooku po zverejnení na stránke
+Administrátorské rozhranie:
+
+  Dashboard:
+    ☐ pridať tlačítko Fresh Health na dashboard
+    ☐ prerobiť tlacitka na dashboarde na togle prepínače + button Save
+    ☐ dopnit kartu ktorá bude informovať o zacechovaní route a config súborov
+    ☐ pridať kartu zo zoznamomm statických stránok na dashboard
+    ☐ pridať kartu s časom posledného Crawlera stránky
+    ☐ štatistika a rôzne grafy
+      https://github.com/fidum/laravel-dashboard-chart-tile
+    ✔ rôzne kontroly na dashboard
+      https://github.com/spatie/laravel-server-monitor
+      https://freek.dev/2143-a-laravel-package-to-monitor-the-health-of-your-application
+      https://www.youtube.com/watch?v=iXH1RJJ4EUw&ab_channel=LaravelDaily
+      https://spatie.be/docs/laravel-dashboard/v2/introduction
+    ✘ gooogle analytics na dashboard
+      https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
+      https://codelapan.com/post/google-analytics-laravel
+      https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
+
+  Iné:
+    ☐ LiveWire Datatable pre všetky backend tabuľky
+    ☐ prepínač customSwitch prehodiť do komponentu
+    ☐ BredCrumbs in Chard data
+    ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
+    ✔ refaktorovať Cache vo všetkých komponentoch
+    ✔ pridať čistenie všetkých dočasných adresárov
+    ✔ prehodiť crawlery z Listener-a do Schedule-ra a Job-ov
+    ✔ implementovať ukladanie dočasných premenných mimo databázu
+    ✔ prepísať názvy polí Source tak aby nekolidovali z inými @started(22-05-02 15:10) @done(22-05-02 17:49) @lasted(2h39m29s)
+    ✔ storage media in Storage folder and create link
+    ✔ premazať všetky nepotrebné obrázky v public/images
+    ✔ command and cron-job/schedule for clear/delete temporary files in storage/tmp/uploads folder
+    ✔ Orezanie / CROP obrázkov cez JS kde to treba
+    ✔ analyzovať a zrýchliť bootovanie stránky
+    ✔ automatické premenovanie vkladaných súborov
+
+    ✔ opraviť Crawler pri HTTPS schéme
+    ✔ nastaviť správne rozmery obrázkom a optimalizáciu
+    ✔ opraviť načítavanie obrázkov pri zapnutom CSP
+    ✔ newsletter register/unscribe
+    ✔ doprogramovať grafy -> farba, typ, ...
+    ✔ CRUD modlidby s obrázkom na celú stránku a linkom na príspevok
+    ✔ Frequently Asked Question (FAQ) pre každú stránku
+    ✔ vytvoriť komponent sekcie FAQ
+    ✔ move sources in backend fomns to separe component?
+    ✔ tlačítko na priame zobrazenie správy
+    ✔ prerobiť design dashboardu
+    ✔ prvý článok v zozname prerobiť do responzivneho režimu
+    ✔ pridať component prílohy do článkov/upraviť ho podľa potreby
+    ✔ mansonry layout pre články (https://getbootstrap.com/docs/5.1/examples/masonry/)
+    ✔ add robots index, follow to meta tag
+    ✔ pridať tlačítko na download všade kde sa vkladá súbor ( články, kňazi, slider, user, rozpisy, ....)
+    ✔ dorobiť restore a force-delete metódy v softdelete modeloch
+    ✔ pridať tlačítka zmazaných položiek pri softdelete modeloch a skryť tlačítka show metód
+    ✔ cache celej frontend stránky  (https://www.youtube.com/watch?v=P5WvRH71A5g&ab_channel=Laratips)
+    ✔ Myšlienka dňa - komplet model, controller, migration, ....
+    ✔ nainštalovať X-Debug
+    ✔ automatický teaser v správach
+    ✔ search na celej stránke
+      https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
+      https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
+      https://spatie.be/docs/laravel-site-search/v1/introduction
+    ✘ Apply SoftDelete Cascade in model user? (https://github.com/razisayyed/laravel-cascaded-soft-deletes)
+    ✘ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
+    ✘ vkladanie obrazkov galerie cez vue komponent  https://github.com/simmodev/vue-media-upload
+    ✘ automatické zverejnenie článku na FaceBooku po zverejnení na stránke
+
 
 SEO:
   ✔ implementovať Cookie oznam
@@ -99,7 +113,9 @@ SEO:
   ✔ implementovať do statických stránok referenčný obrázok pre facebook/twiter
   ✘ implementovať trailing slash package alebo vyriešiť koncové lomítko inak (https://github.com/illuminatech/url-trailing-slash)
 
+
 Testy:
   ✘ vytvoriť testy na všetko
+
 
 Archive:

@@ -39,7 +39,7 @@
 
 @endphp
 <!--  Component: Form - Start -->
-<div class="row">
+<div class="row pt-4">
     <div {{ $attributes->merge(['class' => "col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL." mx-auto"]) }}>
         <div class="card">
 

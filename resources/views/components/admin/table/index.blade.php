@@ -38,7 +38,7 @@
     }
 @endphp
 <!--  Component: Table - Start -->
-<div class="row justify-content-center">
+<div class="row justify-content-center pt-4">
 
     <div {{ $attributes->merge(['class' => "col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL]) }}>
         <div class="card">

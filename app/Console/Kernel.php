@@ -8,6 +8,9 @@ use App\Jobs\SiteSearchCrawlJob;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\App;
 use Illuminate\Console\Scheduling\Schedule;
+use Spatie\Health\Commands\RunHealthChecksCommand;
+use Spatie\Health\Models\HealthCheckResultHistoryItem;
+use Spatie\Health\Commands\ScheduleCheckHeartbeatCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -18,6 +21,15 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule): void {
         $schedule->command('notification:send-news-subscriber')->everyMinute()->environments(['production']);
+
+        // Laravel Health commands
+        $schedule->command(ScheduleCheckHeartbeatCommand::class)->everyMinute();
+        $schedule->command(RunHealthChecksCommand::class)->everyMinute();
+        $schedule->command('model:prune', [
+            '--model' => [
+                HealthCheckResultHistoryItem::class,
+            ],
+        ])->daily();
 
         if($this->needRenew()){
             if(App::environment(['local', 'dev'])) {
