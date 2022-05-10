@@ -45,7 +45,7 @@ class CustomEloquentHealthResultStore implements ResultStore
                 'check_label' => $result->check->getLabel(),
                 'status' => $result->status,
                 'notification_message' => $result->notificationMessage,
-                'short_summary' => $result->getShortSummary(),
+                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, $result->status),
                 'meta' => $result->meta,
                 'batch' => $batch,
                 'ended_at' => $result->ended_at,
@@ -70,7 +70,7 @@ class CustomEloquentHealthResultStore implements ResultStore
                     notificationMessage: $historyItem->notification_message,
                     shortSummary: $historyItem->short_summary,
                     status: $historyItem->status,
-                    meta: $historyItem->meta,
+                    meta: $historyItem->meta + ['eol' => '<br>'],
                 );
             });
 
@@ -78,5 +78,9 @@ class CustomEloquentHealthResultStore implements ResultStore
             finishedAt: $latestItem->created_at,
             checkResults: $storedCheckResults,
         );
+    }
+
+    private function getTranslatadedShortSummary($shortSummary, $status): string {
+        return !empty($shortSummary) ? $shortSummary : "health-results.".Str::lower($status);
     }
 }

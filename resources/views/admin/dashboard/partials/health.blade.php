@@ -24,9 +24,9 @@
                         <span class="info-box-text text-bold">{{ __(($result->label)) }}</span>
                         <span class="mt-1 font-weight-normal lh-sm">
                             @if (!empty($result->notificationMessage))
-                                {{ __($result->notificationMessage, $result->meta) }}
+                                {!! __($result->notificationMessage, $result->meta) !!}
                             @else
-                                {{ __(($result->shortSummary)) }}
+                                {!! __(($result->shortSummary)) !!}
                             @endif
                         </span>
                     </div>

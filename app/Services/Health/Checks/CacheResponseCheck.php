@@ -7,7 +7,7 @@ use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 use Spatie\Valuestore\Valuestore;
 
-class CustomCacheResponseCheck extends Check
+class CacheResponseCheck extends Check
 {
     public function run(): Result {
         $this->label('health-results.cache_response.label');

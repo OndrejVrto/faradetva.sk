@@ -7,7 +7,7 @@
                 @if ($lastRanAt->diffInMinutes() < 1)
                     just now
                 @else
-                    {{ $lastRanAt->diffForHumans() }}
+                    {{ $lastRanAt->locale('en')->diffForHumans() }}
                 @endif
             </span>
         </div>
@@ -18,13 +18,13 @@
                         {{ $result->status }}
                     </b>
                 </span>
-                <span>{{ __($result->label, $result->meta) }}</span>
+                <span>{{ str(__($result->label, $result->meta, 'en'))->replace('<br>', '') }}</span>
                 <span class="text-gray">›</span>
-                <span class="{{ $color($result->status) }}"> {{ __($result->shortSummary, $result->meta) }}</span>
+                <span class="{{ $color($result->status) }}"> {{ str(__($result->shortSummary, $result->meta, 'en'))->replace('<br>', '') }}</span>
             </div>
             @if ($result->notificationMessage)
             <div class="ml-11 text-gray">
-                ⇂ {{ __($result->notificationMessage, $result->meta) }}
+                ⇂ {{ str(__($result->notificationMessage, $result->meta, 'en'))->replace('<br>', '') }}
             </div>
             @endif
         @endforeach
