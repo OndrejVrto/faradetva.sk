@@ -15,9 +15,7 @@ use App\Services\Health\Checks\CustomScheduleCheck;
 use App\Services\Health\Checks\CustomDebugModeCheck;
 use App\Services\Health\Checks\EventsAreCachedCheck;
 use App\Services\Health\Checks\RoutesAreCachedCheck;
-use App\Services\Health\Checks\CustomEnvironmentCheck;
-use App\Services\Health\Checks\CustomMeiliSearchCheck;
-use App\Services\Health\Checks\CustomUsedDiskSpaceCheck;
+use App\Services\Health\Checks\StaticPagesCrawlerCheck;
 use App\Services\Health\Checks\SslCertificateValidCheck;
 use App\Services\Health\Checks\CspMiddlerwareEnabledCheck;
 use App\Services\Health\Checks\StorageDirectoryIsLinkedCheck;
@@ -28,12 +26,7 @@ class HealthServiceProvider extends ServiceProvider
 {
     public function boot(): void {
         Health::checks([
-            CustomDatabaseCheck::new(),
-            CustomScheduleCheck::new(),
-            CustomMeiliSearchCheck::new(),
-            CustomDebugModeCheck::new(),
-            CustomEnvironmentCheck::new(),
-            CustomUsedDiskSpaceCheck::new()
+            StaticPagesCrawlerCheck::new(),
                 ->warnWhenUsedSpaceIsAbovePercentage(80)
                 ->failWhenUsedSpaceIsAbovePercentage(90),
             CustomCacheCheck::new(),

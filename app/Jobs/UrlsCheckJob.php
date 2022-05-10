@@ -25,8 +25,6 @@ class UrlsCheckJob implements ShouldQueue
     use InteractsWithQueue;
 
     public function handle() {
-        Valuestore::make(config('farnost-detva.value_store'))->put('___RELOAD', false);
-
         File::delete(storage_path('/logs/laravel.log'));
         // File::delete(storage_path('/logs/query.log'));
 
@@ -48,5 +46,9 @@ class UrlsCheckJob implements ShouldQueue
             ->setCrawlObserver(new UrlCheckCrawlerObserver())
             ->setCrawlProfile(new UrlCheckCrawlProfile(config('app.url')))
             ->startCrawling(config('app.url'));
+
+        Valuestore::make(config('farnost-detva.value_store'))
+            ->put('___RELOAD', false)
+            ->put('CRAWLER.url_check', now());
     }
 }

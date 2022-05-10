@@ -159,4 +159,12 @@ return [
         'ok'           => 'Je povolené',
         'failed'       => 'Zakázané. Možné ohrozenie aplikácie.',
     ],
+
+    'static_pages' => [
+        'label'      => 'Dostupnosť stránok',
+        'ok'         => 'Všetkých :allPages stránok je dostupných. :eol Posledná kontrola pred :lastCrawlHours hodinami.',
+        'short'      => ':checkPages z :allPages',
+        'failed'     => 'Dostupných je len :checkPages zo :allPages stránok. :eol Posledná kontrola pred :lastCrawlHours hodinami.',
+        'no-crawled' => 'Dostupnosť stránok zatiaľ nebola kontrolovaná. :eol Posledná kontrola pred :lastCrawlHours hodinami.',
+    ],
 ];

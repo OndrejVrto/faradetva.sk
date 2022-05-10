@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
+use Spatie\Valuestore\Valuestore;
 use Spatie\Sitemap\SitemapGenerator;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -22,5 +23,9 @@ class GenerateSitemapJob implements ShouldQueue
         SitemapGenerator::create(config('app.url'))
             // ->maxTagsPerSitemap(20000)
             ->writeToFile(public_path('sitemap.xml'));
+
+        Valuestore::make(config('farnost-detva.value_store'))
+            ->put('___RELOAD', false)
+            ->put('CRAWLER.sitemap', now());
     }
 }

@@ -11,11 +11,13 @@ use Spatie\SiteSearch\Models\SiteSearchConfig;
 class SiteSearchCrawlJob
 {
     public function handle() {
-        Valuestore::make(config('farnost-detva.value_store'))->put('___RELOAD', false);
-
         SiteSearchConfig::enabled()
             ->each(function (SiteSearchConfig $siteSearchConfig) {
                 dispatch(new CrawlSiteJob($siteSearchConfig));
             });
+
+        Valuestore::make(config('farnost-detva.value_store'))
+            ->put('___RELOAD', false)
+            ->put('CRAWLER.site_search', now());
     }
 }
