@@ -18,6 +18,7 @@ yarn-error.log
 .phpstorm.meta.php
 composer.lock
 
+public/*
 /public/storage
 /public/media
 /public/vendor

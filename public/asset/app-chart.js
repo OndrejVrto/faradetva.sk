@@ -1,1 +1,84 @@
-function generateGraph(t,e,i,l,o,a,d,n,s){var p={type:a,data:{labels:e,datasets:[{label:l,backgroundColor:o+"6c",borderColor:o,fill:"start",pointStyle:"circle",pointRadius:5,pointHoverRadius:8,data:i}]},options:{responsive:!0,plugins:{title:{display:!1,text:l},subtitle:{display:!0,text:d,color:"#243A4F",font:{size:16},padding:{bottom:10}},legend:{display:!1}},scales:{x:{display:!0,title:{display:!0,text:n,color:"#ff7b33",font:{size:20,weight:"bold",lineHeight:1.2},padding:{top:10,left:0,right:0,bottom:0}}},y:{display:!0,min:0,title:{display:!0,text:s,color:"#ff7b33",font:{size:20,weight:"bold",lineHeight:1.2},padding:{top:0,left:0,right:0,bottom:10}}}}}};new Chart(document.getElementById(t),p)}
+function generateGraph(id, labelGraph, dataGraph, title, color, type, desc, name_x_axis, name_y_axis) {
+  var data = {
+    labels: labelGraph,
+    datasets: [{
+      label: title,
+      backgroundColor: color + '6c',
+      borderColor: color,
+      fill: 'start',
+      pointStyle: 'circle',
+      pointRadius: 5,
+      pointHoverRadius: 8,
+      data: dataGraph
+    }]
+  };
+  var config = {
+    type: type,
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: false,
+          text: title
+        },
+        subtitle: {
+          display: true,
+          text: desc,
+          color: '#243A4F',
+          font: {
+            size: 16
+          },
+          padding: {
+            bottom: 10
+          }
+        },
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true,
+            text: name_x_axis,
+            color: '#ff7b33',
+            font: {
+              size: 20,
+              weight: 'bold',
+              lineHeight: 1.2
+            },
+            padding: {
+              top: 10,
+              left: 0,
+              right: 0,
+              bottom: 0
+            }
+          }
+        },
+        y: {
+          display: true,
+          min: 0,
+          title: {
+            display: true,
+            text: name_y_axis,
+            color: '#ff7b33',
+            font: {
+              size: 20,
+              weight: 'bold',
+              lineHeight: 1.2
+            },
+            padding: {
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 10
+            }
+          }
+        }
+      }
+    }
+  };
+  var chart = new Chart(document.getElementById(id), config);
+}

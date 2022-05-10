@@ -5,16 +5,16 @@
 
 @section('content')
 
-    <div class="row">
+    {{-- <div class="row"> --}}
         {{-- <div class="col"> --}}
-            @include('admin.dashboard.partials.health')
+            {{-- @include('admin.dashboard.partials.health') --}}
         {{-- </div> --}}
-    </div>
+    {{-- </div> --}}
 
-    @include('admin.dashboard.partials.check-gates')
+    {{-- @include('admin.dashboard.partials.check-gates') --}}
 
-    <div class="row">
-        <div class="col-xl-5 order-xl-2">
+    <div class="row pt-3">
+        <div class="col-xl-3 order-xl-2">
             <div class="row">
                 <div class="col-md-6 col-xl-12">
                     @include('admin.dashboard.partials.test-features')
@@ -36,11 +36,29 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-7 order-xl-1">
-            @include('admin.dashboard.partials.list-pages')
+        <div class="col-xl-9 order-xl-1">
+            {{-- @include('admin.dashboard.partials.health') --}}
+            {{-- @include('admin.dashboard.partials.list-pages') --}}
+
+            <div class="card card-outline card-orange">
+                <div class="card-header">
+                    <h3 class="card-title">{{ __('health::notifications.laravel_health') }}</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="card-body">
+                    @include('admin.dashboard.partials.health')
+                </div>
+
+            </div>
         </div>
     </div>
 
-    @include('admin.dashboard.partials.background-picture')
+    {{-- @include('admin.dashboard.partials.background-picture') --}}
 @stop
 

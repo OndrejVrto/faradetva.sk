@@ -1,1 +1,143 @@
-!function(t){t.fn.moveCursorToEnd=function(){var t=this.val();this.val(""),this.blur().focus().val(t)},t(".delete-form").on("click","button[type=submit]",(function(n){n.preventDefault();var e=t(this).parent();Swal.fire({title:"Si si istý?",icon:"warning",showCancelButton:!0,confirmButtonColor:"#dc3545",cancelButtonColor:"#007BFF",confirmButtonText:"Áno, chcem to zmazať!"}).then((function(t){t.isConfirmed&&e.submit()}))})),t(".restore-form").on("click","button[type=submit]",(function(n){n.preventDefault();var e=t(this).parent();Swal.fire({title:"Obnovenie záznamu",icon:"info",showCancelButton:!0,confirmButtonColor:"#28A745",cancelButtonColor:"#007BFF",confirmButtonText:"Chcem obnoviť!"}).then((function(t){t.isConfirmed&&e.submit()}))})),t(".force-delete-form").on("click","button[type=submit]",(function(n){n.preventDefault();var e=t(this).parent();Swal.fire({title:"Trvalé vymazanie z databázy",icon:"error",showCancelButton:!0,confirmButtonColor:"#dc3545",cancelButtonColor:"#007BFF",confirmButtonText:"Chcem ZMAZAŤ z databázy na trvalo!"}).then((function(t){t.isConfirmed&&e.submit()}))})),t(".add-files-group, .custom-file").on("change","input[type=file]",(function(){var n=t(this).val().split("\\").pop();t(this).next(".custom-file-label").html(n)})),t("#btnSave").on("click",(function(){t("#btnSave").html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Ukladám...').addClass("disabled")}))}(jQuery);var Timer=function(t){var n=this;function e(){n.seconds--,0==n.minutes&&0==n.seconds&&n.stop(),n.seconds<0&&(n.seconds=59,n.minutes--),n.seconds<=9&&(n.seconds="0"+n.seconds),n.element.textContent=("0"+n.minutes).slice(-2)+":"+n.seconds}n.opts=t||{},n.element=t.element||null,n.minutes=t.minutes||0,n.seconds=t.seconds||0,n.start=function(){n.interval=setInterval(e,1e3)},n.stop=function(){clearInterval(n.interval)}};function toggleChceckerAll(t){$(t.button).on("click",(function(){$(this).is(":checked")?$.each($(t.items),(function(){$(this).prop("checked",!0)})):$.each($(t.items),(function(){$(this).prop("checked",!1)}))}))}
+(function ($) {
+  /**
+   * Move cursor to the end of input
+   */
+  $.fn.moveCursorToEnd = function () {
+    var originalValue = this.val();
+    this.val('');
+    this.blur().focus().val(originalValue);
+  };
+  /**
+   * DELETE FORM submit
+   */
+
+
+  $('.delete-form').on('click', 'button[type=submit]', function (event) {
+    event.preventDefault();
+    var form = $(this).parent();
+    Swal.fire({
+      title: 'Si si istý?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#007BFF',
+      confirmButtonText: 'Áno, chcem to zmazať!'
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        form.submit();
+      }
+    });
+  });
+  /**
+   * RESTORE FORM submit
+   */
+
+  $('.restore-form').on('click', 'button[type=submit]', function (event) {
+    event.preventDefault();
+    var form = $(this).parent();
+    Swal.fire({
+      title: 'Obnovenie záznamu',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#28A745',
+      cancelButtonColor: '#007BFF',
+      confirmButtonText: 'Chcem obnoviť!'
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        form.submit();
+      }
+    });
+  });
+  /**
+  * FORCE DELETE FORM submit
+  */
+
+  $('.force-delete-form').on('click', 'button[type=submit]', function (event) {
+    event.preventDefault();
+    var form = $(this).parent();
+    Swal.fire({
+      title: 'Trvalé vymazanie z databázy',
+      icon: 'error',
+      showCancelButton: true,
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#007BFF',
+      confirmButtonText: 'Chcem ZMAZAŤ z databázy na trvalo!'
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        form.submit();
+      }
+    });
+  });
+  /**
+  * Add file name to input field when it is selected
+  */
+
+  $(".add-files-group, .custom-file").on("change", "input[type=file]", function () {
+    //get the file name
+    var fileName = $(this).val().split("\\").pop(); //replace the "Choose a file" label
+
+    $(this).next(".custom-file-label").html(fileName);
+  });
+  $('#btnSave').on('click', function () {
+    $('#btnSave').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Ukladám...').addClass('disabled');
+  });
+})(jQuery);
+/**
+ *  Countdown timer in rigth corner
+ */
+
+
+var Timer = function Timer(opts) {
+  var self = this;
+  self.opts = opts || {};
+  self.element = opts.element || null;
+  self.minutes = opts.minutes || 0;
+  self.seconds = opts.seconds || 0;
+
+  self.start = function () {
+    self.interval = setInterval(countDown, 1000);
+  };
+
+  self.stop = function () {
+    clearInterval(self.interval);
+  };
+
+  function countDown() {
+    self.seconds--; //Changed Line
+
+    if (self.minutes == 0 && self.seconds == 0) {
+      self.stop();
+    }
+
+    if (self.seconds < 0) {
+      //Changed Condition. Not include 0
+      self.seconds = 59;
+      self.minutes--;
+    }
+
+    if (self.seconds <= 9) {
+      self.seconds = '0' + self.seconds;
+    }
+
+    self.element.textContent = ("0" + self.minutes).slice(-2) + ':' + self.seconds;
+  }
+};
+
+function toggleChceckerAll(config) {
+  $(config.button).on('click', function () {
+    if ($(this).is(':checked')) {
+      $.each($(config.items), function () {
+        $(this).prop('checked', true);
+      });
+    } else {
+      $.each($(config.items), function () {
+        $(this).prop('checked', false);
+      });
+    }
+  });
+}
+
+;
+document.addEventListener('DOMContentLoaded', function () {
+  window.setTimeout(document.querySelector('svg').classList.add('animated'), 1000);
+});
