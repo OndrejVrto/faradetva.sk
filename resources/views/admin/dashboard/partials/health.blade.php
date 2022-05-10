@@ -15,17 +15,15 @@
     <div class="card-body">
         @if (count($checkResults?->storedCheckResults ?? []))
 
-            <div class="d-flex justify-content-between align-content-end mx-2">
+            <div class="d-flex flex-wrap justify-content-center justify-content-md-between align-content-end mx-2">
                 @if ($lastRanAt)
-                    <span class="text-bold align-self-center {{ $lastRanAt->diffInMinutes() > 5 ? ' text-danger' : '' }}">
-                        {{-- <x-health-logo height="20" class="text-orange"/> --}}
+                    <span class="text-bold align-self-center mx-5 ml-sm-0 {{ $lastRanAt->diffInMinutes() > 5 ? ' text-danger' : '' }}">
                         {{ __('health::notifications.check_results_from') }} {{ $lastRanAt->diffForHumans() }}
                     </span>
                 @endif
-                {{-- <x-health-logo height="40" class="text-danger"/> --}}
                 <a class="btn btn-flat bg-gradient-pink flex-fill flex-md-grow-0 mb-2 mb-md-0"
                     href="{{ route('admin.dashboard', [ 'fresh']) }}">
-                    Obnoviť stav
+                    Vynútiť obnovenie stavu
                 </a>
             </div>
 
