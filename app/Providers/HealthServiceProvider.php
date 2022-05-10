@@ -16,31 +16,37 @@ class HealthServiceProvider extends ServiceProvider
 {
     public function boot(): void {
         Health::checks([
-            StaticPagesCrawlerCheck::new(),
-            DatabaseCheck::new(),
-            ScheduleCheck::new(),
-            MeiliSearchCheck::new(),
-            DebugModeCheck::new(),
-            EnvironmentCheck::new(),
-            UsedDiskSpaceCheck::new()
-                ->warnWhenUsedSpaceIsAbovePercentage(80)
-                ->failWhenUsedSpaceIsAbovePercentage(90),
-            CacheCheck::new(),
-            PingCheck::new()->url('https://google.com'),
-            CacheResponseCheck::new(),
-            RoutesAreCachedCheck::new(),
-            ConfigIsCachedCheck::new(),
-            EventsAreCachedCheck::new(),
+            // critical
             StorageDirectoryIsLinkedCheck::new(),
-            EnvFileExistsCheck::new(),
-            CorrectPhpVersionInstalledCheck::new(),
-            ComposerDependenciesUpToDateCheck::new(),
             AppKeySetCheck::new(),
             SslCertificateValidCheck::new()
                 ->warnWhenSslCertificationExpiringDay(20)
                 ->failWhenSslCertificationExpiringDay(10),
-            CspMiddlerwareEnabledCheck::new(),
+            DatabaseCheck::new(),
+            EnvFileExistsCheck::new(),
+            CorrectPhpVersionInstalledCheck::new(),
 
+            // danger
+            UsedDiskSpaceCheck::new()
+                ->warnWhenUsedSpaceIsAbovePercentage(80)
+                ->failWhenUsedSpaceIsAbovePercentage(90),
+            ScheduleCheck::new(),
+            MeiliSearchCheck::new(),
+            EnvironmentCheck::new(),
+            DebugModeCheck::new(),
+            CspMiddlerwareEnabledCheck::new(),
+            ComposerDependenciesUpToDateCheck::new(),
+
+            // speed page
+            RoutesAreCachedCheck::new(),
+            ConfigIsCachedCheck::new(),
+            EventsAreCachedCheck::new(),
+            CacheCheck::new(),
+            CacheResponseCheck::new(),
+
+            // information
+            StaticPagesCrawlerCheck::new(),
+            PingCheck::new()->url('https://google.com'),
         ]);
     }
 }
