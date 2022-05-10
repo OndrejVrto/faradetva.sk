@@ -3,22 +3,12 @@
 namespace App\Services\Health\Checks;
 
 use Carbon\Carbon;
-// use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 use Spatie\Valuestore\Valuestore;
-use Spatie\Health\Checks\Checks\ScheduleCheck;
+use Spatie\Health\Checks\Checks\ScheduleCheck as SpatieScheduleCheck;
 
-class CustomScheduleCheck extends ScheduleCheck
+class ScheduleCheck extends SpatieScheduleCheck
 {
-    // protected string $cacheKey = 'health.checks.schedule.latestHeartbeatAt';
-    // protected ?string $cacheStoreName = null;
-    // protected int $heartbeatMaxAgeInMinutes = 1;
-
-    // public function useCacheStore(string $cacheStoreName): self  {
-    //     $this->cacheStoreName = $cacheStoreName;
-    //     return $this;
-    // }
-
     public function getCacheStoreName(): string  {
         if ($this->cacheStoreName) {
             return $this->cacheStoreName;
@@ -31,20 +21,6 @@ class CustomScheduleCheck extends ScheduleCheck
 
         return config('cache.default', 'database');
     }
-
-    // public function cacheKey(string $cacheKey): self {
-    //     $this->cacheKey = $cacheKey;
-    //     return $this;
-    // }
-
-    // public function heartbeatMaxAgeInMinutes(int $heartbeatMaxAgeInMinutes): self {
-    //     $this->heartbeatMaxAgeInMinutes = $heartbeatMaxAgeInMinutes;
-    //     return $this;
-    // }
-
-    // public function getCacheKey(): string {
-    //     return $this->cacheKey;
-    // }
 
     public function run(): Result {
         $this->label('health-results.schedule.label');

@@ -8,7 +8,7 @@ use Spatie\Health\Checks\Result;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\DB;
 
-class CustomDatabaseCheck extends Check
+class DatabaseCheck extends Check
 {
     protected ?string $connectionName = null;
 
