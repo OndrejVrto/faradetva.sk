@@ -27,7 +27,9 @@ class HealthServiceProvider extends ServiceProvider
             CustomMeiliSearchCheck::new(),
             CustomDebugModeCheck::new(),
             CustomEnvironmentCheck::new(),
-            CustomUsedDiskSpaceCheck::new(),
+            CustomUsedDiskSpaceCheck::new()
+                ->warnWhenUsedSpaceIsAbovePercentage(80)
+                ->failWhenUsedSpaceIsAbovePercentage(90),
             CustomCacheCheck::new(),
             CustomCacheResponseCheck::new(),
             CustomPingCheck::new()->url('https://google.com'),
