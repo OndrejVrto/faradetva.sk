@@ -3,7 +3,7 @@
         <div class="w-full max-w-120 mb-1 py-1 text-white bg-blue-800">
             <span class="px-2 text-left w-1/2">Laravel Health Check Results</span>
             <span class="px-2 text-right w-1/2">
-               Last ran all the checks
+                Last ran all the checks
                 @if ($lastRanAt->diffInMinutes() < 1)
                     just now
                 @else
@@ -15,16 +15,16 @@
             <div class="space-x-1">
                 <span class="w-10">
                     <b class="uppercase {{ $color($result->status) }}">
-                        {{ ucfirst($result->status) }}
+                        {{ $result->status }}
                     </b>
                 </span>
-                <span>{{ $result->label }}</span>
+                <span>{{ __($result->label, $result->meta) }}</span>
                 <span class="text-gray">›</span>
-                <span class="{{ $color($result->status) }}"> {{ $result->shortSummary }}</span>
+                <span class="{{ $color($result->status) }}"> {{ __($result->shortSummary, $result->meta) }}</span>
             </div>
             @if ($result->notificationMessage)
             <div class="ml-11 text-gray">
-                ⇂ {{ $result->notificationMessage }}
+                ⇂ {{ __($result->notificationMessage, $result->meta) }}
             </div>
             @endif
         @endforeach
