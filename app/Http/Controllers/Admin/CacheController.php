@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Admin;
 
 use App\Jobs\UrlsCheckJob;
+use App\Jobs\GenerateSitemapJob;
 use App\Jobs\SiteSearchCrawlJob;
 use Spatie\Valuestore\Valuestore;
 use App\Http\Controllers\Controller;
@@ -129,6 +130,15 @@ class CacheController extends Controller
         // sem doplň hocijaký testovací kód alebo službu
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
+
+        $input = 'pdf';
+        $output = [
+            'pdf' => 'book',
+            'txt' => 'text',
+        ][$input];
+        // dd($output);
+
+        $this->dispatch(new GenerateSitemapJob);
 
 
         toastr()->info(__('Novinka otestovaná'));
