@@ -6,10 +6,13 @@
 @section('content')
 
     <div class="row">
-        <div class="col">
-            @include('admin.dashboard.partials.check-gates')
-        </div>
+        {{-- <div class="col"> --}}
+            @include('admin.dashboard.partials.health')
+        {{-- </div> --}}
     </div>
+
+    @include('admin.dashboard.partials.check-gates')
+
     <div class="row">
         <div class="col-xl-5 order-xl-2">
             <div class="row">

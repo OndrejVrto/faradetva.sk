@@ -179,6 +179,7 @@ return [
         Stevebauman\Purify\PurifyServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         Spatie\DirectoryCleanup\DirectoryCleanupServiceProvider::class,
+        App\Providers\HealthServiceProvider::class,
 
         /*
          * Application Service Providers...
