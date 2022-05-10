@@ -29,9 +29,9 @@ class StaticPagesCrawlerCheck extends Check
 
         $result->shortSummary('health-results.static_pages.short')
             ->meta([
-                'lastCrawlHours' => $lastCrawled->diffInHours(now(), true),
-                'checkPages'     => $this->checkPages,
-                'allPages'       => $this->allPages,
+                'lastCrawlDate' => $lastCrawled->format('d.m.Y H:m'),
+                'checkPages'    => $this->checkPages,
+                'allPages'      => $this->allPages,
             ]);
 
         return $this->allPages === $this->checkPages
@@ -40,7 +40,7 @@ class StaticPagesCrawlerCheck extends Check
     }
 
     private function procesPages(): void {
-        $this->allPages = StaticPage::all()->count();
+        $this->allPages = StaticPage::count();
         $this->checkPages = StaticPage::where('check_url', true)->count();
     }
 

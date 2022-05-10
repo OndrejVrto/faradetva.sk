@@ -121,7 +121,7 @@ return [
 
     'php_version' => [
         'label'          => 'Verzia php',
-        'ok'             => 'Nainštalovaná dostatočná verzia php. :eol Minimálne požadovaná: :required, použitá: :used',
+        'ok'             => 'Minimálne požadovaná verzia: :required, použitá: :used',
         'failed'         => 'Požadovaná verzia PHP nieje nainštalovaná. :eol Minimálne požadovaná: :required, použitá: :used',
         // 'failed'       => 'Required PHP version is not installed.\nRequired: :required, used: :used',
         'crash_composer' => 'Nepodarilo sa načítať požadovanú hodnotu z composer.json. :eol Použitá verzia PHP: :used',
@@ -162,9 +162,9 @@ return [
 
     'static_pages' => [
         'label'      => 'Dostupnosť stránok',
-        'ok'         => 'Všetkých :allPages stránok je dostupných. :eol Posledná kontrola pred :lastCrawlHours hodinami.',
+        'ok'         => 'Všetkých :allPages stránok je dostupných. :eol Posledná kontrola :lastCrawlDate.',
         'short'      => ':checkPages z :allPages',
-        'failed'     => 'Dostupných je len :checkPages zo :allPages stránok. :eol Posledná kontrola pred :lastCrawlHours hodinami.',
-        'no-crawled' => 'Dostupnosť stránok zatiaľ nebola kontrolovaná. :eol Posledná kontrola pred :lastCrawlHours hodinami.',
+        'failed'     => 'Dostupných je len :checkPages zo :allPages stránok. :eol Posledná kontrola :lastCrawlDate',
+        'no-crawled' => 'Dostupnosť stránok zatiaľ nebola kontrolovaná. :eol Posledná kontrola :lastCrawlDate',
     ],
 ];
