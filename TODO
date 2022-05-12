@@ -37,6 +37,7 @@ Administrátorské rozhranie:
     ✔ pridať kartu s kontorolou zapnuteho CSP
     ✔ pridať kartu z počtom fungujúcich statických stránok a s časom posledného Crawlera
     ✔ pridať tlačítko Fresh Health na dashboard
+    ☐ pridať prepínač na zazanie logu SQL Query
     ☐ preložiť do angličtiny health results
     ☐ pridať kartu s informáciou o posledných prihlásých uživateľoch
     ☐ pridať kartu s informáciou o posledných zmenách na stránke
@@ -62,6 +63,7 @@ Administrátorské rozhranie:
       https://github.com/spatie/laravel-failed-job-monitor
     ☐ LiveWire Datatable pre všetky backend tabuľky
     ☐ prepínač customSwitch prehodiť do komponentu
+    ☐ do CROPera doplniť možnosť nastavenia rozmeru
     ☐ BredCrumbs in Chard data
     ☐ implementovať Spatie Laravel Backup
     ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
