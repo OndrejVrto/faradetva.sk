@@ -23,7 +23,6 @@
         <div class="d-flex flex-wrap">
             @foreach ($checkResults->storedCheckResults as $result)
                 <div class="col-lg-6 my-2">
-
                     <div class="info-box shadow h-100">
                         <span class="info-box-icon">
                             <x-partials.health-status-icon :result="$result" height="40"/>

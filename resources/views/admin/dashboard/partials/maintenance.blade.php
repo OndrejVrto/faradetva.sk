@@ -11,7 +11,7 @@
     {{-- app maintenance   up - down --}}
     <div class="form-group mb-0">
         <input type="checkbox" name="maintenance" checked data-bootstrap-switch data-off-color="danger" data-on-color="success" disabled>
-        <label for="maintenance" class="ml-3">Aplikácia/stránka spustená.</label>
+        <label for="maintenance" class="ml-2">Aplikácia spustená</label>
     </div>
 
 </x-admin.dashboard-card>
