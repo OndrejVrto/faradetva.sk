@@ -2077,7 +2077,8 @@ blockquote cite {
 	font-weight  : 600;
 	margin-top   : 0;
 	margin-bottom: 53px;
-	color        : #ffffff;
+	/* color        : #ffffff; */
+	color        : #ff7b33;
 }
 
 .footer_main_section .widget ul {
@@ -2086,9 +2087,9 @@ blockquote cite {
 	margin-bottom: 0;
 }
 
-.text_widget .ftr_logo {
+/* .text_widget .ftr_logo {
 	margin-bottom: 27px;
-}
+} */
 
 .text_widget p {
 	color        : #ffffff;

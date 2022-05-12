@@ -87,7 +87,7 @@
  */
 
 
-var Timer = function Timer(opts) {
+function Timer(opts) {
   var self = this;
   self.opts = opts || {};
   self.element = opts.element || null;
@@ -121,7 +121,9 @@ var Timer = function Timer(opts) {
 
     self.element.textContent = ("0" + self.minutes).slice(-2) + ':' + self.seconds;
   }
-};
+}
+
+;
 
 function toggleChceckerAll(config) {
   $(config.button).on('click', function () {

@@ -23,7 +23,7 @@
             <div class="row about_box_wrap">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="about_box_inner rotate wow">
-                        <i class="flaticon flaticon-church"></i>
+                        <i class="fas fa-users"></i>
                         <h4>Farári</h4>
                         <p>Správcovia detvianskej farnosti od jej založenia v roku 1644</p>
                         <a href="#" class="read_m_link">Čítať ďalej<i class="ms-1 fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="about_box_inner rotate wow" data-wow-delay=".3s">
-                        <i class="flaticon flaticon-goal"></i>
+                        <i class="fas fa-people-carry"></i>
                         <h4>Kapláni</h4>
                         <p>Kapláni, ktorí pôsobili v Detve od začiatku 20. storočia podnes</p>
                         <a href="#" class="read_m_link">Čítať ďalej<i class="ms-1 fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="about_box_inner rotate wow" data-wow-delay=".6s">
-                        <i class="flaticon flaticon-cemetery-cross"></i>
+                        <i class="fas fa-praying-hands"></i>
                         <h4>Povolania</h4>
                         <p>Kňazi, rehoľníci a rehoľníčky pochádzajúci z detvianskej farnosti</p>
                         <a href="#" class="read_m_link">Čítať ďalej<i class="ms-1 fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="about_box_inner rotate wow" data-wow-delay=".9s">
-                        <i class="flaticon flaticon-multiple-users-silhouette"></i>
+                        <i class="fas fa-heartbeat"></i>
                         <h4>Spomíname</h4>
                         <p>Na cintoríne v Detve sú pochovaní štyria rímskokatolícki kňazi</p>
                         <a href="#" class="read_m_link">Čítať ďalej<i class="ms-1 fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
