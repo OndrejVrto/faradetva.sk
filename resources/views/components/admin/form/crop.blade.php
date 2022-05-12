@@ -1,29 +1,55 @@
 @props([
     'label'           => "Obrázok",
-    'minWidth'        => "480",
-    'minHeight'       => "1920",
-    'ratio'           => "true",
+    'minWidth'        => null,
+    'minHeight'       => null,
+    'sizeButton'      => false,
+    'ratio'           => true,
     'maxSize'         => "2600*1600",
     'media_file_name' => null,
+    'crop_exact_dimensions' => null,
 ])
 <!--  Component: CROP - Start -->
+
     {{-- This is input field for File --}}
     <x-adminlte-input-file
         class="border-right-none"
         name="upload_crop_file"
         id="upload-corp-file-input"
         label="{{ $label }}"
-        placeholder="{{ old('crop_file_name', (empty($media_file_name) ? '' : $media_file_name->getCustomProperty('oldFileName'))) }}"
-        accept=".jpg,.bmp,.png,.jpeg,.tiff"
+        placeholder="{{ old('upload_crop_file', (empty($media_file_name) ? '' : $media_file_name->getCustomProperty('oldFileName'))) }}"
+        accept=".jpg,.bmp,.png,.jpeg,.tiff,.svg"
     >
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-file-import"></i>
             </div>
         </x-slot>
-        <x-slot name="noteSlot">
-            Poznámky: Veľkosť obrázka minimálne {{ $minWidth }}x{{ $minHeight }} px. @if ($ratio == 'true')Pomer strán je uzamknutý.@endif
-        </x-slot>
+
+        @if($sizeButton === true)
+            <x-slot name="appendSlot">
+                <div class="input-group-text bg-gradient-orange">
+                    <input type="hidden" name="crop_exact_dimensions" value="0">
+                    <input
+                        type="checkbox"
+                        id="ratio"
+                        name="crop_exact_dimensions"
+                        value="1"
+                        @checked( old('crop_exact_dimensions', $crop_exact_dimensions) )
+                    >
+                    <span class="ml-1">Presné rozmery</span>
+                </div>
+            </x-slot>
+        @else
+            <x-slot name="appendSlot">
+                <input type="hidden" id="ratio" @checked( $ratio )>
+            </x-slot>
+        @endif
+
+        @error('crop_exact_dimensions')
+            <x-slot name="errorManual">
+                {{ $errors->first('crop_exact_dimensions') }}
+            </x-slot>
+        @enderror
         @error('crop_base64_output')
             <x-slot name="errorManual">
                 {{ $errors->first('crop_base64_output') }}
@@ -35,6 +61,76 @@
             </x-slot>
         @enderror
     </x-adminlte-input-file>
+
+    <div class="form-row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-gradient-orange">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+                    <input
+                        id="crop_width"
+                        name="crop_width"
+                        value="{{ old('crop_width', $minWidth ?? '50') }}"
+                        class="form-control"
+                        type="number"
+                        min="50"
+                        max="2600"
+                        @isset($minWidth)
+                            disabled
+                        @endisset
+                    >
+                    <div class="input-group-append">
+                        <div class="input-group-text bg-gradient-orange">
+                            šírka
+                        </div>
+                    </div>
+                </div>
+                @error('crop_width')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $errors->first('crop_width') }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-gradient-orange">
+                            <i class="fa-solid fa-arrows-up-down"></i>
+                        </div>
+                    </div>
+                    <input
+                        id="crop_height"
+                        name="crop_height"
+                        value="{{ old('crop_height', $minHeight ?? '50') }}"
+                        class="form-control"
+                        type="number"
+                        min="50"
+                        max="2600"
+                        @isset($minHeight)
+                            disabled
+                        @endisset
+                    >
+                    <div class="input-group-append">
+                        <div class="input-group-text bg-gradient-orange">výška</div>
+                    </div>
+                </div>
+                @error('crop_height')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $errors->first('crop_height') }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+        </div>
+    </div>
 
     {{-- This is hidden input field where is stored final string base64 --}}
     <input id="crop_base64_output" name="crop_base64_output" type="text" value="{{ old('crop_base64_output') }}" hidden>
@@ -103,10 +199,9 @@
     <script @nonce type="text/javascript" src="{{ asset(mix('asset/admin-app-crop.js'), true) }}"></script>
     <script @nonce>
         watchImageUploader({
-            minWidth        : {{ $minWidth }},
-            minHeight       : {{ $minHeight }},
-            ratio           : {{ $ratio }},
-            maxSize         : {{ $maxSize }},
+            minWidth        : '#crop_width',
+            minHeight       : '#crop_height',
+            ratio           : '#ratio',
             input           : '#upload-corp-file-input',
             output          : '#crop_base64_output',
             fileName        : '#crop_file_name',
@@ -116,6 +211,7 @@
             cropButton      : '#crop_button',
             cancelCropButton: '#crop_cancel_button',
             lastFileLabel   : 'label[class~="custom-file-label"][for="upload-corp-file-input"]',
+            maxSize         : {{ $maxSize }},
         });
     </script>
 @endpush

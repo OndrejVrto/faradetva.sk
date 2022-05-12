@@ -23,9 +23,22 @@
 
     <div class="form-row">
         <div class="col-xl-5">
+            <x-admin.form.crop
+                label="Obrázok"
+                :sizeButton="true"
+                ratio="false"
+                maxSize="1920*1440"
+                :media_file_name="$media_file_name"
+            />
+
+        </div>
+        <div class="col-xl-7">
+
+            <hr class="d-xl-none bg-orange mt-4">
+
             <x-adminlte-input
                 name="title"
-                label="Názov"
+                label="Názov obrázka"
                 enableOldSupport="true"
                 value="{{ $picture->title ?? '' }}"
                 >
@@ -41,12 +54,10 @@
                 @enderror
             </x-adminlte-input>
 
-            <x-admin.form.crop label="Obrázok" minWidth="100" minHeight="50" ratio="false" maxSize="1920*1440" :media_file_name="$media_file_name" />
-
-        </div>
-        <div class="col-xl-7">
             <hr class="d-xl-none bg-orange mt-4">
+
             <x-admin.form.source :source="$source" />
+
         </div>
     </div>
 

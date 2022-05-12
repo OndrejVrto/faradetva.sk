@@ -23,6 +23,17 @@ class Picture extends BaseModel implements HasMedia
     protected $fillable = [
         'title',
         'slug',
+        'crop_width',
+        'crop_height',
+        'crop_exact_dimensions',
+    ];
+
+    protected $casts = [
+        'title'                 => 'string',
+        'slug'                  => 'string',
+        'crop_width'            => 'integer',
+        'crop_height'           => 'integer',
+        'crop_exact_dimensions' => 'boolean',
     ];
 
     public function source() {
@@ -37,15 +48,29 @@ class Picture extends BaseModel implements HasMedia
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 
+    public $registerMediaConversionsUsingModelInstance = true;
+
     public function registerMediaConversions(Media $media = null): void {
-        $this->addMediaConversion('optimize')
-            ->fit(Manipulations::FIT_MAX, 1280, 960)
-            ->sharpen(2)
-            ->quality(60)
-            ->withResponsiveImages();
-        $this->addMediaConversion('crop-thumb')
-            ->height(100)
-            ->sharpen(2)
-            ->quality(60);
+        if ($this->crop_exact_dimensions == 1) {
+            $this->addMediaConversion('optimize')
+                ->fit(Manipulations::FIT_CROP, $this->crop_width, $this->crop_height)
+                ->sharpen(2)
+                ->quality(60)
+                ->withResponsiveImages();
+            $this->addMediaConversion('crop-thumb')
+                ->fit(Manipulations::FIT_CROP, 100 * ($this->crop_width / $this->crop_height), 100)
+                ->sharpen(2)
+                ->quality(60);
+        } else {
+            $this->addMediaConversion('optimize')
+                ->fit(Manipulations::FIT_MAX, 1280, 960)
+                ->sharpen(2)
+                ->quality(60)
+                ->withResponsiveImages();
+            $this->addMediaConversion('crop-thumb')
+                ->height(100)
+                ->sharpen(2)
+                ->quality(60);
+        }
     }
 }

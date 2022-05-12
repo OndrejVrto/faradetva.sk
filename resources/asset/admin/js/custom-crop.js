@@ -3,6 +3,9 @@ function watchImageUploader(config) {
                     (attributes) input, output, preview, cropperContainer, cropButton, cancelCropButton, lastFileLabel */
 
     let lastFileName = $(config.lastFileLabel).html();
+    let minWidth = 50;
+    let minHeight = 50;
+    let ratio = false;
 
     function setLabel() {
         $(config.lastFileLabel).html(lastFileName);
@@ -31,12 +34,19 @@ function watchImageUploader(config) {
         $(config.fileName).val(fileName);
         $(config.preview).attr("src", (base64));
         $(config.input).val('');
+
+        if(ratio){
+            $(config.minWidth).val(minWidth);
+            $(config.minHeight).val(minHeight);
+            $(config.ratio).val('1');
+        }
+
         lastFileName = fileName;
     }
 
     function checkDimensions(img) {
-        if (img.width < config.minWidth || img.height < config.minHeight) {
-            alert('Obrázok má malé rozmery:\n\nŠírka najmenej '+ config.minWidth +'px\nVýška najmenej '+ config.minHeight +'px');
+        if (img.width < minWidth || img.height < minHeight) {
+            alert('Obrázok má malé rozmery:\n\nŠírka najmenej '+ minWidth +'px\nVýška najmenej '+ minHeight +'px');
             return false;
         }
         return true;
@@ -64,7 +74,7 @@ function watchImageUploader(config) {
                     var canvasData;
 
                     cropper = new Cropper(cropperEntryPoint, {
-                        aspectRatio: config.ratio ? config.minWidth / config.minHeight : null,
+                        aspectRatio: ratio ? minWidth / minHeight : null,
                         viewMode: 2,
                         modal: true,
                         center: true,
@@ -78,12 +88,12 @@ function watchImageUploader(config) {
                             var height = event.detail.height;
 
                             if (
-                                width < config.minWidth
-                                || height < config.minHeight
+                                width < minWidth
+                                || height < minHeight
                             ) {
                                 cropper.setData({
-                                    width: Math.max(config.minWidth, width),
-                                    height: Math.max(config.minHeight, height),
+                                    width: Math.max(minWidth, width),
+                                    height: Math.max(minHeight, height),
                                 });
                             }
                         },
@@ -142,6 +152,17 @@ function watchImageUploader(config) {
     }
 
     $(config.input).on('change', (e) => {
+
+        if( $(config.minWidth).val() ) {
+            minWidth = parseInt($(config.minWidth).val());
+        };
+
+        if( $(config.minHeight).val() ) {
+            minHeight = parseInt($(config.minHeight).val());
+        };
+
+        ratio = $(config.ratio).prop('checked');
+
         readFile($(config.input)[0].files[0]);
     });
 }

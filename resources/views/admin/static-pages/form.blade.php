@@ -185,10 +185,16 @@
     <hr class="bg-orange mt-4">
 
     <div class="form-row">
-        <div class="col-xl-4">
-            <x-admin.form.crop label="Referenčný obrázok" minWidth="1440" minHeight="720" :media_file_name="$media_file_name" />
+        <div class="col-xl-5">
+            <x-admin.form.crop
+                label="Obrázok reprezentujúci stránku"
+                minWidth="960"
+                minHeight="480"
+                maxSize="1920*1440"
+                :media_file_name="$media_file_name"
+            />
         </div>
-        <div class="col-xl-8">
+        <div class="col-xl-7">
             <hr class="d-xl-none bg-orange mt-4">
             <x-admin.form.source :source="$source" />
         </div>

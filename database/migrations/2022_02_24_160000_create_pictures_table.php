@@ -15,6 +15,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
 
+            $table->boolean('crop_exact_dimensions')->default(0);
+            $table->smallInteger('crop_width')->unsigned()->nullable();
+            $table->smallInteger('crop_height')->unsigned()->nullable();
+
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@
 
 @section('content')
     <x-admin.table
-        columns="9"
+        columns="10"
         controlerName="pictures"
         createBtn="Pridať nový obrázok"
         paginator="{{ $pictures->onEachSide(1)->links() }}"
@@ -17,7 +17,7 @@
 
         <x-slot name="table_header">
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
-            <x-admin.table.th width="20%" class="text-center">Obrázok</x-admin.table.th>
+            <x-admin.table.th width="30%" class="text-center">Obrázok</x-admin.table.th>
             <x-admin.table.th>Pracovný názov</x-admin.table.th>
             <x-admin.table.th-actions />
         </x-slot>
@@ -28,7 +28,8 @@
 
                     {{-- <x-admin.table.td>{{$picture->id}}</x-admin.table.td> --}}
                     <x-admin.table.td class="text-center">
-                        <img src="{{ $picture->getFirstMediaUrl($picture->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x100" }}"
+                        {{-- <img src="{{ $picture->getFirstMediaUrl($picture->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x100" }}" --}}
+                        <img src="{{ $picture->mediaOne->getUrl('crop-thumb') }}"
                         class="img-fluid px-3"
                         alt="picture: {{ $picture->title }}"/>
                     </x-admin.table.td>

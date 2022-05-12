@@ -17,8 +17,8 @@ class PictureController extends Controller
     public function index(): View {
         $pictures = Picture::query()
             ->latest('updated_at')
-            ->with('media', 'source')
-            ->paginate(5);
+            ->with('mediaOne', 'source')
+            ->paginate(8);
 
         return view('admin.pictures.index', compact('pictures'));
     }
