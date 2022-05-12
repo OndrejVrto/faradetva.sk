@@ -1,4 +1,4 @@
-<p align="center"><a href="https://www.faradetva.sk" target="_blank"><img src="https://www.faradetva.sk/fara-detva-logo.png" width="192"></a></p>
+<p align="center"><a href="https://www.faradetva.sk" target="_blank"><img src="./resources/asset/copy/images/logo/logo-farnosti-detva.svg" width="150"></a></p>
 
 ## About page
 
