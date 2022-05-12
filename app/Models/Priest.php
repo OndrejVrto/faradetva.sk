@@ -99,4 +99,3 @@ class Priest extends BaseModel implements HasMedia
             ->quality(60);
     }
 }
-

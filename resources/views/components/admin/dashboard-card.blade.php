@@ -22,8 +22,8 @@
     </div>
     <div @class([
         'card-body',
-        'flex-wrap' => $wrap,
-        'd-flex justify-content-center' => $center,
+        'd-flex flex-wrap' => $wrap,
+        'justify-content-center' => $center,
     ])>
         {{ $slot }}
     </div>

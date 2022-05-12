@@ -5,7 +5,7 @@
 
     <x-slot:header>
         <i class="fa-solid fa-terminal mr-2 text-teal"></i>
-        Priame príkazy
+        Príkazy Artisan
     </x-slot:header>
 
     <x-admin.dashboard-button

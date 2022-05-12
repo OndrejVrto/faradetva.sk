@@ -37,7 +37,7 @@ class Banner extends BaseModel implements HasMedia
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 
-    public function registerMediaConversions(Media $media = null) : void {
+    public function registerMediaConversions(Media $media = null): void {
         $this->addMediaConversion('extra-large')
             ->fit(Manipulations::FIT_CROP, 1920, 480)    // 1200px and up
             ->sharpen(2)

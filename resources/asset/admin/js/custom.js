@@ -96,7 +96,7 @@
 /**
  *  Countdown timer in rigth corner
  */
-var Timer = function(opts) {
+function Timer(opts) {
     var self = this;
 
     self.opts     = opts || {};
