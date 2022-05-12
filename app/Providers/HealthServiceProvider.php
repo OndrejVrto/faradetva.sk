@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Spatie\Health\Facades\Health;
 use Illuminate\Support\ServiceProvider;
+use App\Services\Health\Checks\QueueWorkCheck;
+
 use App\Services\Health\Checks\{
     PingCheck, CacheCheck, DatabaseCheck, ScheduleCheck,
     AppKeySetCheck, DebugModeCheck, EnvironmentCheck, MeiliSearchCheck,
@@ -16,6 +18,9 @@ class HealthServiceProvider extends ServiceProvider
 {
     public function boot(): void {
         Health::checks([
+            // test
+            QueueWorkCheck::new(),
+
             // critical
             StorageDirectoryIsLinkedCheck::new(),
             AppKeySetCheck::new(),
