@@ -22,7 +22,7 @@ class PreetyHtmlMiddleware
 
         if ($response->getStatusCode() === Response::HTTP_OK) {
 
-            if (in_array(env('APP_ENV'), ['local', 'dev'])) {
+            if (in_array(config('app.env'), ['local', 'dev'])) {
                 $beautify = new BeautifyHtml([
                     'indent_inner_html' => false,
                     'indent_char' => "    ",
