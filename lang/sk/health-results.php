@@ -160,6 +160,12 @@ return [
         'failed'       => 'Zakázané. Možné ohrozenie aplikácie.',
     ],
 
+    'queue_work' => [
+        'label'        => 'Služba Queue',
+        'ok'           => 'Funguje',
+        'failed'       => 'Nefunguje. :eol Niektoré služby nebudú pracovať správne.',
+    ],
+
     'static_pages' => [
         'label'      => 'Dostupnosť stránok',
         'ok'         => 'Všetkých :allPages stránok je dostupných. :eol Posledná kontrola :lastCrawlDate.',
