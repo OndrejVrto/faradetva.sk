@@ -29,9 +29,11 @@
                     {{-- <x-admin.table.td>{{$picture->id}}</x-admin.table.td> --}}
                     <x-admin.table.td class="text-center">
                         {{-- <img src="{{ $picture->getFirstMediaUrl($picture->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x100" }}" --}}
-                        <img src="{{ $picture->mediaOne->getUrl('crop-thumb') }}"
-                        class="img-fluid px-3"
-                        alt="picture: {{ $picture->title }}"/>
+                        <img src="{{ $picture->getFirstMediaUrl($picture->collectionName, 'crop-thumb') }}"
+                            class="img-fluid px-3"
+                            alt="picture: {{ $picture->title }}"
+                            title="{{ $picture->title }}"
+                        />
                     </x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break">{{$picture->slug}}</x-admin.table.td>
                     <x-admin.table.td class="text-center">
