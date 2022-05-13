@@ -21,9 +21,9 @@ return [
      * the "posts" attribute and the "Post::class", since the relation can get resolved in multiple ways.
      */
     'except' => [
-        Spatie\MediaLibrary\MediaCollections\Models\Media::class => [
-            'model',
-        ],
+        // Spatie\MediaLibrary\MediaCollections\Models\Media::class => [
+        //     'model',
+        // ],
         //Author::class => [
         //    Post::class,
         //    'posts',

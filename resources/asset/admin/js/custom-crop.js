@@ -6,6 +6,7 @@ function watchImageUploader(config) {
     let minWidth = 50;
     let minHeight = 50;
     let ratio = false;
+    let exactDimensions = false;
 
     function setLabel() {
         $(config.lastFileLabel).html(lastFileName);
@@ -29,19 +30,14 @@ function watchImageUploader(config) {
         });
     }
 
-    function setToForm(base64, fileName, finalWidth, finalHeight) {
+    function setToForm(base64, fileName, outputWidth, outputHeight) {
         $(config.input).val('');
         $(config.preview).attr("src", (base64));
         $(config.output).val(base64);
         $(config.outputFileName).val(fileName);
-        $(config.outputRatio).val(ratio ? '1' : '0');
-        if($(config.exactDimensions).prop('checked')){
-            $(config.outputWidth).val( Math.ceil(minWidth) );
-            $(config.outputHeight).val( Math.ceil(minHeight) );
-        } else {
-            $(config.outputWidth).val( Math.ceil(finalWidth) );
-            $(config.outputHeight).val( Math.ceil(finalHeight) );
-        }
+        $(config.outputRatio).val( exactDimensions ? '1' : '0');
+        $(config.outputWidth).val( Math.ceil(outputWidth) );
+        $(config.outputHeight).val( Math.ceil(outputHeight) );
 
         lastFileName = fileName;
     }
@@ -71,9 +67,6 @@ function watchImageUploader(config) {
                     const cropperEntryPoint = $(config.cropperContainer)[0];
 
                     cropperEntryPoint.src = reader.result;
-
-                    var cropBoxData;
-                    var canvasData;
 
                     cropper = new Cropper(cropperEntryPoint, {
                         aspectRatio: ratio ? minWidth / minHeight : null,
@@ -119,7 +112,21 @@ function watchImageUploader(config) {
                         cropped.onload = () => {
                             const croppedSize = cropped.width * cropped.height;
 
-                            if (croppedSize > config.maxSize) {
+                            if(exactDimensions){
+
+                                const canvas = document.createElement('canvas');
+                                canvas.width = minWidth;
+                                canvas.height = minHeight;
+
+                                const ctx = canvas.getContext('2d');
+
+                                if (ctx) {
+                                    ctx.drawImage(cropped, 0, 0, minWidth, minHeight);
+                                    setToForm(canvas.toDataURL(file.type), file.name, minWidth, minHeight);
+                                }
+
+                            } else if (croppedSize > config.maxSize) {
+
                                 const reduction = Math.sqrt(croppedSize / config.maxSize);
                                 const finalWidth = cropped.width / reduction;
                                 const finalHeight = cropped.height / reduction;
@@ -134,8 +141,11 @@ function watchImageUploader(config) {
                                     ctx.drawImage(cropped, 0, 0, finalWidth, finalHeight);
                                     setToForm(canvas.toDataURL(file.type), file.name, finalWidth, finalHeight);
                                 }
+
                             } else {
+
                                 setToForm(base64, file.name, cropped.width, cropped.height);
+
                             }
 
                             cancelCroper(cropper);
@@ -163,10 +173,9 @@ function watchImageUploader(config) {
             minHeight = parseInt($(config.minHeight).val());
         };
 
-        ratio = config.ratio || $(config.exactDimensions).prop('checked');
+        exactDimensions = $(config.exactDimensions).prop('checked');
 
-        console.log(config.ratio);
-        console.log($(config.exactDimensions).prop('checked'));
+        ratio = config.ratio || exactDimensions;
 
         readFile($(config.input)[0].files[0]);
     });
