@@ -25,22 +25,27 @@ class MediaStoreService
     }
 
     public function handleCropPicture(Model $model, FormRequest $request, string $name = null): void {
-        if (!empty($request->crop_base64_output) AND !empty($request->crop_file_name)) {
+        if (!empty($request->crop_output_base64) AND !empty($request->crop_output_file_name)) {
             $colectionName = $model->collectionName;
-            $fileExtension = explode("image/", explode(";base64,", $request->crop_base64_output)[0])[1];
+            $fileExtension = explode("image/", explode(";base64,", $request->crop_output_base64)[0])[1];
 
             if(isset($name)) {
                 $fileName = Str::slug($name).'.'.$fileExtension;
             } elseif(isset($request->source_description)) {
                 $fileName = Str::slug($request->source_description).'.'.$fileExtension;
             } else {
-                $fileName = DataFormater::filterFilename($request->crop_file_name, true);
+                $fileName = DataFormater::filterFilename($request->crop_output_file_name, true);
             }
 
             $model->clearMediaCollection($colectionName);
-            $model->addMediaFromBase64($request->crop_base64_output)
+            $model->addMediaFromBase64($request->crop_output_base64)
                 ->usingFileName($fileName)
-                ->withCustomProperties(['oldFileName' => $request->crop_file_name])
+                ->withCustomProperties([
+                    'oldFileName'     => $request->crop_output_file_name,
+                    'width'           => $request->crop_output_width,
+                    'height'          => $request->crop_output_height,
+                    'exactDimansions' => $request->crop_output_exact_dimensions,
+                ])
                 ->toMediaCollection($colectionName);
         }
     }

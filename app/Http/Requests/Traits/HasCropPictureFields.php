@@ -8,27 +8,27 @@ trait HasCropPictureFields
 {
     protected function cropPictureRules(): array {
         return [
-            'crop_file_name' => [
+            'crop_output_file_name' => [
                 $this->requireORnullable(),
                 'string',
             ],
-            'crop_base64_output' => [
+            'crop_output_base64' => [
                 $this->requireORnullable(),
                 'string',
                 new IsBase64Encoded(),
             ],
-            'crop_exact_dimensions' => [
+            'crop_output_exact_dimensions' => [
                 'boolean',
                 'nullable',
             ],
-            'crop_width' => [
+            'crop_output_width' => [
                 'nullable',
                 'required_if:crop_exact_dimensions,1',
                 'integer',
                 'min:50',
                 'max:2600',
             ],
-            'crop_height' => [
+            'crop_output_height' => [
                 'nullable',
                 'required_if:crop_exact_dimensions,1',
                 'integer',

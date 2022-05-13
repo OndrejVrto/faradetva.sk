@@ -29,16 +29,18 @@ function watchImageUploader(config) {
         });
     }
 
-    function setToForm(base64, fileName) {
-        $(config.output).val(base64);
-        $(config.fileName).val(fileName);
-        $(config.preview).attr("src", (base64));
+    function setToForm(base64, fileName, finalWidth, finalHeight) {
         $(config.input).val('');
-
-        if(ratio){
-            $(config.minWidth).val(minWidth);
-            $(config.minHeight).val(minHeight);
-            $(config.ratio).val('1');
+        $(config.preview).attr("src", (base64));
+        $(config.output).val(base64);
+        $(config.outputFileName).val(fileName);
+        $(config.outputRatio).val(ratio ? '1' : '0');
+        if($(config.exactDimensions).prop('checked')){
+            $(config.outputWidth).val( Math.ceil(minWidth) );
+            $(config.outputHeight).val( Math.ceil(minHeight) );
+        } else {
+            $(config.outputWidth).val( Math.ceil(finalWidth) );
+            $(config.outputHeight).val( Math.ceil(finalHeight) );
         }
 
         lastFileName = fileName;
@@ -130,10 +132,10 @@ function watchImageUploader(config) {
 
                                 if (ctx) {
                                     ctx.drawImage(cropped, 0, 0, finalWidth, finalHeight);
-                                    setToForm(canvas.toDataURL(file.type), file.name);
+                                    setToForm(canvas.toDataURL(file.type), file.name, finalWidth, finalHeight);
                                 }
                             } else {
-                                setToForm(base64, file.name);
+                                setToForm(base64, file.name, cropped.width, cropped.height);
                             }
 
                             cancelCroper(cropper);
@@ -161,7 +163,10 @@ function watchImageUploader(config) {
             minHeight = parseInt($(config.minHeight).val());
         };
 
-        ratio = $(config.ratio).prop('checked');
+        ratio = config.ratio || $(config.exactDimensions).prop('checked');
+
+        console.log(config.ratio);
+        console.log($(config.exactDimensions).prop('checked'));
 
         readFile($(config.input)[0].files[0]);
     });
