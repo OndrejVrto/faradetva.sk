@@ -64,42 +64,40 @@ class PageController extends Controller
             ->map(function($page): array {
                 $media = $page->picture[0];
                 return  [
-                    'id'              => $page->id,
-                    'author'          => $page->author_page,
-                    'page-description'=> $page->description_page,
-                    'header'          => $page->header,
-                    'keywords'        => $page->keywords,
-                    'route'           => $this->getFullRoute($page->route_name),
-                    'slug'            => $page->slug,
-                    'teaser'          => $page->teaser,
-                    'title'           => $page->title,
-                    'url'             => $page->full_url,
-                    'wikipedia'       => $page->wikipedia,
+                    'id'               => $page->id,
+                    'author'           => $page->author_page,
+                    'page-description' => $page->description_page,
+                    'header'           => $page->header,
+                    'keywords'         => $page->keywords,
+                    'route'            => $this->getFullRoute($page->route_name),
+                    'slug'             => $page->slug,
+                    'teaser'           => $page->teaser,
+                    'title'            => $page->title,
+                    'url'              => $page->full_url,
+                    'wikipedia'        => $page->wikipedia,
 
                     //  TODO: pridať typ SEO Pages
 
-                    'banners'         => $page->banners->pluck('slug')->toArray(),
-                    'faqs'            => $page->faqs->pluck('slug')->toArray(),
+                    'banners'          => $page->banners->pluck('slug')->toArray(),
+                    'faqs'             => $page->faqs->pluck('slug')->toArray(),
 
-                    'img-optimize'    => $media->getUrl('optimize'),
-                    'img-thumb'       => $media->getUrl('thumb'),
-                    'img-twitter'     => $media->getUrl('twitter'),
-                    'img-facebook'    => $media->getUrl('facebook'),
-                    'img-section-list'=> $media->getUrl('section-list'),
-                    'img-event-list'  => $media->getUrl('event-list'),
-                    'img-file-name'   => $media->file_name,
-                    'img-mime-type'   => $media->mime_type,
-                    'img-size'        => $media->size,
-                    'img-updated_at'  => $media->updated_at,
-                    'img-height'      => Image::load( $media->getPath('optimize') )->getHeight(),
-                    'img-width'       => Image::load( $media->getPath('optimize') )->getWidth(),
-                    'img-description' => $page->source->source_description,
-                    'img-source'      => $page->source->source_source,
-                    'img-source_url'  => $page->source->source_source_url,
-                    'img-author'      => $page->source->source_author,
-                    'img-author_url'  => $page->source->source_author_url,
-                    'img-license'     => $page->source->source_license,
-                    'img-license_url' => $page->source->source_license_url,
+                    'img-representing' => $media->getUrl('representing'),
+                    'img-thumb'        => $media->getUrl('representing-thumb'),
+                    'img-file-name'    => $media->file_name,
+                    'img-mime-type'    => $media->mime_type,
+                    'img-size'         => $media->size,
+                    'img-updated_at'   => $media->updated_at,
+                    'img-width'        => '960',
+                    'img-height'       => '480',
+                    // 'img-width'        => Image::load( $media->getPath('representing') )->getWidth(),
+                    // 'img-height'       => Image::load( $media->getPath('representing') )->getHeight(),
+                    'img-description'  => $page->source->source_description,
+                    'img-source'       => $page->source->source_source,
+                    'img-source_url'   => $page->source->source_source_url,
+                    'img-author'       => $page->source->source_author,
+                    'img-author_url'   => $page->source->source_author_url,
+                    'img-license'      => $page->source->source_license,
+                    'img-license_url'  => $page->source->source_license_url,
                 ];
             })
             ->first();
@@ -108,8 +106,15 @@ class PageController extends Controller
     /** create full route name **/
     private function getFullRoute(string $route_name): string {
         $route = config('farnost-detva.preppend_route_static_pages','frontend') . '.' . $route_name;
-        return (! Str::startsWith($route, '.')) ? $route : substr($route, 1);
+
+        return Str::startsWith($route, '.')
+                    ? substr($route, 1)
+                    : $route;
     }
+
+
+//! SEO Section  TODO: Move to service
+
 
     private function setSeoMetaTags(array $allPageData): void {
 
@@ -122,7 +127,7 @@ class PageController extends Controller
 
         OpenGraph::setDescription(e($page['page-description']));
         OpenGraph::setTitle(e($page['title']));
-        OpenGraph::addImage(e($page['img-facebook']), [
+        OpenGraph::addImage(e($page['img-representing']), [
             'alt' => e($page['img-description']),
             'type' => e($page['img-mime-type']),
             'width' => e($page['img-width']),
@@ -131,7 +136,7 @@ class PageController extends Controller
 
         TwitterCard::setTitle(e($page['title']));
         TwitterCard::setDescription(e($page['page-description']));
-        TwitterCard::setImage(e($page['img-twitter']));
+        TwitterCard::setImage(e($page['img-representing']));
         TwitterCard::addValue('image:alt', e($page['img-description']));
 
 
@@ -219,7 +224,7 @@ class PageController extends Controller
 
     private function getPrimaryImagePageSchema($page): array {
         $JsonLD = Schema::imageObject()
-            ->url(e($page['img-optimize']))
+            ->url(e($page['img-representing']))
             ->thumbnailUrl(e($page['img-thumb']))
             ->name(e($page['img-file-name']))
             ->description(e($page['img-description']))
