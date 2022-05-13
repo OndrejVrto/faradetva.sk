@@ -1,69 +1,88 @@
 @props([
-    'label'           => "Obrázok",
-    'minWidth'        => null,
-    'minHeight'       => null,
-    'sizeButton'      => false,
-    'ratio'           => true,
-    'maxSize'         => "2600*1600",
-    'media_file_name' => null,
-    'crop_exact_dimensions' => null,
+    'label'            => "Obrázok",
+    'minWidth'         => null,
+    'minHeight'        => null,
+    'sizeButton'       => false,
+    'ratio'            => 'true',
+    'lock'             => true,
+    'maxSize'          => "2600*1600",
+    'media_file_name'  => null,
+    'exact_dimensions' => null,
 ])
 <!--  Component: CROP - Start -->
 
+{{--! OUTPUT FIELDS --}}
+    {{-- This is hidden input field where is stored final string base64 --}}
+    <input id="crop_output_base64" name="crop_output_base64" type="text" value="{{ old('crop_output_base64') }}" hidden>
+    {{-- This is hidden input field where is stored orginal file name string --}}
+    <input id="crop_output_file_name" name="crop_output_file_name" type="text" value="{{ old('crop_output_file_name') }}" >
+    {{-- This is  input fields where is stored picture sizes --}}
+    <input id="crop_output_width" name="crop_output_width" value="{{ old('crop_output_width') }}" >
+    <input id="crop_output_height" name="crop_output_height" value="{{ old('crop_output_height') }}" >
+    <input id="crop_output_exact_dimensions" name="crop_output_exact_dimensions" value="{{ old('crop_output_exact_dimensions') }}" >
+
+
+{{--! INPUT FIELDS --}}
     {{-- This is input field for File --}}
-    <x-adminlte-input-file
-        class="border-right-none"
-        name="upload_crop_file"
-        id="upload-corp-file-input"
-        label="{{ $label }}"
-        placeholder="{{ old('upload_crop_file', (empty($media_file_name) ? '' : $media_file_name->getCustomProperty('oldFileName'))) }}"
-        accept=".jpg,.bmp,.png,.jpeg,.tiff,.svg"
-    >
-        <x-slot name="prependSlot">
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-file-import"></i>
-            </div>
-        </x-slot>
-
-        @if($sizeButton === true)
-            <x-slot name="appendSlot">
+    <div class="form-group">
+        <label for="crop_input_file">{{ $label }}</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
                 <div class="input-group-text bg-gradient-orange">
-                    <input type="hidden" name="crop_exact_dimensions" value="0">
-                    <input
-                        type="checkbox"
-                        id="ratio"
-                        name="crop_exact_dimensions"
-                        value="1"
-                        @checked( old('crop_exact_dimensions', $crop_exact_dimensions) )
-                    >
-                    <span class="ml-1">Presné rozmery</span>
+                    <i class="fas fa-file-import"></i>
                 </div>
-            </x-slot>
-        @else
-            <x-slot name="appendSlot">
-                <input type="hidden" id="ratio" @checked( $ratio )>
-            </x-slot>
-        @endif
+            </div>
 
-        @error('crop_exact_dimensions')
-            <x-slot name="errorManual">
-                {{ $errors->first('crop_exact_dimensions') }}
-            </x-slot>
-        @enderror
-        @error('crop_base64_output')
-            <x-slot name="errorManual">
-                {{ $errors->first('crop_base64_output') }}
-            </x-slot>
-        @enderror
-        @error('crop_file_name')
-            <x-slot name="errorManual">
-                {{ $errors->first('crop_file_name') }}
-            </x-slot>
-        @enderror
-    </x-adminlte-input-file>
+            <div class="custom-file">
+                <input
+                    type="file"
+                    id="crop_input_file"
+                    class="custom-file-input border-right-none"
+                    accept=".jpg,.bmp,.png,.jpeg,.tiff,.svg"
+                >
+                <label class="custom-file-label text-truncate" for="crop_input_file">
+                    {{ old('crop_output_file_name', (empty($media_file_name) ? '' : $media_file_name->getCustomProperty('oldFileName'))) }}
+                </label>
+            </div>
+
+            {{-- this is checkbox for enable exact size drawing --}}
+            @if($sizeButton === true)
+                <div class="input-group-append">
+                    <div class="input-group-text bg-gradient-orange">
+                        <input
+                            type="checkbox"
+                            id="crop_input_exact_dimensions"
+                            name="crop_input_exact_dimensions"
+                            value="0"
+                            @checked( old('crop_input_exact_dimensions', $exact_dimensions) )
+                        >
+                        <span class="ml-1">Presné rozmery</span>
+                    </div>
+                </div>
+            @else
+                <input id="crop_input_exact_dimensions" value="0" hidden>
+            @endif
+        </div>
+
+        <span class="invalid-feedback d-block" role="alert">
+            <strong>
+                @error('crop_exact_dimensions')
+                    {{ $errors->first('crop_output_exact_dimensions') }}
+                @enderror
+                @error('crop_output_base64')
+                    {{ $errors->first('crop_output_base64') }}
+                @enderror
+                @error('crop_output_file_name')
+                    {{ $errors->first('crop_output_file_name') }}
+                @enderror
+            </strong>
+        </span>
+    </div>
 
     <div class="form-row">
         <div class="col-md-6">
+
+            {{-- min. width --}}
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -72,26 +91,21 @@
                         </div>
                     </div>
                     <input
-                        id="crop_width"
-                        name="crop_width"
-                        value="{{ old('crop_width', $minWidth ?? '50') }}"
+                        id="crop_input_width"
+                        name="crop_input_width"
+                        value="{{ old('crop_input_width', $minWidth ?? '50') }}"
                         class="form-control"
                         type="number"
-                        min="50"
+                        min="{{ old('crop_input_width', $minWidth ?? '50') }}"
                         max="2600"
-                        @isset($minWidth)
+                        @if($lock)
                             disabled
-                        @endisset
+                        @endif
                     >
-                    <div class="input-group-append">
-                        <div class="input-group-text bg-gradient-orange">
-                            šírka
-                        </div>
-                    </div>
                 </div>
-                @error('crop_width')
+                @error('crop_output_width')
                     <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $errors->first('crop_width') }}</strong>
+                        <strong>{{ $errors->first('crop_output_width') }}</strong>
                     </span>
                 @enderror
             </div>
@@ -99,6 +113,7 @@
         </div>
         <div class="col-md-6">
 
+            {{-- min. height --}}
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -107,24 +122,21 @@
                         </div>
                     </div>
                     <input
-                        id="crop_height"
-                        name="crop_height"
-                        value="{{ old('crop_height', $minHeight ?? '50') }}"
+                        id="crop_input_height"
+                        name="crop_input_height"
+                        value="{{ old('crop_input_height', $minHeight ?? '50') }}"
                         class="form-control"
                         type="number"
-                        min="50"
+                        min="{{ old('crop_input_height', $minHeight ?? '50') }}"
                         max="2600"
-                        @isset($minHeight)
+                        @if($lock)
                             disabled
-                        @endisset
+                        @endif
                     >
-                    <div class="input-group-append">
-                        <div class="input-group-text bg-gradient-orange">výška</div>
-                    </div>
                 </div>
-                @error('crop_height')
+                @error('crop_output_height')
                     <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $errors->first('crop_height') }}</strong>
+                        <strong>{{ $errors->first('crop_output_height') }}</strong>
                     </span>
                 @enderror
             </div>
@@ -132,37 +144,33 @@
         </div>
     </div>
 
-    {{-- This is hidden input field where is stored final string base64 --}}
-    <input id="crop_base64_output" name="crop_base64_output" type="text" value="{{ old('crop_base64_output') }}" hidden>
 
-    {{-- This is hidden input field where is stored orginal file name string --}}
-    <input id="crop_file_name" name="crop_file_name" type="text" value="{{ old('crop_file_name') }}" hidden>
-
+{{--! WORK FIELDS --}}
     {{-- This is preview container --}}
-    <div class="form-group ">
+    <div class="form-group">
         <div class="preview-container">
-            <img id="crop_preview" src="{{ old('crop_base64_output', empty($media_file_name) ? '' : $media_file_name->getFullUrl()) }}" alt="Po vložení obrázka tu bude zobrazený náhľad.">
+            <img id="crop_work_preview" src="{{ old('crop_output_base64', empty($media_file_name) ? '' : $media_file_name->getFullUrl()) }}" alt="Po vložení obrázka tu bude zobrazený náhľad.">
         </div>
     </div>
 
-    {{-- This is modal window toto for cropper --}}
-    <div class="modal fade" id="crop_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    {{-- This is modal window for cropper --}}
+    <div class="modal fade" id="crop_work_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered crop-modal">
             <div class="modal-content">
                 <div class="modal-body">
                     {{-- container for cropper --}}
                     <div class="crop-container">
-                        <img id="cropper_element">
+                        <img id="crop_work_element">
                     </div>
                 </div>
                 <div class="modal-footer">
                     {{-- button to create croped image --}}
-                    <button id="crop_button" type="button" class="btn bg-gradient-orange px-5 mr-2">
+                    <button id="crop_work_button" type="button" class="btn bg-gradient-orange px-5 mr-2">
                         <i class="fa-solid fa-crop-simple mr-1"></i>
                         Orezať
                     </button>
                     {{-- cancel button --}}
-                    <button id="crop_cancel_button" type="button" class="btn bg-gradient-danger px-5">
+                    <button id="crop_work_cancel_button" type="button" class="btn bg-gradient-danger px-5">
                         <i class="fa-solid fa-ban mr-1"></i>
                         Zrušiť
                     </button>
@@ -199,18 +207,29 @@
     <script @nonce type="text/javascript" src="{{ asset(mix('asset/admin-app-crop.js'), true) }}"></script>
     <script @nonce>
         watchImageUploader({
-            minWidth        : '#crop_width',
-            minHeight       : '#crop_height',
-            ratio           : '#ratio',
-            input           : '#upload-corp-file-input',
-            output          : '#crop_base64_output',
-            fileName        : '#crop_file_name',
-            preview         : '#crop_preview',
-            modal           : '#crop_modal',
-            cropperContainer: '#cropper_element',
-            cropButton      : '#crop_button',
-            cancelCropButton: '#crop_cancel_button',
-            lastFileLabel   : 'label[class~="custom-file-label"][for="upload-corp-file-input"]',
+            /** INPUT fields */
+            input           : '#crop_input_file',
+            minWidth        : '#crop_input_width',
+            minHeight       : '#crop_input_height',
+            exactDimensions : '#crop_input_exact_dimensions',
+
+            /** OUTPUT fields */
+            output          : '#crop_output_base64',
+            outputFileName  : '#crop_output_file_name',
+            outputRatio     : '#crop_output_exact_dimensions',
+            outputWidth     : '#crop_output_width',
+            outputHeight    : '#crop_output_height',
+            lastFileLabel   : 'label[class~="custom-file-label"][for="crop_input_file"]',
+
+            /** WORK fields */
+            preview         : '#crop_work_preview',
+            modal           : '#crop_work_modal',
+            cropperContainer: '#crop_work_element',
+            cropButton      : '#crop_work_button',
+            cancelCropButton: '#crop_work_cancel_button',
+
+            /** CUSTOM config*/
+            ratio           : {{ $ratio }},
             maxSize         : {{ $maxSize }},
         });
     </script>
