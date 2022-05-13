@@ -19,6 +19,7 @@
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th width="30%" class="text-center">Obrázok</x-admin.table.th>
             <x-admin.table.th>Pracovný názov</x-admin.table.th>
+            <x-admin.table.th>Popis</x-admin.table.th>
             <x-admin.table.th-actions />
         </x-slot>
 
@@ -36,6 +37,7 @@
                         />
                     </x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break">{{$picture->slug}}</x-admin.table.td>
+                    <x-admin.table.td class="text-wrap text-break">{{$picture->source->source_description}}</x-admin.table.td>
                     <x-admin.table.td class="text-center">
                         <a  href="{{ url($picture->getFirstMediaUrl($picture->collectionName) ?: '#') }}"
                             class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"

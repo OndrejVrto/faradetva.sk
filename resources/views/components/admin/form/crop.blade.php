@@ -15,11 +15,11 @@
     {{-- This is hidden input field where is stored final string base64 --}}
     <input id="crop_output_base64" name="crop_output_base64" type="text" value="{{ old('crop_output_base64') }}" hidden>
     {{-- This is hidden input field where is stored orginal file name string --}}
-    <input id="crop_output_file_name" name="crop_output_file_name" type="text" value="{{ old('crop_output_file_name') }}" >
+    <input id="crop_output_file_name" name="crop_output_file_name" type="text" value="{{ old('crop_output_file_name') }}" hidden>
     {{-- This is  input fields where is stored picture sizes --}}
-    <input id="crop_output_width" name="crop_output_width" value="{{ old('crop_output_width') }}" >
-    <input id="crop_output_height" name="crop_output_height" value="{{ old('crop_output_height') }}" >
-    <input id="crop_output_exact_dimensions" name="crop_output_exact_dimensions" value="{{ old('crop_output_exact_dimensions') }}" >
+    <input id="crop_output_width" name="crop_output_width" value="{{ old('crop_output_width') }}" hidden>
+    <input id="crop_output_height" name="crop_output_height" value="{{ old('crop_output_height') }}" hidden>
+    <input id="crop_output_exact_dimensions" name="crop_output_exact_dimensions" value="{{ old('crop_output_exact_dimensions') }}" hidden>
 
 
 {{--! INPUT FIELDS --}}
