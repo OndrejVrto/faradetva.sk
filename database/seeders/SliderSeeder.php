@@ -7,9 +7,7 @@ use Illuminate\Database\Seeder;
 
 class SliderSeeder extends Seeder
 {
-
-    public function run()
-    {
+    public function run():void {
         Slider::create([
             'active'  => '1',
             'heading_1' => 'BOH',
@@ -30,13 +28,5 @@ class SliderSeeder extends Seeder
             'heading_2' => 'Nevera v boha',
             'heading_3' => 'ťa zabije.',
         ]);
-
-        Slider::create([
-            'active'  => rand(0,1),
-            'heading_1' => 'Ako na nový rok,',
-            'heading_2' => 'tak',
-            'heading_3' => 'po celý rok.',
-        ]);
-
     }
 }

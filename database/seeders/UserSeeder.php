@@ -5,14 +5,10 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 class UserSeeder extends Seeder
 {
-
-    public function run()
-    {
+    public function run(): void {
         $password = 'password';
 
         $user = User::create([
@@ -25,7 +21,19 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(1);  // Super Admin
+        $user->assignRole(1);  // Super Administrátor
+
+        $user = User::create([
+            'name' => 'Neznámy autor',
+            'nick' => 'anonymous',
+            'slug' => Str::slug('Neznámy autor'),
+            'email' => 'anonymous@example.com',
+            'can_be_impersonated' => 0,
+            'email_verified_at' => now(),
+            'password' => $password,
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(8); // Hosť
 
         $user = User::create([
             'name' => 'Ondrej VRŤO',
@@ -37,7 +45,7 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(2); // Admin
+        $user->assignRole(2); // Administrátor
 
         $user = User::create([
             'name' => 'Marián Juhaniak',
@@ -52,18 +60,6 @@ class UserSeeder extends Seeder
         $user->assignRole(['3']); // Moderátor
 
         $user = User::create([
-            'name' => 'Ľuboš Sabol',
-            'nick' => 'lubos',
-            'slug' => Str::slug('Ľuboš Sabol'),
-            'email' => 'lubos@sabol.sk',
-            'can_be_impersonated' => 1,
-            'email_verified_at' => now(),
-            'password' => $password,
-            'remember_token' => Str::random(10)
-        ]);
-        $user->assignRole(['4']); // Moderátor
-
-        $user = User::create([
             'name' => 'Pavol Prieboj',
             'nick' => 'Paľo',
             'slug' => Str::slug('Pavol Prieboj'),
@@ -73,7 +69,19 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['4']); // Moderátor
+        $user->assignRole(['4']); // Redaktor
+
+        $user = User::create([
+            'name' => 'Ľuboš Sabol',
+            'nick' => 'lubos',
+            'slug' => Str::slug('Ľuboš Sabol'),
+            'email' => 'lubos@sabol.sk',
+            'can_be_impersonated' => 1,
+            'email_verified_at' => now(),
+            'password' => $password,
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(['5']); // Kontrolór
 
         $user = User::create([
             'name' => 'Vladimír Kučera',
@@ -85,7 +93,7 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['5']); // Akolyta
+        $user->assignRole(['6']); // Akolyta
 
         $user = User::create([
             'name' => 'Eva Bohumeľová',
@@ -97,19 +105,19 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['6']); // Lektor
+        $user->assignRole(['7']); // Lektor
 
         $user = User::create([
-            'name' => 'Hosť',
-            'nick' => 'guest',
-            'slug' => Str::slug('Hosť'),
-            'email' => 'guest@guest.sk',
+            'name' => 'Ján Juriga',
+            'nick' => 'Janko dé Dur',
+            'slug' => Str::slug('Ján Juriga'),
+            'email' => 'jan@juriga.sk',
             'can_be_impersonated' => 1,
             'email_verified_at' => now(),
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['7']); // Hosť
+        $user->assignRole(['8']); // Hosť
 
     }
 }

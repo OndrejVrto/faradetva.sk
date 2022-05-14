@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
 
-            $table->string('type');
+            $table->string('type_model');
             $table->boolean('active')->default(1);
             $table->string('title');
             $table->string('slug');

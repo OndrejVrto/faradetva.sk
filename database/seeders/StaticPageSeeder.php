@@ -16,7 +16,7 @@ class StaticPageSeeder extends Seeder
         //collect contents and pass to DB::unprepared
         if(File::exists($sql)){
             DB::unprepared(file_get_contents($sql));
-            $this->command->info('Static Pages seeding successfully.');
+            $this->command->info('RAW - Static Pages import successfully.');
         }
     }
 }
