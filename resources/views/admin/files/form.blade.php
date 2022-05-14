@@ -27,12 +27,12 @@
         label="Príloha"
         placeholder="{{ $media_file_name }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-file-import"></i>
             </div>
         </x-slot>
-        <x-slot name="noteSlot">
+        <x-slot:noteSlot>
             Poznámka: Veľkosť dokumentu maximálne 10MB.
         </x-slot>
     </x-adminlte-input-file>
@@ -44,18 +44,18 @@
         enableOldSupport="true"
         value="{{ $file->title ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-laptop-code"></i>
             </div>
         </x-slot>
-        <x-slot name="noteSlot">
+        <x-slot:noteSlot>
             Poznámka: Text bude automaticky prekonvertovaný na verziu Slug.
             <br>
             Malým písmom bez diakritiky a medzery nahradené pomlčkou (napr: tabulka-krstov-pdf)
         </x-slot>
         @error('slug')
-            <x-slot name="errorManual">
+            <x-slot:errorManual>
                 {{ $errors->first('slug') }}
             </x-slot>
         @enderror

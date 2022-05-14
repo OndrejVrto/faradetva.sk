@@ -65,13 +65,13 @@
                 enableOldSupport="true"
                 value="{{ $user->name ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-signature"></i>
                     </div>
                 </x-slot>
                 @error('slug')
-                    <x-slot name="errorManual">
+                    <x-slot:errorManual>
                         {{ $errors->first('slug') }}
                     </x-slot>
                 @enderror
@@ -86,7 +86,7 @@
                 enableOldSupport="true"
                 value="{{ $user->nick ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-user"></i>
                     </div>
@@ -106,7 +106,7 @@
                 enableOldSupport="false"
                 {{-- value="{{ $user->password ?? '' }}" --}}
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-unlock-alt"></i>
                     </div>
@@ -122,7 +122,7 @@
                 {{-- type="password" --}}
                 enableOldSupport="false"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-unlock"></i>
                     </div>
@@ -143,7 +143,7 @@
                 enableOldSupport="true"
                 value="{{ $user->email ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-at"></i>
                     </div>
@@ -157,7 +157,7 @@
                 enableOldSupport="true"
                 value="{{ $user->phone ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-mobile-alt fa-lg"></i>
                     </div>
@@ -171,7 +171,7 @@
                 enableOldSupport="true"
                 value="{{ $user->twiter_name ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fa-brands fa-twitter"></i>
                     </div>
@@ -184,7 +184,7 @@
                 enableOldSupport="true"
                 value="{{ $user->facebook_url ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fa-brands fa-facebook"></i>
                     </div>
@@ -197,7 +197,7 @@
                 enableOldSupport="true"
                 value="{{ $user->www_page ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fa-brands fa-html5"></i>
                     </div>
@@ -223,7 +223,7 @@
         :config="$config_select"
         multiple
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-chess-queen"></i>
             </div>

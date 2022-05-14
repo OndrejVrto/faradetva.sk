@@ -47,13 +47,13 @@
                         enableOldSupport="true"
                         value="{{ $testimonial->name ?? '' }}"
                         >
-                        <x-slot name="prependSlot">
+                        <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
                                 <i class="fas fa-signature"></i>
                             </div>
                         </x-slot>
                         @error('slug')
-                            <x-slot name="errorManual">
+                            <x-slot:errorManual>
                                 {{ $errors->first('slug') }}
                             </x-slot>
                         @enderror
@@ -68,7 +68,7 @@
                         enableOldSupport="true"
                         value="{{ $testimonial->function ?? '' }}"
                     >
-                        <x-slot name="prependSlot">
+                        <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
                                 <i class="fas fa-briefcase"></i>
                             </div>
@@ -84,7 +84,7 @@
                 enableOldSupport="true"
                 rows="8"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-pen-nib"></i>
                     </div>

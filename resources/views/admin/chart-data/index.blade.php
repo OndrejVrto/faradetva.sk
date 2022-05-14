@@ -22,13 +22,13 @@
         withArchiveLink=""
     >
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             <x-admin.table.th width="15%">Parameter</x-admin.table.th>
             <x-admin.table.th width="15%">Hodnota</x-admin.table.th>
             <x-admin.table.th-actions />
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($data as $keyValue)
                 <tr>
                     <x-admin.table.td class="text-wrap text-break text-bold">{{$keyValue->key}}</x-admin.table.td>

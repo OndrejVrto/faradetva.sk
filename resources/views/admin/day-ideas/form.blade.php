@@ -25,7 +25,7 @@
         enableOldSupport="true"
         value="{{ $dayIdea->author ?? '' }}"
     >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-user-edit"></i>
             </div>
@@ -38,7 +38,7 @@
         enableOldSupport="true"
         value="{{ $dayIdea->idea ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="far fa-lightbulb fa-lg"></i>
             </div>

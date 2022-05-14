@@ -15,14 +15,14 @@
         paginator="{{ $tags->onEachSide(1)->links() }}"
     >
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th width="20%">Kľúčové slovo</x-admin.table.th>
             <x-admin.table.th>Popis</x-admin.table.th>
             <x-admin.table.th-actions/>
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($tags as $tag)
                 <x-admin.table.tr trashed="{{ $tag->trashed() }}">
 

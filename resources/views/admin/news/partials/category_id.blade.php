@@ -3,7 +3,7 @@
     label="Kategória článku"
     {{-- data-placeholder="Vybrať kategóriu článku ..." --}}
     >
-    <x-slot name="prependSlot">
+    <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
             <i class="fas fa-stream"></i>
         </div>

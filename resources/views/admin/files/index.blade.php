@@ -14,7 +14,7 @@
         createBtn="Pridať nový dokument"
         paginator="{{ $paginator->onEachSide(1)->links() }}"
         >
-        <x-slot name="table_header">
+        <x-slot:table_header>
             <x-admin.table.th width="1%">#</x-admin.table.th>
             <x-admin.table.th width="15%">Pracovný názov</x-admin.table.th>
             <x-admin.table.th width="25%" class="d-none d-xl-table-cell">Popis súboru</x-admin.table.th>
@@ -24,7 +24,7 @@
             <x-admin.table.th-actions />
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($files as $file)
                 <tr>
                     <x-admin.table.td>{{ $file['id'] }}</x-admin.table.td>

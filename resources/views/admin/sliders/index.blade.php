@@ -16,13 +16,13 @@
         paginator="{{ $sliders->onEachSide(1)->links() }}"
         >
 
-        <x-slot name="createNote">
+        <x-slot:createNote>
             Na stránke sa zobrazujú iba tri náhodné obrázky!
             <br>
             Pre fungovanie musia byť vložené minimálne dva obrázky.
         </x-slot>
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th-check-active/>
             <x-admin.table.th width="10%" class="text-center">Obrázok</x-admin.table.th>
@@ -30,7 +30,7 @@
             <x-admin.table.th-actions/>
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($sliders as $slider)
                 <x-admin.table.tr trashed="{{ $slider->trashed() }}">
 

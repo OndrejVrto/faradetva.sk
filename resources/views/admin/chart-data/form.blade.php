@@ -34,7 +34,7 @@
         enableOldSupport="true"
         value="{{ $data->key ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-chart-line"></i>
             </div>
@@ -47,7 +47,7 @@
         enableOldSupport="true"
         value="{{ $data->value ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-scroll"></i>
             </div>

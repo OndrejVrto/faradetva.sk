@@ -44,7 +44,7 @@
         enableOldSupport="true"
         value="{{ $slider->heading_1 ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-dice-one"></i>
             </div>
@@ -58,7 +58,7 @@
         enableOldSupport="true"
         value="{{ $slider->heading_2 ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-dice-two"></i>
             </div>
@@ -71,7 +71,7 @@
         enableOldSupport="true"
         value="{{ $slider->heading_3 ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-dice-three"></i>
             </div>

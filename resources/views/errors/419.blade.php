@@ -4,7 +4,7 @@
 
 <x-web.layout.master-error errorNumber="419">
 
-    <x-slot name="image">
+    <x-slot:image>
         <img src="{{ asset('images/errors/419-time-management-amico.svg', true) }}" class="w-100" alt="Dievčatko sedí na hodinách vedľa kalendára.">
     </x-slot>
 

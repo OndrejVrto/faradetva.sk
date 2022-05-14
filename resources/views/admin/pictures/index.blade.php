@@ -15,7 +15,7 @@
         paginator="{{ $pictures->onEachSide(1)->links() }}"
         >
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th width="30%" class="text-center">Obrázok</x-admin.table.th>
             <x-admin.table.th>Pracovný názov</x-admin.table.th>
@@ -23,7 +23,7 @@
             <x-admin.table.th-actions />
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($pictures as $picture)
                 <tr>
 

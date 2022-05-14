@@ -15,13 +15,13 @@
         {{-- paginator="{{ $pages->onEachSide(1)->links() }}" --}}
     >
 
-        <x-slot name="headerLeft">
+        <x-slot:headerLeft>
             @can('cache.crawl-all-url')
                 <a href="{{ route('cache.crawl-all-url') }}" class="btn btn-flat bg-gradient-pink flex-fill flex-md-grow-0 mb-2 mb-md-0">Scanovať <strong>všetky</strong> URL</a>
             @endcan
         </x-slot>
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th class="text-center" width="10%">Obrázok</x-admin.table.th>
             <x-admin.table.th width="20%">Titulok záložky</x-admin.table.th>
@@ -43,7 +43,7 @@
             <x-admin.table.th-actions />
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($pages as $page)
                 <x-admin.table.tr trashed="{{ $page->trashed() }}">
 

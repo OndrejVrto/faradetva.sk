@@ -15,7 +15,7 @@
         paginator="{{ $notices->onEachSide(1)->links() }}"
     >
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th-check-active/>
             {{-- <x-admin.table.th width="15%" class="text-center">Typ oznamu</x-admin.table.th> --}}
@@ -25,7 +25,7 @@
             <x-admin.table.th-actions/>
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($notices as $notice)
                 <x-admin.table.tr trashed="{{ $notice->trashed() }}">
 

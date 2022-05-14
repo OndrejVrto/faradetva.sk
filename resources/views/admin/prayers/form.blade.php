@@ -44,13 +44,13 @@
                 enableOldSupport="true"
                 value="{{ $prayer->title ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="far fa-flag"></i>
                     </div>
                 </x-slot>
                 @error('slug')
-                    <x-slot name="errorManual">
+                    <x-slot:errorManual>
                         {{ $errors->first('slug') }}
                     </x-slot>
                 @enderror
@@ -64,7 +64,7 @@
                 enableOldSupport="true"
                 value="{{ $prayer->quote_author ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-pray"></i>
                     </div>
@@ -80,7 +80,7 @@
         enableOldSupport="true"
         value="{{ $prayer->quote_row1 ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-dice-one"></i>
             </div>
@@ -94,7 +94,7 @@
         enableOldSupport="true"
         value="{{ $prayer->quote_row2 ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-dice-two"></i>
             </div>
@@ -109,7 +109,7 @@
                 enableOldSupport="true"
                 value="{{ $prayer->quote_link_text ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-external-link-alt"></i>
                     </div>
@@ -123,7 +123,7 @@
                 enableOldSupport="true"
                 value="{{ $prayer->quote_link ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-link"></i>
                     </div>

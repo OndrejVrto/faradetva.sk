@@ -12,7 +12,7 @@
     :config="$config_select"
     multiple
     >
-    <x-slot name="prependSlot">
+    <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
             <i class="fas fa-tag"></i>
         </div>

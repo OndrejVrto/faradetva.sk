@@ -4,7 +4,7 @@
 
 <x-web.layout.master-error errorNumber="Vitajte">
 
-    <x-slot name="image">
+    <x-slot:image>
         <img
             src="{{ asset('images/errors/503-service-in-maitenence-mode-amico.svg', true) }}"
             class="w-100"

@@ -25,13 +25,13 @@
         enableOldSupport="true"
         value="{{ $tag->title ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-tag"></i>
             </div>
         </x-slot>
         @error('slug')
-            <x-slot name="errorManual">
+            <x-slot:errorManual>
                 {{ $errors->first('slug') }}
             </x-slot>
         @enderror
@@ -43,7 +43,7 @@
         enableOldSupport="true"
         value="{{ $tag->description ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-scroll"></i>
             </div>

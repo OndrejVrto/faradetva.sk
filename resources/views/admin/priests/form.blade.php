@@ -43,7 +43,7 @@
                 enableOldSupport="true"
                 value="{{ $priest->first_name ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-user"></i>
                     </div>
@@ -57,7 +57,7 @@
                 enableOldSupport="true"
                 value="{{ $priest->last_name ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-signature"></i>
                     </div>
@@ -71,7 +71,7 @@
                 enableOldSupport="true"
                 value="{{ $priest->function ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-pray"></i>
                     </div>
@@ -88,7 +88,7 @@
                 enableOldSupport="true"
                 value="{{ $priest->titles_before ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
@@ -102,7 +102,7 @@
                 enableOldSupport="true"
                 value="{{ $priest->titles_after ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-microscope"></i>
                     </div>
@@ -116,7 +116,7 @@
                 enableOldSupport="true"
                 value="{{ $priest->www_page ?? '' }}"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fa-brands fa-html5"></i>
                     </div>
@@ -137,7 +137,7 @@
                         enableOldSupport="true"
                         value="{{ $priest->phone ?? '' }}"
                         >
-                        <x-slot name="prependSlot">
+                        <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
                                 <i class="fas fa-mobile-alt fa-lg"></i>
                             </div>
@@ -151,7 +151,7 @@
                         enableOldSupport="true"
                         value="{{ $priest->email ?? '' }}"
                         >
-                        <x-slot name="prependSlot">
+                        <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
                                 <i class="fas fa-at"></i>
                             </div>
@@ -168,7 +168,7 @@
                         enableOldSupport="true"
                         value="{{ $priest->facebook_url ?? '' }}"
                         >
-                        <x-slot name="prependSlot">
+                        <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
                                 <i class="fa-brands fa-facebook"></i>
                             </div>
@@ -183,7 +183,7 @@
                         enableOldSupport="true"
                         value="{{ $priest->twiter_name ?? '' }}"
                         >
-                        <x-slot name="prependSlot">
+                        <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
                                 <i class="fa-brands fa-twitter"></i>
                             </div>
@@ -198,7 +198,7 @@
                 enableOldSupport="true"
                 rows="9"
                 >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-pen-nib"></i>
                     </div>

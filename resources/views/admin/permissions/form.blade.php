@@ -25,16 +25,16 @@
         enableOldSupport="true"
         value="{{ $permission->name ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-key"></i>
             </div>
         </x-slot>
-        <x-slot name="noteSlot">
+        <x-slot:noteSlot>
             Pre kód povolenia môžete použiť aj 'Wildcard'. (Napr. news.*)
         </x-slot>
         @error('slug')
-            <x-slot name="errorManual">
+            <x-slot:errorManual>
                 {{ $errors->first('slug') }}
             </x-slot>
         @enderror

@@ -16,7 +16,7 @@
         paginator="{{ $testimonials->onEachSide(1)->links() }}"
     >
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th-check-active/>
             <x-admin.table.th width="10%" class="text-center">Fotka</x-admin.table.th>
@@ -25,7 +25,7 @@
             <x-admin.table.th-actions/>
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($testimonials as $testimonial)
                 <x-admin.table.tr trashed="{{ $testimonial->trashed() }}">
 

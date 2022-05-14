@@ -15,7 +15,7 @@
         paginator="{{ $charts->onEachSide(1)->links() }}"
         >
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             <x-admin.table.th-check-active/>
             <x-admin.table.th width="15%">Názov grafu</x-admin.table.th>
             <x-admin.table.th width="15%">Popis grafu</x-admin.table.th>
@@ -24,7 +24,7 @@
             <x-admin.table.th-actions />
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($charts as $chart)
                 <x-admin.table.tr trashed="{{ $chart->trashed() }}">
 

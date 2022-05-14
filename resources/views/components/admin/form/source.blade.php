@@ -9,7 +9,7 @@
     enableOldSupport="true"
     value="{{ $source->source_description ?? '' }}"
 >
-    <x-slot name="prependSlot">
+    <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
             <i class="fas fa-scroll"></i>
         </div>
@@ -26,7 +26,7 @@
             enableOldSupport="true"
             value="{{ $source->source_source ?? '' }}"
             >
-            <x-slot name="prependSlot">
+            <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
                     <i class="fas fa-cart-arrow-down"></i>
                 </div>
@@ -40,7 +40,7 @@
             enableOldSupport="true"
             value="{{ $source->source_source_url ?? '' }}"
             >
-            <x-slot name="prependSlot">
+            <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
                     <i class="fas fa-link"></i>
                 </div>
@@ -57,7 +57,7 @@
             enableOldSupport="true"
             value="{{ $source->source_author ?? '' }}"
             >
-            <x-slot name="prependSlot">
+            <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
                     <i class="fas fa-user-astronaut fa-lg"></i>
                 </div>
@@ -71,7 +71,7 @@
             enableOldSupport="true"
             value="{{ $source->source_author_url ?? '' }}"
             >
-            <x-slot name="prependSlot">
+            <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
                     <i class="fab fa-facebook"></i>
                 </div>
@@ -88,7 +88,7 @@
             enableOldSupport="true"
             value="{{ $source->source_license ?? '' }}"
             >
-            <x-slot name="prependSlot">
+            <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
                     <i class="far fa-copyright"></i>
                 </div>
@@ -102,7 +102,7 @@
             enableOldSupport="true"
             value="{{ $source->source_license_url ?? '' }}"
             >
-            <x-slot name="prependSlot">
+            <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
                     <i class="fas fa-info-circle"></i>
                 </div>

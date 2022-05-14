@@ -30,7 +30,7 @@
 
                 enableOldSupport="true"
                 value="{{ $staticPage->title ?? '' }}" >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fab fa-pagelines fa-lg"></i>
                     </div>
@@ -45,7 +45,7 @@
 
                 enableOldSupport="true"
                 value="{{ $staticPage->header ?? '' }}" >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-font"></i>
                     </div>
@@ -60,7 +60,7 @@
 
                 enableOldSupport="true"
                 value="{{ $staticPage->author_page ?? '' }}" >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-user-astronaut fa-lg"></i>
                     </div>
@@ -79,16 +79,16 @@
 
                 enableOldSupport="true"
                 value="{{ $staticPage->url ?? '' }}" >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-road"></i>
                     </div>
                 </x-slot>
-                <x-slot name="noteSlot">
+                <x-slot:noteSlot>
                     Maximálne 3x lomítko Štýl: snake-case Oddeľovač: spätné lomítko Jazyk: Slovenčina (napr: o-nas/duchovne-povolania)
                 </x-slot>
                 @error('slug')
-                    <x-slot name="errorManual">
+                    <x-slot:errorManual>
                         {{ $errors->first('slug') }}
                     </x-slot>
                 @enderror
@@ -102,12 +102,12 @@
 
                 enableOldSupport="true"
                 value="{{ $staticPage->route_name ?? '' }}" >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-route"></i>
                     </div>
                 </x-slot>
-                <x-slot name="noteSlot">
+                <x-slot:noteSlot>
                     Štýl: snake-case Oddeľovač: bodka Jazyk: angličtina (napr: about.spiritual-vocations )
                 </x-slot>
             </x-adminlte-input>
@@ -125,7 +125,7 @@
                 enableOldSupport="true"
                 rows="9"
             >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-envelope-open-text"></i>
                     </div>
@@ -142,7 +142,7 @@
 
                 enableOldSupport="true"
                 value="{{ $staticPage->description_page ?? '' }}" >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-scroll"></i>
                     </div>
@@ -155,12 +155,12 @@
 
                 enableOldSupport="true"
                 value="{{ $staticPage->keywords ?? '' }}" >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fas fa-keyboard fa-lg"></i>
                     </div>
                 </x-slot>
-                <x-slot name="noteSlot">
+                <x-slot:noteSlot>
                     Slová alebo slovné spojenia oddelené čiarkou
                 </x-slot>
             </x-adminlte-input>
@@ -171,7 +171,7 @@
 
                 enableOldSupport="true"
                 value="{{ $staticPage->wikipedia ?? '' }}" >
-                <x-slot name="prependSlot">
+                <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fab fa-wikipedia-w"></i>
                     </div>

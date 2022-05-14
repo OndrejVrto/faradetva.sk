@@ -15,7 +15,7 @@
         paginator="{{ $galleries->onEachSide(1)->links() }}"
         >
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th width="20%" class="text-center">Prvý obrázok</x-admin.table.th>
             <x-admin.table.th width="50%">Pracovný názov</x-admin.table.th>
@@ -23,7 +23,7 @@
             <x-admin.table.th-actions />
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($galleries as $gallery)
             <tr>
                 {{-- <x-admin.table.td>{{$gallery->id}}</x-admin.table.td> --}}

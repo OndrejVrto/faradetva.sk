@@ -27,13 +27,13 @@
         enableOldSupport="true"
         value="{{ $gallery->title ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="far fa-images"></i>
             </div>
         </x-slot>
         @error('slug')
-            <x-slot name="errorManual">
+            <x-slot:errorManual>
                 {{ $errors->first('slug') }}
             </x-slot>
         @enderror

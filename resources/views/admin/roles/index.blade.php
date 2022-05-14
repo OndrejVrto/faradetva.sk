@@ -15,17 +15,17 @@
         paginator="{{ $roles->onEachSide(1)->links() }}"
         >
 
-        <x-slot name="createNote">
+        <x-slot:createNote>
             Povolenia sa dajú priradiť každej roli, aj samostatnému uživateľovi.
         </x-slot>
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th>Meno</x-admin.table.th>
             <x-admin.table.th-actions/>
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($roles as $role)
             <tr>
                 {{-- <x-admin.table.td>{{$role->id}}</x-admin.table.td> --}}

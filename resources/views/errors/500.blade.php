@@ -4,7 +4,7 @@
 
 <x-web.layout.master-error errorNumber="500">
 
-    <x-slot name="image">
+    <x-slot:image>
         <img
             id="freepik_stories-500-internal-server-error"
             src="{{ asset('images/errors/500-internal-server-error-amico.svg', true) }}"

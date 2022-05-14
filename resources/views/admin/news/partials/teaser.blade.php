@@ -4,12 +4,12 @@
     enableOldSupport="true"
     rows="3"
     >
-    <x-slot name="prependSlot">
+    <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
             <i class="fab fa-diaspora"></i>
         </div>
     </x-slot>
-    <x-slot name="noteSlot">
+    <x-slot:noteSlot>
         Poznámka: cca. 50 slov
     </x-slot>
         {{ $news->teaser ?? '' }}

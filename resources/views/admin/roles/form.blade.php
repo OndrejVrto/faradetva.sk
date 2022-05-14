@@ -25,13 +25,13 @@
         enableOldSupport="true"
         value="{{ $role->name ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-chess-queen"></i>
             </div>
         </x-slot>
         @error('slug')
-            <x-slot name="errorManual">
+            <x-slot:errorManual>
                 {{ $errors->first('slug') }}
             </x-slot>
         @enderror

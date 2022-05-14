@@ -40,13 +40,13 @@
         enableOldSupport="true"
         value="{{ $chart->title ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-chart-line"></i>
             </div>
         </x-slot>
         @error('slug')
-            <x-slot name="errorManual">
+            <x-slot:errorManual>
                 {{ $errors->first('slug') }}
             </x-slot>
         @enderror
@@ -58,7 +58,7 @@
         enableOldSupport="true"
         value="{{ $chart->description ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-scroll"></i>
             </div>
@@ -69,7 +69,7 @@
         name="type_chart"
         label="Typ grafu"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="far fa-chart-bar"></i>
             </div>
@@ -94,7 +94,7 @@
         enableOldSupport="true"
         value="{{ $chart->name_x_axis ?? 'Rok' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-arrows-alt-h"></i>
             </div>
@@ -107,7 +107,7 @@
         enableOldSupport="true"
         value="{{ $chart->name_y_axis ?? '' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-arrows-alt-v mx-1"></i>
             </div>
@@ -121,12 +121,12 @@
         enableOldSupport="true"
         value="{{ $chart->color ?? '#ff7b33' }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-palette"></i>
             </div>
         </x-slot>
-        <x-slot name="noteSlot">
+        <x-slot:noteSlot>
             Poznámka: Základná farba stránky je #FF7B33 alebo rgb(255,123,51)
         </x-slot>
     </x-adminlte-input>

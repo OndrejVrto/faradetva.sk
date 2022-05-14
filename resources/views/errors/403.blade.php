@@ -4,7 +4,7 @@
 
 <x-web.layout.master-error errorNumber="403">
 
-    <x-slot name="image">
+    <x-slot:image>
         <img
             src="{{ asset('images/errors/403-error-forbidden-amico.svg', true) }}"
             class="w-100"

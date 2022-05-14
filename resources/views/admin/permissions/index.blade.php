@@ -15,7 +15,7 @@
         paginator="{{ $permissions->onEachSide(2)->links() }}"
         >
 
-        <x-slot name="createNote">
+        <x-slot:createNote>
             Mená povolení priraďuj podľa názvov v route.php
             <br>
             Alebo použi príkaz na pridanie všetkých názvov automaticky:
@@ -23,14 +23,14 @@
             <span class="text-bold text-danger">php artisan permission:create-permission-routes</span>
         </x-slot>
 
-        <x-slot name="table_header">
+        <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th>Názov povolenia</x-admin.table.th>
             {{-- <x-admin.table.th>Brána</x-admin.table.th> --}}
             <x-admin.table.th-actions/>
         </x-slot>
 
-        <x-slot name="table_body">
+        <x-slot:table_body>
             @foreach($permissions as $permission)
             <tr>
                 {{-- <x-admin.table.td>{{$permission->id}}</x-admin.table.td> --}}

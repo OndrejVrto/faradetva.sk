@@ -46,7 +46,7 @@
 
         placeholder="{{ $media_file_name }}"
         >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-file-import"></i>
             </div>
@@ -129,13 +129,13 @@
         label="Nadpis oznamu"
         enableOldSupport="true"
         value="{{ $notice->title ?? '' }}" >
-        <x-slot name="prependSlot">
+        <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fas fa-font"></i>
             </div>
         </x-slot>
         @error('slug')
-            <x-slot name="errorManual">
+            <x-slot:errorManual>
                 {{ $errors->first('slug') }}
             </x-slot>
         @enderror

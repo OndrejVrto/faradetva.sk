@@ -5,7 +5,7 @@
 
 <x-web.layout.master-error errorNumber="404">
 
-    <x-slot name="image">
+    <x-slot:image>
         <img
             src="{{ asset('images/errors/404-error-with-a-brokenrobot-amico.svg', true) }}"
             class="w-100"
