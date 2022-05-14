@@ -79,13 +79,20 @@ class StaticPage extends BaseModel implements HasMedia
                 ->sharpen(2)
                 ->quality(60);
             $this->addMediaConversion('representing')
-                ->fit(Manipulations::FIT_CONTAIN, 960, 480)
+                ->fit(Manipulations::FIT_CROP, 960, 480)
                 ->sharpen(2)
                 ->quality(60);
             $this->addMediaConversion('representing-thumb')
                 ->fit(Manipulations::FIT_CONTAIN, 256, 256)
                 ->sharpen(2)
                 ->quality(60);
+            $this->addMediaConversion('card')
+                ->fit(Manipulations::FIT_CROP, 370, 185)
+                // ->fit(Manipulations::FIT_CROP, 370, 248)
+                ->sharpen(2)
+                ->quality(60)
+                ->withResponsiveImages();
+
 
             // $this->addMediaConversion('section-list')
             //     ->fit(Manipulations::FIT_CROP, 232, 272)
