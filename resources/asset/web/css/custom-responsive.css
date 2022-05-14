@@ -210,13 +210,13 @@
 	}
 
 	.header_right_menu>ul>li>ul>li>a {
-		padding: 7px 15px;
+		padding: 5px 40px;
 	}
 
 	.caret_down {
 		position          : absolute;
-		right             : 197px;
-		top               : 12px;
+		right             : 60px;
+		top               : 8px;
 		text-align        : center;
 		color             : #ff7b33;
 		font-size         : 25px;
@@ -230,9 +230,11 @@
 
 	.caret_down:before {
 		position               : absolute;
-		content                : "\f196";
+        content                :"\f107";
 		display                : inline-block;
-		font                   : normal normal normal 14px/1 FontAwesome;
+		font-size              : 14px/1;
+        font-family            : "Font Awesome 6 Free";
+        font-weight            : 900;
 		font-size              : inherit;
 		text-rendering         : auto;
 		-webkit-font-smoothing : antialiased;
@@ -242,14 +244,15 @@
 	}
 
 	.caret_down.caret_up:before {
-		content: "\f147";
+		content: "\f106";
 	}
 
 	/*=== submenu css ===*/
 	/*== header search css ==*/
 	.header_right_menu ul li.search_icon {
-		color       : #243a4f;
-		padding-left: 23px;
+		color        : #243a4f;
+		padding-left : 23px;
+        padding-top  : 15px;
 	}
 
 	/*== header search css ==*/
@@ -504,9 +507,9 @@
 		padding-top : 15px;
 	}
 
-	.caret_down {
+	/* .caret_down {
 		right: 45px;
-	}
+	} */
 }
 
 @media (max-width:1199px) {

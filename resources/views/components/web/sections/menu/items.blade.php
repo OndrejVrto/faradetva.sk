@@ -1,45 +1,65 @@
-<li><a href="{{ secure_url('test') }}" class="text-muted"><em><small>Test</small></em></a></li>
-<li><a href="{{ secure_url('zoznam-statickych-stranok') }}" class="text-muted"><em><small>Podstránky</small></em></a></li>
+{{-- <li><a href="{{ secure_url('test') }}" class="text-muted"><em><small>Test</small></em></a></li> --}}
+{{-- <li><a href="{{ secure_url('zoznam-statickych-stranok') }}" class="text-muted"><em><small>Podstránky</small></em></a></li> --}}
 
 
 <li><a href="{{ secure_url('oznamy-vsetky') }}">Oznamy</a></li>
 <li><a href="{{ route('article.all') }}">Články</a></li>
 
-{{-- <li>
+<li>
     <a href="#">O nás</a>
     <ul class="sub-menu">
         <li><a href="#">História</a></li>
-        <!-- Významné osobnosti  -->
-        <!-- Duchovné povolania  -->
-        <!-- Kňazi pochovaní v Detve  -->
-        <!-- Kňazi pôsobiaci v Detve  -->
-        <!-- Štatistiky od roku 2010  -->
+            <!-- Dejiny farnosti -->
+            <!-- Farári v Detve -->
+            <!-- Kapláni v Detve -->
+            <!-- Duchovné povolania -->
+            <!-- Kňazi pochovaní v Detve -->
+            <!-- Štatistiky od r. 2000 -->
+            <!-- Chudobienec -->
+            <!-- Vianoce -->
+            <!-- Významné osobnosti -->
+                <!-- Anton Prokop -->
+                <!-- Imrich Ďurica -->
+                <!-- Jozef Závodský -->
+                <!-- Karol Anton Medvecký -->
+                <!-- Mons. Ján Štrbáň -->
+                <!-- prof. Jozef Búda -->
+
         <li><a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a></li>
         <li><a href="#">Sakrálne objekty</a></li>
-        <!-- Kostoly  -->
-        <!-- Kostol sv.Františka Assiského v Detve  -->
-        <!-- Kaplnky  -->
-        <!-- Detvianske kríže  -->
-        <!-- Prícestné sochy  -->
+            <!-- Farský kostol -->
+            <!-- Kláštorný kostol -->
+            <!-- Kalvária, kaplnky -->
+            <!-- Prícestné sochy -->
+            <!-- Detvianske kríže -->
         <li><a href="#">Pastorácia</a></li>
-        <!-- Kňazi  -->
-        <!-- Farská rada  -->
-        <!-- Liturgické služby  -->
-        <!-- (Akolyti, lektori, miništranti, kostolníci, organisti, detský spevokol, mládežnícky spevokol, dychovka)  -->
-        <!-- Vyučovanie náboženstva  -->
+            <!-- Farská rada -->
+            <!-- Lektori + Rozpisy -->
+            <!-- Akolyti  + Rozpisy -->
+            <!-- Miništranti -->
+            <!-- Kostolníci -->
+            <!-- Organisti, speváci -->
+            <!-- Spevokoly, dychovka -->
+            <!-- Vyučovanie náboženstva -->
     </ul>
-</li> --}}
+</li>
 
 <li><a href="{{ secure_url('spolocenstva') }}">Spoločenstvá</a></li>
-    <!-- Bosé karmelitánky  -->
-    <!-- Tretí rád OCD  -->
-    <!-- Tretí rád OFM  -->
-    <!-- Ružencové bratstvo  -->
-    <!-- Faustínum  -->
-    <!-- Modlitby za kňazov  -->
-    <!-- Deti a mládež  -->
+    <!-- Františkánsky svetský rád -->
+    <!-- Ružencové bratstvo -->
+    <!-- Mariánske večeradlo -->
+    <!-- Rád bosých karmelitánok -->
+    <!-- Svetský rád bosých karmelitánov -->
+    <!-- Združenie Faustínum -->
+    <!-- Saleziánski spolupracovníci -->
+    <!-- Hnutie kresťanských rodín -->
+    <!-- Katolícka charizmatická obnova -->
+    <!-- Modlitby matiek -->
+    <!-- Bárka -->
+    <!-- Služobníci Ježišovho Veľkň. Srdca -->
 
-{{-- <li>
+
+<li>
     <a href="#">Duchovný život</a>
     <ul class="sub-menu">
         <li><a href="#">Sviatosti</a></li>
@@ -48,12 +68,13 @@
         <!-- Eucharistia  -->
         <!-- Svätá spoveď  -->
         <!-- Posvätný stav  -->
+        <!-- Pomazanie chorých  -->
         <!-- Manželstvo  -->
         <li><a href="#">Sväteniny</a></li>
         <!-- Pobožnosti  -->
         <!-- Požehnania  -->
-        <!-- Procesie, púte  -->
-        <!-- Tradície  -->
+        <!-- Putovanie  -->
+        <!-- Ministériá  -->
         <!-- Pohreb  -->
         <li><a href="#">Život viery</a></li>
         <!-- Viera v Boha  -->
@@ -61,8 +82,10 @@
         <!-- Božie prikázania  -->
         <!-- Cirkevné prikázania  -->
         <!-- Modlitba  -->
+        <!-- Etiketa v kostole  -->
+        <li><a href="#">Sväté omše</a></li>
     </ul>
-</li> --}}
+</li>
 
 <li><a href="{{ secure_url('kontakty') }}">Kontakty</a></li>
 <li class="search_icon">
@@ -70,11 +93,11 @@
     <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fas fa-search"></i></span>
 </li>
 
-@auth
-    <li><a class="text-template text-muted ms-5" href="{{ route('admin.dashboard') }}"><small>Admin</small></a></li>
-@else
-    <li><a class="text-template text-muted ms-5" href="{{ route('login') }}" rel="nofollow"><small>Login</small></a></li>
+{{-- @auth --}}
+    {{-- <li><a class="text-template text-muted ms-5" href="{{ route('admin.dashboard') }}"><small>Admin</small></a></li> --}}
+{{-- @else --}}
+    {{-- <li><a class="text-template text-muted ms-5" href="{{ route('login') }}" rel="nofollow"><small>Login</small></a></li> --}}
     {{-- @if (Route::has('register'))
     <li><a class="text-template" href="{{ route('register') }}" rel="nofollow">Registrovať</a></li>
     @endif --}}
-@endauth
+{{-- @endauth --}}
