@@ -1,5 +1,7 @@
 <x-web.layout.master :pageData="$pageData">
 
+    {{-- Spoveď --}}
+
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-web.page.subsection title="Ako inak nazývame sviatosť zmierenia a prečo potrebujeme túto sviatosť?">

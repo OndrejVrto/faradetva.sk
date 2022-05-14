@@ -1,5 +1,7 @@
 <x-web.layout.master :pageData="$pageData">
 
+    {{-- Pomazanie chorých --}}
+
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-web.page.subsection title="Prečo Ježiš prejavoval taký veľký záujem o chorých?">

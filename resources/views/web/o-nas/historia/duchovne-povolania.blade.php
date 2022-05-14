@@ -1,5 +1,7 @@
 <x-web.layout.master :pageData="$pageData">
 
+    {{-- Duchovné povolania --}}
+
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <div class="row">

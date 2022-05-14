@@ -1,5 +1,7 @@
 <x-web.layout.master :pageData="$pageData">
 
+    {{-- O nás / História --}}
+
     <x-web.page.section row="true" name="SECTION: História" class="ch_about_section pad_b_50">
 
             <div class="row ch_about_wrap">
@@ -61,14 +63,14 @@
 
         <x-web.page.section-header header="Významné osobnosti"/>
 
-        <x-partials.page-card routeStaticPages="
+        {{-- <x-partials.page-card routeStaticPages="
             o-nas.historia.anton-prokop,
             o-nas.historia.imrich-durica,
             o-nas.historia.jozef-zavodsky,
             o-nas.historia.karol-anton-medvecky,
             o-nas.historia.jan-strban,
             o-nas.historia.jozef-buda
-        "/>
+        "/> --}}
 
     </x-web.page.section>
 
