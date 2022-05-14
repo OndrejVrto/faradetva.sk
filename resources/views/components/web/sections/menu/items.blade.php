@@ -2,13 +2,13 @@
 {{-- <li><a href="{{ secure_url('zoznam-statickych-stranok') }}" class="text-muted"><em><small>Podstránky</small></em></a></li> --}}
 
 
-<li><a href="{{ secure_url('oznamy-vsetky') }}">Oznamy</a></li>
+<li><a href="{{ secure_url('oznamy/farske-oznamy') }}">Oznamy</a></li>
 <li><a href="{{ route('article.all') }}">Články</a></li>
 
 <li>
     <a href="#">O nás</a>
     <ul class="sub-menu">
-        <li><a href="#">História</a></li>
+        <li><a href="{{ secure_url('o-nas/historia') }}">História</a></li>
             <!-- Dejiny farnosti -->
             <!-- Farári v Detve -->
             <!-- Kapláni v Detve -->
@@ -26,13 +26,13 @@
                 <!-- prof. Jozef Búda -->
 
         <li><a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a></li>
-        <li><a href="#">Sakrálne objekty</a></li>
+        <li><a href="{{ secure_url('o-nas/sakralne-objekty') }}">Sakrálne objekty</a></li>
             <!-- Farský kostol -->
             <!-- Kláštorný kostol -->
             <!-- Kalvária, kaplnky -->
             <!-- Prícestné sochy -->
             <!-- Detvianske kríže -->
-        <li><a href="#">Pastorácia</a></li>
+        <li><a href="{{ secure_url('o-nas/pastoracia') }}">Pastorácia</a></li>
             <!-- Farská rada -->
             <!-- Lektori + Rozpisy -->
             <!-- Akolyti  + Rozpisy -->
@@ -41,7 +41,7 @@
             <!-- Organisti, speváci -->
             <!-- Spevokoly, dychovka -->
             <!-- Vyučovanie náboženstva -->
-        <li><a href="{{ secure_url('test') }}" class="text-danger">Test - ZMAZAŤ</a></li>
+        {{-- <li><a href="{{ secure_url('test') }}" class="text-danger">Test - ZMAZAŤ</a></li> --}}
         <li><a href="{{ route('list-pages') }}" class="text-danger">Zoznam stránok - ZMAZAŤ</a></li>
     </ul>
 </li>
@@ -64,7 +64,7 @@
 <li>
     <a href="#">Duchovný život</a>
     <ul class="sub-menu">
-        <li><a href="#">Sviatosti</a></li>
+        <li><a href="{{ secure_url('duchovny-zivot/sviatosti') }}">Sviatosti</a></li>
         <!-- Krst  -->
         <!-- Birmovanie  -->
         <!-- Eucharistia  -->
@@ -72,20 +72,20 @@
         <!-- Posvätný stav  -->
         <!-- Pomazanie chorých  -->
         <!-- Manželstvo  -->
-        <li><a href="#">Sväteniny</a></li>
+        <li><a href="{{ secure_url('duchovny-zivot/sveteniny') }}">Sväteniny</a></li>
         <!-- Pobožnosti  -->
         <!-- Požehnania  -->
         <!-- Putovanie  -->
         <!-- Ministériá  -->
         <!-- Pohreb  -->
-        <li><a href="#">Život viery</a></li>
+        <li><a href="{{ secure_url('duchovny-zivot/zivot-viery') }}">Život viery</a></li>
         <!-- Viera v Boha  -->
         <!-- Sväté písmo  -->
         <!-- Božie prikázania  -->
         <!-- Cirkevné prikázania  -->
         <!-- Modlitba  -->
         <!-- Etiketa v kostole  -->
-        <li><a href="#">Sväté omše</a></li>
+        <li><a href="{{ secure_url('duchovny-zivot/svate-omse') }}">Sväté omše</a></li>
     </ul>
 </li>
 

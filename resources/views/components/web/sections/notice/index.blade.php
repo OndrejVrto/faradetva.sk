@@ -1,6 +1,5 @@
 <x-web.page.section
     name="NOTICE"
-    class="TODO:"
 >
     @forelse ($notices as $notice)
 
