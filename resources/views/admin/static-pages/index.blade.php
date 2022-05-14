@@ -58,11 +58,11 @@
                     <x-admin.table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break d-none d-md-table-cell">
                         <a href="{{ config('app.url').'/'.$page->url }}" target="_blank" rel="noopener noreferrer">
-                            {{-- <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }} --}}
-                            {{ $page->url }}
+                            <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}
+                            {{-- {{ $page->url }} --}}
+                            <br>
+                            <span class="small text-muted">{{ $page->route_name }}</span>
                         </a>
-                        <br>
-                        <span class="small">{{ $page->route_name }}</span>
                     </x-admin.table.td>
                     <x-admin.table.td class="text-center d-none d-xl-table-cell">
                         @if( $page->banners_count != 0 )
