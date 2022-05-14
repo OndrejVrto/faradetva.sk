@@ -51,7 +51,7 @@ class FileController extends Controller
         $validated = $request->validated();
 
         $file->update(File::sanitize($validated));
-        $file->source()->update(Source::sanitize($validated));
+        $file->source()->updateOrCreate(Source::sanitize($validated));
         $file->touch(); // Touch because i need start observer for delete cache
 
         (new MediaStoreService)->handle($file, $request, 'attachment', $validated['slug'] );

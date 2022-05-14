@@ -53,7 +53,7 @@ class SliderController extends Controller
         $validated = $request->validated();
 
         $slider->update(Slider::sanitize($validated));
-        $slider->source()->update(Source::sanitize($validated));
+        $slider->source()->updateOrCreate(Source::sanitize($validated));
         $slider->touch(); // Touch because i need start observer for delete cache
 
         (new MediaStoreService)->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
