@@ -45,7 +45,7 @@
         {{-- Scroll Left Button --}}
         @if(config('adminlte.iframe.buttons.scroll_left', true))
             <a class="nav-link bg-light" href="#" data-widget="iframe-scrollleft">
-                <i class="fas fa-angle-double-left"></i>
+                <i class="fa-solid fa-angle-double-left"></i>
             </a>
         @endif
 
@@ -56,7 +56,7 @@
             @if(! empty(config('adminlte.iframe.default_tab.url')))
                 <li class="nav-item active" role="presentation">
                     <a href="#" class="btn-iframe-close" data-widget="iframe-close" data-type="only-this">
-                        <i class="fas fa-times"></i>
+                        <i class="fa-solid fa-times"></i>
                     </a>
                     <a id="tab-default" class="nav-link active" data-toggle="row" href="#panel-default"
                        role="tab" aria-controls="panel-default" aria-selected="true">
@@ -71,14 +71,14 @@
         {{-- Scroll Right Button --}}
         @if(config('adminlte.iframe.buttons.scroll_right', true))
             <a class="nav-link bg-light" href="#" data-widget="iframe-scrollright">
-                <i class="fas fa-angle-double-right"></i>
+                <i class="fa-solid fa-angle-double-right"></i>
             </a>
         @endif
 
         {{-- Fullscreen Button --}}
         @if(config('adminlte.iframe.buttons.fullscreen', true))
             <a class="nav-link bg-light" href="#" data-widget="iframe-fullscreen">
-                <i class="fas fa-expand"></i>
+                <i class="fa-solid fa-expand"></i>
             </a>
         @endif
 

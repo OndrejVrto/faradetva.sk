@@ -10,7 +10,7 @@ return [
         'closeDuration'     => 500,
         'closeEasing'       => 'swing',
         'closeHtml'         => '<button><i class="icon-off"></i></button>',
-        // 'closeHtml'         => '<button><i class="fas fa-times"></i></button>',
+        // 'closeHtml'         => '<button><i class="fa-solid fa-times"></i></button>',
         'closeMethod'       => 'fadeOut',
         'closeOnHover'      => true,
         'containerId'       => 'toast-container',

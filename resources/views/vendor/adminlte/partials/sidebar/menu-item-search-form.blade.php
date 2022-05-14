@@ -15,7 +15,7 @@
             {{-- Search button --}}
             <div class="input-group-append">
                 <button class="btn btn-sidebar" type="submit">
-                    <i class="fas fa-fw fa-search"></i>
+                    <i class="fa-solid fa-fw fa-search"></i>
                 </button>
             </div>
 

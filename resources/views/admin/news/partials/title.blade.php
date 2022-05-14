@@ -6,7 +6,7 @@
     value="{{ $news->title ?? '' }}" >
     <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
-            <i class="fas fa-font"></i>
+            <i class="fa-solid fa-font"></i>
         </div>
     </x-slot>
     @error('slug')

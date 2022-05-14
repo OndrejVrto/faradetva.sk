@@ -67,7 +67,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-signature"></i>
+                        <i class="fa-solid fa-signature"></i>
                     </div>
                 </x-slot>
                 @error('slug')
@@ -88,7 +88,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-user"></i>
+                        <i class="fa-solid fa-user"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -108,7 +108,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-unlock-alt"></i>
+                        <i class="fa-solid fa-unlock-alt"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -124,7 +124,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-unlock"></i>
+                        <i class="fa-solid fa-unlock"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -145,7 +145,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-at"></i>
+                        <i class="fa-solid fa-at"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -159,7 +159,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-mobile-alt fa-lg"></i>
+                        <i class="fa-solid fa-mobile-alt fa-lg"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -225,7 +225,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-chess-queen"></i>
+                <i class="fa-solid fa-chess-queen"></i>
             </div>
         </x-slot>
 

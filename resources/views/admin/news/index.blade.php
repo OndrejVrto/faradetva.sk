@@ -75,7 +75,7 @@
                                     title="Zobraziť správnu v novom okne"
                                     target="_blank"
                                 >
-                                    <i class="fas fa-eye"></i>
+                                    <i class="fa-solid fa-eye"></i>
                                 </a>
                             @else
                             <div class="w35 ml-1"></div>
@@ -85,14 +85,14 @@
                                 title="Stiahnuť pôvodný obrázok titulky"
                                 download
                             >
-                                <i class="fas fa-download"></i>
+                                <i class="fa-solid fa-download"></i>
                             </a>
                             @if ($news->document_count > 0)
                                 <a  href="{{ route('news.download', $news->slug) }}"
                                     class="w35 ml-1 btn btn-outline-secondary btn-sm btn-flat"
                                     title="Stiahnuť všetky prílohy (zip)"
                                 >
-                                    <i class="fas fa-download"></i>
+                                    <i class="fa-solid fa-download"></i>
                                 </a>
                             @endif
 

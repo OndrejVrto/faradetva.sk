@@ -48,7 +48,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-flag"></i>
+                        <i class="fa-regular fa-flag"></i>
                     </div>
                 </x-slot>
                 @error('slug')

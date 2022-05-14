@@ -46,7 +46,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-dice-one"></i>
+                <i class="fa-solid fa-dice-one"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -60,7 +60,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-dice-two"></i>
+                <i class="fa-solid fa-dice-two"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -73,7 +73,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-dice-three"></i>
+                <i class="fa-solid fa-dice-three"></i>
             </div>
         </x-slot>
     </x-adminlte-input>

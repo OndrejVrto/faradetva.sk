@@ -5,7 +5,7 @@
     >
     <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
-            <i class="fas fa-stream"></i>
+            <i class="fa-solid fa-stream"></i>
         </div>
     </x-slot>
     <option/>

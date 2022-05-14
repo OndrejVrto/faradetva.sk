@@ -52,7 +52,7 @@
 
                     <div class="input-group-append">
                         <button type="submit" class="btn">
-                            <i class="fas fa-arrow-right text-muted"></i>
+                            <i class="fa-solid fa-arrow-right text-muted"></i>
                         </button>
                     </div>
                 </div>

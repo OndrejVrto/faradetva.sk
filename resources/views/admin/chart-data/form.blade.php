@@ -36,7 +36,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-chart-line"></i>
+                <i class="fa-solid fa-chart-line"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -49,7 +49,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-scroll"></i>
+                <i class="fa-solid fa-scroll"></i>
             </div>
         </x-slot>
     </x-adminlte-input>

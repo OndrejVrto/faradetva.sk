@@ -3,7 +3,7 @@
     <div class="input-group date @error('published_at') adminlte-invalid-igroup @enderror" id="published_at" data-target-input="nearest">
         <div class="input-group-prepend">
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-play"></i>
+                <i class="fa-solid fa-play"></i>
             </div>
         </div>
         <input
@@ -16,7 +16,7 @@
         >
         <div class="input-group-append" data-target="#published_at" data-toggle="datetimepicker">
             <div class="input-group-text bg-gradient-green">
-                <i class="far fa-calendar-alt"></i>
+                <i class="fa-regular fa-calendar-alt"></i>
             </div>
         </div>
     </div>

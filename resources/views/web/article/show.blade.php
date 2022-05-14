@@ -23,17 +23,17 @@
                             <div class="blog_info">
                                 <span>
                                     <a href="{{ route('article.author', $oneNews->user->slug) }}">
-                                        <i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->user->name}}
+                                        <i class="fa-regular fa-user" aria-hidden="true"></i>{{ $oneNews->user->name}}
                                     </a>
                                 </span>
                                 <span>
                                     <a href="{{ route('article.date', $oneNews->created_string) }}">
-                                        <i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}
+                                        <i class="fa-regular fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}
                                     </a>
                                 </span>
                                 <span>
                                     <a href="{{ route('article.category', $oneNews->category->slug) }}">
-                                        <i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}
+                                        <i class="fa-solid fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}
                                     </a>
                                 </span>
                             </div>
@@ -56,7 +56,7 @@
 
                         @if(!empty($attachments))
                             <!-- ARTICLE ATTACHMENTS Start -->
-                            <h3>Prílohy <i class="fas fa-paperclip me-3"></i></h3>
+                            <h3>Prílohy <i class="fa-solid fa-paperclip me-3"></i></h3>
                             @foreach ($attachments as $attachment)
                                 <x-partials.attachment-article :data="$attachment"/>
                             @endforeach
@@ -67,7 +67,7 @@
 
                             <!-- ARTICLE TAGS Start -->
                             <ul class="tag-list">
-                                <li><i class="fas fa-tag" aria-hidden="true"></i></li>
+                                <li><i class="fa-solid fa-tag" aria-hidden="true"></i></li>
                                 @foreach ($oneNews->tags as $tag)
                                     <li>
                                         <a href="{{ route('article.tag', $tag->slug) }}" title="{{ $tag->description }}">

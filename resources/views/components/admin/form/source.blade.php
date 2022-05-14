@@ -11,7 +11,7 @@
 >
     <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
-            <i class="fas fa-scroll"></i>
+            <i class="fa-solid fa-scroll"></i>
         </div>
     </x-slot>
 </x-adminlte-input>
@@ -28,7 +28,7 @@
             >
             <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
-                    <i class="fas fa-cart-arrow-down"></i>
+                    <i class="fa-solid fa-cart-arrow-down"></i>
                 </div>
             </x-slot>
         </x-adminlte-input>
@@ -42,7 +42,7 @@
             >
             <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
-                    <i class="fas fa-link"></i>
+                    <i class="fa-solid fa-link"></i>
                 </div>
             </x-slot>
         </x-adminlte-input>
@@ -59,7 +59,7 @@
             >
             <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
-                    <i class="fas fa-user-astronaut fa-lg"></i>
+                    <i class="fa-solid fa-user-astronaut fa-lg"></i>
                 </div>
             </x-slot>
         </x-adminlte-input>
@@ -73,7 +73,7 @@
             >
             <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
-                    <i class="fab fa-facebook"></i>
+                    <i class="fa-brands fa-facebook"></i>
                 </div>
             </x-slot>
         </x-adminlte-input>
@@ -90,7 +90,7 @@
             >
             <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
-                    <i class="far fa-copyright"></i>
+                    <i class="fa-regular fa-copyright"></i>
                 </div>
             </x-slot>
         </x-adminlte-input>
@@ -104,7 +104,7 @@
             >
             <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">
-                    <i class="fas fa-info-circle"></i>
+                    <i class="fa-solid fa-info-circle"></i>
                 </div>
             </x-slot>
         </x-adminlte-input>

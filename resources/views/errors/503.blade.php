@@ -16,7 +16,7 @@
     <p class="pt-2">Musíte síce chvíľu počkať, ale výsledok bude stáť zato.</p>
     <p class="pt-4">Medzitým skúste hľadať informácie na</p>
     <a class="btn btn-outline-primary" href="https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148" role="button">
-        <i class="fab fa-facebook me-1"></i>
+        <i class="fa-brands fa-facebook me-1"></i>
         Facebooku
     </a>
 

@@ -27,7 +27,7 @@
     >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-user-edit"></i>
+                <i class="fa-solid fa-user-edit"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -40,7 +40,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-lightbulb fa-lg"></i>
+                <i class="fa-regular fa-lightbulb fa-lg"></i>
             </div>
         </x-slot>
     </x-adminlte-input>

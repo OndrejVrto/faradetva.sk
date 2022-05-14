@@ -8,11 +8,11 @@
         target="_blank"
         download
     >
-        <i class="far fa-2x fa-{{ $data['icon'] }}"></i>
+        <i class="fa-regular fa-2x fa-{{ $data['icon'] }}"></i>
         <span class="px-2">
             {{ $data['name'].'.'.$data['file_extension'] }}
             ({{ $data['humanReadableSize'] }})
-            <i class="fas fa-xs fa-download"></i>
+            <i class="fa-solid fa-xs fa-download"></i>
         </span>
     </a>
 </div>

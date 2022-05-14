@@ -26,13 +26,13 @@
                 {{ $urlText }}
             @endif
 
-            <i class="fas fa-lg fa-arrow-circle-right"></i>
+            <i class="fa-solid fa-lg fa-arrow-circle-right"></i>
         </a>
     @endisset
 
     {{-- Box overlay --}}
     <div class="{{ $makeOverlayClass() }}">
-        <i class="fas fa-2x fa-spin fa-sync-alt text-gray"></i>
+        <i class="fa-solid fa-2x fa-spin fa-sync-alt text-gray"></i>
     </div>
 
 </div>

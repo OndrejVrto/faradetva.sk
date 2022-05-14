@@ -29,7 +29,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-file-import"></i>
+                <i class="fa-solid fa-file-import"></i>
             </div>
         </x-slot>
         <x-slot:noteSlot>
@@ -46,7 +46,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-laptop-code"></i>
+                <i class="fa-solid fa-laptop-code"></i>
             </div>
         </x-slot>
         <x-slot:noteSlot>

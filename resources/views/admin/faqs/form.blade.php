@@ -27,7 +27,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-question"></i>
+                <i class="fa-solid fa-question"></i>
             </div>
         </x-slot>
         @error('slug')
@@ -46,7 +46,7 @@
     >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-comment"></i>
+                <i class="fa-regular fa-comment"></i>
             </div>
         </x-slot>
             {{ $faq->answer ?? '' }}

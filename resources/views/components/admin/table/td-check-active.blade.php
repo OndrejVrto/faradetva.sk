@@ -3,8 +3,8 @@
 ])
 <td {{ $attributes }}>
     @if ($check == 1)
-        <i class="fas fa-check fa-lg text-success"></i>
+        <i class="fa-solid fa-check fa-lg text-success"></i>
     @else
-        <i class="far fa-times-circle fa-lg text-danger"></i>
+        <i class="fa-regular fa-times-circle fa-lg text-danger"></i>
     @endif
 </td>

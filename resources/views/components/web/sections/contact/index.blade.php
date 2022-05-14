@@ -18,7 +18,7 @@
 
             <ul class="ch_address_details mt-0">
                 <li class="fromright wow" data-wow-delay="0.2s">
-                    <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+                    <span><i class="fa-solid fa-map-marker-alt" aria-hidden="true"></i></span>
                     <div>
                         <p>
                             <strong>Rímskokatolícka cirkev</strong><br>
@@ -29,27 +29,27 @@
                     </div>
                 </li>
                 <li class="fromright wow" data-wow-delay="0.4s">
-                    <span><i class="fas fa-phone-volume" aria-hidden="true"></i></span>
+                    <span><i class="fa-solid fa-phone-volume" aria-hidden="true"></i></span>
                     <div>
                         <p>(+421) (045) 54 55 243</p>
                         {{-- <p>(+421) 0907 123 456</p> --}}
                     </div>
                 </li>
                 <li class="fromright wow" data-wow-delay="0.6s">
-                    <span><i class="far fa-envelope" aria-hidden="true"></i></span>
+                    <span><i class="fa-regular fa-envelope" aria-hidden="true"></i></span>
                     <div>
                         <p>detva&#64;fara.sk</p>
                     </div>
                 </li>
                 <li class="fromright wow" data-wow-delay="0.8s">
-                    <span><i class="far fa-credit-card" aria-hidden="true"></i></span>
+                    <span><i class="fa-regular fa-credit-card" aria-hidden="true"></i></span>
                     <div>
                         <span class="text-muted">IČO</span>
                         <p>31938779</p>
                     </div>
                 </li>
                 <li class="fromright wow" data-wow-delay="1s">
-                    <span><i class="fas fa-university fa-lg" aria-hidden="true"></i></span>
+                    <span><i class="fa-solid fa-university fa-lg" aria-hidden="true"></i></span>
                     <div>
                         <span class="text-muted">IBAN</span>
                         <p>SK28 0900 0000 0000 7162 8858</p>

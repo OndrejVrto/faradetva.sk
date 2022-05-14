@@ -29,7 +29,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-images"></i>
+                <i class="fa-regular fa-images"></i>
             </div>
         </x-slot>
         @error('slug')

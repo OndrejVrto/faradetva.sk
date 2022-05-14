@@ -41,7 +41,7 @@
                         class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                         title="Stiahnuť celý album (zip)"
                     >
-                        <i class="fas fa-download"></i>
+                        <i class="fa-solid fa-download"></i>
                     </a>
                 </x-admin.table.td>
                 <x-admin.table.td-actions

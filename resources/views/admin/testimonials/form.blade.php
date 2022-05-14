@@ -49,7 +49,7 @@
                         >
                         <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
-                                <i class="fas fa-signature"></i>
+                                <i class="fa-solid fa-signature"></i>
                             </div>
                         </x-slot>
                         @error('slug')
@@ -70,7 +70,7 @@
                     >
                         <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
-                                <i class="fas fa-briefcase"></i>
+                                <i class="fa-solid fa-briefcase"></i>
                             </div>
                         </x-slot>
                     </x-adminlte-input>
@@ -86,7 +86,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-pen-nib"></i>
+                        <i class="fa-solid fa-pen-nib"></i>
                     </div>
                 </x-slot>
                     {{ $testimonial->description ?? '' }}

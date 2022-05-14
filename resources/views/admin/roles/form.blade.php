@@ -27,7 +27,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-chess-queen"></i>
+                <i class="fa-solid fa-chess-queen"></i>
             </div>
         </x-slot>
         @error('slug')

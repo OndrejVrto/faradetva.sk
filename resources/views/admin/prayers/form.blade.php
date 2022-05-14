@@ -46,7 +46,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="far fa-flag"></i>
+                        <i class="fa-regular fa-flag"></i>
                     </div>
                 </x-slot>
                 @error('slug')
@@ -66,7 +66,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-pray"></i>
+                        <i class="fa-solid fa-pray"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -82,7 +82,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-dice-one"></i>
+                <i class="fa-solid fa-dice-one"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -96,7 +96,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-dice-two"></i>
+                <i class="fa-solid fa-dice-two"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -111,7 +111,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-external-link-alt"></i>
+                        <i class="fa-solid fa-external-link-alt"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -125,7 +125,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-link"></i>
+                        <i class="fa-solid fa-link"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>

@@ -29,7 +29,7 @@
         <div class="input-group">
             <div class="input-group-prepend">
                 <div class="input-group-text bg-gradient-orange">
-                    <i class="fas fa-file-import"></i>
+                    <i class="fa-solid fa-file-import"></i>
                 </div>
             </div>
 

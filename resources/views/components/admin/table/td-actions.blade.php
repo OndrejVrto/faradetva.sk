@@ -39,7 +39,7 @@
         <div class="d-inline-flex">
             @isset($showLink)
                 @can($controlerName . '.show')
-                    <a href="{{ $showLink }}" class="w35 ml-1 btn btn-outline-success btn-sm btn-flat" title="Zobraziť"><i class="fas fa-eye"></i></a>
+                    <a href="{{ $showLink }}" class="w35 ml-1 btn btn-outline-success btn-sm btn-flat" title="Zobraziť"><i class="fa-solid fa-eye"></i></a>
                 @endcan
             @endisset
 
@@ -48,7 +48,7 @@
                     $controlerName . '.edit',
                     $controlerName . '.update'
                 ])
-                    <a href="{{ $editLink }}" class="w35 ml-1 btn btn-outline-primary btn-sm btn-flat" title="Editovať"><i class="fas fa-edit"></i></a>
+                    <a href="{{ $editLink }}" class="w35 ml-1 btn btn-outline-primary btn-sm btn-flat" title="Editovať"><i class="fa-solid fa-edit"></i></a>
                 @endcan
             @endisset
 
@@ -57,7 +57,7 @@
                     <form class="delete-form" action="{{ $deleteLink }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="w35 ml-1 btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="far fa-trash-alt"></i></button>
+                        <button class="w35 ml-1 btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať"><i class="fa-regular fa-trash-alt"></i></button>
                     </form>
                 @endcan
             @endisset
@@ -84,7 +84,7 @@
                         <form class="restore-form" action="{{ $restoreLink }}" method="post">
                             @csrf
                             <button class="w35 ml-1 btn btn-outline-success btn-sm btn-flat" type="submit" title="Obnoviť">
-                                <i class="far fa-thumbs-up"></i>
+                                <i class="fa-regular fa-thumbs-up"></i>
                             </button>
                         </form>
                     @endcan
@@ -95,7 +95,7 @@
                         <form class="force-delete-form" action="{{ $forceDeleteLink }}" method="post">
                             @csrf
                             <button class="w35 ml-1 btn btn-outline-danger btn-sm btn-flat" type="submit" title="Vymazať navždy">
-                                <i class="far fa-thumbs-down"></i>
+                                <i class="fa-regular fa-thumbs-down"></i>
                             </button>
                         </form>
                     @endcan

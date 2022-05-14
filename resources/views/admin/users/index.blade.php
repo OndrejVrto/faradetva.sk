@@ -69,7 +69,7 @@
                                         <a  href="{{ route('impersonate', $user->id) }}"
                                             class="w35 ml-1 btn btn-outline-dark btn-sm btn-flat"
                                             title="Stelesniť sa">
-                                            <i class="fas fa-people-arrows"></i>
+                                            <i class="fa-solid fa-people-arrows"></i>
                                         </a>
                                     @endif
                                 @endCanImpersonate
@@ -79,7 +79,7 @@
                                 title="Stiahnuť fotku"
                                 download
                             >
-                                <i class="fas fa-download"></i>
+                                <i class="fa-solid fa-download"></i>
                             </a>
                         </div>
                     </x-admin.table.td>

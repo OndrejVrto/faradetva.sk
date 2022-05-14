@@ -29,7 +29,7 @@
                 <div class="frombottom wow mt-5" data-wow-delay="1.2s">
                     <a href="{{ url($pray['quote_link_url']) }}" class="read_btn" target="_blank">
                         {{ $pray['quote_link_text'] }}
-                        <i class="fas fa-long-arrow-alt-right"></i>
+                        <i class="fa-solid fa-long-arrow-alt-right"></i>
                     </a>
                 </div>
             @endif

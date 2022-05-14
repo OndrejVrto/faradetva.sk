@@ -42,7 +42,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-chart-line"></i>
+                <i class="fa-solid fa-chart-line"></i>
             </div>
         </x-slot>
         @error('slug')
@@ -60,7 +60,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-scroll"></i>
+                <i class="fa-solid fa-scroll"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -71,7 +71,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="far fa-chart-bar"></i>
+                <i class="fa-regular fa-chart-bar"></i>
             </div>
         </x-slot>
         <option/>
@@ -96,7 +96,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-arrows-alt-h"></i>
+                <i class="fa-solid fa-arrows-alt-h"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -109,7 +109,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-arrows-alt-v mx-1"></i>
+                <i class="fa-solid fa-arrows-alt-v mx-1"></i>
             </div>
         </x-slot>
     </x-adminlte-input>
@@ -123,7 +123,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-palette"></i>
+                <i class="fa-solid fa-palette"></i>
             </div>
         </x-slot>
         <x-slot:noteSlot>

@@ -6,7 +6,7 @@
     >
     <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
-            <i class="fab fa-diaspora"></i>
+            <i class="fa-brands fa-diaspora"></i>
         </div>
     </x-slot>
     <x-slot:noteSlot>

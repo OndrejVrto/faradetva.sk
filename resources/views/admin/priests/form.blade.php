@@ -45,7 +45,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-user"></i>
+                        <i class="fa-solid fa-user"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -59,7 +59,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-signature"></i>
+                        <i class="fa-solid fa-signature"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -73,7 +73,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-pray"></i>
+                        <i class="fa-solid fa-pray"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -90,7 +90,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -104,7 +104,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-microscope"></i>
+                        <i class="fa-solid fa-microscope"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -139,7 +139,7 @@
                         >
                         <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
-                                <i class="fas fa-mobile-alt fa-lg"></i>
+                                <i class="fa-solid fa-mobile-alt fa-lg"></i>
                             </div>
                         </x-slot>
                     </x-adminlte-input>
@@ -153,7 +153,7 @@
                         >
                         <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">
-                                <i class="fas fa-at"></i>
+                                <i class="fa-solid fa-at"></i>
                             </div>
                         </x-slot>
                     </x-adminlte-input>
@@ -200,7 +200,7 @@
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-pen-nib"></i>
+                        <i class="fa-solid fa-pen-nib"></i>
                     </div>
                 </x-slot>
                     {{ $priest->description ?? '' }}

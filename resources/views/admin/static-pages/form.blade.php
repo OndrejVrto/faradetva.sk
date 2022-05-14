@@ -32,7 +32,7 @@
                 value="{{ $staticPage->title ?? '' }}" >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fab fa-pagelines fa-lg"></i>
+                        <i class="fa-brands fa-pagelines fa-lg"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -47,7 +47,7 @@
                 value="{{ $staticPage->header ?? '' }}" >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-font"></i>
+                        <i class="fa-solid fa-font"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -62,7 +62,7 @@
                 value="{{ $staticPage->author_page ?? '' }}" >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-user-astronaut fa-lg"></i>
+                        <i class="fa-solid fa-user-astronaut fa-lg"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -81,7 +81,7 @@
                 value="{{ $staticPage->url ?? '' }}" >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-road"></i>
+                        <i class="fa-regular fa-w"></i>
                     </div>
                 </x-slot>
                 <x-slot:noteSlot>
@@ -104,7 +104,7 @@
                 value="{{ $staticPage->route_name ?? '' }}" >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-route"></i>
+                        <i class="fa-solid fa-route"></i>
                     </div>
                 </x-slot>
                 <x-slot:noteSlot>
@@ -127,7 +127,7 @@
             >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-envelope-open-text"></i>
+                        <i class="fa-solid fa-envelope-open-text"></i>
                     </div>
                 </x-slot>
                     {{ $staticPage->teaser ?? '' }}
@@ -144,7 +144,7 @@
                 value="{{ $staticPage->description_page ?? '' }}" >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-scroll"></i>
+                        <i class="fa-solid fa-scroll"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>
@@ -157,7 +157,7 @@
                 value="{{ $staticPage->keywords ?? '' }}" >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fas fa-keyboard fa-lg"></i>
+                        <i class="fa-solid fa-keyboard fa-lg"></i>
                     </div>
                 </x-slot>
                 <x-slot:noteSlot>
@@ -173,7 +173,7 @@
                 value="{{ $staticPage->wikipedia ?? '' }}" >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fab fa-wikipedia-w"></i>
+                        <i class="fa-brands fa-wikipedia-w"></i>
                     </div>
                 </x-slot>
             </x-adminlte-input>

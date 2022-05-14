@@ -51,14 +51,14 @@
                                 title="Zobraziť v predvolenom prehliadači"
                                 target="_blank"
                             >
-                                <i class="fas fa-eye"></i>
+                                <i class="fa-solid fa-eye"></i>
                             </a>
                             <a  href="{{ url($file['file_url']) }}"
                                 class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                                 title="Stiahnuť"
                                 download
                             >
-                                <i class="fas fa-download"></i>
+                                <i class="fa-solid fa-download"></i>
                             </a>
                         </div>
                     </x-admin.table.td>

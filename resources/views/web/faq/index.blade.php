@@ -24,7 +24,7 @@
                 <div class="d-flex align-items-end flex-wrap flex-lg-nowrap">
                     <ul class="tag-list mt-0">
                         <li>
-                            <i class="fas fa-hashtag"></i>
+                            <i class="fa-solid fa-hashtag"></i>
                         </li>
                         @forelse ($faq['pages'] as $page)
                             <li>

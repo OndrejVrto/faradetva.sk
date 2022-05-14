@@ -27,7 +27,7 @@
         >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
-                <i class="fas fa-key"></i>
+                <i class="fa-solid fa-key"></i>
             </div>
         </x-slot>
         <x-slot:noteSlot>

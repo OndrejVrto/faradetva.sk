@@ -7,11 +7,11 @@
             title="Stiahnuť súbor: {{ $attachment['file_name'] }}"
             download
         >
-            <i class="far fa-2x fa-{{ $attachment['icon'] }}"></i>
+            <i class="fa-regular fa-2x fa-{{ $attachment['icon'] }}"></i>
             <span class="px-2">
                 {{ $attachment['title'] }}
                 ({{ $attachment['humanReadableSize'] }})
-                <i class="fas fa-xs fa-download"></i>
+                <i class="fa-solid fa-xs fa-download"></i>
             </span>
         </a>
         @isset($attachment['source_description'])

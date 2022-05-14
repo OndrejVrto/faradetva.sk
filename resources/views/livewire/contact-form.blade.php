@@ -9,7 +9,7 @@
     @endif
 
     <div class="form-group">
-        <span class="input_icon @error('name') border-end-0 border-danger @enderror"><i class="fas fa-user-tie" aria-hidden="true"></i></span>
+        <span class="input_icon @error('name') border-end-0 border-danger @enderror"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></span>
         <input wire:model.lazy="name" class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="Celé meno" value="{{ old('name') }}">
         @error('name')
             <span class="invalid-feedback d-block" role="alert">
@@ -18,7 +18,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <span class="input_icon @error('email') border-end-0 border-danger @enderror"><i class="fas fa-at" aria-hidden="true"></i></span>
+        <span class="input_icon @error('email') border-end-0 border-danger @enderror"><i class="fa-solid fa-at" aria-hidden="true"></i></span>
         <input wire:model.lazy="email" class="form-control @error('email') is-invalid @enderror" type="text" name="email" placeholder="Váš E-mail" value="{{ old('email') }}">
         @error('email')
             <span class="invalid-feedback d-block" role="alert">
@@ -27,7 +27,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <span class="input_icon @error('contact') border-end-0 border-danger @enderror"><i class="fas fa-phone-alt" aria-hidden="true"></i></span>
+        <span class="input_icon @error('contact') border-end-0 border-danger @enderror"><i class="fa-solid fa-phone-alt" aria-hidden="true"></i></span>
         <input wire:model.lazy="contact" class="form-control @error('contact') is-invalid @enderror" type="text" name="contact" placeholder="Kontaktné číslo" value="{{ old('contact') }}">
         @error('contact')
             <span class="invalid-feedback d-block" role="alert">
@@ -36,7 +36,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <span class="input_icon @error('address') border-end-0 border-danger @enderror"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+        <span class="input_icon @error('address') border-end-0 border-danger @enderror"><i class="fa-solid fa-map-marker-alt" aria-hidden="true"></i></span>
         <input wire:model.lazy="address" class="form-control @error('address') is-invalid @enderror" type="text" name="address" placeholder="Vaša adresa" value="{{ old('address') }}">
         @error('address')
             <span class="invalid-feedback d-block" role="alert">
@@ -55,6 +55,6 @@
     <button type="submit" class="submit_btn read_btn">
         <span wire:loading wire:target="submitForm" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
         Pošli správu
-        {{-- <i class="fas fa-long-arrow-alt-right"></i> --}}
+        {{-- <i class="fa-solid fa-long-arrow-alt-right"></i> --}}
     </button>
 </form>

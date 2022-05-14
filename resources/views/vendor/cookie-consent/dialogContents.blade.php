@@ -1,7 +1,7 @@
 <!-- COOKIE Start -->
     <div class="js-cookie-consent fixed-bottom bg-dark text-center py-4" role="alert">
         <h4 class="alert-heading text-church-template">
-            <i class="fas fa-fw fa-cookie-bite me-2"></i>
+            <i class="fa-solid fa-fw fa-cookie-bite me-2"></i>
             Cookies
         </h4>
 

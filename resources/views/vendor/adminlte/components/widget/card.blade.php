@@ -38,7 +38,7 @@
     {{-- Card overlay --}}
     @if($disabled)
         <div class="overlay">
-            <i class="fas fa-2x fa-ban text-gray"></i>
+            <i class="fa-solid fa-2x fa-ban text-gray"></i>
         </div>
     @endif
 

@@ -86,7 +86,7 @@
 
                     <div class="mt-3 d-flex justify-content-end">
                         <a href="{{ $linkBack }}" class="btn btn-outline-secondary px-5">
-                            <i class="fas fa-reply mr-2"></i>
+                            <i class="fa-solid fa-reply mr-2"></i>
                             Späť
                         </a>
                         @if ( $typeForm == 'show')
@@ -95,7 +95,7 @@
                                 $controlerName . '.update'
                             ])
                                 <a href="{{ $linkEdit }}" class="btn bg-gradient-primary px-5 ml-2">
-                                    <i class="fas fa-edit mr-2"></i>
+                                    <i class="fa-solid fa-edit mr-2"></i>
                                     Editovať
                                 </a>
                             @endcan
@@ -105,7 +105,7 @@
                                 $controlerName . '.store'
                             ])
                                 <button id="btnSave" type="submit" class="btn bg-gradient-success px-5 ml-2">
-                                    <i class="fas fa-save mr-2"></i>
+                                    <i class="fa-solid fa-save mr-2"></i>
                                     Uložiť
                                 </button>
                             @endcan

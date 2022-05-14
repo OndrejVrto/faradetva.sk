@@ -34,7 +34,7 @@
                     <button class="read_btn_blue w-100" type="submit">
                         <span wire:loading wire:target="submitForm" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                         Zaregistrovať
-                        <i class="fas fa-long-arrow-alt-right"></i>
+                        <i class="fa-solid fa-long-arrow-alt-right"></i>
                     </button>
                 </div>
             </div>
@@ -76,7 +76,7 @@
         <button type="submit" class="news_btn read_btn">
             <span wire:loading wire:target="submitForm" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
             Zaregistrovať
-            <i class="fas fa-long-arrow-alt-right"></i>
+            <i class="fa-solid fa-long-arrow-alt-right"></i>
         </button>
 
     </form>

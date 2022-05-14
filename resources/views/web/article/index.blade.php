@@ -37,9 +37,9 @@
                                         <h2>{{ $oneNews->title }}</h2>
                                     </a>
                                     <div class="event_meta mt-4 mb-3">
-                                        <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}</a></span>
-                                        <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
-                                        <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}</a></span>
+                                        <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="fa-regular fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}</a></span>
+                                        <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="fa-regular fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
+                                        <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title }}</a></span>
                                     </div>
                                     <p>
                                         {!! $oneNews->clean_teaser !!}
@@ -73,15 +73,15 @@
                                         alt="Malý obrázok k článku: {{ $oneNews->title }}."
                                     />
                                     <div class="blog_overlay">
-                                        <a href="{{ route('article.show', $oneNews->slug)}}" class="link_icon"><i class="fas fa-link"></i></a>
+                                        <a href="{{ route('article.show', $oneNews->slug)}}" class="link_icon"><i class="fa-solid fa-link"></i></a>
                                     </div>
                                 </div>
 
                                 <div class="blog_desc">
                                     <div class="blog_info">
-                                        <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="far fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}</a></span>
-                                        <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
-                                        <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fas fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title_light }}</a></span>
+                                        <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="fa-regular fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}</a></span>
+                                        <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="fa-regular fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
+                                        <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title_light }}</a></span>
                                     </div>
 
                                     <a class="text-decoration-none" href="{{ route('article.show', $oneNews->slug)}}">
@@ -94,7 +94,7 @@
                                     <div class="d-flex align-items-end justify-content-between">
                                             <a href="{{ route('article.show', $oneNews->slug)}}" class="read_m_link">
                                                 Čítať viac
-                                                <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+                                                <i class="fa-solid fa-long-arrow-alt-right" aria-hidden="true"></i>
                                             </a>
                                         <span class="small">
                                             {{ $oneNews->count_words }} {{ trans_choice('messages.slovo', $oneNews->count_words) }}

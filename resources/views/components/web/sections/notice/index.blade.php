@@ -19,7 +19,7 @@
             </div>
             <div class="blog_info">
                 <a href="{{ $notice['url'] }}" target="_blank" rel="noopener noreferrer">
-                    <i class="far fa-save"></i>
+                    <i class="fa-regular fa-save"></i>
                     Link na stiahnutie
                 </a>
             </div>

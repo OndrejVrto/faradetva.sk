@@ -14,7 +14,7 @@
     >
     <x-slot:prependSlot>
         <div class="input-group-text bg-gradient-orange">
-            <i class="fas fa-tag"></i>
+            <i class="fa-solid fa-tag"></i>
         </div>
     </x-slot>
 

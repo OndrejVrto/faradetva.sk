@@ -37,7 +37,7 @@
                                 <a  href="{{ route('charts.data.index', $chart) }}"
                                     class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                                     title="Vložiť dáta do grafu: {{ $chart->title }}">
-                                    <i class="fas fa-chart-pie"></i>
+                                    <i class="fa-solid fa-chart-pie"></i>
                                 </a>
                             @endcan
                         @endif
