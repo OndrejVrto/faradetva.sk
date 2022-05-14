@@ -34,3 +34,5 @@ yarn-error.log
 composer.lock
 package-lock.json
 meilisearch.exe
+
+BACKUP
