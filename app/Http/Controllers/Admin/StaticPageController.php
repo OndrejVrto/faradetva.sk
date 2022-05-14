@@ -19,7 +19,7 @@ class StaticPageController extends Controller
 {
     public function index(Request $request): View {
         $pages = StaticPage::query()
-            ->orderBy('slug')
+            ->orderBy('url')
             ->with('media', 'source')
             ->withCount('banners')
             ->withCount('faqs')

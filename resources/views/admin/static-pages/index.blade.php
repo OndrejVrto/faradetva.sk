@@ -22,7 +22,7 @@
         </x-slot>
 
         <x-slot:table_header>
-            {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
+            <x-admin.table.th width="1%">#</x-admin.table.th>
             <x-admin.table.th class="text-center" width="10%" colspan="2">Obrázok</x-admin.table.th>
             <x-admin.table.th width="20%">Titulok záložky</x-admin.table.th>
             {{-- <x-admin.table.th-check-active class="d-none d-md-table-cell"/> --}}
@@ -48,6 +48,7 @@
                 <x-admin.table.tr trashed="{{ $page->trashed() }}">
 
                     {{-- <x-admin.table.td>{{$page->id}}</x-admin.table.td> --}}
+                    <x-admin.table.td>{{ $loop->iteration }}</x-admin.table.td>
                     <x-admin.table.td-check-active check="{{ $page->check_url }}" class="d-none d-md-table-cell"/>
                     <x-admin.table.td class="text-center">
                         <img src="{{ $page->getFirstMediaUrl($page->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x50" }}"

@@ -42,7 +42,7 @@ class UrlsCheckJob implements ShouldQueue
         ];
 
         Crawler::create($crawlerClientOptions)
-            ->setConcurrency(10)
+            ->setConcurrency(5)
             ->setCrawlObserver(new UrlCheckCrawlerObserver())
             ->setCrawlProfile(new UrlCheckCrawlProfile(config('app.url')))
             ->startCrawling(config('app.url'));

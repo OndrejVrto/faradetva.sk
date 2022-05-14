@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Web\{
     FaqController, HomeController, PageController,
-    SearchController, ArticleController, SubscribeController
+    SearchController, ArticleController, SubscribeController,
+    ListPagesController
 };
 
 //! FrontEnd Routes
@@ -12,6 +13,7 @@ Route::middleware('fast_web')->group(function() {
 
     Route::get('/', HomeController::class)->name('home');
     Route::get('/otazky-a-odpovede', FaqController::class)->name('faq');
+    Route::get('/prehlad-vsetkych-stranok', ListPagesController::class)->name('list-pages');
 
     //! Subscribe and mail
     Route::controller(SubscribeController::class)->withoutMiddleware('cacheResponse')->group(function () {

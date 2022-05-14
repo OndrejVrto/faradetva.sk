@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- História farnosti Detva --}}
+    {{-- Dejiny farnosti Detva --}}
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
