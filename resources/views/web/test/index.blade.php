@@ -1,4 +1,4 @@
-<x-web.layout.master :pageData="$pageData">
+<x-web.layout.master>
 
 
     {{-- <x-web.sections. /> --}}
@@ -7,7 +7,7 @@
 
 
 
-    @include('web.icons')
+    @include('web.test.icons')
 
     <x-web.page.section name="PICTURE" class="static-page pad_b_50">
 

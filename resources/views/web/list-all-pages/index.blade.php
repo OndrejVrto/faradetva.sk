@@ -1,8 +1,12 @@
-<x-web.layout.master :pageData="$pageData">
+<x-web.layout.master>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
+    <x-web.page.section name="ALL PAGES" class="static-page pad_b_50">
 
         <x-web.page.subsection>
+
+            {{-- TODO Create controler or component --}}
+            {{-- <x-partials.all-page-card /> --}}
+
             <x-web.page.text-segment animation="fromright" class="col-12 col-md-5 col-xl-3 m-auto">
                 <ol>
 

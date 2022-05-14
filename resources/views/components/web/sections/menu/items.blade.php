@@ -41,6 +41,8 @@
             <!-- Organisti, speváci -->
             <!-- Spevokoly, dychovka -->
             <!-- Vyučovanie náboženstva -->
+        <li><a href="{{ secure_url('test') }}" class="text-danger">Test - ZMAZAŤ</a></li>
+        <li><a href="{{ secure_url('zoznam-statickych-stranok') }}" class="text-danger">Všetko - ZMAZAŤ</a></li>
     </ul>
 </li>
 
