@@ -1,14 +1,15 @@
 Obsah stránky:
   ☐ vytvoriť komponent čistého obrázka
-  ✔ vytvoriť logo a ikonu stránky / farnosti
-  ☐ zoradiť stránky podľa zoznamu od Mariana
+  ☐ vytvoriť komponenty pre rôzne drugy sekcií podľa šablony
   ☐ prepísať teaser texty v databáze
   ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
   ☐ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
   ☐ repare validate errors in login form
+  ✔ zoradiť stránky podľa zoznamu od Mariana
+  ✔ vytvoriť logo a ikonu stránky / farnosti
   ✔ zmeniť url adresu v manifest.json pri nasadení na server
   ✔ webpack mix -> všetko v jenom css a js pre frontend aj backend
-  ☐ doplniť do všetkých obrázkov height a width
+  ✔ doplniť do všetkých obrázkov height a width
   ✔ na spodok stránky pridať tlačítko na odskrolovanie nahor
   ✔ dorobiť texty od Mariána
   ✔ spoločenstvá - zoznam ako sekcia
@@ -25,7 +26,7 @@ Obsah stránky:
   ✔ prepísať všetky externé knižnice na CDN-ká
   ✔ base folder in meta tags
   ✘ customize Bootstrap?
-  ✘ facebook prepojenie - počet likes FB stránky farnosti
+  ✘ @future facebook prepojenie - počet likes FB stránky farnosti
   ✘ do článku na začiatku vkladať Teaser?
   ✘ autolink generátor pre statické stránky
 
@@ -33,11 +34,7 @@ Obsah stránky:
 Administrátorské rozhranie:
 
   Dashboard:
-    ✔ dopnit kartu ktorá bude informovať o zacechovaní route a config súborov
-    ✔ pridať kartu s kontorolou zapnuteho CSP
-    ✔ pridať kartu z počtom fungujúcich statických stránok a s časom posledného Crawlera
-    ✔ pridať tlačítko Fresh Health na dashboard
-    ☐ pridať prepínač na zazanie logu SQL Query
+    ☐ pridať prepínač na zakazanie logu SQL Query
     ☐ preložiť do angličtiny health results
     ☐ pridať kartu s informáciou o posledných prihlásých uživateľoch
     ☐ pridať kartu s informáciou o posledných zmenách na stránke
@@ -45,6 +42,10 @@ Administrátorské rozhranie:
     ☐ nastaviť práva uživateľom pre tlačítka a zobrazenie prvkov na dashboarde
     ☐ štatistika a rôzne grafy
     https://github.com/fidum/laravel-dashboard-chart-tile
+    ✔ dopnit kartu ktorá bude informovať o zacechovaní route a config súborov
+    ✔ pridať kartu s kontorolou zapnuteho CSP
+    ✔ pridať kartu z počtom fungujúcich statických stránok a s časom posledného Crawlera
+    ✔ pridať tlačítko Fresh Health na dashboard
     ✔ rôzne kontroly na dashboard
       https://github.com/spatie/laravel-server-monitor
       https://freek.dev/2143-a-laravel-package-to-monitor-the-health-of-your-application
@@ -52,21 +53,20 @@ Administrátorské rozhranie:
       https://spatie.be/docs/laravel-dashboard/v2/introduction
       https://github.com/sarfraznawaz2005/servermonitor
       https://github.com/saeedvaziry/laravel-monitoring?ref=madewithlaravel.com
-    ✘ gooogle analytics na dashboard
+    ✘ @future gooogle analytics na dashboard
       https://github.com/ingoldsby/laravel-dashboard-google-analytics-realtime-tile
       https://codelapan.com/post/google-analytics-laravel
       https://github.com/spatie/laravel-analytics?ref=madewithlaravel.com
 
   Iné:
+    ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
     ☐ prekontrolovať fungovanie response cache
+    ☐ implementovať Spatie Laravel Backup
     ☐ implement failed job monitor
       https://github.com/spatie/laravel-failed-job-monitor
-    ☐ LiveWire Datatable pre všetky backend tabuľky
+    ☐ Datatable pre všetky backend tabuľky (LiveWire Datatable alebo iný)
     ☐ prepínač customSwitch prehodiť do komponentu
-    ☐ do CROPera doplniť možnosť nastavenia rozmeru
-    ☐ BredCrumbs in Chard data
-    ☐ implementovať Spatie Laravel Backup
-    ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
+    ✔ do CROPera doplniť možnosť nastavenia rozmeru
     ✔ refaktorovať Cache vo všetkých komponentoch
     ✔ pridať čistenie všetkých dočasných adresárov
     ✔ prehodiť crawlery z Listener-a do Schedule-ra a Job-ov
@@ -105,21 +105,22 @@ Administrátorské rozhranie:
       https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
       https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
       https://spatie.be/docs/laravel-site-search/v1/introduction
+    ✘ BredCrumbs in Chard data
     ✘ Apply SoftDelete Cascade in model user? (https://github.com/razisayyed/laravel-cascaded-soft-deletes)
     ✘ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
     ✘ vkladanie obrazkov galerie cez vue komponent  https://github.com/simmodev/vue-media-upload
-    ✘ automatické zverejnenie článku na FaceBooku po zverejnení na stránke
+    ✘ @future automatické zverejnenie článku na FaceBooku po zverejnení na stránke
 
 
 SEO:
-  ✔ implementovať Cookie oznam
-  ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
-  ✔ Generovať Sitemap (https://github.com/ultrono/laravel-sitemap,  laravelium/sitemap alebo spatie)
   ☐ vylepšiť sitemap, prioritu, čas poslednej aktualizácie aj spustenie crawlera
+  ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
   ☐ implementovať RSS feed (spatie/laravel-feed)
   ☐ vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
   ☐ Implementovať FAQ do JsonLd formátu
   ☐ implemenotovať JsonLd Schema.org/google structured data
+  ✔ implementovať Cookie oznam
+  ✔ Generovať Sitemap (https://github.com/ultrono/laravel-sitemap,  laravelium/sitemap alebo spatie)
   ✔ rozšíriť model Priest o kontakty na sociálne siete pre potreby SEO
   ✔ rozšíriť model User o kontakty na sociálne siete pre potreby SEO
   ✔ implementovať do statických stránok referenčný obrázok pre facebook/twiter
@@ -127,7 +128,15 @@ SEO:
 
 
 Testy:
-  ✘ vytvoriť testy na všetko
+  ✘ @future vytvoriť testy na všetko
+
+
+Otázky na Tomáša:
+  ✔ orezanie na presný rozmer v JS
+  ☐ css pre prvú správu v zozname
+  ☐ reload window po odrátaní času -> automatické skrytie admin rozhrania
+  ☐ vyhľadávanie cez AJAX alebo Liveware
+  ☐ CDN - ako nato jednoducho
 
 
 Archive:
