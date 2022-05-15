@@ -7,7 +7,6 @@ namespace App\Http\Controllers\Admin;
 use Carbon\Carbon;
 use Spatie\Health\Health;
 use Illuminate\View\View;
-use App\Models\StaticPage;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
@@ -28,10 +27,6 @@ class DashboardController extends Controller
         return view('admin.dashboard.index', [
             'lastRanAt'    => new Carbon($checkResults?->finishedAt),
             'checkResults' => $checkResults,
-            // 'pages'        => StaticPage::query()
-            //                     ->select(['title', 'url', 'check_url'])
-            //                     ->orderBy('slug')
-            //                     ->get(),
         ]);
     }
 }

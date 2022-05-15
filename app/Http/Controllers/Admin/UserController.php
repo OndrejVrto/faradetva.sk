@@ -145,7 +145,7 @@ class UserController extends Controller
         $user->permissions()->detach($id);
         $user->roles()->detach($id);
         // set author in news to Administrator
-        $user->news()->update(['user_id' => 2]);
+        $user->news()->updateOrCreate(['user_id' => 2]);
 
         $user->clearMediaCollection($user->collectionName);
         $user->forceDelete();

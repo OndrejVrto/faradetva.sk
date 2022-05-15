@@ -20,6 +20,7 @@ use Database\Seeders\ChartDataSeeder;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\PermissionSeeder;
 use Database\Seeders\TestimonialSeeder;
+use Database\Seeders\SearchConfigSeeder;
 use Database\Seeders\UserRolePermissionsSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,46 +30,29 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
+
             PermissionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
-            UserRolePermissionsSeeder::class,
-        ]);
+            // UserRolePermissionsSeeder::class,
 
-        // User::factory(10)->create();
+            // RAW
+            DayIdeaSeeder::class,
+            SearchConfigSeeder::class,
+            StaticPageSeeder::class,
 
-        $this->call([
+            ChartSeeder::class,
+            ChartDataSeeder::class,
             TagSeeder::class,
             CategoriesSeeder::class,
             PriestSeeder::class,
-            TestimonialSeeder::class,
             SliderSeeder::class,
-            FileSeeder::class,
-            StaticPageSeeder::class,
-            ChartSeeder::class,
-            ChartDataSeeder::class,
-            DayIdeaSeeder::class,
 
-            //after StaticPages
-            BannerSeeder::class,
-
-            // raw sql
-            NewsSeeder::class,
-            MediaSeeder::class,
+            // TestimonialSeeder::class,
+            // FileSeeder::class,
+            // BannerSeeder::class,
+            // NewsSeeder::class,
+            // MediaSeeder::class,
         ]);
-
-        // News::factory(4)->create();
-        Testimonial::factory(5)->create();
-
-        //* Pivot table news_tag seeder
-        // give each News some Tags
-        foreach(News::all() as $news) {
-            foreach(Tag::all() as $tag) {
-                if (rand(1, 100) > 70) {
-                    $news->tags()->attach($tag->id);
-                }
-            }
-            $news->save();
-        }
     }
 }

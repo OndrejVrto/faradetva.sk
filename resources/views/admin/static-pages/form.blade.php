@@ -123,7 +123,7 @@
                 name="teaser"
                 label="Krátky sumár stránky (teaser)"
                 enableOldSupport="true"
-                rows="9"
+                rows="10"
             >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
@@ -136,18 +136,19 @@
 
         <div class="col-xl-6">
 
-            <x-adminlte-input
+            <x-adminlte-textarea
                 name="description_page"
                 label="Popis obsahu stránky"
-
                 enableOldSupport="true"
-                value="{{ $staticPage->description_page ?? '' }}" >
+                rows="2"
+            >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fa-solid fa-scroll"></i>
                     </div>
                 </x-slot>
-            </x-adminlte-input>
+                    {{ $staticPage->description_page ?? '' }}
+            </x-adminlte-textarea>
 
             <x-adminlte-input
                 name="keywords"

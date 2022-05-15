@@ -61,7 +61,7 @@ class StaticPageController extends Controller
         $validated = $request->validated();
 
         $staticPage->update(StaticPage::sanitize($validated));
-        $staticPage->source()->update(Source::sanitize($validated));
+        $staticPage->source()->updateOrCreate(Source::sanitize($validated));
         $staticPage->banners()->sync($request->input('banner'));
         $staticPage->touch(); // Touch because i need start observer for delete cache
 

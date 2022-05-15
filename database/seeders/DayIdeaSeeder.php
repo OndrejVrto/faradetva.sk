@@ -17,7 +17,7 @@ class DayIdeaSeeder extends Seeder
         //collect contents and pass to DB::unprepared
         if(File::exists($sql)){
             DB::unprepared(file_get_contents($sql));
-            $this->command->info('File seeding successfully.');
+            $this->command->info('RAW - Day Idea import successfully.');
         }
     }
 }

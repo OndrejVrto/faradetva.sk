@@ -6,19 +6,20 @@
         {{ __('health::notifications.laravel_health') }}
     </x-slot:header>
 
-    @if (count($checkResults?->storedCheckResults ?? []))
 
-        <div class="d-flex flex-wrap justify-content-center justify-content-md-between align-content-end mx-2">
-            @if ($lastRanAt)
-                <span class="text-bold align-self-center mx-5 ml-sm-0 {{ $lastRanAt->diffInMinutes() > 5 ? ' text-danger' : '' }}">
-                    {{ __('health::notifications.check_results_from') }} {{ $lastRanAt->diffForHumans() }}
-                </span>
-            @endif
-            <a class="btn btn-flat bg-gradient-pink flex-fill flex-md-grow-0 mb-2 mb-md-0"
-                href="{{ route('admin.dashboard', [ 'fresh']) }}">
-                Vynútiť obnovenie stavu
-            </a>
-        </div>
+    <div class="d-flex flex-wrap justify-content-center justify-content-md-between align-content-end mx-2">
+        @if ($lastRanAt)
+            <span class="text-bold align-self-center mx-5 ml-sm-0 {{ $lastRanAt->diffInMinutes() > 5 ? ' text-danger' : '' }}">
+                {{ __('health::notifications.check_results_from') }} {{ $lastRanAt->diffForHumans() }}
+            </span>
+        @endif
+        <a class="btn btn-flat bg-gradient-pink flex-fill flex-md-grow-0 mb-2 mb-md-0"
+            href="{{ route('admin.dashboard', [ 'fresh']) }}">
+            Vynútiť obnovenie stavu
+        </a>
+    </div>
+
+    @if (count($checkResults?->storedCheckResults ?? []))
 
         <div class="d-flex flex-wrap">
             @foreach ($checkResults->storedCheckResults as $result)
