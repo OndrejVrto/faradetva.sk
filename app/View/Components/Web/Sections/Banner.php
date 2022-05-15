@@ -52,25 +52,48 @@ class Banner extends Component
             ->with('media', 'source')
             ->get()
             ->map(function($img): array {
-                return [
-                    'id' => $img->id,
 
-                    'extra_small_image' => $img->getFirstMediaUrl('banner', 'extra-small'),
-                    'small_image'       => $img->getFirstMediaUrl('banner', 'small'),
-                    'medium_image'      => $img->getFirstMediaUrl('banner', 'medium'),
-                    'large_image'       => $img->getFirstMediaUrl('banner', 'large'),
-                    'extra_large_image' => $img->getFirstMediaUrl('banner', 'extra-large'),
+                if($img->getFirstMedia()){
+                    return [
+                        'id' => $img->id,
 
-                    'source_description'       => $img->source->source_description,
-                    'sourceArr' => [
-                        'source_source'        => $img->source->source_source,
-                        'source_source_url'    => $img->source->source_source_url,
-                        'source_author'        => $img->source->source_author,
-                        'source_author_url'    => $img->source->source_author_url,
-                        'source_license'       => $img->source->source_license,
-                        'source_license_url'   => $img->source->source_license_url,
-                    ],
-                ];
+                        'extra_small_image' => $img->getFirstMediaUrl('banner', 'extra-small'),
+                        'small_image'       => $img->getFirstMediaUrl('banner', 'small'),
+                        'medium_image'      => $img->getFirstMediaUrl('banner', 'medium'),
+                        'large_image'       => $img->getFirstMediaUrl('banner', 'large'),
+                        'extra_large_image' => $img->getFirstMediaUrl('banner', 'extra-large'),
+
+                        'source_description'       => $img->source->source_description,
+                        'sourceArr' => [
+                            'source_source'        => $img->source->source_source,
+                            'source_source_url'    => $img->source->source_source_url,
+                            'source_author'        => $img->source->source_author,
+                            'source_author_url'    => $img->source->source_author_url,
+                            'source_license'       => $img->source->source_license,
+                            'source_license_url'   => $img->source->source_license_url,
+                        ],
+                    ];
+                } else {
+                    return [
+                        'id'                => 0,
+
+                        'extra_small_image' => 'http://via.placeholder.com/720x180',
+                        'small_image'       => 'http://via.placeholder.com/960x240',
+                        'medium_image'      => 'http://via.placeholder.com/1200x300',
+                        'large_image'       => 'http://via.placeholder.com/1440x360',
+                        'extra_large_image' => 'http://via.placeholder.com/1920x480',
+
+                        'source_description'       => 'example picture description',
+                        'sourceArr' => [
+                            'source_source'        => 'example source',
+                            'source_source_url'    => 'http://source.example.com',
+                            'source_author'        => 'example author',
+                            'source_author_url'    => 'http://author.example.com',
+                            'source_license'       => 'example license',
+                            'source_license_url'   => 'http://license.example.com',
+                        ],
+                    ];
+                }
             })
             ->first();
     }

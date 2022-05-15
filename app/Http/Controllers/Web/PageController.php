@@ -62,8 +62,7 @@ class PageController extends Controller
             ->with('picture', 'source', 'banners', 'faqs')
             ->get()
             ->map(function($page): array {
-                $media = $page->picture[0];
-                return  [
+                return $this->getImageData($page) + [
                     'id'               => $page->id,
                     'author'           => $page->author_page,
                     'page-description' => $page->description_page,
@@ -75,32 +74,13 @@ class PageController extends Controller
                     'title'            => $page->title,
                     'url'              => $page->full_url,
                     'wikipedia'        => $page->wikipedia,
-
-                    //  TODO: pridať typ SEO Pages
-
                     'banners'          => $page->banners->pluck('slug')->toArray(),
                     'faqs'             => $page->faqs->pluck('slug')->toArray(),
-
-                    'img-representing' => $media->getUrl('representing'),
-                    'img-thumb'        => $media->getUrl('representing-thumb'),
-                    'img-file-name'    => $media->file_name,
-                    'img-mime-type'    => $media->mime_type,
-                    'img-size'         => $media->size,
-                    'img-updated_at'   => $media->updated_at,
-                    'img-width'        => '960',
-                    'img-height'       => '480',
-                    // 'img-width'        => Image::load( $media->getPath('representing') )->getWidth(),
-                    // 'img-height'       => Image::load( $media->getPath('representing') )->getHeight(),
-                    'img-description'  => $page->source->source_description,
-                    'img-source'       => $page->source->source_source,
-                    'img-source_url'   => $page->source->source_source_url,
-                    'img-author'       => $page->source->source_author,
-                    'img-author_url'   => $page->source->source_author_url,
-                    'img-license'      => $page->source->source_license,
-                    'img-license_url'  => $page->source->source_license_url,
                 ];
             })
             ->first();
+
+            //  TODO: pridať typ SEO Pages
     }
 
     /** create full route name **/
@@ -112,6 +92,50 @@ class PageController extends Controller
                     : $route;
     }
 
+
+    private function getImageData($page): array {
+
+        if(isset($page->picture[0])){
+            $media = $page->picture[0];
+            return [
+                'img-representing' => $media->getUrl('representing'),
+                'img-thumb'        => $media->getUrl('representing-thumb'),
+                'img-file-name'    => $media->file_name,
+                'img-mime-type'    => $media->mime_type,
+                'img-size'         => $media->size,
+                'img-updated_at'   => $media->updated_at,
+                'img-width'        => '960',
+                'img-height'       => '480',
+                // 'img-width'        => Image::load( $media->getPath('representing') )->getWidth(),
+                // 'img-height'       => Image::load( $media->getPath('representing') )->getHeight(),
+                'img-description'  => $page->source->source_description,
+                'img-source'       => $page->source->source_source,
+                'img-source_url'   => $page->source->source_source_url,
+                'img-author'       => $page->source->source_author,
+                'img-author_url'   => $page->source->source_author_url,
+                'img-license'      => $page->source->source_license,
+                'img-license_url'  => $page->source->source_license_url,
+            ];
+        } else {
+            return [
+                'img-representing' => 'http://via.placeholder.com/960x480',
+                'img-thumb'        => 'http://via.placeholder.com/256x256',
+                'img-file-name'    => 'placeholder_960x480.jpg',
+                'img-mime-type'    => 'image/png',
+                'img-size'         => '15',
+                'img-updated_at'   => '2021-01-01 23:59:59',
+                'img-width'        => '960',
+                'img-height'       => '480',
+                'img-description'  => 'example picture description',
+                'img-source'       => 'example source',
+                'img-source_url'   => 'http://source.example.com',
+                'img-author'       => 'example author',
+                'img-author_url'   => 'http://author.example.com',
+                'img-license'      => 'example license',
+                'img-license_url'  => 'http://license.example.com',
+            ];
+        }
+    }
 
 //! SEO Section  TODO: Move to service
 

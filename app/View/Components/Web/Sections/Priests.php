@@ -32,11 +32,7 @@ class Priests extends Component
             ->with('media')
             ->get()
             ->map(function($priest): array {
-
-                $colectionName = $priest->media[0]->collection_name;
-                $media = $priest->getFirstMedia($colectionName);
-
-                return [
+                return $this->getImage($priest) + [
                     'id'                => $priest->id,
 
                     'titles_before'     => $priest->titles_before,
@@ -53,15 +49,30 @@ class Priests extends Component
                     'twitter'           => null,  //TODO:
 
                     'function'          => $priest->function,
-                    'img-url'           => $media->getUrl('crop'),
-                    'img-height'        => Image::load( $media->getPath('crop') )->getHeight(),
-                    'img-width'         => Image::load( $media->getPath('crop') )->getWidth(),
 
                     'description_clean' => $priest->description,
                     'description'       => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
                 ];
         })
         ->toArray();
+    }
+
+    private function getImage($priest): array {
+        if ($priest->getFirstMedia()) {
+            $colectionName = $priest->media[0]->collection_name;  // TODO: Delete colection name
+            $media = $priest->getFirstMedia($colectionName);
+            return [
+                'img-url'           => $media->getUrl('crop'),
+                'img-height'        => Image::load( $media->getPath('crop') )->getHeight(),
+                'img-width'         => Image::load( $media->getPath('crop') )->getWidth(),
+            ];
+        } else {
+            return [
+                'img-url'           => 'http://via.placeholder.com/230x270',
+                'img-height'        => '270',
+                'img-width'         => '230',
+            ];
+        }
     }
 
     private function setSeoMetaTags(array $priestData): void {
