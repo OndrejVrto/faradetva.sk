@@ -69,18 +69,20 @@
 
 </x-web.page.section>
 
-@pushOnce('js')
+@isset($scripts)
+    @pushOnce('js')
     <!-- NOTICE-PDF script Start -->
     <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
     <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
     <script @nonce type="text/javascript" src="{{ asset(mix('asset/app-pdf.js'), true) }}"></script>
     <!-- NOTICE-PDF script End -->
-@endPushOnce
+    @endPushOnce
 
-@push('js')
+    @pushIf('js')
     <!-- NOTICE-PDF-{{ $typeNotice }} script Start -->
     <script @nonce>
         {!! implode(PHP_EOL."\t", $scripts ?? null) !!}
     </script>
     <!-- NOTICE-PDF-{{ $typeNotice }} script End -->
-@endpush
+    @endpushIf
+@endisset
