@@ -52,7 +52,7 @@ class ArticleController extends Controller
         $articles = News::newsComplete();
         $title = __('frontend-texts.articles-title.all');
         $breadCrumb = (string) Breadcrumbs::render('articles.all', true);
-        $emptyTitle = ['name'=> 'V článkoch', 'value' => ''];
+        $emptyTitle = ['name'=> 'V', 'value' => 'sekcii'];
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }

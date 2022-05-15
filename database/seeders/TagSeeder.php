@@ -3,14 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Tag;
-use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Database\Seeder;
 
 class TagSeeder extends Seeder
 {
-
-    public function run()
-    {
+    public function run(): void {
         Tag::create([
             'title' => 'Kostol',
             'description' => 'O kostole',
