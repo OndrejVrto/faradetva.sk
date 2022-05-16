@@ -20,6 +20,11 @@
 	color: #ff7b33 !important;
 }
 
+.link-submenu {
+    cursor: pointer;
+    color: #fff ;
+}
+
 .link-template {
     text-decoration: none;
     color: #243a4f !important;
