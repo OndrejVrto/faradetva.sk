@@ -26,14 +26,12 @@ trait HasCropPictureFields
                 'required_if:crop_exact_dimensions,1',
                 'integer',
                 'min:50',
-                'max:2600',
             ],
             'crop_output_height' => [
                 'nullable',
                 'required_if:crop_exact_dimensions,1',
                 'integer',
                 'min:50',
-                'max:2600',
             ],
         ];
     }
