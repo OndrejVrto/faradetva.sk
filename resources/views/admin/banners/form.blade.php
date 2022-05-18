@@ -23,6 +23,14 @@
 
     <div class="form-row">
         <div class="col-xl-6">
+
+            <x-admin.form.crop label="Obrázok pre banner" minWidth="1920" minHeight="480" :media_file_name="$media_file_name" />
+
+        </div>
+
+        <div class="col-xl-6">
+            <hr class="d-xl-none bg-orange mt-4">
+
             <x-adminlte-input
                 fgroupClass=""
                 name="title"
@@ -43,11 +51,8 @@
                 @enderror
             </x-adminlte-input>
 
-            <x-admin.form.crop label="Obrázok pre banner" minWidth="1920" minHeight="480" :media_file_name="$media_file_name" />
-
-        </div>
-        <div class="col-xl-6">
             <hr class="d-xl-none bg-orange mt-4">
+
             <x-admin.form.source :source="$source" />
         </div>
     </div>

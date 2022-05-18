@@ -4,10 +4,14 @@ function initDropZone(url, token, files, propName, paramName, acceptedFiles) {
 
     Dropzone.options.documentDropzone = {
         url,
-        maxFilesize: 10, // MB
-        addRemoveLinks: true,
         paramName,
         acceptedFiles,
+        timeout: null,
+        maxFilesize:  10000000, // 10 MB
+        addRemoveLinks: true,
+        // uploadMultiple: false,
+        // parallelUploads: 1,
+        // maxFiles: 50,
         headers: {
             'X-CSRF-TOKEN': token
         },

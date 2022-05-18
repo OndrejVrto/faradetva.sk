@@ -19,7 +19,7 @@ class GalleryRequest extends BaseRequest
             'slug'      => Rule::unique('galleries', 'slug')->ignore($this->gallery),
             'picture.*' => [
                 $this->requireORnullable(),
-                'max:2000'
+                'max:10000'
             ],
         ];
     }
