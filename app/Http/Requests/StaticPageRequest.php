@@ -22,8 +22,8 @@ class StaticPageRequest extends BaseRequest
             'keywords'         => $this->reqStrRule(),
             'author_page'      => $this->nullStrRule(),
             'header'           => $this->reqStrRule(),
-            'teaser'           => $this->reqStrRule(),
-            'wikipedia'        => $this->nullUrlRule(),
+            'teaser'           => $this->reqStrRule(512),
+            'wikipedia'        => $this->nullUrlRule(512),
             'route_name' => [
                 Rule::unique('static_pages', 'route_name')->ignore($this->static_page)->withoutTrashed(),
                 'required',
