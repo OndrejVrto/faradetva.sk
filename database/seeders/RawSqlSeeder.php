@@ -26,7 +26,7 @@ class RawSqlSeeder extends Seeder
             //collect contents and pass to DB::unprepared
             if (File::exists($sql)) {
                 DB::unprepared(file_get_contents($sql));
-                $this->command->info('RAW SQLs seeding successfully.');
+                $this->command->info('RAW SQLs "'.$file.'" seeding successfully.');
             }
         }
     }

@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(8); // Hosť
+        $user->assignRole(9); // Hosť
 
         $user = User::create([
             'name' => 'Ondrej VRŤO',
@@ -81,7 +81,7 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['5']); // Kontrolór
+        $user->assignRole(['5', '6']); // Kontrolór + Farské oznmy
 
         $user = User::create([
             'name' => 'Vladimír Kučera',
@@ -93,7 +93,7 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['6']); // Akolyta
+        $user->assignRole(['7']); // Akolyta
 
         $user = User::create([
             'name' => 'Eva Bohumeľová',
@@ -105,7 +105,7 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['7']); // Lektor
+        $user->assignRole(['8']); // Lektor
 
         $user = User::create([
             'name' => 'Ján Juriga',
@@ -117,7 +117,7 @@ class UserSeeder extends Seeder
             'password' => $password,
             'remember_token' => Str::random(10)
         ]);
-        $user->assignRole(['8']); // Hosť
+        $user->assignRole(['9']); // Hosť
 
     }
 }
