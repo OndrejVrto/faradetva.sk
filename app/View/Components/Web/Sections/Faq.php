@@ -22,6 +22,7 @@ class Faq extends Component
         if ($listOfFaqs) {
             $this->faqs = FaqModel::query()
                 ->whereIn('slug', $listOfFaqs)
+                ->orderBy('order')
                 ->get()
                 ->map(function($faq) {
                     return [
