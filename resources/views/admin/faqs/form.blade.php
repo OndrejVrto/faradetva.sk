@@ -19,30 +19,58 @@
     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
-    <x-adminlte-input
-        name="question"
-        label="Otázka"
-        enableOldSupport="true"
-        value="{{ $faq->question ?? '' }}"
-        >
-        <x-slot:prependSlot>
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fa-solid fa-question"></i>
-            </div>
-        </x-slot>
-        @error('slug')
-            <x-slot:errorManual>
-                {{ $errors->first('slug') }}
-            </x-slot>
-        @enderror
-    </x-adminlte-input>
+    <div class="form-row">
+        <div class="col-md-9">
+
+            <x-adminlte-input
+                name="question"
+                label="Otázka"
+                enableOldSupport="true"
+                value="{{ $faq->question ?? '' }}"
+                >
+                <x-slot:prependSlot>
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fa-solid fa-question"></i>
+                    </div>
+                </x-slot>
+                @error('slug')
+                    <x-slot:errorManual>
+                        {{ $errors->first('slug') }}
+                    </x-slot>
+                @enderror
+            </x-adminlte-input>
+
+        </div>
+        <div class="col-md-3">
+
+            <x-adminlte-input
+                name="order"
+                type="number"
+                label="Poradie"
+                min="-100"
+                nax="100"
+                enableOldSupport="true"
+                value="{{ $faq->order ?? '1' }}"
+                >
+                <x-slot:prependSlot>
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fa-solid fa-arrow-down-wide-short"></i>
+                    </div>
+                </x-slot>
+                <x-slot:noteSlot>
+                    Poznámka: -100 až 100
+                </x-slot>
+            </x-adminlte-input>
+
+        </div>
+    </div>
 
     <x-adminlte-textarea
         fgroupClass="pb-4"
         name="answer"
         label="Odpoveď"
         enableOldSupport="true"
-        rows="3"
+        rows="7"
     >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">

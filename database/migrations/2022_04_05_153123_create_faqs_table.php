@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('question');
             $table->string('slug');
             $table->string('answer', 1024);
+            $table->tinyInteger('order')->nullable()->default(1);
 
             $table->timestamps();
         });

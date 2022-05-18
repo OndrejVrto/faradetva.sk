@@ -15,6 +15,11 @@ class Faq extends BaseModel
         'question',
         'slug',
         'answer',
+        'order',
+    ];
+
+    protected $cast = [
+        'order' => 'integer',
     ];
 
     public function staticPages() {

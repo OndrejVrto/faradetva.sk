@@ -19,6 +19,7 @@
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th>Otázka</x-admin.table.th>
             <x-admin.table.th>Odpoveď</x-admin.table.th>
+            <x-admin.table.th>Poradie (-100 až 100)</x-admin.table.th>
             <x-admin.table.th class="text-center">Počet využití</x-admin.table.th>
             <x-admin.table.th-actions />
         </x-slot>
@@ -29,6 +30,7 @@
                     {{-- <x-admin.table.td>{{$faq->id}}</x-admin.table.td> --}}
                     <x-admin.table.td class="text-wrap text-break">{{ $faq->question }}</x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break">{{ str($faq->answer)->limit(70) }}</x-admin.table.td>
+                    <x-admin.table.td>{{ $faq->order }}</x-admin.table.td>
                     <x-admin.table.td class="text-center">
                         @if( $faq->static_pages_count != 0 )
                             <span class="badge bg-orange px-2 py-1">{{ $faq->static_pages_count }}</span>
