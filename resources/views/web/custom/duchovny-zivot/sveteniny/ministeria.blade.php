@@ -7,7 +7,7 @@
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="min-001" side="left" animation="fromleft" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="min-001" side="left" dimensionSource="medium" columns="4" />
 
                 <p>
                     Niektoré služby určené pre náležité slávenie bohoslužby a pre pomoc Božiemu ľudu v jeho potrebách ustanovila Cirkev už v najstarších dobách. Tieto služby, ktoré sa zverovali veriacim, aby ich vykonávali pri liturgii a v charitatívnej činnosti, sa prispôsobovali rozličným okolnostiam. Tieto úlohy sa spravidla udeľovali osobitným obradom. Veriaci tak získal Božie požehnanie a bol zaradený do vyčlenenej skupiny, čiže mal osobitné postavenie, aby mohol vykonávať nejaký cirkevný úrad.
@@ -22,7 +22,7 @@
                     V niektorých prípadoch má takýto príspevok vo forme služby svoj pôvod v konkrétnej sviatosti, vo sviatosti posvätného stavu. Ďalšie úlohy boli ustanovené v Cirkvi v priebehu dejín a zverené jednotlivým veriacim prostredníctvom nesviatostného liturgického obradu, na základe krstného kňazstva ako osobitná forma jeho vykonávania, ktorá má pomôcť biskupom, kňazom a diakonom v ich špecifickej službe.
                 </p>
 
-                <x-partials.picture titleSlug="min-009" side="right" animation="fromright" dimensionSource="medium" columns="5" />
+                <x-partials.picture titleSlug="min-009" side="right" dimensionSource="medium" columns="5" />
 
                 <p>
                     Pretože sa nižšie svätenia v priebehu stáročí menili a mnohé úlohy im vyhradené v skutočnosti vykonávali laici, pápež sv. Pavol VI. v roku 1972 zrušil nižšie svätenia a ponechal len dve ministériá: lektorát a akolytát. Hoci tieto služby boli udeľované aj iným spôsobilým veriacim mužom, považovali sa za predprípravu k neskoršiemu prijatiu sviatosti vysviacky, preto boli vyhradené len osobám mužského pohlavia. Základom týchto služieb ustanovených Cirkvou je však spoločný stav tých, čo boli pokrstení a vo sviatosti krstu prijali kráľovské kňazstvo, preto sa tieto služby zásadne líšia od služby prijatej vo sviatosti vysviacky.
@@ -41,7 +41,7 @@
 
             <x-web.page.text-segment>
 
-                <x-partials.picture titleSlug="min-007" side="right" animation="fromright" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="min-007" side="right" dimensionSource="medium" columns="4" />
                 <p>
                     V súčasnej liturgii má dôležitú úlohu taktiež lektor, ktorý číta čítania zo Starého zákona a z apoštolských listov. Lektori majú podiel na hlásaní Božieho slova, ktorému zhromaždený ľud naslúcha. Lektor je členom liturgického zhromaždenia, a preto by po celú liturgiu mal byť prítomný v lodi kostola, odtiaľ potom pristupuje k ambone - k miestu, ktoré je vyhradené len k prednesu Božieho slova.
                 </p>
@@ -60,13 +60,13 @@
 
             <x-web.page.text-segment>
 
-                <x-partials.picture titleSlug="min-004" side="left" animation="fromleft" dimensionSource="full" columns="3" />
+                <x-partials.picture titleSlug="min-004" side="left" dimensionSource="full" columns="3" />
 
                 <p>
                     Služba katechétu je v Cirkvi veľmi starobylá. Už od začiatku svojej existencie kresťanské spoločenstvo poznalo všeobecnú formu služby, ktorú konkrétne uskutočňovali muži a ženy, ktorí v poslušnosti Duchu Svätému zasvätili svoj život budovaniu Cirkvi. Celé dejiny evanjelizácie v uplynulých dvetisíc rokoch jasne ukazujú, aká účinná bola misia katechétov. Bez akéhokoľvek umenšenia vlastného poslania biskupa, ktorý je vo svojej diecéze - spoločne s presbytériom, s ktorým sa podieľa na tej istej pastoračnej starostlivosti - prvým katechétom, alebo znižovania osobitnej zodpovednosti rodičov za kresťanskú výchovu ich detí, je nevyhnutné oceniť prítomnosť laikov a laičiek, ktorí sa cítia byť na základe vlastného krstu povolaní spolupracovať na diele katechézy.
                 </p>
 
-                <x-partials.picture titleSlug="min-005" side="right" animation="fromright" dimensionSource="full" columns="3" />
+                <x-partials.picture titleSlug="min-005" side="right" dimensionSource="full" columns="3" />
 
                 <p>
                     Osobitná funkcia, ktorú katechéta plní, sa však konkretizuje v rámci iných služieb v kresťanskom spoločenstve. Katechéta je totiž povolaný prejaviť svoju kompetenciu v prvom rade v pastoračnej službe odovzdávania viery, ktorá sa rozvíja v rôznych etapách: od prvého ohlasovania, ktoré vovádza do kerygmy, cez vyučovanie, ktoré vedie k uvedomeniu si nového života v Kristovi a zvlášť pripravuje na sviatosti kresťanskej iniciácie, až po trvalú formáciu. Katechéta je zároveň svedkom viery, učiteľom i mystagógom, sprevádzajúcim i pedagógom, ktorý vyučuje v mene Cirkvi.
@@ -96,14 +96,17 @@
                     Dostupné na internete
                 </a>
             </li>
-            <li><em class="me-1">Apoštolský list motu proprio Spiritus Domini</em> [online]. [cit. 01.02.2022].
+            <li>
+                <em class="me-1">Apoštolský list motu proprio Spiritus Domini</em>
+                [online]. [cit. 01.02.2022].
                 <a class="link-template"
                     href="https://www.kbs.sk/obsah/sekcia/h/dokumenty-a-vyhlasenia/p/dokumenty-papezov/c/motu-proprio-spiritus-domini">
                     Dostupné na internete
                 </a>
             </li>
             <li>
-                <em class="me-1">Pápež František ustanovil prístup k lektorátu a akolytátu i pre ženy</em> [online]. [cit. 01.02.2022].
+                <em class="me-1">Pápež František ustanovil prístup k lektorátu a akolytátu i pre ženy</em>
+                [online]. [cit. 01.02.2022].
                 <a class="link-template"
                     href="https://www.vaticannews.va/sk/papez/news/2021-01/frantisek-ustanovil-pristup-k-lektoratu-a-akolytatu-i-pre-zeny.html">
                     Dostupné na internete

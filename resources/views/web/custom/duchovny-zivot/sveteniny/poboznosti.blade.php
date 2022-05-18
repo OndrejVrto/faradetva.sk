@@ -8,9 +8,9 @@
 
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="pob-005" side="left" animation="fromleft" dimensionSource="full" columns="3" />
+                <x-partials.picture titleSlug="pob-005" side="left" dimensionSource="full" columns="3" />
 
-                <x-partials.picture titleSlug="pob-004" side="right" animation="fromright" dimensionSource="medium" columns="3" />
+                <x-partials.picture titleSlug="pob-004" side="right" dimensionSource="medium" columns="3" />
                 <p>
                     Pod pobožnosťami chápeme rozličné vonkajšie prejavy (napr. v textoch modlitieb a piesní, v zachovávaní období a navštevovania osobitných miest, v používaní odznakov, medailí, rúch a zvykov), ktoré oživené vnútorným postojom viery prejavujú zvláštny dôraz vzťahu veriaceho k božským osobám, alebo k Panne Márii v jej privilégiách milosti a v tituloch, ktoré ich vyjadrujú, alebo k svätým, pre ich pripodobnenie sa Kristovi, alebo pre úlohu, ktorú zohrali v Cirkvi.
                 </p>
@@ -24,16 +24,16 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Liturgický rok a ľudová zbožnosť">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
+
             <x-web.page.text-segment>
 
-                <x-partials.picture titleSlug="pob-006" side="left" animation="fromleft" dimensionSource="medium" columns="3" />
+                <x-partials.picture titleSlug="pob-006" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
                     Liturgický rok je časová štruktúra, v rámci ktorej Cirkev slávi celé Kristovo tajomstvo: od Vtelenia a Narodenia Pána až po Nanebovstúpenie, deň Zoslania Ducha Svätého a očakávanie blaženej nádeje a príchodu Pána. V liturgickom roku slávenie veľkonočného tajomstva tvorí privilegovaný moment kresťanského kultu v jeho každodennom, týždennom a ročnom vývoji. Z toho vyplýva, že vo vzťahu medzi liturgiou a ľudovou zbožnosťou sa má pokladať za pevný bod priorita slávení liturgického roka nad každým iným prejavom a úkonom zbožnosti.
                 </p>
 
-                <x-partials.picture titleSlug="pob-001" side="right" animation="fromright" dimensionSource="small" columns="2" />
+                <x-partials.picture titleSlug="pob-001" side="right" dimensionSource="small" columns="2" />
 
                 <p>
                     V adventom období očakávania, obrátenia a nádeje patria medzi prejavy ľudovej zbožnosti: Adventný veniec, Zimné kántrové dni, Vianočná novéna - Kto dá prístrešie Svätej rodine? Vo vianočnom období Cirkev slávi tajomstvo Zjavenia Pána, jeho skromného narodenia v Betleheme. Ako je známe, okrem stavania betlehemských jasieľ v kostoloch, počnúc od 13. storočia sa rozšíril zvyk, ovplyvnený bezpochyby jasličkami pripravenými sv. Františkom z Assisi v roku 1223 v Grecciu, stavať malé betlehemy aj v domácich príbytkoch. Ľudovú zbožnosť vo vianočnom čase predstavujú: Betlehemy (aj „živé“), Vianočná (štedrovečerná) večera, Jasličkové pobožnosti, Koledovanie, Koncoročná pobožnosť, Trojkráľové požehnanie príbytkov.
@@ -59,12 +59,12 @@
                     V cezročnom období má po Nedeli Zoslania Ducha Svätého osobitné miesto Slávnosť Najsvätejšieho Kristovho tela a krvi. Typickými prvkami ľudovej zbožnosti počas slávnosti je výzdoba ulíc, kvety a oltáre, kde má byť pri zastaveniach procesie umiestnená Najsvätejšia sviatosť. Zvlášť rozšíreným prejavom eucharistického kultu je Adorácia Najsvätejšej sviatosti. V adorácii Najsvätejšej sviatosti sa zbližujú liturgické formy a prejavy ľudovej zbožnosti, a to v spôsoboch: a) jednoduchá návšteva Najsvätejšej sviatosti uloženej vo svätostánku kostola; b) adorácia pred vyloženou Oltárnou sviatosťou v monštrancii alebo v cibóriu; c) takzvaná „večná poklona“ alebo „celodenná poklona“, ktorej sa zúčastní celá rehoľná komunita alebo eucharistické združenie, prípadne farské spoločenstvo.
                 </p>
 
-                <x-partials.picture titleSlug="pob-008" side="left" animation="fromleft" dimensionSource="medium" columns="6" />
+                <x-partials.picture titleSlug="pob-008" side="left" dimensionSource="medium" columns="6" />
 
                 <p>
                     V Detve sa na Sviatok Božieho tela konala vždy procesia sprevádzaná dychovou hudbou. Na štyroch miestach v uliciach Detvy okolo kostola miestne ženy urobili zelené oltáriky - koľibki, pri ktorých sa konala bohoslužba. Prvá bola na dolnom konci pri feštrovi, druhá pred Lašouskím, treťa pri Floriánkovi a štvrtá pred Vagačovci. (Svedectvo ženy narodenej v r. 1929) Kňaz s hostiou v monštrancii kráčal pod baldachýnom, ktorý niesli štyria chlapi v krojoch. Mládenci niesli vyzdobené zástavy a z nich visiace stuhy niesli dievky oblečené v bielych krojoch. Malé dievčatá posýpali cestu pred kňazom kvetnými lupeňmi. Táto tradícia eucharistickej procesie v blízkosti kostola s ľudovými prvkami v sviatočných krojoch sa v Detve zachovala dodnes.
                 </p>
-                <x-partials.picture titleSlug="pob-017" side="right" animation="fromright" dimensionSource="full" columns="3" />
+                <x-partials.picture titleSlug="pob-017" side="right" dimensionSource="full" columns="3" />
 
                 <p>
                     V našom prostredí je zaužívaná aj Prvonedeľná pobožnosť pred vyloženou Oltárnou sviatosťou po „veľkej“ nedeľnej svätej omši o 10.30 hod. V prvopiatkovom týždni býva vo štvrtok po večernej svätej omši o 17.30 hod. hodinová eucharistická adorácia a v piatok býva vo farskom kostole adorácia od 16.30 hod., ktorá je pred večernou svätou omšou ukončená Prvopiatkovou pobožnosťou. Táto pobožnosť pred vyloženou Oltárnou sviatosťou býva na prvý piatok mesiaca taktiež v kláštore bosých karmelitánok po rannej svätej omši o 7.00 hod. Počas celého kalendárneho roka býva v kláštornom kostole moderovaná adorácia Najsvätejšej sviatosti vždy v stredu od 19.30 do 20.30 hod.
@@ -81,10 +81,10 @@
         <x-partials.photo-gallery titleSlug="sviatok-bozieho-tela" dimensionSource="medium" class="pb-5"/>
 
         <x-web.page.subsection title="Uctievanie svätej Matky Pána Ježiša" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
+
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="pob-020" side="left" animation="fromleft" dimensionSource="medium" columns="2" />
+                <x-partials.picture titleSlug="pob-020" side="left" dimensionSource="medium" columns="2" />
 
                 <p>
                     Ľudová zbožnosť k Preblahoslavenej Panne Márii, rozličná vo svojich prejavoch a hlboká vo svojom zdôvodnení, je významná a všeobecná cirkevná skutočnosť. Vyplýva z viery a lásky Božieho ľudu ku Kristovi, Vykupiteľovi ľudského pokolenia a z pochopenia spásonosného poslania, ktoré Boh zveril nazaretskej Márii, pre ktoré svätá Panna je nielen Matkou Pána a Spasiteľa, ale v pláne milosti aj Matkou všetkých ľudí.
@@ -99,16 +99,16 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Uctievanie svätých a blahoslavených">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
+
             <x-web.page.text-segment>
 
-                <x-partials.picture titleSlug="pob-019" side="right" animation="fromright" dimensionSource="medium" columns="2" />
+                <x-partials.picture titleSlug="pob-019" side="right" dimensionSource="medium" columns="2" />
 
                 <p>
                     Uctievanie svätých a blahoslavenýchKult svätých, predovšetkým mučeníkov, je veľmi dávnou cirkevnou skutočnosťou. Cirkevná náuka a jej liturgia predkladajú svätých a blahoslavených, ktorí už jasne kontemplujú trojjediného Boha, za príklad Božiemu ľudu. Svätí sú historickí svedkovia všeobecného povolania k svätosti, významní Pánovi učeníci, vzory evanjeliového života, obyvatelia neba, orodovníci a priatelia ešte putujúcich na zemi, patróni miestnych cirkví.
                 </p>
 
-                <x-partials.picture titleSlug="pob-018" side="left" animation="fromleft" dimensionSource="medium" columns="3" />
+                <x-partials.picture titleSlug="pob-018" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
                     Konečným cieľom úcty k svätým je vždy Božia sláva a posvätenie človeka prostredníctvom života dokonale zladeného s Božou vôľou a nasledovanie čností tých, ktorí boli vynikajúcimi Pánovými učeníkmi. Osobitnú úctu v prejavoch zbožnosti majú aj anjeli, v ľudovej zbožnosti zvlášť úcta k anjelovi strážcovi.
