@@ -76,6 +76,7 @@ Breadcrumbs::resource('categories', 'Kategórie článkov');
 Breadcrumbs::resource('static-pages', 'Statické stránky');
 Breadcrumbs::resource('notice-acolyte', 'Rozpisy akolytov');
 Breadcrumbs::resource('notice-lecturer', 'Rozpisy lektorov');
+Breadcrumbs::resource('background-pictures', 'Obrázky pozadia');
 
 // Home > Blog > [Category]
 // Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {

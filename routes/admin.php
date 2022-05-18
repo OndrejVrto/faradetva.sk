@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\{
     BannerController, PrayerController, PriestController, SliderController,
     DayIdeaController, GalleryController, PictureController, CategoryController,
     ChartDataController, DashboardController, PermissionController, StaticPageController,
-    TestimonialController, NoticeChurchController, NoticeAcolyteController
+    TestimonialController, NoticeChurchController, NoticeAcolyteController, BackgroundPictureController,
 };
 
 Route::prefix('admin')->group( function() {
@@ -98,11 +98,12 @@ Route::prefix('admin')->group( function() {
 
         //!  Resource routes
         Route::resources([
-            'users'     => UserController::class,
-            'charts'    => ChartController::class,
-            'banners'   => BannerController::class,
-            'pictures'  => PictureController::class,
-            'galleries' => GalleryController::class,
+            'users'               => UserController::class,
+            'charts'              => ChartController::class,
+            'banners'             => BannerController::class,
+            'pictures'            => PictureController::class,
+            'galleries'           => GalleryController::class,
+            'background-pictures' => BackgroundPictureController::class,
         ]);
 
         Route::resources([

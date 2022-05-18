@@ -382,6 +382,7 @@ return [
                 'static-pages.index',
                 'galleries.index',
                 'pictures.index',
+                'background-pictures.index',
                 'files.index',
                 'file-manager',
             ],
@@ -400,13 +401,19 @@ return [
                     'route' => 'galleries.index',
                     'can'  => 'galleries.index',
                 ],
-
                 [
                     'text'  => 'Obrázky',
                     'icon_color'  => 'purple',
                     'icon'  => 'far fa-image',
                     'route' => 'pictures.index',
                     'can'  => 'pictures.index',
+                ],
+                [
+                    'text'  => 'Obrázky pozadia',
+                    'icon_color'  => 'purple',
+                    'icon'  => 'fa-solid fa-images',
+                    'route' => 'background-pictures.index',
+                    'can'  => 'background-pictures.index',
                 ],
                 [
                     'text'  => 'Prílohy',

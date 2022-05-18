@@ -35,6 +35,11 @@ return [
         'update' => 'Obrázok bol upravený.',
         'delete' => 'Obrázok bol odstránený!',
     ],
+    'background-picture'   => [
+        'store'  => 'Nový obrázok pozadia bol pridaný!',
+        'update' => 'Obrázok pozadia bol upravený.',
+        'delete' => 'Obrázok pozadia bol odstránený!',
+    ],
     'category'   => [
         'store'  => 'Nová kategória bola pridaná!',
         'update' => 'Kategória bola upravená!',

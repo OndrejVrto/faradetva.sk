@@ -154,6 +154,18 @@ return [
         'header_show'        => 'Detaily obrázku',
     ],
 
+    'background-pictures' => [
+        'title'              => 'Obrázok pozadia',
+        'description'        => 'Obrázok na celú šírku stránky.',
+        'description_create' => 'Tu môžete pridať obrázok na celú šírku stránky.',
+        'description_edit'   => 'Tu môžete editovať obrázok na celú šírku stránky.',
+        'description_show'   => 'Zobrazenie detailov o obrázku pozadia',
+        'header'             => 'Obrázok pozadia',
+        'header_create'      => 'Nový obrázok pozadia',
+        'header_edit'        => 'Úprava obrázku pozadia',
+        'header_show'        => 'Detaily obrázku pozadia',
+    ],
+
     'banners' => [
         'title'              => 'Banery',
         'description'        => 'Administrácia - správa sekcie: Baner',
