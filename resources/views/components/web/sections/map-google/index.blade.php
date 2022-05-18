@@ -1,5 +1,5 @@
 <!-- GOOGLE MAP section Start -->
-    <section class="section ch_map_section">
+    <section class="section d-print-none ch_map_section">
         <div id="contact_map"></div>
     </section>
 <!-- GOOGLE MAP section End -->

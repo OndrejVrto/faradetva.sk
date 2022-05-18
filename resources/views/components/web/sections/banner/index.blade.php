@@ -10,7 +10,7 @@
         <x-partials.source-sentence
             dimensionSource="{{ $dimensionSourceBanner }}"
             :sourceArray="$banner['sourceArr']"
-            class="img-article img-article-left"
+            class="img-article img-article-left d-print-none"
             title="{{ $banner['source_description'] }}"
         />
 

@@ -2,7 +2,7 @@
     name="PRAY-ITEM-{{ $pray['id'] }}: ({{ $pray['title'] }}) - "
     row="true"
     overlay="true"
-    class="ch_pray_section prayer-img-{{ $pray['id'] }}"
+    class="ch_pray_section d-print-none prayer-img-{{ $pray['id'] }}"
     id="PRAY_{{ $pray['slug'] }}"
 >
     <div class="col-md-12 col-12">
