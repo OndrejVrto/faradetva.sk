@@ -28,7 +28,7 @@
                 :sizeButton="true"
                 :lock="false"
                 ratio="false"
-                maxSize="1920*1440"
+                maxSize="1440*560"
                 minWidth="{{ $picture->crop_output_width ?? 50 }}"
                 minHeight="{{ $picture->crop_output_height ?? 50 }}"
                 exact_dimensions="{{ $picture->crop_output_exact_dimensions ?? 0 }}"

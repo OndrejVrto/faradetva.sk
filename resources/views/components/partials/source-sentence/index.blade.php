@@ -2,7 +2,7 @@
     <div rel="license" {{ $attributes->merge(['class' => 'source']) }}>
         @if($dimensionSource == "small" OR $dimensionSource == "medium" OR $dimensionSource == "full")
             @isset($source)
-                Zdroj
+                zdroj:
                 @isset($source_url)
                     <a href="{{ url($source_url) }}" target="_blank" rel="noopener noreferrer" class="link-template">
                 @endisset
@@ -15,7 +15,7 @@
 
         @if($dimensionSource == "medium" OR $dimensionSource == "full")
             @isset($author)
-                od autora
+                autor:
                 @isset($author_url)
                     <a href="{{ url($author_url) }}" target="_blank" rel="noopener noreferrer" class="link-template">
                 @endisset
@@ -28,7 +28,7 @@
 
         @if($dimensionSource == "full")
             @isset($license)
-                licencované podľa
+                licencia:
                 @isset($license_url)
                     <a href="{{ $license_url }}" target="_blank" rel="noopener noreferrer license" class="link-template">
                 @endisset
