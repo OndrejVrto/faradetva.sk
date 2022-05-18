@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Web;
 
-use Spatie\Image\Image;
+// use Spatie\Image\Image;
 use App\Facades\SeoGraph;
 use App\Facades\SeoSchema;
 use App\Models\StaticPage;
@@ -79,8 +79,6 @@ class PageController extends Controller
                 ];
             })
             ->first();
-
-            //  TODO: pridať typ SEO Pages
     }
 
     /** create full route name **/
@@ -214,17 +212,26 @@ class PageController extends Controller
             ->logo(
                 Schema::imageObject()
                     ->identifier('#LogoFaraDetva')
-                    ->url('TODO:')
-                    ->width(100)
-                    ->height(100)
+                    ->url(asset('images/logo/logo-farnosti-detva.svg', true))
+                    ->encodingFormat('image/svg+xml')
+                    ->width(500)
+                    ->height(500)
                     ->caption('Logo farnosti Detva')
             )
             ->image(
                 Schema::imageObject()
-                    ->url('TODO:')
-                    ->width(100)
-                    ->height(100)
-                    ->caption('Referenčný obrázok farnosti Detva')
+                    ->url(asset('images/pictures/Farnost-Detva.jpg', true))
+                    ->encodingFormat('image/jpeg')
+                    ->width(1024)
+                    ->height(712)
+                    ->author(
+                        Schema::person()
+                            ->name('Tomáš Belko')
+                            ->email('tomasbelko.detva@gmail.com')
+                            ->telephone('+421905897971')
+                            ->sameAs(['https://www.tomasbelko.com', 'https://www.facebook.com/spoznajpodpolanie'])
+                    )
+                    ->caption('Farský kostol sv. Františka v Detve v žiare zapadajúceho slnečného svetla.')
             )
             ->email('detva@fara.sk')
             ->telephone('(+421) (045) 54 55 243')

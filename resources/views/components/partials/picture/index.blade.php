@@ -18,7 +18,7 @@
     $classes[] = 'wow ' . $animation;
 @endphp
 
-<div {{ $attributes->merge(['class' => implode(' ', $classes)]) }} title="{{ $picture['img-description'] }}">
+<div {{ $attributes->merge(['class' => implode(' ', $classes)]) }} title="{{ $picture['source_description'] }}">
 
     <x-partials.source-sentence
         :dimensionSource="$dimensionSource"

@@ -5,6 +5,7 @@ namespace App\View\Components\Partials;
 use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
+use Spatie\SchemaOrg\ImageObject;
 use Illuminate\Contracts\View\View;
 use App\Models\Picture as PictureModel;
 
@@ -60,16 +61,15 @@ class Picture extends Component
             ->map(function($img) {
                 $colectionName = $img->mediaOne->collection_name;
                 $media = $img->getFirstMedia($colectionName);
-                // $height = Image::load( $media->getPath('optimize') )->getHeight();
-                // $width = Image::load( $media->getPath('optimize') )->getWidth();
 
                 return [
-                    'img-title'       => $img->title,
-                    'img-slug'        => $img->slug,
-                    'img-description' => $img->source->source_description,
-                    // 'img-height'      => $height,
-                    // 'img-width'       => $width,
-                    'responsivePicture' => (string) $media
+                    'img-title'   => $img->title,
+                    'img-slug'    => $img->slug,
+                    'img-updated' => $img->updated_at,
+                    'img-width'   => $img->crop_output_width,
+                    'img-height'  => $img->crop_output_height,
+
+                    'responsivePicture'  => (string) $media
                                             ->img('optimize', [
                                                 'class' => 'w-100 img-fluid',
                                                 'alt' => $img->source->source_description,
@@ -80,7 +80,10 @@ class Picture extends Component
                                                 'width' => $img->crop_output_width,
                                             ]),
                     // 'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
-                    'url'               => $media->getUrl('optimize'),
+                    'url'                => $media->getUrl('optimize'),
+                    'img-mime'           => $media->mime_type,
+
+                    'source_description' => $img->source->source_description,
                     'sourceArr' => [
                         'source_source'      => $img->source->source_source,
                         'source_source_url'  => $img->source->source_source_url,
@@ -104,21 +107,26 @@ class Picture extends Component
     }
 
     private function setSeoMetaTags(array $pictureData): void {
-        // TODO: SEO
         $JsonLD = Schema::imageObject()
             ->name(e($pictureData['img-title']))
             ->identifier(e($pictureData['url']))
             ->url(e($pictureData['url']))
-            ->description('TODO:')
-            ->alternateName('TODO:')
-            ->width(100)
-            ->height(500)
-            ->encodingFormat('TODO:')
-            ->uploadDate(now())  //TODO:
+            ->description(e($pictureData['source_description']))
+            ->alternateName(e($pictureData['source_description']))
+            ->width($pictureData['img-width'])
+            ->height($pictureData['img-height'])
+            ->encodingFormat($pictureData['img-mime'])
+            ->uploadDate($pictureData['img-updated'])
             ->license(e($pictureData['sourceArr']['source_license']))
             ->acquireLicensePage(e($pictureData['sourceArr']['source_license_url']))
+            ->if(isset($pictureData['sourceArr']['source_author']) OR isset($pictureData['sourceArr']['source_author_url']), function (ImageObject $schema) use ($pictureData) {
+                $schema->author(
+                    Schema::person()
+                        ->name(e($pictureData['sourceArr']['source_author']))
+                        ->sameAs(e($pictureData['sourceArr']['source_author_url']))
+                );
+            })
             ->toArray();
-
 
         unset($JsonLD['@context']);
         SeoSchema::addImage([
