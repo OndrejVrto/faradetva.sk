@@ -84,7 +84,7 @@ class GalleryController extends Controller
         $validated = $request->validated();
 
         $gallery->update(Gallery::sanitize($validated));
-        $gallery->source()->updateOrCreate(Source::sanitize($validated));
+        $gallery->source()->update(Source::sanitize($validated));
         $gallery->touch(); // Touch because i need start observer for delete cache
 
         set_time_limit(300); // 5 minutes

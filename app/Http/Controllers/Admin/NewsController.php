@@ -99,7 +99,7 @@ class NewsController extends Controller
 
         $news->update(News::sanitize($validated));
         $news->tags()->sync($request->input('tags'));
-        $news->source()->updateOrCreate(Source::sanitize($validated));
+        $news->source()->update(Source::sanitize($validated));
 
         (new MediaStoreService)->handleCropPicture($news, $request);
 

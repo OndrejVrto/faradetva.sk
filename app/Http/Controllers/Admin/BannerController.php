@@ -63,7 +63,7 @@ class BannerController extends Controller
         $validated = $request->validated();
 
         $banner->update(Banner::sanitize($validated));
-        $banner->source()->updateOrCreate(Source::sanitize($validated));
+        $banner->source()->update(Source::sanitize($validated));
         $banner->staticPages()->sync($request->input('page'));
         $banner->touch(); // Touch because i need start observer for delete cache
 

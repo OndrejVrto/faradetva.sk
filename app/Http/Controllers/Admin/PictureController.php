@@ -55,7 +55,7 @@ class PictureController extends Controller
         $validated = $request->validated();
 
         $picture->update(Picture::sanitize($validated));
-        $picture->source()->updateOrCreate(Source::sanitize($validated));
+        $picture->source()->update(Source::sanitize($validated));
         $picture->touch(); // Touch because i need start observer for delete cache
 
         (new MediaStoreService)->handleCropPicture($picture, $request);

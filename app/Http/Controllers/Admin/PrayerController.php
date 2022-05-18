@@ -59,7 +59,7 @@ class PrayerController extends Controller
         $validated = $request->validated();
 
         $prayer->update(Prayer::sanitize($validated));
-        $prayer->source()->updateOrCreate(Source::sanitize($validated));
+        $prayer->source()->update(Source::sanitize($validated));
         $prayer->touch(); // Touch because i need start observer for delete cache
 
         (new MediaStoreService)->handleCropPicture($prayer, $request);

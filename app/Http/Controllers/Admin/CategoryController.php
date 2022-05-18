@@ -76,7 +76,7 @@ class CategoryController extends Controller
 
     public function force_delete($id): RedirectResponse {
         $category = Category::onlyTrashed()->findOrFail($id);
-        $category->news()->updateOrCreate(['category_id' => 1]);
+        $category->news()->update(['category_id' => 1]);
         $category->forceDelete();
 
         toastr()->success(__('app.category.force-delete'));
