@@ -51,7 +51,9 @@
     <x-web.sections.footer />
 
     <!-- BUTTON for Scroll up -->
-    <a id="toTop">&#10148;</a>
+    <div class="d-print-none">
+        <a id="toTop">&#10148;</a>
+    </div>
 
     <x-web.sections.search-global />
 
