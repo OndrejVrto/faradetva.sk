@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void {
         $this->call([
+            // START USERs
             PermissionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
@@ -35,6 +36,8 @@ class DatabaseSeeder extends Seeder
 
             // RAW
             RawSqlSeeder::class,
+
+            // OTHER
             ChartSeeder::class,
             ChartDataSeeder::class,
             TagSeeder::class,

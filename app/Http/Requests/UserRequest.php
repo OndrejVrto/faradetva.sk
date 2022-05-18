@@ -46,7 +46,7 @@ class UserRequest extends BaseRequest
                 'boolean',
             ],
             'role' => [
-                'required',
+                'nullable',
             ],
             'phone' => [
                 'nullable',
