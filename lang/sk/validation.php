@@ -127,9 +127,22 @@ return [
     'uploaded'             => 'Toto sa nepodarilo nahrať.',
     'url'                  => 'Tento formát je neplatný.',
     'uuid'                 => 'Musí to byť platný UUID.',
+    'password' => [
+        'mixed' => 'Heslo musí obsahovať aspoň jedno veľké písmeno a aspoň jedno malé písmeno.',
+        'letters' => 'Heslo musí obsahovať aspoň jedno písmeno.',
+        'symbols' => 'Heslo musí obsahovať aspoň jeden symbol.',
+        'numbers' => 'Heslo musí obsahovať aspoň jendo číslo.',
+        'uncompromised' => 'Vami vybrané heslo sa objavilo v heckerskom úniku údajov. Zvoľte si iné.',
+    ],
     'custom'               => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
     ],
 ];
+
+// 'validation.password.mixed' => 'The :attribute must contain at least one uppercase and one lowercase letter.',
+// 'validation.password.letters' => 'The :attribute must contain at least one letter.',
+// 'validation.password.symbols' => 'The :attribute must contain at least one symbol.',
+// 'validation.password.numbers' => 'The :attribute must contain at least one number.',
+// 'validation.password.uncompromised' => 'The given :attribute has appeared in a data leak. Please choose a different :attribute.',
