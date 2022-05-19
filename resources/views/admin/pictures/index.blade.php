@@ -17,7 +17,8 @@
 
         <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
-            <x-admin.table.th width="30%" class="text-center">Obrázok</x-admin.table.th>
+            <x-admin.table.th width="20%" class="text-center">Obrázok</x-admin.table.th>
+            <x-admin.table.th width="15%" class="text-center">Rozmery</x-admin.table.th>
             <x-admin.table.th>Pracovný názov</x-admin.table.th>
             <x-admin.table.th>Popis</x-admin.table.th>
             <x-admin.table.th-actions />
@@ -35,6 +36,15 @@
                             alt="picture: {{ $picture->title }}"
                             title="{{ $picture->title }}"
                         />
+                    </x-admin.table.td>
+                    <x-admin.table.td>
+                        <span class="small mr-2">Šírka:</span>{{ $picture->crop_output_width }}px
+                        <br>
+                        <span class="small mr-2">Výška:</span>{{ $picture->crop_output_height }}px
+                        @if ($picture->crop_output_exact_dimensions)
+                            <br>
+                            <span class="small text-danger">Presné rozmery</span>
+                        @endif
                     </x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break">{{$picture->slug}}</x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break">{{$picture->source->source_description}}</x-admin.table.td>
