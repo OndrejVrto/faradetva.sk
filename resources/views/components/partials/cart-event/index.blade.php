@@ -28,14 +28,8 @@
         <h3>
             {{ $title }}
         </h3>
-        <p class="d-xl-none">
-            {{ $small_teaser }}
-        </p>
-        <p class="d-none d-xl-block d-xxl-none">
-            {{ $medium_teaser }}
-        </p>
-        <p class="d-none d-xxl-block">
-            {{ $full_teaser }}
+        <p class="text-justify">
+            {{ $teaser }}
         </p>
         <div
             @class([
