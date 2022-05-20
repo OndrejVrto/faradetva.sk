@@ -35,11 +35,13 @@
             @endif
         </div>
     </div>
-    <span class="d-none" rel="license" for="PRAY_{{ $pray['slug'] }}">
-        <x-partials.source-sentence
-            :sourceArray="$pray['sourceArr']"
-        />
-    </span>
+
+    <x-partials.source-sentence
+        class="d-none"
+        :sourceArray="$pray['sourceArr']"
+        for="PRAY_{{ $pray['slug'] }}"
+    />
+
 </x-web.page.section>
 
 @push('css')

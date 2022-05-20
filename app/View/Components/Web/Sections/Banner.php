@@ -54,6 +54,7 @@ class Banner extends Component
             ->map(function($banner): array {
                 return [
                     'id' => $banner->id,
+                    'slug' => $banner->slug,
 
                     'extra_small_image' => $banner->getFirstMediaUrl('banner', 'extra-small'),
                     'small_image'       => $banner->getFirstMediaUrl('banner', 'small'),

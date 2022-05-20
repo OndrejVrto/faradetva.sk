@@ -24,6 +24,7 @@
         :dimensionSource="$dimensionSource"
         :sourceArray="$picture['sourceArr']"
         class="img-article img-article-{{ $side }}"
+        for="pic-{{ $picture['img-slug'] }}"
     />
 
     {!! $picture['responsivePicture'] !!}

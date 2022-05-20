@@ -3,6 +3,7 @@
     row="true"
     overlay="true"
     class="ch_banner_wrapper banner-img-{{$banner['id']}} h-100 mb-5"
+    id="bnr-{{ $banner['slug'] }}"
 >
 
     <div class="col-12">
@@ -12,6 +13,7 @@
             :sourceArray="$banner['sourceArr']"
             class="img-article img-article-left d-print-none"
             title="{{ $banner['source_description'] }}"
+            for="bnr-{{ $banner['slug'] }}"
         />
 
         <div class="banner_heading">

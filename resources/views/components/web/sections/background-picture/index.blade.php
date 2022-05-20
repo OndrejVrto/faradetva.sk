@@ -3,15 +3,15 @@
     row="true"
     overlay="true"
     class="ch_pray_section d-print-none background-picture-{{ $backgroundPicture['id'] }}"
-    id="background_picture_{{ $backgroundPicture['slug'] }}"
+    id="bgr-{{ $backgroundPicture['slug'] }}"
 >
     <div class="picture-background-size"></div>
 
-    <span class="d-none" rel="license" for="background_picture_{{ $backgroundPicture['slug'] }}">
-        <x-partials.source-sentence
-            :sourceArray="$backgroundPicture['sourceArr']"
-        />
-    </span>
+    <x-partials.source-sentence
+        class="d-none"
+        :sourceArray="$backgroundPicture['sourceArr']"
+        for="bgr-{{ $backgroundPicture['slug'] }}"
+    />
 </x-web.page.section>
 
 @push('css')

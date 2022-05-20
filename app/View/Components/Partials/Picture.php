@@ -74,6 +74,7 @@ class Picture extends Component
 
                     'responsivePicture'  => (string) $media
                                             ->img('optimize', [
+                                                'id' => 'pic-'.$img->slug,
                                                 'class' => 'w-100 img-fluid',
                                                 'alt' => $img->source->source_description,
                                                 // 'title' => $img->source->source_description,
