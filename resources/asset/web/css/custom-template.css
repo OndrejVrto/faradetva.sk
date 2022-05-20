@@ -937,11 +937,12 @@ button:before {
 	display       : table-cell;
 	width         : 69%;
 	vertical-align: top;
-	/* padding-left  : 30px; */
+	padding-left  : 30px;
+	padding-right  : 30px;
 }
 
-.event_desc h4 {
-	font-size     : 20px;
+.event_desc h3 {
+	/* font-size     : 30px; */
 	color         : #243a4f;
 	font-weight   : 500;
 	margin-top    : 0px;
@@ -977,10 +978,10 @@ button:before {
 	margin-top: 10px;
 }
 
-.event_box:nth-child(even) .event_desc {
+/* .event_box:nth-child(even) .event_desc {
 	padding-left : 0;
 	padding-right: 20px;
-}
+} */
 
 /*----------------------------------------------------------------------------------
 8. Event section  css End

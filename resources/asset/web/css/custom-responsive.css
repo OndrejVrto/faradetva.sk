@@ -574,10 +574,10 @@
 }
 
 @media (max-width:991px) {
-	.event_thumb img {
+	/* .event_thumb img {
 
 		margin-top: 49px;
-	}
+	} */
 
 	.event_desc {
 		text-align: center;
