@@ -258,6 +258,8 @@ return [
         'SeoGraph'      => App\Facades\SeoGraph::class,
         'SeoSchema'     => App\Facades\SeoJsonLd::class,
 
+        'OEmbed' => Cohensive\OEmbed\Facades\OEmbed::class,
+
     ],
 
 ];

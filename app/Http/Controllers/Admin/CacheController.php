@@ -9,6 +9,7 @@ use App\Jobs\GenerateSitemapJob;
 use App\Jobs\SiteSearchCrawlJob;
 use Spatie\Valuestore\Valuestore;
 use App\Http\Controllers\Controller;
+use Cohensive\OEmbed\Facades\OEmbed;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
 use Spatie\ResponseCache\Facades\ResponseCache;
@@ -322,19 +323,50 @@ class CacheController extends Controller
 
         $path = 'e:/zmaz/obrazky';
 
-        foreach($folders as $folder) {
-            if (!file_exists($path.'/'.$folder)) {
-                mkdir($path.'/'.$folder, 0777, true);
-            }
+        // foreach($folders as $folder) {
+        //     if (!file_exists($path.'/'.$folder)) {
+        //         mkdir($path.'/'.$folder, 0777, true);
+        //     }
+        // }
+
+        // foreach($foldersWithSubfolders as $folder) {
+        //     foreach ($subFolders as $subFolder) {
+        //         if (!file_exists($path.'/'.$folder.'/'.$subFolder)) {
+        //             mkdir($path.'/'.$folder.'/'.$subFolder, 0777, true);
+        //         }
+        //     }
+        // }
+
+
+        // Either use Facade:
+        $embed = OEmbed::get('https://www.youtube.com/watch?v=W4UE2y4APAE');
+
+        if ($embed) {
+            // Print default embed html code.
+            // echo $embed->html();
+            dump($embed->html());
+
+            // Print embed html code with custom width. Works for IFRAME and VIDEO html embed code.
+            // echo $embed->html(['width' => 600]);
+            dump($embed->html(['width' => 600]));
+
+            // Checks if embed data contains details on thumbnail.
+            // $embed->hasThumbnail();
+            dump($embed->hasThumbnail());
+
+            // Returns an array containing thumbnail details: url, width and height.
+            // $embed->thumbnail();
+            dump($embed->thumbnail());
+
+            // Return thumbnail url if it exists or null.
+            // $embed->thumbnailUrl();
+            dump($embed->thumbnailUrl());
+
+            // Returns an array containing all available embed data including default HTML code.
+            // $embed->data();
+            dd($embed->data());
         }
 
-        foreach($foldersWithSubfolders as $folder) {
-            foreach ($subFolders as $subFolder) {
-                if (!file_exists($path.'/'.$folder.'/'.$subFolder)) {
-                    mkdir($path.'/'.$folder.'/'.$subFolder, 0777, true);
-                }
-            }
-        }
 
 
         toastr()->info(__('Novinka otestovaná'));
