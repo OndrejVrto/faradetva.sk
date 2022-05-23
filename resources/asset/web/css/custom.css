@@ -34,6 +34,16 @@
 	color: #ff7b33 !important;
 }
 
+.link-template-gray {
+    text-decoration: none;
+    /* color: #f2f2f2; */
+    color: rgb(108, 117, 125);
+}
+
+.link-template-gray:hover {
+	color: #ff7b33;
+}
+
 .link-template-light {
     text-decoration: none;
     color: #243a4fa6 !important;

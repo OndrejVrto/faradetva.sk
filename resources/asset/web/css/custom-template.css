@@ -2065,21 +2065,21 @@ blockquote cite {
 	/* float:left;
 	width:100%; */
 	background-color: #243a4f;
-	padding-top     : 80px;
-	padding-bottom  : 30px;
+	padding-top     : 50px;
+	/* padding-bottom  : 30px; */
 }
 
 .footer_main_section .widget {
 	/* float:left;
 	width:100%; */
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 }
 
 .footer_main_section .widget .widget-title {
 	font-size    : 24px;
 	font-weight  : 600;
 	margin-top   : 0;
-	margin-bottom: 53px;
+	margin-bottom: 25px;
 	/* color        : #ffffff; */
 	color        : #ff7b33;
 }

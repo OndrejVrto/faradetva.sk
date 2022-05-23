@@ -3,12 +3,13 @@
         <div class="footer_main_section">
             <div class="container">
                 <div class="row">
+
                     <div class="col-md-4">
                         <div class="widget widget_text">
                             <div class="text_widget">
                                 <div class="ftr_logo d-flex justify-content-start">
                                     <a href="{{ route('home') }}" class="text-decoration-none d-flex justify-content-start">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 500 500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 500 500" class="mb-2">
                                             <circle fill="#ff7b33" stroke="#ff7b33" stroke-width="4" cx="250" cy="250" r="240"/>
 
                                             <path fill="#1b2e41" stroke="#1b2e41" stroke-width="7" stroke-linejoin="round" d="m118.787 230.579 65.859-14.322-1.975 31.566-35.322 6.537zM272.33 47.512l.436 70.584 32.06-7.47-1.537-57.09s-10.335-2.651-15.494-3.627c-5.16-.975-15.464-2.397-15.464-2.397zM354.516 117.962l28.483 26.52 5.062 67.874-81.192 14.208 7.034 216.013s-13.651 4.301-20.514 5.935c-6.863 1.635-20.603 3.652-20.603 3.652l-.218-253.83 87.34-18.178z"/>
@@ -21,25 +22,37 @@
 
                                 <x-partials.day-idea />
 
+
+                                <h2 class="widget-title mt-4">Dôležité odkazy</h2>
+                                <ul class="menu">
+                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="{{ secure_url('kontakty') }}">Kontakty</a></li>
+                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="{{ secure_url('oznamy/farske-oznamy') }}">Sväté omše</a></li>
+                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="{{ route('list-pages') }}">Všetky stránky</a></li>
+                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="{{ route('faq') }}">Otázky a odpovede</a></li>
+                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="https://gdpr.kbs.sk">Ochrana osobných údajov</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xl-1 d-none d-xl-block">
                     </div>
+
                     <div class="col-md-4 col-xl-3">
                         <div class="widget widget_social">
                             <h2 class="widget-title">Sväté omše</h2>
                             <h5 class="text-white">Pondelok - Piatok</h5>
-                            Farský kostol - 17:30 <br>
-                            Kláštor - 7:00
+                                Farský kostol - 17:30 <br>
+                                Kláštor - 7:00
                             <h5 class="text-white mt-2">Sobota</h5>
-                            Farský kostol - 7:30, 17:30 <br>
-                            Kláštor - 7:00
+                                Farský kostol - 7:30, 17:30 <br>
+                                Kláštor - 7:00
                             <h5 class="text-white mt-2">Nedeľa</h5>
-                            Farský kostol - 7:45, 9:00, 10:30, 17:30 <br>
-                            Kláštor - 7:30
+                                Farský kostol - 7:45, 9:00, 10:30, 17:30 <br>
+                                Kláštor - 7:30
                         </div>
                     </div>
+
                     <div class="col-md-4">
                         <div class="widget widget_newsletter">
                             <h2 class="widget-title">Novinky</h2>
@@ -50,6 +63,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
