@@ -1,12 +1,13 @@
 Obsah stránky:
-  ☐ vytvoriť komponent čistého obrázka
-  ☐ vytvoriť komponenty pre rôzne drugy sekcií podľa šablony
+  ✔ vytvoriť komponent čistého obrázka
+  ☐ vytvoriť komponenty pre rôzne druhy sekcií podľa šablony
   ☐ prepísať teaser texty v databáze
-  ☐ otváracie hodiny kostola, štandardné časy omší - do pätičky?
-  ☐ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
+  ✔ otváracie hodiny kostola, štandardné časy omší - do pätičky?
+  ✔ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
   ☐ facebook karta farnosti ako iframe?
-  ☐ GDPR link na KBS a iné linky do foootera
+  ✔ GDPR link na KBS a iné linky do foootera
   ☐ repare validate errors in login form
+  ✔ pridať možnosť zobraziť video z YouTube priamo v stránke
   ✔ zoradiť stránky podľa zoznamu od Mariana
   ✔ vytvoriť logo a ikonu stránky / farnosti
   ✔ zmeniť url adresu v manifest.json pri nasadení na server
@@ -135,10 +136,11 @@ Testy:
 
 Otázky na Tomáša:
   ✔ orezanie na presný rozmer v JS
-  ☐ css pre prvú správu v zozname
+  ✔ css pre prvú správu v zozname
   ☐ reload window po odrátaní času -> automatické skrytie admin rozhrania
   ☐ vyhľadávanie cez AJAX alebo Liveware
-  ☐ CDN - ako nato jednoducho
+  ☐ vlastné CDN pre obrázky - ako nato jednoducho a zadarmo
+  ☐ ako naformátovať vertikálne texty pri obrázkových source. Tak ako to má .týždeň
 
 
 Archive:
