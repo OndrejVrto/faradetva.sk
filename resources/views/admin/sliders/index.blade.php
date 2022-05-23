@@ -41,7 +41,13 @@
                         class="img-fluid"
                         alt="Obrázok: {{ $slider->full_heading }}"/>
                     </x-admin.table.td>
-                    <x-admin.table.td class="text-wrap text-break">{{$slider->teaser}}</x-admin.table.td>
+                    <x-admin.table.td class="text-wrap text-break">
+                        {{ $slider->heading_1 }}
+                        <br>
+                        {{ $slider->heading_2 }}
+                        <br>
+                        {{ $slider->heading_3 }}
+                    </x-admin.table.td>
                     <x-admin.table.td class="text-center">
                         <a  href="{{ url($slider->getFirstMediaUrl($slider->collectionName) ?: '#') }}"
                             class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"

@@ -27,7 +27,7 @@ class NewsController extends Controller
             ->withCount('document')
             ->with('user', 'media')
             ->archive($request, 'news')
-            ->paginate(5)
+            ->paginate(8)
             ->withQueryString();
 
         return view('admin.news.index', compact('allNews'));
