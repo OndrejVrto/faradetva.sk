@@ -2,7 +2,6 @@
 
 namespace App\View\Components\Web\Sections;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
@@ -16,22 +15,9 @@ class Banner extends Component
         public $header = null,
         public $breadcrumb = null,
         private null|string|array $titleSlug = null,
-        public null|string $dimensionSourceBanner = "full",
+        public null|string $dimensionSourceBanner = "medium",
     ) {
-        if(is_null($titleSlug)){
-            $titleSlug = BannerModel::query()
-                ->select('slug')
-                ->pluck('slug')
-                ->toArray();
-        }
-
-        if(is_null($titleSlug)){
-            return;
-        }
-
-        if($this->getName($titleSlug) != ''){
-            $this->banner = $this->getBanner($this->getName($titleSlug));
-        }
+        $this->banner = $this->getBanner($this->cleanListBanners($titleSlug));
     }
 
     public function render(): View|null {
@@ -46,10 +32,14 @@ class Banner extends Component
         return null;
     }
 
-    private function getBanner(string $slug): array {
+    private function getBanner(?array $slugs) {
         return BannerModel::query()
-            ->whereSlug($slug)
+            ->when($slugs, function($q) use($slugs) {
+                return $q->whereIn('slug', $slugs);
+            })
+            ->inRandomOrder()
             ->with('media', 'source')
+            ->limit(1)
             ->get()
             ->map(function($banner): array {
                 return [
@@ -76,9 +66,13 @@ class Banner extends Component
             ->first();
     }
 
-    private function getName(string|array $namesBanners): string {
+    private function cleanListBanners(null|string|array $namesBanners): ?array {
+        if(is_null($namesBanners)){
+            return null;
+        }
+
         if(is_array($namesBanners)){
-            return head(Arr::shuffle($namesBanners));
+            return $namesBanners;
         };
 
         return (string) Str::of($namesBanners)
@@ -89,8 +83,6 @@ class Banner extends Component
             ->whereNotNull()
             ->filter(function ($namesBanners) {
                 return $namesBanners != '';
-            })
-            ->shuffle()
-            ->first();
+            });
     }
 }
