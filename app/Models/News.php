@@ -141,30 +141,20 @@ class News extends BaseModel implements HasMedia
     public function registerMediaConversions(Media $media = null) : void {
         if ($media->collection_name == $this->collectionName) {
             $this->addMediaConversion('large')
-                ->fit(Manipulations::FIT_CROP, 848, 460)
+                ->fit(Manipulations::FIT_CROP, 700, 400)
                 ->sharpen(2)
                 ->quality(60)
                 ->withResponsiveImages();
-            $this->addMediaConversion('large-square')
-                ->fit(Manipulations::FIT_CROP, 335, 290)
+            $this->addMediaConversion('small')
+                ->fit(Manipulations::FIT_CROP, 370, 250)
                 ->sharpen(2)
-                ->quality(60)
-                ->withResponsiveImages();
-            $this->addMediaConversion('large-thin')
-                ->fit(Manipulations::FIT_CROP, 650, 300)
-                ->sharpen(2)
-                ->quality(60)
-                ->withResponsiveImages();
-            $this->addMediaConversion('thumb-latest-news')
+                ->quality(60);
+            $this->addMediaConversion('latest')
                 ->fit(Manipulations::FIT_CROP, 80, 80)
                 ->sharpen(2)
                 ->quality(60);
-            $this->addMediaConversion('thumb-all-news')
-                ->fit(Manipulations::FIT_CROP, 370, 248)
-                ->sharpen(2)
-                ->quality(60);
             $this->addMediaConversion('crop-thumb')
-                ->fit(Manipulations::FIT_CROP, 170, 92)
+                ->fit(Manipulations::FIT_CROP, 140, 80)
                 ->sharpen(2)
                 ->quality(60);
         }

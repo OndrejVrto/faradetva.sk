@@ -7,7 +7,6 @@
     <x-web.sections.banner
         :header="$oneNews->title"
         :breadcrumb="$breadCrumb"
-        titleSlug="vyzdoba-kostola-a-kaplnky, torta"
     />
 
     <x-web.page.section name="ARTICLE" class="blog_single_page pad_t_10 pad_b_30" row="true">
@@ -16,7 +15,15 @@
                 <!-- ARTICLE ({{ $oneNews->title }}) - Start -->
                 <div class="wh_new">
                     <div class="blog_thumb">
-                        {!! $oneNews->getFirstMedia($oneNews->collectionName)->img('large', ['class' => 'w-100 img-fluid']) !!}
+                        {!! $oneNews->getFirstMedia($oneNews->collectionName)->img('large', [
+                                'class' => 'w-100 img-fluid',
+                                'id' => 'picNews-'.$oneNews->id,
+                                'alt' => $oneNews->source->source_description,
+                                'nonce' => csp_nonce(),
+                                'width' => '700',
+                                'height' => '400',
+                            ])
+                        !!}
                     </div>
                     <div class="blog_desc">
                         <div class="d-flex align-items-end flex-wrap justify-content-center flex-lg-nowrap justify-content-lg-between">
@@ -133,7 +140,7 @@
 
                             @foreach ($lastNews as $lastOneNews)
                                 <li>
-                                    <img src="{{ $lastOneNews->getFirstMediaUrl($lastOneNews->collectionName, 'thumb-latest-news') ?: "http://via.placeholder.com/80x80" }}"
+                                    <img src="{{ $lastOneNews->getFirstMediaUrl($lastOneNews->collectionName, 'latest') ?: "http://via.placeholder.com/80x80" }}"
                                         class="img-fluid"
                                         alt="Malý obrázok článku: {{ $lastOneNews->title }}."
                                     />

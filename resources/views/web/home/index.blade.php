@@ -2,6 +2,8 @@
 
     <x-web.sections.slider />
 
+    <x-web.sections.last-article />
+
     <x-web.sections.priests />
 
     <x-web.sections.contact />
