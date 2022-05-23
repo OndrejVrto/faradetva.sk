@@ -27,6 +27,7 @@ Breadcrumbs::for('pages.others', function (BreadcrumbTrail $trail, array $pagesU
 Breadcrumbs::for('article.show', function (BreadcrumbTrail $trail, News $news) {
     $trail->parent('web.home');
     $trail->push('Všetky články', route('article.all'));
+    $trail->push($news->created_string, route('article.date', $news->created_string));
     $trail->push($news->title, route('article.show', $news));
 });
 
