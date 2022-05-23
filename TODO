@@ -2,7 +2,10 @@ Obsah stránky:
   ✔ vytvoriť komponent čistého obrázka
   ☐ vytvoriť komponenty pre rôzne druhy sekcií podľa šablony
   ☐ prepísať teaser texty v databáze
+<<<<<<< HEAD
   ☐ pridat ručne výsečové grafy
+=======
+>>>>>>> 0966bf34decc690c3901cddc4dc7be5ea47937b5
   ✔ otváracie hodiny kostola, štandardné časy omší - do pätičky?
   ✔ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
   ☐ facebook karta farnosti ako iframe?
