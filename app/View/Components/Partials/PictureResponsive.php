@@ -36,7 +36,7 @@ class PictureResponsive extends Component
                     'responsivePicture'  => (string) $media
                                             ->img('optimize', [
                                                 'id' => 'picr-'.$img->slug,
-                                                'class' => 'img-fluid d-block mx-auto' . $class,
+                                                'class' => 'img-fluid d-block mx-auto ' . $class,
                                                 'alt' => $img->source->source_description,
                                                 'title' => $img->source->source_description,
                                                 'nonce' => csp_nonce(),
