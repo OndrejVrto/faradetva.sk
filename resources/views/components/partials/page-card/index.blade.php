@@ -1,6 +1,6 @@
 @foreach ($pageCards as $pageCard)
 
-    <div class="col-sm-6 col-lg-4">
+    <div class="col-sm-6 col-lg-4 mx-auto">
         <div class="blog_item_cover">
             <div class="blog_thumb">
                 <img src="{{ $pageCard['img-picture-url'] }}"
@@ -18,7 +18,7 @@
 
             <div class="blog_desc">
                 <a class="text-decoration-none" href="{{ $pageCard['url'] }}">
-                    <h3>{{ $pageCard['title'] }}</h3>
+                    <h3 class="fs-4">{{ $pageCard['title'] }}</h3>
                 </a>
                 <div class="content pb-2 text-justify">
                     {{ $pageCard['teaser'] }}
@@ -27,7 +27,7 @@
                 <div class="d-flex align-items-end justify-content-between">
                     <a href="{{ $pageCard['url'] }}" class="read_m_link">
                         {{ $buttonText }}
-                        {{-- <i class="fa-solid fa-long-arrow-alt-right" aria-hidden="true"></i> --}}
+                        <i class="fa-solid fa-long-arrow-alt-right" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
