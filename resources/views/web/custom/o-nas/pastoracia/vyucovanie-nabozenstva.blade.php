@@ -5,8 +5,7 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     V dnešnej pluralistickej a sekularizovanej spoločnosti, ktorá naznačuje, že nepotrebuje nijaké náboženstvo, je veľmi dôležité poukázať na potrebu náboženského pôsobenia v nej. Nábožnosť (religiozita) človeka je schopnosť zachytiť a spoznať existenciu Najvyššej bytosti, ktorá riadi celý svet. Je to pripravenosť človeka prežívať sám seba, svojich blížnych a svet, premýšľať vo vzťahu ku skutočnosti Boha a správať sa primeraným spôsobom. Náboženská pedagogika spolu s náboženskou psychológiou sa snažia poukázať na to, že religiozita človeka je celkový viacrozmerný jav, ktorý zahŕňa citovú zložku, poznávaciu zložku a zložku správania človeka. Preto je vyučovanie náboženstva alebo náboženská výchova ako výchovno-vzdelávací predmet na školách taká potrebná.
                 </p>
@@ -17,8 +16,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Náboženská výchova v školách sa zameriava na dosiahnutie týchto cieľov:">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <ul>
                     <li>kultivácia osobnosti žiakov, ktorá má byť pomocou tohto vyučovacieho predmetu vytváraná a formovaná</li>
                     <li>rozvíjať schopnosť orientácie v kresťanských hodnotách</li>
@@ -39,8 +37,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Povinnosti rodičov" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Výchovná úloha rodičov je taká dôležitá, že ak chýba, ťažko ju možno nahradiť. Rodičia sú prví zodpovední za výchovu svojich detí. Rodina je vhodným miestom na výchovu k čnostiam a prirodzeným prostredím na uvedenie ľudskej osoby do solidarity a do spoločenských zodpovedností. Milosťou sviatosti manželstva rodičia dostali zodpovednosť a výsadu evanjelizovať svoje deti. Už od prvých rokov života ich majú uvádzať do tajomstiev viery, lebo sú svojim deťom prvými hlásateľmi evanjelia.
                 </p>

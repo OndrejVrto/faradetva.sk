@@ -5,8 +5,7 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Nekonečne dokonalý a sám v sebe blažený Boh podľa číro dobrotivého rozhodnutia slobodne stvoril človeka, aby mu dal účasť na svojom blaženom živote. Preto je v každom čase a na každom mieste blízky človeku. Volá ho a pomáha mu, aby ho hľadal, poznával a zo všetkých síl miloval. Všetkých ľudí, rozdelených a rozptýlených hriechom, zvoláva do jednoty svojej rodiny, ktorou je Cirkev. Aby to uskutočnil, poslal v plnosti času svojho Syna ako Vykupiteľa a Spasiteľa. V ňom a skrze neho volá ľudí, aby sa v Duchu Svätom stali jeho adoptovanými deťmi, a teda aj dedičmi jeho blaženého života.
                 </p>
@@ -20,8 +19,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Človek je „schopný“ Boha">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Túžba po Bohu je vpísaná do srdca človeka, lebo človek je stvorený Bohom a pre Boha. Boh neprestáva priťahovať človeka k sebe a jedine v Bohu nájde človek pravdu a šťastie, ktoré neprestajne hľadá. Ľudia vo svojich dejinách až podnes mnohorakým spôsobom vyjadrili toto hľadanie Boha svojím náboženským presvedčením a náboženskými prejavmi (modlitbou, obetami, kultom, rozjímaním atď.). Hoci tieto formy vyjadrenia môžu obsahovať nejasnosti, sú také univerzálne, že človeka možno nazvať náboženskou bytosťou.
                 </p>
@@ -41,8 +39,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Boh ide v ústrety človekovi" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Boh sa z lásky zjavil a daroval človekovi. Tak dáva definitívnu a prehojnú odpoveď na otázky, ktoré si kladie človek o zmysle a cieli svojho života. Boh sa zjavil človekovi tak, že mu činmi a slovami postupne dával poznať tajomstvo seba samého. Okrem svedectva, ktoré Boh vydáva o sebe vo stvorených veciach, on sám sa zjavil našim prarodičom. Hovoril k nim a po páde im prisľúbil spásu a ponúkol im svoju zmluvu.
                 </p>
@@ -56,8 +53,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Odpoveď človeka Bohu">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Viera je osobné primknutie sa celého človeka k Bohu, ktorý sa zjavuje. Zahŕňa v sebe súhlas rozumu a vôle so zjavením, ktoré Boh dal o sebe činmi a slovami. „Veriť“ má teda dvojaký vzťah: k osobe a k pravde; k pravde pre dôveru k osobe, ktorá tú pravdu dosviedča. V nikoho iného nemáme veriť, iba v Boha, Otca, Syna a Ducha Svätého.
                 </p>

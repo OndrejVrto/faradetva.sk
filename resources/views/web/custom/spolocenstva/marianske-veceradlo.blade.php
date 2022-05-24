@@ -5,7 +5,6 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-web.page.subsection >
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 Mariánske večeradlá modlitby a bratskej lásky vzišli z Mariánskeho kňazského hnutia, ktoré v roku 1972 založil taliansky kňaz Stefano Gobbi. Mariánske kňazské hnutie i večeradlo charakterizujú tri záväzky: 1. zasvätenie Nepoškvrnenému srdcu Panny Márie, 2. jednota s pápežom a s Cirkvou s ním zjednotenou, 3. vedenie veriacich k životu oddanosti Panne Márii. Večeradlo je predovšetkým stretnutím modlitby, a preto je jeho charakteristikou modlitba posvätného ruženca. Ruženec je reťaz lásky a záchrany, ktorou môžeme ovplyvniť mnohé udalosti doby, v ktorej žijeme.
@@ -14,7 +13,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection title="Štruktúra večeradla">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-web.page.text-segment animation="fromleft">
             <p>
                 Podobne, ako boli zhromaždení učeníci s Máriou vo večeradle v Jeruzaleme, sa veriaci pravidelne schádzajú, aby mohli:
@@ -25,7 +23,6 @@
                 <li>prežívať bratstvo.</li>
             </ul>
         </x-web.page.text-segment>
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 Modlitbou ruženca voláme Matku Božiu, aby sa modlila spolu s nami a aby odhalila našim dušiam tajomstvá Ježišovho života. Vo večeradlách si máme navzájom pomáhať prežívať zasvätenie Nepoškvrnenému srdcu Panny Márie. To je cesta, po ktorej máme kráčať: učiť sa vidieť, cítiť, milovať, modliť sa a konať tak ako Panna Mária. Napokon všetci účastníci sú volaní k tomu, aby vo večeradle zakúšali opravdivé bratstvo.
@@ -34,7 +31,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection title="Nadpis 2">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-web.page.text-segment animation="fromleft">
             <p>
                 Večeradlo sa začína vzývaním Ducha Svätého, prečíta sa úryvok z knihy „Kňazom, najmilším synom Panny Márie“, potom sa modlí posvätný ruženec s meditáciami nad jeho tajomstvami. Po každom desiatku ruženca sa spieva refrén fatimskej hymny: Ave, ave, ave Mária. Po modlitbe ruženca nasleduje úkon zasvätenia Nepoškvrnenému srdcu Panny Márie.

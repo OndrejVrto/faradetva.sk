@@ -5,8 +5,7 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Názov Biblia (z gréckeho tà biblía - knižočky, spisky) označuje zbierku všetkých biblických spisov. Pre svoj mimoriadny pôvod a myšlienkovú náplň dostala meno „Kniha kníh“. Jej bežný názov Sväté písmo (latinsky Sacra Scriptura) naznačuje skutočnosť, že vo všetkých spisoch Biblie je písomne zachytené Božie zjavenie a Božie slovo. Podľa zadelenia biblických spisov do dvoch skupín sa používa výraz Starý a Nový zákon alebo presnejšie Stará a Nová zmluva.
                 </p>
@@ -20,8 +19,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Rozdelenie Biblie">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <ol class="list-unstyled">
                     <li class="ms-4"><span class="h5 text-church-template">A. Spisy Starého zákona (46 kníh)</span>
                         <ol class="list-unstyled">
@@ -48,8 +46,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Sväté písmo v živote Cirkvi a veriacich" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     V dogmatickej konštitúcii Druhého vatikánskeho koncilu Dei Verbum sa poukazuje na význam a úlohu Svätého písma v živote Cirkvi a veriacich týmito slovami: „Cirkev vždy mala i má Sväté písmo spolu s posvätnou Tradíciou za najvyššie pravidlo viery... Preto všetka kazateľská činnosť Cirkvi, ako aj sama kresťanská nábožnosť sa má živiť a dať viesť Svätým písmom... V Božom slove je toľká sila a účinnosť, že ono je oporou a životnou silou Cirkvi a jej deťom posilou vo viere, pokrmom duše a čistým, nikdy nevysychajúcim prameňom duchovného života.“ Posvätný cirkevný snem naliehavo a dôrazne vyzýva všetkých veriacich, aby si častým čítaním Svätého písma nadobudli vznešené poznanie Ježiša Krista. Veď „kto nepozná Písmo, nepozná Krista“. (sv. Hieronym)
                 </p>
