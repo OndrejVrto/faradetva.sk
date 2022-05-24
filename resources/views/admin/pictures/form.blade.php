@@ -23,6 +23,7 @@
 
     <div class="form-row">
         <div class="col-xl-5">
+
             <x-admin.form.crop
                 label="Obrázok"
                 :sizeButton="true"

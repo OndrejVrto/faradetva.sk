@@ -9,7 +9,7 @@
         :breadcrumb="$breadCrumb"
     />
 
-    <x-web.page.section name="ARTICLE" class="ch_blog_section pt-1">
+    <x-web.page.section name="ARTICLE" class="pad_b_30">
 
             @forelse ($articles as $oneNews)
 
