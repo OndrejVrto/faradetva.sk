@@ -1,33 +1,37 @@
-{{-- <div class="row" data-masonry='{"percentPosition": true, "itemSelector": ".grid-item" }'> --}}
-<div class="row">
+@foreach ($pageCards as $pageCard)
 
-    @foreach ($pageCards as $pageCard)
-
-        <div class="col-md-6 col-lg-4">
-            <div class="ministry_box fromright wow" data-wow-delay="{{ 0.2 * $loop->iteration }}s">
-                <div class="ministry_thumb">
-
-                    {{-- {!! $pageCard['responsivePicture'] !!} --}}
-                    <img src="{{ $pageCard['img-section-list'] }}"
-                        class="img-fluid"
-                        alt="{{ $pageCard['img-description'] }}"
-                        height="{{ $pageCard['img-height'] }}"
-                        width="{{ $pageCard['img-width'] }}"
-                    />
-
-                    <span class="d-none" rel="license" for="Ministry_{{ $pageCard['title'] }}">
-                        <x-partials.source-sentence
-                            :sourceArray="$pageCard['sourceArr']"
-                        />
-                    </span>
+    <div class="col-sm-6 col-lg-4 mx-auto">
+        <div class="blog_item_cover">
+            <div class="blog_thumb">
+                <img src="{{ $pageCard['img-picture-url'] }}"
+                    class="w-100 img-fluid"
+                    alt="{{ $pageCard['img-description'] }}"
+                    width="{{ $pageCard['img-width'] }}"
+                    height="{{ $pageCard['img-height'] }}"
+                />
+                <div class="blog_overlay">
+                    <a href="{{ $pageCard['url'] }}" class="link_icon">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
                 </div>
-                <div class="ministry_desc">
-                    <h4>{{ $pageCard['title'] }}</h4>
-                    <p>{{ $pageCard['teaser'] }}</p>
-                    <a href="{{ $pageCard['url'] }}" class="join_btn read_btn">Viac o spoločenstve</a>
+            </div>
+
+            <div class="blog_desc">
+                <a class="text-decoration-none" href="{{ $pageCard['url'] }}">
+                    <h3 class="fs-4">{{ $pageCard['title'] }}</h3>
+                </a>
+                <div class="content pb-2 text-justify">
+                    {{ $pageCard['teaser'] }}
+                </div>
+
+                <div class="d-flex align-items-end justify-content-between">
+                    <a href="{{ $pageCard['url'] }}" class="read_m_link">
+                        {{ $buttonText }}
+                        <i class="fa-solid fa-long-arrow-alt-right" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
 
-    @endforeach
-</div>
+@endforeach

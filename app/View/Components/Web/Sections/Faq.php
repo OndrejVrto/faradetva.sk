@@ -3,6 +3,7 @@
 namespace App\View\Components\Web\Sections;
 
 use App\Facades\SeoSchema;
+use Illuminate\Support\Str;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use App\Models\Faq as FaqModel;
@@ -28,7 +29,7 @@ class Faq extends Component
                     return [
                         'id'           => $faq->id,
                         'question'     => $faq->question,
-                        'answer-clean' => trim( preg_replace('!\s+!', ' ', preg_replace( "/\r|\n/", " ", $faq->answer ) ) ),
+                        'answer-clean' => Str::plainText($faq->answer),
                         'answer'       => (new PurifiAutolinkService)->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                     ];
                 });

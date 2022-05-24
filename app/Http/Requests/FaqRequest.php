@@ -14,7 +14,7 @@ class FaqRequest extends BaseRequest
         return [
             'question' => $this->reqStrRule(),
             'slug'     => Rule::unique('faqs', 'slug')->ignore($this->faq),
-            'answer'   => $this->reqStrRule(1024),
+            'answer'   => $this->reqStrRule(65535),
             'order'    => [
                 'nullable',
                 'integer',

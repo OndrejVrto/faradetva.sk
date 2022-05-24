@@ -1,6 +1,6 @@
 <x-web.page.section
     name="BANER"
-    class="static-page pad_t_60"
+    class="static-page pad_t_30"
 >
     @isset($header)
         <div class="heading_section wh_headline my-0">

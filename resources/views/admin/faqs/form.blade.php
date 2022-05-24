@@ -65,20 +65,20 @@
         </div>
     </div>
 
-    <x-adminlte-textarea
-        fgroupClass="pb-4"
-        name="answer"
-        label="Odpoveď"
-        enableOldSupport="true"
-        rows="7"
-    >
-        <x-slot:prependSlot>
-            <div class="input-group-text bg-gradient-orange">
-                <i class="fa-regular fa-comment"></i>
-            </div>
-        </x-slot>
-            {{ $faq->answer ?? '' }}
-    </x-adminlte-textarea>
+    <div class="form-group">
+        <label>Odpoveď</label>
+
+        {{-- Error feedback --}}
+        @error('answer')
+            <span class="invalid-feedback d-block" role="alert">
+                <strong>{{ $errors->first('answer') }}</strong>
+            </span>
+        @enderror
+
+        <textarea name="answer" id="editorContent">
+            {{ $faq->answer ?? old('answer') }}
+        </textarea>
+    </div>
 
     <hr class="bg-orange">
 
@@ -114,6 +114,8 @@
 </x-admin.form>
 
 @push('js')
+    <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.2/tinymce.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script @nonce type="text/javascript" src="{{ asset(mix('asset/admin-app-tinymce.js'), true) }}"></script>
     <script @nonce>
         toggleChceckerAll({
             button: '[name="all_pages"]',

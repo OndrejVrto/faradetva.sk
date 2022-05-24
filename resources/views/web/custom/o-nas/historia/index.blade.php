@@ -8,8 +8,7 @@
                 <div class="col-md-6 col-xs-12">
                     <div class="ch_about_thumb fromleft wow">
                         {{-- <img src="images/about/about-thumb2.jpg" alt="" class="img-fluid"> --}}
-                        {{-- <x-partials.picture titleSlug="et-id-unde-velit-vo-xxx" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/> --}}
-                    </div>
+                                            </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <div class="ch_about_desc fromright wow">
@@ -79,8 +78,7 @@
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="blog_item_cover frombottom wow">
                 <div class="blog_thumb">
-                    {{-- <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/> --}}
-                    {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
+                                        {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
                     <!-- overlay -->
                     <div class="blog_overlay">
                         <a href="blog-single.html" class="link_icon"><i class="fa-solid fa-link"></i></a>
@@ -102,8 +100,7 @@
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="blog_item_cover frombottom wow">
                 <div class="blog_thumb">
-                    {{-- <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/> --}}
-                    {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
+                                        {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
                     <!-- overlay -->
                     <div class="blog_overlay">
                         <a href="blog-single.html" class="link_icon"><i class="fa-solid fa-link"></i></a>
@@ -125,8 +122,7 @@
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="blog_item_cover frombottom wow">
                 <div class="blog_thumb">
-                    {{-- <x-partials.picture titleSlug="historicka-pohladnica" columns="10" side="right" animation="fromright" dimensionSource="off" data-wow-delay="0.3s"/> --}}
-                    {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
+                                        {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
                     <!-- overlay -->
                     <div class="blog_overlay">
                         <a href="blog-single.html" class="link_icon"><i class="fa-solid fa-link"></i></a>

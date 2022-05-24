@@ -5,8 +5,7 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Modlitba je povznesenie duše k Bohu. Keď sa človek modlí, vstupuje do živého vzťahu s Bohom. Modlitba je veľkou bránou k viere. Ten, kto sa modlí, nežije už viac zo seba, pre seba a z vlastných síl. Vie, že jestvuje Boh, s ktorým sa môže rozprávať a čoraz viac sa mu zverovať. Už teraz hľadá kontakt s tým, s ktorým sa jedného dňa stretne z tváre do tváre. Preto k životu kresťana patrí každodenná modlitba. Modlitbe sa však nemožno naučiť tak ako nejakej technike. Modlitba je totiž dar, ktorý človek dostáva práve tým, že sa modlí.
                 </p>
@@ -31,8 +30,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Hlavné formy kresťanskej modlitby">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Poznáme päť základných foriem modlitby: velebenie, klaňanie (adorácia), prosebná modlitba a modlitba príhovoru, modlitba vďakyvzdania a modlitba chvály.
                 </p>
@@ -58,8 +56,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Pramene modlitby" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Biblia je pre modlitbu ako vyvierajúci prameň. Modliť sa Božím slovom znamená využívať biblické slová a udalosti pre vlastnú modlitbu. V bohoslužbe Cirkvi, v jej dennej modlitbe (Liturgia hodín) a vo svätej omši ľudia spoločne recitujú modlitby čerpané zo Svätého písma alebo z tradície Cirkvi. Tieto modlitby spájajú jednotlivca s modliacim sa spoločenstvom Cirkvi. Kresťanská modlitba nie je súkromná záležitosť, ale je veľmi osobná. Osobná modlitba sa očisťuje, rozširuje a posilňuje, keď pravidelne vteká do prúdu modlitieb celej Cirkvi. Keď sa veriaci ľudia na celom svete zjednotia v modlitbe rovnakými slovami v rovnakom čase, a tak Bohu spievajú jediný chválospev, je to veľké a krásne znamenie.
                 </p>
@@ -79,8 +76,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Cesta modlitby">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Kresťanská tradícia zachovala tri spôsoby modlitby: ústnu modlitbu, rozjímavú modlitbu a vnútornú modlitbu. Všetky tri spôsoby modlitby vyžadujú sústredenosť srdca.
                 </p>

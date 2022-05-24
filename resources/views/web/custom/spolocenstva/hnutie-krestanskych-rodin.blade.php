@@ -5,7 +5,6 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-web.page.subsection >
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 Hnutie kresťanských rodín na Slovensku je dobrovoľná laická kresťanská organizácia určená pre veriacich kresťanských manželov, rodičov a ich rodiny, ktoré nechcú byť izolované, ale spolu s inými veriacimi manželmi a rodinami sa snažia vo svojich rodinách vytvárať stabilný a harmonický život na princípoch kresťanskej lásky, slobody, jednoty a služby.
@@ -14,7 +13,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection>
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-web.page.text-segment animation="fromleft">
             <p>
                 Hnutie kresťanských rodín bolo na Slovensku založené v roku 1969 na báze malých rodinných spoločenstiev, ktorých vznik bol iniciovaný po celom Slovensku. Hnutie pracovalo tri desaťročia v ilegalite pod duchovným vedením vtedajšieho tajného biskupa Jána Chrizostoma Korca a v spolupráci s kňazmi z pastorácie i mnohými tajnými rehoľnými kňazmi. Projektantmi myšlienky malých rodinných spoločenstiev a jej konkrétnymi realizátormi najmä medzi mládežou a študentmi boli dve významné osobnosti náboženského života u nás - RNDr. Vladimír Jukl a MUDr. Silvester Krčméry.
@@ -24,7 +22,6 @@
 
             </p>
         </x-web.page.text-segment>
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 V rámci našej farnosti je v Hnutí kresťanských rodín zapojených niekoľko menších rodinných spoločenstiev, ktoré sa vo vlastnej réžii pravidelne schádzajú na spoločných stretnutiach a snažia sa byť aktívne zapojení do aktivít celého farského spoločenstva.

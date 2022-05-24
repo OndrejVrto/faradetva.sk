@@ -43,7 +43,7 @@
             <!-- Spevokoly, dychovka -->
             <!-- Vyučovanie náboženstva -->
         {{-- <li><a href="{{ secure_url('test') }}" class="text-danger">Test - ZMAZAŤ</a></li> --}}
-        <li><a href="{{ route('list-pages') }}" class="text-danger">Zoznam stránok - ZMAZAŤ</a></li>
+        {{-- <li><a href="{{ route('list-pages') }}" class="text-danger">Zoznam stránok - ZMAZAŤ</a></li> --}}
     </ul>
 </li>
 
@@ -87,7 +87,7 @@
         <!-- Cirkevné prikázania  -->
         <!-- Modlitba  -->
         <!-- Etiketa v kostole  -->
-        <li><a href="{{ secure_url('duchovny-zivot/svate-omse') }}">Sväté omše</a></li>
+        {{-- <li><a href="{{ secure_url('duchovny-zivot/svate-omse') }}">Sväté omše</a></li> --}}
     </ul>
 </li>
 

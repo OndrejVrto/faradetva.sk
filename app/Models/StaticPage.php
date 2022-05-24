@@ -87,33 +87,10 @@ class StaticPage extends BaseModel implements HasMedia
                 ->sharpen(2)
                 ->quality(60);
             $this->addMediaConversion('card')
-                ->fit(Manipulations::FIT_CROP, 370, 185)
-                // ->fit(Manipulations::FIT_CROP, 370, 248)
+                ->fit(Manipulations::FIT_CROP, 370, 248)
                 ->sharpen(2)
                 ->quality(60)
                 ->withResponsiveImages();
-
-
-            // $this->addMediaConversion('section-list')
-            //     ->fit(Manipulations::FIT_CROP, 232, 272)
-            //     ->sharpen(2)
-            //     ->quality(60);
-            // $this->addMediaConversion('optimize')
-            //     ->fit(Manipulations::FIT_CONTAIN, 1440, 1440)
-            //     ->sharpen(2)
-            //     ->quality(60);
-            // $this->addMediaConversion('twitter')
-            //     ->fit(Manipulations::FIT_CROP, 960, 480)    // ratio 2:1  minimum 300x157 or maximum 4096x4096 px
-            //     ->sharpen(2)
-            //     ->quality(60);
-            // $this->addMediaConversion('single-blog-list')
-            //     ->fit(Manipulations::FIT_CROP, 370, 248)
-            //     ->sharpen(2)
-            //     ->quality(60);
-            // $this->addMediaConversion('event-list')
-            //     ->fit(Manipulations::FIT_CROP, 335, 290)
-            //     ->sharpen(2)
-            //     ->quality(60);
         }
     }
 }

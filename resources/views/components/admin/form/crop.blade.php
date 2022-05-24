@@ -38,7 +38,7 @@
                     type="file"
                     id="crop_input_file"
                     class="custom-file-input border-right-none"
-                    accept=".jpg,.bmp,.png,.jpeg,.tiff,.svg"
+                    accept=".jpg,.bmp,.png,.jpeg,.tiff,.svg,.webp"
                 >
                 <label class="custom-file-label text-truncate" for="crop_input_file">
                     {{ old('crop_output_file_name', (empty($media_file_name) ? '' : $media_file_name->getCustomProperty('oldFileName'))) }}
@@ -96,7 +96,7 @@
                         value="{{ old('crop_input_width', $minWidth ?? '50') }}"
                         class="form-control"
                         type="number"
-                        min="{{ old('crop_input_width', $minWidth ?? '50') }}"
+                        min="{{ old('crop_input_width', $exact_dimensions ? $minWidth : 50) }}"
                         max="2600"
                         @if($lock)
                             disabled
@@ -127,7 +127,7 @@
                         value="{{ old('crop_input_height', $minHeight ?? '50') }}"
                         class="form-control"
                         type="number"
-                        min="{{ old('crop_input_height', $minHeight ?? '50') }}"
+                        min="{{ old('crop_input_height', $exact_dimensions ? $minHeight : 50) }}"
                         max="2600"
                         @if($lock)
                             disabled

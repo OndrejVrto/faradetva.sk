@@ -5,7 +5,6 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-web.page.subsection title="Kaplnka Sedembolestnej Panny Márie - Kalvária">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 Na starom (dolnom) cintoríne bol 19. júna 1703 položený základný kameň Kaplnky sv. Jozefa a 19. marca 1704 ju miestny farár Juraj Majnó požehnal. Starý cintorín stál na konci mestečka a v roku 1718 bol cintorín pri kaplnke ohradený múrom. Počas pôsobenia farára Jána Štrbu (1829 - 1862) bola kaplnka pristavením zväčšená na menší kostolík. Taktiež veža bola o jedno poschodie zvýšená a prekrytá meďou. Patronát nad kostolíkom na cintoríne mali urbarialisti, neskôr okolo roku 1900 obec. Pretože sa oň obec málo starala, bol poškodený, a preto zatvorený. V jeho interiéri sa nachádzal kríž a 3 kamenné sochy. Pre havarijný stav kostolíka v roku 1909 zakázal v ňom biskup Wolfgang Radnai konať bohoslužby. Na návrh farára Antona Kúdelku dovolil postaviť krížovú cestu a novú kaplnku na vrchu kalvárie, ktorá stojí dodnes. Zo skál rozobratého Kostola sv. Jozefa a zo zvyšných skál pri stavbe kalvárie bol cintorín čiastočne ohradený novým múrom.
@@ -20,7 +19,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection>
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-web.page.text-segment animation="fromleft">
             <p>
                 Kaplnka Sedembolestnej Panny Márie bola postavená v historizujúcom slohu. Má jednoduchý obdĺžnikový pôdorys s polygonálnym uzáverom, uprostred ktorého je umiestnená štuková socha Piety. Čelnú fasádu ukončuje trojuholníkový štít s drevenou zvoničkou. Interiér je zaklenutý valenou klenbou. Umelecky sú zaujímavé vitrážové okná s postavami sv. Antona Paduánskeho, sv. Jozefa, sv. Štefana, kráľa, a sv. Anny vyučujúcej Pannu Máriu. Pri kaplnke stojí vyrezávaný detviansky kríž od miestneho ľudového rezbára Jána Fekiača z roku 1974.
@@ -29,7 +27,6 @@
                 Približne v strede kalvárskeho kopca stojí štvorfigurálne polychrómované štukové súsošie ukrižovania. Je situované na vysokom podstavci a prekryté stanovou strieškou na nárožných pilieroch. Štukové reliéfy krížovej cesty a sochy sú vyhotovené firmou Bayerische Kunstanstalz z Mníchova. Na vežičku kalvárskeho kostolíka bol zadovážený 66 kg vážiaci zvon, ktorý počas prvej svetovej vojny spolu s ostatnými zvonmi farnosti rekvírovali. V roku 1935 vdova Vagačová darovala pre kaplnku na kalvárii nový zvon. Obrazy Krista Pána a Panny Márie darovala v roku 1911 hostinská z hriňovskej sklenej huty. Na kalvárii bolo povolené slúžiť svätú omšu v tie nedele, ktoré nasledovali po sviatkoch nájdenia a povýšenia Svätého kríža.
             </p>
         </x-web.page.text-segment>
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 V roku 1965 sa kalvária renovovala. Všetky zastavenia krížovej cesty aj s kaplnkou sa podľa farára Martina Láclavíka nachádzali v dezolátnom stave, boli prestavené a obhodené brizolitom. V roku 2007 bola ku kaplnke pristavaná strieška s plošinou, aby sa vonku mohla slúžiť výročná svätá omša, ktorá býva na kalvárii po období komunistickej totality opäť od roku 1991, vždy v septembrovú nedeľu v blízkosti sviatku Povýšenia Svätého kríža (14. septembra).
@@ -41,7 +38,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection title="Kaplnka Sedembolestnej Panny Márie - Piešť I. u Slobodov">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-web.page.text-segment animation="fromleft">
             <p>
                 V roku 1910 bola v Piešti - u Slobodov postavená nová zvonica. Zo zbierky farníkov bol zakúpený 147 kg vážiaci zvon, ktorý vo Svätom Kríži nad Hronom požehnal miestny farár, honorárny kanonik a titulárny prepošt Štefan Vetzel.
@@ -53,7 +49,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection title="Kaplnka Sedembolestnej Panny Márie - Sliacka Poľana">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 V ťažkých vojnových rokoch bola kaplnka na Sliackej Poľane postavená k úcte Sedembolestnej Panny Márie. Kaplnku 27. septembra 1943 slávnostne požehnal dekan Ján Štrbáň. Biskupský úrad v Banskej Bystrici, pod vedením biskupa Andreja Škrábika, povolil pri jej zriadení slávenie svätých omší vonku, na otvorenom priestranstve pred kaplnkou, pretože nebola postavená pre väčší počet veriacich, ktorí by do nej mohli vojsť.
@@ -65,7 +60,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection title="Kaplnka Božieho milosrdenstva - Piešť I. u Svoreňov">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-web.page.text-segment animation="fromleft">
             <p>
                 S myšlienkou postaviť túto kaplnku prišla pani Margita Svoreňová, rod. Budáčová. Hlavnou pohnútkou bol kríž v Piešti, ktorý bol jedného dňa zničený počas silnej búrky. Jeho náhradou sa stala kaplnka s obrazom Božieho milosrdenstva, ktorý namaľoval bežný robotník zo Stožku. Kaplnku požehnal dekan Roman Furek na slávnosť sv. Cyrila a Metoda 5. júla 2001. Raz v roku býva pri nej slávená svätá omša, na výročný deň posvätenia kaplnky.
@@ -74,7 +68,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection title="Kaplnka Panny Márie, Matky ustavičnej pomoci - Krné">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 Koncom apríla 2007 bol dekanom Ľubošom Sabolom požehnaný pozemok v Krnom, na stavbu novej kaplnky vo farnosti. V priebehu jedného roka si obyvatelia Krného pod vedením pána Jozefa Krnáča svojpomocne postavili Kaplnku Panny Márie, Matky ustavičnej pomoci. Slávnostné požehnanie kaplnky dekanom Sabolom sa uskutočnilo 27. júla 2008. Každoročne býva pri kaplnke slávená výročná svätá omša, v poslednú júnovú alebo prvú júlovú nedeľu.
@@ -92,7 +85,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection title="Ekumenická kaplnka - Domov dôchodcov Detva">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
         <x-web.page.text-segment animation="fromleft">
             <p>
                 V roku 2002 bol na Štúrovej ulici v Detve zriadený Domov dôchodcov, za účelom poskytovania služieb sociálnej starostlivosti celoročnou formou pobytu. Prvých obyvateľov domova prijali 8. júla 2002. Kapacita zariadenia je 48 miest. Budova domova má päť podlaží a v suterénnych priestoroch sa nachádza aj ekumenická kaplnka.
@@ -104,7 +96,6 @@
     </x-web.page.subsection>
 
     <x-web.page.subsection title="Meditačná kaplnka - Domov sociálnych služieb Detva, stredisko Piešť">
-        {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4"/> --}}
         <x-web.page.text-segment animation="fromright">
             <p>
                 11. marca 2008 požehnal novozriadenú meditačnú kaplnku v Domove sociálnych služieb v Piešti dekan Ľuboš Sabol. Pri tejto príležitosti sa okrem klientov domova zúčastnilo svätej omše približne 100 veriacich bývajúcich v lokalite Piešť II. V DSS Piešť sa v spoločenskej miestnosti každoročne slávi svätá omša pred vianočnými sviatkami.

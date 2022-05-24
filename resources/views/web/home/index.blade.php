@@ -6,12 +6,16 @@
 
     <x-web.sections.priests />
 
-    <x-web.sections.contact />
+    <x-web.sections.about-website />
 
     <x-web.sections.pray />
 
+    <x-web.sections.skills />
+
     <x-web.sections.testimonials />
 
-    <x-web.sections.map-google />
+    {{-- <x-web.sections.contact /> --}}
+
+    {{-- <x-web.sections.map-google /> --}}
 
 </x-web.layout.master>

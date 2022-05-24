@@ -5,8 +5,7 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Človek, ktorý vchádza do kostola a chce sa zúčastniť na slávení svätej omše, by mal byť čisto, vkusne a aj trochu sviatočne oblečený. Dámy by sa mali vyhnúť mikrosukniam a hlbokým výstrihom, páni krátkym nohaviciam. To, čo si dnes najmä v lete ľudia obliekajú do kostola, je vhodné skôr na kúpalisko. Možno niekto namietne, že vo svojom voľnom čase sa môže obliecť, ako chce. No nie je účasť na svätej omši slávnostným a radostným trávením voľného času? Nie je to svetlý bod všedného života? Tomu by potom malo zodpovedať oblečenie a aj naše správanie.
                 </p>
@@ -14,8 +13,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Ako je to so sedením v lavici?">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Na kraji sedí muž, žena by tam nemala sedieť. Ak vchádzajú muž a žena do lavice, ktorá je už skraja obsadená, prvý do lavice vstupuje muž, aby žene uvoľňoval cestu. K sediacim ľuďom sa otáčame tvárou. Lavice v kostoloch sú však zvyčajne úzke, preto by sa mali obsadzovať zo stredu, nie od kraja.
                 </p>
@@ -35,8 +33,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Ako reagovať na rušivé vplyvy?" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Ako upozorniť ľudí, ktorí sa pred nami alebo za nami počas svätej omše rozprávajú? Všetko je o komunikácii. Rozprávajúcich sa treba upozorniť vhodne, čo najkratšie a najúctivejšie, aj s milým úsmevom. Nikdy totiž nevieme, prečo a o čom sa môžu rozprávať, hoci by sa rozprávať nemali.
                 </p>
@@ -50,8 +47,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Na čo by sme mali dávať pozor?">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Keď v kostole zbadáme známeho, ktorý je od nás ďaleko a chceme ho pozdraviť, stačí ho skontaktovať očami, pousmiať sa, kývnuť hlavou. Keď sa s ním chceme rozprávať, môžeme ho počkať po svätej omši a vonku si pohovoriť. V kostole nie. Kostol nie je kaviareň.
                 </p>
@@ -77,8 +73,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Praktické rady" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Rodiny s malými deťmi by sa nemali vyčleňovať spomedzi iných veriacich spôsobom, že na jednej strane budú ženy, na druhej muži a inde rodiny. Každý rodič by mal sám odhadnúť, či jeho dieťa bude pokojné, a prípadne by si mal sadnúť tak, aby s plačúcim dieťaťom mohol rýchlo z kostola vyjsť. Občas sa stáva, že mladí rodičia nechávajú svoje deti počas bohoslužieb vykrikovať, zabávať sa, behať po kostole. Mali by však svoje deti viesť k tomu, že kostol nie je miesto na hranie, ale miesto na oslavu Boha a stretnutia sa s ním.
                 </p>

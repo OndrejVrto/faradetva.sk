@@ -5,8 +5,7 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Spevácka schóla či spevácky zbor je súčasťou liturgického zhromaždenia a členovia sú zástupcami ľudu, preto by v nich mali byť zastúpené všetky stavy. Ich úlohou je vo svätej omši spievať propriá (medzispevy, procesiové spevy, modlitby veriacich, ďakovný chválospev po prijímaní) a ordinárium (nemenné spevy omše - Kyrie, Glória, Krédo, Sanktus, Otče náš, Baránok Boží, zvolanie po premenení, odpovede ľudu na modlitby a výzvy kňaza). Pokiaľ je to možné, spevácky zbor má spievať za spoločnej účasti ľudu. Pri použití náročnejších skladieb a foriem aj samostatne viachlasne. Spevácky zbor má v prvom rade podporovať aktívnu činnosť účasti ľudu pri speve vo svätej omši.
                 </p>
@@ -14,8 +13,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Detský spevácky zbor Slniečka">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Detský spevácky zbor v Detve, ktorý spieva počas „detských“ svätých omší v nedeľu o 9.00 hod., vznikol v prvej polovici 90. rokov 20. storočia. Ide o zmiešaný detský zbor, do ktorého sú zapojení taktiež rodičia. Slniečka sa stretávajú na nácvikoch v pastoračnej miestnosti farského úradu - v Kláre, vždy v sobotu o 15.00 hod. a v nedeľu pred svätou omšou o 8.00 hod. Veľmi radi uvítajú aj nových členov.
                 </p>
@@ -23,8 +21,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Mládežnícky spevácky zbor Hosanna" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Mládežnícky spevácky zbor pri Kostole sv. Františka z Assisi vznikol v jubilejnom roku 2000. Svojím spevom a hrou potešuje srdcia veriacich počas „mládežníckych“ svätých omší v prvý piatok mesiaca a pri iných rôznych slávnostných príležitostiach (napr. 1. sv. prijímanie, birmovka, sobáše a iné).
                 </p>
@@ -38,8 +35,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Cirkevná dychová hudba">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Korene dychovej hudby v Detve siahajú do rokov 1918 - 1919. Jej aktívnu činnosť podnietil dekan Ján Štrbáň. Po príchode organistu Martina Valenta do Detvy v roku 1922 sa zásluhou jeho hudobného vzdelania a talentu detvianska dychová hudba rozrástla. Cirkevná dychová hudba okrem hrania na bohoslužbách, procesiách a púťach hráva aj na rôznych kultúrnych a spoločenských podujatiach.
                 </p>

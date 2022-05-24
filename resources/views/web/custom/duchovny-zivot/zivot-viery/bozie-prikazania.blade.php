@@ -5,8 +5,7 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Dar Desatora bol daný v rámci zmluvy, ktorú Boh uzavrel so svojím ľudom. Božie prikázania nadobúdajú svoj pravý význam v tejto zmluve a prostredníctvom nej. Tradícia Cirkvi verná Svätému písmu a v zhode s Ježišovým príkladom priznala Dekalógu prvoradú dôležitosť a význam. Desatoro tvorí organickú jednotu, v ktorej každé „slovo“ alebo „prikázanie“ odkazuje na celok. Prestúpiť jedno prikázanie znamená poručiť celý zákon. Desatoro je vynikajúcim vyjadrením prirodzeného zákona: poznávame ho prostredníctvom Božieho zjavenia a ľudským rozumom. To, čo Boh prikazuje, umožňuje svojou milosťou.
                 </p>
@@ -14,8 +13,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="I. Ja som Pán, tvoj Boh: Nebudeš mať okrem mňa iných bohov, ktorým by si sa klaňal">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromright">
+                <x-web.page.text-segment animation="fromright">
                 <p>
                     Prvé prikázanie vyzýva človeka, aby veril v Boha, dúfal v neho a miloval ho nadovšetko. Klaňať sa Bohu, modliť sa k nemu, vzdávať mu pravý kult, plniť prisľúbenia a sľuby, ktoré mu boli dané, sú úkony čnosti nábožnosti, ktoré pochádzajú z poslušnosti voči prvému prikázaniu. Povinnosť preukazovať Bohu pravý kult sa týka tak jednotlivého človeka, ako aj spoločnosti. Človek má mať možnosť slobodne vyznávať náboženstvo súkromne i verejne.
                 </p>
@@ -26,8 +24,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="II. Nevezmeš Božie meno nadarmo" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Druhé prikázanie prikazuje mať v úcte Pánovo meno, ktoré je sväté. Zakazuje akékoľvek nevhodné použitie Božieho mena. Rúhanie spočíva v používaní Božieho mena, mena Ježiša Krista, Panny Márie a svätých urážlivým spôsobom. Krivá prísaha volá Boha, aby dosvedčoval lož. Krivoprísažníctvo je ťažkým previnením proti Pánovi, ktorý je vždy verný svojom prisľúbeniam.
                 </p>
@@ -41,8 +38,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="III. Pamätaj, že máš svätiť sviatočné dni">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Sobotu, ktorá predstavovala zavŕšenie prvého stvorenia, nahradila nedeľa pripomínajúca nové stvorenie, ktoré sa začalo Kristovým zmŕtvychvstaním. Cirkev slávi deň Kristovho zmŕtvychvstania v ôsmy deň, ktorý sa právom volá deň Pána alebo nedeľa.
                 </p>
@@ -56,8 +52,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="IV. Cti svojho otca a svoju matku" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Podľa štvrtého prikázania Boh chcel, aby sme po ňom ctili svojich rodičov a tých, ktorých pre naše dobro obdaril autoritou. Manželské spoločenstvo je založené na zmluve a súhlase manželov. Manželstvo a rodina sú zamerané na dobro manželov a na plodenie a výchovu detí. Deti si majú ctiť svojich rodičov, byť im vďačné, náležite ich poslúchať a pomáhať im. Úcta k rodičom prispieva k súladu celého rodinného života.
                 </p>
@@ -71,8 +66,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="V. Nezabiješ">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Každý ľudský život od chvíle počatia až po smrť je posvätný, pretože ľudská osoba je chcená pre ňu samu na obraz a podobu živého a svätého Boha. Vražda ľudskej bytosti je v závažnom rozpore s dôstojnosťou osoby a so svätosťou jej Stvoriteľa. Zákaz vraždy neruší právo zneškodniť nespravodlivého útočníka. Oprávnená obrana je závažnou povinnosťou pre toho, kto je zodpovedný za život iných alebo za spoločné dobro.
                 </p>
@@ -89,8 +83,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="VI. Nezosmilníš" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Tým, že Boh stvoril človeka ako muža a ženu, obdaril obidvoch rovnakou osobnou dôstojnosťou. Každý človek, muž i žena, má uznať a prijať svoju sexuálnu totožnosť. Každý pokrstený je povolaný viesť čistý život, a to každý podľa svojho životného stavu. Kristus je vzor čistoty. Čistota znamená integráciu sexuality do ľudskej osoby. Predpokladá naučiť sa osobnému sebaovládaniu. Spomedzi hriechov, ktoré sú v závažnom rozpore s čistotou, treba spomenúť masturbáciu, smilstvo, pornografiu a homosexuálne styky. Cudzoložstvo a rozvod, polygamia a voľný zväzok (voľná láska) sú ťažkými previneniami proti dôstojnosti manželstva.
                 </p>
@@ -101,8 +94,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="VII. Nepokradneš">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Siedme prikázanie prikazuje praktizovať spravodlivosť a lásku pri spravovaní pozemských dobier a plodov ľudskej práce. Stvorené dobrá sú určené celému ľudskému pokoleniu. Právo na súkromné vlastníctvo neruší všeobecné určenie dobier.
                 </p>
@@ -119,8 +111,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="VIII. Nebudeš krivo svedčiť proti svojmu blížnemu" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Pravdivosť alebo pravdovravnosť je čnosť, ktorá spočíva v tom, že sa človek prejavuje pravdivý vo svojich skutkoch a svojimi slovami hovorí pravdu, pričom sa vystríha dvojtvárnosti, pretvárky a pokrytectva. Kresťan sa nemá hanbiť za svedectvo v prospech nášho Pána skutkom ani slovom. Mučeníctvo je najvyššie svedectvo o pravde viery.
                 </p>
@@ -134,8 +125,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="IX. Nebudeš žiadostivo túžiť po manželke svojho blížneho">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment>
+                <x-web.page.text-segment>
                 <p>
                     Deviate prikázanie varuje pred nezriadenou telesnou túžbou alebo telesnou žiadostivosťou. Boj proti telesnej žiadostivosti zahŕňa v sebe očisťovanie srdca a praktizovanie miernosti. Čistota srdca nám umožní vidieť Boha; už teraz nám umožňuje vidieť všetko z hľadiska Boha. Očisťovanie srdca vyžaduje modlitbu, zachovávanie čistoty a čistý úmysel i pohľad. Čistota srdca si vyžaduje cudnosť, ktorá je trpezlivosťou, skromnosťou a diskrétnosťou. Cudnosť chráni intimitu osoby.
                 </p>
@@ -143,8 +133,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="X. Nebudeš túžiť po majetku svojho blížneho" animation="fromleft">
-            {{-- <x-partials.picture titleSlug="blank" animation="fromright" dimensionSource="full" columns="4" /> --}}
-            <x-web.page.text-segment animation="fromleft">
+                <x-web.page.text-segment animation="fromleft">
                 <p>
                     Desiate prikázanie zakazuje nezriadenú žiadostivosť pochádzajúcu z nemiernej túžby po bohatstve a jeho moci. Závisť je smútok, ktorý človek pociťuje nad dobrom druhého a nemierna túžba prisvojiť si toto dobro. Je jedným z hlavných hriechov. Pokrstený bojuje proti závisti dobroprajnosťou, pokorou a odovzdanosťou do Božej prozreteľnosti.
                 </p>
