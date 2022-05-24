@@ -24,7 +24,7 @@
         @isset($pageData)
             @if(count($pageData['banners']) > 0)
                 <x-web.sections.banner
-                    :header="$pageData['title']"
+                    :header="$pageData['header']"
                     :breadcrumb="$pageData['breadCrumb']"
                     :titleSlug="$pageData['banners']"
                     dimensionSource="full"
