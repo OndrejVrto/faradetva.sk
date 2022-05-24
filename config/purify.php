@@ -98,7 +98,7 @@ return [
         |
         */
 
-        'CSS.AllowedProperties' => 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align,link-template',
+        'CSS.AllowedProperties' => 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align,link-template,text-church-template-blue,ps-5',
 
         /*
         |--------------------------------------------------------------------------
@@ -114,7 +114,7 @@ return [
         |
         */
 
-        'AutoFormat.AutoParagraph' => false,
+        'AutoFormat.AutoParagraph' => true,
 
         /*
         |--------------------------------------------------------------------------
