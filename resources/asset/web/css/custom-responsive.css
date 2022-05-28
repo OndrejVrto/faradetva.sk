@@ -431,15 +431,17 @@
 	}
 
 	/*==== testimonial css ====*/
-	.slider_captions h1 {
-		font-size  : 40px;
+	/* .slider_captions h1 {
+        font-size  : 40px;
 		line-height: 50px;
+        min-height : 40px;
 	}
 
 	.slider_captions .heading_1 {
-		font-size  : 55px;
+        min-height : 55px;
+        font-size  : 55px;
 		line-height: 60px;
-	}
+	} */
 }
 
 @media(max-width:610px) {
