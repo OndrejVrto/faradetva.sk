@@ -1,6 +1,9 @@
-@section('title', 'Články' )
-@section('description', 'Novinky a čLánky farnosti Detva.' )
-@section('keywords', 'novinky, články, správy, informácie, farnosť Detva, oznamy, ')
+@php
+    SEOMeta::setTitle('Články');
+    SEOMeta::setDescription('Informácie o najnovšom dianí vo farnosti, zaujímavosti pre duchovný život.');
+    SEOMeta::addKeyword('Detva, farnosť, spoločenstvo, život viery, liturgia, komunita, pastorácia, modlitba, Boh, Cirkev, aktuality, zamyslenia, úvahy, názory');
+    // @section('teaser', 'Najnovšie články, udalosti, zamyslenia, pozvánky, informácie, oznámenia zo života vo farnosti, alebo články na podporu duchovného života členov farnosti, prípadne iných záujemcov o prehĺbenie viery či reflexiu kresťanského spôsobu života.')
+@endphp
 
 <x-web.layout.master>
 

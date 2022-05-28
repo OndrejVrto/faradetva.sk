@@ -1,6 +1,13 @@
-@section('title', $oneNews->title )
-@section('description', $oneNews->teaser )
-@section('keywords', 'novinky, článok, správa, informácia, farnosť Detva, oznam, udalosť, správa')
+@php
+    $words = 'novinky, článok, správa, informácia, farnosť Detva, oznam, udalosť';
+    foreach ($oneNews->tags as $tag) {
+        $words .= ', '.$tag->title;
+    }
+    SEOMeta::setTitle(e($oneNews->title));
+    SEOMeta::setDescription(e($oneNews->teaser));
+    SEOMeta::addKeyword(e($words));
+    SEOMeta::addMeta('author', e($oneNews->user->name), 'name');
+@endphp
 
 <x-web.layout.master>
 
@@ -30,7 +37,7 @@
                             <div class="blog_info">
                                 <span>
                                     <a href="{{ route('article.author', $oneNews->user->slug) }}">
-                                        <i class="fa-regular fa-user" aria-hidden="true"></i>{{ $oneNews->user->name}}
+                                        <i class="fa-regular fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}
                                     </a>
                                 </span>
                                 <span>
