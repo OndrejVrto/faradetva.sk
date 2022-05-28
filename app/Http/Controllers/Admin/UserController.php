@@ -151,6 +151,6 @@ class UserController extends Controller
         $user->forceDelete();
 
         toastr()->success(__('app.user.force-delete'));
-        return to_route('users.index');
+        return to_route('users.index', ['only-deleted' => 'true']);
     }
 }

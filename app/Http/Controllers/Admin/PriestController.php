@@ -77,6 +77,6 @@ class PriestController extends Controller
         $priest->forceDelete();
 
         toastr()->success(__('app.priest.force-delete'));
-        return to_route('priests.index');
+        return to_route('priests.index', ['only-deleted' => 'true']);
     }
 }

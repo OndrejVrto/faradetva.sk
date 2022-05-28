@@ -61,7 +61,7 @@ class StaticPageController extends Controller
         $validated = $request->validated();
 
         $staticPage->update(StaticPage::sanitize($validated));
-        $staticPage->source()->updateOrCreate(Source::sanitize($validated));
+        $staticPage->source()->updateOrCreate(Source::sanitize($validated));   //TODO: after develop change to update
         $staticPage->banners()->sync($request->input('banner'));
         $staticPage->touch(); // Touch because i need start observer for delete cache
 
@@ -96,6 +96,6 @@ class StaticPageController extends Controller
         $staticPage->forceDelete();
 
         toastr()->success(__('app.static-page.force-delete'));
-        return to_route('static-pages.index');
+        return to_route('static-pages.index', ['only-deleted' => 'true']);
     }
 }

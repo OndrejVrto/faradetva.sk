@@ -70,6 +70,6 @@ class TagController extends Controller
         $tag->forceDelete();
 
         toastr()->success(__('app.tag.force-delete'));
-        return to_route('tags.index');
+        return to_route('tags.index', ['only-deleted' => 'true']);
     }
 }

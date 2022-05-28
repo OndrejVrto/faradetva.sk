@@ -80,6 +80,6 @@ class CategoryController extends Controller
         $category->forceDelete();
 
         toastr()->success(__('app.category.force-delete'));
-        return to_route('categories.index');
+        return to_route('categories.index', ['only-deleted' => 'true']);
     }
 }

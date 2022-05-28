@@ -84,6 +84,6 @@ class SliderController extends Controller
         $slider->forceDelete();
 
         toastr()->success(__('app.slider.force-delete'));
-        return to_route('sliders.index');
+        return to_route('sliders.index', ['only-deleted' => 'true']);
     }
 }

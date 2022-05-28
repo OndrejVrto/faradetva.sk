@@ -157,6 +157,6 @@ class NewsController extends Controller
         $news->forceDelete();
 
         toastr()->success(__('app.news.force-delete'));
-        return to_route('news.index');
+        return to_route('news.index', ['only-deleted' => 'true']);
     }
 }

@@ -92,6 +92,6 @@ class PrayerController extends Controller
         $prayer->forceDelete();
 
         toastr()->success(__('app.prayer.force-delete'));
-        return to_route('prayers.index');
+        return to_route('prayers.index', ['only-deleted' => 'true']);
     }
 }

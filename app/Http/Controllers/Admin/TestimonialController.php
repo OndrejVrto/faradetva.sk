@@ -77,6 +77,6 @@ class TestimonialController extends Controller
         $testimonial->forceDelete();
 
         toastr()->success(__('app.testimonial.force-delete'));
-        return to_route('testimonials.index');
+        return to_route('testimonials.index', ['only-deleted' => 'true']);
     }
 }

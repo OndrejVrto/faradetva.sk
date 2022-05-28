@@ -113,6 +113,6 @@ class NoticeController extends Controller implements CrudInterface
         $model->forceDelete();
 
         toastr()->success(__('app.'.$this->resource.'.force-delete'));
-        return to_route($this->resource.'.index');
+        return to_route($this->resource.'.index', ['only-deleted' => 'true']);
     }
 }

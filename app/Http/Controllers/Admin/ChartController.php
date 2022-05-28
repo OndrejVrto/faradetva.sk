@@ -81,6 +81,6 @@ class ChartController extends Controller
         $chart->forceDelete();
 
         toastr()->success(__('app.chart.force-delete'));
-        return to_route('charts.index');
+        return to_route('charts.index', ['only-deleted' => 'true']);
     }
 }
