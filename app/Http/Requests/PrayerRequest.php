@@ -48,7 +48,7 @@ class PrayerRequest extends BaseRequest
     protected function prepareForValidation() {
         $this->merge([
             'title' => Str::replace(',', ' ', $this->title),
-            'slug'  => Str::slug($this->name.'-'.$this->title)
+            'slug'  => Str::slug($this->name)
         ]);
     }
 }
