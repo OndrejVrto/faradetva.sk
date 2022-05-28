@@ -36,17 +36,16 @@
     </div>
 
     <div class="form-row">
-        <div class="col-xl-5">
+        <div class="col-xl-3">
             <x-adminlte-input
-                name="title"
-                label="Názov modlitby"
-
+                name="name"
+                label="Pracový názov"
                 enableOldSupport="true"
-                value="{{ $prayer->title ?? '' }}"
-                >
+                value="{{ $prayer->name ?? '' }}"
+            >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
-                        <i class="fa-regular fa-flag"></i>
+                        <i class="fa-solid fa-monument"></i>
                     </div>
                 </x-slot>
                 @error('slug')
@@ -56,14 +55,29 @@
                 @enderror
             </x-adminlte-input>
         </div>
-        <div class="col-xl-7">
+
+        <div class="col-xl-5">
+            <x-adminlte-input
+                name="title"
+                label="Titulok modlitby"
+                enableOldSupport="true"
+                value="{{ $prayer->title ?? '' }}"
+            >
+                <x-slot:prependSlot>
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fa-regular fa-flag"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        </div>
+
+        <div class="col-xl-4">
             <x-adminlte-input
                 name="quote_author"
-
                 label="Autor modlitby / odkaz do svätého písma"
                 enableOldSupport="true"
                 value="{{ $prayer->quote_author ?? '' }}"
-                >
+            >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fa-solid fa-pray"></i>
@@ -74,12 +88,11 @@
     </div>
 
     <x-adminlte-input
-        {{-- fgroupClass="mb-1" --}}
         name="quote_row1"
         label="Prvý riadok modlitby"
         enableOldSupport="true"
         value="{{ $prayer->quote_row1 ?? '' }}"
-        >
+    >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fa-solid fa-dice-one"></i>
@@ -88,12 +101,11 @@
     </x-adminlte-input>
 
     <x-adminlte-input
-        {{-- fgroupClass="mb-1" --}}
         name="quote_row2"
         label="Druhý riadok modlitby"
         enableOldSupport="true"
         value="{{ $prayer->quote_row2 ?? '' }}"
-        >
+    >
         <x-slot:prependSlot>
             <div class="input-group-text bg-gradient-orange">
                 <i class="fa-solid fa-dice-two"></i>
@@ -108,7 +120,7 @@
                 label="Text tlačítka"
                 enableOldSupport="true"
                 value="{{ $prayer->quote_link_text ?? '' }}"
-                >
+            >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fa-solid fa-external-link-alt"></i>
@@ -121,8 +133,8 @@
                 name="quote_link_url"
                 label="Link tlačítka (url)"
                 enableOldSupport="true"
-                value="{{ $prayer->quote_link ?? '' }}"
-                >
+                value="{{ $prayer->quote_link_url ?? '' }}"
+            >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
                         <i class="fa-solid fa-link"></i>

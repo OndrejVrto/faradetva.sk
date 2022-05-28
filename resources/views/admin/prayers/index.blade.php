@@ -9,7 +9,7 @@
 
 @section('content')
     <x-admin.table
-        columns="10"
+        columns="12"
         controlerName="prayers"
         createBtn="Pridať novú modlitbu"
         paginator="{{ $prayers->onEachSide(1)->links() }}"
@@ -17,11 +17,12 @@
 
         <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
-            <x-admin.table.th-check-active/>
-            <x-admin.table.th width="20%" class="text-center">Obrázok</x-admin.table.th>
-            <x-admin.table.th>Titulka</x-admin.table.th>
-            <x-admin.table.th>Text modlitby</x-admin.table.th>
-            <x-admin.table.th>Autor / citácia</x-admin.table.th>
+            {{-- <x-admin.table.th-check-active/> --}}
+            <x-admin.table.th width="20%" colspan="2" class="text-center">Obrázok</x-admin.table.th>
+            <x-admin.table.th>Pracovný názov</x-admin.table.th>
+            {{-- <x-admin.table.th>Titulka</x-admin.table.th> --}}
+            <x-admin.table.th>Titulka / Text modlitby</x-admin.table.th>
+            <x-admin.table.th colspan="2">Link / Autor</x-admin.table.th>
             <x-admin.table.th-actions />
         </x-slot>
 
@@ -36,8 +37,16 @@
                         class="img-fluid px-3"
                         alt="picture: {{ $prayer->title }}"/>
                     </x-admin.table.td>
-                    <x-admin.table.td class="text-wrap text-break">{{ $prayer->title }}</x-admin.table.td>
-                    <x-admin.table.td class="text-wrap text-break">{{ $prayer->quote_row1 }}<br>{{ $prayer->quote_row2 }}</x-admin.table.td>
+                    <x-admin.table.td class="text-wrap text-break">{{ $prayer->slug }}</x-admin.table.td>
+                    {{-- <x-admin.table.td class="text-wrap text-break">{{ $prayer->title }}</x-admin.table.td> --}}
+                    <x-admin.table.td class="text-wrap text-break">
+                        <span class="text-bold">{{ $prayer->title }}</span>
+                        <br>
+                        {{ $prayer->quote_row1 }}
+                        <br>
+                        {{ $prayer->quote_row2 }}
+                    </x-admin.table.td>
+                    <x-admin.table.td-check-active check="{{ isset($prayer->quote_link_url) }}"/>
                     <x-admin.table.td>{{ $prayer->quote_author }}</x-admin.table.td>
                     <x-admin.table.td class="text-center">
                         <a  href="{{ url($prayer->getFirstMediaUrl($prayer->collectionName) ?: '#') }}"

@@ -16,7 +16,8 @@ class PrayerRequest extends BaseRequest
     public function rules(): array {
         return [
             'active'       => $this->reqBoolRule(),
-            'title'        => $this->reqStrRule(),
+            'name'         => $this->reqStrRule(),
+            'title'        => $this->nullStrRule(),
             'slug'         => Rule::unique('prayers', 'slug')->ignore($this->prayer)->withoutTrashed(),
             'quote_row1'   => $this->reqStrRule(),
             'quote_row2'   => $this->nullStrRule(),
@@ -47,7 +48,7 @@ class PrayerRequest extends BaseRequest
     protected function prepareForValidation() {
         $this->merge([
             'title' => Str::replace(',', ' ', $this->title),
-            'slug'  => Str::slug($this->title)
+            'slug'  => Str::slug($this->name.'-'.$this->title)
         ]);
     }
 }

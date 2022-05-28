@@ -29,6 +29,7 @@ class Prayer extends BaseModel implements HasMedia {
 
     protected $fillable = [
         'active',
+        'name',
         'title',
         'slug',
         'quote_row1',

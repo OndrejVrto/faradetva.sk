@@ -13,6 +13,7 @@ return new class extends Migration
             $table->id();
 
             $table->boolean('active')->default(1);
+            $table->string('name');
             $table->string('title');
             $table->string('slug');
             $table->string('quote_row1');

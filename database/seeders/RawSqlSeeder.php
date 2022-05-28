@@ -13,7 +13,7 @@ class RawSqlSeeder extends Seeder
     public function run(): void {
 
         $sqlFiles = [
-            'prayers',
+            // 'prayers',
             'day-ideas',
             'static_pages',
             'site-search-config',
