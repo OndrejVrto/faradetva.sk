@@ -2,8 +2,8 @@
 
 namespace App\View\Components\Web\Sections;
 
-use Spatie\Image\Image;
 use App\Facades\SeoSchema;
+use Illuminate\Support\Str;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
@@ -32,7 +32,7 @@ class Priests extends Component
             ->with('media')
             ->get()
             ->map(function($priest): array {
-                return $this->getImage($priest) + [
+                return [
                     'id'                => $priest->id,
 
                     'titles_before'     => $priest->titles_before,
@@ -44,35 +44,21 @@ class Priests extends Component
                     'phone'             => $priest->phone,
                     'phone_digits'      => $priest->phone_digits,
                     'email'             => $priest->email,
-                    'personal_url'      => null,  //TODO:
-                    'facebook'          => null,  //TODO:
-                    'twitter'           => null,  //TODO:
+                    'personal_url'      => $priest->www_page,
+                    'facebook'          => $priest->facebook_url,
+                    'twitter'           => $priest->twiter_name,
 
                     'function'          => $priest->function,
 
-                    'description_clean' => $priest->description,
+                    'description_clean' => Str::plainText($priest->description),
                     'description'       => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
+
+                    'img-url'           => isset($priest->media[0]) ? $priest->media[0]->getUrl('crop') : 'http://via.placeholder.com/230x270',
+                    'img-height'        => '270',
+                    'img-width'         => '230',
                 ];
         })
         ->toArray();
-    }
-
-    private function getImage($priest): array {
-        if ($priest->getFirstMedia()) {
-            $colectionName = $priest->media[0]->collection_name;  // TODO: Delete colection name
-            $media = $priest->getFirstMedia($colectionName);
-            return [
-                'img-url'           => $media->getUrl('crop'),
-                'img-height'        => Image::load( $media->getPath('crop') )->getHeight(),
-                'img-width'         => Image::load( $media->getPath('crop') )->getWidth(),
-            ];
-        } else {
-            return [
-                'img-url'           => 'http://via.placeholder.com/230x270',
-                'img-height'        => '270',
-                'img-width'         => '230',
-            ];
-        }
     }
 
     private function setSeoMetaTags(array $priestData): void {
