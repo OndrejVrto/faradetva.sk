@@ -1,24 +1,20 @@
 @php
-    // master classes
-    $classes[] = 'position-relative mb-4 mt-1';
+    // master class
+    $class[] = 'position-relative mb-4 mt-2';
     // set width picture
-    $maxXXL = max(0, min($columns, 12));
-    $maxXL = max(0, min($columns + 1, 12));
-    $maxLG = max(0, min($columns + 2, 12));
-    $maxMD = max(0, min($columns + 3, 12));
-    $maxSM = max(0, min($columns + 4, 12));
-    $classes[] = "col-12 col-sm-".$maxSM." col-md-".$maxMD." col-lg-".$maxLG." col-xl-".$maxXL." col-xxl-".$maxXXL;
+    $class[] = "col-12";
+    $class[] = "col-sm-".$classColumns['maxSM'];
+    $class[] = "col-md-".$classColumns['maxMD'];
+    $class[] = "col-lg-".$classColumns['maxLG'];
+    $class[] = "col-xl-".$classColumns['maxXL'];
+    $class[] = "col-xxl-".$classColumns['maxXXL'];
     // set side picture in page
-    if($side == 'left'){
-        $classes[] = 'me-sm-4 float-sm-start';
-    } elseif($side == 'right') {
-        $classes[] = 'ms-sm-4 float-sm-end';
-    }
+    $class[] = ($side == 'right') ? 'ms-sm-4 float-sm-end' : 'me-sm-4 float-sm-start';
     // set animation picture
-    $classes[] = 'wow ' . $animation;
+    $class[] = 'wow '.$animation;
 @endphp
 
-<div {{ $attributes->merge(['class' => implode(' ', $classes)]) }} title="{{ $picture['source_description'] }}">
+<div {{ $attributes->merge(['class' => implode(' ', $class)]) }} title="{{ $picture['source_description'] }}">
 
     <x-partials.source-sentence
         :dimensionSource="$dimensionSource"

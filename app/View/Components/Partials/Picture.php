@@ -12,6 +12,7 @@ use App\Models\Picture as PictureModel;
 class Picture extends Component
 {
     public $picture;
+    public array $classColumns;
 
     private const SIDE = [
         'left',
@@ -46,7 +47,8 @@ class Picture extends Component
 
     public function __construct(
         private string $titleSlug,
-        public int|null $columns = 4,
+        private int|null $columns = 4,
+        private int|null $maxColumns = 7,
         public string|null $side = null,
         public string|null $animation = null,
         public string|null $dimensionSource = 'full',
@@ -57,48 +59,9 @@ class Picture extends Component
             ? $animation
             : 'from'.$this->side ;
 
-        $this->picture = PictureModel::query()
-            ->whereSlug($titleSlug)
-            ->with('mediaOne', 'source')
-            ->get()
-            ->map(function($img) {
-                $colectionName = $img->mediaOne->collection_name;
-                $media = $img->getFirstMedia($colectionName);
+        $this->classColumns = $this->solveColumns($columns, $maxColumns);
 
-                return [
-                    'img-title'   => $img->title,
-                    'img-slug'    => $img->slug,
-                    'img-updated' => $img->updated_at,
-                    'img-width'   => $img->crop_output_width,
-                    'img-height'  => $img->crop_output_height,
-
-                    'responsivePicture'  => (string) $media
-                                            ->img('optimize', [
-                                                'id' => 'pic-'.$img->slug,
-                                                'class' => 'w-100 img-fluid',
-                                                'alt' => $img->source->source_description,
-                                                // 'title' => $img->source->source_description,
-                                                // 'title' => $img->title,
-                                                'nonce' => csp_nonce(),
-                                                'height' => $img->crop_output_height,
-                                                'width' => $img->crop_output_width,
-                                            ]),
-                    // 'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
-                    'url'                => $media->getUrl('optimize'),
-                    'img-mime'           => $media->mime_type,
-
-                    'source_description' => $img->source->source_description,
-                    'sourceArr' => [
-                        'source_source'      => $img->source->source_source,
-                        'source_source_url'  => $img->source->source_source_url,
-                        'source_author'      => $img->source->source_author,
-                        'source_author_url'  => $img->source->source_author_url,
-                        'source_license'     => $img->source->source_license,
-                        'source_license_url' => $img->source->source_license_url,
-                    ],
-                ];
-            })
-            ->first();
+        $this->picture = $this->getPicture($titleSlug);
 
         $this->setSeoMetaTags($this->picture);
     }
@@ -108,6 +71,72 @@ class Picture extends Component
             return view('components.partials.picture.index');
         }
         return null;
+    }
+
+
+    private function solveColumns(int $columns, int $maxColumns = 7): array {
+        $class['maxXXL'] = $this->cropValue($columns + 0, $maxColumns);
+        $class['maxXL']  = $this->cropValue($columns + 1, $maxColumns);
+        $class['maxLG']  = $this->cropValue($columns + 2, $maxColumns);
+        $class['maxMD']  = $this->cropValue($columns + 3, $maxColumns);
+        $class['maxSM']  = $this->cropValue($columns + 4, $maxColumns);
+
+        return $class;
+    }
+
+    private function cropValue(int $value, int $max): int {
+        if ($value < 1) {
+            return 1;
+        }
+        if ($value > 12 or $value > $max) {
+            return 12;
+        }
+        return $value;
+    }
+
+    private function getPicture($slug): array {
+        return PictureModel::query()
+        ->whereSlug($slug)
+        ->with('mediaOne', 'source')
+        ->get()
+        ->map(function($img) {
+            $colectionName = $img->mediaOne->collection_name;
+            $media = $img->getFirstMedia($colectionName);
+
+            return [
+                'img-title'   => $img->title,
+                'img-slug'    => $img->slug,
+                'img-updated' => $img->updated_at,
+                'img-width'   => $img->crop_output_width,
+                'img-height'  => $img->crop_output_height,
+
+                'responsivePicture'  => (string) $media
+                                        ->img('optimize', [
+                                            'id' => 'pic-'.$img->slug,
+                                            'class' => 'w-100 img-fluid',
+                                            'alt' => $img->source->source_description,
+                                            // 'title' => $img->source->source_description,
+                                            // 'title' => $img->title,
+                                            'nonce' => csp_nonce(),
+                                            'height' => $img->crop_output_height,
+                                            'width' => $img->crop_output_width,
+                                        ]),
+                // 'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
+                'url'                => $media->getUrl('optimize'),
+                'img-mime'           => $media->mime_type,
+
+                'source_description' => $img->source->source_description,
+                'sourceArr' => [
+                    'source_source'      => $img->source->source_source,
+                    'source_source_url'  => $img->source->source_source_url,
+                    'source_author'      => $img->source->source_author,
+                    'source_author_url'  => $img->source->source_author_url,
+                    'source_license'     => $img->source->source_license,
+                    'source_license_url' => $img->source->source_license_url,
+                ],
+            ];
+        })
+        ->first();
     }
 
     private function setSeoMetaTags(array $pictureData): void {
