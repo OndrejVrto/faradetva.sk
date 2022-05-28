@@ -2,10 +2,10 @@
 
     {{-- Päť cirkevných prikázaní --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromleft">
                 <p>
                     Učiteľský úrad pastierov Cirkvi sa v morálnej oblasti zvyčajne vykonáva katechézou a kázaním na základe Desatora, ktoré vyjadruje zásady mravného života platné pre všetkých ľudí. Cirkevné prikázania sa nachádzajú v tejto línii mravného života, ktorý je úzko spätý s liturgickým životom a ním sa živí. Záväzný ráz týchto pozitívnych zákonov vynesený pastorálnou autoritou Cirkvi má za cieľ zabezpečiť veriacim naozaj potrebné minimum ducha modlitby, morálneho úsilia a rastu v láske k Bohu a k blížnemu.
                 </p>
@@ -16,10 +16,14 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="I. V nedeľu a v prikázaný sviatok sa zúčastniť celej svätej omše">
-                <x-web.page.text-segment>
+            <x-web.page.text-segment>
+
+                <x-partials.picture titleSlug="cpr-001" side="right" dimensionSource="full" columns="5" />
+
                 <p>
                     Prvé cirkevné prikázanie vyžaduje od veriacich, aby svätili deň, v ktorom sa pripomína Pánovo zmŕtvychvstanie, ako aj hlavné liturgické sviatky, ktorými sa uctievajú tajomstvá Pána, preblahoslavenej Panny Márie a svätých, a to predovšetkým účasťou na slávení Eucharistie, na ktorom sa zhromažďuje kresťanské spoločenstvo, a aby sa zdržiavali tých prác, ktoré by mohli prikázanému sväteniu týchto dní prekážať.
                 </p>
+
                 <p>
                     Prikázané sviatky:
                         <ul>
@@ -38,7 +42,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="II. Zachovávať prikázané dni pokánia" animation="fromleft">
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromleft">
                 <p>
                     Konať skutky kajúcnosti každý piatok a na Popolcovú stredu zabezpečuje obdobia askézy a pokánia, ktoré nás pripravujú na liturgické sviatky a prispieva k tomu, že získavame nadvládu nad svojimi pudmi a slobodu srdca. Pokánie sa prejavuje veľmi rozmanitými formami, najmä pôstom, modlitbou a almužnou. Tieto a mnohé iné formy pokánia môže kresťan praktizovať v každodennom živote, najmä v Pôstnom období a v piatky, dni kajúcnosti.
                 </p>
@@ -58,19 +62,30 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
+    </x-web.page.section>
+
+    <x-web.sections.background-picture titleSlug="cpr-002"/>
+
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection title="III. Aspoň raz v roku sa vyspovedať a vo Veľkonočnom období prijať Oltárnu sviatosť">
-                <x-web.page.text-segment>
+            <x-web.page.text-segment>
+
+                <x-partials.picture titleSlug="cpr-003" side="right" dimensionSource="medium" columns="2" />
+
                 <p>
                     Tretie prikázanie na jednej strane zabezpečuje prípravu na Eucharistiu prijatím sviatosti zmierenia, ktorou pokračuje dielo obrátenia a odpustenia začaté v krste, a na druhej strane zaručuje minimum prijatia Pánovho tela a krvi v súvislosti s veľkonočnými sviatkami, ktoré sú počiatkom a stredom kresťanskej liturgie.
                 </p>
                 <p>
                     Každý veriaci, keď dosiahol vek usudzovania, je povinný vyspovedať sa zo svojich ťažkých hriechov aspoň raz do roka a v každom prípade prv, ako pristúpi k svätému prijímaniu. Hoci spoveď zo všedných hriechov nie je striktne potrebná, Cirkev ju veľmi odporúča, lebo ona nám pomáha formovať si správne svedomie, bojovať proti nezriadeným náklonnostiam, nechať sa liečiť Kristom a robiť pokroky v živote podľa Ducha Svätého.
                 </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection>
 
-        <x-web.page.subsection title="IV. Uzatvárať manželstvo pred tvárou Cirkvi" animation="fromleft">
-                <x-web.page.text-segment animation="fromleft">
+                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
+                    IV. Uzatvárať manželstvo pred tvárou Cirkvi
+                </h3>
+
+                <x-partials.picture titleSlug="cpr-004" side="left" dimensionSource="medium" columns="5" />
+
                 <p>
                     Sviatosť manželstva je znakom spojenia Krista a Cirkvi. Dáva manželom milosť milovať sa láskou, akou Kristus miloval svoju Cirkev; takto milosť sviatosti zdokonaľuje ľudskú lásku manželov, posilňuje ich nerozlučiteľnú jednotu a posväcuje ich na ceste do večného života. Manželstvo sa zakladá na súhlase manželov, t. j. na vôli vzájomne a definitívne sa darovať s cieľom žiť podľa zmluvy vernej a plodnej lásky.
                 </p>
@@ -84,7 +99,10 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="V. Podporovať cirkevné ustanovizne">
-                <x-web.page.text-segment>
+            <x-web.page.text-segment>
+
+                <x-partials.picture titleSlug="cpr-005" side="right" dimensionSource="medium" columns="3" />
+
                 <p>
                     Katolícka cirkev môže na základe vrodeného práva nezávisle od občianskej moci nadobúdať, vlastniť, spravovať a scudzovať časné majetky na dosahovanie cieľov, ktoré sú jej vlastné. Vlastnými cieľmi sú najmä: usporadúvať božský kult, starať sa o slušné materiálne zabezpečenie kléru a iných služobníkov, vykonávať diela posvätného apoštolátu a dobročinnej lásky najmä voči chudobným.
                 </p>

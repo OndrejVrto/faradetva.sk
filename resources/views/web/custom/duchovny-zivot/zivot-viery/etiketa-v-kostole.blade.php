@@ -2,10 +2,10 @@
 
     {{-- Etiketa platí aj v kostole --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromleft">
                 <p>
                     Človek, ktorý vchádza do kostola a chce sa zúčastniť na slávení svätej omše, by mal byť čisto, vkusne a aj trochu sviatočne oblečený. Dámy by sa mali vyhnúť mikrosukniam a hlbokým výstrihom, páni krátkym nohaviciam. To, čo si dnes najmä v lete ľudia obliekajú do kostola, je vhodné skôr na kúpalisko. Možno niekto namietne, že vo svojom voľnom čase sa môže obliecť, ako chce. No nie je účasť na svätej omši slávnostným a radostným trávením voľného času? Nie je to svetlý bod všedného života? Tomu by potom malo zodpovedať oblečenie a aj naše správanie.
                 </p>
@@ -13,7 +13,10 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Ako je to so sedením v lavici?">
-                <x-web.page.text-segment>
+            <x-web.page.text-segment>
+
+                <x-partials.picture titleSlug="etik-005" side="right" dimensionSource="medium" columns="6" />
+
                 <p>
                     Na kraji sedí muž, žena by tam nemala sedieť. Ak vchádzajú muž a žena do lavice, ktorá je už skraja obsadená, prvý do lavice vstupuje muž, aby žene uvoľňoval cestu. K sediacim ľuďom sa otáčame tvárou. Lavice v kostoloch sú však zvyčajne úzke, preto by sa mali obsadzovať zo stredu, nie od kraja.
                 </p>
@@ -33,7 +36,10 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Ako reagovať na rušivé vplyvy?" animation="fromleft">
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromleft">
+
+                <x-partials.picture titleSlug="etik-001" side="left" dimensionSource="medium" columns="4" />
+
                 <p>
                     Ako upozorniť ľudí, ktorí sa pred nami alebo za nami počas svätej omše rozprávajú? Všetko je o komunikácii. Rozprávajúcich sa treba upozorniť vhodne, čo najkratšie a najúctivejšie, aj s milým úsmevom. Nikdy totiž nevieme, prečo a o čom sa môžu rozprávať, hoci by sa rozprávať nemali.
                 </p>
@@ -46,11 +52,20 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
+    </x-web.page.section>
+
+    <x-web.sections.background-picture titleSlug="etik-003"/>
+
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection title="Na čo by sme mali dávať pozor?">
-                <x-web.page.text-segment>
+            <x-web.page.text-segment>
                 <p>
                     Keď v kostole zbadáme známeho, ktorý je od nás ďaleko a chceme ho pozdraviť, stačí ho skontaktovať očami, pousmiať sa, kývnuť hlavou. Keď sa s ním chceme rozprávať, môžeme ho počkať po svätej omši a vonku si pohovoriť. V kostole nie. Kostol nie je kaviareň.
                 </p>
+
+                <x-partials.picture titleSlug="etik-004" side="left" dimensionSource="medium" columns="3" />
+
                 <p>
                     Nikto nemôže namietať, keď niekto zostane stáť vonku pred dverami kostola vtedy, ak sa dnu nezmestí, alebo má malé dieťa, ktoré by ostatných vyrušovalo, alebo ak je vo vnútri vydýchaný vzduch. Ale zúčastniť sa svätej omše tak, že ani nevojdem do kostola, iba stáť neďaleko neho v okruhu niekoľkých desiatok metrov, s niekým debatovať či fajčiť, je nemysliteľné. To potom možno sedieť v každom pohostinstve pri kostole a človek bude účastný na svätej omši? Určite nie.
                 </p>
@@ -73,7 +88,10 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Praktické rady" animation="fromleft">
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromleft">
+
+                <x-partials.picture titleSlug="etik-002" side="right" dimensionSource="medium" columns="4" />
+
                 <p>
                     Rodiny s malými deťmi by sa nemali vyčleňovať spomedzi iných veriacich spôsobom, že na jednej strane budú ženy, na druhej muži a inde rodiny. Každý rodič by mal sám odhadnúť, či jeho dieťa bude pokojné, a prípadne by si mal sadnúť tak, aby s plačúcim dieťaťom mohol rýchlo z kostola vyjsť. Občas sa stáva, že mladí rodičia nechávajú svoje deti počas bohoslužieb vykrikovať, zabávať sa, behať po kostole. Mali by však svoje deti viesť k tomu, že kostol nie je miesto na hranie, ale miesto na oslavu Boha a stretnutia sa s ním.
                 </p>
@@ -92,9 +110,11 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>Spoločenská etiketa platí aj v kostole. Príloha Katolíckych novín, 2011.</li>
+            <li>
+                <em>Spoločenská etiketa platí aj v kostole.</em>
+                Príloha Katolíckych novín, 2011.
+            </li>
         </x-web.page.information-sources>
 
     </x-web.page.section>

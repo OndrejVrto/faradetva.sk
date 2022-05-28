@@ -2,13 +2,16 @@
 
     {{-- Sväté písmo - Biblia --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromleft">
                 <p>
                     Názov Biblia (z gréckeho tà biblía - knižočky, spisky) označuje zbierku všetkých biblických spisov. Pre svoj mimoriadny pôvod a myšlienkovú náplň dostala meno „Kniha kníh“. Jej bežný názov Sväté písmo (latinsky Sacra Scriptura) naznačuje skutočnosť, že vo všetkých spisoch Biblie je písomne zachytené Božie zjavenie a Božie slovo. Podľa zadelenia biblických spisov do dvoch skupín sa používa výraz Starý a Nový zákon alebo presnejšie Stará a Nová zmluva.
                 </p>
+
+                <x-partials.picture titleSlug="svp-005" side="right" dimensionSource="medium" columns="4" />
+
                 <p>
                     Bohom zjavené pravdy obsiahnuté vo Svätom písme boli napísané z vnuknutia Ducha Svätého, ako také boli zverené Cirkvi a učia pravdy, ktoré Boh zjavil pre našu spásu. Spôsob, akým Boh vplýval na vznik biblických spisov, je vyjadrený slovom inšpirácia. Je to charizmatický vplyv Ducha Svätého, ktorým sa Boh stáva prvotným autorom Svätého písma, kým svätopisec je v plnom zmysle druhotným autorom biblického spisu. Boh priamym zásahom svojej moci, múdrosti a vôle pôsobí ako svetlo v oblasti rozumu a slobodnej vôle ľudského autora. Ten však v plnej miere používa pri písaní svoje vlohy, kultúru, reč a štýl a takto vyjadruje to, čo mal v úmysle napísať.
                 </p>
@@ -19,7 +22,7 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Rozdelenie Biblie">
-                <x-web.page.text-segment>
+            <x-web.page.text-segment>
                 <ol class="list-unstyled">
                     <li class="ms-4"><span class="h5 text-church-template">A. Spisy Starého zákona (46 kníh)</span>
                         <ol class="list-unstyled">
@@ -45,11 +48,20 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
+    </x-web.page.section>
+
+    <x-web.sections.background-picture titleSlug="svp-001"/>
+
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection title="Sväté písmo v živote Cirkvi a veriacich" animation="fromleft">
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromleft">
                 <p>
                     V dogmatickej konštitúcii Druhého vatikánskeho koncilu Dei Verbum sa poukazuje na význam a úlohu Svätého písma v živote Cirkvi a veriacich týmito slovami: „Cirkev vždy mala i má Sväté písmo spolu s posvätnou Tradíciou za najvyššie pravidlo viery... Preto všetka kazateľská činnosť Cirkvi, ako aj sama kresťanská nábožnosť sa má živiť a dať viesť Svätým písmom... V Božom slove je toľká sila a účinnosť, že ono je oporou a životnou silou Cirkvi a jej deťom posilou vo viere, pokrmom duše a čistým, nikdy nevysychajúcim prameňom duchovného života.“ Posvätný cirkevný snem naliehavo a dôrazne vyzýva všetkých veriacich, aby si častým čítaním Svätého písma nadobudli vznešené poznanie Ježiša Krista. Veď „kto nepozná Písmo, nepozná Krista“. (sv. Hieronym)
                 </p>
+
+                <x-partials.picture titleSlug="svp-007" side="left" dimensionSource="medium" columns="4" />
+
                 <p>
                     Sme pozvaní k tomu, aby sme sa radi oboznamovali s posvätným textom, jednak prostredníctvom liturgie, ktorá oplýva Božími výrokmi, alebo nábožným čítaním, alebo pomocou iných na to vhodných prostriedkov a podujatí so schválením a pod vedením pastierov Cirkvi. Nemožno zabúdať na to, že čítanie Svätého písma musí sprevádzať modlitba, aby sa stalo rozhovorom medzi Bohom a človekom. Lebo „keď sa modlíme, prihovárame sa Bohu, a keď čítame Božie výroky, Boha počúvame“. (sv. Ambróz)
                 </p>
@@ -63,8 +75,14 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>Biblia. Sväté písmo Starého a Nového zákona. Trnava: Spolok sv. Vojtecha, 2012. ISBN 978-80-7162-888-0.</li>
-            <li>Verbum Domini. Posynodálna apoštolská exhortácia pápeža Benedikta XVI. o Božom slove v živote a poslaní Cirkvi. Trnava: Spolok sv. Vojtecha, 2011. ISBN 978-80-7162-868-2.</li>
+            <li>
+                <em>Biblia. Sväté písmo Starého a Nového zákona.</em>
+                Trnava: Spolok sv. Vojtecha, 2012. ISBN 978-80-7162-888-0.
+            </li>
+            <li>
+                <em>Verbum Domini. Posynodálna apoštolská exhortácia pápeža Benedikta XVI. o Božom slove v živote a poslaní Cirkvi.</em>
+                Trnava: Spolok sv. Vojtecha, 2011. ISBN 978-80-7162-868-2.
+            </li>
         </x-web.page.information-sources>
 
     </x-web.page.section>
