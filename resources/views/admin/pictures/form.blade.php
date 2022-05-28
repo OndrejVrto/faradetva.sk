@@ -34,6 +34,9 @@
                 minHeight="{{ $picture->crop_output_height ?? 50 }}"
                 exact_dimensions="{{ $picture->crop_output_exact_dimensions ?? 0 }}"
                 :media_file_name="$media_file_name"
+                crop_output_width="{{ $picture->crop_output_width ?? 50 }}"
+                crop_output_height="{{ $picture->crop_output_height ?? 50 }}"
+                crop_output_exact_dimensions="{{ $picture->crop_output_exact_dimensions ?? 0 }}"
             />
 
         </div>

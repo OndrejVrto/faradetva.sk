@@ -12,14 +12,14 @@ class SearchController extends Controller
 {
     public function __invoke($searchFrase = null): View {
         $searchResults = $searchFrase
-            ? Search::query($searchFrase)
-                ->onIndex('FullSearchFaraDetva')
+            ? Search::onIndex('HTTPS_FaraDetva')
+                ->query($searchFrase)
                 ->limit(100)
                 ->get()
             : null;
 
         // TODO:  add SEO META headers
 
-        return view('web.search.global', compact('searchResults', 'searchFrase'));
+        return view('web.global-search.index', compact('searchResults', 'searchFrase'));
     }
 }
