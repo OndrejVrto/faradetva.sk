@@ -25,10 +25,10 @@
 
                                 <h2 class="widget-title mt-4">Dôležité odkazy</h2>
                                 <ul class="mb-4">
-                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="{{ secure_url('kontakty') }}">Kontakty</a></li>
-                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="{{ secure_url('oznamy/farske-oznamy') }}">Sväté omše</a></li>
-                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="{{ route('list-pages') }}">Všetky stránky</a></li>
-                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="{{ route('faq') }}">Otázky a odpovede</a></li>
+                                    <li><a class="link-template-gray" href="{{ secure_url('kontakty') }}">Kontakty</a></li>
+                                    <li><a class="link-template-gray" href="{{ secure_url('oznamy/farske-oznamy') }}">Sväté omše</a></li>
+                                    <li><a class="link-template-gray" href="{{ route('list-pages') }}">Všetky stránky</a></li>
+                                    <li><a class="link-template-gray" href="{{ route('faq') }}">Otázky a odpovede</a></li>
                                     <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="https://gdpr.kbs.sk">Ochrana osobných údajov</a></li>
                                 </ul>
                             </div>
