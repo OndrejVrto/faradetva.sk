@@ -1,1 +1,1 @@
-<th scope="col" width="1%" {{ $attributes->merge(['class' => 'text-center']) }}></th>
+<th scope="col" width="1%" {{ $attributes->merge(['class' => 'text-center']) }}>{{ $slot }}</th>
