@@ -66,7 +66,7 @@
             url="{{ secure_url('duchovny-zivot/sviatosti/posvatny-stav') }}"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr6-003"/>
+                <x-partials.picture-responsive titleSlug="sacr6-003" class="w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Ten, kto prijíma sviatosť posvätného stavu, dostáva osobitnú účasť na Kristovom kňazstve, ktoré sa kvalitatívne líši od všeobecného kňazstva veriacich.
@@ -86,7 +86,7 @@
             url="{{ secure_url('duchovny-zivot/sviatosti/manzelstvo') }}"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr7-003-menu"/>
+                <x-partials.picture-responsive titleSlug="sacr7-003-menu" class="w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Sviatosť manželstva vychádza zo sľubu muža a ženy pred Bohom a pred Cirkvou, ktorý prijíma a potvrdzuje Boh a napĺňa sa fyzickým zjednotením oboch partnerov.

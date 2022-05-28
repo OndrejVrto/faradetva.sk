@@ -20,7 +20,7 @@
                 <x-slot:img>
                     {!! $lastArticle->getFirstMedia($lastArticle->collectionName)->img('large', [
                                 'id' => 'picNews-'.$lastArticle->id,
-                                'class' => 'img-fluid mx-auto',
+                                'class' => 'img-fluid mx-auto w-100',
                                 'alt' => $lastArticle->source->source_description,
                                 // 'title' => $img->source->source_description,
                                 // 'title' => $img->title,

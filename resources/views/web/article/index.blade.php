@@ -29,7 +29,7 @@
                                 <x-slot:img>
                                     {!! $oneNews->getFirstMedia($oneNews->collectionName)->img('large', [
                                             'id' => 'picNews-'.$oneNews->id,
-                                            'class' => 'img-fluid mx-auto',
+                                            'class' => 'img-fluid mx-auto w-100',
                                             'alt' => $oneNews->source->source_description,
                                             // 'title' => $img->source->source_description,
                                             // 'title' => $img->title,

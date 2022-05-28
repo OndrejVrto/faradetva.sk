@@ -10,7 +10,7 @@
             url="{{ secure_url('duchovny-zivot/zivot-viery/viera-v-boha') }}"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="viera-001-menu"/>
+                <x-partials.picture-responsive titleSlug="viera-001-menu" class="w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Dokonalý a sám v sebe blažený Boh podľa číro dobrotivého rozhodnutia slobodne stvoril človeka, aby mu dal účasť na svojom blaženom živote.
