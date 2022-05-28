@@ -312,7 +312,7 @@ return [
                     'can'  => 'sliders.index',
                 ],
                 [
-                    'text'  => 'Modlidba dňa',
+                    'text'  => 'Modlitba dňa',
                     'icon_color'  => 'orange',
                     'route' => 'prayers.index',
                     'icon'  => 'fas fa-praying-hands',

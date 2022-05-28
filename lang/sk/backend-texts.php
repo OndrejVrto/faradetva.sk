@@ -121,13 +121,13 @@ return [
     ],
 
     'prayers' => [
-        'title'              => 'Modlidby',
-        'description'        => 'Sem môžete vkladať modlidby dňa',
-        'description_create' => 'Pridanie ďalšej modlidby dňa',
-        'description_edit'   => 'Zmena modlidby dňa',
-        'header'             => 'Modlidby',
-        'header_create'      => 'Vložiť modlidbu',
-        'header_edit'        => 'Upraviť modlidbu',
+        'title'              => 'Modlitby',
+        'description'        => 'Sem môžete vkladať modlitby dňa',
+        'description_create' => 'Pridanie ďalšej modlitby dňa',
+        'description_edit'   => 'Zmena modlitby dňa',
+        'header'             => 'Modlitby',
+        'header_create'      => 'Vložiť modlitbu',
+        'header_edit'        => 'Upraviť modlitbu',
     ],
 
     'galleries' => [

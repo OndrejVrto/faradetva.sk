@@ -46,9 +46,9 @@ class TagSeeder extends Seeder
         ]);
 
         Tag::create([
-            'title' => 'Modlidba',
-            'description' => 'Modlidba a rozjímanie',
-            'slug' => Str::slug('Modlidba'),
+            'title' => 'Modlitba',
+            'description' => 'Modlitba a rozjímanie',
+            'slug' => Str::slug('Modlitba'),
         ]);
 
         Tag::create([

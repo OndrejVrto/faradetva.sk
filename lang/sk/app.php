@@ -128,9 +128,9 @@ return [
         'delete' => 'Farské oznamy boli odstránené!',
     ],
     'prayer'   => [
-        'store'  => 'Modlidba bola pridaná!',
-        'update' => 'Modlidba bola upravená.',
-        'delete' => 'Modlidba bola odstránená!',
+        'store'  => 'Modlitba bola pridaná!',
+        'update' => 'Modlitba bola upravená.',
+        'delete' => 'Modlitba bola odstránená!',
     ],
     'faq'   => [
         'store'  => 'Otázka bola pridaná!',

@@ -90,7 +90,7 @@ Administrátorské rozhranie:
     ✔ opraviť načítavanie obrázkov pri zapnutom CSP
     ✔ newsletter register/unscribe
     ✔ doprogramovať grafy -> farba, typ, ...
-    ✔ CRUD modlidby s obrázkom na celú stránku a linkom na príspevok
+    ✔ CRUD modlitby s obrázkom na celú stránku a linkom na príspevok
     ✔ Frequently Asked Question (FAQ) pre každú stránku
     ✔ vytvoriť komponent sekcie FAQ
     ✔ move sources in backend fomns to separe component?

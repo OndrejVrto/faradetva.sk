@@ -11,7 +11,7 @@
     <x-admin.table
         columns="10"
         controlerName="prayers"
-        createBtn="Pridať novú modlidbu"
+        createBtn="Pridať novú modlitbu"
         paginator="{{ $prayers->onEachSide(1)->links() }}"
         >
 
@@ -20,7 +20,7 @@
             <x-admin.table.th-check-active/>
             <x-admin.table.th width="20%" class="text-center">Obrázok</x-admin.table.th>
             <x-admin.table.th>Titulka</x-admin.table.th>
-            <x-admin.table.th>Text modlidby</x-admin.table.th>
+            <x-admin.table.th>Text modlitby</x-admin.table.th>
             <x-admin.table.th>Autor / citácia</x-admin.table.th>
             <x-admin.table.th-actions />
         </x-slot>
