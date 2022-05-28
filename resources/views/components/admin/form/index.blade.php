@@ -25,7 +25,7 @@
     $headerDescription = __('backend-texts.'.$texts.'.description_'.$typeForm );
 
     if (is_null($linkBack)) {
-        $linkBack = Route::has($controlerName . '.index') ? route($controlerName . '.index', $identificator) : null;
+        $linkBack = Route::has($controlerName . '.index') ? route($controlerName . '.index') : null;
     }
     if (is_null($linkActionCreate)) {
         $linkActionCreate = Route::has($controlerName . '.store') ? route($controlerName . '.store', $identificator) : null;
