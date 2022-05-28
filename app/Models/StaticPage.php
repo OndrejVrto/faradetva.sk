@@ -29,6 +29,7 @@ class StaticPage extends BaseModel implements HasMedia
     public $collectionName = 'static_page_representing_image';
 
     protected $fillable = [
+        'active',
         'title',
         'url',
         'slug',
@@ -44,6 +45,7 @@ class StaticPage extends BaseModel implements HasMedia
     ];
 
     protected $casts = [
+        'active' => 'boolean',
         'check_url' => 'boolean',
         'deleted_at' => 'datetime',
     ];

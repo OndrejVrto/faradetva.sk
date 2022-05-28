@@ -22,10 +22,10 @@
         </x-slot>
 
         <x-slot:table_header>
-            <x-admin.table.th width="1%">#</x-admin.table.th>
-            <x-admin.table.th class="text-center" width="10%" colspan="2">Obrázok</x-admin.table.th>
+            <x-admin.table.th width="1%" colspan="2" >#</x-admin.table.th>
+            <x-admin.table.th class="text-center" width="12%">Obrázok</x-admin.table.th>
             <x-admin.table.th width="20%">Titulok záložky</x-admin.table.th>
-            {{-- <x-admin.table.th-check-active class="d-none d-md-table-cell"/> --}}
+            <x-admin.table.th-check-active class="d-none d-md-table-cell">Check</x-admin.table.th-check-active>
             <x-admin.table.th width="50%" class="d-none d-md-table-cell">
                 Url <small>(cesta ktorú vidí uživateľ)</small>
                 <br>
@@ -48,14 +48,15 @@
                 <x-admin.table.tr trashed="{{ $page->trashed() }}">
 
                     {{-- <x-admin.table.td>{{$page->id}}</x-admin.table.td> --}}
+                    <x-admin.table.td-check-active check="{{ $page->active }}"/>
                     <x-admin.table.td>{{ $loop->iteration }}</x-admin.table.td>
-                    <x-admin.table.td-check-active check="{{ $page->check_url }}" class="d-none d-md-table-cell"/>
                     <x-admin.table.td class="text-center">
                         <img src="{{ $page->getFirstMediaUrl($page->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x50" }}"
                         class="img-fluid"
                         alt="Obrázok: {{ $page->source->description ?? '' }}"/>
                     </x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-admin.table.td>
+                    <x-admin.table.td-check-active check="{{ $page->check_url }}" class="d-none d-md-table-cell text-center"/>
                     <x-admin.table.td class="text-wrap text-break d-none d-md-table-cell">
                         <a href="{{ config('app.url').'/'.$page->url }}" target="_blank" rel="noopener noreferrer">
                             <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}

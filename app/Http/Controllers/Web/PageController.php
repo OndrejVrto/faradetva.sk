@@ -58,6 +58,7 @@ class PageController extends Controller
     /** get Page Data for One nod in URL and Cache it **/
     private function getPageData(string $path): array|null {
         return StaticPage::query()
+            ->whereActive(1)
             ->whereUrl($path)
             ->with('picture', 'source', 'banners', 'faqs')
             ->get()

@@ -15,6 +15,7 @@ class StaticPageRequest extends BaseRequest
 
     public function rules(): array {
         return  [
+            'active'           => $this->reqBoolRule(),
             'title'            => $this->reqStrRule(),
             'slug'             => Rule::unique('static_pages', 'slug')->ignore($this->static_page)->withoutTrashed(),
             'url'              => $this->reqStrRule(),

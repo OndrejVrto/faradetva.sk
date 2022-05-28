@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('static_pages', function (Blueprint $table) {
             $table->id();
 
+            $table->boolean('active')->default(0);
             $table->string('title');
             $table->string('url');
             $table->string('route_name')->unique();

@@ -19,6 +19,7 @@ class PageCard extends Component
         $listOfPages = prepareInput($routeStaticPages);
 
         $this->pageCards = StaticPage::query()
+            ->whereActive(1)
             ->when($listOfPages, function($q) use($listOfPages) {
                 return $q->whereIn('route_name', $listOfPages);
             }, function($q) use($countPages) {
