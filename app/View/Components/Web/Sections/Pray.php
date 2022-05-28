@@ -23,7 +23,7 @@ class Pray extends Component
         return null;
     }
 
-    private function getPray(): array {
+    private function getPray(): ?array {
         return Prayer::query()
             ->whereActive(1)
             ->with('media', 'source')
