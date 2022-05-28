@@ -1,11 +1,10 @@
 Obsah stránky:
   ✔ vytvoriť komponent čistého obrázka
-  ☐ vytvoriť komponenty pre rôzne druhy sekcií podľa šablony
+  ✔ vytvoriť komponenty pre rôzne druhy sekcií podľa šablony
   ☐ prepísať teaser texty v databáze
-<<<<<<< HEAD
+  ☐ nahodiť všetky texty do stránok "O-nás"
+  ✔ nahodiť všetky texty do stránok "Duchovný život"
   ☐ pridat ručne výsečové grafy
-=======
->>>>>>> 0966bf34decc690c3901cddc4dc7be5ea47937b5
   ✔ otváracie hodiny kostola, štandardné časy omší - do pätičky?
   ✔ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
   ☐ facebook karta farnosti ako iframe?
@@ -41,12 +40,12 @@ Obsah stránky:
 Administrátorské rozhranie:
 
   Dashboard:
+    ☐ nastaviť práva uživateľom pre tlačítka a zobrazenie prvkov na dashboarde
     ☐ pridať prepínač na zakazanie logu SQL Query
     ☐ preložiť do angličtiny health results
     ☐ pridať kartu s informáciou o posledných prihlásých uživateľoch
     ☐ pridať kartu s informáciou o posledných zmenách na stránke
     ☐ prerobiť tlacitka na dashboarde na togle prepínače + button Save
-    ☐ nastaviť práva uživateľom pre tlačítka a zobrazenie prvkov na dashboarde
     ☐ štatistika a rôzne grafy
     https://github.com/fidum/laravel-dashboard-chart-tile
     ✔ dopnit kartu ktorá bude informovať o zacechovaní route a config súborov
@@ -68,6 +67,7 @@ Administrátorské rozhranie:
   Iné:
     ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
     ☐ prekontrolovať fungovanie response cache
+    ☐ response cache hlavnej stránky v inom časovaní ako ostatok
     ☐ implementovať Spatie Laravel Backup
     ☐ implement failed job monitor
       https://github.com/spatie/laravel-failed-job-monitor
@@ -85,7 +85,6 @@ Administrátorské rozhranie:
     ✔ Orezanie / CROP obrázkov cez JS kde to treba
     ✔ analyzovať a zrýchliť bootovanie stránky
     ✔ automatické premenovanie vkladaných súborov
-
     ✔ opraviť Crawler pri HTTPS schéme
     ✔ nastaviť správne rozmery obrázkom a optimalizáciu
     ✔ opraviť načítavanie obrázkov pri zapnutom CSP
