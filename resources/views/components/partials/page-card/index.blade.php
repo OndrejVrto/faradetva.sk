@@ -17,9 +17,11 @@
             </div>
 
             <div class="blog_desc">
-                <a class="text-decoration-none" href="{{ $pageCard['url'] }}">
-                    <h3 class="fs-4">{{ $pageCard['title'] }}</h3>
-                </a>
+                <h3 class="fs-4">
+                    <a class="link-template" href="{{ $pageCard['url'] }}">
+                        {{ $pageCard['title'] }}
+                    </a>
+                </h3>
                 <div class="content pb-2 text-justify">
                     {{ $pageCard['teaser'] }}
                 </div>

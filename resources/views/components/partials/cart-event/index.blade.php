@@ -26,7 +26,9 @@
             ])
         >
             <h3>
-                {{ $title }}
+                <a href="{{ $url }}" class="link-template">
+                    {{ $title }}
+                </a>
             </h3>
             <p class="text-justify">
                 {{ $teaser }}
