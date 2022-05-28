@@ -433,10 +433,10 @@ button:before {
 	width: 100%;
 }
 
-.header_right_menu ul>li {
+.header_right_menu>ul>li {
 	float   : left;
 	position: relative;
-	padding : 33px 10px;
+	padding : 33px 6px;
 }
 
 .header_right_menu>ul>li>a {

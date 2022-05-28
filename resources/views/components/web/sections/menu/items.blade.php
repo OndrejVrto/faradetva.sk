@@ -1,15 +1,15 @@
-{{-- <li><a href="{{ secure_url('test') }}" class="text-muted"><em><small>Test</small></em></a></li> --}}
-{{-- <li><a href="{{ secure_url('zoznam-statickych-stranok') }}" class="text-muted"><em><small>Podstránky</small></em></a></li> --}}
+<li><a href="{{ secure_url('oznamy/farske-oznamy') }}">
+    Oznamy
+</a></li>
+<li><a href="{{ route('article.all') }}">
+    Články
+</a></li>
 
-
-<li><a href="{{ secure_url('oznamy/farske-oznamy') }}">Oznamy</a></li>
-<li><a href="{{ route('article.all') }}">Články</a></li>
-
-<li>
+{{-- <li> --}}
     {{-- <a href="{{ secure_url('o-nas') }}">O nás</a> --}}
-    <a class="link-submenu">O nás</a>
-    <ul class="sub-menu">
-        <li><a href="{{ secure_url('o-nas/historia') }}">História</a></li>
+    {{-- <a class="link-submenu">O nás</a> --}}
+    {{-- <ul class="sub-menu"> --}}
+        {{-- <li><a href="{{ secure_url('o-nas/historia') }}">História</a></li> --}}
             <!-- Dejiny farnosti -->
             <!-- Farári v Detve -->
             <!-- Kapláni v Detve -->
@@ -26,14 +26,14 @@
                 <!-- Mons. Ján Štrbáň -->
                 <!-- prof. Jozef Búda -->
 
-        <li><a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a></li>
-        <li><a href="{{ secure_url('o-nas/sakralne-objekty') }}">Sakrálne objekty</a></li>
+        {{-- <li><a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a></li> --}}
+        {{-- <li><a href="{{ secure_url('o-nas/sakralne-objekty') }}">Sakrálne objekty</a></li> --}}
             <!-- Farský kostol -->
             <!-- Kláštorný kostol -->
             <!-- Kalvária, kaplnky -->
             <!-- Prícestné sochy -->
             <!-- Detvianske kríže -->
-        <li><a href="{{ secure_url('o-nas/pastoracia') }}">Pastorácia</a></li>
+        {{-- <li><a href="{{ secure_url('o-nas/pastoracia') }}">Pastorácia</a></li> --}}
             <!-- Farská rada -->
             <!-- Lektori + Rozpisy -->
             <!-- Akolyti  + Rozpisy -->
@@ -42,12 +42,25 @@
             <!-- Organisti, speváci -->
             <!-- Spevokoly, dychovka -->
             <!-- Vyučovanie náboženstva -->
+        {{-- <li><a href="{{ secure_url('spolocenstva') }}">Spoločenstvá</a></li> --}}
+            <!-- Františkánsky svetský rád -->
+            <!-- Ružencové bratstvo -->
+            <!-- Mariánske večeradlo -->
+            <!-- Rád bosých karmelitánok -->
+            <!-- Svetský rád bosých karmelitánov -->
+            <!-- Združenie Faustínum -->
+            <!-- Saleziánski spolupracovníci -->
+            <!-- Hnutie kresťanských rodín -->
+            <!-- Katolícka charizmatická obnova -->
+            <!-- Modlitby matiek -->
+            <!-- Bárka -->
+            <!-- Služobníci Ježišovho Veľkň. Srdca -->
         {{-- <li><a href="{{ secure_url('test') }}" class="text-danger">Test - ZMAZAŤ</a></li> --}}
         {{-- <li><a href="{{ route('list-pages') }}" class="text-danger">Zoznam stránok - ZMAZAŤ</a></li> --}}
-    </ul>
-</li>
+    {{-- </ul> --}}
+{{-- </li> --}}
 
-<li><a href="{{ secure_url('spolocenstva') }}">Spoločenstvá</a></li>
+{{-- <li><a href="{{ secure_url('spolocenstva') }}">Spoločenstvá</a></li> --}}
     <!-- Františkánsky svetský rád -->
     <!-- Ružencové bratstvo -->
     <!-- Mariánske večeradlo -->

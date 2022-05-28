@@ -133,11 +133,11 @@
 
         <x-web.page.information-sources title="Použitá literatúra:">
             <li>
-                <em class="me-2">Kódex kánonického práva. Latinsko-slovenské vydanie.</em>
+                <em>Kódex kánonického práva. Latinsko-slovenské vydanie.</em>
                 Bratislava: Konferencia biskupov Slovenska, 1996. ISBN 80-7162-061-0.
             </li>
             <li>
-                <em class="me-2">Youcat po slovensky. Katechizmus Katolíckej cirkvi pre mladých.</em>
+                <em>Youcat po slovensky. Katechizmus Katolíckej cirkvi pre mladých.</em>
                 Bratislava: Karmelitánske nakladateľstvo, 2011. ISBN 978-80-89231-99-7.
             </li>
         </x-web.page.information-sources>

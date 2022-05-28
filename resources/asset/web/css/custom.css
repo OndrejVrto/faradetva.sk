@@ -184,3 +184,7 @@
 .picture-background-size {
     height: 350px;
 }
+
+.ch_source em {
+    margin-right: 0.5rem;
+}

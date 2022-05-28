@@ -67,6 +67,12 @@
 	}
 }
 
+@media(min-width:1199px) {
+    .header_right_menu>ul>li {
+        padding : 33px 12px;
+    }
+}
+
 @media(max-width:1199px) {
 	/* .ch_about_thumb img {
 		padding-top  : 53px;
