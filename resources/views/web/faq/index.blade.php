@@ -3,10 +3,6 @@
     <x-web.sections.banner
         header="Otázky a odpovede"
         {{-- :breadcrumb="$pageData['breadCrumb']" --}}
-        :titleSlug="[
-            'asiisi-dvor',
-            'zvony'
-        ]"
         dimensionSource="full"
     />
 

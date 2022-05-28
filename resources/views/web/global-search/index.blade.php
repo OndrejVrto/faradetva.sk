@@ -1,5 +1,11 @@
 <x-web.layout.master :disablePreload="true">
 
+    <x-web.sections.banner
+        header="Vyhľadávnie na stránke"
+        {{-- :breadcrumb="$pageData['breadCrumb']" --}}
+        dimensionSource="full"
+    />
+
     <x-web.page.section name="SEARCH Global" class="static-page pad_t_50 pad_b_50">
 
         <!-- GLOBAL Search Start -->

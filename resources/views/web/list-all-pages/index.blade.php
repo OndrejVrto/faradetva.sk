@@ -1,8 +1,16 @@
 <x-web.layout.master>
 
-    <x-web.page.section name="ALL PAGES" class="static-page pad_b_50 pad_t_50">
+    <x-web.sections.banner
+        header="Prehľad podstránok"
+        {{-- :breadcrumb="$pageData['breadCrumb']" --}}
+        dimensionSource="full"
+    />
 
-        <x-web.page.subsection>
+    <x-web.page.section name="ALL PAGES" row="true" class="static-page pad_b_50 pad_t_50">
+
+        <x-partials.page-card />
+
+        {{-- <x-web.page.subsection>
 
             <x-web.page.text-segment animation="fromright" class="col-12 col-md-6 col-xl-4 m-auto">
 
@@ -24,7 +32,7 @@
                 </ol>
 
             </x-web.page.text-segment>
-        </x-web.page.subsection>
+        </x-web.page.subsection> --}}
 
     </x-web.page.section>
 </x-web.layout.master>

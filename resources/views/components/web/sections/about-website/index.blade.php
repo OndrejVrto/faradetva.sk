@@ -6,10 +6,6 @@
 
     <x-web.page.section-header header="Spoznaj našu farnosť" />
 
-    <x-partials.page-card
-        countPages=3
-        {{-- TODO:  Remove this routeStaticPages tag in production --}}
-        routeStaticPages="duchovny-zivot.sveteniny.ministeria, duchovny-zivot.sveteniny.putovanie, duchovny-zivot.sveteniny.index"
-    />
+    <x-partials.page-card countPages=3 />
 
 </x-web.page.section>
