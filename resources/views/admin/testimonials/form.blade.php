@@ -92,6 +92,19 @@
                     {{ $testimonial->description ?? '' }}
             </x-adminlte-textarea>
 
+            <x-adminlte-input
+                name="url"
+                label="Link na svedectvo"
+                enableOldSupport="true"
+                value="{{ $testimonial->url ?? '' }}"
+            >
+                <x-slot:prependSlot>
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+            
         </div>
         <div class="col-xl-4">
 

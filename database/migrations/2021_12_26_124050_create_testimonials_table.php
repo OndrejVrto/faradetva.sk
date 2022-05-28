@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('function')->nullable();
+            $table->string('url', 512)->nullable();
             $table->text('description')->nullable();
 
             $table->timestamps();

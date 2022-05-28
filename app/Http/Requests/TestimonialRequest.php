@@ -17,6 +17,7 @@ class TestimonialRequest extends BaseRequest
             'name'        => $this->reqStrRule(),
             'slug'        => Rule::unique('testimonials', 'slug')->ignore($this->testimonial)->withoutTrashed(),
             'function'    => $this->nullStrRule(),
+            'url'         => $this->nullUrlRule(),
             'description' => [
                 'nullable',
                 'string',

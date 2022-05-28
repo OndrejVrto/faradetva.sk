@@ -30,9 +30,9 @@ class Testimonial extends BaseModel implements HasMedia
         'active',
         'name',
         'slug',
-        'phone',
         'function',
         'description',
+        'url',
         'deleted_at'
     ];
 

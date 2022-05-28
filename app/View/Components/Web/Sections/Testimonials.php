@@ -38,10 +38,10 @@ class Testimonials extends Component
                 return [
                     'id'          => $data->id,
                     'name'        => $data->name,
-                    'phone'       => $data->phone,
                     'function'    => $data->function,
-                    'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
                     'description' => (new PurifiAutolinkService)->getCleanTextWithLinks($data->description),
+                    'url'         => $data->url,
+                    'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
                 ];
             })
             ->toArray();

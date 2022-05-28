@@ -20,7 +20,14 @@
                         />
                     </div>
                     <div class="test_paragraph">
-                        <p>“{!! $testimonial['description'] !!}”</p>
+                        {!! $testimonial['description'] !!}
+                        @if (! empty($testimonial['url']))
+                            <p>
+                                <a href="{{ $testimonial['url'] }}" class=" link-template-light">
+                                    Celé svedectvo
+                                </a>
+                            </p>
+                        @endif
                     </div>
                 </div>
             </div>
