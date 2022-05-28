@@ -9,7 +9,8 @@ trait HasCropPictureFields
     protected function cropPictureRules(): array {
         return [
             'crop_output_file_name' => [
-                $this->requireORnullable(),
+                'nullable',
+                // $this->requireORnullable(),
                 'string',
             ],
             'crop_output_base64' => [

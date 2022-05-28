@@ -8,25 +8,40 @@
     'maxSize'          => "2600*1600",
     'media_file_name'  => null,
     'exact_dimensions' => null,
+
+    'crop_output_width' => '',
+    'crop_output_height' => '',
+    'crop_output_exact_dimensions' => '',
 ])
 <!--  Component: CROP - Start -->
 
 {{--! OUTPUT FIELDS --}}
     {{-- This is hidden input field where is stored final string base64 --}}
-    <input id="crop_output_base64" name="crop_output_base64" type="text" value="{{ old('crop_output_base64') }}" hidden>
+    <input  name="crop_output_base64" id="crop_output_base64"
+            type="text"
+            value="{{ old('crop_output_base64') }}"
+            hidden >
     {{-- This is hidden input field where is stored orginal file name string --}}
-    <input id="crop_output_file_name" name="crop_output_file_name" type="text" value="{{ old('crop_output_file_name') }}" hidden>
+    <input  name="crop_output_file_name" id="crop_output_file_name"
+            type="text"
+            value="{{ old('crop_output_file_name') }}"
+            hidden >
     {{-- This is  input fields where is stored picture sizes --}}
-    <input id="crop_output_width" name="crop_output_width" value="{{ old('crop_output_width') }}" hidden>
-    <input id="crop_output_height" name="crop_output_height" value="{{ old('crop_output_height') }}" hidden>
-    <input id="crop_output_exact_dimensions" name="crop_output_exact_dimensions" value="{{ old('crop_output_exact_dimensions') }}" hidden>
-
+    <input  name="crop_output_width" id="crop_output_width"
+            value="{{ old('crop_output_width', empty($crop_output_width) ? '' : $crop_output_width ) }}"
+            hidden >
+    <input  name="crop_output_height" id="crop_output_height"
+            value="{{ old('crop_output_height', empty($crop_output_height) ? '' : $crop_output_height) }}"
+            hidden >
+    <input  name="crop_output_exact_dimensions" id="crop_output_exact_dimensions"
+            value="{{ old('crop_output_exact_dimensions', empty($crop_output_exact_dimensions) ? '0' : $crop_output_exact_dimensions) }}"
+            hidden >
 
 {{--! INPUT FIELDS --}}
     {{-- This is input field for File --}}
     <div class="form-group">
         <label for="crop_input_file">{{ $label }}</label>
-        <div class="input-group">
+        <div class="input-group @error('crop_output_base64') adminlte-invalid-igroup @enderror">
             <div class="input-group-prepend">
                 <div class="input-group-text bg-gradient-orange">
                     <i class="fa-solid fa-file-import"></i>
@@ -37,7 +52,7 @@
                 <input
                     type="file"
                     id="crop_input_file"
-                    class="custom-file-input border-right-none"
+                    class="custom-file-input border-right-none @error('crop_output_base64') is-invalid @enderror"
                     accept=".jpg,.bmp,.png,.jpeg,.tiff,.svg,.webp"
                 >
                 <label class="custom-file-label text-truncate" for="crop_input_file">
@@ -54,7 +69,7 @@
                             id="crop_input_exact_dimensions"
                             name="crop_input_exact_dimensions"
                             value="0"
-                            @checked( old('crop_input_exact_dimensions', $exact_dimensions) )
+                            @checked( old('crop_input_exact_dimensions', empty($exact_dimensions) ? '0' : $exact_dimensions) )
                         >
                         <span class="ml-1">Presné rozmery</span>
                     </div>
