@@ -1,11 +1,12 @@
 <x-web.page.section
     name="NOTICE"
+    class="pb-5"
 >
     @forelse ($notices as $notice)
 
         <div class="col-md-11 col-lg-10 col-xl-9 m-auto">
             <div class="notice_heading_section">
-                <h3>{{ $notice['title'] }}</h3>
+                <h3 class="text-church-template-blue mb-3">{{ $notice['title'] }}</h3>
                 <div class="d-flex justify-content-evenly align-items-center">
                     <button class="btn bg-warning text-dark bg-opacity-50 px-3 py-1" id="btn-prev-{{ $notice['id'] }}">
                         Predošlá strana
@@ -17,7 +18,7 @@
                 </div>
             </div>
             <div class="blog_info">
-                <a href="{{ $notice['url'] }}" target="_blank" rel="noopener noreferrer">
+                <a href="{{ $notice['url'] }}" target="_blank" rel="noopener noreferrer" class="link-template">
                     <i class="fa-regular fa-save"></i>
                     Link na stiahnutie
                 </a>
@@ -78,11 +79,11 @@
     <!-- NOTICE-PDF script End -->
     @endPushOnce
 
-    @pushIf('js')
+    @push('js')
     <!-- NOTICE-PDF-{{ $typeNotice }} script Start -->
     <script @nonce>
         {!! implode(PHP_EOL."\t", $scripts ?? null) !!}
     </script>
     <!-- NOTICE-PDF-{{ $typeNotice }} script End -->
-    @endpushIf
+    @endpush
 @endisset

@@ -1,4 +1,4 @@
-<li><a href="{{ secure_url('oznamy/farske-oznamy') }}">
+<li><a href="{{ secure_url('farske-oznamy') }}">
     Oznamy
 </a></li>
 <li><a href="{{ route('article.all') }}">
