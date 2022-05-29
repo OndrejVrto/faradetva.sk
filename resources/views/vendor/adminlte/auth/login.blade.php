@@ -22,24 +22,13 @@
 
 @section('auth_body')
 
-    {{-- @if ($errors->any())
-        <div class="alert alert-warning p-0 d-flex justify-content-center">
-            <ul class="list-unstyled align-self-center my-2">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
-    {{-- TODO:  Error messages --}}
-
     <form action="{{ $login_url }}" method="post">
         @csrf
 
         {{-- Email field --}}
         <div class="input-group mb-3">
-            <input name="nick" class="form-control @error('nick') is-invalid @enderror"
-                   value="{{ old('nick') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
+            <input  name="nick" class="form-control @error('nick') is-invalid @enderror"
+                    value="{{ old('nick') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
 
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -47,7 +36,7 @@
                 </div>
             </div>
 
-            @error('email')
+            @error('nick')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

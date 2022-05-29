@@ -3,7 +3,8 @@
 return [
 
     'full_name'                   => 'Celé meno',
-    'email'                       => 'E-mail',
+    // 'email'                       => 'E-mail',
+    'email'                       => 'Nick',
     'password'                    => 'Heslo',
     'retype_password'             => 'Opakovať heslo',
     'remember_me'                 => 'Zapamätaj si ma',
