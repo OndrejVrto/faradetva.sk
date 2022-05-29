@@ -78,9 +78,8 @@
                 <input id="crop_input_exact_dimensions" value="0" hidden>
             @endif
         </div>
-
-        <span class="invalid-feedback d-block" role="alert">
-            <strong>
+        @if ($errors->any())
+            <x-admin.error-message>
                 @error('crop_exact_dimensions')
                     {{ $errors->first('crop_output_exact_dimensions') }}
                 @enderror
@@ -90,8 +89,8 @@
                 @error('crop_output_file_name')
                     {{ $errors->first('crop_output_file_name') }}
                 @enderror
-            </strong>
-        </span>
+            </x-admin.error-message>
+        @endif
     </div>
 
     <div class="form-row">
@@ -119,9 +118,9 @@
                     >
                 </div>
                 @error('crop_output_width')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $errors->first('crop_output_width') }}</strong>
-                    </span>
+                    <x-admin.error-message>
+                        {{ $errors->first('crop_output_width') }}
+                    </x-admin.error-message>
                 @enderror
             </div>
 
@@ -150,9 +149,9 @@
                     >
                 </div>
                 @error('crop_output_height')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $errors->first('crop_output_height') }}</strong>
-                    </span>
+                    <x-admin.error-message>
+                        {{ $errors->first('crop_output_height') }}
+                    </x-admin.error-message>
                 @enderror
             </div>
 

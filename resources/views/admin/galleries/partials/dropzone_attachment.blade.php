@@ -3,9 +3,9 @@
     <div class="needsclick dropzone" id="document-dropzone"></div>
     {{-- Error feedback --}}
     @error('picture')
-        <span class="invalid-feedback d-block" role="alert">
-            <strong>{{ $errors->first('picture.*') }}</strong>
-        </span>
+        <x-admin.error-message>
+            {{ $errors->first('picture.*') }}
+        </x-admin.error-message>
     @enderror
 </div>
 

@@ -81,9 +81,9 @@
                 </div>
                 {{-- Error feedback --}}
                 @error('published_at')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $errors->first('published_at') }}</strong>
-                    </span>
+                    <x-admin.error-message>
+                        {{ $errors->first('published_at') }}
+                    </x-admin.error-message>
                 @enderror
             </div>
 
@@ -114,9 +114,9 @@
                 </div>
                 {{-- Error feedback --}}
                 @error('unpublished_at')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $errors->first('unpublished_at') }}</strong>
-                    </span>
+                    <x-admin.error-message>
+                        {{ $errors->first('unpublished_at') }}
+                    </x-admin.error-message>
                 @enderror
             </div>
 

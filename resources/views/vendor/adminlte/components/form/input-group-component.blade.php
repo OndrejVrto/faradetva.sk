@@ -35,16 +35,16 @@
 
     {{-- Error feedback --}}
     @if($isInvalid() && ! isset($disableFeedback))
-    <span class="invalid-feedback d-block" role="alert">
-        <strong>{{ $errors->first($errorKey) }}</strong>
-    </span>
+        <x-admin.error-message>
+            {{ $errors->first($errorKey) }}
+        </x-admin.error-message>
     @endif
 
     {{-- Input Manual error slot --}}
     @isset($errorManual)
-    <span class="invalid-feedback d-block" role="alert">
-        <strong>{{ $errorManual }}</strong>
-    </span>
+        <x-admin.error-message>
+            {{ $errorManual }}
+        </x-admin.error-message>
     @endisset
 
     {{-- Input note slot --}}

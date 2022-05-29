@@ -9,7 +9,7 @@ Obsah stránky:
   ✔ rozhodnúť čo bude vo footeri namiesto facebooku (linky na najnavševovanejšie podstránky? alebo iné)
   ☐ facebook karta farnosti ako iframe?
   ✔ GDPR link na KBS a iné linky do foootera
-  ☐ repare validate errors in login form
+  ✔ repare validate errors in login form
   ✔ pridať možnosť zobraziť video z YouTube priamo v stránke
   ✔ zoradiť stránky podľa zoznamu od Mariana
   ✔ vytvoriť logo a ikonu stránky / farnosti
@@ -47,6 +47,7 @@ Administrátorské rozhranie:
     ☐ pridať kartu s informáciou o posledných zmenách na stránke
     ☐ prerobiť tlacitka na dashboarde na togle prepínače + button Save
     ☐ štatistika a rôzne grafy
+    ☐ ikona výkričníka v chybových správach
     https://github.com/fidum/laravel-dashboard-chart-tile
     ✔ dopnit kartu ktorá bude informovať o zacechovaní route a config súborov
     ✔ pridať kartu s kontorolou zapnuteho CSP

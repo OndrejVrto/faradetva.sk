@@ -49,9 +49,9 @@
             <label class="custom-control-label" for="customSwitch3">Všetko</label>
         </div>
         @error('permission')
-            <span class="invalid-feedback d-block" role="alert">
-                <strong>{{ $errors->first('permission') }}</strong>
-            </span>
+            <x-admin.error-message>
+                {{ $errors->first('permission') }}
+            </x-admin.error-message>
         @enderror
     </div>
 

@@ -3,9 +3,9 @@
 
     {{-- Error feedback --}}
     @error('content')
-        <span class="invalid-feedback d-block" role="alert">
-            <strong>{{ $errors->first('content') }}</strong>
-        </span>
+        <x-admin.error-message>
+            {{ $errors->first('content') }}
+        </x-admin.error-message>
     @enderror
 
     <textarea name="content" id="editorContent">

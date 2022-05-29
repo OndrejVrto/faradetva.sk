@@ -37,16 +37,16 @@
             </div>
 
             @error('nick')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                <x-admin.error-message iconOff>
+                    {{ $message }}
+                </x-admin.error-message>
             @enderror
         </div>
 
         {{-- Password field --}}
         <div class="input-group mb-3">
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                   placeholder="{{ __('adminlte::adminlte.password') }}">
+            <input  type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                    placeholder="{{ __('adminlte::adminlte.password') }}">
 
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -55,9 +55,9 @@
             </div>
 
             @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                <x-admin.error-message iconOff>
+                    {{ $message }}
+                </x-admin.error-message>
             @enderror
         </div>
 

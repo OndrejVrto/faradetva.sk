@@ -70,9 +70,9 @@
 
         {{-- Error feedback --}}
         @error('answer')
-            <span class="invalid-feedback d-block" role="alert">
-                <strong>{{ $errors->first('answer') }}</strong>
-            </span>
+            <x-admin.error-message>
+                {{ $errors->first('answer') }}
+            </x-admin.error-message>
         @enderror
 
         <textarea name="answer" id="editorContent">
