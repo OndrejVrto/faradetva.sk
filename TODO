@@ -3,6 +3,7 @@ Obsah stránky:
   ✔ vytvoriť komponenty pre rôzne druhy sekcií podľa šablony
   ☐ prepísať teaser texty v databáze
   ☐ nahodiť všetky texty do stránok "O-nás"
+  ☐ tagy - všetky alebo len výber
   ✔ nahodiť všetky texty do stránok "Duchovný život"
   ☐ pridat ručne výsečové grafy
   ✔ otváracie hodiny kostola, štandardné časy omší - do pätičky?
@@ -47,7 +48,7 @@ Administrátorské rozhranie:
     ☐ pridať kartu s informáciou o posledných zmenách na stránke
     ☐ prerobiť tlacitka na dashboarde na togle prepínače + button Save
     ☐ štatistika a rôzne grafy
-    ☐ ikona výkričníka v chybových správach
+    ✔ ikona výkričníka v chybových správach
     https://github.com/fidum/laravel-dashboard-chart-tile
     ✔ dopnit kartu ktorá bude informovať o zacechovaní route a config súborov
     ✔ pridať kartu s kontorolou zapnuteho CSP

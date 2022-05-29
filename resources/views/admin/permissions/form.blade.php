@@ -30,9 +30,9 @@
                 <i class="fa-solid fa-key"></i>
             </div>
         </x-slot>
-        <x-slot:noteSlot>
+        {{-- <x-slot:noteSlot>
             Pre kód povolenia môžete použiť aj 'Wildcard'. (Napr. news.*)
-        </x-slot>
+        </x-slot> --}}
         @error('slug')
             <x-slot:errorManual>
                 {{ $errors->first('slug') }}

@@ -17,9 +17,9 @@
         >
 
         <x-slot:createNote>
-            Na stránke sa zobrazujú iba tri náhodné obrázky!
+            Na stránke sa zobrazujú tri náhodné myšlienky!
             <br>
-            Pre fungovanie musia byť vložené minimálne dva obrázky.
+            Pre fungovanie posúvača musia byť vložené minimálne dve.
         </x-slot>
 
         <x-slot:table_header>
