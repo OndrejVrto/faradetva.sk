@@ -4,7 +4,7 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
 
-        <x-web.page.subsection title="Čo je Eucharistia?">
+        <x-web.page.subsection title="Čo je Eucharistia">
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="sacr3-010" side="right" dimensionSource="medium" columns="3" />
@@ -14,7 +14,7 @@
                 </p>
 
                 <h3 class="mt-5 wow fromright" data-wow-delay="0.4s">
-                    Nakoľko je Eucharistia dôležitá pre Cirkev?
+                    Nakoľko je Eucharistia dôležitá pre Cirkev
                 </h3>
 
                 <p>
@@ -23,7 +23,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Ktoré prvky patria neodmysliteľne k svätej omši?">
+        <x-web.page.subsection title="Prvky, ktoré patria neodmysliteľne k svätej omši">
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="sacr3-006" side="left" dimensionSource="medium" columns="5" />
@@ -33,7 +33,7 @@
                 </p>
 
                 <h3 class="mt-5 wow fromright" data-wow-delay="0.4s">
-                    Kto vedie slávenie Eucharistie?
+                    Kto vedie slávenie Eucharistie
                 </h3>
 
                 <p>
@@ -42,17 +42,17 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Akým spôsobom je Ježiš prítomný v Eucharistii?">
+        <x-web.page.subsection title="Spôsob prítomnosti Ježiša v Eucharistii">
             <x-web.page.text-segment animation="fromright">
-
-                <x-partials.picture titleSlug="sacr3-014" side="right" dimensionSource="medium" columns="4" />
 
                 <p>
                     Ježiš je vo sviatosti Eucharistie prítomný tajomným, ale skutočným spôsobom. Vždy, keď Cirkev uskutočňuje Ježišovo poverenie „Toto robte na moju pamiatku.“, láme chlieb a podáva kalich, práve v tej chvíli sa uskutočňuje jedinečná a neopakovateľná Ježišova obeta na kríži sprítomnená na oltári; napĺňa sa tak dielo nášho vykúpenia a my na ňom máme skutočný podiel.
                 </p>
 
+                <x-partials.picture titleSlug="sacr3-014" side="right" dimensionSource="medium" columns="4" />
+
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Akým spôsobom sa Cirkev podieľa na Eucharistii?
+                    Spôsob, akým sa Cirkev podieľa na Eucharistii
                 </h3>
 
                 <p>
@@ -60,7 +60,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Ako máme správne uctievať Pána Ježiša prítomného v chlebe a vo víne?
+                    Správna úcta Pána Ježiša prítomného v chlebe a vo víne
                 </h3>
 
                 <p>
@@ -75,7 +75,7 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
 
-        <x-web.page.subsection title="Ako často sa má kresťan katolík zúčastňovať na svätej omši?">
+        <x-web.page.subsection title="Ako často sa má kresťan katolík zúčastňovať na svätej omši">
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="sacr3-003" side="right" dimensionSource="medium" columns="3" />
@@ -85,7 +85,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Ako sa mám pripraviť, aby som mohol pristúpiť k svätému prijímaniu?
+                    Príprava pred svätým prijímaním
                 </h3>
 
                 <p>
@@ -93,7 +93,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Ako ma mení sväté prijímanie?
+                    Ako ma mení sväté prijímanie
                 </h3>
 
                 <p>

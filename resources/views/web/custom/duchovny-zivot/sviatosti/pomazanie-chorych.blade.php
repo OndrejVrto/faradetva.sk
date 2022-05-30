@@ -41,11 +41,12 @@
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="sacr5-003" side="left" dimensionSource="medium" columns="3" />
-                <x-partials.picture titleSlug="sacr5-001" side="right" dimensionSource="medium" columns="4"/>
 
                 <p>
                     Sviatosť chorých udeľuje útechu, pokoj a silu a chorého v jeho utrpení spája hlbokým putom s Kristom. U mnohých táto sviatosť vedie k telesnému uzdraveniu. A ak si Boh chce niekoho povolať k sebe, dáva mu v tejto sviatosti silu ku všetkým telesným i duševným zápasom na jeho poslednej ceste. Ak sa chorý nemohol vyspovedať, sviatosť chorých spôsobuje aj odpustenie hriechov. Mnohí chorí sa obávajú tejto sviatosti a odsúvajú ju na poslednú chvíľu, pretože sa domnievajú, že si jej prijatím podpisujú rozsudok smrti. Opak je však pravdou: sviatosť chorých je istým druhom životnej poistky. Kto ako kresťan sprevádza nejakého chorého, mal by mu pomôcť zbaviť sa zbytočného strachu. Väčšina ťažko chorých alebo tých, ktorí sa ocitnú v ohrození života, intuitívne cíti, že v danom okamihu je pre nich najdôležitejšie bezvýhradne sa primknúť k tomu, ktorý premohol smrť a je sám život - k Ježišovi Kristovi, Spasiteľovi.
                 </p>
+
+                <x-partials.picture titleSlug="sacr5-001" side="right" dimensionSource="medium" columns="4"/>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
                     Čo je to viatikum?

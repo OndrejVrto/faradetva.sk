@@ -20,7 +20,7 @@
                         <p>
                             „Modlitba nie je podľa mňa nič iné ako rozhovor s priateľom, s ktorým sme často a radi, aby sme sa s ním rozprávali, pretože nás miluje.“
                         </p>
-                        <cite title="Source Title">(sv. Terézia z Avily)</cite>
+                        <cite title="Source Title">sv. Terézia z Avily</cite>
                     </blockquote>
                 </figure>
                 <p>
@@ -38,20 +38,22 @@
                     Poznáme päť základných foriem modlitby: velebenie, klaňanie (adorácia), prosebná modlitba a modlitba príhovoru, modlitba vďakyvzdania a modlitba chvály.
                 </p>
 
-                <x-partials.picture titleSlug="modl-007" side="left" dimensionSource="medium" columns="3" />
-
                 <p>
                     Velebenie je odpoveď človeka na Božie dary. Pretože Boh nám dáva požehnanie, srdce človeka môže zasa velebiť toho, kto je zdrojom každého požehnania. Jeho dobrota, blízkosť, zľutovanie - to všetko znamená požehnanie. Každý kresťan by mal prosiť o Božie požehnanie pre seba i pre druhých ľudí. Rodičia môžu požehnať svoje deti znamením kríža na čele. Ľudia, ktorí sa majú radi, sa môžu vzájomne žehnať. Okrem toho kňaz z moci svojho úradu žehná vyslovene v Ježišovom mene a z poverenia Cirkvi. Jeho prosba o požehnanie nadobúda zvláštnu účinnosť mocou kňazskej vysviacky a mocou modlitby celej Cirkvi.
                 </p>
+
+                <x-partials.picture titleSlug="modl-007" side="left" dimensionSource="medium" columns="3" />
+
                 <p>
                     Každý človek, ktorý si uvedomuje, že je Božím stvorením, pokorne uznáva Boha, svojho Stvoriteľa a klania sa mu. V postoji klaňania (adorácia) však neuctieva iba Božiu veľkosť, všemohúcnosť a svätosť, ale skláňa sa aj pred Božou láskou, ktorá spôsobila, že sa v Ježišovi Kristovi Boh stal človekom. Ten, kto sa skutočne klania Bohu, padá pred ním na kolená alebo sa pred ním vrhá na zem. Vyjadruje tak pravdivosť vzťahu medzi Bohom a človekom: Boh je veľký, my sme malí. A pritom človek nie je nikdy väčší ako vtedy, keď v slobodnej odovzdanosti padá na kolená pred Bohom. Človek, ktorý hľadá Boha a začína sa modliť, môže takýmto spôsobom nájsť k nemu cestu.
                 </p>
 
-                <x-partials.picture titleSlug="modl-004" side="right" dimensionSource="medium" columns="2" />
-
                 <p>
                     Boh, ktorý nás pozná do hĺbky duše, vie, čo potrebujeme. A predsa si praje, aby sme ho prosili, aby sme sa na neho obracali vo svojich potrebách, aby sme na neho volali a utiekali sa k nemu, aby sme sa mu vyžalovali, vzývali ho a dokonca s ním zápasili. Boh nepotrebuje naše prosby, aby nám pomáhal. To, že ho máme prosiť, je pre naše dobro. Ten, kto neprosí a nechce prosiť, uzatvára sa do seba. Len človek, ktorý prosí, sa otvára a obracia sa na Pôvodcu všetkého dobra. Ten, kto prosí, vracia sa domov k Bohu. Preto prosebná modlitba uvádza človeka do správneho vzťahu k Bohu, ktorý rešpektuje našu slobodu.
                 </p>
+
+                <x-partials.picture titleSlug="modl-004" side="right" dimensionSource="medium" columns="2" />
+
                 <p>
                     Čím viac sa človek učí modliť, tým hlbšie prežíva, že je začlenený do duchovnej rodiny, v ktorej sa prejavuje sila modlitby. So všetkou starostlivosťou o ľudí, ktorých milujeme, stojíme uprostred ľudskej rodiny, v ktorej môžeme čerpať silu z modlitby druhých a môžeme tiež zvolávať na druhých pomoc.
                 </p>

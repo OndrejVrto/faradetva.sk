@@ -14,7 +14,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Aké miesto má sviatosť posvätného stavu v Božom pláne spásy?
+                    Miesto sviatosti posvätného stavu v Božom pláne spásy
                 </h3>
 
                 <p>
@@ -31,10 +31,10 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Aký účinok má diakonská vysviacka?">
+        <x-web.page.subsection title="Účinok diakonskej vysviacky">
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="sacr6-008" side="left" dimensionSource="medium" columns="3" />
+                <x-partials.picture titleSlug="sacr6-009" side="left" dimensionSource="medium" columns="4" />
 
                 <p>
                     Diakon je ustanovený pre osobitnú službu Cirkvi. Zastupuje totiž Krista, ktorý „neprišiel dať sa obsluhovať, ale slúžiť a položiť svoj život ako výkupné za mnohých“ (Mt 20,28). V liturgii diakonskej vysviacky sa hovorí: „Posilnený darom Ducha Svätého bude pomáhať biskupovi a jeho kňazom v službe slova, oltára a charity. Stane sa služobníkom všetkých.“ Prvotným vzorom diakona je svätý mučeník Štefan, ktorý bol medzi prvými siedmimi diakonmi, ktorých ustanovili apoštoli, keď sa v službe prvotnej cirkvi v Jeruzaleme cítili preťažení množstvom charitatívnych úloh. Neskôr sa diakonská služba stala na dlhé storočia len nižším stupňom na ceste ku kňazstvu. Dnes sú opäť do tejto služby povolaní jednak tí, ktorí žijú v celibáte, ako aj ženatí muži. Takto chápaná diakonská služba nanovo zdôrazňuje služobný charakter Cirkvi. Zároveň poskytuje kňazom pomoc v duchu prvotnej Cirkvi tým, že diakon prijíma predovšetkým pastoračné a sociálne úlohy v Cirkvi. Aj diakonská vysviacka vtláča celoživotnú a nezrušiteľnú pečať.
@@ -48,29 +48,34 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
 
-        <x-web.page.subsection title="Aký účinok má kňazská vysviacka?">
+        <x-web.page.subsection title="Účinok kňazskej vysviacky">
             <x-web.page.text-segment animation="fromright">
 
-                <x-partials.picture titleSlug="sacr6-001" side="right" dimensionSource="medium" columns="3" />
+                {{-- <x-partials.picture titleSlug="sacr6-001" side="right" dimensionSource="medium" columns="3" /> --}}
+                <x-partials.picture titleSlug="sacr6-008" side="right" dimensionSource="medium" columns="4" />
 
                 <p>
                     Pri kňazskej vysviacke Duch Svätý vtláča kňazovi nezmazateľnú pečať, ktorou ho pripodobňuje Kristovi a dáva mu schopnosť konať v Ježišovom mene. Kňaz ako spolupracovník svojho biskupa má hlásať Božie slovo, udeľovať sviatosti a predovšetkým sláviť Eucharistiu.
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Aký účinok má biskupská vysviacka?
+                    Účinok biskupskej vysviacky
                 </h3>
+
+                <p>
+                    Biskupskou vysviackou sa udeľuje plnosť sviatosti posvätného stavu. Po vysvätení sa biskup stáva právoplatným nástupcom apoštolov a vstupuje do biskupského zboru. Od okamihu svojho vysvätenia je zodpovedný za celú Cirkev spolu s ostatnými biskupmi a s pápežom.
+                </p>
 
                 <x-partials.picture titleSlug="sacr6-006" side="left" dimensionSource="medium" columns="4" />
 
                 <p>
-                    Biskupskou vysviackou sa udeľuje plnosť sviatosti posvätného stavu. Po vysvätení sa biskup stáva právoplatným nástupcom apoštolov a vstupuje do biskupského zboru. Od okamihu svojho vysvätenia je zodpovedný za celú Cirkev spolu s ostatnými biskupmi a s pápežom. Biskupskou vysviackou sa mu udeľuje poslanie učiť, posväcovať a spravovať. Biskup, ktorý spolu s kňazmi a diakonmi ako so svojimi vysvätenými spolupracovníkmi vykonáva pastiersku službu, je viditeľným princípom a základom miestnej cirkvi (biskupstva/diecézy).
+                    Biskupskou vysviackou sa udeľuje poslanie učiť, posväcovať a spravovať. Biskup, ktorý spolu s kňazmi a diakonmi ako so svojimi vysvätenými spolupracovníkmi vykonáva pastiersku službu, je viditeľným princípom a základom miestnej cirkvi (biskupstva/diecézy).
                 </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection>
 
-        <x-web.page.subsection title="Ako sa odlišuje všeobecné kňazstvo všetkých veriacich od sviatostného kňazstva?">
-            <x-web.page.text-segment animation="fromright">
+                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
+                    Ako sa odlišuje všeobecné kňazstvo všetkých veriacich od sviatostného kňazstva?
+                </h3>
+
                 <p>
                     Každý kresťan je povolaný k všeobecnému kňazstvu, aby v Božom mene pôsobil vo svete a prinášal mu Božie požehnanie a milosť. Pri Poslednej večeri a pri rozoslaní apoštolov dal však Ježiš niektorým posvätnú moc na službu veriacim. Preto len títo vysvätení kňazi zastupujú Ježiša, Pastiera svojho ľudu a Hlavu svojho tela - Cirkvi. Všetci by sme mali nanovo objaviť Boží dar pre Cirkev, ktorým je vysvätený kňaz, ktorý medzi nami zastupuje samého Pána.
                 </p>

@@ -444,7 +444,7 @@ button:before {
 	color          : #ffffff;
 	letter-spacing : 0.05em;
 	display        : block;
-	text-transform : capitalize;
+	/* text-transform : capitalize; */
 	text-decoration: none;
 	margin         : 0 5px;
 	font-weight    : 400;
@@ -536,7 +536,7 @@ button:before {
 	text-decoration: none;
 	padding        : 11px 15px;
 	display        : block;
-	text-transform : capitalize;
+	/* text-transform : capitalize; */
 }
 
 .header_right_menu>ul>li>ul>li>a:hover {
@@ -1652,7 +1652,7 @@ div#err_msg p {
 	text-decoration: none;
 	font-size      : 14px;
 	color          : #919191;
-	text-transform : capitalize;
+	/* text-transform : capitalize; */
 }
 
 .ch_sidebar_area .widget ul li a:hover {
@@ -1990,7 +1990,7 @@ blockquote cite {
 
 .cmt_title .reply_link {
 	float          : right;
-	text-transform : capitalize;
+	/* text-transform : capitalize; */
 	color          : #222;
 	text-decoration: none;
 }

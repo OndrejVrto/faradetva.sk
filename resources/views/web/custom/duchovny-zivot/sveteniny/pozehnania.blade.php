@@ -37,12 +37,18 @@
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="poz-004" side="left" dimensionSource="medium" columns="5" />
-                <x-partials.picture titleSlug="poz-007" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
-                    Cirkev udeľuje požehnania v rozličných životných okolnostiach a využíva pritom stvorené veci, ktoré môžu byť osožné posväteniu človeka a oslave Boha. Modlitby požehnania sú vždy sprevádzané čítaním Božieho slova, vonkajšími úkonmi a symbolmi. Preto má štruktúra požehnania vždy dve časti: Prvá časť - čítanie Božieho slova je dôležitá preto, aby sa požehnanie stalo posvätným znakom, ktorý práve z hlásania Božieho slova čerpá svoj zmysel a poriadok. Druhá časť smeruje k chvále a velebeniu Boha - ako pri všetkých liturgických modlitbách skrze Krista v Duchu Svätom. Jej stredobodom je samotná modlitba požehnania sprevádzaná osobitným znakom. Tieto viditeľné znaky majú pripomínať Pánovu spásonosnú činnosť a poukazovať na súvis so sviatosťami. Najčastejšie používanými znakmi sú: vystretie, vyzdvihnutie a zloženie rúk, vkladanie rúk, pokropenie požehnanou vodou, incenzovanie a znak kríža.
+                    Cirkev udeľuje požehnania v rozličných životných okolnostiach a využíva pritom stvorené veci, ktoré môžu byť osožné posväteniu človeka a oslave Boha. Modlitby požehnania sú vždy sprevádzané čítaním Božieho slova, vonkajšími úkonmi a symbolmi.Preto má štruktúra požehnania vždy dve časti.
                 </p>
-                <x-partials.picture titleSlug="poz-008" side="right" dimensionSource="medium" columns="2" />
+                <p>
+                    Prvá časť - čítanie Božieho slova je dôležitá preto, aby sa požehnanie stalo posvätným znakom, ktorý práve z hlásania Božieho slova čerpá svoj zmysel a poriadok. Druhá časť smeruje k chvále a velebeniu Boha - ako pri všetkých liturgických modlitbách skrze Krista v Duchu Svätom. Jej stredobodom je samotná modlitba požehnania sprevádzaná osobitným znakom.
+                </p>
+                <p>
+                    Tieto viditeľné znaky majú pripomínať Pánovu spásonosnú činnosť a poukazovať na súvis so sviatosťami. Najčastejšie používanými znakmi sú: vystretie, vyzdvihnutie a zloženie rúk, vkladanie rúk, pokropenie požehnanou vodou, incenzovanie a znak kríža.
+                </p>
+
+                <x-partials.picture titleSlug="poz-007" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
                     Sväteniny a medzi nimi požehnania sprevádzajú nielen vysluhovanie sviatostí (napr. požehnanie krstnej vody, oleja na pomazanie chorých, prsteňov novomanželov a pod.), ale aj celý cirkevný rok (napr. požehnanie adventného venca, sviec na sviatok Obetovania Pána, popola na Popolcovú stredu, ratolestí na Kvetnú nedeľu a pod.), celý život farnosti i obce či mesta (požehnanie kostola, bohoslužobných predmetov, nemocnice, domov, erbu mesta a pod.) a napokon súkromný život každého jedného veriaceho - osoby i predmetov (požehnanie chorých, manželov a detí, matky pred pôrodom, cestujúcich, automobilov, požehnanie pokrmov a nápojov, predmetov ľudovej nábožnosti a pod.).

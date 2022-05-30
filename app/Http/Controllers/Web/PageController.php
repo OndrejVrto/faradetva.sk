@@ -48,11 +48,16 @@ class PageController extends Controller
         foreach ($node->toArray() as $key => $value) {
             $path .= '/' . $value;
             $arr[$key] = $this->getPageData(substr($path, 1)) ?? [
-                'title' => Str::ucfirst(str_replace('-', ' ', (string) $value)),
+                'title' => $this->setManualBreadcrumb($value),
                 'url' => null
             ];
         }
         return $arr;
+    }
+
+    private function setManualBreadcrumb(string $value): string {
+        if ($value == 'duchovny-zivot') return 'Duchovný život';
+        return Str::ucfirst(str_replace('-', ' ', (string) $value));
     }
 
     /** get Page Data for One nod in URL and Cache it **/

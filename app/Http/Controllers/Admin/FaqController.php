@@ -24,7 +24,7 @@ class FaqController extends Controller
     }
 
     public function create(): View {
-        $pages = StaticPage::select(['id','title','description_page'])->where('check_url', '=', true)->orderBy('title')->get();
+        $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
         $selectedPages = [];
 
         return view('admin.faqs.create', compact('pages', 'selectedPages'));
@@ -41,7 +41,7 @@ class FaqController extends Controller
 
     public function edit(Faq $faq): View {
         $faq->load('staticPages');
-        $pages = StaticPage::select(['id','title','description_page'])->where('check_url', '=', true)->orderBy('title')->get();
+        $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
         $selectedPages = $faq->staticPages->pluck('id')->unique()->toArray();
 
         return view('admin.faqs.edit', compact('faq', 'pages', 'selectedPages'));

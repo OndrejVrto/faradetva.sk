@@ -4,7 +4,7 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
 
-        <x-web.page.subsection title="Ako inak nazývame sviatosť zmierenia a prečo potrebujeme túto sviatosť?">
+        <x-web.page.subsection title="Ako inak nazývame sviatosť zmierenia a prečo potrebujeme túto sviatosť">
             <x-web.page.text-segment animation="fromright">
 
                 <p>
@@ -13,7 +13,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Kto môže odpúšťať hriechy?">
+        <x-web.page.subsection title="Kto môže odpúšťať hriechy">
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="sacr4-001" side="right" dimensionSource="medium" columns="5" />
@@ -23,7 +23,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Ako sa možno pripraviť na ľútosť nad hriechmi?
+                    Ako sa možno pripraviť na ľútosť nad hriechmi
                 </h3>
 
                 <p>
@@ -32,7 +32,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="V čom spočíva príprava na sviatosť zmierenia?">
+        <x-web.page.subsection title="V čom spočíva príprava na sviatosť zmierenia">
             <x-web.page.text-segment animation="fromleft">
                 <p>
                     Ku každej sviatosti zmierenia patrí spytovanie svedomia, ľútosť, predsavzatie, vyznanie hriechov a zadosťučinenie (pokánie). Spytovanie svedomia by malo byť dôkladné. Hriešnik musí svoje hriechy vysloviť bezpodmienečne pred spovedníkom, teda ich vyznať. Bez skutočnej ľútosti a bez ústneho vyznania hriechov pred kňazom nikto nemôže dostať rozhrešenie od hriechov. K spovedi patrí aj zadosťučinenie za hriechy (pokánie), ktoré spovedník uloží kajúcnikovi, aby napravil spôsobenú škodu.
@@ -40,7 +40,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Čo je to pokánie?">
+        <x-web.page.subsection title="Čo je to pokánie">
             <x-web.page.text-segment animation="fromright">
                 <p>
                     Pokánie je zadosťučinenie za spáchané bezprávie. Pokánie nemôže byť iba záležitosťou rozumu, ale malo by sa konkrétne prejaviť v skutkoch lásky a v službe druhým. Pokánie sa žiaľ často chápe nesprávne. Nemá nič spoločné so sebaobviňovaním a škrupulanstvom. Pokánie neznamená neustále premýšľať o tom, aký som zlý človek. Pokánie nás oslobodzuje a povzbudzuje začať odznova.
@@ -62,7 +62,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Kedy je človek povinný vyspovedať sa zo svojich smrteľných hriechov? Ako často by mal pristupovať k sviatosti zmierenia?">
+        <x-web.page.subsection title="Kedy je človek povinný vyspovedať sa zo svojich smrteľných hriechov?">
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="sacr4-002" side="left" dimensionSource="medium" columns="4" />
@@ -72,7 +72,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Môže človek pristúpiť k sviatosti zmierenia aj keď sa nedopustil žiadnych smrteľných hriechov?
+                    Môžem sa vyspovedať aj keď som sa nedopustil smrteľných hriechov?
                 </h3>
 
                 <p>

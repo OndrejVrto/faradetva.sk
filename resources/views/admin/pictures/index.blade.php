@@ -12,7 +12,7 @@
         columns="10"
         controlerName="pictures"
         createBtn="Pridať nový obrázok"
-        paginator="{{ $pictures->onEachSide(1)->links() }}"
+        paginator="{{ $pictures->onEachSide(3)->links() }}"
         >
 
         <x-slot:table_header>
