@@ -67,7 +67,7 @@
             </x-slot:img>
             <x-slot:teaser>
                 Človek, ktorý vchádza do kostola a chce sa zúčastniť na slávení svätej omše, by mal byť čisto, vkusne a aj trochu sviatočne oblečený.
-                <span class="d-none d-xl-inline">
+                <span class="d-none d-xl-inline me-2">
                     Dámy by sa mali vyhnúť mikrosukniam a hlbokým výstrihom, páni krátkym nohaviciam.
                     To, čo si dnes najmä v lete ľudia obliekajú do kostola, je vhodné skôr na kúpalisko.
                 </span>
