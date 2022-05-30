@@ -8,9 +8,9 @@
 
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="pob-005" side="left" dimensionSource="full" columns="3" />
+                <x-partials.picture titleSlug="pob-005" side="left" dimensionSource="full" columns="2" />
 
-                <x-partials.picture titleSlug="pob-004" side="right" dimensionSource="medium" columns="3" />
+                <x-partials.picture titleSlug="pob-004" side="right" dimensionSource="medium" columns="4" />
                 <p>
                     Pod pobožnosťami chápeme rozličné vonkajšie prejavy (napr. v textoch modlitieb a piesní, v zachovávaní období a navštevovania osobitných miest, v používaní odznakov, medailí, rúch a zvykov), ktoré oživené vnútorným postojom viery prejavujú zvláštny dôraz vzťahu veriaceho k božským osobám, alebo k Panne Márii v jej privilégiách milosti a v tituloch, ktoré ich vyjadrujú, alebo k svätým, pre ich pripodobnenie sa Kristovi, alebo pre úlohu, ktorú zohrali v Cirkvi.
                 </p>
@@ -27,17 +27,18 @@
 
             <x-web.page.text-segment>
 
-                <x-partials.picture titleSlug="pob-006" side="left" dimensionSource="medium" columns="3" />
+                <x-partials.picture titleSlug="pob-006" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
                     Liturgický rok je časová štruktúra, v rámci ktorej Cirkev slávi celé Kristovo tajomstvo: od Vtelenia a Narodenia Pána až po Nanebovstúpenie, deň Zoslania Ducha Svätého a očakávanie blaženej nádeje a príchodu Pána. V liturgickom roku slávenie veľkonočného tajomstva tvorí privilegovaný moment kresťanského kultu v jeho každodennom, týždennom a ročnom vývoji. Z toho vyplýva, že vo vzťahu medzi liturgiou a ľudovou zbožnosťou sa má pokladať za pevný bod priorita slávení liturgického roka nad každým iným prejavom a úkonom zbožnosti.
                 </p>
 
-                <x-partials.picture titleSlug="pob-001" side="right" dimensionSource="small" columns="2" />
+                <x-partials.picture titleSlug="pob-001" side="left" dimensionSource="small" columns="3" />
 
                 <p>
                     V adventom období očakávania, obrátenia a nádeje patria medzi prejavy ľudovej zbožnosti: Adventný veniec, Zimné kántrové dni, Vianočná novéna - Kto dá prístrešie Svätej rodine? Vo vianočnom období Cirkev slávi tajomstvo Zjavenia Pána, jeho skromného narodenia v Betleheme. Ako je známe, okrem stavania betlehemských jasieľ v kostoloch, počnúc od 13. storočia sa rozšíril zvyk, ovplyvnený bezpochyby jasličkami pripravenými sv. Františkom z Assisi v roku 1223 v Grecciu, stavať malé betlehemy aj v domácich príbytkoch. Ľudovú zbožnosť vo vianočnom čase predstavujú: Betlehemy (aj „živé“), Vianočná (štedrovečerná) večera, Jasličkové pobožnosti, Koledovanie, Koncoročná pobožnosť, Trojkráľové požehnanie príbytkov.
                 </p>
+
                 <p>
                     Pôst je obdobie, ktoré predchádza a pripravuje na slávenie Veľkej noci. Je časom počúvania Božieho slova a obrátenia, zmierenia s Bohom a s bratmi, časom modlitby, pôstu a almužny. Začiatok štyridsaťdňového obdobia pokánia sa predstavuje jednoduchým symbolom „popolca“, ktorým sa vyznačuje Popolcová streda. Medzi pobožnosťami, ktorými si veriaci uctievajú Pánovo utrpenie, máloktoré sú také obľúbené ako Krížová cesta. Vo Veľkom týždni svätá Cirkev slávi tajomstvo spásy, zavŕšené Kristom v posledných dňoch jeho života. V tomto období je ľudová zbožnosť viditeľná v úkonoch ako: Návšteva miesta uloženia Najsvätejšej sviatosti na Zelený štvrtok, Predstavenie Kristovho utrpenia - pašiové hry, Lamentácie - Náreky proroka Jeremiáša, Návšteva „Božieho hrobu“. Vo veľkonočnom období sa vo viacerých oblastiach rozšírila pobožnosť Via lucis - cesta svetla, pri ktorej podobne ako pri krížovej ceste veriaci prechádzajú určitou cestou a uvažujú o rozličných zjaveniach Zmŕtvychvstalého Krista. V spojitosti s veľkonočnou oktávou sa rozšírila Pobožnosť k Božiemu milosrdenstvu, ktorá sa rozvinula aj do každodennej osobitnej modlitby Korunka k Božiemu milosrdenstvu. Pred slávnosťou Turíc - Zoslania Ducha Svätého je zaužívaná Novéna k Duchu Svätému.
                 </p>
@@ -56,15 +57,24 @@
             <x-web.page.text-segment>
 
                 <p>
-                    V cezročnom období má po Nedeli Zoslania Ducha Svätého osobitné miesto Slávnosť Najsvätejšieho Kristovho tela a krvi. Typickými prvkami ľudovej zbožnosti počas slávnosti je výzdoba ulíc, kvety a oltáre, kde má byť pri zastaveniach procesie umiestnená Najsvätejšia sviatosť. Zvlášť rozšíreným prejavom eucharistického kultu je Adorácia Najsvätejšej sviatosti. V adorácii Najsvätejšej sviatosti sa zbližujú liturgické formy a prejavy ľudovej zbožnosti, a to v spôsoboch: a) jednoduchá návšteva Najsvätejšej sviatosti uloženej vo svätostánku kostola; b) adorácia pred vyloženou Oltárnou sviatosťou v monštrancii alebo v cibóriu; c) takzvaná „večná poklona“ alebo „celodenná poklona“, ktorej sa zúčastní celá rehoľná komunita alebo eucharistické združenie, prípadne farské spoločenstvo.
+                    V cezročnom období má po Nedeli Zoslania Ducha Svätého osobitné miesto Slávnosť Najsvätejšieho Kristovho tela a krvi. Typickými prvkami ľudovej zbožnosti počas slávnosti je výzdoba ulíc, kvety a oltáre, kde má byť pri zastaveniach procesie umiestnená Najsvätejšia sviatosť. Zvlášť rozšíreným prejavom eucharistického kultu je Adorácia Najsvätejšej sviatosti.
                 </p>
 
-                <x-partials.picture titleSlug="pob-008" side="left" dimensionSource="medium" columns="6" />
+                V adorácii Najsvätejšej sviatosti sa zbližujú liturgické formy a prejavy ľudovej zbožnosti, a to v spôsoboch:
+
+                <ul class="ms-4 list-unstyled">
+                    <li>a) jednoduchá návšteva Najsvätejšej sviatosti uloženej vo svätostánku kostola; </li>
+                    <li>b) adorácia pred vyloženou Oltárnou sviatosťou v monštrancii alebo v cibóriu;</li>
+                    <li>c) takzvaná „večná poklona“ alebo „celodenná poklona“, ktorej sa zúčastní celá rehoľná komunita alebo eucharistické združenie, prípadne farské spoločenstvo.</li>
+                </ul>
+
+                <x-partials.picture titleSlug="pob-024" side="right" dimensionSource="full" columns="5" />
 
                 <p>
                     V Detve sa na Sviatok Božieho tela konala vždy procesia sprevádzaná dychovou hudbou. Na štyroch miestach v uliciach Detvy okolo kostola miestne ženy urobili zelené oltáriky - koľibki, pri ktorých sa konala bohoslužba. Prvá bola na dolnom konci pri feštrovi, druhá pred Lašouskím, treťa pri Floriánkovi a štvrtá pred Vagačovci. (Svedectvo ženy narodenej v r. 1929) Kňaz s hostiou v monštrancii kráčal pod baldachýnom, ktorý niesli štyria chlapi v krojoch. Mládenci niesli vyzdobené zástavy a z nich visiace stuhy niesli dievky oblečené v bielych krojoch. Malé dievčatá posýpali cestu pred kňazom kvetnými lupeňmi. Táto tradícia eucharistickej procesie v blízkosti kostola s ľudovými prvkami v sviatočných krojoch sa v Detve zachovala dodnes.
                 </p>
-                <x-partials.picture titleSlug="pob-017" side="right" dimensionSource="full" columns="3" />
+
+                <x-partials.picture titleSlug="pob-022" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
                     V našom prostredí je zaužívaná aj Prvonedeľná pobožnosť pred vyloženou Oltárnou sviatosťou po „veľkej“ nedeľnej svätej omši o 10.30 hod. V prvopiatkovom týždni býva vo štvrtok po večernej svätej omši o 17.30 hod. hodinová eucharistická adorácia a v piatok býva vo farskom kostole adorácia od 16.30 hod., ktorá je pred večernou svätou omšou ukončená Prvopiatkovou pobožnosťou. Táto pobožnosť pred vyloženou Oltárnou sviatosťou býva na prvý piatok mesiaca taktiež v kláštore bosých karmelitánok po rannej svätej omši o 7.00 hod. Počas celého kalendárneho roka býva v kláštornom kostole moderovaná adorácia Najsvätejšej sviatosti vždy v stredu od 19.30 do 20.30 hod.
@@ -84,7 +94,7 @@
 
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="pob-020" side="left" dimensionSource="medium" columns="2" />
+                <x-partials.picture titleSlug="pob-017" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
                     Ľudová zbožnosť k Preblahoslavenej Panne Márii, rozličná vo svojich prejavoch a hlboká vo svojom zdôvodnení, je významná a všeobecná cirkevná skutočnosť. Vyplýva z viery a lásky Božieho ľudu ku Kristovi, Vykupiteľovi ľudského pokolenia a z pochopenia spásonosného poslania, ktoré Boh zveril nazaretskej Márii, pre ktoré svätá Panna je nielen Matkou Pána a Spasiteľa, ale v pláne milosti aj Matkou všetkých ľudí.
@@ -92,6 +102,7 @@
                 <p>
                     Medzi dňami venovanými Preblahoslavenej Panne Márii vystupuje do popredia sobota, ktorá dosiahla stupeň liturgickej spomienky Panny Márie. V niektorých oblastiach sa v 13. deň každého mesiaca veriaci schádzajú - v spomienke na zjavenia Panny Márie vo Fatime v roku 1917 - k mariánskym modlitbám. V súvislosti so zjaveniami vo Fatime vznikla na základe veľkého prisľúbenia Panny Márie Pobožnosť piatich prvých sobôt, ktorá sa koná s úmyslom odčiniť urážky spôsobené Nepoškvrnenému Srdcu Panny Márie. Fatimské soboty sa v našej diecéze organizujú na mariánskom pútnickom mieste v Starých Horách. Prvú sobotu mesiaca býva v starohorskej bazilike alebo na Studničke pravidelný dopoludňajší program mariánskej úcty, ktorý je zakončený slávnostnou svätou omšou. Fatimské soboty bývajú rovnako organizované v popoludňajších hodinách aj na Raticovom vrchu v Hriňovej.
                 </p>
+                <x-partials.picture titleSlug="pob-018" side="left" dimensionSource="medium" columns="3" />
                 <p>
                     Jednou z najvynikajúcejších modlitieb k Pánovej Matke je Ruženec. Modlitba posvätného ruženca je v podstate kontemplatívna, ktorá si vyžaduje pokojný rytmus a akoby predlžované zamýšľanie sa podporujúce toho, kto sa modlí, v rozjímaní o tajomstvách Pánovho života. Modlitba ruženca môže byť súkromná, ale zvlášť sa vyzdvihuje komunitný charakter tejto modlitby. V našej farnosti sa modlíme posvätný ruženec (päť desiatkov) každý deň pred začiatkom večernej svätej omše. Medzi ďalšie významné pobožnosti k Panne Márii radíme: Anjel Pána, Regina caeli (Raduj sa, nebies Kráľovná), Loretánske litánie, Zasvätenie - zverenie sa Panne Márii, Karmelitánsky škapuliar, Mariánske medaily, Hymnus Akatist.
                 </p>
@@ -108,7 +119,6 @@
                     Uctievanie svätých a blahoslavenýchKult svätých, predovšetkým mučeníkov, je veľmi dávnou cirkevnou skutočnosťou. Cirkevná náuka a jej liturgia predkladajú svätých a blahoslavených, ktorí už jasne kontemplujú trojjediného Boha, za príklad Božiemu ľudu. Svätí sú historickí svedkovia všeobecného povolania k svätosti, významní Pánovi učeníci, vzory evanjeliového života, obyvatelia neba, orodovníci a priatelia ešte putujúcich na zemi, patróni miestnych cirkví.
                 </p>
 
-                <x-partials.picture titleSlug="pob-018" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
                     Konečným cieľom úcty k svätým je vždy Božia sláva a posvätenie človeka prostredníctvom života dokonale zladeného s Božou vôľou a nasledovanie čností tých, ktorí boli vynikajúcimi Pánovými učeníkmi. Osobitnú úctu v prejavoch zbožnosti majú aj anjeli, v ľudovej zbožnosti zvlášť úcta k anjelovi strážcovi.

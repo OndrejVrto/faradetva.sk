@@ -29,7 +29,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Prečo je manželstvo nerozlučiteľné?">
+        <x-web.page.subsection title="Nerozlučiteľnosť manželstva">
             <x-web.page.text-segment animation="fromright">
                 <p>
                     V čase, keď na mnohých miestach dosahuje rozvodovosť viac ako 50 % zo všetkých uzavretých manželstiev, je každé verne trvajúce manželstvo veľkým znamením - v konečnom dôsledku znamením Boha. Absolútna vernosť v manželstve nesvedčí v prvom rade o ľudskom výkone, ale o Božej vernosti, a to aj vtedy, keď na Boha v každom ohľade zabúdame a zrádzame ho. Uzavrieť cirkevné manželstvo znamená dôverovať viac v Božiu pomoc ako vo vlastnú zásobu lásky.
@@ -62,7 +62,7 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
 
-        <x-web.page.subsection title="Čo treba robiť, ak sa chce katolík zosobášiť s nekatolíkom alebo s partnerom, ktorý vyznáva iné náboženstvo?">
+        <x-web.page.subsection title="Čo treba robiť, ak sa chce katolík zosobášiť s nekatolíkom, alebo nepokrsteným?">
             <x-web.page.text-segment animation="fromleft">
                 <p>
                     V takomto prípade je na uzavretie manželstva potrebné získať cirkevný súhlas. Takzvaný dišpenz - oslobodenie od cirkevného zákona, má oprávnenie udeliť biskup alebo Apoštolská stolica. Pre katolíckeho veriaceho však môže byť z hľadiska vlastnej viery i z hľadiska výchovy budúceho potomstva veľmi ťažké uzavrieť manželstvo a žiť ho s partnerom, ktorý vyznáva iné náboženstvo. Vo svojej zodpovednosti za veriacich preto Katolícka cirkev ustanovila manželskú prekážku rozdielnosti náboženstva. Takéto manželstvo môže byť platne uzavreté iba vtedy, ak jeho uzavretie predchádza oslobodenie od tejto prekážky cirkevnou vrchnosťou.
@@ -91,7 +91,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Aký je postoj Cirkvi k rozvedeným, ktorí uzavreli nový sobáš?">
+        <x-web.page.subsection title="Postoj Cirkvi k rozvedeným, ktorí uzavreli nový sobáš">
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="sacr7-007" side="left" dimensionSource="medium" columns="3" />

@@ -7,7 +7,7 @@
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="min-001" side="left" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="min-001" side="right" dimensionSource="medium" columns="5" />
 
                 <p>
                     Niektoré služby určené pre náležité slávenie bohoslužby a pre pomoc Božiemu ľudu v jeho potrebách ustanovila Cirkev už v najstarších dobách. Tieto služby, ktoré sa zverovali veriacim, aby ich vykonávali pri liturgii a v charitatívnej činnosti, sa prispôsobovali rozličným okolnostiam. Tieto úlohy sa spravidla udeľovali osobitným obradom. Veriaci tak získal Božie požehnanie a bol zaradený do vyčlenenej skupiny, čiže mal osobitné postavenie, aby mohol vykonávať nejaký cirkevný úrad.
@@ -22,7 +22,7 @@
                     V niektorých prípadoch má takýto príspevok vo forme služby svoj pôvod v konkrétnej sviatosti, vo sviatosti posvätného stavu. Ďalšie úlohy boli ustanovené v Cirkvi v priebehu dejín a zverené jednotlivým veriacim prostredníctvom nesviatostného liturgického obradu, na základe krstného kňazstva ako osobitná forma jeho vykonávania, ktorá má pomôcť biskupom, kňazom a diakonom v ich špecifickej službe.
                 </p>
 
-                <x-partials.picture titleSlug="min-009" side="right" dimensionSource="medium" columns="5" />
+                <x-partials.picture titleSlug="min-009" side="left" dimensionSource="medium" columns="6" />
 
                 <p>
                     Pretože sa nižšie svätenia v priebehu stáročí menili a mnohé úlohy im vyhradené v skutočnosti vykonávali laici, pápež sv. Pavol VI. v roku 1972 zrušil nižšie svätenia a ponechal len dve ministériá: lektorát a akolytát. Hoci tieto služby boli udeľované aj iným spôsobilým veriacim mužom, považovali sa za predprípravu k neskoršiemu prijatiu sviatosti vysviacky, preto boli vyhradené len osobám mužského pohlavia. Základom týchto služieb ustanovených Cirkvou je však spoločný stav tých, čo boli pokrstení a vo sviatosti krstu prijali kráľovské kňazstvo, preto sa tieto služby zásadne líšia od služby prijatej vo sviatosti vysviacky.
