@@ -14,7 +14,9 @@
     $class[] = 'wow '.$animation;
 @endphp
 
-<div {{ $attributes->merge(['class' => implode(' ', $class)]) }}>
+<div {{ $attributes->merge(['class' => implode(' ', $class)]) }}
+    @if ($dimensionSource === 'off') title="{{ $picture['source_description'] }}"@endif
+>
 
     {{-- <x-partials.source-sentence
         :dimensionSource="$dimensionSource"
@@ -23,12 +25,14 @@
         for="pic-{{ $picture['img-slug'] }}"
     /> --}}
 
-    <x-partials.picture-label
-        class="img-article img-article-{{ $side }}"
-        for="pic-{{ $picture['img-slug'] }}"
-    >
-        {{ $picture['source_description'] }}
-    </x-partials.picture-label>
+    @if ($dimensionSource !== 'off')
+        <x-partials.picture-label
+            class="img-article img-article-{{ $side }}"
+            for="pic-{{ $picture['img-slug'] }}"
+        >
+            {{ $picture['source_description'] }}
+        </x-partials.picture-label>
+    @endif
 
     {!! $picture['responsivePicture'] !!}
 
