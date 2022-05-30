@@ -4,7 +4,7 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
 
-        <x-web.page.subsection title="Čo je to krst?">
+        <x-web.page.subsection title="Čo je to krst">
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="sacr1-004" side="right" dimensionSource="medium" columns="5" />
@@ -13,7 +13,7 @@
                     Krst je základná sviatosť, brána, ktorá otvára prístup k ostatným sviatostiam.  Zjednocuje nás s Ježišom Kristom, vťahuje nás do jeho vykupiteľskej smrti na kríži, a tak nás vyslobodzuje z moci hriechu, očisťuje od všetkých osobných hriechov a umožňuje nám spolu s ním vstať z mŕtvych k životu, ktorý sa nekončí. Pretože krst je zmluvou s Bohom, človek musí povedať svoje slobodné „áno“. V prípade malých detí vyznávajú vieru ich rodičia ako zástupcovia.
                 </p>
 
-                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">Ako sa udeľuje krst?</h3>
+                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">Ako sa udeľuje krst</h3>
 
                 <p>
                     Klasická forma krstu prebieha tak, že ten, kto prijíma krst, sa tri razy ponorí do krstnej vody. Väčšinou sa však tomu, kto prijíma krst, tri razy leje voda na hlavu, pričom ten, kto udeľuje krst, hovorí: „(Meno), ja ťa krstím v mene Otca i Syna i Ducha Svätého.“ Voda symbolizuje očistenie a nový život. Túto skutočnosť vyjadroval už Jánov krst pokánia. Krst, ktorý sa udeľuje v „mene Otca i Syna i Ducha Svätého“ vodou, je viac ako znakom obrátenia a pokánia. Je to nový život v Kristovi. A preto ešte nasleduje pomazanie olejom, oblečenie bieleho rúcha a zapálenie krstnej sviece.
@@ -21,7 +21,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Kto môže byť pokrstený a čo sa vyžaduje od čakateľa na krst?">
+        <x-web.page.subsection title="Kto môže byť pokrstený a čo sa vyžaduje od čakateľa na krst">
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="sacr1-006" side="left" dimensionSource="medium" columns="4" />
@@ -30,7 +30,7 @@
                     Krst môže prijať každý človek, ktorý ešte nie je pokrstený. Jediným predpokladom krstu je viera, ktorá sa pri krste musí verejne vyznať. Človek, ktorý chce prijať kresťanskú vieru, nemení svoj pohľad na svet. Vstupuje totiž na cestu učenia sa (katechumenát), na ktorej sa pripravuje prijať Boží dar v krste. Osobným obrátením a krstom sa stáva novým človekom, živým údom Kristovho tela - Cirkvi. Tí, čo podstúpia smrť pre vieru, katechumeni a všetci ľudia, ktorí síce nepoznajú Cirkev, ale pod vplyvom milosti úprimne hľadajú Boha a usilujú sa plniť jeho vôľu, môžu sa spasiť, aj keď neprijali krst.
                 </p>
 
-                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">Prečo Cirkev krstí malé deti?</h3>
+                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">Prečo Cirkev krstí malé deti</h3>
 
                 <x-partials.picture titleSlug="sacr1-001" side="right" dimensionSource="medium" columns="3" />
 
@@ -48,7 +48,7 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
 
-        <x-web.page.subsection title="Kto môže krstiť?">
+        <x-web.page.subsection title="Kto môže krstiť">
             <x-web.page.text-segment animation="fromleft">
                 <p>
                     V obvyklých prípadoch udeľuje sviatosť krstu biskup, kňaz alebo diakon. V prípade núdze môže platne pokrstiť každý kresťan, ba dokonca každý človek, aj nepokrstený. Musí mať pri tom úmysel konať to, čo koná Cirkev, keď krstí.
@@ -56,7 +56,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Čo sa deje pri krste?">
+        <x-web.page.subsection title="Čo sa deje pri krste">
             <x-web.page.text-segment animation="fromright">
 
 
@@ -69,7 +69,7 @@
 
         <x-partials.picture titleSlug="sacr1-005" side="right" dimensionSource="medium" columns="12" />
 
-        <x-web.page.subsection title="Aký význam má meno, ktoré pri krste dostávame?">
+        <x-web.page.subsection title="Význam mena, ktoré dostávame pri krste">
             <x-web.page.text-segment animation="fromleft">
                 <p>
                     Menom, ktoré dostávame pri krste, nám Boh hovorí: „Po mene ťa zavolám, ty si môj“ (Iz 43,1). Pri krste sa človek nerozplýva v nejakom anonymnom božstve, ale ním sa práve potvrdzuje jeho jedinečnosť. Dostať pri krste určité meno znamená, že Boh ma pozná; povedal mi svoje „áno“ a navždy ma prijíma v mojej nezameniteľnej individuálnosti.
@@ -77,7 +77,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Prečo by sme mali mať krstné meno po nejakom veľkom svätcovi?">
+        <x-web.page.subsection title="Prečo mať krstné meno po svätcovi">
             <x-web.page.text-segment animation="fromright">
                 <p>
                     Nemáme lepšie vzory ani lepších pomocníkov ako svätých. Ak je mojím patrónom svätec, mám u Boha priateľa, ktorý za mňa oroduje.

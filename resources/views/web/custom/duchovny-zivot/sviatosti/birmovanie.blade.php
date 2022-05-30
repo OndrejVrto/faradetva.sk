@@ -4,17 +4,17 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
 
-        <x-web.page.subsection title="Čo je birmovanie?">
+        <x-web.page.subsection title="Čo je birmovanie">
             <x-web.page.text-segment animation="fromright">
 
-                <x-partials.picture titleSlug="sacr2-003" side="right" dimensionSource="medium" columns="2" />
+                <x-partials.picture titleSlug="sacr2-003" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
                     Birmovanie je sviatosť, ktorá dovršuje krst a v ktorej dostávame dary Ducha Svätého. Kto sa v slobode rozhodne žiť ako Božie dieťa a kto požiada o Ducha Svätého prostredníctvom vkladania rúk a pomazania krizmou, dostane silu svedčiť o Božej láske slovom i skutkom. Stáva sa tak plnohodnotným a zodpovedným členom Katolíckej cirkvi.
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Čo hovorí Sväté písmo o sviatosti birmovania?
+                    Čo hovorí Sväté písmo o sviatosti birmovania
                 </h3>
 
                 <p>
@@ -22,7 +22,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Čo sa deje pri birmovaní?
+                    Čo sa deje pri birmovaní
                 </h3>
 
                 <p>
@@ -37,18 +37,21 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
 
-        <x-web.page.subsection title="Kto môže prijať birmovanie a čo sa očakáva od uchádzača o birmovanie?">
+        <x-web.page.subsection title="Kto môže prijať birmovanie a čo sa očakáva od uchádzača o birmovanie">
             <x-web.page.text-segment animation="fromleft">
                 <p>
-                    Každý kresťan katolík, ktorý prijal sviatosť krstu a je v „stave milosti“, môže a má pristúpiť k sviatosti birmovania. Byť v „stave milosti“ znamená nedopustiť sa nijakého smrteľného hriechu, pretože smrteľný hriech oddeľuje človeka od Boha. V takej situácii sa človek môže zmieriť s Bohom jedine prostredníctvom sviatosti pokánia. (Mladý) kresťan, ktorý sa pripravuje na birmovanie - v našich končinách zvyčajne žiak strednej školy, sa nachádza v jednej z najdôležitejších etáp svojho života. Preto sa usiluje, aby uchopil vieru srdcom i rozumom; sám za seba i spoločne s druhými prosí o Ducha Svätého; zmieri sa sám so sebou, s ľuďmi vo svojom okolí a s Bohom vo sviatosti zmierenia, ktorá ho privedie bližšie k Bohu aj v prípade, že sa nedopustil žiadneho smrteľného hriechu.
+                    Každý kresťan katolík, ktorý prijal sviatosť krstu a je v „stave milosti“, môže a má pristúpiť k sviatosti birmovania. Byť v „stave milosti“ znamená nedopustiť sa nijakého smrteľného hriechu, pretože smrteľný hriech oddeľuje človeka od Boha. V takej situácii sa človek môže zmieriť s Bohom jedine prostredníctvom sviatosti pokánia.
                 </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection>
 
-        <x-web.page.subsection title="Kto môže birmovať?">
-            <x-web.page.text-segment animation="fromright">
+                <x-partials.picture titleSlug="sacr2-009" side="left" dimensionSource="medium" columns="5" />
 
-                <x-partials.picture titleSlug="sacr2-009" side="left" dimensionSource="medium" columns="4" />
+                <p>
+                    (Mladý) kresťan, ktorý sa pripravuje na birmovanie - v našich končinách zvyčajne žiak strednej školy, sa nachádza v jednej z najdôležitejších etáp svojho života. Preto sa usiluje, aby uchopil vieru srdcom i rozumom; sám za seba i spoločne s druhými prosí o Ducha Svätého; zmieri sa sám so sebou, s ľuďmi vo svojom okolí a s Bohom vo sviatosti zmierenia, ktorá ho privedie bližšie k Bohu aj v prípade, že sa nedopustil žiadneho smrteľného hriechu.
+                </p>
+
+                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
+                    Kto môže birmovať
+                </h3>
 
                 <p>
                     Sviatosť birmovania udeľuje za obvyklých okolností biskup. Ak je to potrebné, môže biskup poveriť aj nejakého kňaza. V nebezpečenstve smrti sviatosť birmovania môže udeliť každý kňaz. Podstatným obradom birmovania je pomazanie pokrsteného svätou krizmou na čele s vkladaním ruky vysluhovateľa so slovami: „Prijmi znak daru Ducha Svätého“. Keď sa birmovanie slávi oddelene od krstu, jeho spojitosť s krstom sa okrem iného vyjadruje obnovením krstných sľubov.
