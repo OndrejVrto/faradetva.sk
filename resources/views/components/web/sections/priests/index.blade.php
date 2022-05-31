@@ -31,19 +31,7 @@
 
                     @isset($priest['email'])
                         <div class="mt-0 mb-2">
-                            <script @nonce>
-                                var part1 = "{{ explode('@', $priest['email'])[0] }}";
-                                var part2 = Math.pow(2,6);
-                                var part3 = String.fromCharCode(part2);
-                                var part4 = "{{ explode('@', $priest['email'])[1] }}";
-                                var part5 = part1 + String.fromCharCode(part2) + part4;
-                                document.write(
-                                    "<a class='link-secondary' href=" + "mai" + "lto" + ":" + part5 + ">"
-                                    + "<i class='fa-regular fa-paper-plane fa-flip-horizontal ps-2'></i>"
-                                    + part1 + part3 + part4
-                                    + "</a>"
-                                );
-                            </script>
+                            {!! printEmail($priest['email'], csp_nonce()) !!}
                         </div>
                     @endisset
 
