@@ -1,21 +1,29 @@
-@php( $userImage = Auth::user()->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100" )
-@php( $userName = Auth::user()->name ?? 'Anonym' )
-@php( $rola = Auth::user()->roles->first()->name ?? 'bez role' )
-@php( $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'logout') )
-@php( $profile_url = View::getSection('profile_url') ?? config('adminlte.profile_url', 'logout') )
-@php( $time = config('session.lifetime').':00' )
+@php
+    $userImage = Auth::user()->getFirstMediaUrl('avatar', 'crop') ?: "http://via.placeholder.com/100x100";
+    $userName = Auth::user()->name ?? 'Anonym';
+    $rola = Auth::user()->roles->first()->name ?? 'bez role';
+    $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'logout');
+    $profile_url = View::getSection('profile_url') ?? config('adminlte.profile_url', 'logout');
 
-@if (config('adminlte.usermenu_profile_url', false))
-    @php( $profile_url = Auth::user()->adminlte_profile_url() )
-@endif
+    if (config('adminlte.usermenu_profile_url', false)){
+        $profile_url = Auth::user()->adminlte_profile_url();
+    }
 
-@if (config('adminlte.use_route_url', false))
-    @php( $profile_url = $profile_url ? route($profile_url) : '' )
-    @php( $logout_url = $logout_url ? route($logout_url) : '' )
-@else
-    @php( $profile_url = $profile_url ? url($profile_url) : '' )
-    @php( $logout_url = $logout_url ? url($logout_url) : '' )
-@endif
+    if (config('adminlte.use_route_url', false)){
+        $profile_url = $profile_url ? route($profile_url) : '';
+        $logout_url = $logout_url ? route($logout_url) : '';
+    } else {
+        $profile_url = $profile_url ? url($profile_url) : '';
+        $logout_url = $logout_url ? url($logout_url) : '';
+    }
+
+    $remember = collect(Cookie::get())
+                    ->filter(function ($val, $key) {
+                        return strpos($key, 'remember_web') !== false;
+                    })
+                    ->first();
+    $time = (!is_null($remember) AND $remember[0] === '1') ? '<i class="fa-solid fa-infinity"></i>' : config('session.lifetime').':00';
+@endphp
 
 <li class="nav-item dropdown user-menu">
 
@@ -29,7 +37,7 @@
         <div @if(config('adminlte.usermenu_image')) class="d-none d-md-inline" @endif>
             {{ $userName }}
             <span class="ml-2 small text-warning">({{ $rola }})</span>
-            <span class="ml-2 small badge badge-warning" id="time">{{ $time }}</span>
+            <span class="ml-2 small badge badge-warning" id="time">{!! $time !!}</span>
         </div>
     </a>
 

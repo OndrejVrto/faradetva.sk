@@ -24,8 +24,8 @@ return [
     'verify_email_sent'           => 'Nový verifikačný link bol odoslaný na Vami zadanú emailovú adresu.',
     'verify_check_your_email'     => 'Skontrolujte Váš e-mail a použite verifikačný link.',
 
-    'verify_if_not_recieved'      => 'If you did not receive the email',
-    'verify_request_another'      => 'click here to request another',
-    'confirm_password_message'    => 'Please, confirm your password to continue.',
-    'remember_me_hint'            => 'Keep me authenticated indefinitely or until I manually logout',
+    'verify_if_not_recieved'      => 'Ak ste nedostali e-mail',
+    'verify_request_another'      => 'kliknite sem, ak chcete požiadať o ďalší.',
+    'confirm_password_message'    => 'Pre pokračovanie prosím potvrďte svoje heslo.',
+    'remember_me_hint'            => 'Ponechať účet prihlásený, až kým sa manuálne neodhlási.',
 ];

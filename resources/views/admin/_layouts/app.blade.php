@@ -19,13 +19,22 @@
 
     @toastr_render(csp_nonce())
 
-    <script @nonce>
-        const myTimer = new Timer({
-            minutes: {{ config('session.lifetime') }},
-            seconds: 0,
-            element: document.querySelector('#time')
-        });
+    @php
+        $remember = collect(Cookie::get())
+                        ->filter(function ($val, $key) {
+                            return strpos($key, 'remember_web') !== false;
+                        })
+                        ->first();
+    @endphp
+    @if (is_null($remember))
+        <script @nonce>
+            const myTimer = new Timer({
+                minutes: {{ config('session.lifetime') }},
+                seconds: 0,
+                element: document.querySelector('#time')
+            });
 
-        myTimer.start();
-    </script>
+            myTimer.start();
+        </script>
+    @endif
 @endprepend
