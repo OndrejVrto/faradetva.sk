@@ -38,7 +38,18 @@
                 <li class="fromright wow" data-wow-delay="0.6s">
                     <span><i class="fa-regular fa-envelope" aria-hidden="true"></i></span>
                     <div>
-                        <p>detva&#64;fara.sk</p>
+                        <script @nonce>
+                            var part1 = "detva";
+                            var part2 = Math.pow(2,6);
+                            var part3 = String.fromCharCode(part2);
+                            var part4 = "fara.sk";
+                            var part5 = part1 + String.fromCharCode(part2) + part4;
+                            document.write(
+                                "<a class='link-template-gray' href=" + "mai" + "lto" + ":" + part5 + ">"
+                                + part1 + part3 + part4
+                                + "</a>"
+                            );
+                        </script>
                     </div>
                 </li>
                 <li class="fromright wow" data-wow-delay="0.8s">
