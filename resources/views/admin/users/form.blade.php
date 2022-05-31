@@ -165,11 +165,10 @@
             </x-adminlte-input>
 
             <x-adminlte-input
-                name="twiter_name"
-                label="Twitter"
-                placeholder="@mojemeno"
+                name="twitter_url"
+                label="Twitter (url)"
                 enableOldSupport="true"
-                value="{{ $user->twiter_name ?? '' }}"
+                value="{{ $user->twitter_url ?? '' }}"
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
@@ -192,10 +191,10 @@
             </x-adminlte-input>
 
             <x-adminlte-input
-                name="www_page"
+                name="www_page_url"
                 label="Osobná www stránka (url)"
                 enableOldSupport="true"
-                value="{{ $user->www_page ?? '' }}"
+                value="{{ $user->www_page_url ?? '' }}"
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">

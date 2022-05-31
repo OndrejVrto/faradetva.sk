@@ -111,10 +111,10 @@
         </div>
         <div class="col-md-4">
             <x-adminlte-input
-                name="www_page"
+                name="www_page_url"
                 label="Osobná www stránka (url)"
                 enableOldSupport="true"
-                value="{{ $priest->www_page ?? '' }}"
+                value="{{ $priest->www_page_url ?? '' }}"
                 >
                 <x-slot:prependSlot>
                     <div class="input-group-text bg-gradient-orange">
@@ -177,11 +177,11 @@
                 </div>
                 <div class="col-md-6">
                     <x-adminlte-input
-                        name="twiter_name"
-                        label="Twitter"
-                        placeholder="@mojemeno"
+                        name="twitter_url"
+                        label="Twitter (url)"
+                        {{-- placeholder="@mojemeno" --}}
                         enableOldSupport="true"
-                        value="{{ $priest->twiter_name ?? '' }}"
+                        value="{{ $priest->twitter_url ?? '' }}"
                         >
                         <x-slot:prependSlot>
                             <div class="input-group-text bg-gradient-orange">

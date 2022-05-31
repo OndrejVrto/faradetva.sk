@@ -44,9 +44,9 @@ class Priests extends Component
                     'phone'             => $priest->phone,
                     'phone_digits'      => $priest->phone_digits,
                     'email'             => $priest->email,
-                    'personal_url'      => $priest->www_page,
+                    'personal_url'      => $priest->www_page_url,
                     'facebook'          => $priest->facebook_url,
-                    'twitter'           => $priest->twiter_name,
+                    'twitter'           => $priest->twitter_url,
 
                     'function'          => $priest->function,
 

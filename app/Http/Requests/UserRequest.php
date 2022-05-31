@@ -16,9 +16,9 @@ class UserRequest extends BaseRequest
         return [
             'active'       => $this->reqBoolRule(),
             'name'         => $this->reqStrRule(),
-            'twiter_name'  => $this->nullStrRule(),
+            'twitter_url'  => $this->nullUrlRule(),
             'facebook_url' => $this->nullUrlRule(),
-            'www_page'     => $this->nullUrlRule(),
+            'www_page_url' => $this->nullUrlRule(),
             'slug'         => Rule::unique('users', 'slug')->ignore($this->user)->withoutTrashed(),
             'nick' => [
                 'required',

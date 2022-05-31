@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('facebook_url', 512)->nullable();
-            $table->string('twiter_name')->nullable();
-            $table->string('www_page', 512)->nullable();
+            $table->string('twitter_url', 512)->nullable();
+            $table->string('www_page_url', 512)->nullable();
             $table->text('description')->nullable();
 
             $table->timestamps();

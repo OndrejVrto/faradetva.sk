@@ -19,10 +19,10 @@ class PriestRequest extends BaseRequest
             'titles_before' => $this->nullStrRule(),
             'titles_after'  => $this->nullStrRule(),
             'function'      => $this->nullStrRule(),
-            'twiter_name'   => $this->nullStrRule(),
 
+            'twitter_url'   => $this->nullUrlRule(),
             'facebook_url'  => $this->nullUrlRule(),
-            'www_page'      => $this->nullUrlRule(),
+            'www_page_url'  => $this->nullUrlRule(),
 
             'phone' => [
                 'nullable',
