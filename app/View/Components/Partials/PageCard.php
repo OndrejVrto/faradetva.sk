@@ -4,6 +4,7 @@ namespace App\View\Components\Partials;
 
 use Spatie\Image\Image;
 use App\Models\StaticPage;
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
@@ -52,6 +53,7 @@ class PageCard extends Component
 
                     'img-picture-url' => isset($page->picture[0]) ? $page->picture[0]->getUrl('card') : 'http://via.placeholder.com/370x248',
                     'img-description' => isset($page->picture[0]) ? $page->source->source_description : 'EXAMPLE Description',
+                    'img-description-crop' => isset($page->picture[0]) ? $page->source->source_description_crop : 'EXAMPLE Description',
                     'img-width'       => '370',
                     'img-height'      => '248',
 

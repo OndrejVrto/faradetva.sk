@@ -1,7 +1,7 @@
 {!! $picture['responsivePicture'] !!}
 
 <x-partials.picture-label
-    class="img-article img-article-{{ $descriptionSide }} d-print-none bg-transparent"
+    class="img-article img-article-{{ $descriptionSide }} bg-transparent"
     for="picr-{{ $picture['img-slug'] }}"
 >
     @if (!is_null($descriptionCrop))

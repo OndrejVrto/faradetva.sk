@@ -41,6 +41,12 @@
                                             'height' => '400',
                                         ])
                                 !!}
+                                    <x-partials.picture-label
+                                        class="img-article img-article-left bg-transparent"
+                                        for="picNews-{{ $oneNews->id }}"
+                                    >
+                                        {{ $oneNews->source->source_description }}
+                                    </x-partials.picture-label>
                                 </x-slot:img>
 
                                 <x-slot:meta>
@@ -73,9 +79,17 @@
                                         <a href="{{ route('article.show', $oneNews->slug)}}" class="link_icon"><i class="fa-solid fa-link"></i></a>
                                     </div>
                                 </div>
+                                <div class="d-flex justify-content-end mt-1 me-2">
+                                    <x-partials.picture-label
+                                        class="bg-transparent"
+                                        for="picNews-{{ $oneNews->id }}"
+                                    >
+                                        {{ $oneNews->source->source_description_crop }}
+                                    </x-partials.picture-label>
+                                </div>
 
                                 <div class="blog_desc">
-                                    <div class="blog_info">
+                                    <div class="blog_info mt-2">
                                         <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="fa-regular fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}</a></span>
                                         <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="fa-regular fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
                                         <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title_light }}</a></span>

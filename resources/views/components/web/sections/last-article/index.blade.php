@@ -29,6 +29,12 @@
                                 'height' => '400',
                             ])
                     !!}
+                    <x-partials.picture-label
+                        class="img-article bg-transparent"
+                        for="picNews-{{ $lastArticle->id }}"
+                    >
+                        {{ $lastArticle->source->source_description }}
+                    </x-partials.picture-label>
                 </x-slot:img>
 
                 <x-slot:meta>
@@ -60,7 +66,7 @@
 
         @endforeach
 
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-center">
             <a href="{{ route('article.all') }}" class="link-template fs-5">
                 Všetky články
             </a>

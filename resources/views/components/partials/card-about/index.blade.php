@@ -16,7 +16,16 @@
                 'order-2' => $side === 'right',
             ])
         >
-            <div class="ch_about_thumb d-flex wow {{ $side === 'right' ? 'fromright' : 'fromleft' }}">
+            <div class="
+                ch_about_thumb
+                wow
+                d-flex
+                justify-content-end
+                {{ $side === 'right'
+                    ? 'fromright'
+                    : 'fromleft justify-content-lg-start'
+                }}"
+            >
                 {!! $img !!}
             </div>
 
