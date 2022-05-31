@@ -10,7 +10,7 @@
             side="left"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="pob-018-menu"/>
+                <x-partials.picture-responsive titleSlug="pob-018-menu" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Pod pobožnosťami chápeme rozličné vonkajšie prejavy (napr. v textoch modlitieb a piesní, alebo iné).
@@ -51,7 +51,7 @@
         >
             <x-slot:img>
                 {{-- <x-partials.picture-responsive titleSlug="put-001-menu"/> --}}
-                <x-partials.picture-responsive titleSlug="put-010-menu"/>
+                <x-partials.picture-responsive titleSlug="put-010-menu" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Typickým a rozšíreným prejavom ľudovej zbožnosti ako všeobecnej náboženskej skúsenosti je putovanie.
@@ -88,7 +88,7 @@
             side="left"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="dkriz-011-menu"/>
+                <x-partials.picture-responsive titleSlug="dkriz-011-menu" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Pohrebné obrady sú posvätným úkonom, pri ktorom Cirkev zveruje Bohu svojich bratov a sestry vo viere, vyznáva svoju vieru a uznáva Božie pôsobenie v živote človeka.

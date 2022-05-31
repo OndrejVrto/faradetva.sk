@@ -53,7 +53,7 @@
             side="left"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr4-001-menu"/>
+                <x-partials.picture-responsive titleSlug="sacr4-001-menu" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Sviatosť zmierenia sa nazýva tiež sviatosťou pokánia, odpustenia, obrátenia alebo spoveďou.
@@ -97,7 +97,7 @@
             url="{{ secure_url('duchovny-zivot/sviatosti/posvatny-stav') }}"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr6-003" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="sacr6-003" class="img-fluid w-100" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Ten, kto prijíma sviatosť posvätného stavu, dostáva osobitnú účasť na Kristovom kňazstve, ktoré sa kvalitatívne líši od všeobecného kňazstva veriacich.

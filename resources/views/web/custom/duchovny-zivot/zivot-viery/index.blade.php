@@ -10,7 +10,7 @@
             url="{{ secure_url('duchovny-zivot/zivot-viery/viera-v-boha') }}"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="viera-001-menu" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="viera-001-menu" class="img-fluid w-100" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Dokonalý a sám v sebe blažený Boh podľa číro dobrotivého rozhodnutia slobodne stvoril človeka, aby mu dal účasť na svojom blaženom živote.
@@ -46,7 +46,7 @@
             delay=2
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="bpr-006-menu" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="bpr-006-menu" class="img-fluid w-100" descriptionCrop="4"/>
             </x-slot:img>
             <x-slot:teaser>
                 Desatoro Božích prikázaní je vynikajúcim vyjadrením prirodzeného zákona: poznávame ho prostredníctvom Božieho zjavenia a ľudským rozumom. To, čo Boh svojím slovom prikazuje, svojou milosťou umožňuje.
