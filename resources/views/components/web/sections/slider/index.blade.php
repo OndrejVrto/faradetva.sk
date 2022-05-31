@@ -5,7 +5,7 @@
             @forelse ( $sliders as $slider )
                 <!-- SLIDER-ITEM-{{ $slider['id'] }} start-->
                 <div class="item">
-                    <div class="slider_bg slider-img-{{ $slider['id'] }}">
+                    <div class="slider_bg slider-img-{{ $slider['id'] }}" id="slid-{{ $slider['id'] }}">
                         <div class="black_overlay">
                             <div class="container">
                                 <div class="slider_captions">
@@ -15,6 +15,23 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-1">
+                        <x-partials.picture-label
+                            class="ms-3 text-church-template-blue"
+                            for="slid-{{ $slider['id'] }}"
+                        >
+                            {{ $slider['source_description'] }}
+                        </x-partials.picture-label>
+
+                        <x-partials.source-sentence
+                            dimensionSource="medium"
+                            :sourceArray="$slider['sourceArr']"
+                            class="me-3"
+                            title="{{ $slider['source_description'] }}"
+                            for="slid-{{ $slider['id'] }}"
+                        />
                     </div>
                 </div>
                 <!-- SLIDER-ITEM-{{ $slider['id'] }} end -->
