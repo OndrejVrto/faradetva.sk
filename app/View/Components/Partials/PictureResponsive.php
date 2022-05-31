@@ -3,6 +3,7 @@
 namespace App\View\Components\Partials;
 
 use App\Facades\SeoSchema;
+use Illuminate\Support\Str;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Spatie\SchemaOrg\ImageObject;
@@ -16,13 +17,15 @@ class PictureResponsive extends Component
     public function __construct(
         private string $titleSlug,
         public string|null $dimensionSource = 'full',
+        public string|null $descriptionSide = 'right',
+        public int|null $descriptionCrop = null,
         public string|null $class = null,
     ) {
         $this->picture = PictureModel::query()
             ->whereSlug($titleSlug)
             ->with('mediaOne', 'source')
             ->get()
-            ->map(function($img) use($class) {
+            ->map(function($img) use($class, $descriptionCrop) {
                 $colectionName = $img->mediaOne->collection_name;
                 $media = $img->getFirstMedia($colectionName);
 
@@ -47,6 +50,7 @@ class PictureResponsive extends Component
                     'img-mime'           => $media->mime_type,
 
                     'source_description' => $img->source->source_description,
+                    'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
                     'sourceArr' => [
                         'source_source'      => $img->source->source_source,
                         'source_source_url'  => $img->source->source_source_url,
