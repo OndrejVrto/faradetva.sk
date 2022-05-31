@@ -1,7 +1,7 @@
 @foreach ($pageCards as $pageCard)
 
     <div class="col-sm-6 col-lg-4 mx-auto">
-        <div class="blog_item_cover">
+        <div class="blog_item_cover frombottom wow">
             <div class="blog_thumb">
                 <img src="{{ $pageCard['img-picture-url'] }}"
                     class="w-100 img-fluid"
