@@ -19,6 +19,7 @@
                 <div class="ministry_desc">
                     <h4>{{ $priest['full_name_titles'] }}</h4>
                     <h5>{{ $priest['function'] }}</h5>
+
                     @isset($priest['phone'])
                         <div class="mb-2">
                             <a class="link-secondary" href="tel:{{ $priest['phone_digits'] }}">
@@ -27,6 +28,7 @@
                             </a>
                         </div>
                     @endisset
+
                     @isset($priest['email'])
                         <div class="mt-0 mb-2">
                             <a class="link-secondary" href="email:{{ $priest['email'] }}">
@@ -35,6 +37,38 @@
                             </a>
                         </div>
                     @endisset
+
+                    <div class="mt-3">
+                        @isset($priest['personal_url'])
+                            <a  class="tt px-2 link-secondary"
+                                href="{{ $priest['personal_url'] }}"
+                                data-bs-placement="bottom"
+                                title="{{ $priest['personal_url'] }}"
+                            >
+                                <i class="fa-solid fa-link fa-lg"></i>
+                            </a>
+                        @endisset
+                        @isset($priest['facebook'])
+                            <a  class="tt px-2 link-secondary"
+                                href="{{ $priest['facebook'] }}"
+                                data-bs-placement="bottom"
+                                title="{{ $priest['facebook'] }}"
+                            >
+                                <i class="fa-brands fa-facebook fa-lg"></i>
+                            </a>
+                        @endisset
+                        @isset($priest['twitter'])
+                                <a  class="tt px-2 link-secondary"
+                                    href="{{ $priest['twitter'] }}"
+                                    data-bs-placement="bottom"
+                                    title="{{ $priest['twitter'] }}"
+                                >
+                                    <i class="fa-brands fa-twitter fa-lg"></i>
+                                </a>
+                            </span>
+                        @endisset
+                    </div>
+
                     <p>{!! $priest['description'] !!}</p>
                 </div>
             </div>
