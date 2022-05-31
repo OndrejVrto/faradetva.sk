@@ -8,10 +8,17 @@
 
     <div class="col-12">
 
+        <x-partials.picture-label
+            class="img-article img-article-left ms-2 d-print-none text-church-template-blue"
+            for="bnr-{{ $banner['slug'] }}"
+        >
+            {{ $banner['source_description'] }}
+        </x-partials.picture-label>
+
         <x-partials.source-sentence
             dimensionSource="{{ $dimensionSourceBanner }}"
             :sourceArray="$banner['sourceArr']"
-            class="img-article img-article-left d-print-none"
+            class="img-article img-article-right me-2 d-print-none"
             title="{{ $banner['source_description'] }}"
             for="bnr-{{ $banner['slug'] }}"
         />
