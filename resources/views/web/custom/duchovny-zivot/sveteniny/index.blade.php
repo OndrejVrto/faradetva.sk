@@ -4,7 +4,7 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="ch_event_section pad_b_50">
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Pobožnosti"
             url="{{ secure_url('duchovny-zivot/sveteniny/poboznosti') }}"
             side="left"
@@ -22,9 +22,9 @@
                 Rozličné kultové prejavy súkromného alebo komunitného charakteru označujeme výrazom „ľudová zbožnosť“.
                 Prejavy ľudovej zbožnosti sa nesmú nahrádzať a ani sa miešať s liturgickými sláveniami Eucharistie.
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Požehnania"
             url="{{ secure_url('duchovny-zivot/sveteniny/pozehnania') }}"
             side="right"
@@ -42,9 +42,9 @@
                     Prostredníkom nášho požehnania je sám Kristus, pretože najväčším dobrom preukázaným ľudstvu je adoptívne synovstvo získané Kristovým človečenstvom a vykúpenie jeho smrťou.
                 </span>
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Putovanie"
             url="{{ secure_url('duchovny-zivot/sveteniny/putovanie') }}"
             side="left"
@@ -61,9 +61,9 @@
                     Je miestom, kde sa majú veriacim hojnejšie poskytovať prostriedky spásy horlivým hlásaním Božieho slova, vhodným rozvíjaním liturgického života, najmä slávením Eucharistie a vysluhovaním sviatosti zmierenia, ako aj pestovaním schválených foriem ľudovej zbožnosti.
                 </span>
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Ministériá"
             url="{{ secure_url('duchovny-zivot/sveteniny/ministeria') }}"
             side="right"
@@ -80,9 +80,9 @@
                     Niektoré z týchto úradov sa postupne stali službami, ktoré predchádzali prijatiu sviatostného svätenia.
                 </span>
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Pohreb"
             url="{{ secure_url('duchovny-zivot/sveteniny/pohreb') }}"
             side="left"
@@ -97,7 +97,7 @@
                 </span>
                 Kresťanská liturgia pohrebu je slávením Kristovho veľkonočného tajomstva, pri ktorom sa Cirkev modlí za svoje deti, začlenené krstom.
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
     </x-web.page.section>
 </x-web.layout.master>

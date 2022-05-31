@@ -4,19 +4,50 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 1 -" row="true" class="pad_t_30 pad_b_30">
 
-        <x-partials.page-card
-            routeStaticPages="
-                duchovny-zivot.sviatosti.krst,
-                duchovny-zivot.sviatosti.birmovanie,
-                duchovny-zivot.sviatosti.eucharistia,
-            "
-        />
+        <x-partials.card-article
+            title="Krst"
+            url="{{ secure_url('duchovny-zivot/sviatosti/krst') }}"
+            delay=1
+        >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="sacr1-004-menu" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Krst je základná sviatosť, brána, ktorá otvára prístup k ostatným sviatostiam. Zjednocuje nás s Ježišom Kristom, vťahuje nás do jeho vykupiteľskej smrti na kríži, a tak nás vyslobodzuje z moci hriechu.
+            </x-slot:teaser>
+        </x-partials.card-article>
+
+        <x-partials.card-article
+            title="Eucharistia"
+            url="{{ secure_url('duchovny-zivot/sviatosti/eucharistia') }}"
+            delay=2
+        >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="sacr3-006-menu" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Svätá Eucharistia je sviatosť, v ktorej Ježiš Kristus za nás dáva svoje telo a svoju krv – seba samého, aby sme sa s ním zjednotili vo svätom prijímaní a vytvárali spojenie s Kristovým telom – Cirkvou.
+            </x-slot:teaser>
+        </x-partials.card-article>
+
+        <x-partials.card-article
+            title="Birmovanie"
+            url="{{ secure_url('duchovny-zivot/sviatosti/birmovanie') }}"
+            delay=3
+        >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="sacr2-002-menu" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Birmovanie je sviatosť, ktorá dovršuje krst a v ktorej dostávame dary Ducha Svätého. Pobirmovaný dostane silu svedčiť o Božej láske slovom i skutkom. Stáva sa plnohodnotným a zodpovedným členom Cirkvi.
+            </x-slot:teaser>
+        </x-partials.card-article>
 
     </x-web.page.section>
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 2 -" row="true" class="ch_event_section pad_b_50">
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Svätá spoveď"
             url="{{ secure_url('duchovny-zivot/sviatosti/spoved') }}"
             side="left"
@@ -35,9 +66,9 @@
                     Odpúšťa nám, keď sa k nemu navraciame.
                 </span>
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Pomazanie chorých"
             url="{{ secure_url('duchovny-zivot/sviatosti/pomazanie-chorych') }}"
             side="right"
@@ -54,7 +85,7 @@
                     Podstatou obradu slávenia tejto sviatosti je modlitba kňaza spojená s pomazaním čela a rúk posväteným olejom.
                 </span>
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
     </x-web.page.section>
 
@@ -66,7 +97,7 @@
             url="{{ secure_url('duchovny-zivot/sviatosti/posvatny-stav') }}"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr6-003" class="w-100"/>
+                <x-partials.picture-responsive titleSlug="sacr6-003" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Ten, kto prijíma sviatosť posvätného stavu, dostáva osobitnú účasť na Kristovom kňazstve, ktoré sa kvalitatívne líši od všeobecného kňazstva veriacich.
@@ -86,7 +117,7 @@
             url="{{ secure_url('duchovny-zivot/sviatosti/manzelstvo') }}"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr7-003-menu" class="w-100"/>
+                <x-partials.picture-responsive titleSlug="sacr7-003-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Sviatosť manželstva vychádza zo sľubu muža a ženy pred Bohom a pred Cirkvou, ktorý prijíma a potvrdzuje Boh a napĺňa sa fyzickým zjednotením oboch partnerov.

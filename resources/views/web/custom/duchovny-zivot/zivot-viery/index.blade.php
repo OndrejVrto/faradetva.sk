@@ -10,7 +10,7 @@
             url="{{ secure_url('duchovny-zivot/zivot-viery/viera-v-boha') }}"
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="viera-001-menu" class="w-100"/>
+                <x-partials.picture-responsive titleSlug="viera-001-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Dokonalý a sám v sebe blažený Boh podľa číro dobrotivého rozhodnutia slobodne stvoril človeka, aby mu dal účasť na svojom blaženom živote.
@@ -27,19 +27,50 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 2 -" row="true" class="pad_t_30 pad_b_30">
 
-        <x-partials.page-card
-            routeStaticPages="
-                duchovny-zivot.zivot-viery.svate-pismo,
-                duchovny-zivot.zivot-viery.bozie-prikazania,
-                duchovny-zivot.zivot-viery.cirkevne-prikazania,
-            "
-        />
+        <x-partials.card-article
+            title="Sväté písmo"
+            url="{{ secure_url('duchovny-zivot/zivot-viery/svate-pismo') }}"
+            delay=1
+        >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="svp-007-menu" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Názov Biblia označuje zbierku všetkých biblických spisov mimoriadneho pôvodu. Zvyčajný názov Sväté písmo naznačuje skutočnosť, že vo všetkých jeho spisoch je zachytené Božie zjavenie a Božie slovo.
+            </x-slot:teaser>
+        </x-partials.card-article>
+
+        <x-partials.card-article
+            title="Božie prikázania"
+            url="{{ secure_url('duchovny-zivot/zivot-viery/bozie-prikazania') }}"
+            delay=2
+        >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="bpr-006-menu" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Desatoro Božích prikázaní je vynikajúcim vyjadrením prirodzeného zákona: poznávame ho prostredníctvom Božieho zjavenia a ľudským rozumom. To, čo Boh svojím slovom prikazuje, svojou milosťou umožňuje.
+            </x-slot:teaser>
+        </x-partials.card-article>
+
+        <x-partials.card-article
+            title="Cirkevné prikázania"
+            url="{{ secure_url('duchovny-zivot/zivot-viery/cirkevne-prikazania') }}"
+            delay=3
+        >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="cpr-005-menu" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Päť cirkevných prikázaní svojimi minimálnymi požiadavkami pripomína, že nemožno byť kresťanom bez morálneho úsilia, bez konkrétnej účasti na sviatostnom živote Cirkvi a bez solidárneho spojenia s ňou.
+            </x-slot:teaser>
+        </x-partials.card-article>
 
     </x-web.page.section>
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 3 -" row="true" class="pad_t_30 pad_b_30">
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Modlitba"
             url="{{ secure_url('duchovny-zivot/zivot-viery/modlitba') }}"
             side="left"
@@ -55,9 +86,9 @@
                     Už teraz hľadá kontakt s tým, s ktorým sa jedného dňa stretne z tváre do tváre. Preto k životu kresťana patrí každodenná modlitba. Modlitbe sa však nemožno naučiť tak ako nejakej technike. Modlitba je totiž dar, ktorý človek dostáva práve tým, že sa modlí, pretože nás napĺňa nekonečná túžba po Bohu.
                 </span>
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
-        <x-partials.cart-event
+        <x-partials.card-event
             title="Etiketa v kostole"
             url="{{ secure_url('duchovny-zivot/zivot-viery/etiketa-v-kostole') }}"
             side="right"
@@ -79,7 +110,7 @@
                     Etiketa platí aj v kostole.
                 </span>
             </x-slot:teaser>
-        </x-partials.cart-event>
+        </x-partials.card-event>
 
     </x-web.page.section>
 
