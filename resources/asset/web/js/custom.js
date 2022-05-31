@@ -203,3 +203,9 @@ Project: Church
 		window.location.replace('/hladat/' + search_frase_B);
 	})
 })(jQuery);
+
+
+const tooltips = document.querySelectorAll('.tt')
+tooltips.forEach(t => {
+    new bootstrap.Tooltip(t)
+})
