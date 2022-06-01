@@ -24,7 +24,7 @@ class QueueWorkCheck extends Check
 
             Artisan::call('queue:work', [$connection, '--queue' => $queue, '--once' => true]);
 
-            return $result->ok("health-results.queue_work.ok");
+            return $result->notificationMessage("health-results.queue_work.ok")->ok();
         } catch (\Throwable $e) {
             return $result->warning("health-results.queue_work.failed");
         }

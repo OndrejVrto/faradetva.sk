@@ -17,7 +17,7 @@ class ComposerDependenciesUpToDateCheck extends Check
         $output = implode('-', $output);
 
         return strstr($output, 'Nothing to install')
-            ? $result->ok("health-results.actual_composer_dependencies.ok")
+            ? $result->notificationMessage("health-results.actual_composer_dependencies.ok")->ok()
             : $result->warning("health-results.actual_composer_dependencies.failed");
     }
 }

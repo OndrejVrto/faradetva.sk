@@ -40,7 +40,7 @@ class PingCheck extends Check
         }
 
         return Result::make()
-            ->ok('health-results.ping.ok')
+            ->notificationMessage('health-results.ping.ok')->ok()
             ->shortSummary('health-results.ping.ok-short')
             ->meta([
                 'name' => $this->getName(),

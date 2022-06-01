@@ -35,7 +35,7 @@ class StaticPagesCrawlerCheck extends Check
             ]);
 
         return $this->allPages === $this->checkPages
-            ? $result->ok('health-results.static_pages.ok')
+            ? $result->notificationMessage('health-results.static_pages.ok')->ok()
             : $result->failed('health-results.static_pages.failed');
     }
 

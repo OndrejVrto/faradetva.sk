@@ -154,7 +154,7 @@ class SslCertificateValidCheck extends Check
             return $result->warning("health-results.ssl_certificate.failed_expired_soon");
         }
 
-        return $result->ok("health-results.ssl_certificate.ok");
+        return $result->notificationMessage("health-results.ssl_certificate.ok")->ok();
     }
 
     protected function downloadCertificate($urlParts)

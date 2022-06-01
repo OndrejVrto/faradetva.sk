@@ -19,7 +19,7 @@ class CacheCheck extends Check
 
         try {
             $this->canWriteValuesToCache($driver)
-                ? $result->ok("health-results.cache.ok")
+                ? $result->notificationMessage("health-results.cache.ok")->ok()
                 : $result->failed("health-results.cache.failed");
         } catch (Exception $exception) {
             $result->failed("health-results.cache.exception");

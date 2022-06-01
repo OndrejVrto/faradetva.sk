@@ -15,7 +15,7 @@ class StorageDirectoryIsLinkedCheck extends Check
 
         try {
             (new Filesystem)->isDirectory(public_path('storage'));
-            return $result->ok("health-results.storage_link.ok");
+            return $result->notificationMessage("health-results.storage_link.ok")->ok();
         } catch (\Exception $e) {
             return $result->failed("health-results.storage_link.failed");
         }

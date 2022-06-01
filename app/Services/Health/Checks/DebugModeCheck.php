@@ -18,7 +18,7 @@ class DebugModeCheck extends Check
         $result = Result::make();
 
         return false === $actual
-            ? $result->ok('health-results.debug_mode.ok')
+            ? $result->notificationMessage('health-results.debug_mode.ok')->ok()
             : $result->failed('health-results.debug_mode.failed');
     }
 

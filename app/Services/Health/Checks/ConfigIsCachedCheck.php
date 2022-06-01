@@ -13,7 +13,7 @@ class ConfigIsCachedCheck extends Check
         $result = Result::make();
 
         return app()->configurationIsCached() === true
-            ? $result->ok("health-results.config_cached.ok")
+            ? $result->notificationMessage("health-results.config_cached.ok")->ok()
             : $result->warning("health-results.config_cached.failed");
     }
 }

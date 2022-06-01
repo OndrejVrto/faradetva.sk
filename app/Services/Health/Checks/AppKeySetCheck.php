@@ -13,7 +13,7 @@ class AppKeySetCheck extends Check
         $result = Result::make();
 
         return config('app.key') !== null
-            ? $result->ok("health-results.app_key_set.ok")
+            ? $result->notificationMessage("health-results.app_key_set.ok")->ok()
             : $result->failed("health-results.app_key_set.failed");
     }
 }

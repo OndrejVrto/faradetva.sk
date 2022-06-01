@@ -25,7 +25,7 @@ class CorrectPhpVersionInstalledCheck extends Check
         }
 
         Semver::satisfies($usedVersion, $requiredVersion )
-            ? $result->ok("health-results.php_version.ok")
+            ? $result->notificationMessage("health-results.php_version.ok")->ok()
             : $result->failed("health-results.php_version.failed");
 
             return $result->meta([

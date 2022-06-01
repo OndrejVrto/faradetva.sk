@@ -59,7 +59,7 @@ class MeiliSearchCheck extends Check
         }
 
         return Result::make()
-            ->ok('health-results.meili-search.ok')
+            ->notificationMessage('health-results.meili-search.ok')->ok()
             ->shortSummary('health-results.meili-search.ok-short')
             ->meta(['status' => ucfirst($status)]);
     }

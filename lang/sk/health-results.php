@@ -3,9 +3,9 @@
 return [
 
     // global short answer
-    'ok'      => 'Funguje',
+    'ok'      => 'OK',
     'warning' => 'Varovanie',
-    'failed'  => 'Zlyhal',
+    'failed'  => 'Chyba',
 
     'cache' => [
         'label'       => 'Vyrovnávacia pamäť (cache)',
@@ -63,10 +63,10 @@ return [
         'url_not_set'  => 'URL adresa nieje nastavená.',
 
         'ok'           => 'Úspešný ping: :url',
-        'ok-short'     => 'Funguje (:name)',
+        'ok-short'     => 'Funguje ( :url )',
 
         'failed'       => 'Ping zlyhal: :url',
-        'failed-short' => 'Zlyhalo (:name)',
+        'failed-short' => 'Zlyhalo ( :url )',
     ],
 
     'schedule' => [

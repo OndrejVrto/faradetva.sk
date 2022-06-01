@@ -18,10 +18,10 @@ class HealthServiceProvider extends ServiceProvider
 {
     public function boot(): void {
         Health::checks([
-            // test
+            //! test
             QueueWorkCheck::new(),
 
-            // critical
+            //! critical
             StorageDirectoryIsLinkedCheck::new(),
             AppKeySetCheck::new(),
             SslCertificateValidCheck::new()
@@ -31,7 +31,7 @@ class HealthServiceProvider extends ServiceProvider
             EnvFileExistsCheck::new(),
             CorrectPhpVersionInstalledCheck::new(),
 
-            // danger
+            //! danger
             UsedDiskSpaceCheck::new()
                 ->warnWhenUsedSpaceIsAbovePercentage(80)
                 ->failWhenUsedSpaceIsAbovePercentage(90),
@@ -42,14 +42,14 @@ class HealthServiceProvider extends ServiceProvider
             CspMiddlerwareEnabledCheck::new(),
             ComposerDependenciesUpToDateCheck::new(),
 
-            // speed page
+            //! speed page
             RoutesAreCachedCheck::new(),
             ConfigIsCachedCheck::new(),
             EventsAreCachedCheck::new(),
             CacheCheck::new(),
             CacheResponseCheck::new(),
 
-            // information
+            //! information
             StaticPagesCrawlerCheck::new(),
             PingCheck::new()->url('https://google.com'),
         ]);

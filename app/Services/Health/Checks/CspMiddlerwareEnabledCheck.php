@@ -18,7 +18,7 @@ class CspMiddlerwareEnabledCheck extends Check
         $result = Result::make();
 
         return true === $actual
-            ? $result->ok('health-results.csp_enabled.ok')
+            ? $result->notificationMessage('health-results.csp_enabled.ok')->ok()
             : $result->warning('health-results.csp_enabled.failed');
     }
 

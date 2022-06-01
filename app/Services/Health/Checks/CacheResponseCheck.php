@@ -16,7 +16,7 @@ class CacheResponseCheck extends Check
 
         try {
             $this->enabledCache()
-                ? $result->ok("health-results.cache_response.ok")
+                ? $result->notificationMessage("health-results.cache_response.ok")->ok()
                 : $result->failed("health-results.cache_response.failed");
         } catch (Exception $exception) {
             $result->failed("health-results.cache_response.exception");

@@ -27,7 +27,7 @@ class EnvironmentCheck extends Check
             ->shortSummary($actualEnvironment);
 
         return $this->expectedEnvironment === $actualEnvironment
-            ? $result->ok('health-results.environment.ok')
+            ? $result->notificationMessage('health-results.environment.ok')->ok()
             : $result->failed('health-results.environment.failed');
     }
 }

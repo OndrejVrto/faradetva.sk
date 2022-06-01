@@ -13,7 +13,7 @@ class RoutesAreCachedCheck extends Check
         $result = Result::make();
 
         return app()->routesAreCached() === true
-            ? $result->ok("health-results.route_cached.ok")
+            ? $result->notificationMessage("health-results.route_cached.ok")->ok()
             : $result->warning("health-results.route_cached.failed");
     }
 }

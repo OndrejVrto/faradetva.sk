@@ -13,7 +13,7 @@ class EnvFileExistsCheck extends Check
         $result = Result::make();
 
         return file_exists(base_path('.env'))
-            ? $result->ok("health-results.env_exists.ok")
+            ? $result->notificationMessage("health-results.env_exists.ok")->ok()
             : $result->warning("health-results.env_exists.failed");
     }
 }

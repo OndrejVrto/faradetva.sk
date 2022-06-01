@@ -34,7 +34,7 @@
                                 @if (!empty($result->notificationMessage))
                                     {!! __($result->notificationMessage, $result->meta) !!}
                                 @else
-                                    {!! __(($result->shortSummary)) !!}
+                                    {!! __($result->shortSummary, $result->meta) !!}
                                 @endif
                             </span>
                         </div>

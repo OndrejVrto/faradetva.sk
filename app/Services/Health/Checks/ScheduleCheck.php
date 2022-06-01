@@ -25,7 +25,7 @@ class ScheduleCheck extends SpatieScheduleCheck
     public function run(): Result {
         $this->label('health-results.schedule.label');
         $result = Result::make()
-            ->ok('health-results.schedule.ok');
+            ->notificationMessage('health-results.schedule.ok')->ok();
 
         $lastHeartbeatTimestamp = cache()->store($this->cacheStoreName)->get($this->cacheKey);
         if (! $lastHeartbeatTimestamp) {

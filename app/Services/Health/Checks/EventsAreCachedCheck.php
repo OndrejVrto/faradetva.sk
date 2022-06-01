@@ -13,7 +13,7 @@ class EventsAreCachedCheck extends Check
         $result = Result::make();
 
         return app()->eventsAreCached() === true
-            ? $result->ok("health-results.event_cached.ok")
+            ? $result->notificationMessage("health-results.event_cached.ok")->ok()
             : $result->warning("health-results.event_cached.failed");
     }
 }

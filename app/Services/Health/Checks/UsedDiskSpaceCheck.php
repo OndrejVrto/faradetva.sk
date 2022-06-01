@@ -47,7 +47,7 @@ class UsedDiskSpaceCheck extends Check
             return $result->warning('health-results.disk_space.warning');
         }
 
-        return $result->ok('health-results.disk_space.ok');
+        return $result->notificationMessage('health-results.disk_space.ok')->ok();
     }
 
     protected function getDiskUsagePercentage(): int {

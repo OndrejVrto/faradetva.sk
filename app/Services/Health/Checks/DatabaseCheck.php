@@ -24,7 +24,7 @@ class DatabaseCheck extends Check
         $result = Result::make();
         try {
             DB::connection($connectionName)->getPdo();
-            $result->ok('health-results.database_connection.ok');
+            $result->notificationMessage('health-results.database_connection.ok')->ok();
         } catch (Exception $exception) {
             $result->failed("health-results.database_connection.exception");
             $exceptionMessage = $exception->getMessage();
