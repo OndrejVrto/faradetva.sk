@@ -30,22 +30,22 @@ return [
     'debug_mode' => [
         'label'       => 'Režim ladenia (debug mode)',
         'ok'          => 'Je vypnutý.',
-        'failed'      => 'Je povolený.',
+        'failed'      => 'Stále beží.',
     ],
 
     'environment' => [
-        'label'       => 'Pracovné prostredie (environment)',
-        'ok'          => 'Nastavené na: `:actual`.',
+        'label'       => 'Prostredie (environment)',
+        'ok'          => 'Aktuálne nastavené na: `:actual`.',
         'failed'      => 'Požadované: `:expected`, :eol ale nastavené je: `:actual`.',
     ],
 
     'meili-search' => [
         'label'             => 'Dostupnosť služby Meilisearch',
 
-        'unreachable'       => 'Nepodarilo sa dosiahnúť službu:eol:url.',
+        'unreachable'       => 'Nepodarilo sa dosiahnúť službu :eol :url',
         'unreachable-short' => 'Nedosiahnuteľná služba',
 
-        'not-respond'       => 'Neprišla odpoveď od :url.',
+        'not-respond'       => 'Neprišla odpoveď od :url',
         'not-respond-short' => 'Bez odpovede',
 
         'invalid-response'       => 'Odpoveď neobsahuje kľúč: `status`.',
@@ -88,42 +88,36 @@ return [
         'label'        => 'Route cache',
         'ok'           => 'OK',
         'failed'       => 'Cesty by sa mali ukladať do vyrovnávacej pamäte,:eol aby sa dosiahol lepší výkon stránky.',
-        // 'failed'       => 'The routes should be cached in production for performance.',
     ],
 
     'config_cached' => [
         'label'        => 'Config cache',
         'ok'           => 'OK',
-        'failed'       => 'Kopnfigurácie by sa mali ukladať do vyrovnávacej pamäte,:eol aby sa dosiahol lepší výkon stránky.',
-        // 'failed'       => 'The configuration should be cached in production for better performance.',
+        'failed'       => 'Konfigurácie by sa mali ukladať do vyrovnávacej pamäte,:eol aby sa dosiahol lepší výkon stránky.',
     ],
 
     'event_cached' => [
         'label'        => 'Event cache',
         'ok'           => 'OK',
         'failed'       => 'Udalosti by sa mali ukladať do vyrovnávacej pamäte,:eol aby sa dosiahol lepší výkon stránky.',
-        // 'failed'       => 'The events should be cached in production for performance.',
     ],
 
     'storage_link' => [
         'label'        => 'Symbolický link `storage`',
         'ok'           => 'Funguje',
         'failed'       => 'Adresár `storage` nieje aktivovaný.',
-        // 'failed'       => 'The storage directory is not linked.',
     ],
 
     'env_exists' => [
         'label'        => 'Súbor s nastaveniami (.env)',
         'ok'           => 'Existuje',
         'failed'       => 'Súbor .env neexistuje.',
-        // 'failed'       => 'The .env file does not exist.',
     ],
 
     'php_version' => [
         'label'          => 'Verzia php',
         'ok'             => 'Minimálne požadovaná verzia: :required, použitá: :used',
         'failed'         => 'Požadovaná verzia PHP nieje nainštalovaná. :eol Minimálne požadovaná: :required, použitá: :used',
-        // 'failed'       => 'Required PHP version is not installed.\nRequired: :required, used: :used',
         'crash_composer' => 'Nepodarilo sa načítať požadovanú hodnotu z composer.json. :eol Použitá verzia PHP: :used',
     ],
 
@@ -131,14 +125,12 @@ return [
         'label'        => 'Rozširujúce balíčky `composer`.',
         'ok'           => 'Všetky balíčky sú aktuálne.',
         'failed'       => 'Balíčky `composer` a ich závislosti nie sú aktuálne. :eol Zavolaj `composer install` pre aktualizáciu.',
-        // 'failed'       => 'The composer dependencies are not up to date. :eol Call `composer install` to update them.',
     ],
 
     'app_key_set' => [
         'label'        => 'Hlavný kľúč (APP_KEY)',
         'ok'           => 'OK. Je nastavený',
         'failed'       => 'Kľúč APP_KEY nieje nastavený. :eol Pre vytvorenie zavolaj `php artisan key:generate`."',
-        // 'failed'       => 'The APP_KEY is not set. Call `php artisan key:generate` to set one."',
     ],
 
     'ssl_certificate' => [
