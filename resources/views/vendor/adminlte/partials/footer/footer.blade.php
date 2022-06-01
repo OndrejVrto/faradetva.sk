@@ -9,6 +9,8 @@
             </div>
         </div>
     @else
-        @yield('footer')
+        <div class="d-md-flex justify-content-end align-content-center">
+            @yield('footer')
+        </div>
     @endif
 </footer>

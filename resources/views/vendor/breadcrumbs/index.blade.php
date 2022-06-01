@@ -1,5 +1,5 @@
 @unless ($breadcrumbs->isEmpty())
-    <ol class="breadcrumb bg-light m-0 py-0">
+    <ol class="breadcrumb bg-transparent m-0 py-0">
         @foreach ($breadcrumbs as $breadcrumb)
 
             @if (!isset($breadcrumb->icon))
