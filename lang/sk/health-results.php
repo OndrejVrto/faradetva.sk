@@ -165,4 +165,13 @@ return [
         'failed'     => 'Dostupných je len :checkPages zo :allPages stránok. :eol Posledná kontrola :lastCrawlDate',
         'no-crawled' => 'Dostupnosť stránok zatiaľ nebola kontrolovaná. :eol Posledná kontrola :lastCrawlDate',
     ],
+
+    'maintenance' => [
+        'label'        => 'Mód údržby',
+        'ok'           => 'Deaktivovaný',
+
+        'failed-short'        => 'Aktivovaný',
+        'failed'              => 'Aktivovaný s kľúčom: :eol :secret',
+        'failed-no-key'       => 'Aktivovaný bez skrytého kľúča',
+    ],
 ];

@@ -10,18 +10,18 @@ use App\Services\Health\Checks\{
     PingCheck, CacheCheck, DatabaseCheck, ScheduleCheck,
     AppKeySetCheck, DebugModeCheck, EnvironmentCheck, MeiliSearchCheck,
     CacheResponseCheck, EnvFileExistsCheck, UsedDiskSpaceCheck, ConfigIsCachedCheck,
-    EventsAreCachedCheck, RoutesAreCachedCheck, StaticPagesCrawlerCheck, SslCertificateValidCheck,
-    CspMiddlerwareEnabledCheck, StorageDirectoryIsLinkedCheck, CorrectPhpVersionInstalledCheck, ComposerDependenciesUpToDateCheck
+    EventsAreCachedCheck, MaintenanceModeCheck, RoutesAreCachedCheck, StaticPagesCrawlerCheck,
+    SslCertificateValidCheck, CspMiddlerwareEnabledCheck, StorageDirectoryIsLinkedCheck,
+    CorrectPhpVersionInstalledCheck, ComposerDependenciesUpToDateCheck
 };
 
 class HealthServiceProvider extends ServiceProvider
 {
     public function boot(): void {
         Health::checks([
-            //! test
-            QueueWorkCheck::new(),
-
             //! critical
+            MaintenanceModeCheck::new(),
+            QueueWorkCheck::new(),
             StorageDirectoryIsLinkedCheck::new(),
             AppKeySetCheck::new(),
             SslCertificateValidCheck::new()

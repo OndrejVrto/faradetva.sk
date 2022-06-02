@@ -165,4 +165,13 @@ return [
         'failed'     => 'Only available :checkPages from :allPages site. :eol Last check :lastCrawlDate',
         'no-crawled' => 'Site availability has not been checked yet. :eol Last check :lastCrawlDate',
     ],
+
+    'maintenance' => [
+        'label'        => 'Manitenance mode',
+        'ok'           => 'Not active',
+
+        'failed-short'        => 'Active',
+        'failed'              => 'Active with key: :eol :secret',
+        'failed-no-key'       => 'Active without secret key.',
+    ],
 ];
