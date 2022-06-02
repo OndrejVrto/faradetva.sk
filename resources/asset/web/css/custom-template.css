@@ -990,9 +990,9 @@ button:before {
 	line-height: 24px;
 }
 
-.event_desc .read_btn {
+/* .event_desc .read_btn {
 	margin-top: 10px;
-}
+} */
 
 /* .event_box:nth-child(even) .event_desc {
 	padding-left : 0;
