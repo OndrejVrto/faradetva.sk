@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-md-4">
+                    <div class="col-sm-6 col-lg-4 col-xl-5">
                         <div class="widget widget_text">
                             <div class="text_widget">
                                 <div class="ftr_logo d-flex justify-content-start">
@@ -35,10 +35,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-1 d-none d-xl-block">
-                    </div>
-
-                    <div class="col-md-4 col-xl-3">
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="widget widget_social">
                             <h2 class="widget-title">Sväté omše</h2>
                             <h5 class="text-white">Pondelok - Piatok</h5>
@@ -53,7 +50,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="widget widget_newsletter">
                             <h2 class="widget-title">Novinky</h2>
                             <div class="newsletter_form">
