@@ -27,6 +27,8 @@ mix.babel('resources/asset/web/js/custom-chart.js',      'public/asset/app-chart
 mix.babel('resources/asset/web/js/custom-pdf.js',        'public/asset/app-pdf.js');
 // mix.js('resources/asset/web/js/custom-share.js', 'public/asset/app-share.js');
 
+mix.sass('resources/asset/web/css/custom-bootstrap.scss', 'public/asset/app-bootstrap.css');
+
 mix.combine([
         'resources/asset/web/css/custom-template.css',
         'resources/asset/web/css/custom-responsive.css',

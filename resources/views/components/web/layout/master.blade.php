@@ -68,7 +68,8 @@
 
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/css/bootstrap-5.1.3/bootstrap.css', true) }}"> --}}
         {{-- <link @nonce rel="stylesheet" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/> --}}
-        <link @nonce rel="stylesheet" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"/>
+        {{-- <link @nonce rel="stylesheet" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"/> --}}
+        <link @nonce rel="stylesheet" type="text/css" href="{{ asset(mix('asset/app-bootstrap.css'), true) }}">
 
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/frontend/js/plugins/owl-crousel/owl.carousel.css', true) }}"> --}}
         {{-- <link @nonce rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css"/> --}}
