@@ -7,7 +7,7 @@ mix.version();
 // mix.sourceMaps();
 
 // Copy
-mix.copyDirectory('resources/asset/copy', 'public');
+// mix.copyDirectory('resources/asset/copy', 'public');
 
 // admin
 mix.babel('resources/asset/admin/js/custom.js',            'public/asset/admin-app.js');
@@ -16,7 +16,7 @@ mix.babel('resources/asset/admin/js/custom-datepicker.js', 'public/asset/admin-a
 mix.babel('resources/asset/admin/js/custom-dropzone.js',   'public/asset/admin-app-dropzone.js');
 mix.babel('resources/asset/admin/js/custom-tinymce.js',    'public/asset/admin-app-tinymce.js');
 
-mix.css('resources/asset/admin/css/custom.css', 'public/asset/admin-app.css');
+mix.styles('resources/asset/admin/css/custom.css', 'public/asset/admin-app.css');
 
 // web
 mix.babel(['resources/asset/web/js/custom.js',
