@@ -13,10 +13,12 @@
                 {{ __('health::notifications.check_results_from') }} {{ $lastRanAt->diffForHumans() }}
             </span>
         @endif
-        <a class="btn btn-flat bg-gradient-pink flex-fill flex-md-grow-0 mb-2 mb-md-0"
-            href="{{ route('admin.dashboard', [ 'fresh']) }}">
-            Vynútiť obnovenie stavu
-        </a>
+        <x-admin.dashboard-button-small
+            route="admin.dashboard.health-fresh"
+            color="pink"
+            icon="fas fa-sync-alt"
+            text="Obnoviť"
+        />
     </div>
 
     @if (count($checkResults?->storedCheckResults ?? []))

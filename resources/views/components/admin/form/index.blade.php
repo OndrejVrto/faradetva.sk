@@ -104,7 +104,7 @@
                                 $controlerName . '.create',
                                 $controlerName . '.store'
                             ])
-                                <button id="btnSave" type="submit" class="btn bg-gradient-success px-5 ml-2">
+                                <button type="submit" class="spinner-save btn bg-gradient-success px-5 ml-2">
                                     <i class="fa-solid fa-save mr-2"></i>
                                     Uložiť
                                 </button>

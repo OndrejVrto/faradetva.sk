@@ -84,9 +84,15 @@
 		$(this).next(".custom-file-label").html(fileName);
 	});
 
-    $('#btnSave').on('click', function() {
-        $('#btnSave')
+    $('.spinner-save').on('click', function() {
+        $(this)
             .html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Ukladám...')
+            .addClass('disabled');
+    });
+
+    $('.spinner-work').on('click', function() {
+        $(this)
+            .html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Pracujem...')
             .addClass('disabled');
     });
 
