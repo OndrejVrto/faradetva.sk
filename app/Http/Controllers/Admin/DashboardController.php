@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Redirect;
 use Spatie\Health\ResultStores\ResultStore;
 use Spatie\Health\Commands\RunHealthChecksCommand;
+use App\Services\Dashboard\DashboardCommandService;
 use App\Services\Dashboard\SettingsSwitcherService;
 
 class DashboardController extends Controller
@@ -51,6 +52,12 @@ class DashboardController extends Controller
         return to_route('admin.dashboard');
     }
 
+    public function commands(string $command): RedirectResponse {
+        (new DashboardCommandService)->run($command);
+
+        toastr()->success("Príkaz '$command' vykonaný.");
+        return to_route('admin.dashboard');
+    }
 
     private function runSwitcher(Request $request) {
         $service= new SettingsSwitcherService();

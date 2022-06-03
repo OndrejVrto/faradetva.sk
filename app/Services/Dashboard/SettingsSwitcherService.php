@@ -199,6 +199,4 @@ class SettingsSwitcherService
             config       : 'config.querydetector.enabled',
         );
     }
-
-
 }

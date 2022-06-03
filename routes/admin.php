@@ -39,31 +39,15 @@ Route::prefix('admin')->group( function() {
 
             Route::name('dashboard.')->group( function() {
                 Route::get('health-fresh', 'fresh')->name('health-fresh');
-                Route::patch('settings', 'settings')->name('settings');
                 Route::patch('maintenance-mode', 'maintenance')->name('maintenance');
+                Route::patch('settings', 'settings')->name('settings');
+                Route::get('commands/{command}', 'commands')->name('commands');
             });
         });
 
         //!  Filemanager for TinyMCE Editor
         Route::prefix('laravel-file-manager')->group( function() {
             Lfm::routes();
-        });
-
-        //!  Cache and info
-        Route::controller(CacheController::class)->name('cache.')->group(function () {
-            Route::get('info-php', 'infoPHP')->name('info');
-            Route::get('xdebug-php', 'xdebugPHP')->name('xdebug');
-            Route::get('caches-stop', 'cachesStop')->name('stop');
-            Route::get('caches-start', 'cachesStart')->name('start');
-            Route::get('caches-reset', 'cachesReset')->name('reset');
-            Route::get('crawl-search', 'crawlSearch')->name('crawl-search');
-            Route::get('text-features', 'testFeatures')->name('testFeatures');
-            Route::get('crawl-all-url', 'crawlAllUrl')->name('crawl-all-url');
-            Route::get('caches-data-stop', 'cacheDataStop')->name('data.stop');
-            Route::get('caches-data-start', 'cacheDataStart')->name('data.start');
-            Route::get('caches-data-reset', 'cacheDataReset')->name('data.reset');
-            Route::get('failed-jobs-delete', 'deleteFailedJobs')->name('jobs.delete');
-            Route::get('failed-jobs-restart', 'restartFailedJobs')->name('jobs.restart');
         });
 
         //!  Inpersonate IN Route

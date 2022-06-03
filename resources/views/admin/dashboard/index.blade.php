@@ -21,11 +21,15 @@
             <div class="row">
                 <div class="col-sm-6 col-xl-12">
                     @include('admin.dashboard.partials.maintenance')
-                    @include('admin.dashboard.partials.cache-settings')
                 </div>
 
                 <div class="col-sm-6 col-xl-12">
-                    {{-- @include('admin.dashboard.partials.artisan') --}}
+                    @include('admin.dashboard.partials.cache-settings')
+                </div>
+
+                <div class="col-12">
+                    @include('admin.dashboard.partials.commands')
+                    @include('admin.dashboard.partials.tests')
                 </div>
             </div>
         </div>
