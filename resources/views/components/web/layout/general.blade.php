@@ -26,7 +26,6 @@
 
 </head>
 <body>
-
     <!-- BODY CONTENT Start -->
     {{ $slot }}
     @stack('content_footer')

@@ -14,6 +14,11 @@
         @yield('content_top_nav_left')
     </ul>
 
+    {{-- Navbar leftcenter links --}}
+    <ul class="navbar-nav mx-auto">
+        @yield('content_top_nav_center')
+    </ul>
+
     {{-- Navbar right links --}}
     <ul class="navbar-nav ml-auto">
         {{-- Custom right links --}}

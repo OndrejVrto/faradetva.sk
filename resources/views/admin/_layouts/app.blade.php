@@ -10,6 +10,14 @@
     </div>
 @stop
 
+@section('content_top_nav_center')
+    @if (app()->isDownForMaintenance())
+        <span class="h3 text-warning mb-0 text-bold">
+            Údržbový mód aktívny
+        </span>
+    @endif
+@endsection
+
 @prepend('css')
     <link @nonce rel="stylesheet" href="{{ asset(mix('asset/admin-app.css'), true) }}">
 @endprepend
