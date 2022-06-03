@@ -11,7 +11,7 @@
 @stop
 
 @section('content_top_nav_center')
-    @if (app()->isDownForMaintenance())
+    @if ($maintenanceMode)
         <span class="h3 text-warning mb-0 text-bold">
             Údržbový mód aktívny
         </span>

@@ -10,6 +10,7 @@ use App\Services\QueryLogService;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\App;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -50,6 +51,7 @@ class AppServiceProvider extends ServiceProvider
                 return trim( preg_replace('!\s+!', ' ', preg_replace( "/\r|\n/", " ", html_entity_decode( strip_tags( implode(" ", $text) ) ) ) ) );
             });
 
+            View::share('maintenanceMode', app()->isDownForMaintenance());
             //! singleton for aplly cache time whole page
             $this->app->singleton(CacheResponseMiddleware::class);
 

@@ -11,7 +11,7 @@
 
 <x-web.layout.general>
 
-    @if (app()->isDownForMaintenance())
+    @if ($maintenanceMode)
         <div class="sticky-top bg-danger text-center py-3">
             <span class="display-1 text-white text-bold">Údržbový mód</span>
         </div>
