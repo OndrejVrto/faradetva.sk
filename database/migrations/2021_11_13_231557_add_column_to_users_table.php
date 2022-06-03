@@ -16,7 +16,7 @@ return new class extends Migration
             $table->boolean('active')->after('id')->default(1);
             $table->string('phone')->nullable()->after('email');
             $table->string('facebook_url', 512)->nullable()->after('email');
-            $table->string('twitrer_url', 512)->nullable()->after('email');
+            $table->string('twitter_url', 512)->nullable()->after('email');
             $table->string('www_page_url', 512)->nullable()->after('email');
         });
     }

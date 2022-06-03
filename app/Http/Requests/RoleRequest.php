@@ -14,7 +14,10 @@ class RoleRequest extends BaseRequest
                 'max:255',
                 Rule::unique('users_roles', 'name')->ignore($this->role),
             ],
-            'permission' => $this->reqStrRule(),
+            'permission' => [
+                'required',
+                'max:255',
+            ],
         ];
     }
 
