@@ -32,8 +32,17 @@ Route::prefix('admin')->group( function() {
 
     Route::middleware(['auth', 'permission', 'preety.html'])->group( function() {
         //!  Main routes
-        Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
         Route::permanentRedirect('/', '/admin/dashboard');
+
+        Route::controller(DashboardController::class)->name('admin.')->prefix('dashboard')->group(function () {
+            Route::get('/', 'index')->name('dashboard');
+
+            Route::name('dashboard.')->group( function() {
+                Route::get('health-fresh', 'fresh')->name('health-fresh');
+                Route::patch('settings', 'settings')->name('settings');
+                Route::patch('maintenance-mode', 'maintenance')->name('maintenance');
+            });
+        });
 
         //!  Filemanager for TinyMCE Editor
         Route::prefix('laravel-file-manager')->group( function() {

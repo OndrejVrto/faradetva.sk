@@ -8,10 +8,23 @@
         </span>
     </x-slot:header>
 
-    {{-- app maintenance   up - down --}}
-    <div class="form-group mb-0">
-        <input type="checkbox" name="maintenance" checked data-bootstrap-switch data-off-color="danger" data-on-color="success" disabled>
-        <label for="maintenance" class="ml-2">Aplikácia spustená</label>
-    </div>
+    <form method="post" action="{{ route('admin.dashboard.maintenance') }}" >
+        @method('PATCH')
+        @csrf
+
+        {{-- app maintenance   up - down --}}
+        <x-admin.bootstrap-switch
+            name="maintenance"
+            label="{{ $maintenanceMode ? 'Aplikácia zastavená' : 'Aplikácia spustená' }}"
+            value="{{ $maintenanceMode ? '0' : '1' }}"
+        />
+
+        <x-admin.dashboard-button-submit
+            color="secondary"
+            text="Uložiť a aktualizovať stav"
+            class="btn-block btn-sm"
+        />
+
+    </form>
 
 </x-admin.dashboard-card>

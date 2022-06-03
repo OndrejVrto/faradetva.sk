@@ -27,8 +27,8 @@ class AppServiceProvider extends ServiceProvider
             Paginator::useBootstrap();
 
             //! rewrite some global site setting from ValueStore Json
-            $configSettings = Valuestore::make(config('farnost-detva.value_store'))->allStartingWith('config.');
-            foreach ($configSettings as $key => $value) {
+            $valueStore = Valuestore::make(config('farnost-detva.value_store'));
+            foreach ($valueStore->allStartingWith('config.') as $key => $value) {
                 Config::set(Str::after($key, 'config.'), $value);
             }
 
@@ -52,6 +52,8 @@ class AppServiceProvider extends ServiceProvider
             });
 
             View::share('maintenanceMode', app()->isDownForMaintenance());
+            View::share('valueStore', $valueStore);
+
             //! singleton for aplly cache time whole page
             $this->app->singleton(CacheResponseMiddleware::class);
 
