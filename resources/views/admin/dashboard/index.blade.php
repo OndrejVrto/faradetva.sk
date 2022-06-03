@@ -33,7 +33,9 @@
                     @can('admin.dashboard.commands')
                         <div class="col-12">
                             @include('admin.dashboard.partials.commands')
-                            @include('admin.dashboard.partials.tests')
+                            @role('Super Administrátor')
+                                @include('admin.dashboard.partials.tests')
+                            @endrole
                         </div>
                     @endcan
                 </div>
@@ -42,9 +44,11 @@
                 @include('admin.dashboard.partials.health')
             </div>
         @else
-            <div class="col-sm-11 mx-auto">
-                @include('admin.dashboard.partials.health')
-            </div>
+            @unlessrole('Hosť')
+                <div class="col-sm-11 mx-auto">
+                    @include('admin.dashboard.partials.health')
+                </div>
+            @endunlessrole
         @endcanany
     </div>
 
