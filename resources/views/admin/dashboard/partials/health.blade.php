@@ -13,12 +13,15 @@
                 {{ __('health::notifications.check_results_from') }} {{ $lastRanAt->diffForHumans() }}
             </span>
         @endif
-        <x-admin.dashboard-button-small
-            route="admin.dashboard.health-fresh"
-            color="pink"
-            icon="fas fa-sync-alt"
-            text="Obnoviť"
-        />
+
+        @can('admin.dashboard.health-fresh')
+            <x-admin.dashboard-button-small
+                route="admin.dashboard.health-fresh"
+                color="pink"
+                icon="fas fa-sync-alt"
+                text="Obnoviť"
+            />
+        @endcan
     </div>
 
     @if (count($checkResults?->storedCheckResults ?? []))
