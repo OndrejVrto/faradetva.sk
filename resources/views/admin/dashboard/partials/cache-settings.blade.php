@@ -33,6 +33,13 @@
                     value="{{ $valueStore->get('ADMIN.cookie') ? '1' : '0' }}"
                 />
 
+                {{-- CSP_ENABLED --}}
+                <x-admin.bootstrap-switch
+                    name="csp"
+                    label="CSP"
+                    value="{{ $valueStore->get('ADMIN.csp') ? '1' : '0' }}"
+                />
+
             </div>
             <div class="col-xl-6">
                 <hr class="bg-primary d-xl-none mt-3">
@@ -70,9 +77,9 @@
 
 
         <x-admin.dashboard-button-submit
-            color="secondary"
-            text="Uložiť"
-            class="btn-block btn-sm"
+            color="orange"
+            text="Uložiť a aktualizovať stav"
+            class="btn-block"
         />
 
     </form>

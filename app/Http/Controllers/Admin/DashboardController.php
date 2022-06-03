@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Redirect;
 use Spatie\Health\ResultStores\ResultStore;
 use Spatie\Health\Commands\RunHealthChecksCommand;
 use App\Services\Dashboard\SettingsSwitcherService;
-use App\Services\Dashboard\MaintenanceModeSwitcherService;
 
 class DashboardController extends Controller
 {
@@ -37,23 +36,32 @@ class DashboardController extends Controller
     }
 
     public function maintenance(Request $request): RedirectResponse {
-        $requiredMode = filter_var($request->maintenance, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+        $service = $this->runSwitcher($request);
 
-        $secretKey = (new MaintenanceModeSwitcherService)->handle($requiredMode);
-
-        return $secretKey
-            ? Redirect::to(route('home')."/$secretKey")
+        toastr()->success('Prostredie nastavené.');
+        return $service->secretKey
+            ? Redirect::to(route('home')."/$service->secretKey")
             : to_route('admin.dashboard');
     }
 
     public function settings(Request $request): RedirectResponse {
+        $this->runSwitcher($request);
+
+        toastr()->success('Nastavenia uložené.');
+        return to_route('admin.dashboard');
+    }
+
+
+    private function runSwitcher(Request $request) {
+        $service= new SettingsSwitcherService();
+
         foreach($request->all() as $key => $attribute){
             // convert all attributes to boolean
             $validated[$key] = filter_var($attribute, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
         }
         $validated = Arr::except($validated, ['_method', '_token']);
 
-        $switcher = new SettingsSwitcherService();
+        $switcher = new $service();
 
         foreach ($validated as $key => $value) {
             if (method_exists($switcher, $key)){
@@ -61,8 +69,6 @@ class DashboardController extends Controller
             }
         }
 
-        unset($switcher);
-
-        return to_route('admin.dashboard');
+        return $switcher;
     }
 }
