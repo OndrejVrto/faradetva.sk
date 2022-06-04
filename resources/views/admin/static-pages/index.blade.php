@@ -16,8 +16,12 @@
     >
 
         <x-slot:headerLeft>
-            @can('cache.crawl-all-url')
-                <a href="{{ route('cache.crawl-all-url') }}" class="btn btn-flat bg-gradient-pink flex-fill flex-md-grow-0 mb-2 mb-md-0">Scanovať <strong>všetky</strong> URL</a>
+            @can('admin.dashboard.commands')
+                <a  href="{{ route('admin.dashboard.commands', ['command' => 'crawl_url']) }}"
+                    class="btn btn-flat bg-gradient-pink flex-fill flex-md-grow-0 mb-2 mb-md-0"
+                >
+                    Scanovať<strong class="mx-1">všetky</strong>URL
+                </a>
             @endcan
         </x-slot>
 
