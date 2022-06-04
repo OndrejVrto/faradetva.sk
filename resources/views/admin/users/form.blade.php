@@ -218,7 +218,7 @@
     <x-adminlte-select2
         name="role[]"
         id="sel2Tag"
-        label="Prideliť uživateľovi Roly alebo jednotlivé Povolenia"
+        label="Prideliť uživateľovi Roly"
         :config="$config_select"
         multiple
         >
@@ -244,36 +244,46 @@
     </x-adminlte-select2>
 
     @role('Super Administrátor')
-        <div class="form-group">
-            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mal užívateľ všetky oprávnenia.">
-                <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="Switch3"
-                    name="all_permission"
-                >
-                <label class="custom-control-label" for="Switch3">Všetko</label>
-            </div>
-        </div>
+        <x-admin.dashboard-card
+            color="orange"
+            :colapse="true"
+        >
 
-        @foreach($permissions as $alpha => $collections)
-            <h4 class="pl-3 text-orange">{{ $alpha }}</h4>
-            <div class="row pb-4 no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
-                @foreach($collections as $permission)
-                    <div class="col text-break">
-                        <input type="checkbox"
-                            name="permission[{{ $permission->id }}]"
-                            value="{{ $permission->id }}"
-                            class='d-inline permission m-2'
-                            {{ in_array($permission->id, $userPermissions)
-                                ? 'checked'
-                                : '' }}
-                        >
-                        {{ $permission->name }}
-                    </div>
-                @endforeach
+            <x-slot:header>
+                <span class="font-weight-normal">Jednotlivé Povolenia</span>
+            </x-slot:header>
+
+            <div class="form-group">
+                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mal užívateľ všetky oprávnenia.">
+                    <input
+                        type="checkbox"
+                        class="custom-control-input"
+                        id="Switch3"
+                        name="all_permission"
+                    >
+                    <label class="custom-control-label" for="Switch3">Všetko</label>
+                </div>
             </div>
-        @endforeach
+
+            @foreach($permissions as $alpha => $collections)
+                <h4 class="pl-3 text-orange">{{ $alpha }}</h4>
+                <div class="row pb-4 no-gutters row-cols-1 row-cols-md-2 row-cols-xl-3">
+                    @foreach($collections as $permission)
+                        <div class="col text-break">
+                            <input type="checkbox"
+                                name="permission[{{ $permission->id }}]"
+                                value="{{ $permission->id }}"
+                                class='d-inline permission m-2'
+                                {{ in_array($permission->id, $userPermissions)
+                                    ? 'checked'
+                                    : '' }}
+                            >
+                            {{ $permission->name }}
+                        </div>
+                    @endforeach
+                </div>
+            @endforeach
+        </x-admin.dashboard-card>
     @endrole
 
 </x-admin.form>

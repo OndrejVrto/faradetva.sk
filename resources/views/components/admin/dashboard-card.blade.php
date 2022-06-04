@@ -1,4 +1,5 @@
 @props([
+    'colapse'   => false,
     'wrap'      => false,
     'center'    => false,
     'fullcolor' => false,
@@ -9,6 +10,7 @@
         'card',
         'card-'.$color,
         'card-outline' => ! $fullcolor,
+        'collapsed-card' => $colapse,
     ])>
     <div class="card-header">
         <h3 class="card-title">

@@ -220,45 +220,54 @@
 
     <hr class="bg-orange">
 
-    <div class="form-group">
-        <label>Bannery pre stránku</label>
-        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mala stránka všetky bannery.">
-            <input
-                type="checkbox"
-                class="custom-control-input"
-                id="Switch3"
-                name="all_banners"
-            >
-            <label class="custom-control-label" for="Switch3">Všetko</label>
-        </div>
-    </div>
+    <x-admin.dashboard-card
+        color="orange"
+        :colapse="true"
+    >
 
-    <div class="row pb-2 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
-        @foreach($banners as $banner)
-            <div
-                class="col text-break text-center py-2
-                {{ in_array($banner->id, $selectedBanners) ? 'bg-gradient-orange' : '' }}"
-            >
-                {!! (string) $banner
-                        ->getFirstMedia($banner->media[0]->collection_name)
-                        ->img('crop-thumb', [
-                            'class' => 'w-100 img-fluid pb-1',
-                            'alt' => $banner->source->description,
-                            'title' => $banner->title,
-                        ])
-                !!}
-                <input type="checkbox"
-                    name="banner[{{ $banner->id }}]"
-                    value="{{ $banner->id }}"
-                    class='d-inline banner m-2'
-                    {{ in_array($banner->id, $selectedBanners)
-                        ? 'checked'
-                        : '' }}
+        <x-slot:header>
+            <span class="font-weight-normal">Bannery pre stránku</span>
+        </x-slot:header>
+
+        <div class="form-group">
+            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zaškrtni keď chceš aby mala stránka všetky bannery.">
+                <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="Switch3"
+                    name="all_banners"
                 >
-                {{ $banner->title }}
+                <label class="custom-control-label" for="Switch3">Všetko</label>
             </div>
-        @endforeach
-    </div>
+        </div>
+
+        <div class="row pb-2 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+            @foreach($banners as $banner)
+                <div
+                    class="col text-break text-center py-2
+                    {{ in_array($banner->id, $selectedBanners) ? 'bg-gradient-orange' : '' }}"
+                >
+                    {!! (string) $banner
+                            ->getFirstMedia($banner->media[0]->collection_name)
+                            ->img('crop-thumb', [
+                                'class' => 'w-100 img-fluid pb-1',
+                                'alt' => $banner->source->description,
+                                'title' => $banner->title,
+                            ])
+                    !!}
+                    <input type="checkbox"
+                        name="banner[{{ $banner->id }}]"
+                        value="{{ $banner->id }}"
+                        class='d-inline banner m-2'
+                        {{ in_array($banner->id, $selectedBanners)
+                            ? 'checked'
+                            : '' }}
+                    >
+                    {{ $banner->title }}
+                </div>
+            @endforeach
+        </div>
+    </x-admin.dashboard-card>
 
 </x-admin.form>
 
