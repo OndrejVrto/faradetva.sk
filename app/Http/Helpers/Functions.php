@@ -13,7 +13,11 @@ if (!function_exists('printEmail'))
         $name   = implode("\"+\"", str_split($partsEmail[0]));
         $domain = implode("\"+\"", str_split($partsEmail[1]));
 
-        $script  =           "<script nonce=\"$nonce\">";
+        if (isset($nonce)) {
+            $script  =     "<script nonce=\"$nonce\">";
+        } else {
+            $script  =     "<script>";
+        }
         $script .= PHP_EOL .    "var part1 = \"$name\";";
         $script .= PHP_EOL .    "var part2 = Math.pow(2,6);";
         $script .= PHP_EOL .    "var part3 = String.fromCharCode(part2);";
@@ -49,14 +53,6 @@ if(!function_exists('prepareInput'))
         if (is_array($input)) {
             return array_filter(Illuminate\Support\Arr::flatten($input));
         }
-    }
-}
-
-
-if (!function_exists('getCacheName'))
-{
-    function getCacheName(array $listOfItems): string {
-        return md5(implode('|', $listOfItems));
     }
 }
 
