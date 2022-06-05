@@ -60,22 +60,18 @@ class DashboardController extends Controller
     }
 
     private function runSwitcher(Request $request) {
-        $service= new SettingsSwitcherService();
-
         foreach($request->all() as $key => $attribute){
             // convert all attributes to boolean
             $validated[$key] = filter_var($attribute, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
         }
         $validated = Arr::except($validated, ['_method', '_token']);
 
-        $switcher = new $service();
+        $service = new SettingsSwitcherService;
 
         foreach ($validated as $key => $value) {
-            if (method_exists($switcher, $key)){
-                $switcher->$key($value);
-            }
+            $service->run($key, $value);
         }
 
-        return $switcher;
+        return $service;
     }
 }

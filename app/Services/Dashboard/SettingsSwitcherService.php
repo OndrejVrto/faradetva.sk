@@ -28,6 +28,12 @@ class SettingsSwitcherService
         Artisan::call(RunHealthChecksCommand::class);
     }
 
+    public function run(string $command = null, bool $value) {
+        if (method_exists($this, $command)){
+            $this->$command($value);
+        }
+    }
+
     private function handle(
         bool   $require,
         string $valueStore,
@@ -60,10 +66,9 @@ class SettingsSwitcherService
         return;
     }
 
-    public function maintenance_mode(bool $requiredMode): void {
-        if ($requiredMode === app()->isDownForMaintenance()) return;
-
-        if (true === $requiredMode) {
+    private function maintenance_mode(bool $require): void {
+        if ($require === app()->isDownForMaintenance()) return;
+        if (true === $require) {
             $secretKey = Str::uuid();
             Artisan::call('down', ['--secret' => $secretKey]);
             // TODO: send email to administrator if is run maintenance mode
@@ -73,7 +78,7 @@ class SettingsSwitcherService
         }
     }
 
-    public function cache_global($require): void {
+    private function cache_global(bool $require): void {
         if ($require === (bool) $this->valueStorage->get('ADMIN.cache_global')) return;
         if (false === $require) {
             Artisan::call('cache:clear');
@@ -87,7 +92,7 @@ class SettingsSwitcherService
         }
     }
 
-    public function app_enviroment_mode($require): void {
+    private function app_enviroment_mode(bool $require): void {
         if ($require === (bool) $this->valueStorage->get('ADMIN.app_enviroment_mode')) return;
         if (false === $require) {
             $this->valueStorage
@@ -100,7 +105,7 @@ class SettingsSwitcherService
         }
     }
 
-    public function cache_response($require): void {
+    private function cache_response(bool $require): void {
         if ($require === (bool) $this->valueStorage->get('ADMIN.cache_response')) return;
         if (false === $require) {
             ResponseCache::clear();
@@ -114,7 +119,7 @@ class SettingsSwitcherService
         }
     }
 
-    public function cache_route($require): void {
+    private function cache_route(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.cache_route',
@@ -124,7 +129,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function cache_config($require): void {
+    private function cache_config(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.cache_config',
@@ -134,7 +139,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function cache_event($require): void {
+    private function cache_event(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.cache_event',
@@ -144,7 +149,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function cookie($require): void {
+    private function cookie(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.cookie',
@@ -152,7 +157,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function cache_google_font($require): void {
+    private function cache_google_font(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.cache_google_font',
@@ -160,7 +165,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function csp($require): void {
+    private function csp(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.csp',
@@ -168,7 +173,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function app_debug($require): void {
+    private function app_debug(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.app_debug',
@@ -176,7 +181,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function app_debugbar($require): void {
+    private function app_debugbar(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.app_debugbar',
@@ -184,7 +189,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function app_query_log($require): void {
+    private function app_query_log(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.app_query_log',
@@ -192,7 +197,7 @@ class SettingsSwitcherService
         );
     }
 
-    public function app_query_detector($require): void {
+    private function app_query_detector(bool $require): void {
         $this->handle(
             require      : $require,
             valueStore   : 'ADMIN.app_query_detector',

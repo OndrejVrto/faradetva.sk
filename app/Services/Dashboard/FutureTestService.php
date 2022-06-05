@@ -2,15 +2,22 @@
 
 declare(strict_types = 1);
 
-namespace App\Futures;
+namespace App\Services\Dashboard;
 
 use App\Jobs\GenerateSitemapJob;
 use Cohensive\OEmbed\Facades\OEmbed;
+use Illuminate\Support\Facades\Auth;
 
 class FutureTestService
 {
+    private function gate(): bool {
+        $user = Auth::user();
+        return $user->hasRole('Super Administrátor');
+    }
+
+    // any test code or service here
     public function run() {
-        // sem doplň hocijaký testovací kód alebo službu
+        if (!$this->gate()) { return; }
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
 

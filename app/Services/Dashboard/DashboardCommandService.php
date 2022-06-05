@@ -4,8 +4,8 @@ namespace App\Services\Dashboard;
 
 use App\Jobs\UrlsCheckJob;
 use App\Jobs\SiteSearchCrawlJob;
-use App\Futures\FutureTestService;
 use Illuminate\Support\Facades\Artisan;
+use App\Services\Dashboard\FutureTestService;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
 class DashboardCommandService
@@ -16,21 +16,21 @@ class DashboardCommandService
         }
     }
 
-    public function php_info() {
-        phpinfo();
+    private function php_info() {
+        phpinfo(); exit;
     }
 
-    public function testFeatures() {
+    private function testFeatures() {
         (new FutureTestService)->run();
     }
 
-    public function clean_directories() {
+    private function clean_directories() {
         Artisan::call('debugbar:clear');
         Artisan::call('media-library:clean');
         Artisan::call('clean:directories');
     }
 
-    public function cache_reset() {
+    private function cache_reset() {
         Artisan::call('optimize:clear');
         Artisan::call('optimize');
         Artisan::call('view:cache');
@@ -40,24 +40,24 @@ class DashboardCommandService
         Artisan::call('debugbar:clear');
     }
 
-    public function cache_data_reset() {
+    private function cache_data_reset() {
         ResponseCache::clear();
         Artisan::call('cache:clear');
     }
 
-    public function failed_jobs_delete() {
+    private function failed_jobs_delete() {
         Artisan::call('queue:flush');
     }
 
-    public function jobs_restart() {
+    private function jobs_restart() {
         Artisan::call('queue:restart');
     }
 
-    public function crawl_url() {
+    private function crawl_url() {
         dispatch(new UrlsCheckJob());
     }
 
-    public function crawl_search() {
+    private function crawl_search() {
         (new SiteSearchCrawlJob())->handle();
     }
 }
