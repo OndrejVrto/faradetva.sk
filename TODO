@@ -7,7 +7,7 @@ Obsah stránky:
   ☐ facebook karta farnosti ako iframe?
   ☐ rozpis predmanželskej prípravy. V kontaktnom formulári je to asi nie správne?
   ☐ pridat ručné výsečové grafy
-  ☐ vyhľadávanie na celej stránke cez AJAX alebo Liveware
+  ☐ vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET
   ☐ doplniť description, keywords a aj celé SEO pre hlavnú stránku, vyhľadávanie, FaQ, články, ....
 
   ✔ odstrániť XXL contajner
@@ -53,17 +53,18 @@ Obsah stránky:
 Administrátorské rozhranie:
 
   Dashboard:
-    ☐ pridať fotky userom
-    ☐ pridať kartu s informáciou o posledných prihlásých uživateľoch
-    ☐ pridať kartu s informáciou o posledných zmenách na stránke
-
+    ☐ @future pridať kartu s informáciou o posledných prihlásých uživateľoch
+    ☐ @future pridať kartu s informáciou o posledných zmenách na stránke
+    ☐ štatistika a rôzne grafy (počet a zoznam subscriberov)
+    ☐ dorobiť administráciu subscribers
+    ✔ aktualizovať permission seeder
+    ✔ pridať fotky userom
     ✔ nastaviť práva uživateľom pre tlačítka a zobrazenie prvkov na dashboarde
-    ✘ štatistika a rôzne grafy
     ✔ pridať prepínač na zakazanie logu SQL Query
     ✔ prerobiť tlacitka na dashboarde na togle prepínače + button Save
     ✔ preložiť do angličtiny health results
     ✔ ikona výkričníka v chybových správach
-    https://github.com/fidum/laravel-dashboard-chart-tile
+      https://github.com/fidum/laravel-dashboard-chart-tile
     ✔ dopnit kartu ktorá bude informovať o zacechovaní route a config súborov
     ✔ pridať kartu s kontorolou zapnuteho CSP
     ✔ pridať kartu z počtom fungujúcich statických stránok a s časom posledného Crawlera
@@ -82,14 +83,13 @@ Administrátorské rozhranie:
 
   Iné:
     ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
-    ☐ prekontrolovať fungovanie response cache
     ☐ response cache hlavnej stránky v inom časovaní ako ostatok
     ☐ implementovať Spatie Laravel Backup
     ☐ implement failed job monitor (https://github.com/spatie/laravel-failed-job-monitor)
-    ☐ Datatable pre všetky backend tabuľky (LiveWire Datatable alebo iný)
-    ☐ vyhľadávanie v administrácii - implementovať Laravel Scout
     ☐ upratať lang
 
+    ✘ @future Datatable pre všetky backend tabuľky (LiveWire Datatable alebo iný)
+    ✘ @future vyhľadávanie v administrácii - implementovať Laravel Scout
     ✘ prepínač customSwitch prehodiť do komponentu
     ✔ do CROPera doplniť možnosť nastavenia rozmeru
     ✔ refaktorovať Cache vo všetkých komponentoch
@@ -139,11 +139,11 @@ Administrátorské rozhranie:
 SEO:
   ☐ vylepšiť sitemap, prioritu, čas poslednej aktualizácie aj spustenie crawlera
   ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
-  ☐ implementovať RSS feed (spatie/laravel-feed)
-  ☐ vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
   ☐ Implementovať FAQ do JsonLd formátu
   ☐ implemenotovať JsonLd Schema.org/google structured data
 
+  ✘ @future vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
+  ✘ @future implementovať RSS feed (spatie/laravel-feed)
   ✔ implementovať Cookie oznam
   ✔ Generovať Sitemap (https://github.com/ultrono/laravel-sitemap,  laravelium/sitemap alebo spatie)
   ✔ rozšíriť model Priest o kontakty na sociálne siete pre potreby SEO

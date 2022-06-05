@@ -2,7 +2,7 @@ const mix = require('laravel-mix');
 
 // configs
 // mix.disableNotifications();
-mix.disableSuccessNotifications();
+// mix.disableSuccessNotifications();
 mix.version();
 // mix.sourceMaps();
 

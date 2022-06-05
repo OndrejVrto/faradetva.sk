@@ -21,94 +21,16 @@ class FutureTestService
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
 
-        // $input = 'pdf';
-        // $output = [
-        //     'pdf' => 'book',
-        //     'txt' => 'text',
-        // ][$input];
-        // dd($output);
+        $input = 'pdf';
+        $output = [
+            'pdf' => 'book',
+            'txt' => 'text',
+        ][$input];
+
+        dd($output);
 
         // $this->dispatch(new GenerateSitemapJob);
 
-
-        // $foldersWithSubfolders = [
-        //     '01 Duchovný život',
-        //     '02 Sväté omše',
-        //     '03 Sväteniny',
-        //     '04 Ministériá',
-        //     '05 Pobožnosti',
-        //     '06 Pohreb',
-        //     '07 Požehnania',
-        //     '08 Putovanie',
-        //     '09 Sviatosti',
-        //     '10 Birmovanie',
-        //     '11 Eucharistia',
-        //     '12 Krst',
-        //     '13 Manželstvo',
-        //     '14 Pomazanie chorých',
-        //     '15 Posvätný stav',
-        //     '16 Svätá spoveď',
-        //     '17 Život viery',
-        //     '18 Božie prikázania',
-        //     '19 Cirkevné prikázania',
-        //     '20 Etiketa v kostole',
-        //     '21 Modlitba',
-        //     '22 Sväté písmo',
-        //     '23 Viera v Boha',
-        //     '24 Kontakty',
-        //     '25 O nás',
-        //     '26 História farnosti',
-        //     '27 Dejiny farnosti',
-        //     '28 Povolania z Detvy',
-        //     '29 Detvianskí farári',
-        //     '30 Chudobinec',
-        //     '31 Detvianskí kapláni',
-        //     '32 Pochovaní kňazi',
-        //     '33 Štatistiky farnosti',
-        //     '34 Vianoce v Detve',
-        //     '35 Osobnosti',
-        //     '36 Anton Prokop',
-        //     '37 Imrich Ďurica',
-        //     '38 Jozef Závodský',
-        //     '39 K. A. Medvecký',
-        //     '40 Ján Štrbáň',
-        //     '41 Jozef Búda',
-        //     '42 Pastorácia v Detve',
-        //     '43 Akolyti',
-        //     '44 Farské rady',
-        //     '45 Kostolníci',
-        //     '46 Lektori',
-        //     '47 Miništranti',
-        //     '48 Organisti, speváci',
-        //     '49 Spevokoly, dychovka',
-        //     '50 Náboženská výchova',
-        //     '51 Patrón farnosti',
-        //     '52 Sakrálne objekty',
-        //     '53 Detvianske kríže',
-        //     '54 Farský kostol',
-        //     '55 Kaplnky v Detve',
-        //     '56 Kláštorný kostol',
-        //     '57 Prícestné sochy',
-        //     '58 Farské znamy',
-        //     '59 Rozpis akolytov',
-        //     '60 Rozpis lektorov',
-        //     '61 Oznamy všetky',
-        //     '62 Spoločenstvá v Detve',
-        //     '63 Bárka',
-        //     '64 Františkánsky svetský rád',
-        //     '65 Hnutie kresťanských rodín',
-        //     '66 Katolícka charizmatická obnova',
-        //     '67 Mariánske večeradlo',
-        //     '68 Modlitby matiek',
-        //     '69 Bosé karmelitánky',
-        //     '70 Ružencové bratstvo',
-        //     '71 Saleziánsky spolupracovníci',
-        //     '72 Služobníci Ježišovho Veľkňazského Srdca',
-        //     '73 Bosí Karmelitáni',
-        //     '74 Združenie Faustínum',
-        //     '_x3 Všetky stránky',
-        //     '_x4 Otázky a odpovede',
-        // ];
 
         $foldersWithSubfolders = [
             '01 duchovny-zivot',
