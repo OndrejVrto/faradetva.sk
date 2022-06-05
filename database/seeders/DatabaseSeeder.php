@@ -38,13 +38,13 @@ class DatabaseSeeder extends Seeder
             RawSqlSeeder::class,
 
             // OTHER
-            ChartSeeder::class,
-            ChartDataSeeder::class,
-            TagSeeder::class,
-            CategoriesSeeder::class,
-            PriestSeeder::class,
-            SliderSeeder::class,
+                ChartSeeder::class,
+                ChartDataSeeder::class,
+                TagSeeder::class,
+                CategoriesSeeder::class,
+                PriestSeeder::class,
 
+            // SliderSeeder::class,
             // DayIdeaSeeder::class,
             // SearchConfigSeeder::class,
             // StaticPageSeeder::class,

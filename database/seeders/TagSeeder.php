@@ -9,64 +9,55 @@ use Illuminate\Database\Seeder;
 class TagSeeder extends Seeder
 {
     public function run(): void {
-        Tag::create([
-            'title' => 'Kostol',
-            'description' => 'O kostole',
-            'slug' => Str::slug('Kostol'),
-        ]);
 
-        Tag::create([
-            'title' => 'Oznamy',
-            'description' => 'Farské oznamy',
-            'slug' => Str::slug('Oznamy'),
-        ]);
+        // TODO: description
+        $tags = [
+            'adorácia'     => '',
+            'birmovka'     => '',
+            'bohoslužba'   => '',
+            'cintorín'     => '',
+            'Cirkev'       => '',
+            'deti'         => '',
+            'dekanát'      => 'Oznamy z dekanátu Detva',
+            'charita'      => '',
+            'história'     => 'Naša minulosť',
+            'kalvária'     => '',
+            'kaplnka'      => '',
+            'Karmel'       => '',
+            'kláštor'      => '',
+            'kostol'       => 'O kostole',
+            'krst'         => 'Články súvisiace s krstom',
+            'miništranti'  => '',
+            'mládež'       => '',
+            'modlitba'     => 'Modlitba a rozjímanie',
+            'oznam'        => 'Farské oznamy',
+            'pohreb'       => '',
+            'pomoc'        => '',
+            'povolanie'    => '',
+            'práca'        => '',
+            'prijímanie'   => '',
+            'púť'          => '',
+            'relax'        => '',
+            'rodičia'      => '',
+            'seniori'      => '',
+            'služba'       => '',
+            'sobáš'        => '',
+            'spevokol'     => '',
+            'spoločenstvo' => '',
+            'spoveď'       => '',
+            'svätosť'      => '',
+            'sviatok'      => '',
+            'škola'        => '',
+            'šport'        => '',
+            'turistika'    => '',
+        ];
 
-        Tag::create([
-            'title' => 'Dekanát',
-            'description' => 'Oznamy z dekanátu',
-            'slug' => Str::slug('Dekanát'),
-        ]);
-
-        Tag::create([
-            'title' => 'História',
-            'description' => 'Naša minulosť',
-            'slug' => Str::slug('História'),
-        ]);
-
-        Tag::create([
-            'title' => 'Krst',
-            'description' => 'Články súvisiace s krstom',
-            'slug' => Str::slug('Krst'),
-        ]);
-
-        Tag::create([
-            'title' => 'Organ',
-            'description' => 'Články o organe',
-            'slug' => Str::slug('Organ'),
-        ]);
-
-        Tag::create([
-            'title' => 'Modlitba',
-            'description' => 'Modlitba a rozjímanie',
-            'slug' => Str::slug('Modlitba'),
-        ]);
-
-        Tag::create([
-            'title' => 'Kaplán',
-            'description' => 'O našich kňazoch',
-            'slug' => Str::slug('Kaplán'),
-        ]);
-
-        Tag::create([
-            'title' => 'Svadba',
-            'description' => 'Svadobné veci',
-            'slug' => Str::slug('Svadba'),
-        ]);
-
-        Tag::create([
-            'title' => 'Pohreb',
-            'description' => 'O veciach smrti',
-            'slug' => Str::slug('Pohreb'),
-        ]);
+        foreach ($tags as $key => $value) {
+            Tag::create([
+                'title' => $key,
+                'description' => $value,
+                'slug' => Str::slug($key),
+            ]);
+        }
     }
 }

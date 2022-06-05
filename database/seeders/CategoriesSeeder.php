@@ -9,46 +9,27 @@ use Illuminate\Database\Seeder;
 class CategoriesSeeder extends Seeder
 {
     public function run(): void {
-        Category::create([
-            'title' => 'Bez kategórie',
-            'description' => 'Všetko čo sa nevošlo do inej kategórie',
-            'slug' => Str::slug('Bez kategórie'),
-        ]);
 
-        Category::create([
-            'title' => 'Viera a život',
-            'description' => 'O kostole',
-            'slug' => Str::slug('Viera a život'),
-        ]);
+        // TODO: description
+        $categories = [
+            'Bez kategórie' => 'Všetko čo sa nevošlo do inej kategórie',
+            'Aktivity'      => '',
+            'Dekanát'       => '',
+            'Diecéza'       => '',
+            'Farnosť'       => '',
+            'Liturgia'      => '',
+            'Oznamy'        => 'Oznamy, aktuality a správy.',
+            'Rodina'        => '',
+            'Viera a život' => '',
+            'Zamyslenia'    => '',
+        ];
 
-        Category::create([
-            'title' => 'Kňaz a Boh',
-            'description' => 'Kategória o svädskom živote v cirkvi.',
-            'slug' => Str::slug('Kňaz a Boh'),
-        ]);
-
-        Category::create([
-            'title' => 'Biblia',
-            'description' => 'Kánonické právo, nový a strý zákon.',
-            'slug' => Str::slug('Biblia'),
-        ]);
-
-        Category::create([
-            'title' => 'Kázeň',
-            'description' => 'Slová vypovedané pred veriacimi v textovej podobe.',
-            'slug' => Str::slug('Kázeň'),
-        ]);
-
-        Category::create([
-            'title' => 'Oznamy',
-            'description' => 'Oznamy, aktuality a správy.',
-            'slug' => Str::slug('Oznamy'),
-        ]);
-
-        Category::create([
-            'title' => 'História',
-            'description' => 'Naše dejiny a zaujímavosti.',
-            'slug' => Str::slug('História'),
-        ]);
+        foreach ($categories as $key => $value) {
+            Category::create([
+                'title' => $key,
+                'description' => $value,
+                'slug' => Str::slug($key),
+            ]);
+        }
     }
 }

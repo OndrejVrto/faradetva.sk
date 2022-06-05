@@ -19,6 +19,9 @@ class RoleSeeder extends Seeder
             // id 2
             'Administrátor' => [
                 'admin.dashboard',
+                'admin.dashboard.commands',
+                'admin.dashboard.health-fresh',
+                'admin.dashboard.settings',
 
                 'impersonate',
 
@@ -29,6 +32,14 @@ class RoleSeeder extends Seeder
                 'banners.show',
                 'banners.store',
                 'banners.update',
+
+                'background-pictures.create',
+                'background-pictures.destroy',
+                'background-pictures.edit',
+                'background-pictures.index',
+                'background-pictures.show',
+                'background-pictures.store',
+                'background-pictures.update',
 
                 'categories.create',
                 'categories.destroy',
@@ -188,6 +199,8 @@ class RoleSeeder extends Seeder
             // id 3
             'Moderátor' => [
                 'admin.dashboard',
+                'admin.dashboard.commands',
+                'admin.dashboard.health-fresh',
 
                 'impersonate',
 
@@ -307,6 +320,7 @@ class RoleSeeder extends Seeder
             // id 4
             'Redaktor' => [
                 'admin.dashboard',
+                'admin.dashboard.health-fresh',
 
                 'news.create',
                 'news.destroy',
@@ -336,6 +350,8 @@ class RoleSeeder extends Seeder
             // id 5
             'Kontrolór' => [
                 'admin.dashboard',
+                'admin.dashboard.commands',
+                'admin.dashboard.health-fresh',
                 'categories.index',
                 'charts.data.index',
                 'charts.index',
