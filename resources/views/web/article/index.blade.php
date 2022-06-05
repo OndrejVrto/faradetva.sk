@@ -89,10 +89,19 @@
                                 </div>
 
                                 <div class="blog_desc">
-                                    <div class="blog_info mt-2">
-                                        <span><a href="{{ route('article.author', $oneNews->user->slug) }}"><i class="fa-regular fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}</a></span>
-                                        <span><a href="{{ route('article.date', $oneNews->created_string) }}"><i class="fa-regular fa-calendar-alt" aria-hidden="true"></i>{{ $oneNews->created }}</a></span>
-                                        <span><a href="{{ route('article.category', $oneNews->category->slug) }}"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>{{ $oneNews->category->title_light }}</a></span>
+                                    <div class="blog_info d-flex flex-wrap justify-content-around mt-2">
+                                        <a href="{{ route('article.author', $oneNews->user->slug) }}">
+                                            <i class="fa-regular fa-user" aria-hidden="true"></i>
+                                            {{ $oneNews->user->name }}
+                                        </a>
+                                        <a class="mx-2" href="{{ route('article.date', $oneNews->created_string) }}">
+                                            <i class="fa-regular fa-calendar-alt" aria-hidden="true"></i>
+                                            {{ $oneNews->created }}
+                                        </a>
+                                        <a href="{{ route('article.category', $oneNews->category->slug) }}">
+                                            <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+                                            {{ $oneNews->category->title_light }}
+                                        </a>
                                     </div>
 
                                     <a class="text-decoration-none" href="{{ route('article.show', $oneNews->slug)}}">

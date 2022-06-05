@@ -43,7 +43,7 @@
                     </a>
                 </h3>
                 @isset($meta)
-                    <div class="event_meta mt-2 mb-1">
+                    <div class="blog_info mt-2 mb-1">
                         {{ $meta }}
                     </div>
                 @endisset

@@ -202,6 +202,9 @@ Project: Church
 		var search_frase_B = $('#inputSearch2').val();
 		window.location.replace('/hladat/' + search_frase_B);
 	})
+
+    $('.collapse').collapse();
+
 })(jQuery);
 
 

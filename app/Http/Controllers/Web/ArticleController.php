@@ -33,19 +33,38 @@ class ArticleController extends Controller
             ->with('media')
             ->get();
 
+        $topCategories = Category::query()
+            ->withCount('news')
+            ->orderByRaw('news_count DESC')
+            ->take(5)
+            ->get()
+            ->push($oneNews->category)
+            ->unique();
+
         $allCategories = Category::query()
             ->withCount('news')
-            ->get();
+            ->orderByRaw('news_count DESC')
+            ->get()
+            ->diff($topCategories);
+
+        $topTags = Tag::query()
+            ->withCount('news')
+            ->orderByRaw('news_count DESC')
+            ->take(6)
+            ->get()
+            ->merge($oneNews->tags);
 
         $allTags = Tag::query()
             ->withCount('news')
-            ->get();
+            ->orderByRaw('news_count DESC')
+            ->get()
+            ->diff($topTags);
 
         $attachments = (new FilePropertiesService)->allNewsAttachmentData($oneNews);
 
         $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
 
-        return view('web.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
+        return view('web.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'topCategories', 'allTags', 'topTags','breadCrumb'));
     }
 
     public function indexAll(): View  {

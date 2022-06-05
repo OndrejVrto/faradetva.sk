@@ -1767,7 +1767,7 @@ div#err_msg p {
 	margin-bottom   : 7px;
 	font-size       : 13px;
 	text-transform  : capitalize;
-	padding         : 0px 16px;
+	padding         : 0px 7px;
 	background      : transparent;
 	text-decoration : none;
 	color           : #fff;
