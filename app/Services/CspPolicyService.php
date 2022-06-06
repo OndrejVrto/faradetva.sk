@@ -43,6 +43,7 @@ class CspPolicyService extends Basic
                 'sha256-9K+fEDqIyD+XahBDIsS1HJfWaTCI321eBrwKwbRaQ1g=',
                 'maps.googleapis.com',
                 'cdnjs.cloudflare.com',
+                'cdn.jsdelivr.net',
             ])
             ->addDirective(Directive::STYLE, [
                 Keyword::SELF,
@@ -52,7 +53,7 @@ class CspPolicyService extends Basic
                 'cdnjs.cloudflare.com',
             ])
             ->addNonceForDirective(Directive::SCRIPT)
-            ->addNonceForDirective(Directive::IMG)
-            ->addNonceForDirective(Directive::STYLE);
+            ->addNonceForDirective(Directive::IMG);
+            // ->addNonceForDirective(Directive::STYLE);
     }
 }

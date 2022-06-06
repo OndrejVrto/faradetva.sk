@@ -203,7 +203,7 @@ Project: Church
 		window.location.replace('/hladat/' + search_frase_B);
 	})
 
-    $('.collapse').collapse();
+    // $('.collapse').collapse();
 
 })(jQuery);
 

@@ -2,7 +2,7 @@
     <x-web.page.section
         name="LAST_ARTICLES"
         row="true"
-        class="pad_t_80 pad_b_50"
+        class="pad_t_50 pad_b_50"
     >
 
         <x-web.page.section-header header="Novinky" />

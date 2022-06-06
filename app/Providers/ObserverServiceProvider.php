@@ -9,6 +9,7 @@ class ObserverServiceProvider extends ServiceProvider
 {
     public function boot() {
         $models = [
+            \App\Models\BackgroundPicture::class,
             \App\Models\Banner::class,
             \App\Models\Category::class,
             \App\Models\DayIdea::class,
