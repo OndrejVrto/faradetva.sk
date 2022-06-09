@@ -1,15 +1,15 @@
 Obsah stránky:
-  ☐ prepísať teaser texty v databáze
   ☐ nahodiť chýbajúce texty pre spoločenstvá
   ☐ nahodiť všetky obrázky do stránok "O-nás"
-  ☐ tagy - všetky alebo len výber
   ☐ prepísať kategórie článkov
   ☐ facebook karta farnosti ako iframe?
   ☐ rozpis predmanželskej prípravy. V kontaktnom formulári je to asi nie správne?
   ☐ pridat ručné výsečové grafy
   ☐ vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET
-  ☐ doplniť description, keywords a aj celé SEO pre hlavnú stránku, vyhľadávanie, FaQ, články, ....
 
+  ✔ prepísať teaser texty v databáze
+  ✔ tagy a kategórie - všetky alebo len výber
+  ✔ doplniť description, keywords a aj celé SEO pre hlavnú stránku, vyhľadávanie, FaQ, články, ....
   ✔ odstrániť XXL contajner
   ✔ skryť emailové edresy pred BOTmi
   ✔ pridať popis obrázka pod všetky obrázky
@@ -57,6 +57,8 @@ Administrátorské rozhranie:
     ☐ @future pridať kartu s informáciou o posledných zmenách na stránke
     ☐ štatistika a rôzne grafy (počet a zoznam subscriberov)
     ☐ dorobiť administráciu subscribers
+    ☐ implementovať balíček Laravisit na články/userov ? (https://www.youtube.com/watch?v=6JBkDGqnc2w&ab_channel=LaravelDaily)
+
     ✔ aktualizovať permission seeder
     ✔ pridať fotky userom
     ✔ nastaviť práva uživateľom pre tlačítka a zobrazenie prvkov na dashboarde
@@ -138,10 +140,9 @@ Administrátorské rozhranie:
 
 SEO:
   ☐ vylepšiť sitemap, prioritu, čas poslednej aktualizácie aj spustenie crawlera
-  ☐ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
-  ☐ Implementovať FAQ do JsonLd formátu
-  ☐ implemenotovať JsonLd Schema.org/google structured data
-
+  ✔ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
+  ✔ Implementovať FAQ do JsonLd formátu
+  ✔ implemenotovať JsonLd Schema.org/google structured data
   ✘ @future vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
   ✘ @future implementovať RSS feed (spatie/laravel-feed)
   ✔ implementovať Cookie oznam
