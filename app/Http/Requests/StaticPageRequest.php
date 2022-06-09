@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\PageType;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\BaseRequest;
+use Illuminate\Validation\Rules\Enum;
 use App\Http\Requests\Traits\HasSourceFields;
 use App\Http\Requests\Traits\HasCropPictureFields;
 
@@ -16,6 +18,7 @@ class StaticPageRequest extends BaseRequest
     public function rules(): array {
         return  [
             'active'           => $this->reqBoolRule(),
+            'virtual'          => $this->reqBoolRule(),
             'title'            => $this->reqStrRule(),
             'slug'             => Rule::unique('static_pages', 'slug')->ignore($this->static_page)->withoutTrashed(),
             'url'              => $this->reqStrRule(),
@@ -30,6 +33,10 @@ class StaticPageRequest extends BaseRequest
                 'required',
                 'string',
                 'max:255',
+            ],
+            'type_page'  => [
+                'required',
+                new Enum(PageType::class),
             ],
         ];
     }

@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
 
             $table->boolean('active')->default(0);
+            $table->boolean('virtual')->default(0);
+            $table->tinyInteger('type_page')->unsigned()->default(1);
             $table->string('title');
             $table->string('url');
             $table->string('route_name')->unique();

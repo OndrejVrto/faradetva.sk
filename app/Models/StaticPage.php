@@ -8,6 +8,7 @@ use App\Models\Faq;
 use App\Models\File;
 use App\Models\Banner;
 use App\Models\Source;
+use App\Enums\PageType;
 use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Spatie\Image\Manipulations;
@@ -30,6 +31,8 @@ class StaticPage extends BaseModel implements HasMedia
 
     protected $fillable = [
         'active',
+        'virtual',
+        'type_page',
         'title',
         'url',
         'slug',
@@ -46,8 +49,10 @@ class StaticPage extends BaseModel implements HasMedia
 
     protected $casts = [
         'active' => 'boolean',
+        'virtual' => 'boolean',
         'check_url' => 'boolean',
         'deleted_at' => 'datetime',
+        'type_page' => PageType::class,
     ];
 
     public function files() {

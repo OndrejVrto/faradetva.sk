@@ -52,7 +52,7 @@
                 <x-admin.table.tr trashed="{{ $page->trashed() }}">
 
                     {{-- <x-admin.table.td>{{$page->id}}</x-admin.table.td> --}}
-                    <x-admin.table.td-check-active check="{{ $page->active }}"/>
+                    <x-admin.table.td-check-active virtual="{{ $page->virtual }}" check="{{ $page->active }}"/>
                     <x-admin.table.td>{{ $loop->iteration }}</x-admin.table.td>
                     <x-admin.table.td class="text-center">
                         <img src="{{ $page->getFirstMediaUrl($page->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/100x50" }}"
@@ -60,14 +60,18 @@
                         alt="Obrázok: {{ $page->source->description ?? '' }}"/>
                     </x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-admin.table.td>
-                    <x-admin.table.td-check-active check="{{ $page->check_url }}" class="d-none d-md-table-cell text-center"/>
+                    <x-admin.table.td-check-active virtual="{{ $page->virtual }}" check="{{ $page->check_url }}" class="d-none d-md-table-cell text-center"/>
                     <x-admin.table.td class="text-wrap text-break d-none d-md-table-cell">
-                        <a href="{{ config('app.url').'/'.$page->url }}" target="_blank" rel="noopener noreferrer">
-                            <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}
-                            {{-- {{ $page->url }} --}}
-                            <br>
+                        @if ($page->virtual)
                             <span class="small text-muted">{{ $page->route_name }}</span>
-                        </a>
+                        @else
+                            <a href="{{ config('app.url').'/'.$page->url }}" target="_blank" rel="noopener noreferrer">
+                                <span class="small text-info">{{ config('app.url').'/'}}</span>{{ $page->url }}
+                                {{-- {{ $page->url }} --}}
+                                <br>
+                                <span class="small text-muted">{{ $page->route_name }}</span>
+                            </a>
+                        @endif
                     </x-admin.table.td>
                     <x-admin.table.td class="text-center d-none d-xl-table-cell">
                         @if( $page->banners_count != 0 )

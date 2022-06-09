@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Banner;
 use App\Models\Source;
+use App\Enums\PageType;
 use App\Models\StaticPage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class StaticPageController extends Controller
 {
     public function index(Request $request): View {
         $pages = StaticPage::query()
+            ->orderByDesc('virtual')
             ->orderBy('url')
             ->with('media', 'source')
             ->withCount('banners')
@@ -32,8 +34,9 @@ class StaticPageController extends Controller
     public function create(): View  {
         $banners = Banner::with('media', 'source')->get();
         $selectedBanners = [];
+        $pageTypes = PageType::cases();
 
-        return view('admin.static-pages.create', compact('banners', 'selectedBanners'));
+        return view('admin.static-pages.create', compact('banners', 'selectedBanners', 'pageTypes'));
     }
 
     public function store(StaticPageRequest $request): RedirectResponse {
@@ -53,8 +56,9 @@ class StaticPageController extends Controller
         $staticPage->load('banners', 'source');
         $banners = Banner::with('media', 'source')->get();
         $selectedBanners = $staticPage->banners->pluck('id')->unique()->toArray();
+        $pageTypes = PageType::cases();
 
-        return view('admin.static-pages.edit', compact('staticPage', 'banners', 'selectedBanners'));
+        return view('admin.static-pages.edit', compact('staticPage', 'banners', 'selectedBanners', 'pageTypes'));
     }
 
     public function update(StaticPageRequest $request, StaticPage $staticPage): RedirectResponse {

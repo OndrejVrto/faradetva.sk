@@ -36,6 +36,20 @@
                 Aktívna stránka
             </label>
         </div>
+        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" title="Zvoľ ak sa stránka nezobrazuje.">
+            <input type="hidden" name="virtual" value="0">
+            <input
+                type="checkbox"
+                name="virtual"
+                class="custom-control-input"
+                id="customSwitch2"
+                value="1"
+                {{ (( $staticPage->virtual ?? (old('virtual') === "0" ? 0 : 1) ) OR old('virtual', 0) === 1) ? 'checked' : '' }}
+            >
+            <label class="custom-control-label" for="customSwitch2">
+                Virtuálna stránka
+            </label>
+        </div>
     </div>
 
     <div class="form-row">
@@ -89,7 +103,7 @@
 
     <div class="form-row">
 
-        <div class="col-xl-6">
+        <div class="col-xl-4">
             <x-adminlte-input
                 name="url"
                 label="URL adresa ktorú uvidí uživateľ"
@@ -112,7 +126,7 @@
             </x-adminlte-input>
         </div>
 
-        <div class="col-xl-6">
+        <div class="col-xl-4">
             <x-adminlte-input
                 name="route_name"
                 label="Vnútorná cesta Laravel-u k šablone (route)"
@@ -130,6 +144,30 @@
             </x-adminlte-input>
         </div>
 
+        <div class="col-xl-4">
+            <x-adminlte-select2
+                name="type_page"
+                label="Typ stránky"
+            >
+                <x-slot:prependSlot>
+                    <div class="input-group-text bg-gradient-orange">
+                        <i class="fa-solid fa-file-circle-plus"></i>
+                    </div>
+                </x-slot>
+                <option/>
+                    @foreach($pageTypes as $pageType)
+                        <option
+                            value="{{ $pageType->value }}"
+                            title="{{ $pageType->typeLocalize() }}"
+                            @if( $pageType->value == ($staticPage->type_page->value ?? '1') OR $pageType->value == old('type_page'))
+                                selected
+                            @endif
+                            >
+                            {{ $pageType->typeLocalize() }}
+                        </option>
+                    @endforeach
+            </x-adminlte-select2>
+        </div>
     </div>
 
     <div class="form-row">
