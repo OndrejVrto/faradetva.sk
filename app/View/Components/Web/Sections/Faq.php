@@ -10,6 +10,7 @@ use App\Models\Faq as FaqModel;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 use App\Services\PurifiAutolinkService;
+use App\Services\SEO\SetSeoPropertiesService;
 
 class Faq extends Component
 {
@@ -35,34 +36,12 @@ class Faq extends Component
                 });
         }
 
-        $this->setSeoMetaTags($this->faqs);
+        (new SetSeoPropertiesService())->setFaqSeoMetaTags($this->faqs);
     }
 
     public function render(): View {
         return view('components.web.sections.faq.index');
     }
 
-    private function setSeoMetaTags(array|Collection $faqData): void {
-        $questions = [];
-        foreach ($faqData as $faq) {
-            $questions[] = Schema::question()
-                    ->name(e($faq['question']))
-                    ->acceptedAnswer(
-                        Schema::answer()
-                            ->text(e($faq['answer-clean']))
-                    );
-        }
 
-        $JsonLD = Schema::fAQPage()
-            ->mainEntity( $questions )
-            ->toArray();
-        unset($JsonLD['@context']);
-
-        if (SeoSchema::hasValue('hasPart')) {
-            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]) );
-        } else {
-            SeoSchema::addValue('hasPart', [$JsonLD] );
-        }
-
-    }
 }

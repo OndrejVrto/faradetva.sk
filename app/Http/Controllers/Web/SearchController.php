@@ -7,6 +7,8 @@ namespace App\Http\Controllers\Web;
 use Spatie\SiteSearch\Search;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use App\Services\PagePropertiesService;
+use App\Services\SEO\SetSeoPropertiesService;
 
 class SearchController extends Controller
 {
@@ -18,7 +20,13 @@ class SearchController extends Controller
                 ->get()
             : null;
 
-        // TODO:  add SEO META headers
+        // set SEO
+        $pageData = PagePropertiesService::virtualPageData('globalne-vyhladavanie');
+        (new SetSeoPropertiesService($pageData))
+            ->setMetaTags()
+            ->setWebPageSchema()
+            ->setWebsiteSchemaGraph()
+            ->setOrganisationSchemaGraph();
 
         return view('web.global-search.index', compact('searchResults', 'searchFrase'));
     }

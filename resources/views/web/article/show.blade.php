@@ -1,14 +1,3 @@
-@php
-    $words = 'novinky, článok, správa, informácia, farnosť Detva, oznam, udalosť';
-    foreach ($oneNews->tags as $tag) {
-        $words .= ', '.$tag->title;
-    }
-    SEOMeta::setTitle(e($oneNews->title));
-    SEOMeta::setDescription(e($oneNews->teaser));
-    SEOMeta::addKeyword(e($words));
-    SEOMeta::addMeta('author', e($oneNews->user->name), 'name');
-@endphp
-
 <x-web.layout.master>
 
     <x-web.sections.banner

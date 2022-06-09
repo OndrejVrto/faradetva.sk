@@ -7,7 +7,9 @@ namespace App\Http\Controllers\Web;
 use App\Models\Faq;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use App\Services\PagePropertiesService;
 use App\Services\PurifiAutolinkService;
+use App\Services\SEO\SetSeoPropertiesService;
 
 class FaqController extends Controller
 {
@@ -32,7 +34,13 @@ class FaqController extends Controller
                 ];
             });
 
-        // TODO:  add SEO META headers
+        $pageData = PagePropertiesService::virtualPageData('vsetky-otazky-a-odpovede');
+        (new SetSeoPropertiesService($pageData))
+            ->setMetaTags()
+            ->setWebPageSchema()
+            ->setWebsiteSchemaGraph()
+            ->setOrganisationSchemaGraph()
+            ->setCompletFaqSeo($faqs);
 
         return view('web.faq.index', compact('faqs'));
     }

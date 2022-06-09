@@ -13,7 +13,7 @@ return [
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => 'Webová stránka farnosťi Detva.', // set false to total remove
             'separator'    => ' | ',
-            'keywords'     => ['farnosť Detva', 'fara', 'svadba', 'krst', 'pohreb', 'farské oznamy', 'omša', 'predmanželská príprava', 'kňaz', 'cirkev'],
+            'keywords'     => ['farnosť Detva', 'fara', 'svadba', 'krst', 'pohreb', 'oznamy' ,'farské oznamy', 'omša', 'predmanželská príprava', 'kňaz', 'cirkev'],
             'robots'       => 'index, follow', // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
             'canonical'    => 'current', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
         ],

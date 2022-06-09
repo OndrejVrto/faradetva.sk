@@ -12,8 +12,9 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use App\Services\FilePropertiesService;
+use App\Services\PagePropertiesService;
+use App\Services\SEO\SetSeoPropertiesService;
 
-// TODO:  add SEO META headers to all methods
 // TODO:  refactor Title in all methods to View::composer
 
 class ArticleController extends Controller
@@ -53,6 +54,22 @@ class ArticleController extends Controller
 
         $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
 
+        $pageData = PagePropertiesService::getArticlePageData($oneNews);
+        (new SetSeoPropertiesService($pageData))
+            ->setWebPageArticleSchema()
+            ->setMetaTags()
+            ->setWebsiteSchemaGraph()
+            ->setBreadcrumbSchemaGraph([
+                0 => [
+                    'title' => 'Všetky články',
+                    'url' => route('article.all')
+                ],
+                1 => [
+                    'title' => e($oneNews->title),
+                    'url' => route('article.show', $oneNews->slug)
+                ]
+            ]);
+
         return view('web.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
     }
 
@@ -61,6 +78,8 @@ class ArticleController extends Controller
         $title = __('frontend-texts.articles-title.all');
         $breadCrumb = (string) Breadcrumbs::render('articles.all', true);
         $emptyTitle = ['name'=> 'V', 'value' => 'sekcii'];
+
+        $this->seoIndex();
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
@@ -75,6 +94,8 @@ class ArticleController extends Controller
         $breadCrumb = (string) Breadcrumbs::render('articles.author', true, $userSlug, $userName);
         $emptyTitle = ['name'=> 'Zvolený autor', 'value' => $userName];
 
+        $this->seoIndex();
+
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
@@ -88,6 +109,8 @@ class ArticleController extends Controller
         $breadCrumb = (string) Breadcrumbs::render('articles.category', true, $categorySlug, $categoryName);
         $emptyTitle = ['name'=> 'Vybraná kategória', 'value' => $categoryName];
 
+        $this->seoIndex();
+
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
@@ -96,6 +119,8 @@ class ArticleController extends Controller
         $title = __('frontend-texts.articles-title.date') . $year;
         $breadCrumb = (string) Breadcrumbs::render('articles.date', true, $year, $year);
         $emptyTitle = ['name'=> 'Vybraný rok', 'value' => (string)$year];
+
+        $this->seoIndex();
 
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
@@ -110,6 +135,8 @@ class ArticleController extends Controller
         $breadCrumb = (string) Breadcrumbs::render('articles.tag', true, $tagSlug, $tagName);
         $emptyTitle = ['name'=> 'Klúčové slovo', 'value' => $tagName];
 
+        $this->seoIndex();
+
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
@@ -122,6 +149,23 @@ class ArticleController extends Controller
         $breadCrumb = (string) Breadcrumbs::render('articles.search', true);
         $emptyTitle = ['name'=> 'Hľadaný výraz', 'value' => $search];
 
+        $this->seoIndex();
+
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+    }
+
+    private function seoIndex(): void {
+        $pageData = PagePropertiesService::virtualPageData('clanky');
+        (new SetSeoPropertiesService($pageData))
+            ->setMetaTags()
+            ->setWebPageSchema()
+            ->setWebsiteSchemaGraph()
+            ->setOrganisationSchemaGraph()
+            ->setBreadcrumbSchemaGraph([
+                0 => [
+                    'title' => 'Všetky články',
+                    'url' => route('article.all')
+                ]
+            ]);
     }
 }
