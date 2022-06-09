@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\Support;
 
 use App\Models\Subscriber;
 use Illuminate\Http\Response;

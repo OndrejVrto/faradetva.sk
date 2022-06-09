@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Web\{
-    FaqController, HomeController, PageController,
-    SearchController, ArticleController, SubscribeController,
-    ListPagesController
+    FaqController, HomeController,
+    PageController, SearchController,
+    ArticleController, ListPagesController
 };
+use App\Http\Controllers\Support\SubscribeController;
 
 //! FrontEnd Routes
 Route::middleware('fast_web')->group(function() {
