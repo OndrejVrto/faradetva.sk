@@ -24,4 +24,5 @@ return [
     'Oznam'     => '{0}Oznamov|[1]Oznam|[2,4]Oznamy|[5,*]Oznamov',
 
     'duchovny-zivot' => 'Duchovný život',
+    'o-nas' => 'O nás',
 ];
