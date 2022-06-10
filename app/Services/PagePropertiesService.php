@@ -51,6 +51,8 @@ class PagePropertiesService
             'wikipedia'        => e($page->wikipedia),
             'banners'          => $page->banners->pluck('slug')->toArray(),
             'faqs'             => $page->faqs->pluck('slug')->toArray(),
+            'datePublished'    => $page->created_at->toAtomString(),
+            'dateModified'     => $page->updated_at->toAtomString(),
         ];
     }
 

@@ -12,6 +12,7 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 
+// TODO: Refactor this mess
 class SetSeoPropertiesService
 {
     public function __construct(
@@ -33,52 +34,12 @@ class SetSeoPropertiesService
         return $this;
     }
 
-    public function setWebPageSchema(): self {
-        SeoSchema::setType($this->page['type_page']);
-
-        SeoSchema::setTitle($this->page['title']);
-        SeoSchema::setDescription($this->page['page-description']);
-        if ($this->page['wikipedia']) {
-            SeoSchema::addValue('sameAs', $this->page['wikipedia']);
-        }
-        SeoSchema::addValue('keywords', $this->page['keywords']);
-        SeoSchema::addValue('primaryImageOfPage', $this->getPrimaryImagePageSchema($this->page) );
-
-        return $this;
-    }
-
-    public function setWebPageArticleSchema(): self {
-        SeoSchema::setType($this->page['type_page']);
-
-        SeoSchema::setTitle(e($this->page['title']));
-        SeoSchema::setDescription(e($this->page['page-description']));
-        SeoSchema::addValue('keywords', e($this->page['keywords']));
-        SeoSchema::addValue('headline', e($this->page['teaser']));
-        SeoSchema::addValue('datePublished', $this->page['datePublished']);
-        SeoSchema::addValue('dateModified', $this->page['dateModified']);
-        if ($this->page['expires']) {
-            SeoSchema::addValue('expires', $this->page['expires']);
-        }
-        SeoSchema::addValue('author', $this->getArticleAuthorSchema());
-        SeoSchema::addValue('isAccessibleForFree', true);
-        SeoSchema::addValue('articleBody', $this->page['content-plain']);
-        SeoSchema::addValue('articleBody', $this->page['content-plain']);
-        SeoSchema::addValue('articleSection', $this->page['category']);
-        SeoSchema::addValue('wordCount', $this->page['count-words']);
-        SeoSchema::addValue('mainEntityOfPage',
-            Schema::webPage()
-                ->name($this->page['title'])
-                ->url($this->page['url'])
-        );
-        SeoSchema::addValue('image', $this->getPrimaryImagePageSchema($this->page) );
-        SeoSchema::addValue('publisher', $this->getOrganizationSchema());
-
-        return $this;
-    }
-
+    // Twiter, Facebook and META
     public function setMetaTags(): self {
         // Global Meta
-        SEOMeta::setTitle($this->page['title']);
+        if($this->page['title'] != config('seotools.meta.defaults.title')){
+            SEOMeta::setTitle($this->page['title']);
+        }
         SEOMeta::setDescription($this->page['page-description']);
         SEOMeta::addKeyword($this->page['keywords']);
         SEOMeta::addMeta('author', $this->page['author'], 'name');
@@ -102,6 +63,85 @@ class SetSeoPropertiesService
         return $this;
     }
 
+    // For general pages
+    public function setWebPageSchema(): self {
+        SeoSchema::setType($this->page['type_page']);
+        SeoSchema::setTitle($this->page['title']);
+        SeoSchema::setDescription($this->page['page-description']);
+        SeoSchema::addValue('inLanguage', "sk-SK");
+        if ($this->page['wikipedia']) {
+            SeoSchema::addValue('sameAs', $this->page['wikipedia']);
+        }
+        SeoSchema::addValue('keywords', $this->page['keywords']);
+        SeoSchema::addValue('primaryImageOfPage', $this->getPrimaryImagePageSchema($this->page) );
+        SeoSchema::addValue('potentialAction', $this->getReadActionSchema($this->page['url']));
+        SeoSchema::addValue('datePublished', $this->page['datePublished']);
+        SeoSchema::addValue('dateModified', $this->page['dateModified']);
+
+        return $this;
+    }
+
+    // For Article pages
+    public function setWebPageArticleSchema(): self {
+        SeoSchema::setType($this->page['type_page']);
+        SeoSchema::setTitle(e($this->page['title']));
+        SeoSchema::setDescription(e($this->page['page-description']));
+        SeoSchema::addValue('inLanguage', "sk-SK");
+        SeoSchema::addValue('keywords', e($this->page['keywords']));
+        SeoSchema::addValue('headline', e($this->page['teaser']));
+        SeoSchema::addValue('datePublished', $this->page['datePublished']);
+        SeoSchema::addValue('dateModified', $this->page['dateModified']);
+        if ($this->page['expires']) {
+            SeoSchema::addValue('expires', $this->page['expires']);
+        }
+        SeoSchema::addValue('author', $this->getArticleAuthorSchema());
+        SeoSchema::addValue('isAccessibleForFree', true);
+        SeoSchema::addValue('articleBody', $this->page['content-plain']);
+        SeoSchema::addValue('articleBody', $this->page['content-plain']);
+        SeoSchema::addValue('articleSection', $this->page['category']);
+        SeoSchema::addValue('wordCount', $this->page['count-words']);
+        SeoSchema::addValue('mainEntityOfPage', $this->getMainEntitySchema($this->page['title'], $this->page['url']) );
+        SeoSchema::addValue('potentialAction', $this->getReadActionSchema($this->page['url']) );
+        SeoSchema::addValue('image', $this->getPrimaryImagePageSchema($this->page) );
+        SeoSchema::addValue('publisher', $this->getOrganizationSchema());
+
+        return $this;
+    }
+
+    public function setFaqSeoMetaTags(array|Collection $faqData): void {
+        $JsonLD = Schema::fAQPage()
+            ->mainEntity( $this->setFaqQuestions($faqData) )
+            ->toArray();
+        unset($JsonLD['@context']);
+
+        if (SeoSchema::hasValue('hasPart')) {
+            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]) );
+        } else {
+            SeoSchema::addValue('hasPart', [$JsonLD] );
+        }
+    }
+
+    public function setCompletFaqSeo(array|Collection $faqData): void {
+        $JsonLD = $this->setFaqQuestions($faqData);
+
+        SeoSchema::addValue('mainEntity', [$JsonLD] );
+    }
+
+    public function setFaqQuestions(array|Collection $faqData): array {
+        $questions = [];
+        foreach ($faqData as $faq) {
+            $tmp = Schema::question()
+                    ->name(e($faq['question']))
+                    ->acceptedAnswer(
+                        Schema::answer()
+                            ->text(e($faq['answer-clean']))
+                    )->toArray();
+            unset($tmp['@context']);
+            $questions[] = $tmp;
+        }
+        return $questions;
+    }
+
     private function getWebSiteSchema(): Type {
         return Schema::webSite()
             ->url(config('app.url'))
@@ -123,6 +163,25 @@ class SetSeoPropertiesService
                     ->urlTemplate(config('app.url')."/hladat/{search_term_string}")
             )
             ->setProperty('query-input', 'required name=search_term_string');
+    }
+
+    private function getReadActionSchema(string $url): array {
+        $JsonLD = Schema::readAction()
+            ->target($url)->toArray();
+        unset($JsonLD['@context']);
+
+        return $JsonLD;
+    }
+
+    private function getMainEntitySchema(string $title, string $url): array {
+        $JsonLD = Schema::webPage()
+                    ->name($title)
+                    ->url($url)
+                    ->toArray();
+
+        unset($JsonLD['@context']);
+
+        return $JsonLD;
     }
 
     private function getOrganizationSchema(): Type {
@@ -238,47 +297,18 @@ class SetSeoPropertiesService
             );
     }
 
-    private function getArticleAuthorSchema(): Type {
-        return Schema::person()
+    private function getArticleAuthorSchema(): array {
+        $JsonLD = Schema::person()
             ->name($this->page['author'])
             ->sameAs($this->page['author-twitter'])
             ->sameAs($this->page['author-facebook'])
             ->telephone($this->page['author-phone'])
             ->email($this->page['author-email'])
-            ->url($this->page['author-www']);
-    }
-
-    public function setFaqSeoMetaTags(array|Collection $faqData): void {
-        $JsonLD = Schema::fAQPage()
-            ->mainEntity( $this->setFaqQuestions($faqData) )
+            ->url($this->page['author-www'])
             ->toArray();
+
         unset($JsonLD['@context']);
 
-        if (SeoSchema::hasValue('hasPart')) {
-            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]) );
-        } else {
-            SeoSchema::addValue('hasPart', [$JsonLD] );
-        }
-    }
-
-    public function setCompletFaqSeo(array|Collection $faqData): void {
-        $JsonLD = $this->setFaqQuestions($faqData);
-
-        SeoSchema::addValue('mainEntity', [$JsonLD] );
-    }
-
-    public function setFaqQuestions(array|Collection $faqData): array {
-        $questions = [];
-        foreach ($faqData as $faq) {
-            $tmp = Schema::question()
-                    ->name(e($faq['question']))
-                    ->acceptedAnswer(
-                        Schema::answer()
-                            ->text(e($faq['answer-clean']))
-                    )->toArray();
-            unset($tmp['@context']);
-            $questions[] = $tmp;
-        }
-        return $questions;
+        return $JsonLD;
     }
 }
