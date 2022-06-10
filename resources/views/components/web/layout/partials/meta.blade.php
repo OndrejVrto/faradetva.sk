@@ -1,6 +1,3 @@
-<!-- JsonLd -->
-<x-web.seo-json-ld />
-
 <!-- SEOMeta -->
 {!! SEOMeta::generate() !!}
 
@@ -19,3 +16,6 @@
 
 <!-- Twitter -->
 {!! Twitter::generate() !!}
+
+<!-- Schema markup -->
+<x-web.seo-json-ld />
