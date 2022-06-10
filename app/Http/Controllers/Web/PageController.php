@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use App\Services\PagePropertiesService;
 use App\Services\SEO\SetSeoPropertiesService;
@@ -32,10 +33,13 @@ class PageController extends Controller
                     });
 
         // check if last link exists in DB.
-        $page = StaticPage::query()
-                    ->whereUrl($urls->pop()->get('url'))
-                    ->with('picture', 'source', 'banners', 'faqs')
-                    ->firstOrFail();
+        $lastUrl = $urls->pop()->get('url');
+        $page = Cache::rememberForever('PAGE_' . Str::slug($lastUrl), function () use($lastUrl) {
+                    return StaticPage::query()
+                        ->whereUrl($lastUrl)
+                        ->with('picture', 'source', 'banners', 'faqs')
+                        ->firstOrFail();
+        });
 
         // check if last link exists in views.
         if (!$page->active OR !View::exists(PagePropertiesService::fullRoute($page->route_name))) {
@@ -45,15 +49,17 @@ class PageController extends Controller
         // map data for SEO - BreadCrumb
         $pageChainBreadCrumb = $urls
             ->map(function($node){
-                $item = StaticPage::query()
-                    ->select('url', 'title', 'active')
-                    ->whereUrl($node->get('url'))
-                    ->first();
+                return Cache::rememberForever('PAGE_NODE_'.Str::slug($node), function () use($node) {
+                    $item = StaticPage::query()
+                        ->select('url', 'title', 'active')
+                        ->whereUrl($node->get('url'))
+                        ->first();
 
-                return [
-                    'title' => isset($item->title) ? e($item->title) : trans('messages.'.$node->get('title')),
-                    'url'   => isset($item->url) ? e($item->url) : null,
-                ];
+                    return [
+                        'title' => isset($item->title) ? e($item->title) : trans('messages.'.$node->get('title')),
+                        'url'   => isset($item->url) ? e($item->url) : null,
+                    ];
+                });
             })
             ->push([
                 'title' => e($page->title),

@@ -2,20 +2,22 @@
 
 namespace App\Services;
 
-use DateTime;
 use App\Models\News;
 use App\Models\StaticPage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 
 class PagePropertiesService
 {
 
     public static function virtualPageData(string $route): ?array {
 
-        $page = StaticPage::query()
-            ->where('route_name', $route)
-            ->with('picture', 'source')
-            ->first();
+        $page = Cache::rememberForever('PAGE_VIRTUAL_'.Str::slug($route), function () use($route) {
+            return StaticPage::query()
+                ->where('route_name', $route)
+                ->with('picture', 'source', 'banners', 'faqs')
+                ->first();
+        });
 
         if (!$page) {
             return null;

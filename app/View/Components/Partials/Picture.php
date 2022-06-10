@@ -7,6 +7,7 @@ use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Spatie\SchemaOrg\ImageObject;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
 
 class Picture extends Component
@@ -95,48 +96,50 @@ class Picture extends Component
     }
 
     private function getPicture($slug): array {
-        return PictureModel::query()
-        ->whereSlug($slug)
-        ->with('mediaOne', 'source')
-        ->get()
-        ->map(function($img) {
-            $colectionName = $img->mediaOne->collection_name;
-            $media = $img->getFirstMedia($colectionName);
+        return Cache::rememberForever('PICTURE_'.$slug, function () use($slug) {
+            return PictureModel::query()
+                ->whereSlug($slug)
+                ->with('mediaOne', 'source')
+                ->get()
+                ->map(function($img) {
+                    $colectionName = $img->mediaOne->collection_name;
+                    $media = $img->getFirstMedia($colectionName);
 
-            return [
-                'img-title'   => $img->title,
-                'img-slug'    => $img->slug,
-                'img-updated' => $img->updated_at,
-                'img-width'   => $img->crop_output_width,
-                'img-height'  => $img->crop_output_height,
+                    return [
+                        'img-title'   => $img->title,
+                        'img-slug'    => $img->slug,
+                        'img-updated' => $img->updated_at,
+                        'img-width'   => $img->crop_output_width,
+                        'img-height'  => $img->crop_output_height,
 
-                'responsivePicture'  => (string) $media
-                                        ->img('optimize', [
-                                            'id' => 'pic-'.$img->slug,
-                                            'class' => 'w-100 img-fluid',
-                                            'alt' => $img->source->source_description,
-                                            // 'title' => $img->source->source_description,
-                                            // 'title' => $img->title,
-                                            'nonce' => csp_nonce(),
-                                            // 'height' => $img->crop_output_height,
-                                            // 'width' => $img->crop_output_width,
-                                        ]),
-                // 'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
-                'url'                => $media->getUrl('optimize'),
-                'img-mime'           => $media->mime_type,
+                        'responsivePicture'  => (string) $media
+                                                ->img('optimize', [
+                                                    'id' => 'pic-'.$img->slug,
+                                                    'class' => 'w-100 img-fluid',
+                                                    'alt' => $img->source->source_description,
+                                                    // 'title' => $img->source->source_description,
+                                                    // 'title' => $img->title,
+                                                    'nonce' => csp_nonce(),
+                                                    // 'height' => $img->crop_output_height,
+                                                    // 'width' => $img->crop_output_width,
+                                                ]),
+                        // 'url'               => (string) $img->getFirstMediaUrl($img->media[0]->collection_name),
+                        'url'                => $media->getUrl('optimize'),
+                        'img-mime'           => $media->mime_type,
 
-                'source_description' => $img->source->source_description,
-                'sourceArr' => [
-                    'source_source'      => $img->source->source_source,
-                    'source_source_url'  => $img->source->source_source_url,
-                    'source_author'      => $img->source->source_author,
-                    'source_author_url'  => $img->source->source_author_url,
-                    'source_license'     => $img->source->source_license,
-                    'source_license_url' => $img->source->source_license_url,
-                ],
-            ];
-        })
-        ->first();
+                        'source_description' => $img->source->source_description,
+                        'sourceArr' => [
+                            'source_source'      => $img->source->source_source,
+                            'source_source_url'  => $img->source->source_source_url,
+                            'source_author'      => $img->source->source_author,
+                            'source_author_url'  => $img->source->source_author_url,
+                            'source_license'     => $img->source->source_license,
+                            'source_license_url' => $img->source->source_license_url,
+                        ],
+                    ];
+                })
+                ->first();
+        });
     }
 
     private function setSeoMetaTags(array $pictureData): void {

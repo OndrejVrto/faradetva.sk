@@ -8,6 +8,7 @@ use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Spatie\SchemaOrg\ImageGallery;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 class PhotoGallery extends Component
 {
@@ -29,33 +30,35 @@ class PhotoGallery extends Component
     }
 
     private function getGallery($slug): array {
-        return Gallery::query()
-            ->whereSlug($slug)
-            ->with('media', 'source')
-            ->get()
-            ->map(function($album): array {
-                foreach ($album->picture as $pic) {
-                    $picture['picture'][] = [
-                        'href' => $pic->getUrl(),
-                        'title' => $pic->name,
-                        'srcset' => $pic->getSrcset('orginal'),
-                        'responsivePicture' => (string) $pic->img('thumb'),
+        return Cache::rememberForever('GALLERY_'.$slug, function () use($slug): array {
+            return Gallery::query()
+                ->whereSlug($slug)
+                ->with('media', 'source')
+                ->get()
+                ->map(function($album): array {
+                    foreach ($album->picture as $pic) {
+                        $picture['picture'][] = [
+                            'href' => $pic->getUrl(),
+                            'title' => $pic->name,
+                            'srcset' => $pic->getSrcset('orginal'),
+                            'responsivePicture' => (string) $pic->img('thumb'),
+                        ];
+                    }
+                    return $picture + [
+                        'title' => $album->title,
+                        'slug'  => $album->slug,
+                        'source_description' => $album->source->source_description,
+                        'sourceArr' => [
+                            'source_source'      => $album->source->source_source,
+                            'source_source_url'  => $album->source->source_source_url,
+                            'source_author'      => $album->source->source_author,
+                            'source_author_url'  => $album->source->source_author_url,
+                            'source_license'     => $album->source->source_license,
+                            'source_license_url' => $album->source->source_license_url,
+                        ],
                     ];
-                }
-                return $picture + [
-                    'title' => $album->title,
-                    'slug'  => $album->slug,
-                    'source_description' => $album->source->source_description,
-                    'sourceArr' => [
-                        'source_source'      => $album->source->source_source,
-                        'source_source_url'  => $album->source->source_source_url,
-                        'source_author'      => $album->source->source_author,
-                        'source_author_url'  => $album->source->source_author_url,
-                        'source_license'     => $album->source->source_license,
-                        'source_license_url' => $album->source->source_license_url,
-                    ],
-                ];
-            })->first();
+                })->first();
+        });
     }
 
     private function setSeoMetaTags(array $album): void {

@@ -56,6 +56,13 @@ if(!function_exists('prepareInput'))
     }
 }
 
+if (!function_exists('getCacheName'))
+{
+    function getCacheName(array $listOfItems): string {
+        return md5(implode('|', $listOfItems));
+    }
+}
+
 if (!function_exists('minifyHtml'))
 {
     function minifyHtml(string $html): string {

@@ -4,6 +4,7 @@ namespace App\View\Components\Web\Sections;
 
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
 use App\Models\Testimonial as TestimonialModel;
 
@@ -24,26 +25,28 @@ class Testimonials extends Component
     }
 
     private function getTestimonials(): array {
-        $countTestimonials = TestimonialModel::query()
-            ->whereActive(1)
-            ->count();
+        return Cache::remember('TESTIMONIALS-random', now()->addHours(1), function(): array {
+            $countTestimonials = TestimonialModel::query()
+                ->whereActive(1)
+                ->count();
 
-        return TestimonialModel::query()
-            ->whereActive(1)
-            ->with('media')
-            ->get()
-            ->shuffle()
-            ->random(min($countTestimonials, 3))
-            ->map(function($data): array {
-                return [
-                    'id'          => $data->id,
-                    'name'        => $data->name,
-                    'function'    => $data->function,
-                    'description' => (new PurifiAutolinkService)->getCleanTextWithLinks($data->description),
-                    'url'         => $data->url,
-                    'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
-                ];
-            })
-            ->toArray();
+            return TestimonialModel::query()
+                ->whereActive(1)
+                ->with('media')
+                ->get()
+                ->shuffle()
+                ->random(min($countTestimonials, 3))
+                ->map(function($data): array {
+                    return [
+                        'id'          => $data->id,
+                        'name'        => $data->name,
+                        'function'    => $data->function,
+                        'description' => (new PurifiAutolinkService)->getCleanTextWithLinks($data->description),
+                        'url'         => $data->url,
+                        'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
+                    ];
+                })
+                ->toArray();
+        });
     }
 }

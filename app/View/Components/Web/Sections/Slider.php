@@ -5,13 +5,14 @@ namespace App\View\Components\Web\Sections;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Slider as SliderModel;
+use Illuminate\Support\Facades\Cache;
 
 class Slider extends Component
 {
-    public $sliders;
+    public $sliders = [];
 
     public function __construct() {
-        $this->sliders = $this->getSliders();
+        $this->getSliders();
     }
 
     public function render(): View|null {
@@ -21,42 +22,47 @@ class Slider extends Component
         return null;
     }
 
-    private function getSliders(): array {
-        $countSliders = SliderModel::query()
+    private function getSliders(): void {
+        $randomSliders = SliderModel::query()
+            ->select('id')
             ->whereActive(1)
-            ->count();
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
 
-        return SliderModel::query()
-            ->whereActive(1)
-            ->with('media', 'source')
-            ->get()
-            ->shuffle()
-            ->random(min($countSliders, 3))
-            ->map(function($img): array {
-                return [
-                    'id'                => $img->id,
+        foreach ($randomSliders as $oneSlider) {
+            $this->sliders[] = Cache::rememberForever('PICTURE_SLIDER_'.$oneSlider->id, function() use($oneSlider): array {
+                return SliderModel::query()
+                        ->whereId($oneSlider->id)
+                        ->with('media', 'source')
+                        ->get()
+                        ->map(function($slider): array {
+                            return [
+                                'id'                => $slider->id,
 
-                    'heading_row_1'     => $img->heading_1,
-                    'heading_row_2'     => $img->heading_2,
-                    'heading_row_3'     => $img->heading_3,
+                                'heading_row_1'     => $slider->heading_1,
+                                'heading_row_2'     => $slider->heading_2,
+                                'heading_row_3'     => $slider->heading_3,
 
-                    'extra_small_image' => $img->getFirstMediaUrl('slider', 'extra-small'),
-                    'small_image'       => $img->getFirstMediaUrl('slider', 'small'),
-                    'medium_image'      => $img->getFirstMediaUrl('slider', 'medium'),
-                    'large_image'       => $img->getFirstMediaUrl('slider', 'large'),
-                    'extra_large_image' => $img->getFirstMediaUrl('slider', 'extra-large'),
+                                'extra_small_image' => $slider->getFirstMediaUrl('slider', 'extra-small'),
+                                'small_image'       => $slider->getFirstMediaUrl('slider', 'small'),
+                                'medium_image'      => $slider->getFirstMediaUrl('slider', 'medium'),
+                                'large_image'       => $slider->getFirstMediaUrl('slider', 'large'),
+                                'extra_large_image' => $slider->getFirstMediaUrl('slider', 'extra-large'),
 
-                    'source_description'       => $img->source->source_description,
-                    'sourceArr' => [
-                        'source_source'        => $img->source->source_source,
-                        'source_source_url'    => $img->source->source_source_url,
-                        'source_author'        => $img->source->source_author,
-                        'source_author_url'    => $img->source->source_author_url,
-                        'source_license'       => $img->source->source_license,
-                        'source_license_url'   => $img->source->source_license_url,
-                    ],
-                ];
-            })
-            ->toArray();
+                                'source_description'       => $slider->source->source_description,
+                                'sourceArr' => [
+                                    'source_source'        => $slider->source->source_source,
+                                    'source_source_url'    => $slider->source->source_source_url,
+                                    'source_author'        => $slider->source->source_author,
+                                    'source_author_url'    => $slider->source->source_author_url,
+                                    'source_license'       => $slider->source->source_license,
+                                    'source_license_url'   => $slider->source->source_license_url,
+                                ],
+                            ];
+                        })
+                        ->first();
+            });
+        }
     }
 }

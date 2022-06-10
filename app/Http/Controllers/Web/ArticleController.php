@@ -8,8 +8,10 @@ use App\Models\Tag;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use App\Services\FilePropertiesService;
 use App\Services\PagePropertiesService;
@@ -22,35 +24,45 @@ class ArticleController extends Controller
     private $viewIndex = 'web.article.index';
 
     public function show($slug): View  {
-        $oneNews = News::query()
-            ->visible()
-            ->whereSlug($slug)
-            ->with('media', 'category', 'tags', 'user')
-            ->firstOrFail();
+        $oneNews = Cache::rememberForever('ONE_NEWS_'.Str::slug($slug), function () use($slug) {
+            return News::query()
+                ->visible()
+                ->whereSlug($slug)
+                ->with('media', 'source', 'category', 'tags', 'user')
+                ->firstOrFail();
+        });
 
-        $lastNews = News::query()
-            ->visible()
-            ->take(3)
-            ->with('media')
-            ->get();
+        $lastNews = Cache::rememberForever('NEWS_LAST', function () {
+            return News::query()
+                ->visible()
+                ->take(3)
+                ->with('media')
+                ->get();
+        });
 
-        $allCategories = Category::query()
-            ->withCount('news')
-            ->orderByRaw('news_count DESC')
-            ->get()
-            ->filter(function($value){
-                return $value->news_count > 0;
-            });
+        $allCategories = Cache::rememberForever('CATEGORIES', function () {
+            return Category::query()
+                ->withCount('news')
+                ->orderByRaw('news_count DESC')
+                ->get()
+                ->filter(function ($value) {
+                    return $value->news_count > 0;
+                });
+        });
 
-        $allTags = Tag::query()
-            ->withCount('news')
-            ->orderByRaw('news_count DESC')
-            ->get()
-            ->filter(function($value){
-                return $value->news_count > 0;
-            });
+        $allTags = Cache::rememberForever('TAGS', function () {
+            return Tag::query()
+                ->withCount('news')
+                ->orderByRaw('news_count DESC')
+                ->get()
+                ->filter(function($value){
+                    return $value->news_count > 0;
+                });
+        });
 
-        $attachments = (new FilePropertiesService)->allNewsAttachmentData($oneNews);
+        $attachments = Cache::rememberForever('ATTACHMENTS_'.Str::slug($slug), function () use($oneNews) {
+            return (new FilePropertiesService)->allNewsAttachmentData($oneNews);
+        });
 
         $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
 
@@ -74,7 +86,9 @@ class ArticleController extends Controller
     }
 
     public function indexAll(): View  {
-        $articles = News::newsComplete();
+        $articles = Cache::rememberForever('NEWS_ALL_PAGE-' . request('page', 1), function () {
+            return News::newsComplete();
+        });
         $title = __('frontend-texts.articles-title.all');
         $breadCrumb = (string) Breadcrumbs::render('articles.all', true);
         $emptyTitle = ['name'=> 'V', 'value' => 'sekcii'];
@@ -85,9 +99,11 @@ class ArticleController extends Controller
     }
 
     public function indexAuthor($userSlug): View  {
-        $articles = News::whereHas('user', function($query) use ($userSlug) {
-            $query->withTrashed()->whereSlug($userSlug);
-        })->newsComplete();
+        $articles = Cache::rememberForever('NEWS_USER_'.$userSlug.'_PAGE-' . request('page', 1), function() use($userSlug){
+            return News::whereHas('user', function ($query) use ($userSlug) {
+                $query->withTrashed()->whereSlug($userSlug);
+            })->newsComplete();
+        });
 
         $userName = User::withTrashed()->whereSlug($userSlug)->value('name');
         $title = __('frontend-texts.articles-title.author') . $userName;
@@ -100,9 +116,11 @@ class ArticleController extends Controller
     }
 
     public function indexCategory($categorySlug): View  {
-        $articles = News::whereHas('category', function($query) use ($categorySlug) {
-            $query->withTrashed()->whereSlug($categorySlug);
-        })->newsComplete();
+        $articles = Cache::rememberForever('NEWS_CATEGORY_'.$categorySlug.'_PAGE-' . request('page', 1), function() use($categorySlug){
+            return News::whereHas('category', function ($query) use ($categorySlug) {
+                $query->withTrashed()->whereSlug($categorySlug);
+            })->newsComplete();
+        });
 
         $categoryName = Category::withTrashed()->whereSlug($categorySlug)->value('title');
         $title = __('frontend-texts.articles-title.category') . $categoryName;
@@ -115,7 +133,10 @@ class ArticleController extends Controller
     }
 
     public function indexDate($year): View  {
-        $articles = News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete();
+        $articles = Cache::rememberForever('NEWS_YEAR_'.$year.'_PAGE-' . request('page', 1), function() use($year){
+            return News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete();
+        });
+
         $title = __('frontend-texts.articles-title.date') . $year;
         $breadCrumb = (string) Breadcrumbs::render('articles.date', true, $year, $year);
         $emptyTitle = ['name'=> 'Vybraný rok', 'value' => (string)$year];
@@ -126,9 +147,11 @@ class ArticleController extends Controller
     }
 
     public function indexTag($tagSlug): View  {
-        $articles = News::whereHas('tags', function($query) use ($tagSlug) {
-            $query->withTrashed()->whereSlug($tagSlug);
-        })->newsComplete();
+        $articles = Cache::rememberForever('NEWS_TAG_'.$tagSlug.'_PAGE-' . request('page', 1), function() use($tagSlug){
+            return News::whereHas('tags', function ($query) use ($tagSlug) {
+                $query->withTrashed()->whereSlug($tagSlug);
+            })->newsComplete();
+        });
 
         $tagName = Tag::withTrashed()->whereSlug($tagSlug)->value('title');
         $title = __('frontend-texts.articles-title.tags') . $tagName;

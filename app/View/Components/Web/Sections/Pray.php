@@ -5,6 +5,7 @@ namespace App\View\Components\Web\Sections;
 use App\Models\Prayer;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 class Pray extends Component
 {
@@ -24,40 +25,50 @@ class Pray extends Component
     }
 
     private function getPray(): ?array {
-        return Prayer::query()
+        // Get one ramdom Prayer
+        $onePrayer = Prayer::query()
+            ->select('slug')
             ->whereActive(1)
-            ->with('media', 'source')
-            ->get()
-            ->shuffle()
-            ->map(function($img): array {
-                return [
-                    'id'                => $img->id,
-                    'title'             => $img->title,
-                    'slug'              => $img->slug,
-
-                    'quote_row1'        => $img->quote_row1,
-                    'quote_row2'        => $img->quote_row2,
-                    'quote_author'      => $img->quote_author,
-                    'quote_link_url'    => $img->quote_link_url,
-                    'quote_link_text'   => $img->quote_link_text,
-
-                    'extra_small_image' => $img->getFirstMediaUrl('prayer', 'extra-small'),
-                    'small_image'       => $img->getFirstMediaUrl('prayer', 'small'),
-                    'medium_image'      => $img->getFirstMediaUrl('prayer', 'medium'),
-                    'large_image'       => $img->getFirstMediaUrl('prayer', 'large'),
-                    'extra_large_image' => $img->getFirstMediaUrl('prayer', 'extra-large'),
-
-                    'source_description'       => $img->source->source_description,
-                    'sourceArr' => [
-                        'source_source'        => $img->source->source_source,
-                        'source_source_url'    => $img->source->source_source_url,
-                        'source_author'        => $img->source->source_author,
-                        'source_author_url'    => $img->source->source_author_url,
-                        'source_license'       => $img->source->source_license,
-                        'source_license_url'   => $img->source->source_license_url,
-                    ],
-                ];
-            })
+            ->inRandomOrder()
+            ->limit(1)
             ->first();
+
+        // Get all data Prayer to Cache
+        return Cache::rememberForever('PICTURE_PRAYER_'.$onePrayer->slug, function () use ($onePrayer): array {
+            return Prayer::query()
+                ->whereSlug($onePrayer->slug)
+                ->with('media', 'source')
+                ->get()
+                ->map(function ($prayer): array {
+                    return [
+                        'id'                => $prayer->id,
+                        'title'             => $prayer->title,
+                        'slug'              => $prayer->slug,
+
+                        'quote_row1'        => $prayer->quote_row1,
+                        'quote_row2'        => $prayer->quote_row2,
+                        'quote_author'      => $prayer->quote_author,
+                        'quote_link_url'    => $prayer->quote_link_url,
+                        'quote_link_text'   => $prayer->quote_link_text,
+
+                        'extra_small_image' => $prayer->getFirstMediaUrl('prayer', 'extra-small'),
+                        'small_image'       => $prayer->getFirstMediaUrl('prayer', 'small'),
+                        'medium_image'      => $prayer->getFirstMediaUrl('prayer', 'medium'),
+                        'large_image'       => $prayer->getFirstMediaUrl('prayer', 'large'),
+                        'extra_large_image' => $prayer->getFirstMediaUrl('prayer', 'extra-large'),
+
+                        'source_description'       => $prayer->source->source_description,
+                        'sourceArr' => [
+                            'source_source'        => $prayer->source->source_source,
+                            'source_source_url'    => $prayer->source->source_source_url,
+                            'source_author'        => $prayer->source->source_author,
+                            'source_author_url'    => $prayer->source->source_author_url,
+                            'source_license'       => $prayer->source->source_license,
+                            'source_license_url'   => $prayer->source->source_license_url,
+                        ],
+                    ];
+                })
+                ->first();
+        });
     }
 }
