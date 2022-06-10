@@ -23,13 +23,13 @@ class Kernel extends ConsoleKernel
         $schedule->command('notification:send-news-subscriber')->everyMinute()->environments(['production']);
 
         // Laravel Health commands
-        $schedule->command(ScheduleCheckHeartbeatCommand::class)->everyMinute();
-        $schedule->command(RunHealthChecksCommand::class)->everyMinute();
+        $schedule->command(ScheduleCheckHeartbeatCommand::class)->everyFiveMinutes();
+        $schedule->command(RunHealthChecksCommand::class)->everyFiveMinutes();
         $schedule->command('model:prune', [
             '--model' => [
                 HealthCheckResultHistoryItem::class,
             ],
-        ])->daily();
+        ])->dailyAt('04:30');
 
         if($this->needRenew()){
             if(App::environment(['local', 'dev'])) {

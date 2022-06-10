@@ -33,7 +33,7 @@ class ScheduleCheck extends SpatieScheduleCheck
         }
 
         $latestHeartbeatAt = Carbon::createFromTimestamp($lastHeartbeatTimestamp);
-        $minutesAgo = $latestHeartbeatAt->diffInMinutes() + 1;
+        $minutesAgo = $latestHeartbeatAt->diffInMinutes() + 6;
         if ($minutesAgo > $this->heartbeatMaxAgeInMinutes) {
             return $result->failed('health-results.schedule.failed_time')
             ->meta(['minutes' => $minutesAgo]);
