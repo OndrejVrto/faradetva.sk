@@ -12,16 +12,23 @@
         @method('PATCH')
         @csrf
 
-        <div class="row d-flex flex-column justify-content-center">
-            <div class="col-5 mx-auto">
-                {{-- app maintenance   up - down --}}
-                <x-admin.bootstrap-switch
-                    name="maintenance_mode"
-                    label="Mód údržby"
-                    value="{{ $maintenanceMode ? '1' : '0' }}"
-                    off_color="success"
-                    on_color="danger"
-                />
+        <div class="row d-flex justify-content-center">
+
+            {{-- app maintenance   up - down --}}
+            <x-admin.bootstrap-switch
+                name="maintenance_mode"
+                label="Mód údržby"
+                value="{{ $maintenanceMode ? '1' : '0' }}"
+                off_color="success"
+                on_color="danger"
+            />
+
+        </div>
+
+        <hr class="bg-primary mt-0 mb-4">
+
+        <div class="row">
+            <div class="col-xl-6">
 
                 {{-- APP_ENV= local/production --}}
                 <x-admin.bootstrap-switch
@@ -31,28 +38,12 @@
                     off_color="success"
                     on_color="danger"
                 />
-            </div>
-        </div>
-
-        <hr class="bg-primary mt-0 mb-4">
-
-        <div class="row">
-            <div class="col-xl-6">
 
                 {{-- APP_DEBUG --}}
                 <x-admin.bootstrap-switch
                     name="app_debug"
                     label="Debug"
                     value="{{ $valueStore->get('ADMIN.app_debug') ? '1' : '0' }}"
-                    off_color="success"
-                    on_color="danger"
-                />
-
-                {{-- DEBUGBAR_ENABLED --}}
-                <x-admin.bootstrap-switch
-                    name="app_debugbar"
-                    label="Debugbar"
-                    value="{{ $valueStore->get('ADMIN.app_debugbar') ? '1' : '0' }}"
                     off_color="success"
                     on_color="danger"
                 />

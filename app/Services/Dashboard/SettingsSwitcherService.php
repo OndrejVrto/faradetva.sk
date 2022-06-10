@@ -4,6 +4,8 @@ namespace App\Services\Dashboard;
 
 use Illuminate\Support\Str;
 use Spatie\Valuestore\Valuestore;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Artisan;
 use Spatie\ResponseCache\Facades\ResponseCache;
 use Spatie\Health\Commands\RunHealthChecksCommand;
@@ -21,7 +23,6 @@ class SettingsSwitcherService
     public function __destruct() {
         // update config cache
         if (true === $this->valueStorage->get('ADMIN.cache_config')) {
-            Artisan::call('config:clear');
             Artisan::call('config:cache');
         }
         // refresh Health checks
@@ -71,10 +72,19 @@ class SettingsSwitcherService
         if (true === $require) {
             $secretKey = Str::uuid();
             Artisan::call('down', ['--secret' => $secretKey]);
-            // TODO: send email to administrator if is run maintenance mode
+
+            // TODO: send email to all administrator with secret key url
+            Log::channel('slack')->warning('Aplikácia je prepnutá do údržbového módu.', [
+                'Secret url' => url(route('home').'/'.$secretKey),
+                'Uživateľ ktorý spustil mód' => Auth::user()->name,
+                'Uživateľov e-mail' => Auth::user()->email,
+            ]);
             $this->secretKey = $secretKey;
         } else {
             Artisan::call('up');
+            Log::channel('slack')->info('Aplikácia je opäť spustená.', [
+                'Uživateľ ktorý spustil aplikáciu' => Auth::user()->name,
+            ]);
         }
     }
 
@@ -88,7 +98,7 @@ class SettingsSwitcherService
         } else {
             $this->valueStorage
                 ->put('ADMIN.cache_global', true)
-                ->put('config.cache.default', 'database');
+                ->put('config.cache.default', 'file');
         }
     }
 
@@ -135,7 +145,7 @@ class SettingsSwitcherService
             valueStore   : 'ADMIN.cache_config',
             config       : null,
             artisanFalse : 'config:clear',
-            artisanTrue  : 'config:cache'
+            // artisanTrue  : 'config:cache'
         );
     }
 
@@ -178,14 +188,6 @@ class SettingsSwitcherService
             require      : $require,
             valueStore   : 'ADMIN.app_debug',
             config       : 'config.app.debug',
-        );
-    }
-
-    private function app_debugbar(bool $require): void {
-        $this->handle(
-            require      : $require,
-            valueStore   : 'ADMIN.app_debugbar',
-            config       : 'config.debugbar.enabled',
         );
     }
 
