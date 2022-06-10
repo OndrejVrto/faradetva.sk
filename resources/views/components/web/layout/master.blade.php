@@ -28,18 +28,18 @@
     <!-- MASTER CONTENT Start -->
     <main>
         @isset($pageData)
-            @if(count($pageData['banners']) > 0)
+            {{-- @if(count($pageData['banners']) > 0) --}}
                 <x-web.sections.banner
                     :header="$pageData['header']"
                     :breadcrumb="$pageData['breadCrumb']"
                     :titleSlug="$pageData['banners']"
                     dimensionSource="full"
                 />
-            @elseif($header === null)
+            {{-- @elseif($header === null)
                 <x-web.page.section name="MASTER HEADER" class="static-page pad_t_50">
                     <x-web.page.section-header :header="$pageData['header']"/>
                 </x-web.page.section>
-            @endif
+            @endif --}}
 
             {{ $slot }}
 

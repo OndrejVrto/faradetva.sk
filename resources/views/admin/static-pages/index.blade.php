@@ -76,6 +76,10 @@
                     <x-admin.table.td class="text-center d-none d-xl-table-cell">
                         @if( $page->banners_count != 0 )
                             <span class="badge bg-orange px-2 py-1" title="Počet banerov použitých na stránke.">{{ $page->banners_count }}</span>
+                        @elseif(!$page->virtual)
+                            <span class="badge bg-orange px-2 py-1" title="Počet banerov použitých na stránke.">
+                                <i class="fa-solid fa-infinity"></i>
+                            </span>
                         @endif
                     </x-admin.table.td>
                     <x-admin.table.td class="text-center d-none d-xl-table-cell">
