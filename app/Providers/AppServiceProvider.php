@@ -29,8 +29,13 @@ class AppServiceProvider extends ServiceProvider
             //! rewrite some global site setting from ValueStore Json
             $valueStore = Valuestore::make(config('farnost-detva.value_store'));
             foreach ($valueStore->allStartingWith('config.') as $key => $value) {
-                Config::set(Str::after($key, 'config.'), $value);
+                $settings[Str::after($key, 'config.')] = $value;
+                // info(Str::after($key, 'config.').':'.$value);
             }
+            Config::set($settings);
+
+            View::share('maintenanceMode', app()->isDownForMaintenance());
+            View::share('valueStore', $valueStore);
 
             //! Blade extensions
             Blade::directive('datetime', function ($expression) {
@@ -50,9 +55,6 @@ class AppServiceProvider extends ServiceProvider
             Str::macro('plainText', function(...$text) {
                 return trim( preg_replace('!\s+!', ' ', preg_replace( "/\r|\n/", " ", html_entity_decode( strip_tags( implode(" ", $text) ) ) ) ) );
             });
-
-            View::share('maintenanceMode', app()->isDownForMaintenance());
-            View::share('valueStore', $valueStore);
 
             //! singleton for aplly cache time whole page
             $this->app->singleton(CacheResponseMiddleware::class);
