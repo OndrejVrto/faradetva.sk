@@ -3,6 +3,8 @@
     {{-- Farské oznamy --}}
     <x-web.sections.notice typeNotice="Church" />
 
-    <x-web.sections.about-website />
+    <div class="section bg-alt-gray">
+        <x-web.sections.about-website />
+    </div>
 
 </x-web.layout.master>

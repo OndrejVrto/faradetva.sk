@@ -1,6 +1,6 @@
 <x-web.page.section
     name="NOTICE"
-    {{-- class="pb-5" --}}
+    class="pad_b_50"
 >
     @forelse ($notices as $notice)
 

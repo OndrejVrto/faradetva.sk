@@ -919,9 +919,9 @@ button:before {
 /*----------------------------------------------------------------------------------
 8. Event section  css Start
 ----------------------------------------------------------------------------------*/
-.ch_event_section {
+/* .ch_event_section {
 	padding-bottom: 50px;
-}
+} */
 
 .event_box {
 	background-color: #f9f9f9;

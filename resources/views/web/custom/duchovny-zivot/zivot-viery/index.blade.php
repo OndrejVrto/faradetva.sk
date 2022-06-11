@@ -25,7 +25,7 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 2 -" row="true" class="pad_t_30 pad_b_30">
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 2 -" row="true" class="bg-alt-gray pad_t_50 pad_b_30">
 
         <x-partials.card-article
             title="Sväté písmo"
@@ -68,7 +68,7 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 3 -" row="true" class="pad_t_30 pad_b_30">
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 3 -" row="true" class="pad_t_80">
 
         <x-partials.card-event
             title="Modlitba"

@@ -8,6 +8,7 @@
 $primary            : #ff7b33;
 // $church-primary     : #ff7b33;
 // $church-secondary   : #243A4F;
+$church-gray        : #F2F2F2;
 $link-color         : #ff7b33;
 $link-decoration    : none;
 
@@ -15,11 +16,12 @@ $link-decoration    : none;
 @import "./node_modules/bootstrap/scss/variables";
 
 // 4. Include any default map overrides here
-// $custom-colors: (
-//     "alt-primary"   : $church-primary,
-//     "alt-secondary" : $church-secondary,
-// );
-// $theme-colors: map-merge($theme-colors, $custom-colors);
+$custom-colors: (
+    // "alt-primary"   : $church-primary,
+    // "alt-secondary" : $church-secondary,
+    "alt-gray" : $church-gray,
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
 $grid-breakpoints: map-remove($grid-breakpoints, "xxl");
 $container-max-widths: map-remove($container-max-widths, "xxl");
 
