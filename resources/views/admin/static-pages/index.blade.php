@@ -60,7 +60,12 @@
                         alt="Obrázok: {{ $page->source->description ?? '' }}"/>
                     </x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break text-bold">{{ $page->title }}</x-admin.table.td>
-                    <x-admin.table.td-check-active virtual="{{ $page->virtual }}" check="{{ $page->check_url }}" check_false_title="Stránka je nedostupná" class="d-none d-md-table-cell text-center"/>
+                    <x-admin.table.td-check-active
+                        virtual="{{ $page->virtual }}"
+                        check="{{ $page->check_url }}"
+                        check_false_title="Stránka je nedostupná"
+                        class="d-none d-md-table-cell text-center"
+                    />
                     <x-admin.table.td class="text-wrap text-break d-none d-md-table-cell">
                         <a href="{{ url($page->url) }}" target="_blank" rel="noopener noreferrer">
                             <span class="small text-info">
@@ -75,16 +80,16 @@
                     </x-admin.table.td>
                     <x-admin.table.td class="text-center d-none d-xl-table-cell">
                         @if( $page->banners_count != 0 )
-                            <span class="badge bg-orange px-2 py-1" title="Počet banerov použitých na stránke.">{{ $page->banners_count }}</span>
+                            <span class="badge bg-orange px-2 py-1" title="Použitých banerov na stránke: {{ $page->banners_count }}ks">{{ $page->banners_count }}</span>
                         @elseif(!$page->virtual)
-                            <span class="badge bg-orange px-2 py-1" title="Počet banerov použitých na stránke.">
+                            <span class="badge bg-orange px-2 py-1" title="Všetky banery">
                                 <i class="fa-solid fa-infinity"></i>
                             </span>
                         @endif
                     </x-admin.table.td>
                     <x-admin.table.td class="text-center d-none d-xl-table-cell">
                         @if( $page->faqs_count != 0 )
-                            <span class="badge bg-purple px-2 py-1" title="Počet otázok priradených stránke.">{{ $page->faqs_count }}</span>
+                            <span class="badge bg-purple px-2 py-1" title="Počet otázok priradených stránke">{{ $page->faqs_count }}</span>
                         @endif
                     </x-admin.table.td>
                     <x-admin.table.td class="text-center d-none d-md-table-cell">
