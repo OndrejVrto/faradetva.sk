@@ -19,6 +19,7 @@ return [
         '/asset/*',
         '/favicons/*',
 
+        '/hladat',
         '/hladat/*',
         '/clanky',
         '/clanky-z-roku/*',
@@ -63,6 +64,7 @@ return [
      * You may use `*` as a wildcard.
      */
     'do_not_crawl_urls' => [
+        '/hladat',
         '/login',
         '/register',
         '/admin/*',

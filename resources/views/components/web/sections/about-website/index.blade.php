@@ -2,6 +2,7 @@
     name="ABOUT_THIS_WEBSITE"
     row="true"
     class="ch_blog_section pad_t_80 pad_b_50"
+    data-no-index="true"
 >
 
     <x-web.page.section-header header="Spoznaj našu farnosť" />

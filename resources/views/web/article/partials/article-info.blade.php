@@ -1,4 +1,4 @@
-<div class="d-flex align-items-end flex-wrap justify-content-center flex-lg-nowrap justify-content-lg-between">
+<div class="d-flex align-items-end flex-wrap justify-content-center flex-lg-nowrap justify-content-lg-between" data-no-index>
     <div class="blog_info">
         <span>
             <a href="{{ route('article.author', $oneNews->user->slug) }}">

@@ -5,7 +5,7 @@
         :breadcrumb="$breadCrumb"
     />
 
-    <x-web.page.section name="ARTICLE" class="pad_b_30">
+    <x-web.page.section name="ARTICLE" class="pad_b_30" data-no-index="true">
 
             @forelse ($articles as $oneNews)
 
@@ -133,7 +133,13 @@
                     </h3>
                     <p>
                         Pokračovať na
-                        <a class="text-church-template ms-2 me-3" href="{{ route('article.all') }}">všetky články</a>
+                        <a class="text-church-template ms-2 me-3" href="{{ route('article.all') }}">
+                            všetky články
+                        </a>
+                        alebo
+                        <a class="text-church-template ms-2 me-3" href="{{ route('search.all', $emptyTitle['value'] ) }}">
+                            vyhľadať na celej stránke
+                        </a>
                     </p>
                 </div>
                 <!-- ARTICLE No exist End -->
