@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers\Web;
 
-// use Spatie\Image\Image;
 use App\Models\StaticPage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
@@ -70,9 +69,6 @@ class PageController extends Controller
         // map data for SEO - Page Properties
         $pageData = PagePropertiesService::getStaticPageData($page);
         $pageData['breadCrumb'] = (string) Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb);
-
-        // dd($param, $page, $pageChainBreadCrumb, $pageData);
-        // dd($pageChainBreadCrumb);
 
         // set SEO
         (new SetSeoPropertiesService($pageData))
