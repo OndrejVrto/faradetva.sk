@@ -113,7 +113,7 @@ class Picture extends Component
         return [
             'img-title'   => $img->title,
             'img-slug'    => $img->slug,
-            'img-updated' => $img->updated_at,
+            'img-updated' => $img->updated_at->toAtomString(),
             'img-width'   => $img->crop_output_width,
             'img-height'  => $img->crop_output_height,
 
@@ -124,18 +124,18 @@ class Picture extends Component
                                         'alt' => $img->source->source_description,
                                         'nonce' => csp_nonce(),
                                     ]),
-            'url'                => $media->getUrl('optimize'),
-            'img-mime'           => $media->mime_type,
+            'img-url'                 => $media->getUrl('optimize'),
+            'img-mime'                => $media->mime_type,
 
-            'source_description' => $img->source->source_description,
+            'source_description'      => $img->source->source_description,
             'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
             'sourceArr' => [
-                'source_source'      => $img->source->source_source,
-                'source_source_url'  => $img->source->source_source_url,
-                'source_author'      => $img->source->source_author,
-                'source_author_url'  => $img->source->source_author_url,
-                'source_license'     => $img->source->source_license,
-                'source_license_url' => $img->source->source_license_url,
+                'source_source'       => $img->source->source_source,
+                'source_source_url'   => $img->source->source_source_url,
+                'source_author'       => $img->source->source_author,
+                'source_author_url'   => $img->source->source_author_url,
+                'source_license'      => $img->source->source_license,
+                'source_license_url'  => $img->source->source_license_url,
             ],
         ];
     }

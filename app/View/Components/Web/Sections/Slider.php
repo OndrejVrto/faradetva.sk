@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Slider as SliderModel;
 use Illuminate\Support\Facades\Cache;
+use App\Services\SEO\SetSeoPropertiesService;
 
 class Slider extends Component
 {
@@ -13,6 +14,10 @@ class Slider extends Component
 
     public function __construct() {
         $this->getSliders();
+
+        foreach ($this->sliders as $slider) {
+            (new SetSeoPropertiesService())->setPictureSchema($slider);
+        }
     }
 
     public function render(): View|null {
@@ -55,6 +60,13 @@ class Slider extends Component
             'medium_image'      => $slider->getFirstMediaUrl('slider', 'medium'),
             'large_image'       => $slider->getFirstMediaUrl('slider', 'large'),
             'extra_large_image' => $slider->getFirstMediaUrl('slider', 'extra-large'),
+
+            'img-title'         => $slider->id.': '.$slider->heading_1,
+            'img-url'           => $slider->getFirstMediaUrl('slider', 'extra-large'),
+            'img-mime'          => $slider->mime_type,
+            'img-updated'       => $slider->updated_at->toAtomString(),
+            'img-width'         => 1920,
+            'img-height'        => 800,
 
             'source_description'       => $slider->source->source_description,
             'sourceArr' => [

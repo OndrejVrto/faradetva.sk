@@ -5,6 +5,7 @@ namespace App\View\Components\Web\Sections;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
+use App\Services\SEO\SetSeoPropertiesService;
 use App\Models\BackgroundPicture as BackgroundPictureModel;
 
 class BackgroundPicture extends Component
@@ -15,6 +16,8 @@ class BackgroundPicture extends Component
         private string $titleSlug,
     ) {
         $this->backgroundPicture = $this->getPicture($titleSlug);
+
+        (new SetSeoPropertiesService())->setPictureSchema($this->backgroundPicture);
     }
 
     public function render(): View|null {
@@ -46,6 +49,13 @@ class BackgroundPicture extends Component
             'medium_image'      => $img->getFirstMediaUrl('background_picture', 'medium'),
             'large_image'       => $img->getFirstMediaUrl('background_picture', 'large'),
             'extra_large_image' => $img->getFirstMediaUrl('background_picture', 'extra-large'),
+
+            'img-title'         => $img->title,
+            'img-url'           => $img->getFirstMediaUrl('background_picture', 'extra-large'),
+            'img-mime'          => $img->mime_type,
+            'img-updated'       => $img->updated_at->toAtomString(),
+            'img-width'         => 1920,
+            'img-height'        => 1440,
 
             'source_description'       => $img->source->source_description,
             'sourceArr' => [

@@ -6,6 +6,7 @@ use App\Models\Prayer;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
+use App\Services\SEO\SetSeoPropertiesService;
 
 class Pray extends Component
 {
@@ -15,6 +16,8 @@ class Pray extends Component
         public $link = null,
     ){
         $this->pray = $this->getPray();
+
+        (new SetSeoPropertiesService())->setPictureSchema($this->pray);
     }
 
     public function render(): View|null {
@@ -61,6 +64,13 @@ class Pray extends Component
             'medium_image'      => $prayer->getFirstMediaUrl('prayer', 'medium'),
             'large_image'       => $prayer->getFirstMediaUrl('prayer', 'large'),
             'extra_large_image' => $prayer->getFirstMediaUrl('prayer', 'extra-large'),
+
+            'img-title'         => $prayer->title,
+            'img-url'           => $prayer->getFirstMediaUrl('prayer', 'extra-large'),
+            'img-mime'          => $prayer->mime_type,
+            'img-updated'       => $prayer->updated_at->toAtomString(),
+            'img-width'         => 1920,
+            'img-height'        => 800,
 
             'source_description'       => $prayer->source->source_description,
             'sourceArr' => [

@@ -4,10 +4,10 @@
         <div class="blog_item_cover frombottom wow">
             <div class="blog_thumb">
 
-                <img src="{{ $pageCard['img-picture-url'] }}"
+                <img src="{{ $pageCard['img-url'] }}"
                     id="picpk-{{ $pageCard['id'] }}"
                     class="w-100 img-fluid"
-                    alt="{{ $pageCard['img-description'] }}"
+                    alt="{{ $pageCard['source_description'] }}"
                     width="{{ $pageCard['img-width'] }}"
                     height="{{ $pageCard['img-height'] }}"
                 />
@@ -16,7 +16,7 @@
                     class="img-article img-article-right bg-transparent"
                     for="picpk-{{ $pageCard['id'] }}"
                 >
-                    {{ $pageCard['img-description-crop'] }}
+                    {{ $pageCard['source_description-crop'] }}
                 </x-partials.picture-label>
 
                 <div class="blog_overlay">

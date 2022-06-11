@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Banner as BannerModel;
 use Illuminate\Support\Facades\Cache;
+use App\Services\SEO\SetSeoPropertiesService;
 
 class Banner extends Component
 {
@@ -19,6 +20,8 @@ class Banner extends Component
         public null|string $dimensionSourceBanner = "medium",
     ) {
         $this->banner = $this->getBanner($this->cleanListBanners($titleSlug));
+
+        (new SetSeoPropertiesService())->setPictureSchema($this->banner);
     }
 
     public function render(): View|null {
@@ -65,6 +68,13 @@ class Banner extends Component
             'medium_image'      => $banner->getFirstMediaUrl('banner', 'medium'),
             'large_image'       => $banner->getFirstMediaUrl('banner', 'large'),
             'extra_large_image' => $banner->getFirstMediaUrl('banner', 'extra-large'),
+
+            'img-title'         => $banner->title,
+            'img-url'           => $banner->getFirstMediaUrl('banner', 'extra-large'),
+            'img-mime'          => $banner->mime_type,
+            'img-updated'       => $banner->updated_at->toAtomString(),
+            'img-width'         => 1920,
+            'img-height'        => 480,
 
             'source_description'       => $banner->source->source_description,
             'sourceArr' => [

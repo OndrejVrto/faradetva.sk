@@ -316,8 +316,8 @@ class SetSeoPropertiesService
     public function setPictureSchema(array $pictureData): void {
         $JsonLD = Schema::imageObject()
             ->name(e($pictureData['img-title']))
-            ->identifier(e($pictureData['url']))
-            ->url(e($pictureData['url']))
+            ->identifier(e($pictureData['img-url']))
+            ->url(e($pictureData['img-url']))
             ->description(e($pictureData['source_description']))
             ->alternateName(e($pictureData['source_description']))
             ->width($pictureData['img-width'])
