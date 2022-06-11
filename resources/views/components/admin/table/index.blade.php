@@ -75,7 +75,7 @@
                 </div>
                 @can([
                     $controlerName . '.create',
-                    $controlerName . '.store'
+                    // $controlerName . '.store'
                 ])
                     <div class="col-md-4 mt-lg-n5 d-flex justify-content-end align-items-end">
                         <a href="{{ $createLink }}" class="btn bg-gradient-warning btn-flat flex-fill flex-lg-grow-0 px-4" title="Vytvoriť">

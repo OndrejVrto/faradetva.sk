@@ -403,6 +403,126 @@ class RoleSeeder extends Seeder
             'Hosť' => [
                 'admin.dashboard',
             ],
+            // id 10
+            'Demo' => [
+                'admin.dashboard',
+                'admin.dashboard.health-fresh',
+
+                'background-pictures.create',
+                'background-pictures.edit',
+                'background-pictures.index',
+                'background-pictures.show',
+
+                'banners.create',
+                'banners.edit',
+                'banners.index',
+                'banners.show',
+
+                'categories.create',
+                'categories.edit',
+                'categories.index',
+
+                'charts.data.create',
+                'charts.data.edit',
+                'charts.data.index',
+
+                'charts.create',
+                'charts.edit',
+                'charts.index',
+                'charts.show',
+
+                'day-ideas.create',
+                'day-ideas.edit',
+                'day-ideas.index',
+
+                'faqs.create',
+                'faqs.edit',
+                'faqs.index',
+
+                'files.create',
+                'files.edit',
+                'files.index',
+
+                'galleries.create',
+                'galleries.edit',
+                'galleries.index',
+                'galleries.show',
+
+                'news.create',
+                'news.edit',
+                'news.index',
+
+                'notice-acolyte.create',
+                'notice-acolyte.edit',
+                'notice-acolyte.index',
+
+                'notice-church.create',
+                'notice-church.edit',
+                'notice-church.index',
+
+                'notice-lecturer.create',
+                'notice-lecturer.edit',
+                'notice-lecturer.index',
+
+                'permissions.create',
+                'permissions.edit',
+                'permissions.index',
+
+                'pictures.create',
+                'pictures.edit',
+                'pictures.index',
+                'pictures.show',
+
+                'prayers.create',
+                'prayers.edit',
+                'prayers.index',
+
+                'priests.create',
+                'priests.edit',
+                'priests.index',
+
+                'roles.create',
+                'roles.edit',
+                'roles.index',
+
+                'sliders.create',
+                'sliders.edit',
+                'sliders.index',
+
+                'static-pages.create',
+                'static-pages.edit',
+                'static-pages.index',
+
+                'tags.create',
+                'tags.edit',
+                'tags.index',
+
+                'testimonials.create',
+                'testimonials.edit',
+                'testimonials.index',
+
+                'unisharp.lfm.',
+                'unisharp.lfm.domove',
+                'unisharp.lfm.getAddfolder',
+                'unisharp.lfm.getCrop',
+                'unisharp.lfm.getCropimage',
+                'unisharp.lfm.getCropnewimage',
+                'unisharp.lfm.getDelete',
+                'unisharp.lfm.getDownload',
+                'unisharp.lfm.getErrors',
+                'unisharp.lfm.getFolders',
+                'unisharp.lfm.getItems',
+                'unisharp.lfm.getRename',
+                'unisharp.lfm.getResize',
+                'unisharp.lfm.move',
+                'unisharp.lfm.performResize',
+                'unisharp.lfm.show',
+                'unisharp.lfm.upload',
+
+                'users.create',
+                'users.index',
+                'users.show',
+            ],
         ];
 
         foreach ($nameRoles as $name => $permissions) {

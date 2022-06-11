@@ -35,6 +35,18 @@ class UserSeeder extends Seeder
         $user->assignRole(9); // Hosť
 
         $user = User::create([
+            'name' => 'Demo',
+            'nick' => 'demo',
+            'slug' => Str::slug('Demo'),
+            'email' => 'demo@faradetva.sk',
+            'can_be_impersonated' => 0,
+            'email_verified_at' => now(),
+            'password' => env('PASSWORD_DEMO'),
+            'remember_token' => Str::random(10)
+        ]);
+        $user->assignRole(10); // demo
+
+        $user = User::create([
             'name' => 'Ondrej VRŤO',
             'nick' => 'DonOndrej',
             'slug' => Str::slug('Ondrej VRŤO'),

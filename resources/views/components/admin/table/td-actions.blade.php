@@ -46,7 +46,7 @@
             @isset($editLink)
                 @can([
                     $controlerName . '.edit',
-                    $controlerName . '.update'
+                    // $controlerName . '.update'
                 ])
                     <a href="{{ $editLink }}" class="w35 ml-1 btn btn-outline-primary btn-sm btn-flat" title="Editovať"><i class="fa-solid fa-edit"></i></a>
                 @endcan
