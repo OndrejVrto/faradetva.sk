@@ -2,14 +2,13 @@
 
 namespace App\View\Components\Web\Sections;
 
-use App\Facades\SeoSchema;
 use Illuminate\Support\Str;
-use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Priest as PriestModel;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
+use App\Services\SEO\SetSeoPropertiesService;
 
 class Priests extends Component
 {
@@ -17,7 +16,7 @@ class Priests extends Component
 
     public function __construct() {
         $this->priests = $this->getPriests();
-        $this->setSeoMetaTags($this->priests);
+        (new SetSeoPropertiesService())->setPriestsSchema($this->priests);
     }
 
     public function render(): View|null {
@@ -64,40 +63,5 @@ class Priests extends Component
             'img-height'        => '270',
             'img-width'         => '230',
         ];
-    }
-
-    private function setSeoMetaTags(array $priestData): void {
-        foreach ($priestData as $priest) {
-            $value = Schema::person()
-                ->name(e($priest['full_name_titles']))
-                ->givenName(e($priest['first_name']))
-                ->familyName(e($priest['last_name']))
-                ->honorificPrefix(e($priest['titles_before']))
-                ->honorificSuffix(e($priest['titles_after']))
-                ->nationality('Slovak')
-                ->sameAs([$priest['facebook'], $priest['twitter']])
-                ->telephone([
-                    e($priest['phone']),
-                    e($priest['phone_digits'])
-                ])
-                ->email(e($priest['email']))
-                ->jobTitle('Priest'.'|'.e($priest['function']))
-                ->gender('https://schema.org/Male')
-                ->url($priest['personal_url'])
-                ->description(e($priest['description_clean']))
-                ->image(e($priest['img-url']))
-                ->worksFor(
-                    Schema::organization()
-                        ->name('Rímskokatolícka cirkev')
-                        ->url('https://www.kbs.sk')
-                        ->sameAs('https://sk.wikipedia.org/wiki/R%C3%ADmskokatol%C3%ADcka_cirkev_v_Slovenskej_republike')
-                )
-                ->toArray();
-
-            unset($value['@context']);
-            $persons[] = $value;
-        }
-
-        SeoSchema::addValue('alumni', $persons );
     }
 }

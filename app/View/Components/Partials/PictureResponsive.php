@@ -2,14 +2,12 @@
 
 namespace App\View\Components\Partials;
 
-use App\Facades\SeoSchema;
 use Illuminate\Support\Str;
-use Spatie\SchemaOrg\Schema;
 use Illuminate\View\Component;
-use Spatie\SchemaOrg\ImageObject;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
+use App\Services\SEO\SetSeoPropertiesService;
 
 class PictureResponsive extends Component
 {
@@ -31,7 +29,7 @@ class PictureResponsive extends Component
                 ->first();
         });
 
-        $this->setSeoMetaTags($this->picture);
+        (new SetSeoPropertiesService())->setPictureSchema($this->picture);
     }
 
     public function render(): View|null {
@@ -73,33 +71,5 @@ class PictureResponsive extends Component
                 'source_license_url' => $img->source->source_license_url,
             ],
         ];
-    }
-
-    private function setSeoMetaTags(array $pictureData): void {
-        $JsonLD = Schema::imageObject()
-            ->name(e($pictureData['img-title']))
-            ->identifier(e($pictureData['url']))
-            ->url(e($pictureData['url']))
-            ->description(e($pictureData['source_description']))
-            ->alternateName(e($pictureData['source_description']))
-            ->width($pictureData['img-width'])
-            ->height($pictureData['img-height'])
-            ->encodingFormat($pictureData['img-mime'])
-            ->uploadDate($pictureData['img-updated'])
-            ->license(e($pictureData['sourceArr']['source_license']))
-            ->acquireLicensePage(e($pictureData['sourceArr']['source_license_url']))
-            ->if(isset($pictureData['sourceArr']['source_author']) OR isset($pictureData['sourceArr']['source_author_url']), function (ImageObject $schema) use ($pictureData) {
-                $schema->author(
-                    Schema::person()
-                        ->name(e($pictureData['sourceArr']['source_author']))
-                        ->sameAs(e($pictureData['sourceArr']['source_author_url']))
-                );
-            })
-            ->toArray();
-
-        unset($JsonLD['@context']);
-        SeoSchema::addImage([
-            $JsonLD
-        ]);
     }
 }
