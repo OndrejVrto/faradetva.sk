@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
-
 use App\Models\Source;
 use App\Models\BaseModel;
 use Spatie\Image\Manipulations;
@@ -48,29 +47,15 @@ class Picture extends BaseModel implements HasMedia
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 
-    // public $registerMediaConversionsUsingModelInstance = true;
-
     public function registerMediaConversions(Media $media = null): void {
-        // if ($this->crop_output_exact_dimensions == 1) {
-        //     $this->addMediaConversion('optimize')
-        //         ->fit(Manipulations::FIT_CROP, $this->crop_output_width, $this->crop_output_height)
-        //         ->sharpen(2)
-        //         ->quality(60)
-        //         ->withResponsiveImages();
-        //     $this->addMediaConversion('crop-thumb')
-        //         ->fit(Manipulations::FIT_CROP, 100 * ($this->crop_output_width / $this->crop_output_height), 100)
-        //         ->sharpen(2)
-        //         ->quality(60);
-        // } else {
-            $this->addMediaConversion('optimize')
-                ->fit(Manipulations::FIT_MAX, 1280, 960)
-                ->sharpen(2)
-                ->quality(60)
-                ->withResponsiveImages();
-            $this->addMediaConversion('crop-thumb')
-                ->height(100)
-                ->sharpen(2)
-                ->quality(60);
-        // }
+        $this->addMediaConversion('optimize')
+            ->fit(Manipulations::FIT_MAX, 1280, 960)
+            ->sharpen(2)
+            ->quality(60)
+            ->withResponsiveImages();
+        $this->addMediaConversion('crop-thumb')
+            ->height(100)
+            ->sharpen(2)
+            ->quality(60);
     }
 }
