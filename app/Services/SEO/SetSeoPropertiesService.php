@@ -333,6 +333,13 @@ class SetSeoPropertiesService
                         ->sameAs(e($pictureData['sourceArr']['source_author_url']))
                 );
             })
+            ->thumbnail(
+                Schema::imageObject()
+                    ->url(e($pictureData['img_thumbnail_url']))
+                    ->encodingFormat($pictureData['img-mime'])
+                    ->width($pictureData['img_thumbnail_width'])
+                    ->height($pictureData['img_thumbnail_height'])
+            )
             ->toArray();
 
         unset($JsonLD['@context']);

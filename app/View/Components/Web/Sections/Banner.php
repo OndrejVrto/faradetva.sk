@@ -76,6 +76,10 @@ class Banner extends Component
             'img-width'         => 1920,
             'img-height'        => 480,
 
+            'img_thumbnail_url'    => $banner->getFirstMediaUrl('banner', 'crop-thumb'),
+            'img_thumbnail_width'  => 360,
+            'img_thumbnail_height' => 90,
+
             'source_description'       => $banner->source->source_description,
             'sourceArr' => [
                 'source_source'        => $banner->source->source_source,

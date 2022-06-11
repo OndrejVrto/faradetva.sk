@@ -127,6 +127,10 @@ class Picture extends Component
             'img-url'                 => $media->getUrl('optimize'),
             'img-mime'                => $media->mime_type,
 
+            'img_thumbnail_url'    => $media->getUrl('crop-thumb'),
+            'img_thumbnail_width'  => floor($img->crop_output_width/$img->crop_output_height * 100),
+            'img_thumbnail_height' => 100,
+
             'source_description'      => $img->source->source_description,
             'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
             'sourceArr' => [

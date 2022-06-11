@@ -57,6 +57,10 @@ class BackgroundPicture extends Component
             'img-width'         => 1920,
             'img-height'        => 1440,
 
+            'img_thumbnail_url'    => $img->getFirstMediaUrl('background_picture', 'crop-thumb'),
+            'img_thumbnail_width'  => 192,
+            'img_thumbnail_height' => 144,
+
             'source_description'       => $img->source->source_description,
             'sourceArr' => [
                 'source_source'        => $img->source->source_source,

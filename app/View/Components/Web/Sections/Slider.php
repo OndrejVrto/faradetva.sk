@@ -68,6 +68,10 @@ class Slider extends Component
             'img-width'         => 1920,
             'img-height'        => 800,
 
+            'img_thumbnail_url'    => $slider->getFirstMediaUrl('slider', 'crop-thumb'),
+            'img_thumbnail_width'  => 192,
+            'img_thumbnail_height' => 80,
+
             'source_description'       => $slider->source->source_description,
             'sourceArr' => [
                 'source_source'        => $slider->source->source_source,

@@ -72,6 +72,10 @@ class Pray extends Component
             'img-width'         => 1920,
             'img-height'        => 800,
 
+            'img_thumbnail_url'    => $prayer->getFirstMediaUrl('prayer', 'crop-thumb'),
+            'img_thumbnail_width'  => 192,
+            'img_thumbnail_height' => 80,
+
             'source_description'       => $prayer->source->source_description,
             'sourceArr' => [
                 'source_source'        => $prayer->source->source_source,

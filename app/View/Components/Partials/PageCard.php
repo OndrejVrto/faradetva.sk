@@ -95,9 +95,13 @@ class PageCard extends Component
             'img-height'             => '248',
             'img-url'                => $media->getUrl('card'),  // 'http://via.placeholder.com/370x248',
             'img-mime'               => $media->mime_type,
+
+            'img_thumbnail_url'      => $media->getUrl('crop-thumb'),
+            'img_thumbnail_width'    => 100,
+            'img_thumbnail_height'   => 50,
+
             'source_description'     => $page->source->source_description,
             'source_description-crop'=> $page->source->source_description_crop,
-
             'sourceArr' => [
                 'source_source'      => $page->source->source_source,
                 'source_source_url'  => $page->source->source_source_url,
