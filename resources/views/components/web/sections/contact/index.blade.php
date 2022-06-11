@@ -38,7 +38,12 @@
                 <li class="fromright wow" data-wow-delay="0.6s">
                     <span><i class="fa-regular fa-envelope" aria-hidden="true"></i></span>
                     <div>
-                        {!! printEmail('detva@fara.sk', csp_nonce(), 'link-template-gray', null) !!}
+                        <x-partials.email-link
+                            email="detva@fara.sk"
+                            nonce="{{ csp_nonce() }}"
+                            class="link-template-gray"
+                            :icon="null"
+                        />
                     </div>
                 </li>
                 <li class="fromright wow" data-wow-delay="0.8s">

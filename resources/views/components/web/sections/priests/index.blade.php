@@ -31,7 +31,10 @@
 
                     @isset($priest['email'])
                         <div class="mt-0 mb-2">
-                            {!! printEmail($priest['email'], csp_nonce()) !!}
+                            <x-partials.email-link
+                                email="{{ $priest['email'] }}"
+                                nonce="{{ csp_nonce() }}"
+                            />
                         </div>
                     @endisset
 
