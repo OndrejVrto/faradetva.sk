@@ -2,11 +2,12 @@ Obsah stránky:
   ☐ nahodiť chýbajúce texty pre spoločenstvá
   ☐ nahodiť všetky obrázky do stránok "O-nás"
   ☐ prepísať kategórie článkov
+  ☐ pridat ručné výsečové grafy
   ☐ facebook karta farnosti ako iframe?
   ☐ rozpis predmanželskej prípravy. V kontaktnom formulári je to asi nie správne?
-  ☐ pridat ručné výsečové grafy
   ☐ vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET
 
+  ✔ pridať fotku Paľka a premazať informácie navyše
   ✔ prepísať teaser texty v databáze
   ✔ tagy a kategórie - všetky alebo len výber
   ✔ doplniť description, keywords a aj celé SEO pre hlavnú stránku, vyhľadávanie, FaQ, články, ....
@@ -53,12 +54,14 @@ Obsah stránky:
 Administrátorské rozhranie:
 
   Dashboard:
+    ☐ @future implementovať knižnicu "custom Avatar JS" pre Userov
     ☐ @future pridať kartu s informáciou o posledných prihlásých uživateľoch
     ☐ @future pridať kartu s informáciou o posledných zmenách na stránke
     ☐ štatistika a rôzne grafy (počet a zoznam subscriberov)
     ☐ dorobiť administráciu subscribers
     ☐ implementovať balíček Laravisit na články/userov ? (https://www.youtube.com/watch?v=6JBkDGqnc2w&ab_channel=LaravelDaily)
 
+    ✔ vrátiť späť cachovanie všetkých SQL dotazov, pretože ak sa vypne response cache tak to pôjde rýchlejšie
     ✔ aktualizovať permission seeder
     ✔ pridať fotky userom
     ✔ nastaviť práva uživateľom pre tlačítka a zobrazenie prvkov na dashboarde
@@ -85,11 +88,11 @@ Administrátorské rozhranie:
 
   Iné:
     ☐ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
-    ☐ response cache hlavnej stránky v inom časovaní ako ostatok
     ☐ implementovať Spatie Laravel Backup
     ☐ implement failed job monitor (https://github.com/spatie/laravel-failed-job-monitor)
     ☐ upratať lang
 
+    ✘ response cache hlavnej stránky v inom časovaní ako ostatok
     ✘ @future Datatable pre všetky backend tabuľky (LiveWire Datatable alebo iný)
     ✘ @future vyhľadávanie v administrácii - implementovať Laravel Scout
     ✘ prepínač customSwitch prehodiť do komponentu
@@ -140,6 +143,7 @@ Administrátorské rozhranie:
 
 SEO:
   ☐ vylepšiť sitemap, prioritu, čas poslednej aktualizácie aj spustenie crawlera
+  ✔ doplniť SEO do všetých generátorov obrázkov (Slider, Banner, ...)
   ✔ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
   ✔ Implementovať FAQ do JsonLd formátu
   ✔ implemenotovať JsonLd Schema.org/google structured data
