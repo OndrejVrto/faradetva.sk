@@ -4,7 +4,7 @@
 >
 
     <x-slot:header>
-        <i class="fa-solid fa-terminal mr-2 text-warning"></i>
+        <i class="fa-solid fa-flask-vial mr-2 text-warning"></i>
         Testovanie
     </x-slot:header>
 

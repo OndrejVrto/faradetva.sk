@@ -18,7 +18,11 @@
         </h3>
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fa-solid fa-minus"></i>
+                @if ($colapse)
+                    <i class="fa-solid fa-plus"></i>
+                @else
+                    <i class="fa-solid fa-minus"></i>
+                @endif
             </button>
         </div>
     </div>
