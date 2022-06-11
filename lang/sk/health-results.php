@@ -9,14 +9,14 @@ return [
 
     'cache' => [
         'label'       => 'Vyrovnávacia pamäť (cache)',
-        'ok'          => 'Funguje',
+        'ok'          => 'Funguje :eol Ovládač: `:driver`',
         'failed'      => 'Nepodarilo sa nastaviť alebo načítať hodnotu vyrovnávacej pamäte aplikácie. :eol Použitý ovládač: `:driver`.',
         'exception'   => 'Nastala výnimka s vyrovnávacou pamäťou aplikácie: `:exceptionMessage`. :eol Použitý ovládač: `:driver`.',
     ],
 
     'cache_response' => [
         'label'       => 'Ukladanie stránok (cache response)',
-        'ok'          => 'Funguje',
+        'ok'          => 'Funguje počas `:time` :eol Ovládač: `:driver`',
         'failed'      => 'Ukladanie stránok je vypnuté.:eol Použitý ovládač: `:driver`.',
         'exception'   => 'Nastala výnimka: `:exceptionMessage`. :eol Použitý ovládač: `:driver`.',
     ],

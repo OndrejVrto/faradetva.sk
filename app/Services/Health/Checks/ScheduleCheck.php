@@ -9,6 +9,8 @@ use Spatie\Health\Checks\Checks\ScheduleCheck as SpatieScheduleCheck;
 
 class ScheduleCheck extends SpatieScheduleCheck
 {
+    protected int $heartbeatMaxAgeInMinutes = 5;
+
     public function getCacheStoreName(): string  {
         if ($this->cacheStoreName) {
             return $this->cacheStoreName;
@@ -33,7 +35,7 @@ class ScheduleCheck extends SpatieScheduleCheck
         }
 
         $latestHeartbeatAt = Carbon::createFromTimestamp($lastHeartbeatTimestamp);
-        $minutesAgo = $latestHeartbeatAt->diffInMinutes() + 6;
+        $minutesAgo = $latestHeartbeatAt->diffInMinutes() + 1;
         if ($minutesAgo > $this->heartbeatMaxAgeInMinutes) {
             return $result->failed('health-results.schedule.failed_time')
             ->meta(['minutes' => $minutesAgo]);

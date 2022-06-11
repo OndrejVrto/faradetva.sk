@@ -25,6 +25,7 @@ class CacheResponseCheck extends Check
 
         return $result->meta([
             'driver' => $this->getDriver(),
+            'time'   => $this->getTime(),
             'exceptionMessage' => $exceptionMessage ?? '',
         ]);
     }
@@ -47,5 +48,9 @@ class CacheResponseCheck extends Check
         }
 
         return config('responsecache.cache_store', 'database');
+    }
+
+    protected function getTime(): string {
+        return gmdate("H:i:s", config('responsecache.cache_lifetime_in_seconds'));
     }
 }

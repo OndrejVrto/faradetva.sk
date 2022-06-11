@@ -9,14 +9,14 @@ return [
 
     'cache' => [
         'label'       => 'Cache',
-        'ok'          => 'OK',
+        'ok'          => 'OK :eol Driver: `:driver`',
         'failed'      => 'Could not set or retrieve an application cache value. :eol Used driver: `:driver`.',
         'exception'   => 'An exception occurred with the application cache: `:exceptionMessage`. :eol Used driver: `:driver`.',
     ],
 
     'cache_response' => [
         'label'       => 'Cache response',
-        'ok'          => 'OK',
+        'ok'          => 'OK. During `:time` :eol Driver: `:driver`',
         'failed'      => 'Cache response turn off. :eol Used driver: `:driver`.',
         'exception'   => 'Exception occurred: `:exceptionMessage`. :eol Used driver: `:driver`.',
     ],
