@@ -6,7 +6,7 @@
 
     <div class="col-sm-6 col-lg-3">
         <div class="counter_box">
-            <i class="fa-solid fa-book wh_fa"></i>
+            <i class="fa-solid fa-book wh_fa" aria-hidden="true"></i>
             <h1 class="counter_num" data-to="{{ $skills['news'] }}" data-delay="100" data-speed="4000">
                 {{ $skills['news'] }}
             </h1>
@@ -14,8 +14,8 @@
         </div>
     </div>
     <div class="col-sm-6 col-lg-3">
-        <div class="counter_box">
-            <i class="fa-solid fa-people-arrows-left-right wh_fa"></i>
+        <div class="counter_box zoom wow" data-wow-delay=".3s">
+            <i class="fa-solid fa-people-arrows-left-right wh_fa" aria-hidden="true"></i>
             <h1 class="counter_num" data-to="{{ $skills['testimonials'] }}" data-delay="100" data-speed="4000">
                 {{ $skills['testimonials'] }}
             </h1>
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="col-sm-6 col-lg-3">
-        <div class="counter_box">
+        <div class="counter_box zoom wow" data-wow-delay=".6s">
             <i class="fa-solid fa-users wh_fa" aria-hidden="true"></i>
             <h1 class="counter_num" data-to="{{ $skills['subscribers'] }}" data-delay="100" data-speed="4000">
                 {{ $skills['subscribers'] }}
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="col-sm-6 col-lg-3">
-        <div class="counter_box">
+        <div class="counter_box zoom wow" data-wow-delay=".9s">
             <i class="fa-solid fa-paper-plane wh_fa" aria-hidden="true"></i>
             <h1 class="counter_num" data-to="{{ $skills['notices'] }}" data-delay="100" data-speed="4000">
                 {{ $skills['notices'] }}
