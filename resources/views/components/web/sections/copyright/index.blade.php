@@ -5,7 +5,7 @@
                 <div class="col-lg-9 col-12">
                     <div class="copyright_text h-100 d-flex align-items-center justify-content-center justify-content-lg-start">
                         <p>
-                            Copyright © 2021-{{ now()->year }}, Všetky práva vyhradené <a href="{{ route('home') }}">Farnosť Detva</a>
+                            Copyright © 2021-{{ now()->year }}, Všetky práva vyhradené <a href="{{ secure_url('kontakty') }}">Farnosť Detva</a>
                         </p>
                     </div>
                 </div>
