@@ -6,4 +6,6 @@
 
     <x-web.sections.priests />
 
+    <x-web.sections.about-website />
+
 </x-web.layout.master>

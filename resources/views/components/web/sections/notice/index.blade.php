@@ -1,6 +1,6 @@
 <x-web.page.section
     name="NOTICE"
-    class="pb-5"
+    {{-- class="pb-5" --}}
 >
     @forelse ($notices as $notice)
 
@@ -43,7 +43,7 @@
         @endphp
 
     @empty
-        <div class="p-5 m-5">
+        <div class="mt-5 mx-5">
             <h3>
                 Aktuálne nieje zverejnený žiadny oznam.
             </h3>
