@@ -32,7 +32,7 @@
                 <x-admin.table.tr trashed="{{ $user->trashed() }}">
 
                     {{-- <x-admin.table.td>{{$user->id}}</x-admin.table.td> --}}
-                    <x-admin.table.td-check-active check="{{ $user->active }}"/>
+                    <x-admin.table.td-check-active check="{{ $user->active }}" check_false_title="Účet je zakázaný"/>
                     <x-admin.table.td class="text-center">
                         <img src="{{ $user->getFirstMediaUrl($user->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/40x40" }}"
                         class="img-fluid img-circle"

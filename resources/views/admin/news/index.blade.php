@@ -33,7 +33,7 @@
                 <x-admin.table.tr trashed="{{ $news->trashed() }}">
 
                     {{-- <x-admin.table.td>{{$news->id}}</x-admin.table.td> --}}
-                    <x-admin.table.td-check-active check="{{$news->active}}"/>
+                    <x-admin.table.td-check-active check="{{$news->active}}" check_false_title="Článok je skrytý"/>
 
                     <x-admin.table.td class="d-none d-md-table-cell text-center">
                         <img src="{{ $news->getFirstMediaUrl($news->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"

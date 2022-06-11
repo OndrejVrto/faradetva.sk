@@ -208,6 +208,7 @@ return [
         'header'             => 'Rozpisy lektorov',
         'header_create'      => 'Nový Rozpis lektorov',
         'header_edit'        => 'Úprava rozpisu lektorov',
+        'create-button'      => 'Pridať rozpis lektorov',
     ],
 
     'notice-acolyte' => [
@@ -218,6 +219,7 @@ return [
         'header'             => 'Rozpisy akolytov',
         'header_create'      => 'Nový Rozpis akolytov',
         'header_edit'        => 'Úprava rozpisu akolytov',
+        'create-button'      => 'Pridať rozpis akolytov',
     ],
 
     'notice-church' => [
@@ -228,6 +230,7 @@ return [
         'header'             => 'Farské oznamy',
         'header_create'      => 'Nové oznamy',
         'header_edit'        => 'Úprava farských oznamov',
+        'create-button'      => 'Pridať farský oznam',
     ],
 
     'faqs' => [

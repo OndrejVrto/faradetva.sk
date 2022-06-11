@@ -29,7 +29,7 @@
                 <x-admin.table.tr trashed="{{ $priest->trashed() }}">
 
                     {{-- <x-admin.table.td>{{$priest->id}}</x-admin.table.td> --}}
-                    <x-admin.table.td-check-active check="{{ $priest->active }}"/>
+                    <x-admin.table.td-check-active check="{{ $priest->active }}" check_false_title="Kňaz sa nezobrazuje"/>
                     <x-admin.table.td class="text-center">
                         <img
                             src="{{ $priest->getFirstMediaUrl($priest->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x80" }}"

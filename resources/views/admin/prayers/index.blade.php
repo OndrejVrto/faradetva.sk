@@ -31,7 +31,7 @@
                 <x-admin.table.tr trashed="{{ $prayer->trashed() }}">
 
                     {{-- <x-admin.table.td>{{$prayer->id}}</x-admin.table.td> --}}
-                    <x-admin.table.td-check-active check="{{ $prayer->active }}"/>
+                    <x-admin.table.td-check-active check="{{ $prayer->active }}" check_false_title="Modlidba je zakázaná"/>
                     <x-admin.table.td class="text-center">
                         <img src="{{ $prayer->getFirstMediaUrl($prayer->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/192x80" }}"
                         class="img-fluid px-3"

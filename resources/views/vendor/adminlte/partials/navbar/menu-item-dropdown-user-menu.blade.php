@@ -53,7 +53,7 @@
                         class="img-circle elevation-2"
                         alt="{{ $userName }}">
                 @endif
-                <p class="text-left ml-5 @if(!config('adminlte.usermenu_image')) mt-0 @endif">
+                <p class="text-left ml-1 @if(!config('adminlte.usermenu_image')) mt-0 @endif">
                         <span class="text-danger small pr-2">Meno: </span>{{ Auth::user()->name }}
                     @if(config('adminlte.usermenu_desc'))
                         <br>

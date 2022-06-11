@@ -28,7 +28,7 @@
             @foreach($charts as $chart)
                 <x-admin.table.tr trashed="{{ $chart->trashed() }}">
 
-                    <x-admin.table.td-check-active check="{{ $chart->active }}"/>
+                    <x-admin.table.td-check-active check="{{ $chart->active }}" check_false_title="Graf je zakázaný"/>
                     <x-admin.table.td class="text-wrap text-break text-bold">{{ $chart->title }}</x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break">{{ $chart->description }}</x-admin.table.td>
                     <x-admin.table.td class="text-center">

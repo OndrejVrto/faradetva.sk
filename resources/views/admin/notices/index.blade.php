@@ -11,7 +11,7 @@
     <x-admin.table
         columns="11"
         controlerName="{{ $controller }}"
-        createBtn="Pridať oznam"
+        createBtn="{{ __('backend-texts.'.$controller.'.create-button') }}"
         paginator="{{ $notices->onEachSide(1)->links() }}"
     >
 
@@ -27,7 +27,7 @@
 
         <x-slot:table_body>
             @foreach($notices as $notice)
-                <x-admin.table.tr trashed="{{ $notice->trashed() }}">
+                <x-admin.table.tr trashed="{{ $notice->trashed() }}" check_false_title="Oznam je skrytý">
 
                     {{-- <x-admin.table.td>{{$notice->id}}</x-admin.table.td> --}}
                     <x-admin.table.td-check-active check="{{ $notice->active }}"/>

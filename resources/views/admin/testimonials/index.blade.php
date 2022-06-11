@@ -30,7 +30,7 @@
                 <x-admin.table.tr trashed="{{ $testimonial->trashed() }}">
 
                     {{-- <x-admin.table.td>{{$testimonial->id}}</x-admin.table.td> --}}
-                    <x-admin.table.td-check-active check="{{ $testimonial->active }}"/>
+                    <x-admin.table.td-check-active check="{{ $testimonial->active }}" check_false_title="Svedectvo je zakázané"/>
                     <x-admin.table.td class="text-center">
                         <img
                             src="{{ $testimonial->getFirstMediaUrl($testimonial->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/60x60" }}"
