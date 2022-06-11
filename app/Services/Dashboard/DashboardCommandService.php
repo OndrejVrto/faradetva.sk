@@ -50,7 +50,8 @@ class DashboardCommandService
     }
 
     private function jobs_restart() {
-        Artisan::call('queue:restart');
+        // Artisan::call('queue:restart');
+        Artisan::call('queue:retry', ['--queue' => 'default']);
     }
 
     private function crawl_url() {
