@@ -625,6 +625,10 @@ button:before {
 }
 
 /*=== nav toggle css ===*/
+.header_right_menu ul li:last-of-type {
+    padding-right: unset;
+}
+
 .header_right_menu ul li.search_icon {
 	font-size: 18px;
 	color    : #fff;
