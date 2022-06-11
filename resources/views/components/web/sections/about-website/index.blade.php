@@ -8,4 +8,10 @@
 
     <x-partials.page-card countPages=3 />
 
+    <div class="d-flex justify-content-center">
+        <a href="{{ secure_url('prehlad-vsetkych-stranok') }}" class="link-template fs-5">
+            Prehľad všetkých stránok
+        </a>
+    </div>
+
 </x-web.page.section>

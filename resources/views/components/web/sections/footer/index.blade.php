@@ -27,7 +27,7 @@
                                 <ul class="mb-4">
                                     <li><a class="link-template-gray" href="{{ secure_url('kontakty') }}">Kontakty</a></li>
                                     <li><a class="link-template-gray" href="{{ secure_url('farske-oznamy') }}">Sväté omše</a></li>
-                                    <li><a class="link-template-gray" href="{{ route('list-pages') }}">Všetky stránky</a></li>
+                                    <li><a class="link-template-gray" href="{{ secure_url('prehlad-vsetkych-stranok') }}">Všetky stránky</a></li>
                                     <li><a class="link-template-gray" href="{{ route('faq') }}">Otázky a odpovede</a></li>
                                     <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="https://gdpr.kbs.sk">Ochrana osobných údajov</a></li>
                                 </ul>

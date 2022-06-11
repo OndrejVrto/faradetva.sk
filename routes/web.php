@@ -14,7 +14,6 @@ Route::middleware('fast_web')->group(function() {
 
     Route::get('/', HomeController::class)->name('home');
     Route::get('/otazky-a-odpovede', FaqController::class)->name('faq');
-    Route::get('/prehlad-vsetkych-stranok', ListPagesController::class)->name('list-pages');
 
     //! Subscribe and mail
     Route::controller(SubscribeController::class)->withoutMiddleware('cacheResponse')->group(function () {

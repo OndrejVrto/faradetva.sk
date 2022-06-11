@@ -42,8 +42,9 @@ class StaticPageRequest extends BaseRequest
     }
 
     protected function prepareForValidation() {
+        $slug = Str::slug(Str::replace('/','-',$this->url));
         $this->merge([
-            'slug' => Str::slug(Str::replace('/','-',$this->url))
+            'slug' => empty($slug) ? Str::slug($this->title) : $slug
         ]);
     }
 }
