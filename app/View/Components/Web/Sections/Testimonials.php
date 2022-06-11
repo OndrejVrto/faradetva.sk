@@ -25,7 +25,7 @@ class Testimonials extends Component
     }
 
     private function getTestimonials(): array {
-        return Cache::remember('TESTIMONIALS-random', now()->addHours(1), function(): array {
+        return Cache::remember('TESTIMONIALS', now()->addHours(1), function(): array {
             $countTestimonials = TestimonialModel::query()
                 ->whereActive(1)
                 ->count();

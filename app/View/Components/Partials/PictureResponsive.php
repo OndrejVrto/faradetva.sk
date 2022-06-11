@@ -27,42 +27,7 @@ class PictureResponsive extends Component
                 ->whereSlug($titleSlug)
                 ->with('mediaOne', 'source')
                 ->get()
-                ->map(function ($img) use ($class, $descriptionCrop) {
-                    $colectionName = $img->mediaOne->collection_name;
-                    $media = $img->getFirstMedia($colectionName);
-
-                    return [
-                        'img-title'   => $img->title,
-                        'img-slug'    => $img->slug,
-                        'img-updated' => $img->updated_at,
-                        'img-width'   => $img->crop_output_width,
-                        'img-height'  => $img->crop_output_height,
-
-                        'responsivePicture'  => (string) $media
-                                                ->img('optimize', [
-                                                    'id' => 'picr-'.$img->slug,
-                                                    'class' => $class ?: 'img-fluid d-block mx-auto',
-                                                    'alt' => $img->source->source_description,
-                                                    'title' => $img->source->source_description,
-                                                    'nonce' => csp_nonce(),
-                                                    'height' => $img->crop_output_height,
-                                                    'width' => $img->crop_output_width,
-                                                ]),
-                        'url'                => $media->getUrl('optimize'),
-                        'img-mime'           => $media->mime_type,
-
-                        'source_description' => $img->source->source_description,
-                        'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
-                        'sourceArr' => [
-                            'source_source'      => $img->source->source_source,
-                            'source_source_url'  => $img->source->source_source_url,
-                            'source_author'      => $img->source->source_author,
-                            'source_author_url'  => $img->source->source_author_url,
-                            'source_license'     => $img->source->source_license,
-                            'source_license_url' => $img->source->source_license_url,
-                        ],
-                    ];
-                })
+                ->map(fn($e) => $this->mapOutput($e))
                 ->first();
         });
 
@@ -74,6 +39,40 @@ class PictureResponsive extends Component
             return view('components.partials.picture-responsive.index');
         }
         return null;
+    }
+
+    private function mapOutput($img): array {
+        $colectionName = $img->mediaOne->collection_name;
+        $media = $img->getFirstMedia($colectionName);
+
+        return [
+            'img-title'   => $img->title,
+            'img-slug'    => $img->slug,
+            'img-updated' => $img->updated_at,
+            'img-width'   => $img->crop_output_width,
+            'img-height'  => $img->crop_output_height,
+
+            'responsivePicture'  => (string) $media
+                                    ->img('optimize', [
+                                        'id' => 'picr-'.$img->slug,
+                                        'class' => $this->class ?: 'img-fluid d-block mx-auto',
+                                        'alt' => $img->source->source_description,
+                                        'nonce' => csp_nonce(),
+                                    ]),
+            'url'                => $media->getUrl('optimize'),
+            'img-mime'           => $media->mime_type,
+
+            'source_description' => $img->source->source_description,
+            'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
+            'sourceArr' => [
+                'source_source'      => $img->source->source_source,
+                'source_source_url'  => $img->source->source_source_url,
+                'source_author'      => $img->source->source_author,
+                'source_author_url'  => $img->source->source_author_url,
+                'source_license'     => $img->source->source_license,
+                'source_license_url' => $img->source->source_license_url,
+            ],
+        ];
     }
 
     private function setSeoMetaTags(array $pictureData): void {

@@ -13,7 +13,7 @@ class Pray extends Component
 
     public function __construct(
         public $link = null,
-    ) {
+    ){
         $this->pray = $this->getPray();
     }
 
@@ -39,36 +39,38 @@ class Pray extends Component
                 ->whereSlug($onePrayer->slug)
                 ->with('media', 'source')
                 ->get()
-                ->map(function ($prayer): array {
-                    return [
-                        'id'                => $prayer->id,
-                        'title'             => $prayer->title,
-                        'slug'              => $prayer->slug,
-
-                        'quote_row1'        => $prayer->quote_row1,
-                        'quote_row2'        => $prayer->quote_row2,
-                        'quote_author'      => $prayer->quote_author,
-                        'quote_link_url'    => $prayer->quote_link_url,
-                        'quote_link_text'   => $prayer->quote_link_text,
-
-                        'extra_small_image' => $prayer->getFirstMediaUrl('prayer', 'extra-small'),
-                        'small_image'       => $prayer->getFirstMediaUrl('prayer', 'small'),
-                        'medium_image'      => $prayer->getFirstMediaUrl('prayer', 'medium'),
-                        'large_image'       => $prayer->getFirstMediaUrl('prayer', 'large'),
-                        'extra_large_image' => $prayer->getFirstMediaUrl('prayer', 'extra-large'),
-
-                        'source_description'       => $prayer->source->source_description,
-                        'sourceArr' => [
-                            'source_source'        => $prayer->source->source_source,
-                            'source_source_url'    => $prayer->source->source_source_url,
-                            'source_author'        => $prayer->source->source_author,
-                            'source_author_url'    => $prayer->source->source_author_url,
-                            'source_license'       => $prayer->source->source_license,
-                            'source_license_url'   => $prayer->source->source_license_url,
-                        ],
-                    ];
-                })
+                ->map(fn($e) => $this->mapOutput($e))
                 ->first();
         });
+    }
+
+    private function mapOutput($prayer): array {
+        return [
+            'id'                => $prayer->id,
+            'title'             => $prayer->title,
+            'slug'              => $prayer->slug,
+
+            'quote_row1'        => $prayer->quote_row1,
+            'quote_row2'        => $prayer->quote_row2,
+            'quote_author'      => $prayer->quote_author,
+            'quote_link_url'    => $prayer->quote_link_url,
+            'quote_link_text'   => $prayer->quote_link_text,
+
+            'extra_small_image' => $prayer->getFirstMediaUrl('prayer', 'extra-small'),
+            'small_image'       => $prayer->getFirstMediaUrl('prayer', 'small'),
+            'medium_image'      => $prayer->getFirstMediaUrl('prayer', 'medium'),
+            'large_image'       => $prayer->getFirstMediaUrl('prayer', 'large'),
+            'extra_large_image' => $prayer->getFirstMediaUrl('prayer', 'extra-large'),
+
+            'source_description'       => $prayer->source->source_description,
+            'sourceArr' => [
+                'source_source'        => $prayer->source->source_source,
+                'source_source_url'    => $prayer->source->source_source_url,
+                'source_author'        => $prayer->source->source_author,
+                'source_author_url'    => $prayer->source->source_author_url,
+                'source_license'       => $prayer->source->source_license,
+                'source_license_url'   => $prayer->source->source_license_url,
+            ],
+        ];
     }
 }

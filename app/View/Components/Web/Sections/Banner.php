@@ -50,30 +50,32 @@ class Banner extends Component
                 ->whereSlug($oneBanner->slug)
                 ->with('media', 'source')
                 ->get()
-                ->map(function ($banner): array {
-                    return [
-                        'id' => $banner->id,
-                        'slug' => $banner->slug,
-
-                        'extra_small_image' => $banner->getFirstMediaUrl('banner', 'extra-small'),
-                        'small_image'       => $banner->getFirstMediaUrl('banner', 'small'),
-                        'medium_image'      => $banner->getFirstMediaUrl('banner', 'medium'),
-                        'large_image'       => $banner->getFirstMediaUrl('banner', 'large'),
-                        'extra_large_image' => $banner->getFirstMediaUrl('banner', 'extra-large'),
-
-                        'source_description'       => $banner->source->source_description,
-                        'sourceArr' => [
-                            'source_source'        => $banner->source->source_source,
-                            'source_source_url'    => $banner->source->source_source_url,
-                            'source_author'        => $banner->source->source_author,
-                            'source_author_url'    => $banner->source->source_author_url,
-                            'source_license'       => $banner->source->source_license,
-                            'source_license_url'   => $banner->source->source_license_url,
-                        ],
-                    ];
-                })
+                ->map(fn($e) => $this->mapOutput($e))
                 ->first();
         });
+    }
+
+    private function mapOutput($banner): array {
+        return [
+            'id' => $banner->id,
+            'slug' => $banner->slug,
+
+            'extra_small_image' => $banner->getFirstMediaUrl('banner', 'extra-small'),
+            'small_image'       => $banner->getFirstMediaUrl('banner', 'small'),
+            'medium_image'      => $banner->getFirstMediaUrl('banner', 'medium'),
+            'large_image'       => $banner->getFirstMediaUrl('banner', 'large'),
+            'extra_large_image' => $banner->getFirstMediaUrl('banner', 'extra-large'),
+
+            'source_description'       => $banner->source->source_description,
+            'sourceArr' => [
+                'source_source'        => $banner->source->source_source,
+                'source_source_url'    => $banner->source->source_source_url,
+                'source_author'        => $banner->source->source_author,
+                'source_author_url'    => $banner->source->source_author_url,
+                'source_license'       => $banner->source->source_license,
+                'source_license_url'   => $banner->source->source_license_url,
+            ],
+        ];
     }
 
     private function cleanListBanners(null|string|array $namesBanners): ?array {
