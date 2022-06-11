@@ -20,12 +20,12 @@ class Banner extends Component
         public null|string $dimensionSourceBanner = "medium",
     ) {
         $this->banner = $this->getBanner($this->cleanListBanners($titleSlug));
-
-        (new SetSeoPropertiesService())->setPictureSchema($this->banner);
     }
 
     public function render(): View|null {
         if (!is_null($this->banner)) {
+            (new SetSeoPropertiesService())->setPictureSchema($this->banner);
+
             return view('components.web.sections.banner.index');
         }
 

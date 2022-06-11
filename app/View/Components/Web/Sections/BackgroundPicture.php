@@ -16,12 +16,12 @@ class BackgroundPicture extends Component
         private string $titleSlug,
     ) {
         $this->backgroundPicture = $this->getPicture($titleSlug);
-
-        (new SetSeoPropertiesService())->setPictureSchema($this->backgroundPicture);
     }
 
     public function render(): View|null {
         if (!is_null($this->backgroundPicture)) {
+            (new SetSeoPropertiesService())->setPictureSchema($this->backgroundPicture);
+
             return view('components.web.sections.background-picture.index');
         }
         return null;

@@ -19,14 +19,13 @@ class PageCard extends Component
         public string $buttonText = 'Dozvedieť sa viac',
     ) {
         $this->getCards();
-
-        foreach ($this->pageCards as $card) {
-            (new SetSeoPropertiesService())->setPictureSchema($card);
-        }
     }
 
     public function render(): ?View {
         if (!is_null($this->pageCards)) {
+            foreach ($this->pageCards as $card) {
+                (new SetSeoPropertiesService())->setPictureSchema($card);
+            }
             return view('components.partials.page-card.index');
         }
 

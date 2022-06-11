@@ -16,12 +16,12 @@ class Pray extends Component
         public $link = null,
     ){
         $this->pray = $this->getPray();
-
-        (new SetSeoPropertiesService())->setPictureSchema($this->pray);
     }
 
     public function render(): View|null {
         if (!is_null($this->pray)) {
+            (new SetSeoPropertiesService())->setPictureSchema($this->pray);
+
             return view('components.web.sections.pray.index');
         }
         return null;

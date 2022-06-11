@@ -38,12 +38,16 @@ class Faq extends Component
                     });
             });
         }
-
-        (new SetSeoPropertiesService())->setFaqSeoMetaTags($this->faqs);
     }
 
     public function render(): View {
-        return view('components.web.sections.faq.index');
+        if (!is_null($this->faqs)) {
+            (new SetSeoPropertiesService())->setFaqSeoMetaTags($this->faqs);
+            
+            return view('components.web.sections.faq.index');
+        }
+
+        return null;
     }
 
 

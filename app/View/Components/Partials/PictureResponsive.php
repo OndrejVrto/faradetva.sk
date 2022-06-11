@@ -28,12 +28,12 @@ class PictureResponsive extends Component
                 ->map(fn($e) => $this->mapOutput($e))
                 ->first();
         });
-
-        (new SetSeoPropertiesService())->setPictureSchema($this->picture);
     }
 
     public function render(): View|null {
         if (!is_null($this->picture)) {
+            (new SetSeoPropertiesService())->setPictureSchema($this->picture);
+
             return view('components.partials.picture-responsive.index');
         }
         return null;

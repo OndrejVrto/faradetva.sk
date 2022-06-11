@@ -23,6 +23,10 @@ class LastArticle extends Component
     }
 
     public function render(): View|null {
-        return view('components.web.sections.last-article.index');
+        if (!is_null($this->lastArticles)) {
+            return view('components.web.sections.last-article.index');
+        }
+
+        return null;
     }
 }

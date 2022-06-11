@@ -16,11 +16,12 @@ class Priests extends Component
 
     public function __construct() {
         $this->priests = $this->getPriests();
-        (new SetSeoPropertiesService())->setPriestsSchema($this->priests);
     }
 
     public function render(): View|null {
         if (!is_null($this->priests)) {
+            (new SetSeoPropertiesService())->setPriestsSchema($this->priests);
+
             return view('components.web.sections.priests.index');
         }
         return null;

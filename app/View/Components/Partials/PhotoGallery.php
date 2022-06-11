@@ -17,12 +17,12 @@ class PhotoGallery extends Component
         public string|null $dimensionSource = 'full',
     ) {
         $this->gallery = $this->getGallery($titleSlug);
-
-        (new SetSeoPropertiesService())->setGallerySchema($this->gallery);
     }
 
     public function render(): View|null {
         if(!is_null($this->gallery)){
+            (new SetSeoPropertiesService())->setGallerySchema($this->gallery);
+
             return view('components.partials.photo-gallery.index');
         }
         return null;

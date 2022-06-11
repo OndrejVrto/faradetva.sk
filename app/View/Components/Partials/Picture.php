@@ -64,11 +64,12 @@ class Picture extends Component
 
         $this->picture = $this->getPicture($titleSlug);
 
-        (new SetSeoPropertiesService())->setPictureSchema($this->picture);
     }
 
     public function render(): View|null {
         if (!is_null($this->picture)) {
+            (new SetSeoPropertiesService())->setPictureSchema($this->picture);
+
             return view('components.partials.picture.index');
         }
         return null;
@@ -95,7 +96,7 @@ class Picture extends Component
         return $value;
     }
 
-    private function getPicture($slug): array {
+    private function getPicture($slug): ?array {
         return Cache::rememberForever('PICTURE_'.$slug, function () use($slug) {
             return PictureModel::query()
                 ->whereSlug($slug)

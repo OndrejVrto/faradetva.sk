@@ -14,14 +14,14 @@ class Slider extends Component
 
     public function __construct() {
         $this->getSliders();
-
-        foreach ($this->sliders as $slider) {
-            (new SetSeoPropertiesService())->setPictureSchema($slider);
-        }
     }
 
     public function render(): View|null {
         if (!is_null($this->sliders)) {
+            foreach ($this->sliders as $slider) {
+                (new SetSeoPropertiesService())->setPictureSchema($slider);
+            }
+            
             return view('components.web.sections.slider.index');
         }
         return null;
