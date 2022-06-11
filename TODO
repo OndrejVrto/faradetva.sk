@@ -5,8 +5,13 @@ Obsah stránky:
   ☐ pridat ručné výsečové grafy
   ☐ facebook karta farnosti ako iframe?
   ☐ rozpis predmanželskej prípravy. V kontaktnom formulári je to asi nie správne?
-  ☐ vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET
 
+  ✔ @critical zmeniť heslá
+  ✔ pridať sekciu o kostole do oznamov a kontaktov
+  ✘ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET
+  ✔ prečistiť obsah vyhľadávania MeiliSearch. Nech tam sú zaindexované len dôležité časti stránky a len podstatné stránky
+  ✔ upraviť vzhľad vyhľadávania
+  ✔ niektoré sekcie podfarbiť na sivo
   ✔ pridať fotku Paľka a premazať informácie navyše
   ✔ prepísať teaser texty v databáze
   ✔ tagy a kategórie - všetky alebo len výber

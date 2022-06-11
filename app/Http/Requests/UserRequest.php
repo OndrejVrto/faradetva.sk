@@ -39,7 +39,7 @@ class UserRequest extends BaseRequest
                     ->mixedCase()
                     ->letters()
                     ->numbers()
-                    ->symbols()
+                    // ->symbols()
                     ->uncompromised(),
             ],
             'can_be_impersonated' => [

@@ -9,7 +9,6 @@ use Illuminate\Database\Seeder;
 class UserSeeder extends Seeder
 {
     public function run(): void {
-        $password = 'password';
 
         $user = User::create([
             'name' => 'Super Administrátor',
@@ -18,7 +17,7 @@ class UserSeeder extends Seeder
             'email' => 'administrator@faradetva.sk',
             'can_be_impersonated' => 0,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_SUPER_ADMIN'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(1);  // Super Administrátor
@@ -30,7 +29,7 @@ class UserSeeder extends Seeder
             'email' => 'noreply@faradetva.sk',
             'can_be_impersonated' => 0,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_ANONYMOUS'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(9); // Hosť
@@ -42,7 +41,7 @@ class UserSeeder extends Seeder
             'email' => 'ondrej@vrto.sk',
             'can_be_impersonated' => 0,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_OV'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(2); // Administrátor
@@ -54,7 +53,7 @@ class UserSeeder extends Seeder
             'email' => 'marian.juhaniak@faradetva.sk',
             'can_be_impersonated' => 1,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_MJ'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(['3']); // Moderátor
@@ -66,7 +65,7 @@ class UserSeeder extends Seeder
             'email' => 'pavol.prieboj@faradetva.sk',
             'can_be_impersonated' => 1,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_PP'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(['4']); // Redaktor
@@ -78,7 +77,7 @@ class UserSeeder extends Seeder
             'email' => 'lubos.sabol@faradetva.sk',
             'can_be_impersonated' => 1,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_LS'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(['5', '6']); // Kontrolór + Farské oznmy
@@ -90,7 +89,7 @@ class UserSeeder extends Seeder
             'email' => 'vladimir.kucera@faradetva.sk',
             'can_be_impersonated' => 1,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_VK'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(['7']); // Akolyta
@@ -102,7 +101,7 @@ class UserSeeder extends Seeder
             'email' => 'eva.bohumelova@faradetva.sk',
             'can_be_impersonated' => 1,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_EB'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(['8']); // Lektor
@@ -114,7 +113,7 @@ class UserSeeder extends Seeder
             'email' => 'jan.juriga@faradetva.sk',
             'can_be_impersonated' => 1,
             'email_verified_at' => now(),
-            'password' => $password,
+            'password' => env('PASSWORD_JJ'),
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(['9']); // Hosť
