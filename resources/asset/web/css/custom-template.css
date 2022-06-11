@@ -382,7 +382,7 @@ button:before {
 	border          : 1px solid;
 }
 
-.model_overlay .close {
+/* .model_overlay .close {
 	position        : absolute;
 	top             : 30px;
 	right           : 30px;
@@ -395,7 +395,7 @@ button:before {
 	line-height     : 44px;
 	border-radius   : 100%;
 	background-color: #ff7b33;
-}
+} */
 
 /*----------------------------------------------------------------------------------
  3. Search form css End
