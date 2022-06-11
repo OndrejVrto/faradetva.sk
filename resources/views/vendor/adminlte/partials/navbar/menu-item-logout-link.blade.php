@@ -13,7 +13,7 @@
             {{ method_field(config('adminlte.logout_method')) }}
         @endif
         <button class="nav-link" href="#" type="submit">
-            <i class="fa fa-fw fa-power-off text-red"></i>
+            <i class="fa-solid fa-fw fa-power-off text-red"></i>
             {{ __('adminlte::adminlte.log_out') }}
         </button>
     </form>

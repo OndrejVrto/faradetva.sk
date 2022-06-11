@@ -91,7 +91,7 @@
         <div class="tab-loading">
         <div>
             <h2 class="display-4 text-center">
-                <i class="fa fa-sync fa-spin text-secondary"></i>
+                <i class="fa-solid fa-rotate fa-spin text-secondary"></i>
                 <br/>
                 {{ __('adminlte::iframe.tab_loading') }}
             </h2>

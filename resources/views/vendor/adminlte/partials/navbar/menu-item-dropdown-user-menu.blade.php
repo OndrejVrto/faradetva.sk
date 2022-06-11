@@ -84,7 +84,7 @@
             @can('users.show')
                 @if($profile_url)
                     <a href="{{ $profile_url }}" class="btn btn-default btn-flat">
-                        <i class="fa fa-fw fa-user text-lightblue"></i>
+                        <i class="fa-solid fa-fw fa-user text-lightblue"></i>
                         {{ __('adminlte::menu.profile') }}
                     </a>
                 @endif
@@ -99,7 +99,7 @@
                     href="#"
                     type="submit"
                 >
-                    <i class="fa fa-fw fa-power-off text-red"></i>
+                    <i class="fa-solid fa-fw fa-power-off text-red"></i>
                     {{ __('adminlte::adminlte.log_out') }}
             </button>
             </form>

@@ -111,7 +111,7 @@
 
 <li class="search_icon">
     <!-- Button trigger modal -->
-    <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fa-solid fa-search"></i></span>
+    <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fa-solid fa-magnifying-glass"></i></span>
 </li>
 
 {{-- @auth --}}

@@ -6,7 +6,7 @@
 
     <div class="col-sm-6 col-lg-3">
         <div class="counter_box">
-            <i class="fa fa-book wh_fa"></i>
+            <i class="fa-solid fa-book wh_fa"></i>
             <h1 class="counter_num" data-to="{{ $skills['news'] }}" data-delay="100" data-speed="4000">
                 {{ $skills['news'] }}
             </h1>
@@ -15,7 +15,7 @@
     </div>
     <div class="col-sm-6 col-lg-3">
         <div class="counter_box">
-            <i class="fa fa-people-arrows wh_fa" aria-hidden="true"></i>
+            <i class="fa-solid fa-people-arrows-left-right wh_fa"></i>
             <h1 class="counter_num" data-to="{{ $skills['testimonials'] }}" data-delay="100" data-speed="4000">
                 {{ $skills['testimonials'] }}
             </h1>
@@ -24,7 +24,7 @@
     </div>
     <div class="col-sm-6 col-lg-3">
         <div class="counter_box">
-            <i class="fa fa-users wh_fa" aria-hidden="true"></i>
+            <i class="fa-solid fa-users wh_fa" aria-hidden="true"></i>
             <h1 class="counter_num" data-to="{{ $skills['subscribers'] }}" data-delay="100" data-speed="4000">
                 {{ $skills['subscribers'] }}
             </h1>
@@ -33,7 +33,7 @@
     </div>
     <div class="col-sm-6 col-lg-3">
         <div class="counter_box">
-            <i class="fa fa-paper-plane wh_fa" aria-hidden="true"></i>
+            <i class="fa-solid fa-paper-plane wh_fa" aria-hidden="true"></i>
             <h1 class="counter_num" data-to="{{ $skills['notices'] }}" data-delay="100" data-speed="4000">
                 {{ $skills['notices'] }}
             </h1>
