@@ -397,11 +397,18 @@ class SetSeoPropertiesService
                 ->honorificPrefix(e($priest['titles_before']))
                 ->honorificSuffix(e($priest['titles_after']))
                 ->nationality('Slovak')
-                ->sameAs([$priest['facebook'], $priest['twitter']])
-                ->telephone([
-                    e($priest['phone']),
-                    e($priest['phone_digits'])
-                ])
+                ->if(isset($priest['facebook']) OR isset($priest['twitter']), function ($schema) use ($priest) {
+                    $schema->sameAs([
+                        isset($priest['facebook']) ? $priest['facebook'] : '',
+                        isset($priest['twitter']) ? $priest['twitter'] : '',
+                    ]);
+                })
+                ->if(isset($priest['phone']), function ($schema) use ($priest) {
+                    $schema->telephone([
+                        e($priest['phone']),
+                        e($priest['phone_digits'])
+                    ]);
+                })
                 ->email(e($priest['email']))
                 ->jobTitle('Priest'.'|'.e($priest['function']))
                 ->gender('https://schema.org/Male')
