@@ -5,6 +5,9 @@ Obsah stránky:
   ☐ pridat ručné výsečové grafy
   ☐ facebook karta farnosti ako iframe?
   ☐ rozpis predmanželskej prípravy. V kontaktnom formulári je to asi nie správne?
+  ☐ Title for error pages
+  ☐ stránka "všetky albumy" ?
+  ☐ stránka "všetky obrázky zobrazené ako album" ?
 
   ✔ @critical zmeniť heslá
   ✔ pridať sekciu o kostole do oznamov a kontaktov
@@ -65,6 +68,7 @@ Administrátorské rozhranie:
     ☐ štatistika a rôzne grafy (počet a zoznam subscriberov)
     ☐ dorobiť administráciu subscribers
     ☐ implementovať balíček Laravisit na články/userov ? (https://www.youtube.com/watch?v=6JBkDGqnc2w&ab_channel=LaravelDaily)
+    ☐ opraviť Show metódy pre všetky typy obrázkov
 
     ✔ vrátiť späť cachovanie všetkých SQL dotazov, pretože ak sa vypne response cache tak to pôjde rýchlejšie
     ✔ aktualizovať permission seeder
