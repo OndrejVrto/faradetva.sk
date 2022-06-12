@@ -4,11 +4,7 @@
 	</a>
 </p>
 
-<<<<<<< HEAD
 # ⛪ Website and CMS for the [parish Detva](https://faradetva.sk) in Slovakia
-=======
-# Website and custom CMS for the [parish Detva](https://faradetva.sk) in Slovakia
->>>>>>> d532dfdd8f018e5d3e690f8dba4f354d0891a60b
 
 The site is created as part of my learning the Laravel framework.
 
