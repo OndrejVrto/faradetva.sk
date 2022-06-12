@@ -1,10 +1,10 @@
+!.gitignore
+
 /node_modules
 /vendor
 
 /.idea
 /.vscode
-
-/database/raw
 
 /public/asset
 /public/storage
