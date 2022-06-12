@@ -12,7 +12,7 @@ use App\Services\Health\Checks\{
     CacheResponseCheck, EnvFileExistsCheck, UsedDiskSpaceCheck, ConfigIsCachedCheck,
     EventsAreCachedCheck, MaintenanceModeCheck, RoutesAreCachedCheck, StaticPagesCrawlerCheck,
     SslCertificateValidCheck, CspMiddlerwareEnabledCheck, StorageDirectoryIsLinkedCheck,
-    CorrectPhpVersionInstalledCheck, ComposerDependenciesUpToDateCheck
+    CorrectPhpVersionInstalledCheck
 };
 
 class HealthServiceProvider extends ServiceProvider
@@ -40,7 +40,6 @@ class HealthServiceProvider extends ServiceProvider
             EnvironmentCheck::new(),
             DebugModeCheck::new(),
             CspMiddlerwareEnabledCheck::new(),
-            ComposerDependenciesUpToDateCheck::new(),
 
             //! speed page
             RoutesAreCachedCheck::new(),
