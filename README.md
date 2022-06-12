@@ -4,15 +4,19 @@
 	</a>
 </p>
 
-# ⛪ Website and custom CMS for the [parish Detva](https://faradetva.sk) in Slovakia
+# ⛪ Website and CMS for the [parish Detva](https://faradetva.sk) in Slovakia
 
 The site is created as part of my learning the Laravel framework.
 
 I tried to implement as many packages as possible and try as many ways of writing code as possible, because it is better to try once than to see 100 times.
 
 The to-do list is never empty.
+## About me
+**I like learning. I like programming. I'm a mechanical engineer, but I want to be a developer. But something needs to be done. That's why I'm doing this project.**
 
-## Example
+You can find out more about me on my [personal page](https://ondrejvrto.eu/).
+
+## Examples
 #### Dashboard
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/dashboard.jpg?raw=true)
 
@@ -21,8 +25,10 @@ The to-do list is never empty.
 
 #### Sample list
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/sample-list-item.jpg?raw=true)
+
 #### Sample of front page
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/sample-front-page.jpg?raw=true)
+
 # Install application to local server in Windows
 - This application needs the following services to work properly.
 	- MySql 8
