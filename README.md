@@ -1,6 +1,6 @@
 <p align="center">
 	<a href="https://faradetva.sk" target="_blank">
-		<img src="https://github.com/OndrejVrto/faradetva.sk/blob/main/public/images/logo/logo-farnosti-detva.svg?raw=true" width="200">
+		<img src="https://github.com/OndrejVrto/faradetva.sk/blob/main/public/images/logo/logo-farnosti-detva.svg?raw=true" width="300">
 	</a>
 </p>
 
@@ -30,7 +30,7 @@ You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/sample-front-page.jpg?raw=true)
 
 ---
-# Install application to local server in Windows
+# 📌 Install application to local server in Windows
 - This application needs the following services to work properly.
 	- Apache server with SSL
 	- MySql 8
@@ -42,7 +42,7 @@ You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 	- MailTrap.io for mail traping
 	- google.maps api key if wish nice maps
 
-## Installation
+## 🧾 Installation
 01. I'am work in Windows. Local development needs software. Best solution for me is [Laragon](https://laragon.org).
 	- instal [Laragon](https://laragon.org) in to directory `C:/` and run it **as administrator**.
 	- download [php 8.0.2](https://windows.php.net/download#php-8.0) and unpack to Laragon directory `c:\laragon\bin\php\`. Set php version in Laragon to this version.
@@ -136,8 +136,9 @@ You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 	```cmd
 	php artisan site-search:create-index
 	```
-	- `name:` HTTPS_FaraDetva
-	- `url to crawl:` `https://faradetva.test
+	name: `HTTPS_FaraDetva`
+	
+	url to crawl: `https://faradetva.test`
 
 18. Create separate terminal/promt nr.2
 	```cmd
