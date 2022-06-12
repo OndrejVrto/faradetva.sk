@@ -1,4 +1,8 @@
-<p align=`center`><a href=`https://faradetva.sk` target=`_blank`><img src=`https://github.com/OndrejVrto/faradetva.sk/blob/main/public/images/logo/logo-farnosti-detva.svg?raw=true` width=`150`></a></p>
+<p align="center">
+	<a href="https://faradetva.sk" target="_blank">
+		<img src="https://github.com/OndrejVrto/faradetva.sk/blob/main/public/images/logo/logo-farnosti-detva.svg?raw=true" width="200">
+	</a>
+</p>
 
 # ⛪ Website and custom CMS for the [parish Detva](https://faradetva.sk) in Slovakia
 
