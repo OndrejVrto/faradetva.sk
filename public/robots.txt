@@ -1,4 +1,4 @@
 User-agent: *
 Disallow
 
-Sitemap: https://faradetva.com/sitemap.xml
+Sitemap: https://faradetva.sk/sitemap.xml

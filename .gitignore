@@ -7,22 +7,17 @@
 /database/raw
 
 /public/asset
-/public/favicons
-/public/images
 /public/storage
 /public/mix*
 /public/sitemap.xml
 
-/storage/*
 /storage/*.key
 
-/data.ms/*
+/data.ms
 /zmaz
 
 .editorconfig
 .env
-.env.backup
-.env.production
 .phpstorm.meta.php
 _ide_helper.php
 _ide_helper_models.php
@@ -30,10 +25,11 @@ _ide_helper_models.php
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
-npm-debug.log
-yarn-error.log
+*.log
+# yarn-error.log
 composer.lock
 package-lock.json
-meilisearch.exe
+# meilisearch.exe
 
 BACKUP
+

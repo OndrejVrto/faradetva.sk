@@ -1,13 +1,11 @@
 const mix = require('laravel-mix');
 
 // configs
-// mix.disableNotifications();
-// mix.disableSuccessNotifications();
+mix.disableNotifications();
+mix.disableSuccessNotifications();
 mix.version();
 // mix.sourceMaps();
 
-// Copy
-// mix.copyDirectory('resources/asset/copy', 'public');
 
 // admin
 mix.babel('resources/asset/admin/js/custom.js',            'public/asset/admin-app.js');
@@ -25,7 +23,6 @@ mix.babel('resources/asset/web/js/custom-gallery.js',    'public/asset/app-galle
 mix.babel('resources/asset/web/js/custom-google-map.js', 'public/asset/app-google-map.js');
 mix.babel('resources/asset/web/js/custom-chart.js',      'public/asset/app-chart.js');
 mix.babel('resources/asset/web/js/custom-pdf.js',        'public/asset/app-pdf.js');
-// mix.js('resources/asset/web/js/custom-share.js', 'public/asset/app-share.js');
 
 mix.sass('resources/asset/web/css/custom-bootstrap.scss', 'public/asset/app-bootstrap.css');
 
