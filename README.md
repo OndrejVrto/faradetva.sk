@@ -33,9 +33,9 @@ You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 # 📌 Install application to local server in Windows
 - This application needs the following services to work properly.
 	- Apache server with SSL
-	- MySql 8
-	- php 8.0.2
-	- Http2 protokol
+	- MySql 8.0
+	- php 8.1
+	- Http2 protocol
 	- MeiliSearch
 - Optional:
 	- Slack webhook for logging
