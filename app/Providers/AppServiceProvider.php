@@ -29,10 +29,9 @@ class AppServiceProvider extends ServiceProvider
             //! rewrite some global site setting from ValueStore Json
             $valueStore = Valuestore::make(config('farnost-detva.value_store'));
             foreach ($valueStore->allStartingWith('config.') as $key => $value) {
-                $settings[Str::after($key, 'config.')] = $value;
                 // info(Str::after($key, 'config.').':'.$value);
+                Config::set(Str::after($key, 'config.'), $value);
             }
-            Config::set($settings);
 
             View::share('maintenanceMode', app()->isDownForMaintenance());
             View::share('valueStore', $valueStore);
