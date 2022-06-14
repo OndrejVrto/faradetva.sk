@@ -16,28 +16,24 @@
                 <x-admin.bootstrap-switch
                     name="cache_global"
                     label="Global cache"
-                    value="{{ $valueStore->get('ADMIN.cache_global') ? '1' : '0' }}"
                 />
 
                 {{-- cache response    to Valuestore --}}
                 <x-admin.bootstrap-switch
                     name="cache_response"
                     label="Response cache"
-                    value="{{ $valueStore->get('ADMIN.cache_response') ? '1' : '0' }}"
                 />
 
                 {{-- cookie    COOKIE_CONSENT_ENABLED --}}
                 <x-admin.bootstrap-switch
                     name="cookie"
                     label="Cookie message"
-                    value="{{ $valueStore->get('ADMIN.cookie') ? '1' : '0' }}"
                 />
 
                 {{-- CSP_ENABLED --}}
                 <x-admin.bootstrap-switch
-                    name="csp"
+                    name="content_security_policy"
                     label="CSP"
-                    value="{{ $valueStore->get('ADMIN.csp') ? '1' : '0' }}"
                 />
 
             </div>
@@ -48,28 +44,24 @@
                 <x-admin.bootstrap-switch
                     name="cache_route"
                     label="Route cache"
-                    value="{{ $valueStore->get('ADMIN.cache_route') ? '1' : '0' }}"
                 />
 
                 {{-- cache config      config:cache - config:clear --}}
                 <x-admin.bootstrap-switch
                     name="cache_config"
                     label="Config cache"
-                    value="{{ $valueStore->get('ADMIN.cache_config') ? '1' : '0' }}"
                 />
 
                 {{-- cache events      event:cache - event:clear --}}
                 <x-admin.bootstrap-switch
                     name="cache_event"
                     label="Event cache"
-                    value="{{ $valueStore->get('ADMIN.cache_event') ? '1' : '0' }}"
                 />
 
                 {{-- google font inline       GOOGLE --}}
                 <x-admin.bootstrap-switch
                     name="cache_google_font"
                     label="Google font cache"
-                    value="{{ $valueStore->get('ADMIN.cache_google_font') ? '1' : '0' }}"
                 />
 
             </div>

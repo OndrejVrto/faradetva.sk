@@ -29,12 +29,11 @@
 
         <div class="row">
             <div class="col-xl-6">
-
                 {{-- APP_ENV= local/production --}}
                 <x-admin.bootstrap-switch
                     name="app_enviroment_mode"
-                    label="{{ $valueStore->get('ADMIN.app_enviroment_mode') ? 'Local' : 'Production' }}"
-                    value="{{ $valueStore->get('ADMIN.app_enviroment_mode') ? '1' : '0' }}"
+                    :default_state="false"
+                    label="{{ customConfig('config', 'app.env')==='local' ? 'Local' : 'Production' }}"
                     off_color="success"
                     on_color="danger"
                 />
@@ -43,7 +42,7 @@
                 <x-admin.bootstrap-switch
                     name="app_debug"
                     label="Debug"
-                    value="{{ $valueStore->get('ADMIN.app_debug') ? '1' : '0' }}"
+                    :default_state="false"
                     off_color="success"
                     on_color="danger"
                 />
@@ -56,7 +55,7 @@
                 <x-admin.bootstrap-switch
                     name="app_query_log"
                     label="Query loging"
-                    value="{{ $valueStore->get('ADMIN.app_query_log') ? '1' : '0' }}"
+                    :default_state="false"
                     off_color="success"
                     on_color="danger"
                 />
@@ -65,7 +64,7 @@
                 <x-admin.bootstrap-switch
                     name="app_query_detector"
                     label="Query detector"
-                    value="{{ $valueStore->get('ADMIN.app_query_detector') ? '1' : '0' }}"
+                    :default_state="false"
                     off_color="success"
                     on_color="danger"
                 />

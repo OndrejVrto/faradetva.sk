@@ -3,7 +3,6 @@
 namespace App\Services\Dashboard;
 
 use Illuminate\Support\Str;
-use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Artisan;
@@ -14,15 +13,17 @@ class SettingsSwitcherService
 {
     public ?string $secretKey = null;
 
-    private $valueStorage;
+    private $config;
+    private $checkbox;
 
     public function __construct() {
-        $this->valueStorage = Valuestore::make(config('farnost-detva.value_store.config'));
+        $this->config   = customConfig();
+        $this->checkbox = customConfig('dashboard-checkbox');
     }
 
     public function __destruct() {
         // update config cache
-        if (true === $this->valueStorage->get('ADMIN.cache_config')) {
+        if (true === $this->checkbox->get('cache_config')) {
             Artisan::call('config:cache');
         }
         // refresh Health checks
@@ -42,12 +43,12 @@ class SettingsSwitcherService
         string $artisanFalse = null,
         string $artisanTrue = null
     ) {
-        if ($require === (bool) $this->valueStorage->get($valueStore)) return;
+        if ($require === $this->checkbox->get($valueStore)) return;
 
         if (false === $require) {
-            $this->valueStorage->put($valueStore, false);
+            $this->checkbox->put($valueStore, false);
             if($config){
-                $this->valueStorage->put($config, false);
+                customConfig('config', [$config => false]);
             }
             if ($artisanFalse) {
                 Artisan::call($artisanFalse);
@@ -56,9 +57,9 @@ class SettingsSwitcherService
             return;
         }
 
-        $this->valueStorage->put($valueStore, true);
+        $this->checkbox->put($valueStore, true);
         if ($config) {
-            $this->valueStorage->put($config, true);
+            customConfig('config', [$config => true]);
         }
         if ($artisanTrue) {
             Artisan::call($artisanTrue);
@@ -89,50 +90,44 @@ class SettingsSwitcherService
     }
 
     private function cache_global(bool $require): void {
-        if ($require === (bool) $this->valueStorage->get('ADMIN.cache_global')) return;
+        if ($require === $this->checkbox->get('cache_global')) return;
         if (false === $require) {
             Artisan::call('cache:clear');
-            $this->valueStorage
-                ->put('ADMIN.cache_global', false)
-                ->put('config.cache.default', 'none');
+            $this->checkbox->put('cache_global', false);
+            customConfig('config', ['cache.default' => 'none']);
         } else {
-            $this->valueStorage
-                ->put('ADMIN.cache_global', true)
-                ->put('config.cache.default', 'file');
+            $this->checkbox->put('cache_global', true);
+            customConfig('config', ['cache.default' => 'file']);
         }
     }
 
     private function app_enviroment_mode(bool $require): void {
-        if ($require === (bool) $this->valueStorage->get('ADMIN.app_enviroment_mode')) return;
+        if ($require === $this->checkbox->get('app_enviroment_mode')) return;
         if (false === $require) {
-            $this->valueStorage
-                ->put('ADMIN.app_enviroment_mode', false)
-                ->put('config.app.env', 'production');
+            $this->checkbox->put('app_enviroment_mode', false);
+            customConfig('config', ['app.env' => 'production']);
         } else {
-            $this->valueStorage
-                ->put('ADMIN.app_enviroment_mode', true)
-                ->put('config.app.env', 'local');
+            $this->checkbox->put('app_enviroment_mode', true);
+            customConfig('config', ['app.env' => 'local']);
         }
     }
 
     private function cache_response(bool $require): void {
-        if ($require === (bool) $this->valueStorage->get('ADMIN.cache_response')) return;
+        if ($require === $this->config->get('cache_response')) return;
         if (false === $require) {
             ResponseCache::clear();
-            $this->valueStorage
-                ->put('ADMIN.cache_response', false)
-                ->put('config.responsecache.enabled', false);
+            $this->checkbox->put('cache_response', false);
+            customConfig('config', ['responsecache.enabled' => false]);
         } else {
-            $this->valueStorage
-                ->put('ADMIN.cache_response', true)
-                ->put('config.responsecache.enabled', true);
+            $this->checkbox->put('cache_response', true);
+            customConfig('config', ['responsecache.enabled' => true]);
         }
     }
 
     private function cache_route(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.cache_route',
+            valueStore   : 'cache_route',
             config       : null,
             artisanFalse : 'route:clear',
             artisanTrue  : 'route:cache'
@@ -142,7 +137,7 @@ class SettingsSwitcherService
     private function cache_config(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.cache_config',
+            valueStore   : 'cache_config',
             config       : null,
             artisanFalse : 'config:clear',
             // artisanTrue  : 'config:cache'
@@ -152,7 +147,7 @@ class SettingsSwitcherService
     private function cache_event(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.cache_event',
+            valueStore   : 'cache_event',
             config       : null,
             artisanFalse : 'event:clear',
             artisanTrue  : 'event:cache'
@@ -162,48 +157,48 @@ class SettingsSwitcherService
     private function cookie(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.cookie',
-            config       : 'config.cookie-consent.enabled',
+            valueStore   : 'cookie',
+            config       : 'cookie-consent.enabled',
         );
     }
 
     private function cache_google_font(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.cache_google_font',
-            config       : 'config.google-fonts.inline',
+            valueStore   : 'cache_google_font',
+            config       : 'google-fonts.inline',
         );
     }
 
-    private function csp(bool $require): void {
+    private function content_security_policy(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.csp',
-            config       : 'config.csp.enabled',
+            valueStore   : 'content_security_policy',
+            config       : 'csp.enabled',
         );
     }
 
     private function app_debug(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.app_debug',
-            config       : 'config.app.debug',
+            valueStore   : 'app_debug',
+            config       : 'app.debug',
         );
     }
 
     private function app_query_log(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.app_query_log',
-            config       : 'config.farnost-detva.guery_loging',
+            valueStore   : 'app_query_log',
+            config       : 'farnost-detva.guery_loging',
         );
     }
 
     private function app_query_detector(bool $require): void {
         $this->handle(
             require      : $require,
-            valueStore   : 'ADMIN.app_query_detector',
-            config       : 'config.querydetector.enabled',
+            valueStore   : 'app_query_detector',
+            config       : 'querydetector.enabled',
         );
     }
 }

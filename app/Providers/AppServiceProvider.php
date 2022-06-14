@@ -32,7 +32,6 @@ class AppServiceProvider extends ServiceProvider
             );
 
             View::share('maintenanceMode', app()->isDownForMaintenance());
-            View::share('valueStore', $valueStore);
 
             //! Blade extensions
             Blade::directive('datetime', function ($expression) {

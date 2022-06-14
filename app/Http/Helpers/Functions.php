@@ -20,14 +20,13 @@ if(!function_exists('customConfig'))
             return $valueStore->put($key);
         }
 
-        $value = $valueStore->get($key);
-
-        if(!$value){
-            $value = $default ?? config($key);
+        if(!$valueStore->has($key)){
+            $value = $default ?? config($key) ?? null;
             $valueStore->put([ $key => $value ]);
         }
-// dd($value);
-        return $value;
+
+        // info($key.' - '. ($value ? '1' : '0'));
+        return $valueStore->get($key);
     }
 }
 
