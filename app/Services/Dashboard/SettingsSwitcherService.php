@@ -23,7 +23,7 @@ class SettingsSwitcherService
 
     public function __destruct() {
         // update config cache
-        if (true === $this->checkbox->get('cache_config')) {
+        if (true == $this->checkbox->get('cache_config')) {
             Artisan::call('config:cache');
         }
         // refresh Health checks
@@ -43,9 +43,9 @@ class SettingsSwitcherService
         string $artisanFalse = null,
         string $artisanTrue = null
     ) {
-        if ($require === $this->checkbox->get($valueStore)) return;
+        if ($require == $this->checkbox->get($valueStore)) return;
 
-        if (false === $require) {
+        if (false == $require) {
             $this->checkbox->put($valueStore, false);
             if($config){
                 customConfig('config', [$config => false]);
@@ -69,8 +69,9 @@ class SettingsSwitcherService
     }
 
     private function maintenance_mode(bool $require): void {
-        if ($require === app()->isDownForMaintenance()) return;
-        if (true === $require) {
+        // dd($require, app()->isDownForMaintenance());
+        if ($require == app()->isDownForMaintenance()) return;
+        if (true == $require) {
             $secretKey = Str::uuid();
             Artisan::call('down', ['--secret' => $secretKey]);
 
@@ -80,8 +81,10 @@ class SettingsSwitcherService
                 'Uživateľ ktorý spustil mód' => Auth::user()->name,
                 'Uživateľov e-mail' => Auth::user()->email,
             ]);
+            $this->checkbox->put('maintenance_mode', true);
             $this->secretKey = $secretKey;
         } else {
+            $this->checkbox->put('maintenance_mode', false);
             Artisan::call('up');
             Log::channel('slack')->info('Aplikácia je opäť spustená.', [
                 'Uživateľ ktorý spustil aplikáciu' => Auth::user()->name,
@@ -90,8 +93,8 @@ class SettingsSwitcherService
     }
 
     private function cache_global(bool $require): void {
-        if ($require === $this->checkbox->get('cache_global')) return;
-        if (false === $require) {
+        if ($require == $this->checkbox->get('cache_global')) return;
+        if (false == $require) {
             Artisan::call('cache:clear');
             $this->checkbox->put('cache_global', false);
             customConfig('config', ['cache.default' => 'none']);
@@ -102,8 +105,8 @@ class SettingsSwitcherService
     }
 
     private function app_enviroment_mode(bool $require): void {
-        if ($require === $this->checkbox->get('app_enviroment_mode')) return;
-        if (false === $require) {
+        if ($require == $this->checkbox->get('app_enviroment_mode')) return;
+        if (false == $require) {
             $this->checkbox->put('app_enviroment_mode', false);
             customConfig('config', ['app.env' => 'production']);
         } else {
@@ -113,8 +116,8 @@ class SettingsSwitcherService
     }
 
     private function cache_response(bool $require): void {
-        if ($require === $this->config->get('cache_response')) return;
-        if (false === $require) {
+        if ($require == $this->config->get('cache_response')) return;
+        if (false == $require) {
             ResponseCache::clear();
             $this->checkbox->put('cache_response', false);
             customConfig('config', ['responsecache.enabled' => false]);

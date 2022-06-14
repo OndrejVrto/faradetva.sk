@@ -18,7 +18,7 @@
             <x-admin.bootstrap-switch
                 name="maintenance_mode"
                 label="Mód údržby"
-                value="{{ $maintenanceMode ? '1' : '0' }}"
+                {{-- value="{{ $maintenanceMode ? '0' : '1' }}" --}}
                 off_color="success"
                 on_color="danger"
             />
