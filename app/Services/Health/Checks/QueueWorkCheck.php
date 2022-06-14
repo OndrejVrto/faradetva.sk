@@ -19,7 +19,7 @@ class QueueWorkCheck extends Check
         sleep(1);
         $stored_value = customConfig('health-checks', $key, false);
 
-        if ($stored_value === $new_value) {
+        if ($stored_value == $new_value) {
             return Result::make("$name.ok");
         }
 

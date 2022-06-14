@@ -11,10 +11,8 @@ class MaintenanceModeCheck extends Check
         $name = 'health-results.maintenance';
         $this->label("$name.label");
 
-        $actualMaintenace = app()->isDownForMaintenance();
-
         $result = Result::make();
-        if (false === $actualMaintenace) {
+        if (false == app()->isDownForMaintenance()) {
             return $result
                 ->notificationMessage("$name.ok")
                 ->ok();

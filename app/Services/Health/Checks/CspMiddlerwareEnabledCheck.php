@@ -11,7 +11,7 @@ class CspMiddlerwareEnabledCheck extends Check
         $name = 'health-results.csp_enabled';
         $this->label("$name.label");
 
-        return true === customConfig('config', 'csp.enabled')
+        return true == customConfig('config', 'csp.enabled')
             ? Result::make("$name.ok")
             : Result::make()->warning("$name.failed");
     }

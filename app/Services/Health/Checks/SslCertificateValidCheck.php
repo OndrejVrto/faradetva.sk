@@ -76,7 +76,7 @@ class SslCertificateValidCheck extends Check
      */
     public function check(array $config): bool
     {
-        if ($this->url === null) {
+        if ($this->url == null) {
             $this->url = $config['url'];
         }
 
@@ -210,7 +210,7 @@ class SslCertificateValidCheck extends Check
         }
 
         // Determine if wildcard domain covers the host domain
-        if ($certificateHost[0] === '*' && substr_count($host, '.') > 1) {
+        if ($certificateHost[0] == '*' && substr_count($host, '.') > 1) {
             $certificateHost = substr($certificateHost, 1);
             $host = substr($host, strpos($host, '.'));
             return $certificateHost == $host;

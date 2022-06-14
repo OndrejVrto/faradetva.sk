@@ -39,6 +39,6 @@ class CacheCheck extends Check
 
         $actualValue = Cache::driver($driver)->get('laravel-health:check');
 
-        return $actualValue === $expectedValue;
+        return $actualValue == $expectedValue;
     }
 }

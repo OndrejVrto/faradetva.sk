@@ -71,9 +71,10 @@ return [
     ],
 
     'schedule' => [
-        'label'               => 'Scheduler',
+        'label'               => 'Scheduler (CRON)',
         'ok'                  => 'OK',
         'warning_maintenance' => 'In maintenance mode is scheduler automatic deactivated',
+        'warning_cache_off'   => 'When the cache is turned off, :eol it is not possible to test the scheduler function.',
         'failed'              => 'The schedule did not run yet.',
         'failed_time'         => 'The last run of the schedule :eol was more than :minutes minutes ago.',
     ],

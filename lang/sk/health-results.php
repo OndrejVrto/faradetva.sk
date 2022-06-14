@@ -71,9 +71,10 @@ return [
     ],
 
     'schedule' => [
-        'label'               => 'Plánovač',
+        'label'               => 'Plánovač (CRON)',
         'ok'                  => 'Funguje',
         'warning_maintenance' => 'V móde údržby je plánovač automaticky deaktivananý',
+        'warning_cache_off'   => 'Pri vypnutej vyrovnávacej pamäti, :eol nie je možné otestovať funkciu plánovača.',
         'failed'              => 'Plánovač nieje spustený.',
         'failed_time'         => 'Posledný beh plánovača bol :eol pred viac ako :minutes minútami.',
     ],

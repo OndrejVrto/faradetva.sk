@@ -11,7 +11,7 @@ class RoutesAreCachedCheck extends Check
         $name = 'health-results.route_cached';
         $this->label("$name.label");
 
-        return true === app()->routesAreCached()
+        return true == app()->routesAreCached()
             ? Result::make("$name.ok")
             : Result::make()->warning("$name.failed");
     }

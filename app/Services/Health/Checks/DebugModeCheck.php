@@ -11,9 +11,7 @@ class DebugModeCheck extends Check
         $name = 'health-results.debug_mode';
         $this->label("$name.label");
 
-        $actual = customConfig('config', 'app.debug');
-
-        return false === $actual
+        return false == customConfig('config', 'app.debug')
             ? Result::make("$name.ok")
             : Result::make()->failed("$name.failed");
     }

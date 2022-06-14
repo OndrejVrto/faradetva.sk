@@ -11,7 +11,7 @@ class EventsAreCachedCheck extends Check
         $name = 'health-results.event_cached';
         $this->label("$name.label");
 
-        return true === app()->eventsAreCached()
+        return true == app()->eventsAreCached()
             ? Result::make("$name.ok")
             : Result::make()->warning("$name.failed");
     }

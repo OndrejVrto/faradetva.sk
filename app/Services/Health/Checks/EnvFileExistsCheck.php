@@ -11,7 +11,7 @@ class EnvFileExistsCheck extends Check
         $name = 'health-results.env_exists';
         $this->label("$name.label");
 
-        return true === file_exists(base_path('.env'))
+        return true == file_exists(base_path('.env'))
             ? Result::make("$name.ok")
             : Result::make()->warning("$name.failed");
     }

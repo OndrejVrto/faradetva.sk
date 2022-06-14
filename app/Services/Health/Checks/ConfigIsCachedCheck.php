@@ -11,7 +11,7 @@ class ConfigIsCachedCheck extends Check
         $name = 'health-results.config_cached';
         $this->label("$name.label");
 
-        return true === app()->configurationIsCached()
+        return true == app()->configurationIsCached()
             ? Result::make("$name.ok")
             : Result::make()->warning("$name.failed");
     }

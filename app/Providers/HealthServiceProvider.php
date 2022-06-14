@@ -35,7 +35,9 @@ class HealthServiceProvider extends ServiceProvider
             UsedDiskSpaceCheck::new()
                 ->warnWhenUsedSpaceIsAbovePercentage(80)
                 ->failWhenUsedSpaceIsAbovePercentage(90),
-            ScheduleCheck::new(),
+            ScheduleCheck::new()
+                ->useCacheStore(customConfig('config', 'cache.default'))
+                ->heartbeatMaxAgeInMinutes(1),
             MeiliSearchCheck::new(),
             EnvironmentCheck::new(),
             DebugModeCheck::new(),
