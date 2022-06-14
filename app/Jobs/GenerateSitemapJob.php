@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Spatie\Valuestore\Valuestore;
 use Spatie\Sitemap\SitemapGenerator;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;

@@ -3,6 +3,7 @@
 namespace App\Services\Dashboard;
 
 use App\Jobs\UrlsCheckJob;
+use App\Jobs\GenerateSitemapJob;
 use App\Jobs\SiteSearchCrawlJob;
 use Illuminate\Support\Facades\Artisan;
 use App\Services\Dashboard\FutureTestService;
@@ -60,5 +61,9 @@ class DashboardCommandService
 
     private function crawl_search() {
         (new SiteSearchCrawlJob())->handle();
+    }
+
+    private function crawl_sitemap() {
+        (new GenerateSitemapJob())->handle();
     }
 }

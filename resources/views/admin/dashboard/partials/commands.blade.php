@@ -21,6 +21,12 @@
         text="Scanovať pre vyhľadávanie"
     />
     <x-admin.dashboard-command-button
+        route_parameter="crawl_sitemap"
+        color="purple"
+        icon="fas fa-magnifying-glass-arrow-right"
+        text="Scanovať pre sitemap"
+    />
+    <x-admin.dashboard-command-button
         route_parameter="cache_reset"
         color="orange"
         icon="fas fa-sync"
