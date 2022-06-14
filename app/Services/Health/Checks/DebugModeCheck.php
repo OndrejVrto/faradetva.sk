@@ -22,13 +22,10 @@ class DebugModeCheck extends Check
             : $result->failed('health-results.debug_mode.failed');
     }
 
-    protected function getMode(): bool {
-        $valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+    protected function getMode(): ?bool {
+        $mode = Valuestore::make(config('farnost-detva.value_store.config'))
+                    ->get('config.app.debug');
 
-        if($valueStorage->has('config.app.debug')) {
-            return $valueStorage->get('config.app.debug');
-        }
-
-        return config('app.debug');
+        return is_null($mode) ? config('app.debug') : $mode;
     }
 }

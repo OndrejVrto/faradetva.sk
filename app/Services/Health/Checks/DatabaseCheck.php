@@ -36,13 +36,10 @@ class DatabaseCheck extends Check
         ]);
     }
 
-    protected function getDefaultConnectionName(): string {
-        $valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+    protected function getDefaultConnectionName(): ?string {
+        $valueConnection = Valuestore::make(config('farnost-detva.value_store.config'))
+            ->get('config.database.default');
 
-        if($valueStorage->has('config.database.default')) {
-            return $valueStorage->get('config.database.default');
-        }
-
-        return config('database.default');
+        return is_null($valueConnection) ? config('database.default') : $valueConnection;
     }
 }

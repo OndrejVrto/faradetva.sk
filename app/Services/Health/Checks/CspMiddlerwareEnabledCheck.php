@@ -23,12 +23,9 @@ class CspMiddlerwareEnabledCheck extends Check
     }
 
     private function getStatusCsp(): bool {
-        $valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+        $status = Valuestore::make(config('farnost-detva.value_store.config'))
+                    ->get('config.csp.enabled');
 
-        if($valueStorage->has('config.csp.enabled')) {
-            return $valueStorage->get('config.csp.enabled');
-        }
-
-        return config('csp.enabled', true);
+        return is_null($status) ? config('csp.enabled') : $status;
     }
 }

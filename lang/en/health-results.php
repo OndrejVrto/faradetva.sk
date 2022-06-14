@@ -6,6 +6,7 @@ return [
     'ok'      => 'OK',
     'warning' => 'Warning',
     'failed'  => 'Error',
+    'crashed' => 'Failed',
 
     'cache' => [
         'label'       => 'Cache',
@@ -70,15 +71,17 @@ return [
     ],
 
     'schedule' => [
-        'label'        => 'Scheduler',
-        'ok'           => 'OK',
-        'failed'       => 'The schedule did not run yet.',
-        'failed_time'  => 'The last run of the schedule :eol was more than :minutes minutes ago.',
+        'label'               => 'Scheduler',
+        'ok'                  => 'OK',
+        'warning_maintenance' => 'In maintenance mode is scheduler automatic deactivated',
+        'failed'              => 'The schedule did not run yet.',
+        'failed_time'         => 'The last run of the schedule :eol was more than :minutes minutes ago.',
     ],
 
     'disk_space' => [
-        'label'       => 'Used disc space',
+        'label'        => 'Used disc space',
         'short'        => ':diskSpaceUsedPercentage%',
+        'crashed'      => 'Disc space control failed',
         'ok'           => ':diskSpaceUsedPercentage% used :eol (:usedDiskSpace from :totalDiskSpace).',
         'warning'      => 'The disk slowly fills up. :eol Used :diskSpaceUsedPercentage% (:usedDiskSpace used out of :totalDiskSpace).',
         'failed'       => 'The disk is almost full. :eol Used :diskSpaceUsedPercentage% (:freeDiskSpace free out of :totalDiskSpace).',

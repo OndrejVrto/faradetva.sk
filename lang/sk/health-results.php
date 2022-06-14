@@ -6,6 +6,7 @@ return [
     'ok'      => 'OK',
     'warning' => 'Varovanie',
     'failed'  => 'Chyba',
+    'crashed' => 'Zlyhanie',
 
     'cache' => [
         'label'       => 'Vyrovnávacia pamäť (cache)',
@@ -70,15 +71,17 @@ return [
     ],
 
     'schedule' => [
-        'label'        => 'Plánovač',
-        'ok'           => 'Funguje',
-        'failed'       => 'Plánovač nieje spustený.',
-        'failed_time'  => 'Posledný beh plánovača bol :eol pred viac ako :minutes minútami.',
+        'label'               => 'Plánovač',
+        'ok'                  => 'Funguje',
+        'warning_maintenance' => 'V móde údržby je plánovač automaticky deaktivananý',
+        'failed'              => 'Plánovač nieje spustený.',
+        'failed_time'         => 'Posledný beh plánovača bol :eol pred viac ako :minutes minútami.',
     ],
 
     'disk_space' => [
         'label'        => 'Zaplnenie disku',
         'short'        => ':diskSpaceUsedPercentage%',
+        'crashed'      => 'Kontrola disku zlyhala',
         'ok'           => ':diskSpaceUsedPercentage% zaplnených :eol (:usedDiskSpace z :totalDiskSpace).',
         'warning'      => 'Disk sa pomaly zapĺňa. :eol Použitých :diskSpaceUsedPercentage% (:usedDiskSpace použitých z :totalDiskSpace).',
         'failed'       => 'Disk je skoro plný. :eol Použitých :diskSpaceUsedPercentage% (:freeDiskSpace voľných z :totalDiskSpace).',

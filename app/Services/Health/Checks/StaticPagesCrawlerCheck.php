@@ -45,12 +45,9 @@ class StaticPagesCrawlerCheck extends Check
     }
 
     private function getLastCrawledTime(): ?Carbon {
-        $valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+        $time = Valuestore::make(config('farnost-detva.value_store.crawler'))
+                    ->get('CRAWLER.url_check');
 
-        if($valueStorage->has('CRAWLER.url_check')) {
-            return Carbon::create($valueStorage->get('CRAWLER.url_check'));
-        }
-
-        return null;
+        return is_null($time) ? null : Carbon::create($time);
     }
 }

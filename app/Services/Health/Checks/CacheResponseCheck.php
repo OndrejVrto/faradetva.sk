@@ -31,23 +31,17 @@ class CacheResponseCheck extends Check
     }
 
     protected function enabledCache(): string {
-        $valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+        $cache = Valuestore::make(config('farnost-detva.value_store.config'))
+                            ->get('config.responsecache.enabled');
 
-        if($valueStorage->has('config.responsecache.enabled')) {
-            return $valueStorage->get('config.responsecache.enabled');
-        }
-
-        return config('responsecache.enabled', true);
+        return is_null($cache) ? config('responsecache.enabled', true) : $cache;
     }
 
     protected function getDriver(): string {
-        $valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+        $driver = Valuestore::make(config('farnost-detva.value_store.config'))
+                        ->get('config.responsecache.cache_store');
 
-        if($valueStorage->has('config.responsecache.cache_store')) {
-            return $valueStorage->get('config.responsecache.cache_store');
-        }
-
-        return config('responsecache.cache_store', 'database');
+        return is_null($driver) ? config('responsecache.cache_store', 'database') : $driver;
     }
 
     protected function getTime(): string {

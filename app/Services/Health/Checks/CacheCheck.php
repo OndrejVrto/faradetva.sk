@@ -32,14 +32,11 @@ class CacheCheck extends Check
         ]);
     }
 
-    protected function defaultDriver(): string {
-        $valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+    protected function defaultDriver(): ?string {
+        $driver = Valuestore::make(config('farnost-detva.value_store.config'))
+                        ->get('config.cache.default');
 
-        if($valueStorage->has('config.cache.default')) {
-            return $valueStorage->get('config.cache.default');
-        }
-
-        return config('cache.default', 'database');
+        return is_null($driver) ? config('cache.default', 'database') : $driver;
     }
 
     protected function canWriteValuesToCache(string $driver): bool {
