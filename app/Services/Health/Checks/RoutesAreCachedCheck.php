@@ -8,12 +8,11 @@ use Spatie\Health\Checks\Result;
 class RoutesAreCachedCheck extends Check
 {
     public function run(): Result {
-        $this->label('health-results.route_cached.label');
+        $name = 'health-results.route_cached';
+        $this->label("$name.label");
 
-        $result = Result::make();
-
-        return app()->routesAreCached() === true
-            ? $result->notificationMessage("health-results.route_cached.ok")->ok()
-            : $result->warning("health-results.route_cached.failed");
+        return true === app()->routesAreCached()
+            ? Result::make("$name.ok")
+            : Result::make()->warning("$name.failed");
     }
 }

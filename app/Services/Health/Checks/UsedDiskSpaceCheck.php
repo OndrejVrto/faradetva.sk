@@ -29,12 +29,13 @@ class UsedDiskSpaceCheck extends Check
     }
 
     public function run(): Result {
-        $this->label('health-results.disk_space.label');
+        $name = 'health-results.disk_space';
+        $this->label("$name.label");
 
         $diskSpaceUsedPercentage = $this->getDiskUsagePercentage();
 
         if ($diskSpaceUsedPercentage instanceof Exception) {
-            return new Result(Status::crashed(), 'health-results.disk_space.crashed', 'health-results.crashed');
+            return new Result(Status::crashed(), "$name.crashed", 'health-results.crashed');
         }
 
         $result = Result::make()
@@ -44,17 +45,17 @@ class UsedDiskSpaceCheck extends Check
                 'usedDiskSpace' => formatBytes($this->usedDiskSpace),
                 'freeDiskSpace' => formatBytes($this->freeDiskSpace),
             ])
-            ->shortSummary('health-results.disk_space.short');
+            ->shortSummary("$name.short");
 
         if ($diskSpaceUsedPercentage > $this->errorThreshold) {
-            return $result->failed('health-results.disk_space.failed');
+            return $result->failed("$name.failed");
         }
 
         if ($diskSpaceUsedPercentage > $this->warningThreshold) {
-            return $result->warning('health-results.disk_space.warning');
+            return $result->warning("$name.warning");
         }
 
-        return $result->notificationMessage('health-results.disk_space.ok')->ok();
+        return $result->notificationMessage("$name.ok")->ok();
     }
 
     protected function getDiskUsagePercentage(): int|Exception {

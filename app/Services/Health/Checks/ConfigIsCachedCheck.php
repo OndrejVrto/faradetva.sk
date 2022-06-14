@@ -8,12 +8,11 @@ use Spatie\Health\Checks\Result;
 class ConfigIsCachedCheck extends Check
 {
     public function run(): Result {
-        $this->label('health-results.config_cached.label');
+        $name = 'health-results.config_cached';
+        $this->label("$name.label");
 
-        $result = Result::make();
-
-        return app()->configurationIsCached() === true
-            ? $result->notificationMessage("health-results.config_cached.ok")->ok()
-            : $result->warning("health-results.config_cached.failed");
+        return true === app()->configurationIsCached()
+            ? Result::make("$name.ok")
+            : Result::make()->warning("$name.failed");
     }
 }

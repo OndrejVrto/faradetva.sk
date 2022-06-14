@@ -8,12 +8,11 @@ use Spatie\Health\Checks\Result;
 class EventsAreCachedCheck extends Check
 {
     public function run(): Result {
-        $this->label('health-results.event_cached.label');
+        $name = 'health-results.event_cached';
+        $this->label("$name.label");
 
-        $result = Result::make();
-
-        return app()->eventsAreCached() === true
-            ? $result->notificationMessage("health-results.event_cached.ok")->ok()
-            : $result->warning("health-results.event_cached.failed");
+        return true === app()->eventsAreCached()
+            ? Result::make("$name.ok")
+            : Result::make()->warning("$name.failed");
     }
 }

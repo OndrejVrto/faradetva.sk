@@ -1,4 +1,35 @@
 <?php
+use Spatie\Valuestore\Valuestore;
+
+if(!function_exists('customConfig'))
+{
+    function customConfig(string $filename = 'config', $key = null, $default = null): Valuestore|string|null {
+        try {
+            $valueStore = Valuestore::make(
+                storage_path("app/value-store/$filename.json")
+            );
+        } catch (\Throwable $th) {
+            return null;
+        }
+
+        if (is_null($key)) {
+            return $valueStore;
+        }
+
+        if (is_array($key)) {
+            return $valueStore->put($key);
+        }
+
+        $value = $valueStore->get($key);
+
+        if(!$value){
+            $value = $default ?? config($key);
+            $valueStore->put([ $key => $value ]);
+        }
+// dd($value);
+        return $value;
+    }
+}
 
 if(!function_exists('prepareInput'))
 {

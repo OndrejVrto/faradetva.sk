@@ -108,14 +108,16 @@ class SslCertificateValidCheck extends Check
     }
 
     public function run(): Result {
-        $this->label('health-results.ssl_certificate.label');
+        $name = 'health-results.ssl_certificate';
+        $this->label("$name.label");
+
         $result = Result::make();
 
         $this->url = config('app.url');
         $urlParts = $this->parseUrl($this->url);
 
         if (!$urlParts) {
-            return $result->failed("health-results.ssl_certificate.failed_bad_url")->meta([
+            return $result->failed("$name.failed_bad_url")->meta([
                 'url' => $this->url,
             ]);
         }
@@ -123,38 +125,38 @@ class SslCertificateValidCheck extends Check
         try {
             $this->certificateInfo = $this->downloadCertificate($urlParts);
         } catch (\Exception $e) {
-            return $result->failed("health-results.ssl_certificate.failed_certificate_non_exist")->meta([
+            return $result->failed("$name.failed_certificate_non_exist")->meta([
                 'url' => $this->url,
             ]);
         }
 
         $this->processCertificate($this->certificateInfo);
 
-        $result->shortSummary("health-results.ssl_certificate.short")
+        $result->shortSummary("$name.short")
             ->meta([
-            'url'            => $this->url,
-            'host'           => $urlParts['host'],
-            'daysRemaining'  => $this->certificateDaysUntilExpiration,
-            'dateExpiration' => $this->certificateExpiration,
-        ]);
+                'url'            => $this->url,
+                'host'           => $urlParts['host'],
+                'daysRemaining'  => $this->certificateDaysUntilExpiration,
+                'dateExpiration' => $this->certificateExpiration,
+            ]);
 
         if (!$this->hostCoveredByCertificate($urlParts['host'], $this->certificateDomain, $this->certificateAdditionalDomains) ) {
-            return $result->failed("health-results.ssl_certificate.failed_uncovered_host");
+            return $result->failed("$name.failed_uncovered_host");
         }
 
         if ($this->certificateDaysUntilExpiration < 0) {
-            return $result->failed("health-results.ssl_certificate.failed_expired");
+            return $result->failed("$name.failed_expired");
         }
 
         if ($this->certificateDaysUntilExpiration < $this->errorThreshold) {
-            return $result->failed("health-results.ssl_certificate.failed_expired_soon");
+            return $result->failed("$name.failed_expired_soon");
         }
 
         if ($this->certificateDaysUntilExpiration < $this->warningThreshold) {
-            return $result->warning("health-results.ssl_certificate.failed_expired_soon");
+            return $result->warning("$name.failed_expired_soon");
         }
 
-        return $result->notificationMessage("health-results.ssl_certificate.ok")->ok();
+        return $result->notificationMessage("$name.ok")->ok();
     }
 
     protected function downloadCertificate($urlParts)

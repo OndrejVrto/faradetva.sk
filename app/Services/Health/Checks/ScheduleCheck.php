@@ -4,7 +4,6 @@ namespace App\Services\Health\Checks;
 
 use Carbon\Carbon;
 use Spatie\Health\Checks\Result;
-use Spatie\Valuestore\Valuestore;
 use Spatie\Health\Checks\Checks\ScheduleCheck as SpatieScheduleCheck;
 
 class ScheduleCheck extends SpatieScheduleCheck
@@ -16,34 +15,31 @@ class ScheduleCheck extends SpatieScheduleCheck
             return $this->cacheStoreName;
         }
 
-        $name = Valuestore::make(config('farnost-detva.value_store.config'))
-                            ->get('config.cache.default');
-
-        return is_null($name) ? config('cache.default', 'database') : $name;
+        return customConfig('config', 'cache.default');
     }
 
     public function run(): Result {
-        $this->label('health-results.schedule.label');
+        $name = 'health-results.schedule';
+        $this->label("$name.label");
 
-        $result = Result::make()
-            ->notificationMessage('health-results.schedule.ok')->ok();
+        $result = Result::make();
 
         if (app()->isDownForMaintenance()) {
-            return $result->warning('health-results.schedule.warning_maintenance');
+            return $result->warning("$name.warning_maintenance");
         }
 
         $lastHeartbeatTimestamp = cache()->store($this->cacheStoreName)->get($this->cacheKey);
         if (! $lastHeartbeatTimestamp) {
-            return $result->failed('health-results.schedule.failed');
+            return $result->failed("$name.failed");
         }
 
         $latestHeartbeatAt = Carbon::createFromTimestamp($lastHeartbeatTimestamp);
         $minutesAgo = $latestHeartbeatAt->diffInMinutes() + 1;
         if ($minutesAgo > $this->heartbeatMaxAgeInMinutes) {
-            return $result->failed('health-results.schedule.failed_time')
-            ->meta(['minutes' => $minutesAgo]);
+            return $result->failed("$name.failed_time")
+                ->meta(['minutes' => $minutesAgo]);
         }
 
-        return $result;
+        return $result->notificationMessage("$name.ok")->ok();
     }
 }

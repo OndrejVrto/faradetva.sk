@@ -2,35 +2,35 @@
 
 namespace App\Services\Health\Checks;
 
-use function app;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
 class MaintenanceModeCheck extends Check
 {
     public function run(): Result {
-        $this->label('health-results.maintenance.label');
+        $name = 'health-results.maintenance';
+        $this->label("$name.label");
 
         $actualMaintenace = app()->isDownForMaintenance();
-        $result = Result::make();
 
+        $result = Result::make();
         if (false === $actualMaintenace) {
             return $result
-                ->notificationMessage('health-results.maintenance.ok')
+                ->notificationMessage("$name.ok")
                 ->ok();
         }
 
-        $data = json_decode(file_get_contents(storage_path().'/framework/down'), true);
+        $data = json_decode(file_get_contents(storage_path('framework').'down'), true);
         if (is_null($data['secret'])) {
             return $result
-                ->shortSummary('health-results.maintenance.failed-no-key-short')
-                ->failed('health-results.maintenance.failed-no-key');
+                ->shortSummary("$name.failed-no-key-short")
+                ->failed("$name.failed-no-key");
         }
 
         return $result->meta([
-            'secret' => $data['secret'],
-        ])
-        ->shortSummary('health-results.maintenance.failed-short')
-        ->failed('health-results.maintenance.failed');
+                'secret' => $data['secret'],
+            ])
+            ->shortSummary("$name.failed-short")
+            ->failed("$name.failed");
     }
 }

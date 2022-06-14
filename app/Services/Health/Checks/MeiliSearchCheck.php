@@ -24,43 +24,44 @@ class MeiliSearchCheck extends Check
     }
 
     public function run(): Result {
-        $this->label('health-results.meili-search.label');
+        $name = 'health-results.meili-search';
+        $this->label("$name.label");
 
         try {
             $response = Http::timeout($this->timeout)->asJson()->get($this->url);
         } catch (Exception) {
             return Result::make()
-                ->failed('health-results.meili-search.unreachable')
-                ->shortSummary('health-results.meili-search.unreachable-short')
+                ->failed("$name.unreachable")
+                ->shortSummary("$name.unreachable-short")
                 ->meta(['url' => $this->url]);
         }
 
         /** @phpstan-ignore-next-line */
         if (! $response) {
             return Result::make()
-                ->failed('health-results.meili-search.not-respond')
-                ->shortSummary('health-results.meili-search.not-respond-short')
+                ->failed("$name.not-respond")
+                ->shortSummary("$name.not-respond-short")
                 ->meta(['url' => $this->url]);
         }
 
         if (! Arr::has($response, 'status')) {
             return Result::make()
-                ->failed('health-results.meili-search.invalid-response')
-                ->shortSummary('health-results.meili-search.invalid-response-short');
+                ->failed("$name.invalid-response")
+                ->shortSummary("$name.invalid-response-short");
         }
 
         $status = Arr::get($response, 'status');
 
         if ($status !== 'available') {
             return Result::make()
-                ->failed('health-results.meili-search.available')
-                ->shortSummary('health-results.meili-search.available-short')
+                ->failed("$name.available")
+                ->shortSummary("$name.available-short")
                 ->meta(['status' => ucfirst($status)]);
         }
 
         return Result::make()
-            ->notificationMessage('health-results.meili-search.ok')->ok()
-            ->shortSummary('health-results.meili-search.ok-short')
+            ->notificationMessage("$name.ok")->ok()
+            ->shortSummary("$name.ok-short")
             ->meta(['status' => ucfirst($status)]);
     }
 }

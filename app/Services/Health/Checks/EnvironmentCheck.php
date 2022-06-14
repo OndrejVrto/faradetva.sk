@@ -16,8 +16,10 @@ class EnvironmentCheck extends Check
     }
 
     public function run(): Result {
+        $name = 'health-results.environment';
+        $this->label("$name.label");
+
         $actualEnvironment = (string)app()->environment();
-        $this->label('health-results.environment.label');
 
         $result = Result::make()
             ->meta([
@@ -27,7 +29,7 @@ class EnvironmentCheck extends Check
             ->shortSummary($actualEnvironment);
 
         return $this->expectedEnvironment === $actualEnvironment
-            ? $result->notificationMessage('health-results.environment.ok')->ok()
-            : $result->failed('health-results.environment.failed');
+            ? $result->notificationMessage("$name.ok")->ok()
+            : $result->failed("$name.failed");
     }
 }

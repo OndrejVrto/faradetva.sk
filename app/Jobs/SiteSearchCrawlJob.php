@@ -16,7 +16,7 @@ class SiteSearchCrawlJob
                 dispatch(new CrawlSiteJob($siteSearchConfig));
             });
 
-        Valuestore::make(config('farnost-detva.value_store.crawler'))
+        customConfig('crawler')
             ->put('___RELOAD', false)
             ->put('CRAWLER.site_search', now());
     }

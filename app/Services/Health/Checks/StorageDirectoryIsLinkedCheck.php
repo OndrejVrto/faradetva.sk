@@ -9,15 +9,14 @@ use Illuminate\Filesystem\Filesystem;
 class StorageDirectoryIsLinkedCheck extends Check
 {
     public function run(): Result {
-        $this->label('health-results.storage_link.label');
-
-        $result = Result::make();
+        $name = 'health-results.storage_link';
+        $this->label("$name.label");
 
         try {
             (new Filesystem)->isDirectory(public_path('storage'));
-            return $result->notificationMessage("health-results.storage_link.ok")->ok();
+            return Result::make("$name.storage_link.ok");
         } catch (\Exception $e) {
-            return $result->failed("health-results.storage_link.failed");
+            return Result::make()->failed("$name.storage_link.failed");
         }
     }
 }

@@ -24,34 +24,35 @@ class PingCheck extends Check
     }
 
     public function run(): Result {
-        $this->label('health-results.ping.label');
+        $name = 'health-results.ping';
+        $this->label("$name.label");
 
         if (is_null($this->url)) {
             return Result::make()
-                ->failed('health-results.ping.url_not_set');
+                ->failed("$name.url_not_set");
         }
 
         try {
             if (! Http::timeout($this->timeout)->get($this->url)->successful()) {
-                return $this->failedResult();
+                return $this->failedResult($name);
             }
         } catch (Exception $ex) {
-            return $this->failedResult();
+            return $this->failedResult($name);
         }
 
         return Result::make()
-            ->notificationMessage('health-results.ping.ok')->ok()
-            ->shortSummary('health-results.ping.ok-short')
+            ->notificationMessage("$name.ok")->ok()
+            ->shortSummary("$name.ok-short")
             ->meta([
                 'name' => $this->getName(),
                 'url'  => $this->url,
             ]);
     }
 
-    protected function failedResult(): Result {
+    protected function failedResult($name): Result {
         return Result::make()
-            ->failed('health-results.ping.failed')
-            ->shortSummary('health-results.ping.failed-short')
+            ->failed("$name.failed")
+            ->shortSummary("$name.failed-short")
             ->meta([
                 'name' => $this->getName(),
                 'url'  => $this->url,

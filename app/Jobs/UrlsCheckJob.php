@@ -7,7 +7,6 @@ namespace App\Jobs;
 use Spatie\Crawler\Crawler;
 use Illuminate\Bus\Queueable;
 use GuzzleHttp\RequestOptions;
-use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\DB;
 use App\Crawler\UrlCheckCrawlProfile;
 use Illuminate\Support\Facades\File;
@@ -47,7 +46,7 @@ class UrlsCheckJob implements ShouldQueue
             ->setCrawlProfile(new UrlCheckCrawlProfile(config('app.url')))
             ->startCrawling(config('app.url'));
 
-        Valuestore::make(config('farnost-detva.value_store.crawler'))
+        customConfig('crawler')
             ->put('___RELOAD', false)
             ->put('CRAWLER.url_check', now());
     }

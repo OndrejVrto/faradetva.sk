@@ -6,23 +6,23 @@ use Exception;
 use Illuminate\Support\Str;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
-use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\Cache;
 
 class CacheCheck extends Check
 {
     public function run(): Result {
-        $driver = $this->defaultDriver();
-        $this->label('health-results.cache.label');
+        $name = 'health-results.cache';
+        $this->label("$name.label");
+
+        $driver = customConfig('config', 'cache.default');
 
         $result = Result::make();
-
         try {
             $this->canWriteValuesToCache($driver)
-                ? $result->notificationMessage("health-results.cache.ok")->ok()
-                : $result->failed("health-results.cache.failed");
+                ? $result->notificationMessage("$name.ok")->ok()
+                : $result->failed("$name.failed");
         } catch (Exception $exception) {
-            $result->failed("health-results.cache.exception");
+            $result->failed("$name.exception");
             $exceptionMessage = $exception->getMessage();
         }
 
@@ -30,13 +30,6 @@ class CacheCheck extends Check
             'driver' => $driver,
             'exceptionMessage' => $exceptionMessage ?? '',
         ]);
-    }
-
-    protected function defaultDriver(): ?string {
-        $driver = Valuestore::make(config('farnost-detva.value_store.config'))
-                        ->get('config.cache.default');
-
-        return is_null($driver) ? config('cache.default', 'database') : $driver;
     }
 
     protected function canWriteValuesToCache(string $driver): bool {

@@ -12,7 +12,8 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 class CorrectPhpVersionInstalledCheck extends Check
 {
     public function run(): Result {
-        $this->label('health-results.php_version.label');
+        $name = 'health-results.php_version';
+        $this->label("$name.label");
 
         $result = Result::make();
 
@@ -21,12 +22,12 @@ class CorrectPhpVersionInstalledCheck extends Check
         try {
             $requiredVersion = $this->getRequiredPhpConstraint();
         } catch (FileNotFoundException $e) {
-            return $result->failed("health-results.php_version.crash_composer");
+            return $result->failed("$name.crash_composer");
         }
 
         Semver::satisfies($usedVersion, $requiredVersion )
-            ? $result->notificationMessage("health-results.php_version.ok")->ok()
-            : $result->failed("health-results.php_version.failed");
+            ? $result->notificationMessage("$name.ok")->ok()
+            : $result->failed("$name.failed");
 
             return $result->meta([
                 'required' => $requiredVersion,
