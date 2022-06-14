@@ -17,7 +17,7 @@ class SettingsSwitcherService
     private $valueStorage;
 
     public function __construct() {
-        $this->valueStorage = Valuestore::make(config('farnost-detva.value_store'));
+        $this->valueStorage = Valuestore::make(config('farnost-detva.value_store.config'));
     }
 
     public function __destruct() {

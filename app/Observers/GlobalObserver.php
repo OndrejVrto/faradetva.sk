@@ -14,7 +14,7 @@ class GlobalObserver
         Artisan::call('cache:clear');
         ResponseCache::clear();
 
-        $store = Valuestore::make(config('farnost-detva.value_store'));
+        $store = Valuestore::make(config('farnost-detva.value_store.crawler'));
         $store->put('___LAST_MODIFIED', Carbon::now()->timestamp);
         $store->put('___RELOAD', true);
     }

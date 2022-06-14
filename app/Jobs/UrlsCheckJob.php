@@ -47,7 +47,7 @@ class UrlsCheckJob implements ShouldQueue
             ->setCrawlProfile(new UrlCheckCrawlProfile(config('app.url')))
             ->startCrawling(config('app.url'));
 
-        Valuestore::make(config('farnost-detva.value_store'))
+        Valuestore::make(config('farnost-detva.value_store.crawler'))
             ->put('___RELOAD', false)
             ->put('CRAWLER.url_check', now());
     }

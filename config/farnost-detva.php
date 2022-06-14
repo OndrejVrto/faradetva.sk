@@ -1,10 +1,13 @@
 <?php
 
 return [
-    // TODO: declare mails in .env
-    'mail_contact_form' => 'detva@fara.sk',
+    'mail_contact_form' => env('MAIL_FROM_ADDRESS_CONTACT', 'kontaktny-formular@faradetva.sk'),
 
-    'value_store' => storage_path('app\value-store\config.json'),
+    'value_store'  => [
+        'config'       => storage_path('app\value-store\config.json'),
+        'crawler'      => storage_path('app\value-store\crawler.json'),
+        'health-checks' => storage_path('app\value-store\health-checks.json'),
+    ],
 
     'guery_loging' => env('QUERY_LOG', false),
 
@@ -12,9 +15,6 @@ return [
 
     'ngrok_url' => env('NGROK_URL'),
 
-    'cache_duration' => [
-        'news' => env('CACHE_DURATION_NEWS', 60*60*24),   // 24 hodín
-    ],
     'preppend_route_static_pages' => 'web.custom',
 
     /**

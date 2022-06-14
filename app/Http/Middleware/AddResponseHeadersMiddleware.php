@@ -25,7 +25,7 @@ class AddResponseHeadersMiddleware
             ->header('Referrer-Policy', 'strict-origin-when-cross-origin')
             ->header('Feature-Policy', "microphone 'none'; camera 'none'; geolocation 'none';");
 
-        $store = Valuestore::make(config('farnost-detva.value_store'));
+        $store = Valuestore::make(config('farnost-detva.value_store.crawler'));
 
         if ($store->has('___LAST_MODIFIED') ) {
             $time = (int)$store->get('___LAST_MODIFIED');

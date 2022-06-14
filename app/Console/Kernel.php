@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
     }
 
     private function needRenew(string $key = '___RELOAD'): bool {
-        $storeJson = Valuestore::make(config('farnost-detva.value_store'));
+        $storeJson = Valuestore::make(config('farnost-detva.value_store.crawler'));
 
         return !$storeJson->has($key) OR true == $storeJson->get($key);
     }
