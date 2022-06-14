@@ -8,7 +8,7 @@
     'read_duration' => null,
 ])
 
-<div class="ch_about_wrap">
+<div class="ch_event_wrap">
     <div class="row d-block d-lg-flex">
 
         <div @class([

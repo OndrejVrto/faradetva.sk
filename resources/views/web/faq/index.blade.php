@@ -13,9 +13,13 @@
     >
 
         @foreach ($faqs as $faq)
-            <div class="row mb-3">
-                <h5 class="text-church-template">{{ $faq['question'] }}</h5>
-                <p class="text-church-template-blue mb-1 text-justify">{!! $faq['answer'] !!}</p>
+            <div class="mb-3">
+                <h5 class="text-church-template">
+                    {{ $faq['question'] }}
+                </h5>
+                <div class="mb-1 text-justify">
+                    {!! $faq['answer'] !!}
+                </div>
 
                 <div class="d-flex align-items-end flex-wrap flex-lg-nowrap">
                     <ul class="tag-list mt-0">

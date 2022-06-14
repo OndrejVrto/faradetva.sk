@@ -1,7 +1,7 @@
 <x-web.page.section
     name="CONTACT"
     row="true"
-    class="ch_contact_section pt-5"
+    class="ch_contact_section"
 >
     <div class="col-lg-6 col-12">
         <div class="ch_contact_form fromleft wow">

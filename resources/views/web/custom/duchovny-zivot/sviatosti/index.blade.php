@@ -89,7 +89,7 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 3 -" class="ch_about_section pad_t_80 pad_b_50">
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 3 -" class="pad_t_80">
 
         <x-partials.card-about
             title="Posvätný stav"
@@ -122,7 +122,7 @@
             <x-slot:teaser>
                 Sviatosť manželstva vychádza zo sľubu muža a ženy pred Bohom a pred Cirkvou, ktorý prijíma a potvrdzuje Boh a napĺňa sa fyzickým zjednotením oboch partnerov.
                 Pretože Boh sám spečaťuje puto sviatostného manželstva, zaväzuje tento zväzok až do smrti jedného z partnerov.
-                <span class="d-none d-xl-inline">
+                <span class="d-none d-xl-inline me-2">
                     Manželstvo sa môže uzavrieť iba vtedy, ak jestvuje manželský konsenzus, to znamená, že muž a žena chcú vstúpiť do manželstva slobodne, bez strachu alebo nátlaku a keď im v tom nebránia nijaké prirodzené alebo cirkevné záväzky (napr. už existujúce manželstvo alebo sľub celibátu).
                 </span>
                 K sviatostnému manželstvu nevyhnutne patria prvky: slobodný súhlas, dobrovoľné prijatie celoživotného výlučného zväzku, otvorenosť na prijatie potomstva.

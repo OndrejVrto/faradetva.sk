@@ -12,7 +12,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="Čo nevyhnutne patrí ku kresťanskému sviatostnému manželstvu?">
+        <x-web.page.subsection title="Čo nevyhnutne patrí k sviatostnému manželstvu?">
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="sacr7-001" side="right" dimensionSource="medium" columns="3" />
@@ -62,7 +62,7 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
 
-        <x-web.page.subsection title="Čo treba robiť, ak sa chce katolík zosobášiť s nekatolíkom, alebo nepokrsteným?">
+        <x-web.page.subsection title="Čo robiť ak sa chce katolík zosobášiť s nekatolíkom, alebo nepokrsteným?">
             <x-web.page.text-segment animation="fromleft">
                 <p>
                     V takomto prípade je na uzavretie manželstva potrebné získať cirkevný súhlas. Takzvaný dišpenz - oslobodenie od cirkevného zákona, má oprávnenie udeliť biskup alebo Apoštolská stolica. Pre katolíckeho veriaceho však môže byť z hľadiska vlastnej viery i z hľadiska výchovy budúceho potomstva veľmi ťažké uzavrieť manželstvo a žiť ho s partnerom, ktorý vyznáva iné náboženstvo. Vo svojej zodpovednosti za veriacich preto Katolícka cirkev ustanovila manželskú prekážku rozdielnosti náboženstva. Takéto manželstvo môže byť platne uzavreté iba vtedy, ak jeho uzavretie predchádza oslobodenie od tejto prekážky cirkevnou vrchnosťou.
@@ -104,7 +104,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Prečo sa kresťanská rodina nazýva tiež „domáca Cirkev“?
+                    Prečo je kresťanská rodina „domácou Cirkvou“?
                 </h3>
 
                 <p>
@@ -112,18 +112,6 @@
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>
-
-        {{-- <x-web.page.subsection>
-            <hr class="text-church-template">
-        </x-web.page.subsection>
-
-        <x-web.page.subsection title="Ako vyzerá blízka príprava k manželstvu v našej farnosti?">
-            <x-web.page.text-segment animation="fromright">
-                <p>
-                    Príprava snúbencov k prijatiu manželstva v našej farnosti alebo aj v dekanáte Detva, prebieha počas piatich stretnutí podľa oznámeného rozpisu, vždy v pondelok o 18.30 hod. v zasadačke farského úradu. Témami stretnutí sú vierouka, povolanie k manželstvu, život kresťanskej rodiny, podoby lásky, starostlivosť o manželský život, zodpovedné rodičovstvo, prirodzené metódy plánovania rodičovstva, Božie prikázania a sviatosti.
-                </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection> --}}
 
         <x-web.page.information-sources title="Použitá literatúra:">
             <li>

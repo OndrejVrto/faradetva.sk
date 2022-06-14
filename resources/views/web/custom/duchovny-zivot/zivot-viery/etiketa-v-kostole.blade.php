@@ -6,20 +6,23 @@
 
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
+
+                <x-partials.picture titleSlug="etik-001" side="right" columns="2" />
+
                 <p>
                     Človek, ktorý vchádza do kostola a chce sa zúčastniť na slávení svätej omše, by mal byť čisto, vkusne a aj trochu sviatočne oblečený. Dámy by sa mali vyhnúť mikrosukniam a hlbokým výstrihom, páni krátkym nohaviciam. To, čo si dnes najmä v lete ľudia obliekajú do kostola, je vhodné skôr na kúpalisko. Možno niekto namietne, že vo svojom voľnom čase sa môže obliecť, ako chce. No nie je účasť na svätej omši slávnostným a radostným trávením voľného času? Nie je to svetlý bod všedného života? Tomu by potom malo zodpovedať oblečenie a aj naše správanie.
                 </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection>
 
-        <x-web.page.subsection title="Ako je to so sedením v lavici?">
-            <x-web.page.text-segment>
-
-                <x-partials.picture titleSlug="etik-005" side="right" dimensionSource="medium" columns="6" />
+                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
+                    Ako je to so sedením v lavici?
+                </h3>
 
                 <p>
                     Na kraji sedí muž, žena by tam nemala sedieť. Ak vchádzajú muž a žena do lavice, ktorá je už skraja obsadená, prvý do lavice vstupuje muž, aby žene uvoľňoval cestu. K sediacim ľuďom sa otáčame tvárou. Lavice v kostoloch sú však zvyčajne úzke, preto by sa mali obsadzovať zo stredu, nie od kraja.
                 </p>
+
+                <x-partials.picture titleSlug="etik-012" side="left" columns="3" />
+
                 <p>
                     Nie je slušné otáčať sa a obzerať si človeka, ktorý vchádza do kostola. Je na mieste otázka, prečo sú ľudia, ktorí sa otočili, v kostole? Preto, aby videli, kto do chrámu vošiel? Sú tam pre klebety alebo pre Pána Ježiša prítomného v Eucharistii? Účasť na svätej omši nie je o tom, že idem do kostola, lebo nemám čo iné robiť, a potom všetkých ohodnotím, aké tá mala šaty, topánky, ako bola namaľovaná, ako mala upravené vlasy a pod.
                 </p>
@@ -38,7 +41,8 @@
         <x-web.page.subsection title="Ako reagovať na rušivé vplyvy?" animation="fromleft">
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="etik-001" side="left" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="etik-007" side="left" columns="2" />
+                <x-partials.picture titleSlug="etik-008" side="right" columns="4" />
 
                 <p>
                     Ako upozorniť ľudí, ktorí sa pred nami alebo za nami počas svätej omše rozprávajú? Všetko je o komunikácii. Rozprávajúcich sa treba upozorniť vhodne, čo najkratšie a najúctivejšie, aj s milým úsmevom. Nikdy totiž nevieme, prečo a o čom sa môžu rozprávať, hoci by sa rozprávať nemali.
@@ -64,11 +68,14 @@
                     Keď v kostole zbadáme známeho, ktorý je od nás ďaleko a chceme ho pozdraviť, stačí ho skontaktovať očami, pousmiať sa, kývnuť hlavou. Keď sa s ním chceme rozprávať, môžeme ho počkať po svätej omši a vonku si pohovoriť. V kostole nie. Kostol nie je kaviareň.
                 </p>
 
-                <x-partials.picture titleSlug="etik-004" side="left" dimensionSource="medium" columns="3" />
+                <x-partials.picture titleSlug="etik-004" side="left" columns="3" />
 
                 <p>
                     Nikto nemôže namietať, keď niekto zostane stáť vonku pred dverami kostola vtedy, ak sa dnu nezmestí, alebo má malé dieťa, ktoré by ostatných vyrušovalo, alebo ak je vo vnútri vydýchaný vzduch. Ale zúčastniť sa svätej omše tak, že ani nevojdem do kostola, iba stáť neďaleko neho v okruhu niekoľkých desiatok metrov, s niekým debatovať či fajčiť, je nemysliteľné. To potom možno sedieť v každom pohostinstve pri kostole a človek bude účastný na svätej omši? Určite nie.
                 </p>
+
+                <x-partials.picture titleSlug="etik-010" side="right" columns="3" />
+
                 <p>
                     Ak má človek invalidný vozík, barly alebo inú pomôcku, bez ktorej sa ťažko pohybuje, mal by ich umiestniť tak, aby neprekážali iným veriacim. Platí to aj pri batohoch či iných taškách, treba ich uložiť tak, aby nezavadzali ostatným ľuďom. To si od človeka vyžaduje, aby bol dobrým pozorovateľom a vedel odhadnúť situáciu i priestorové možnosti. S nákupom ani s batožinou netreba chodiť hore-dolu po laviciach, ani nimi netreba zablokovať lavicu skraja.
                 </p>
@@ -78,6 +85,9 @@
                 <p>
                     Kabelka podľa spoločenskej etikety nepatrí na zem ani na stôl. Ak na laviciach nie sú háčiky, treba ju položiť vedľa seba na lavicu alebo ju držať v lone. V kostole by sme nemali mať na sebe slnečné okuliare, tie do miestnosti nepatria. Ani na očiach, ani na vrchu hlavy ako čelenku. Treba ich mať v puzdre. Tvrdenie, že na vrchu hlavy sú ozdoba a módny doplnok, z pohľadu spoločenskej etikety neobstojí. No keď je človek chorý, môže mať slnečné okuliare aj v miestnosti.
                 </p>
+
+                <x-partials.picture titleSlug="etik-009" side="right" columns="4" />
+
                 <p>
                     Pokrývka hlavy, zvlášť u mužov, nie je v miestnosti žiaduca. Ak je však človek chorý alebo ide o malé dieťa a rodič sa bojí, aby neochorelo, môže mať pokrývku hlavy. V našom kultúrnom kontexte by dámy nemali do kostola nosiť obrovské klobúky. Tie sú vhodné skôr na dostihy. Každý zážitok, aj zážitok zo svätej omše, je vtedy pozitívny, keď sa do jeho vnímania zapojí viac zmyslov - ak nielen počujeme, ale aj vidíme a pritom nás neruší silný zápach či parfum, alebo obrovský klobúk zasahujúci do nášho teritória.
                 </p>
@@ -87,10 +97,16 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
+    </x-web.page.section>
+
+    <x-web.sections.background-picture titleSlug="etik-011"/>
+
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART III -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection title="Praktické rady" animation="fromleft">
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="etik-002" side="right" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="etik-002" side="left" columns="3" />
 
                 <p>
                     Rodiny s malými deťmi by sa nemali vyčleňovať spomedzi iných veriacich spôsobom, že na jednej strane budú ženy, na druhej muži a inde rodiny. Každý rodič by mal sám odhadnúť, či jeho dieťa bude pokojné, a prípadne by si mal sadnúť tak, aby s plačúcim dieťaťom mohol rýchlo z kostola vyjsť. Občas sa stáva, že mladí rodičia nechávajú svoje deti počas bohoslužieb vykrikovať, zabávať sa, behať po kostole. Mali by však svoje deti viesť k tomu, že kostol nie je miesto na hranie, ale miesto na oslavu Boha a stretnutia sa s ním.
@@ -101,6 +117,9 @@
                 <p>
                     Stáva sa, že kňaz už stojí s Božím telom, ktoré ide podať veriacim k svätému prijímaniu a musí hodnú chvíľu čakať, kým prídu, lebo ešte len začínajú vychádzať z lavíc. To je jeden extrém, druhý je, keď kňaz ešte len ide k svätostánku po konsekrované hostie a ľudia sa už hrnú dopredu hlava-nehlava. Chýba potom pátos a noblesa. Treba nájsť konsenzus, medzičas, aby kňaz dlho nestál s Ježišom prítomným v Eucharistii pred oltárom a aby ľudia pridlho nesedeli v laviciach.
                 </p>
+
+                <x-partials.picture titleSlug="cpr-005" side="right" columns="3" />
+
                 <p>
                     Každý veriaci by mal prispievať milodarmi podľa svojich možností. Keď si niekto môže dovoliť dať na kostol sto eur, vďaka Bohu, že mu Pán požehnal túto možnosť. Mali by sme ale pamätať, že každý náš milodar by mal predstavovať nezištné konanie v prospech iného a na úkor seba. Bohu je milšie, keď dá niekto aj posledný cent, ako keď dá niekto tisíc eur, ktoré mu vôbec nebudú chýbať. Ak nemáme peniaze - a čo je dôležitejšie - ani dobrý úmysel, radšej neprispejme ničím. Keď však zazrieme, koľko peňazí niekto vhodil do zvončeka, nesmieme sa tým zaoberať, nemôžeme posudzovať. Nikdy nevieme, prečo ten človek hodil málo alebo veľa. A čo je vlastne málo alebo veľa?
                 </p>

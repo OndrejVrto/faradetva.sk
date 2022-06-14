@@ -4,11 +4,11 @@
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
 
-        <x-web.page.subsection title="Ako inak nazývame sviatosť zmierenia a prečo potrebujeme túto sviatosť">
+        <x-web.page.subsection title="Ako inak nazývame túto sviatosť a prečo ju potrebujeme">
             <x-web.page.text-segment animation="fromright">
 
                 <p>
-                    Sviatosť zmierenia sa nazýva tiež sviatosťou pokánia, odpustenia, obrátenia alebo spoveďou. Krst nás síce oslobodzuje z moci hriechu a smrti a uvádza nás do nového života Božích detí, ale neoslobodzuje nás od ľudskej slabosti a od náklonnosti k hriechu. Preto sa potrebujeme znovu a znovu uzmierovať s Bohom. Túto možnosť nám poskytuje sviatosť zmierenia. Nikde nie je krajšie vysvetlená podstata sviatosti zmierenia ako v podobenstve o milosrdnom otcovi. Blúdime a strácame smer, sme v koncoch. Ale náš Otec na nás čaká s veľkou, ba nekonečnou túžbou. Odpúšťa nám, keď sa k nemu navraciame, zakaždým nás nanovo prijíma, zakaždým nám odpúšťa hriechy. Ježiš odpustil hriechy mnohým ľuďom, bolo to preňho dôležitejšie ako robiť zázraky. Moc Ducha Svätého, ktorou Ježiš odpúšťal hriechy, odovzdal svojim apoštolom. Keď prichádzame za kňazom a s ľútosťou vyznáme svoje hriechy, padneme do náručia priamo nášmu nebeskému Otcovi.
+                    Svätá spoveď je sviatosťou zmierenia a nazýva sa tiež ako sviatosť pokánia, odpustenia alebo obrátenia. Krst nás síce oslobodzuje z moci hriechu a smrti a uvádza nás do nového života Božích detí, ale neoslobodzuje nás od ľudskej slabosti a od náklonnosti k hriechu. Preto sa potrebujeme znovu a znovu uzmierovať s Bohom. Túto možnosť nám poskytuje sviatosť zmierenia. Nikde nie je krajšie vysvetlená podstata sviatosti zmierenia ako v podobenstve o milosrdnom otcovi. Blúdime a strácame smer, sme v koncoch. Ale náš Otec na nás čaká s veľkou, ba nekonečnou túžbou. Odpúšťa nám, keď sa k nemu navraciame, zakaždým nás nanovo prijíma, zakaždým nám odpúšťa hriechy. Ježiš odpustil hriechy mnohým ľuďom, bolo to preňho dôležitejšie ako robiť zázraky. Moc Ducha Svätého, ktorou Ježiš odpúšťal hriechy, odovzdal svojim apoštolom. Keď prichádzame za kňazom a s ľútosťou vyznáme svoje hriechy, padneme do náručia priamo nášmu nebeskému Otcovi.
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>
@@ -23,7 +23,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Ako sa možno pripraviť na ľútosť nad hriechmi
+                    Ako sa pripraviť na ľútosť
                 </h3>
 
                 <p>
@@ -99,7 +99,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Aký pozitívny účinok prináša sviatosť zmierenia?
+                    Aký pozitívny účinok prináša spoveď?
                 </h3>
 
                 <p>

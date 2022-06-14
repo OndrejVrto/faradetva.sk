@@ -52,7 +52,7 @@
                 <x-partials.picture titleSlug="sacr3-014" side="right" dimensionSource="medium" columns="4" />
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Spôsob, akým sa Cirkev podieľa na Eucharistii
+                    Ako sa Cirkev podieľa na Eucharistii
                 </h3>
 
                 <p>
@@ -60,7 +60,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Správna úcta Pána Ježiša prítomného v chlebe a vo víne
+                    Správna úcta Pána Ježiša
                 </h3>
 
                 <p>

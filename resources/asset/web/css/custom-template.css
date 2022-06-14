@@ -922,6 +922,11 @@ button:before {
 /* .ch_event_section {
 	padding-bottom: 50px;
 } */
+.ch_event_wrap {
+	float        : left;
+	width        : 100%;
+	margin-bottom: 50px;
+}
 
 .event_box {
 	background-color: #f9f9f9;
@@ -1251,12 +1256,12 @@ button:before {
 .ch_about_wrap {
 	float        : left;
 	width        : 100%;
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 }
 
 .ch_about_desc {
 	float: left;
-	width: 100%;
+	/* width: 100%; */
 }
 
 .ch_about_desc h3 {
@@ -1286,7 +1291,8 @@ button:before {
 14. contact page css Start
 ----------------------------------------------------------------------------------*/
 .ch_contact_section {
-	padding: 80px 0;
+	padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 /*==== contact form css Start ====*/

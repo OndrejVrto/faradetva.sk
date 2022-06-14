@@ -123,7 +123,7 @@
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="patr-016" side="right" dimensionSource="medium" columns="4" />
-                
+
                 <p>
                     Tajomstvo Kristovho narodenia vo vianočnú noc v roku 1223 prežíval František spolu s viacerými priateľmi zvláštnym spôsobom na vrchu Greccio. Jaskyňa, živé zvieratá a jednoduchí veriaci ľudia vytvárali scénu, ktorá bola veľmi blízka betlehemskej. A táto udalosť sa napokon stala aj základom pekného kresťanského zvyku stavať si cez vianočné sviatky v rodine alebo niekde i na verejných priestranstvách betlehem. Okrem tajomstva Kristovho narodenia pútalo Františka už od čias jeho obrátenia tajomstvo Kristovho utrpenia a jeho smrti na kríži. Podobne ako vianočný betlehem vznikla z františkánskej spirituality aj pobožnosť krížovej cesty. Sám František mal účasť na Kristovom utrpení ešte iným spôsobom.
                 </p>
@@ -155,7 +155,7 @@
 
         <x-web.page.subsection title="Dianie po smrti">
             <x-web.page.text-segment animation="fromleft">
-                
+
                 <x-partials.picture titleSlug="patr-024" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
@@ -165,8 +165,8 @@
                     Po smrti svätého Františka Assiského sa rozrástol počet nielen jeho ctiteľov, ale aj nasledovníkov. Mužská vetva Rehole menších bratov, nazývaná podľa zakladateľa františkáni, dosiahla ku koncu 13. storočia už do 40 000 členov. Mnohí z nich pôsobili ako misionári v nekresťanských krajinách, dokonca až v Mongolsku a Číne.
                 </p>
             </x-web.page.text-segment>
-            <x-web.page.text-segment animation="fromright">                
-                
+            <x-web.page.text-segment animation="fromright">
+
                 <x-partials.picture titleSlug="patr-009" side="left" dimensionSource="medium" columns="2" />
 
                 <p>
@@ -185,9 +185,30 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-                <li>www.kapucini.sk</li>
-                <li>www.rkcvtjuh. sk</li>
-                <li>www.zivotopisysvatych.sk</li>
+                <li>
+                    <em class="me-1">František z Assisi, diakon, zakladateľ rehole františkánov</em>
+                    [online]. [cit. 26.02.2021].
+                    <a class="link-template"
+                        href="https://www.zivotopisysvatych.sk/frantisek-z-assisi/">
+                        Dostupné na internete
+                    </a>
+                </li>
+                <li>
+                    <em class="me-1">Náš patrón svätý František z Assisi</em>
+                    [online]. [cit. 26.02.2021].
+                    <a class="link-template"
+                        href="https://rkcvtjuh.sk/frantisek/">
+                        Dostupné na internete
+                    </a>
+                </li>
+                <li>
+                    <em class="me-1">Profil sv. Františka z Assisi</em>
+                    [online]. [cit. 26.02.2021].
+                    <a class="link-template"
+                        href="https://kapucini.sk/kto-sme/sv-frantisek/profil/">
+                        Dostupné na internete
+                    </a>
+                </li>
         </x-web.page.information-sources>
 
     </x-web.page.section>

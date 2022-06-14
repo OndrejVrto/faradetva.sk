@@ -2,7 +2,7 @@
 
     {{-- Duchovný život /  Život viery --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 1 -" row="true" class="pad_t_30 pad_b_30">
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART 1 -" row="true" class="pad_t_30">
 
         <x-partials.card-about
             title="Viera v Boha"

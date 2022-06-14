@@ -4,7 +4,7 @@
     'url'   => null,
     'img'   => null,
 ])
-<div class="ch_about_wrap">
+<div class="ch_event_wrap">
     <div @class([
             'event_box d-lg-flex wow',
             'fromright' => $side === 'right',

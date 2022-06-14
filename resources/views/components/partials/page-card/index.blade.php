@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="blog_desc pt-2">
+            <div class="blog_desc pt-3">
                 <h3 class="fs-4">
                     <a class="link-template" href="{{ $pageCard['url'] }}">
                         {{ $pageCard['title'] }}

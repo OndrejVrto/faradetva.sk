@@ -2,7 +2,7 @@
 
     {{-- Duchovný život / Sveteniny --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="ch_event_section pad_b_50">
+    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="ch_event_section pad_t_30">
 
         <x-partials.card-event
             title="Pobožnosti"
@@ -14,7 +14,7 @@
             </x-slot:img>
             <x-slot:teaser>
                 Pod pobožnosťami chápeme rozličné vonkajšie prejavy (napr. v textoch modlitieb a piesní, alebo iné).
-                <span class="d-none d-xl-inline">
+                <span class="d-none d-xl-inline me-2">
                     Tieto oživené vnútorným postojom viery prejavujú zvláštny dôraz vzťahu veriaceho k božským osobám
                     , alebo k Panne Márii v jej privilégiách milosti a v tituloch, ktoré ich vyjadrujú.
                     Prípadne k svätým, pre ich pripodobnenie sa Kristovi, alebo pre úlohu, ktorú zohrali v Cirkvi.
@@ -92,7 +92,7 @@
             </x-slot:img>
             <x-slot:teaser>
                 Pohrebné obrady sú posvätným úkonom, pri ktorom Cirkev zveruje Bohu svojich bratov a sestry vo viere, vyznáva svoju vieru a uznáva Božie pôsobenie v živote človeka.
-                <span class="d-none d-xl-inline">
+                <span class="d-none d-xl-inline me-2">
                     Obradmi, ktoré sprevádzajú rozlúčku so zosnulými, spoločenstvo veriacich slávi nielen spásu, ktorú pre nás získal Kristus, ale nás aj zjednocuje s príbuznými, priateľmi a známymi, s ktorými zosnulí bratia a sestry prežívali časť svojho života, práce, vzťahov, citov a viery v Boha.
                 </span>
                 Kresťanská liturgia pohrebu je slávením Kristovho veľkonočného tajomstva, pri ktorom sa Cirkev modlí za svoje deti, začlenené krstom.

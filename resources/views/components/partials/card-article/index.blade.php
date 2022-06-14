@@ -18,7 +18,7 @@
             </div>
             <!-- overlay -->
         </div>
-        <div class="blog_desc">
+        <div class="blog_desc pt-3">
             <h3 class="fs-4">
                 <a class="link-template" href="{{ $url }}">
                     {{ $title }}

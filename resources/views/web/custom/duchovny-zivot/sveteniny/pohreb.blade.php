@@ -66,7 +66,7 @@
         </x-web.page.subsection>
     </x-web.page.section>
 
-    <x-web.sections.background-picture titleSlug="pohr-012"/>
+    <x-web.sections.background-picture titleSlug="pohr-013"/>
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_b_50">
 
@@ -124,20 +124,6 @@
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>
-
-        {{-- <x-web.page.subsection title="Ako vybaviť pohreb">
-            <x-web.page.text-segment animation="fromright">
-                <p>
-                    Pohreb blízkej osoby sa vybavuje v spolupráci pohrebnej služby, farského i mestského úradu. V prípade úmrtia doma je potrebné bezodkladne kontaktovať pohotovosť (t. č. 112) a oznámiť úmrtie. Počkať na obhliadajúceho lekára, ktorý vystaví List o prehliadke mŕtveho a následne dohodnúť odvoz zomrelého s pohrebnou službou. V prípade úmrtia v nemocnici, v domove dôchodcov alebo v iných zariadeniach sociálnych služieb, po oznámení úmrtia kontaktovať pohrebnú službu kvôli odvozu zomrelého. Po dohode cirkevného pohrebu v našej farnosti sa úmrtie oznamuje verejnosti zvonením na kostolnej veži o 10.00 a 16.00 hod., každý deň až do konania pohrebu.
-                </p>
-                <p>
-                    Predpokladom cirkevného pohrebu je skutočnosť, že zosnulý patril do Cirkvi - bol pokrstený ako kresťan katolík a zomrel v spoločenstve s Cirkvou (nebol exkomunikovaný, nevystúpil z Cirkvi). Na farskom úrade pozostalí dohodnú termín pohrebu, ktorý sa konzultuje s pohrebnou službou. Návšteva pozostalých u kňaza vo farnosti je nevyhnutná, pretože je potrebné dohodnúť termín a náležitosti pohrebu, podať o zosnulom základné informácie. Pochováva sa obvykle v pracovné dni v Dome smútku na cintoríne. Správu pohrebiska a Domu smútku má mesto Detva.
-                </p>
-                <p>
-                    Zomrelí, ktorí boli v poslednom období pred úmrtím zaopatrení sviatosťami Cirkvi (svätá spoveď, sväté prijímanie alebo pomazanie chorých), môžu byť pochovaní aj so svätou omšou. Farnosť Detva pri pohrebných obradoch zabezpečuje okrem kňaza taktiež organistu. Keď pohrebný obrad nie je spojený so svätou omšou, odporúča sa dať za zomrelého následne odslúžiť svätú omšu v príhodnom čase. Je vhodné, aby veriaci na hroby svojich príbuzných umiestňovali symboly zmŕtvychvstania a večného života, ako aj nápisy vzaté zo Svätého písma a starokresťanskej tradície. Je potrebné dbať o to, aby cintoríny boli svedectvom kresťanskej viery v zmŕtvychvstanie tela.
-                </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection> --}}
 
         <x-web.page.information-sources title="Použitá literatúra:">
             <li>

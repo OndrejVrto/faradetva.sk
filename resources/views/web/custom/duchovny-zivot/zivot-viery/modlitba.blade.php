@@ -7,13 +7,19 @@
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
 
-                <x-partials.picture titleSlug="modl-003" side="right" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="modl-021"  side="left" columns="2" />
 
                 <p>
                     Modlitba je povznesenie duše k Bohu. Keď sa človek modlí, vstupuje do živého vzťahu s Bohom. Modlitba je veľkou bránou k viere. Ten, kto sa modlí, nežije už viac zo seba, pre seba a z vlastných síl. Vie, že jestvuje Boh, s ktorým sa môže rozprávať a čoraz viac sa mu zverovať. Už teraz hľadá kontakt s tým, s ktorým sa jedného dňa stretne z tváre do tváre. Preto k životu kresťana patrí každodenná modlitba. Modlitbe sa však nemožno naučiť tak ako nejakej technike. Modlitba je totiž dar, ktorý človek dostáva práve tým, že sa modlí.
                 </p>
+
+                <x-partials.picture titleSlug="modl-005" side="right" columns="3" />
+
                 <p>
                     Modlíme sa, pretože nás napĺňa nekonečná túžba po Bohu a pretože Boh stvoril človeka pre seba. Často ale na Boha zabúdame, utekáme pred ním a skrývame sa. No i keď sa vyhýbame myšlienke na Boha alebo ho zapierame - on je tu vždy pre nás. Skôr ako ho začneme hľadať, hľadá on nás, túži po nás, volá nás. Človek sa rozpráva so svojím svedomím a zrazu zistí, že hovorí s Bohom. Keď sa cíti osamelý a nemá sa s kým porozprávať, zrazu zistí, že s Bohom sa môže kedykoľvek zhovárať. Keď sa ocitne v nebezpečenstve, zistí, že Boh odpovedá na jeho volanie o pomoc. Modlitba je človeku taká blízka ako dýchanie, jedlo, láska. Modlitba očisťuje. Modlitba umožňuje zdolávať pokušenia a posilňuje v slabosti. Modlitba odníma strach, znásobuje sily, upevňuje vytrvalosť. Modlitba prináša šťastie.
+                </p>
+                <p>
+                    Učiť sa modlitbe od Ježiša znamená vstúpiť do jeho bezhraničnej dôvery, pripojiť sa k jeho modlitbe a nechať sa ním krok za krom viesť k Otcovi. Učeníci, ktorí žili v spoločenstve s Ježišom, učili sa od neho modliť tým, že ho počúvali a napodobňovali ho. Tak ako on museli byť aj oni bdelí, museli zápasiť o čisté srdce, vzdávať sa všetkého pre Božie kráľovstvo, odpúšťať nepriateľom, nadovšetko dôverovať Bohu a lásku k nemu klásť na prvé miesto. Príkladom svojej odovzdanosti nabádal Ježiš svojich učeníkov, aby všemohúceho Boha oslovovali „Abba, Otče“. Keď sa modlíme v Ježišovom Duchu, predovšetkým modlitbu Otče náš, kráčame v Ježišových stopách a môžeme si byť istí, že nepochybne prídeme do Otcovho náručia.
                 </p>
                 <figure>
                     <blockquote>
@@ -24,9 +30,6 @@
                     </blockquote>
                 </figure>
                 <p>
-                    Učiť sa modlitbe od Ježiša znamená vstúpiť do jeho bezhraničnej dôvery, pripojiť sa k jeho modlitbe a nechať sa ním krok za krom viesť k Otcovi. Učeníci, ktorí žili v spoločenstve s Ježišom, učili sa od neho modliť tým, že ho počúvali a napodobňovali ho. Tak ako on museli byť aj oni bdelí, museli zápasiť o čisté srdce, vzdávať sa všetkého pre Božie kráľovstvo, odpúšťať nepriateľom, nadovšetko dôverovať Bohu a lásku k nemu klásť na prvé miesto. Príkladom svojej odovzdanosti nabádal Ježiš svojich učeníkov, aby všemohúceho Boha oslovovali „Abba, Otče“. Keď sa modlíme v Ježišovom Duchu, predovšetkým modlitbu Otče náš, kráčame v Ježišových stopách a môžeme si byť istí, že nepochybne prídeme do Otcovho náručia.
-                </p>
-                <p>
                     Mnohí ľudia, ktorí prosili Ježiša počas jeho pozemského života o uzdravenie, boli vypočutí. Ježiš, ktorý vstal z mŕtvych, žije, počúva naše prosby a predkladá ich Otcovi. Ježiš počas svojho pozemského života vykonal mnoho znamení a zázrakov. Chromí, malomocní a slepí neprosili Ježiša nadarmo o pomoc. Mnohí kresťania by mohli rozprávať, ako volali k Bohu a ako Boh konkrétnym spôsobom vstúpil do ich života. A koľko modlitieb bolo vypočutých na príhovor svätcov! Boh však nie je nejaký automat. Spôsob, ako chce vypočuť naše prosby, musíme ponechať na neho.
                 </p>
             </x-web.page.text-segment>
@@ -34,25 +37,36 @@
 
         <x-web.page.subsection title="Hlavné formy kresťanskej modlitby">
             <x-web.page.text-segment>
-                <p>
-                    Poznáme päť základných foriem modlitby: velebenie, klaňanie (adorácia), prosebná modlitba a modlitba príhovoru, modlitba vďakyvzdania a modlitba chvály.
-                </p>
+
+
+                <x-partials.picture titleSlug="modl-015" side="right" columns="4" />
+
+                <div class="d-block ms-2 ms-xl-5">
+                    <strong>Poznáme päť základných foriem modlitby:</strong>
+                    <ul>
+                        <li>velebenie</li>
+                        <li>klaňanie (adorácia)</li>
+                        <li>prosebná modlitba</li>
+                        <li>modlitba príhovoru</li>
+                        <li>modlitba vďakyvzdania</li>
+                        <li>modlitba chvály</li>
+                    </ul>
+                </div>
 
                 <p>
                     Velebenie je odpoveď človeka na Božie dary. Pretože Boh nám dáva požehnanie, srdce človeka môže zasa velebiť toho, kto je zdrojom každého požehnania. Jeho dobrota, blízkosť, zľutovanie - to všetko znamená požehnanie. Každý kresťan by mal prosiť o Božie požehnanie pre seba i pre druhých ľudí. Rodičia môžu požehnať svoje deti znamením kríža na čele. Ľudia, ktorí sa majú radi, sa môžu vzájomne žehnať. Okrem toho kňaz z moci svojho úradu žehná vyslovene v Ježišovom mene a z poverenia Cirkvi. Jeho prosba o požehnanie nadobúda zvláštnu účinnosť mocou kňazskej vysviacky a mocou modlitby celej Cirkvi.
                 </p>
 
-                <x-partials.picture titleSlug="modl-007" side="left" dimensionSource="medium" columns="3" />
+                <x-partials.picture titleSlug="modl-014" side="left" columns="3" />
 
                 <p>
                     Každý človek, ktorý si uvedomuje, že je Božím stvorením, pokorne uznáva Boha, svojho Stvoriteľa a klania sa mu. V postoji klaňania (adorácia) však neuctieva iba Božiu veľkosť, všemohúcnosť a svätosť, ale skláňa sa aj pred Božou láskou, ktorá spôsobila, že sa v Ježišovi Kristovi Boh stal človekom. Ten, kto sa skutočne klania Bohu, padá pred ním na kolená alebo sa pred ním vrhá na zem. Vyjadruje tak pravdivosť vzťahu medzi Bohom a človekom: Boh je veľký, my sme malí. A pritom človek nie je nikdy väčší ako vtedy, keď v slobodnej odovzdanosti padá na kolená pred Bohom. Človek, ktorý hľadá Boha a začína sa modliť, môže takýmto spôsobom nájsť k nemu cestu.
                 </p>
-
                 <p>
                     Boh, ktorý nás pozná do hĺbky duše, vie, čo potrebujeme. A predsa si praje, aby sme ho prosili, aby sme sa na neho obracali vo svojich potrebách, aby sme na neho volali a utiekali sa k nemu, aby sme sa mu vyžalovali, vzývali ho a dokonca s ním zápasili. Boh nepotrebuje naše prosby, aby nám pomáhal. To, že ho máme prosiť, je pre naše dobro. Ten, kto neprosí a nechce prosiť, uzatvára sa do seba. Len človek, ktorý prosí, sa otvára a obracia sa na Pôvodcu všetkého dobra. Ten, kto prosí, vracia sa domov k Bohu. Preto prosebná modlitba uvádza človeka do správneho vzťahu k Bohu, ktorý rešpektuje našu slobodu.
                 </p>
 
-                <x-partials.picture titleSlug="modl-004" side="right" dimensionSource="medium" columns="2" />
+                <x-partials.picture titleSlug="modl-004" side="right" columns="2" />
 
                 <p>
                     Čím viac sa človek učí modliť, tým hlbšie prežíva, že je začlenený do duchovnej rodiny, v ktorej sa prejavuje sila modlitby. So všetkou starostlivosťou o ľudí, ktorých milujeme, stojíme uprostred ľudskej rodiny, v ktorej môžeme čerpať silu z modlitby druhých a môžeme tiež zvolávať na druhých pomoc.
@@ -68,17 +82,21 @@
 
     </x-web.page.section>
 
-    <x-web.sections.background-picture titleSlug="modl-005"/>
+    <x-web.sections.background-picture titleSlug="modl-003"/>
 
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Pramene modlitby" animation="fromleft">
             <x-web.page.text-segment animation="fromleft">
+
+                {{-- <x-partials.picture titleSlug="modl-007" side="left" columns="2" /> --}}
+                <x-partials.picture titleSlug="modl-016" side="left" columns="2" />
+
                 <p>
                     Biblia je pre modlitbu ako vyvierajúci prameň. Modliť sa Božím slovom znamená využívať biblické slová a udalosti pre vlastnú modlitbu. V bohoslužbe Cirkvi, v jej dennej modlitbe (Liturgia hodín) a vo svätej omši ľudia spoločne recitujú modlitby čerpané zo Svätého písma alebo z tradície Cirkvi. Tieto modlitby spájajú jednotlivca s modliacim sa spoločenstvom Cirkvi. Kresťanská modlitba nie je súkromná záležitosť, ale je veľmi osobná. Osobná modlitba sa očisťuje, rozširuje a posilňuje, keď pravidelne vteká do prúdu modlitieb celej Cirkvi. Keď sa veriaci ľudia na celom svete zjednotia v modlitbe rovnakými slovami v rovnakom čase, a tak Bohu spievajú jediný chválospev, je to veľké a krásne znamenie.
                 </p>
 
-                <x-partials.picture titleSlug="modl-010" side="left" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="modl-020" side="right" columns="4" />
 
                 <p>
                     Kresťanská modlitba je modlitbou viery, nádeje a lásky. Je vytrvalá a odovzdaná do Božej vôle. Kto sa modlí ako kresťan, vychádza v tom okamihu zo seba a zaujíma postoj viery a dôvery v jediného Boha a Pána; zároveň celú svoju nádej skladá v Boha: vie, že ho Boh počúva, rozumie mu, prijíma ho a napĺňa. Kresťanská modlitba je prejavom lásky, ktorá pramení z Kristovej lásky a ktorá túto Božiu lásku hľadá. Každá udalosť, každé stretnutie sa môže stať podnetom k modlitbe. Čím viac prežívame jednotu s Bohom, tým hlbšie rozumieme svetu okolo nás.
@@ -86,9 +104,7 @@
                 <p>
                     Ten, kto vyhľadáva jednotu s Ježišom hneď ráno, môže žehnať ľudí, ktorých stretne, dokonca aj svojich odporcov a nepriateľov. Počas dňa zloží všetky svoje starosti na Pána. Svoje rozhodnutia a úsudky robí tak, že sa najprv pýta, akoby na jeho mieste konal Ježiš. Strach prekonáva vďaka tomu, že si uvedomuje Božiu blízkosť. V zúfalých situáciách nachádza oporu v Bohu. Má v sebe nebeský pokoj a vnáša ho do sveta. Je vďačný a raduje sa z pekných vecí, ale dokáže znášať aj ťažkosti, ktoré ho stretnú. Takto môže vnímať Boha dokonca aj pri práci.
                 </p>
-
-                <x-partials.picture titleSlug="modl-002" side="right" dimensionSource="medium" columns="3" />
-
+                <x-partials.picture titleSlug="modl-001" side="left" columns="4" />
                 <p>
                     Modliť sa k Bohu môže človek jedine s Bohom. Ježiš bytostne túžil po zjednotení s Otcom: navzájom sa milovať, navzájom sa počúvať, dokonale si rozumieť, chcieť len to, čo chce ten druhý. Ako kresťania sme prijali Ježišovho Ducha, ktorý nás priťahuje na cestu modlitby, predchádza nás svojou milosťou, kedykoľvek sa začíname modliť a hovorí cez nás. Modlitba teda v zásade znamená, že z hĺbky môjho srdca hovorí Boh k Bohu. Duch Svätý pomáha nášmu duchu modliť sa. Preto by sme mali vždy znova opakovať: „Príď Duchu Svätý, a pomôž mi modliť sa.“
                 </p>
@@ -100,21 +116,28 @@
                     Cesta modlitby
                 </h3>
 
+                <x-partials.picture titleSlug="modl-019" side="right" columns="3" />
+
                 <p>
                     Kresťanská tradícia zachovala tri spôsoby modlitby: ústnu modlitbu, rozjímavú modlitbu a vnútornú modlitbu. Všetky tri spôsoby modlitby vyžadujú sústredenosť srdca.
                 </p>
+
+                <x-partials.picture titleSlug="modl-006" side="left" columns="2" />
+
                 <p>
                     Modlitba je v prvom rade pozdvihnutie srdca k Bohu. A predsa aj Ježiš učil modliť sa slovami. V modlitbe Otče náš nám zanechal dokonalú ústnu modlitbu ako svoj odkaz, aby sme vedeli, ako sa máme modliť. Pri modlitbe sa nemáme iba oddávať zbožným myšlienkam. Mali by sme vysloviť všetko, čo máme na srdci a predniesť to Bohu ako nárek, prosbu, chválu a vďaku. Často práve veľké ústne modlitby - Žalmy a hymny zo Svätého písma, Otče náš, Zdravas' Mária, Sláva Otcu - poukazujú na skutočný obsah modlitby a vedú nás k slobodnej vnútornej modlitbe.
                 </p>
+
+
                 <p>
                     Podstatou rozjímavej modlitby je hľadanie a uvažovanie, ktoré vychádza z Božieho slova vo Svätom písme alebo z obrazu. S ich pomocou človek pátra po Božej vôli, znamení a prítomnosti. Človek nemôže „čítať“ posvätné texty a obrazy tak, ako číta napríklad v dennej tlači o udalostiach, ktoré sa ho bezprostredne netýkajú. Nad týmito textami a obrazmi by mal rozjímať, to znamená, že by mal pozdvihnúť svoje srdce k Bohu a povedať mu, že je teraz úplne otvorený na to, čo mu Boh chce povedať prostredníctvom toho, čo prečítal alebo videl.
                 </p>
 
-                <x-partials.picture titleSlug="modl-001" side="left" dimensionSource="medium" columns="4" />
 
                 <p>
                     Vnútorná (kontemplatívna) modlitba je láska, mlčanie, počúvanie a zotrvávanie pred Bohom. Vyžaduje si čas, odhodlanie a predovšetkým čisté srdce. Ide o jednoduchý pohľad na Boha v mlčaní a láske, o pokorné, chudobné odovzdanie sa, pri ktorom človek odloží všetky masky a celým srdcom hľadá Boha. Vnútorná modlitba sa často nazýva aj modlitbou srdca.
                 </p>
+                <x-partials.picture titleSlug="modl-010" side="left" columns="3" />
                 <p>
                     Modlitba je osobným vzťahom, prechádza od „ja“ k „ty“, od zamerania sa na seba k radikálnej otvorenosti. Ten, kto sa naozaj modlí, zistí, že Boh hovorí a že často hovorí inak, akoby sme si to želali alebo očakávali. Tí, ktorí majú hlbšie skúsenosti s modlitbou, dosvedčujú, že človek je po skončení modlitby často iný, než aký bol na jej začiatku. Naše očakávania sa niekedy naplnia: smutný nájde útechu, skleslý dostane novú silu. Môže sa však stať aj to, že človek by rád zabudol na ťažkosti a upadne ešte do väčšej úzkosti; chcel by mať na chvíľu pokoj, a dostane úlohu. Skutočné stretnutie s Bohom v modlitbe môže rozmetať naše predstavy o Bohu i o modlitbe.
                 </p>

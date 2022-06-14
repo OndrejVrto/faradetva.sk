@@ -14,7 +14,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Miesto sviatosti posvätného stavu v Božom pláne spásy
+                    Posvätný stav v Božom pláne spásy
                 </h3>
 
                 <p>
@@ -22,7 +22,7 @@
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
-                    Kto môže prijať sviatosť posvätného stavu?
+                    Kto môže prijať túto sviatosť?
                 </h3>
 
                 <p>
@@ -52,7 +52,7 @@
             <x-web.page.text-segment animation="fromright">
 
                 {{-- <x-partials.picture titleSlug="sacr6-001" side="right" dimensionSource="medium" columns="3" /> --}}
-                <x-partials.picture titleSlug="sacr6-008" side="right" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="sacr6-008" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
                     Pri kňazskej vysviacke Duch Svätý vtláča kňazovi nezmazateľnú pečať, ktorou ho pripodobňuje Kristovi a dáva mu schopnosť konať v Ježišovom mene. Kňaz ako spolupracovník svojho biskupa má hlásať Božie slovo, udeľovať sviatosti a predovšetkým sláviť Eucharistiu.
@@ -66,7 +66,7 @@
                     Biskupskou vysviackou sa udeľuje plnosť sviatosti posvätného stavu. Po vysvätení sa biskup stáva právoplatným nástupcom apoštolov a vstupuje do biskupského zboru. Od okamihu svojho vysvätenia je zodpovedný za celú Cirkev spolu s ostatnými biskupmi a s pápežom.
                 </p>
 
-                <x-partials.picture titleSlug="sacr6-006" side="left" dimensionSource="medium" columns="4" />
+                <x-partials.picture titleSlug="sacr6-006" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
                     Biskupskou vysviackou sa udeľuje poslanie učiť, posväcovať a spravovať. Biskup, ktorý spolu s kňazmi a diakonmi ako so svojimi vysvätenými spolupracovníkmi vykonáva pastiersku službu, je viditeľným princípom a základom miestnej cirkvi (biskupstva/diecézy).
