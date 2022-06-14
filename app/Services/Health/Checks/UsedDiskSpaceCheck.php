@@ -2,9 +2,11 @@
 
 namespace App\Services\Health\Checks;
 
+use Exception;
 use Spatie\Regex\Regex;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
+use Spatie\Health\Enums\Status;
 use Symfony\Component\Process\Process;
 
 class UsedDiskSpaceCheck extends Check
@@ -28,7 +30,12 @@ class UsedDiskSpaceCheck extends Check
 
     public function run(): Result {
         $this->label('health-results.disk_space.label');
+
         $diskSpaceUsedPercentage = $this->getDiskUsagePercentage();
+
+        if ($diskSpaceUsedPercentage instanceof Exception) {
+            return new Result(Status::crashed(), 'health-results.disk_space.crashed', 'health-results.crashed');
+        }
 
         $result = Result::make()
             ->meta([
@@ -50,10 +57,22 @@ class UsedDiskSpaceCheck extends Check
         return $result->notificationMessage('health-results.disk_space.ok')->ok();
     }
 
-    protected function getDiskUsagePercentage(): int {
-        $process = Process::fromShellCommandline('df -P .');
-        $process->run();
-        $output = $process->getOutput();
+    protected function getDiskUsagePercentage(): int|Exception {
+        try {
+            $process = Process::fromShellCommandline('df -P .');
+            $process->run();
+            $output = $process->getOutput();
+        } catch (\Throwable $th) {
+            try {
+                $drive = '.';
+                $this->freeDiskSpace  = disk_free_space($drive);
+                $this->totalDiskSpace = disk_total_space($drive);
+                $this->usedDiskSpace  = $this->freeDiskSpace ? $this->totalDiskSpace - $this->freeDiskSpace : 0;
+            } catch (\Throwable $th) {
+                return $th;
+            }
+            return $this->freeDiskSpace ? 100 - (round($this->freeDiskSpace / $this->totalDiskSpace, 2) * 100) : 0;
+        }
         $this->setSizes($output);
         return (int) Regex::match('/(\d*)%/', $output)->group(1);
     }

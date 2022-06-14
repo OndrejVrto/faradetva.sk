@@ -21,6 +21,18 @@ class FutureTestService
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
 
+        $drive = '.';
+
+        $freespace          = disk_free_space($drive);
+        $total_space        = disk_total_space($drive);
+        $percentage_free    = $freespace ? round($freespace / $total_space, 2) * 100 : 0;
+
+     /* Show in HTML */
+        echo("<b>".$drive."</b> has [".$percentage_free."] % free diskspace<br>");
+        echo("<b>".$drive."</b> has [".$total_space."] totalspace<br>");
+        echo("<b>".$drive."</b> has [".round($freespace/1024/1024)."] MB free diskspace<br>");
+        exit;
+
         $input = 'pdf';
         $output = [
             'pdf' => 'book',

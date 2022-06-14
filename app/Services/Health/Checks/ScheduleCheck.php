@@ -16,18 +16,21 @@ class ScheduleCheck extends SpatieScheduleCheck
             return $this->cacheStoreName;
         }
 
-        $valueStorage = Valuestore::make(config('farnost-detva.value_store'));
-        if($valueStorage->has('config.cache.default')) {
-            return $valueStorage->get('config.cache.default');
-        }
+        $name = Valuestore::make(config('farnost-detva.value_store.config'))
+                            ->get('config.cache.default');
 
-        return config('cache.default', 'database');
+        return is_null($name) ? config('cache.default', 'database') : $name;
     }
 
     public function run(): Result {
         $this->label('health-results.schedule.label');
+
         $result = Result::make()
             ->notificationMessage('health-results.schedule.ok')->ok();
+
+        if (app()->isDownForMaintenance()) {
+            return $result->warning('health-results.schedule.warning_maintenance');
+        }
 
         $lastHeartbeatTimestamp = cache()->store($this->cacheStoreName)->get($this->cacheKey);
         if (! $lastHeartbeatTimestamp) {
