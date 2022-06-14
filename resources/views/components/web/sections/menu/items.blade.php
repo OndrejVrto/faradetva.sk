@@ -7,7 +7,7 @@
 
 <li>
     {{-- <a href="{{ secure_url('o-nas') }}">O nás</a> --}}
-    <a class="link-submenu">O nás</a>
+    <a href="#" class="link-submenu">O nás</a>
     <ul class="sub-menu">
         {{-- <li>
             <a href="{{ secure_url('o-nas/historia') }}">História</a>
@@ -67,7 +67,7 @@
     </ul>
 </li>
 <li>
-    <a class="link-submenu">Duchovný život</a>  {{-- <a href="{{ secure_url('duchovny-zivot') }}">Duchovný život</a> --}}
+    <a href="#" class="link-submenu">Duchovný život</a>  {{-- <a href="{{ secure_url('duchovny-zivot') }}">Duchovný život</a> --}}
     <ul class="sub-menu">
         <li>
             <a href="{{ secure_url('duchovny-zivot/sviatosti') }}">Sviatosti</a>

@@ -58,7 +58,7 @@
 
     <!-- BUTTON for Scroll up -->
     <div class="d-print-none">
-        <a id="toTop">&#10148;</a>
+        <div id="toTop">&#10148;</div>
     </div>
 
     <x-web.sections.search-global />

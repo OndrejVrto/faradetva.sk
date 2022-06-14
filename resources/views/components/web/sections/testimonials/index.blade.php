@@ -17,6 +17,8 @@
                         <img src="{{ $testimonial['img-url'] }}"
                             class="img-fluid"
                             alt="Fotografia svedka viery: {{ $testimonial['name'] }}, {{ $testimonial['function'] }}"
+                            width="120"
+                            height="120"
                         />
                     </div>
                     <div class="test_paragraph">

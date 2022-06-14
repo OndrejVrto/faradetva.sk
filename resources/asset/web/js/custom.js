@@ -83,7 +83,10 @@ Project: Church
 					nav: true,
 					// navText:["<img src='images/icon/nav_left.png' alt='icon'/>","<img src='images/icon/nav_right.png' alt='icon'/>"],
 					// navText: [&#x27;next&#x27;,&#x27;prev&#x27;],
-					navText: ['<i class="fa-solid fa-2x text-church-template-blue fa-circle-chevron-left"></i>', '<i class="fa-solid fa-2x text-church-template-blue fa-circle-chevron-right"></i>'],
+					navText: [
+                        '<i class="fa-solid fa-2x text-church-template-blue fa-circle-chevron-left" aria-label="Left"></i>',
+                        '<i class="fa-solid fa-2x text-church-template-blue fa-circle-chevron-right" aria-label="Right"></i>'
+                    ],
 					autoplayTimeout: 5000,
 					autoplaySpeed: 2000,
 					smartSpeed: 1500,

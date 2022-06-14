@@ -38,13 +38,13 @@
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="widget widget_social">
                             <h2 class="widget-title">Sväté omše</h2>
-                            <h5 class="text-white">Pondelok - Piatok</h5>
+                            <div class="h5 text-white"><strong>Pondelok - Piatok</strong></div>
                                 Farský kostol - 17:30 <br>
                                 Kláštor - 7:00
-                            <h5 class="text-white mt-2">Sobota</h5>
+                            <div class="h5 text-white mt-2"><strong>Sobota</strong></div>
                                 Farský kostol - 7:30, 17:30 <br>
                                 Kláštor - 7:00
-                            <h5 class="text-white mt-2">Nedeľa</h5>
+                            <div class="h5 text-white mt-2"><strong>Nedeľa</strong></div>
                                 Farský kostol - 7:45, 9:00, 10:30, 17:30 <br>
                                 Kláštor - 7:30
                         </div>
