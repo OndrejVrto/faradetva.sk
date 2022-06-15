@@ -5,10 +5,11 @@ namespace App\Services\SEO;
 use App\Facades\SeoGraph;
 use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Type;
+use Illuminate\Support\Str;
 use Spatie\SchemaOrg\Schema;
 use Spatie\SchemaOrg\ImageObject;
-use Spatie\SchemaOrg\ImageGallery;
 use Illuminate\Support\Collection;
+use Spatie\SchemaOrg\ImageGallery;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
@@ -254,9 +255,8 @@ class SetSeoPropertiesService
                         ->sameAs($this->page['img-author_url'])
                 );
             })
-            ->license($this->page['img-license'])
+            ->license($this->page['img-license_url'])
             ->acquireLicensePage($this->page['img-license_url'])
-            ->usageInfo($this->page['img-license_url'])
             ->if( isset($this->page['img-source_url']) OR isset($this->page['img-source']), function (ImageObject $schema) {
                 $schema->copyrightHolder(
                     Schema::organization()
@@ -285,7 +285,9 @@ class SetSeoPropertiesService
                 ->position($i + 2)
                 ->item(
                     Schema::thing()
-                        ->identifier(e($item['url']))
+                        ->identifier(e(
+                            empty($item['url']) ? "#".Str::slug($item['title']) : $item['url']
+                        ))
                         ->url(e($item['url']))
                         ->name(e($item['title']))
                 );
@@ -305,7 +307,11 @@ class SetSeoPropertiesService
             ->sameAs($this->page['author-facebook'])
             ->telephone($this->page['author-phone'])
             ->email($this->page['author-email'])
-            ->url($this->page['author-www'])
+            ->url(
+                empty($this->page['author-www'])
+                    ? route('article.author', $this->page['author-slug'])
+                    : $this->page['author-www']
+            )
             ->toArray();
 
         unset($JsonLD['@context']);
@@ -324,7 +330,7 @@ class SetSeoPropertiesService
             ->height($pictureData['img-height'])
             ->encodingFormat($pictureData['img-mime'])
             ->uploadDate($pictureData['img-updated'])
-            ->license(e($pictureData['sourceArr']['source_license']))
+            ->license(e($pictureData['sourceArr']['source_license_url']))
             ->acquireLicensePage(e($pictureData['sourceArr']['source_license_url']))
             ->if(isset($pictureData['sourceArr']['source_author']) OR isset($pictureData['sourceArr']['source_author_url']), function (ImageObject $schema) use ($pictureData) {
                 $schema->author(
@@ -367,8 +373,8 @@ class SetSeoPropertiesService
                         ->sameAs(e($album['sourceArr']['source_author_url']))
                 );
             })
-            ->license(e($album['sourceArr']['source_license']))
-            ->usageInfo(e($album['sourceArr']['source_license_url']))
+            ->license(e($album['sourceArr']['source_license_url']))
+            ->acquireLicensePage(e($album['sourceArr']['source_license_url']))
             ->if( isset($album['sourceArr']['source_source_url']) OR isset($album['sourceArr']['source_source']), function (ImageGallery $schema) use ($album) {
                 $schema->copyrightHolder(
                     Schema::organization()

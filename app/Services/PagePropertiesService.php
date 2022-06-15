@@ -119,6 +119,7 @@ class PagePropertiesService
             'expires'          => isset($page->unpublished_at) ? $page->unpublished_at->toAtomString() : null,
 
             'author'           => e($page->user->name),
+            'author-slug'      => $page->user->slug,
             'author-email'     => e($page->user->email),
             'author-www'       => e($page->user->www_page_url),
             'author-twitter'   => e($page->user->twitter_url),
