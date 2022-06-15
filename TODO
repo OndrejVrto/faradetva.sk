@@ -9,6 +9,10 @@ Obsah stránky:
   ☐ stránka "všetky albumy" ?
   ☐ stránka "všetky obrázky zobrazené ako album" ?
 
+  ☐ prepísať h5 v testimonials na h3
+  ☐ zrušiť preload písiem
+
+
   ✔ @critical zmeniť heslá
   ✔ pridať sekciu o kostole do oznamov a kontaktov
   ✘ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET
