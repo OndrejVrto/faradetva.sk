@@ -32,14 +32,14 @@ return [
 
         'media' => [
             'driver' => 'local',
-            'root' => storage_path('app\public\media'),
+            'root' => storage_path('app/public/media'),
             'url' => env('APP_URL').'/storage/media',
             'visibility' => 'public',
         ],
 
         'tiny-file-manager-media' => [
             'driver' => 'local',
-            'root' => storage_path('app\public\tiny-file-manager'),
+            'root' => storage_path('app/public/tiny-file-manager'),
             'url' => env('APP_URL').'/storage/tiny-file-manager',
             'visibility' => 'public',
         ],
