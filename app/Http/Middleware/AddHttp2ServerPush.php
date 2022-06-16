@@ -144,7 +144,7 @@ class AddHttp2ServerPush
             '.PNG'   => 'image',
             '.SVG'   => 'image',
             '.TIFF'  => 'image',
-            '.WOFF2' => 'font',
+            // '.WOFF2' => 'font',
         ];
 
         $type = collect($linkTypeMap)->first(function ($type, $extension) use ($url) {
