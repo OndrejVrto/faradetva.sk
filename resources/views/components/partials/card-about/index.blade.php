@@ -36,7 +36,7 @@
                 'order-1' => $side === 'right',
             ])
         >
-            <div class="ch_about_desc h-100 d-flex flex-column align-items-start wow {{ $side === 'right' ? 'fromleft' : 'fromright' }}">
+            <div class="ch_about_desc w-100 h-100 d-flex flex-column align-items-start wow {{ $side === 'right' ? 'fromleft' : 'fromright' }}">
                 <h3>
                     <a href="{{ $url }}" class="link-template">
                         {{ $title }}

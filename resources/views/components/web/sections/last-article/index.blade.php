@@ -64,6 +64,9 @@
 
             </x-partials.card-about>
 
+            @if (!$loop->last)
+                <hr class="bg-alt-gray mt-2 mb-5">
+            @endif
         @endforeach
 
         <div class="d-flex justify-content-center">
