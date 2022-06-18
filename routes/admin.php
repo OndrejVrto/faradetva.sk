@@ -30,34 +30,24 @@ Route::prefix('admin')->group( function() {
     });
 
 
-    Route::middleware(['auth', 'permission', 'preety.html'])->group( function() {
+    Route::middleware(['auth', 'permission'])->group( function() {
+
         //!  Main routes
         Route::permanentRedirect('/', '/admin/dashboard');
-
-        Route::controller(DashboardController::class)->name('admin.')->prefix('dashboard')->group(function () {
-            Route::get('/', 'index')->name('dashboard');
-
-            Route::name('dashboard.')->group( function() {
-                Route::get('health-fresh', 'fresh')->name('health-fresh');
-                Route::patch('maintenance-mode', 'maintenance')->name('maintenance');
-                Route::patch('settings', 'settings')->name('settings');
-                Route::get('commands/{command}', 'commands')->name('commands');
-            });
-        });
 
         //!  Filemanager for TinyMCE Editor
         Route::prefix('laravel-file-manager')->group( function() {
             Lfm::routes();
         });
 
-        //!  Inpersonate IN Route
-        Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->whereNumber('id')->name('impersonate');
-
         //!  Activity plugin
-        Route::controller(ActivityController::class)->name('log-activity.')->withoutMiddleware('preety.html')->group(function () {
+        Route::controller(ActivityController::class)->name('log-activity.')->group(function () {
             Route::get('users-activity', 'getIndex')->name('index');
             Route::post('users-activity', 'handlePostRequest')->name('post');
         });
+
+        //!  Inpersonate IN Route
+        Route::get('impersonate/take/{id}/{guardName?}', [ImpersonateController::class, 'take'])->whereNumber('id')->name('impersonate');
 
         //!  Supplementing resource routes with restore methods
         Route:: post('tags/{id}/restore', [TagController::class, 'restore'])->name('tags.restore');
@@ -89,34 +79,49 @@ Route::prefix('admin')->group( function() {
         Route:: post('notice-acolyte/{id}/force_delete', [NoticeAcolyteController::class, 'force_delete'])->name('notice-acolyte.force_delete');
         Route:: post('notice-lecturer/{id}/force_delete', [NoticeLecturerController::class, 'force_delete'])->name('notice-lecturer.force_delete');
 
-        //!  Resource routes
-        Route::resources([
-            'users'               => UserController::class,
-            'charts'              => ChartController::class,
-            'banners'             => BannerController::class,
-            'pictures'            => PictureController::class,
-            'galleries'           => GalleryController::class,
-            'background-pictures' => BackgroundPictureController::class,
-        ]);
 
-        Route::resources([
-            'tags'            => TagController::class,
-            'faqs'            => FaqController::class,
-            'news'            => NewsController::class,
-            'files'           => FileController::class,
-            'roles'           => RoleController::class,
-            'prayers'         => PrayerController::class,
-            'priests'         => PriestController::class,
-            'sliders'         => SliderController::class,
-            'day-ideas'       => DayIdeaController::class,
-            'categories'      => CategoryController::class,
-            'charts.data'     => ChartDataController::class,
-            'permissions'     => PermissionController::class,
-            'static-pages'    => StaticPageController::class,
-            'testimonials'    => TestimonialController::class,
-            'notice-church'   => NoticeChurchController::class,
-            'notice-acolyte'  => NoticeAcolyteController::class,
-            'notice-lecturer' => NoticeLecturerController::class,
-        ], ['except' => 'show']);
+        Route::middleware(['preety.html'])->group( function() {
+
+            Route::controller(DashboardController::class)->name('admin.')->prefix('dashboard')->group(function () {
+                Route::get('/', 'index')->name('dashboard');
+
+                Route::name('dashboard.')->group( function() {
+                    Route::get('health-fresh', 'fresh')->name('health-fresh');
+                    Route::patch('maintenance-mode', 'maintenance')->name('maintenance');
+                    Route::patch('settings', 'settings')->name('settings');
+                    Route::get('commands/{command}', 'commands')->name('commands');
+                });
+            });
+
+            //!  Resource routes
+            Route::resources([
+                'users'               => UserController::class,
+                'charts'              => ChartController::class,
+                'banners'             => BannerController::class,
+                'pictures'            => PictureController::class,
+                'galleries'           => GalleryController::class,
+                'background-pictures' => BackgroundPictureController::class,
+            ]);
+
+            Route::resources([
+                'tags'            => TagController::class,
+                'faqs'            => FaqController::class,
+                'news'            => NewsController::class,
+                'files'           => FileController::class,
+                'roles'           => RoleController::class,
+                'prayers'         => PrayerController::class,
+                'priests'         => PriestController::class,
+                'sliders'         => SliderController::class,
+                'day-ideas'       => DayIdeaController::class,
+                'categories'      => CategoryController::class,
+                'charts.data'     => ChartDataController::class,
+                'permissions'     => PermissionController::class,
+                'static-pages'    => StaticPageController::class,
+                'testimonials'    => TestimonialController::class,
+                'notice-church'   => NoticeChurchController::class,
+                'notice-acolyte'  => NoticeAcolyteController::class,
+                'notice-lecturer' => NoticeLecturerController::class,
+            ], ['except' => 'show']);
+        });
     });
 });
