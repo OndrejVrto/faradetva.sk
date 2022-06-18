@@ -25,12 +25,15 @@ class FutureTestService
 
         $freespace          = disk_free_space($drive);
         $total_space        = disk_total_space($drive);
-        $percentage_free    = $freespace ? round($freespace / $total_space, 2) * 100 : 0;
+        $usedDiskSpace      = $freespace ? $total_space - $freespace : 0;
+        $percentage_free    = $freespace ? 100 - round($freespace / $total_space, 2) * 100 : 0;
+
 
      /* Show in HTML */
         echo("<b>".$drive."</b> has [".$percentage_free."] % free diskspace<br>");
-        echo("<b>".$drive."</b> has [".$total_space."] totalspace<br>");
+        echo("<b>".$drive."</b> has [".round($total_space/1024/1024)."]MB totalspace<br>");
         echo("<b>".$drive."</b> has [".round($freespace/1024/1024)."] MB free diskspace<br>");
+        echo("<b>".$drive."</b> has [".round($usedDiskSpace /1024/1024)."] MB used diskspace<br>");
         exit;
 
         $input = 'pdf';
