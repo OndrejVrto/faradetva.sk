@@ -1,4 +1,4 @@
-<h3>{{ $oneNews->title }}</h3>
+<h2>{{ $oneNews->title }}</h2>
 
 <!-- ARTICLE CONTENT (TinyMCE) Start -->
     <div class="content" id="contentArticle">
