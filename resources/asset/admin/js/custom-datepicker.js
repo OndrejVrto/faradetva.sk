@@ -1,13 +1,12 @@
 function setupDatepicker(fromSelector, toSelector) {
 
+    // set user timezone to Inputfield
     $('#timezone').val(moment.tz.guess());
 
     //Date and time pickers
     const options = {
-        icons: {
-            time: 'far fa-clock'
-        },
         locale: 'sk',
+        sideBySide: true,
         useCurrent: false,
         buttons: {
             showToday: true,

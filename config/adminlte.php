@@ -673,11 +673,11 @@ return [
                     // 'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js',
                     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js',
                 ],
-                // [
-                //     'type' => 'js',
-                //     'asset' => true,
-                //     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/sk.min.js',
-                // ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/sk.min.js',
+                ],
             ],
         ],
         'Tempus Dominus for Bootstrap 4' => [
