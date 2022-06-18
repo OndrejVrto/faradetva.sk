@@ -1134,7 +1134,7 @@ button:before {
 	text-align: center;
 }
 
-.wh_bar h4 {
+.wh_bar h3 {
 	padding-top: 25px;
 	font-size  : 20px;
 	font-weight: 500;
@@ -1143,8 +1143,9 @@ button:before {
 	color      : #ff7b33;
 }
 
-.wh_bar h5 {
+.wh_bar h4 {
 	padding-bottom: 10px;
+	font-size     : 1.25rem;
 }
 
 .bottom_bar img {

@@ -10,8 +10,8 @@
             <div class="item">
                 <div class="testimonial_box">
                     <div class="wh_bar">
-                        <h4>{{ $testimonial['name'] }}</h4>
-                        <h5>{{ $testimonial['function'] }}</h5>
+                        <h3>{{ $testimonial['name'] }}</h3>
+                        <h4>{{ $testimonial['function'] }}</h4>
                         </div>
                     <div class="bottom_bar">
                         <img src="{{ $testimonial['img-url'] }}"
