@@ -33,8 +33,7 @@ class GenerateSitemapJob implements ShouldQueue
                     ->setPriority(1.0)
             );
 
-        News::all()->each(function (News $news) use ($sitemap) {
-
+        News::orderBy('updated_at','DESC')->get()->each(function (News $news) use ($sitemap) {
             // articles olds as year
             if ($news->updated_at < now()->subYear()) {
                 $sitemap->add(
@@ -79,7 +78,7 @@ class GenerateSitemapJob implements ShouldQueue
                         Url::create("/{$page->url}")
                             ->setLastModificationDate($page->updated_at)
                             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-                            ->setPriority(0.9)
+                            ->setPriority(1.0)
                     );
                 } else {
                     $sitemap->add(

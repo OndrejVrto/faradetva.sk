@@ -21,8 +21,10 @@ class FutureTestService
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
 
-        $drive = '.';
+        (new GenerateSitemapJob)->handle();
+        exit;
 
+        $drive = '.';
         $freespace          = disk_free_space($drive);
         $total_space        = disk_total_space($drive);
         $usedDiskSpace      = $freespace ? $total_space - $freespace : 0;
