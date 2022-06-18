@@ -15,7 +15,12 @@ var editor_config = {
     // plugins: 'advlist anchor autolink autoresize autosave charmap code codesample directionality emoticons fullscreen help hr image importcss insertdatetime link lists media nonbreaking noneditable pagebreak paste preview print quickbars save searchreplace tabfocus table template textpattern visualblocks visualchars wordcount',
 
     // optimal
-    plugins: 'anchor autolink autosave code codesample directionality emoticons fullscreen help hr charmap image insertdatetime link lists media nonbreaking noneditable pagebreak preview print save searchreplace table template textpattern visualblocks visualchars wordcount',
+    // plugins: 'anchor autolink autosave code codesample directionality emoticons fullscreen help hr charmap image insertdatetime link lists media nonbreaking noneditable pagebreak preview print save searchreplace table template textpattern visualblocks visualchars wordcount',
+
+    // all in CDN
+    // plugins: 'advlist anchor autolink autoresize autosave code codesample directionality emoticons fullscreen help charmap image importcss insertdatetime link lists media nonbreaking pagebreak preview quickbars save searchreplace table template visualblocks visualchars wordcount',
+
+    plugins: 'advlist anchor autolink autosave code codesample directionality emoticons fullscreen help charmap image importcss insertdatetime link lists media nonbreaking pagebreak preview save searchreplace table template visualblocks visualchars wordcount',
 
     toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | link image media",
     toolbar_mode: 'floating',

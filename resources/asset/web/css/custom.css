@@ -188,3 +188,9 @@
 .ch_source em {
     margin-right: 0.5rem;
 }
+
+#contentArticle img {
+    max-width: 100%;
+    height: auto;
+}
+
