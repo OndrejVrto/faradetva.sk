@@ -9,10 +9,9 @@ Obsah stránky:
   ☐ stránka "všetky albumy" ?
   ☐ stránka "všetky obrázky zobrazené ako album" ?
 
-  ☐ prepísať h5 v testimonials na h3
-  ☐ zrušiť preload písiem
 
-
+  ✔ prepísať h5 v testimonials na h3
+  ✔ zrušiť preload písiem v header links pre Http2
   ✔ @critical zmeniť heslá
   ✔ pridať sekciu o kostole do oznamov a kontaktov
   ✘ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET
@@ -155,7 +154,8 @@ Administrátorské rozhranie:
 
 
 SEO:
-  ☐ vylepšiť sitemap, prioritu, čas poslednej aktualizácie aj spustenie crawlera
+  ✔ v generátore sitemap vyriešiť chybu, nepridáva všetky stránky
+  ✔ vylepšiť sitemap, prioritu, čas poslednej aktualizácie aj spustenie crawlera
   ✔ doplniť SEO do všetých generátorov obrázkov (Slider, Banner, ...)
   ✔ Social Media Meta Tags - (https://www.kontentino.com/blog/social-media-meta-tags-a-complete-guide/)
   ✔ Implementovať FAQ do JsonLd formátu
@@ -178,6 +178,7 @@ Otázky na Tomáša:
   ☐ reload window po odrátaní času -> automatické skrytie admin rozhrania
   ☐ vlastné CDN pre obrázky - ako nato jednoducho a hlavne zadarmo
   ☐ ako naformátovať vertikálne texty pri obrázkových source. Tak ako to má .týždeň
+  ☐ prerobiť css pre posledné správy na hlavnej stránke
   ✔ css pre prvú správu v zozname
   ✔ orezanie na presný rozmer v JS
 
