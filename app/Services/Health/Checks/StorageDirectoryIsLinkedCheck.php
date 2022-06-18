@@ -14,9 +14,9 @@ class StorageDirectoryIsLinkedCheck extends Check
 
         try {
             (new Filesystem)->isDirectory(public_path('storage'));
-            return Result::make("$name.storage_link.ok");
+            return Result::make("$name.ok");
         } catch (\Exception $e) {
-            return Result::make()->failed("$name.storage_link.failed");
+            return Result::make()->failed("$name.failed");
         }
     }
 }
