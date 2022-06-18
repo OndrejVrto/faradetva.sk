@@ -93,27 +93,27 @@
 
     <x-slot:js_general>
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/jquery.js', true) }}"></script> --}}
-        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+        {{-- <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+        <script @nonce type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/bootstrap-5.1.3/bootstrap.js', true) }}"></script> --}}
         {{-- <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script> --}}
         {{-- <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script> --}}
-        <script @nonce type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        <script @nonce type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/owl-crousel/owl.carousel.js', true) }}"></script> --}}
-        {{-- <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script> --}}
-        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/owl-crousel/owl.carousel.js', true) }}" crossorigin="anonymous"></script> --}}
+        {{-- <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" crossorigin="anonymous"></script> --}}
+        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
 
-        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/wow.min.js', true) }}"></script> --}}
-        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/wow.min.js', true) }}" crossorigin="anonymous"></script> --}}
+        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" crossorigin="anonymous"></script>
 
-        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/jquery.appear.js', true) }}"></script> --}}
-        <script @nonce type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.appear@1.0.1/jquery.appear.min.js"></script>
+        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/jquery.appear.js', true) }}" crossorigin="anonymous"></script> --}}
+        <script @nonce type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.appear@1.0.1/jquery.appear.min.js" crossorigin="anonymous"></script>
 
-        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/counter/jquery.countTo.js', true) }}"></script> --}}
-        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js"></script>
+        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/counter/jquery.countTo.js', true) }}" crossorigin="anonymous"></script> --}}
+        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js" crossorigin="anonymous"></script>
 
-        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" crossorigin="anonymous"></script>
 
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-share.js', true) }}"></script> --}}
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom.js', true) }}"></script> --}}
