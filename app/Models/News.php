@@ -154,7 +154,7 @@ class News extends BaseModel implements HasMedia, Feedable
     }
 
     public static function getFeedItems() {
-        return News::visible()->get();
+        return News::visible()->limit(100)->get();
     }
 
     public function registerMediaConversions(Media $media = null) : void {

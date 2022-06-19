@@ -75,6 +75,6 @@ class Notice extends BaseModel implements HasMedia, Feedable
     }
 
     public static function getFeedItems() {
-        return Notice::visible()->get();
+        return Notice::visible()->limit(100)->get();
     }
 }
