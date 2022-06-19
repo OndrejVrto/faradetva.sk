@@ -27,7 +27,7 @@ return [
              * a banner/logo; for RSS and JSON feeds, it's displayed as an icon.
              * An empty value omits the image attribute from the feed.
              */
-            'image' => asset('/images/logo/logo-farnosti-detva.png'),
+            'image' => config('app.url').'/images/logo/logo-farnosti-detva.png',
 
             /**
              * The format of the feed. Acceptable values are 'rss', 'atom', or 'json'.
@@ -76,7 +76,7 @@ return [
              * a banner/logo; for RSS and JSON feeds, it's displayed as an icon.
              * An empty value omits the image attribute from the feed.
              */
-            'image' => asset('/images/logo/logo-farnosti-detva.png'),
+            'image' => config('app.url').'/images/logo/logo-farnosti-detva.png',
 
             /**
              * The format of the feed. Acceptable values are 'rss', 'atom', or 'json'.
