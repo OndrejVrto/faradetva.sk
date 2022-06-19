@@ -45,6 +45,7 @@ class SetSeoPropertiesService
         SEOMeta::setDescription($this->page['page-description']);
         SEOMeta::addKeyword($this->page['keywords']);
         SEOMeta::addMeta('author', $this->page['author'], 'name');
+        // SEOMeta::addMeta('robots', 'index, follow', 'name');
 
         // Facebook and other social site
         OpenGraph::setDescription($this->page['page-description']);
