@@ -145,12 +145,12 @@ Administrátorské rozhranie:
     ✔ pridať tlačítka zmazaných položiek pri softdelete modeloch a skryť tlačítka show metód
     ✔ cache celej frontend stránky  (https://www.youtube.com/watch?v=P5WvRH71A5g&ab_channel=Laratips)
     ✔ Myšlienka dňa - komplet model, controller, migration, ....
-    ✔ nainštalovať X-Debug
     ✔ automatický teaser v správach
     ✔ search na celej stránke
-      https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
-      https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
-      https://spatie.be/docs/laravel-site-search/v1/introduction
+    https://www.youtube.com/watch?v=g97xzLCj_B8&list=RDCMUCpOIUW62tnJTtpWFABxWZ8g&start_radio=1&rv=g97xzLCj_B8&t=0&ab_channel=Codecourse
+    https://www.youtube.com/watch?v=rnBCrDzAzrw&ab_channel=FreekVanderHerten
+    https://spatie.be/docs/laravel-site-search/v1/introduction
+    ✘ nainštalovať X-Debug
     ✘ BredCrumbs in Chard data
     ✘ Apply SoftDelete Cascade in model user? (https://github.com/razisayyed/laravel-cascaded-soft-deletes)
     ✘ pri vkladaní obrázku mať voľbu veľkosti malý/stredný/veľký, pre automatické zmenšenie pred optimalizáciou
@@ -158,9 +158,9 @@ Administrátorské rozhranie:
 
 
 SEO:
-  ☐ @future implementovať RSS feed (spatie/laravel-feed)
   ☐ @future vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
 
+  ✔ implementovať RSS feed (spatie/laravel-feed)
   ✔ aktualizovať robots.txt tak aby neindexoval obsah ktorý je na stránke dvojmo (hlavne články) a administráciu
   ✔ v sitemap súbore zobrazovať len viditeľné správy
   ✔ v generátore sitemap vyriešiť chybu, nepridáva všetky stránky a pridáva len časť obrázkov

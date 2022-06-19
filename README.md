@@ -11,12 +11,50 @@ The site is created as part of my learning the Laravel framework.
 I tried to implement as many packages as possible and try as many ways of writing code as possible, because it is better to try once than to see 100 times.
 
 The to-do list is never empty.
-## 🧔 About me
+## 🧔 About author
 **I like learning. I like programming. I'm a mechanical engineer, but I want to be a developer. But something needs to be done. That's why I'm doing this project.**
 
 You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 
-## 🧪 Examples
+## 🛠️ What can this application do?
+- nice template for web and administration
+- custom CMS system for pages
+- 25 various models
+- many own validation rules, traits, services, facades, enums and commands
+- perfect image cropper with size lock function, optimization and automatic file renaming before uploading to the server
+- responsive images
+- one DB table for multiple similar models
+- several polymorphic tables for one model
+- http preload links in header
+- many own blade components
+- autolink generator with purify for some inputs
+- subscribers using email
+- custom Booststrap css variable for Mix
+- purify html in local mode / minimalize html in production mode
+- nesting controller
+- permission and roles for users
+- super administrator role
+- inpersonate user
+- custom log for SQL Queries
+- automatic temp directory cleaning
+- schedule and queue functionality enabled
+- checkboxes to change settings located on the dashboard
+- custom Content Security Policy
+- nice charts
+- custom health checks
+- response cache for entire pages
+- cache queries
+- crawler full page search into MailiSearch
+- perfect SEO Scheme Markup
+- several custom RSS feeds
+- custom Sitemap
+
+and much more ....
+
+Take a look at the web result https://faradetva.sk or [install this application](#install) on your computer.
+
+
+## 🧪 Examples screenshots
 #### Dashboard
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/dashboard.jpg?raw=true)
 
@@ -30,7 +68,7 @@ You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/sample-front-page.jpg?raw=true)
 
 ---
-# 📌 Install application to local server in Windows
+# <span id="install"> 📌 Install this application to local server in Windows</span>
 - This application needs the following services to work properly.
 	- Apache server with SSL
 	- MySql 8.0
