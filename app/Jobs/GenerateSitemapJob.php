@@ -24,7 +24,7 @@ class GenerateSitemapJob implements ShouldQueue
     use SerializesModels;
     use InteractsWithQueue;
 
-    public function handle() {
+    public function handle(): void {
         $sitemap = Sitemap::create()
             ->add(
                 Url::create('/')
@@ -33,7 +33,7 @@ class GenerateSitemapJob implements ShouldQueue
                     ->setPriority(1.0)
             );
 
-        News::orderBy('updated_at','DESC')->get()->each(function (News $news) use ($sitemap) {
+        News::visible()->get()->each(function (News $news) use ($sitemap) {
             // articles olds as year
             if ($news->updated_at < now()->subYear()) {
                 $sitemap->add(
@@ -99,8 +99,6 @@ class GenerateSitemapJob implements ShouldQueue
 
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
-        customConfig('crawler')
-            ->put('___RELOAD', false)
-            ->put('CRAWLER.sitemap', now());
+        customConfig('crawler')->put('CRAWLER.sitemap', now());
     }
 }
