@@ -141,10 +141,9 @@ class News extends BaseModel implements HasMedia, Feedable
     }
 
     public function toFeedItem(): FeedItem {
-
         return FeedItem::create()
             ->id("clanok/$this->id")
-            // ->image($this->getFirstMediaUrl('front_picture', 'small'))
+            ->image($this->getFirstMediaUrl('front_picture', 'large'))
             ->title($this->title)
             ->summary($this->teaser)
             ->updated($this->updated_at)

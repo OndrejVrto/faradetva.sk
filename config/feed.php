@@ -32,12 +32,12 @@ return [
             /**
              * The format of the feed. Acceptable values are 'rss', 'atom', or 'json'.
              */
-            'format' => 'atom',
+            'format' => 'json',
 
             /**
              * The view that will render the feed.
              */
-            'view' => 'feed::atom',
+            'view' => 'feed::json',
 
             /**
              * The mime type to be used in the <link> tag. Set to an empty string to automatically
@@ -81,12 +81,12 @@ return [
             /**
              * The format of the feed. Acceptable values are 'rss', 'atom', or 'json'.
              */
-            'format' => 'atom',
+            'format' => 'json',
 
             /**
              * The view that will render the feed.
              */
-            'view' => 'feed::atom',
+            'view' => 'feed::json',
 
             /**
              * The mime type to be used in the <link> tag. Set to an empty string to automatically
