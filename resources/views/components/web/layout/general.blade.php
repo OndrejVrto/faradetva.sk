@@ -27,6 +27,7 @@
 </head>
 <body>
     <!-- BODY CONTENT Start -->
+    @stack('content_prepend')
     {{ $slot }}
     @stack('content_footer')
     <!-- BODY CONTENT End -->

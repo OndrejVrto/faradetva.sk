@@ -15,6 +15,8 @@ class CspPolicyService extends Basic
             ->addDirective(Directive::DEFAULT, [
                 Keyword::SELF,
                 'fonts.gstatic.com',
+                '*.facebook.com',
+                '*.fbcdn.net',
                 'cdn.jsdelivr.net',
                 'cdnjs.cloudflare.com',
             ])
@@ -24,6 +26,7 @@ class CspPolicyService extends Basic
             ->addDirective(Directive::CONNECT, [
                 Keyword::SELF,
                 'maps.googleapis.com',
+                'connect.facebook.net',
             ])
             ->addDirective(Directive::FORM_ACTION, Keyword::SELF)
             ->addDirective(Directive::IMG, [
