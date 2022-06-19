@@ -22,7 +22,6 @@
 
                                 <x-partials.day-idea />
 
-
                                 <h2 class="widget-title mt-4">Dôležité odkazy</h2>
                                 <ul class="mb-4">
                                     <li><a class="link-template-gray" href="{{ secure_url('kontakty') }}">Kontakty</a></li>
@@ -58,6 +57,17 @@
                                 @livewire('subscribe-form', ['modelName' => 'News'])
 
                             </div>
+                        </div>
+
+                        <div class="row widget">
+                            <a class="col-6 d-flex align-items-center justify-content-center" href="{{ route('feeds.articles') }}" target="_blank" rel="noopener noreferrer">
+                                <div><i class="fa-solid fa-square-rss fa-2x" aria-hidden="true"></i></div>
+                                <div class="ms-2 link-template-gray">RSS články</div>
+                            </a>
+                            <a class="col-6 d-flex align-items-center justify-content-center" href="{{ route('feeds.notices') }}" target="_blank" rel="noopener noreferrer">
+                                <div><i class="fa-solid fa-square-rss fa-2x" aria-hidden="true"></i></div>
+                                <div class="ms-2 link-template-gray">RSS oznamy</div>
+                            </a>
                         </div>
                     </div>
 
