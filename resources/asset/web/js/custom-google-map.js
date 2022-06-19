@@ -4,15 +4,30 @@ let map;
 
 function initMap(){
 
+    var styles = {
+        hide: [
+            {
+                featureType: 'poi.business',
+                stylers: [{visibility: 'off'}]
+            },
+            {
+                featureType: 'transit',
+                elementType: 'labels.icon',
+                stylers: [{visibility: 'off'}]
+            }
+        ]
+    };
     /* maps center to screen and set options */
     var mapProperties = {
-        center: { lat: 48.55978989596263, lng: 19.418790178540846 },
-        zoom: 17,
+        center     : { lat: 48.55978989596263, lng: 19.418790178540846 },
+        zoom       : 17,
         scrollwheel: false,
         /* disableDefaultUI: true, */
-        mapTypeId:google.maps.MapTypeId.HYBRID   /* roadmap, satellite, hybrid and terrain */
+        // mapTypeControl: false,
+        mapTypeId  : google.maps.MapTypeId.SATELLITE  /* roadmap, satellite, hybrid and terrain */
     };
     var map=new google.maps.Map(document.getElementById("contact_map"),mapProperties);
+    map.setOptions({styles: styles['hide']});
 
     /* marker Fara */
     var marker=new google.maps.Marker({
@@ -23,7 +38,7 @@ function initMap(){
     });
     marker.setMap(map);
     var infowindow = new google.maps.InfoWindow({
-        content: "<h5 class=\"map-title\"> Farský úrad Detva </h5>"
+        content: "<h5 class=\"map-title\"> Farský úrad Detva </h5><p>Partizánska 64</p>"
     });
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
