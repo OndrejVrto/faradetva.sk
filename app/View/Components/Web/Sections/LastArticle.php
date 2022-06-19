@@ -11,13 +11,15 @@ class LastArticle extends Component
 {
     public $lastArticles;
 
-    public function __construct() {
+    public function __construct(
+        private int $count = 3
+    ) {
         $this->lastArticles = Cache::rememberForever('LAST_ARTICLES', function () {
             return  News::query()
                         ->visible()
                         ->with('media', 'source' ,'category', 'user')
                         ->latest()
-                        ->take(3)
+                        ->take($this->count)
                         ->get();
         });
     }

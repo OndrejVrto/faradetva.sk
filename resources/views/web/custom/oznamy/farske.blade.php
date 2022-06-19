@@ -7,4 +7,6 @@
         <x-web.sections.about-website />
     </div>
 
+    <x-web.sections.last-article :count="2"/>
+
 </x-web.layout.master>
