@@ -1,4 +1,14 @@
 User-agent: *
-Allow: /
+
+Disallow: /login
+Disallow: /register
+Disallow: /admin/
+
+Disallow: /hladat/
+Disallow: /clanky-podla-autora/
+Disallow: /clanky-z-roku/
+Disallow: /clanky-v-kategorii/
+Disallow: /clanky-podla-klucoveho-slova/
+Disallow: /hladat-v-clankoch/
 
 Sitemap: https://faradetva.sk/sitemap.xml
