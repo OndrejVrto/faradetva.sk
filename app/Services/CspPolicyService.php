@@ -26,7 +26,6 @@ class CspPolicyService extends Basic
             ->addDirective(Directive::CONNECT, [
                 Keyword::SELF,
                 'maps.googleapis.com',
-                'connect.facebook.net',
             ])
             ->addDirective(Directive::FORM_ACTION, Keyword::SELF)
             ->addDirective(Directive::IMG, [
@@ -45,6 +44,7 @@ class CspPolicyService extends Basic
                 'sha256-x1e8vcgVIbQJccF2wQ79XGq1vniIt0sZSGt/eFcfzag=',  // this line is for saptie media library responsive pistures
                 'sha256-9K+fEDqIyD+XahBDIsS1HJfWaTCI321eBrwKwbRaQ1g=',
                 'maps.googleapis.com',
+                'connect.facebook.net',
                 'cdnjs.cloudflare.com',
                 'cdn.jsdelivr.net',
             ])
