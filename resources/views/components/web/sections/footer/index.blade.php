@@ -60,14 +60,36 @@
                         </div>
 
                         <div class="row widget">
-                            <a class="col-6 d-flex align-items-center justify-content-center" href="{{ route('feeds.articles') }}" target="_blank" rel="noopener noreferrer">
-                                <div><i class="fa-solid fa-square-rss fa-2x" aria-hidden="true"></i></div>
-                                <div class="ms-2 link-template-gray">RSS články</div>
-                            </a>
-                            <a class="col-6 d-flex align-items-center justify-content-center" href="{{ route('feeds.notices') }}" target="_blank" rel="noopener noreferrer">
-                                <div><i class="fa-solid fa-square-rss fa-2x" aria-hidden="true"></i></div>
-                                <div class="ms-2 link-template-gray">RSS oznamy</div>
-                            </a>
+                            <div class="col-6">
+                                <div class="h5 text-white text-center">Články</div>
+                                <div class="d-flex d-flex align-items-center justify-content-center">
+                                    <div><i class="fa-solid fa-square-rss fa-2x" aria-hidden="true"></i></div>
+                                    <a class="" href="{{ route('feeds.articles-rss') }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="ms-2 link-template-gray">RSS</div>
+                                    </a>
+                                    <a class="" href="{{ route('feeds.articles-json') }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="ms-2 link-template-gray">Json</div>
+                                    </a>
+                                    <a class="" href="{{ route('feeds.articles-atom') }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="ms-2 link-template-gray">ATOM</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="h5 text-white text-center">Oznamy</div>
+                                <div class="d-flex d-flex align-items-center justify-content-center">
+                                    <div><i class="fa-solid fa-square-rss fa-2x" aria-hidden="true"></i></div>
+                                    <a class="" href="{{ route('feeds.notices-rss') }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="ms-2 link-template-gray">RSS</div>
+                                    </a>
+                                    <a class="" href="{{ route('feeds.notices-json') }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="ms-2 link-template-gray">Json</div>
+                                    </a>
+                                    <a class="" href="{{ route('feeds.notices-atom') }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="ms-2 link-template-gray">ATOM</div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
