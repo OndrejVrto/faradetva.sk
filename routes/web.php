@@ -5,12 +5,14 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Web\{
     FaqController, HomeController,
     PageController, SearchController,
-    ArticleController, ListPagesController
+    ArticleController
 };
 use App\Http\Controllers\Support\SubscribeController;
 
 //! FrontEnd Routes
 Route::middleware('fast_web')->group(function() {
+
+    Route::feeds();
 
     Route::get('/', HomeController::class)->name('home');
     Route::get('/otazky-a-odpovede', FaqController::class)->name('faq');
