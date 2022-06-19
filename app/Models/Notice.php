@@ -5,6 +5,8 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use App\Models\BaseModel;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use App\Traits\Restorable;
 use App\Traits\Publishable;
 use App\Models\NoticeChurch;
@@ -17,7 +19,7 @@ use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Nanigans\SingleTableInheritance\SingleTableInheritanceTrait;
 
-class Notice extends BaseModel implements HasMedia
+class Notice extends BaseModel implements HasMedia, Feedable
 {
     use Loggable;
     use Restorable;
@@ -60,4 +62,19 @@ class Notice extends BaseModel implements HasMedia
         'published_at' => 'datetime',
         'unpublished_at' => 'datetime',
     ];
+
+    public function toFeedItem(): FeedItem {
+        return FeedItem::create()
+            ->id("oznamy/$this->id")
+            ->title($this->title)
+            ->updated($this->updated_at)
+            ->summary($this->title)
+            ->link($this->getFirstMedia('notice_pdf')->getFullUrl())
+            ->authorName("Farská kancelária")
+            ->category($this->type_model);
+    }
+
+    public static function getFeedItems() {
+        return Notice::visible()->limit(100)->get();
+    }
 }

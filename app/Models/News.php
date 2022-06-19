@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Source;
 use App\Models\Category;
 use App\Models\BaseModel;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use App\Traits\Restorable;
 use App\Traits\Publishable;
 use Illuminate\Support\Str;
@@ -22,7 +24,7 @@ use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class News extends BaseModel implements HasMedia
+class News extends BaseModel implements HasMedia, Feedable
 {
     use Loggable;
     use Restorable;
@@ -136,6 +138,23 @@ class News extends BaseModel implements HasMedia
 
     public function source() {
         return $this->morphOne(Source::class, 'sourceable');
+    }
+
+    public function toFeedItem(): FeedItem {
+
+        return FeedItem::create()
+            ->id("clanok/$this->id")
+            // ->image($this->getFirstMediaUrl('front_picture', 'small'))
+            ->title($this->title)
+            ->summary($this->teaser)
+            ->updated($this->updated_at)
+            ->link(route('article.show', $this->slug))
+            ->authorName($this->user->name)
+            ->category($this->category->title);
+    }
+
+    public static function getFeedItems() {
+        return News::visible()->limit(100)->get();
     }
 
     public function registerMediaConversions(Media $media = null) : void {

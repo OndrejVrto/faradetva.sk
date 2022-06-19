@@ -16,6 +16,7 @@ enum SubscribeModels: string
     case NOTICE_ACOLYTE  = NoticeAcolyte::class;
     case NOTICE_LECTURER = NoticeLecturer::class;
 
+    // TODO: repare urls
     public function url(): string {
         return match($this) {
             self::NEWS            => config('app.url').'/clanok',
