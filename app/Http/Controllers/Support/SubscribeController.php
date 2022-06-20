@@ -24,7 +24,7 @@ class SubscribeController extends Controller
         $subscriber->save();
 
         Mail::to($subscriber->email)->send(new ConfirmVerificationMail($subscriber));
-        Log::debug('CONFIRM: Email '.$subscriber->email.' verifikovaný');
+        Log::notice('CONFIRM: Email '.$subscriber->email.' verifikovaný');
         return view('web.info.confirm-verification', compact('subscriber'));
     }
 
@@ -35,7 +35,7 @@ class SubscribeController extends Controller
 
         $subscriber->delete();
         Mail::to($subscriber->email)->send(new ConfirmUnscribeMail($subscriber));
-        Log::info('DELETE: Email '.$subscriber->email.' zmazaný');
+        Log::notice('DELETE: Email '.$subscriber->email.' zmazaný');
         return view('web.info.confirm-unscribe', compact('subscriber'));
     }
 }

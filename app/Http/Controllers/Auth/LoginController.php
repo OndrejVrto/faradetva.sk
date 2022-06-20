@@ -62,7 +62,7 @@ class LoginController extends Controller
             Auth::logout();
 
             Log::channel('slack')
-                ->warning("Uživateľ {$name->name}, ({$name->email}) sa pokúsil prihlásiť do účtu aj napriek tomu, že má deaktivované konto.");
+                ->alert("Uživateľ {$name->name}, ({$name->email}) sa pokúsil prihlásiť do účtu aj napriek tomu, že má deaktivované konto.");
 
             return to_route('login')->withErrors("Konto {$name->nick} nie je povolené!");
         }

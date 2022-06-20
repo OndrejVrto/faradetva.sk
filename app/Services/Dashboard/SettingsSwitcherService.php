@@ -76,7 +76,7 @@ class SettingsSwitcherService
             Artisan::call('down', ['--secret' => $secretKey]);
 
             // TODO: send email to all administrator with secret key url
-            Log::channel('slack')->warning('Aplikácia je prepnutá do údržbového módu.', [
+            Log::channel('slack')->alert('Aplikácia je prepnutá do údržbového módu.', [
                 'Secret url' => url(route('home').'/'.$secretKey),
                 'Uživateľ ktorý spustil mód' => Auth::user()->name,
                 'Uživateľov e-mail' => Auth::user()->email,
@@ -86,7 +86,7 @@ class SettingsSwitcherService
         } else {
             $this->checkbox->put('maintenance_mode', false);
             Artisan::call('up');
-            Log::channel('slack')->info('Aplikácia je opäť spustená.', [
+            Log::channel('slack')->alert('Aplikácia je opäť spustená.', [
                 'Uživateľ ktorý spustil aplikáciu' => Auth::user()->name,
             ]);
         }
