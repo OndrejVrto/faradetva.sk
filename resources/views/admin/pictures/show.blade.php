@@ -32,19 +32,19 @@
                 <dt>Titulok</dt>
                     <dd>{{ $picture->title ?? '---' }}</dd>
                 <dt>Popis</dt>
-                    <dd>{{ $picture->source->description ?? '---' }}</dd>
+                    <dd>{{ $picture->source->source_description ?? '---' }}</dd>
                 <dt>Zdroj:</dt>
-                    <dd>{{ $picture->source->source ?? '---' }}</dd>
+                    <dd>{{ $picture->source->source_source ?? '---' }}</dd>
                 <dt>Zdroj URL:</dt>
-                    <dd>{{ $picture->source->source_url ?? '---' }}</dd>
+                    <dd>{{ $picture->source->source_source_url ?? '---' }}</dd>
                 <dt>Autor:</dt>
-                    <dd>{{ $picture->source->author ?? '---' }}</dd>
+                    <dd>{{ $picture->source->source_author ?? '---' }}</dd>
                 <dt>Autor URL:</dt>
-                    <dd>{{ $picture->source->author_url ?? '---' }}</dd>
+                    <dd>{{ $picture->source->source_author_url ?? '---' }}</dd>
                 <dt>Licencia:</dt>
-                    <dd>{{ $picture->source->license ?? '---' }}</dd>
+                    <dd>{{ $picture->source->source_license ?? '---' }}</dd>
                 <dt>Licencia URL:</dt>
-                    <dd>{{ $picture->source->license_url ?? '---' }}</dd>
+                    <dd>{{ $picture->source->source_license_url ?? '---' }}</dd>
             </div>
             <div class="col-lg-8 mb-4">
                 <dt>Náhľad:</dt>

@@ -1,22 +1,22 @@
 @extends('admin._layouts.app')
 
-@section('title', __('backend-texts.pictures.title'))
-@section('meta_description', __('backend-texts.pictures.description_show'))
+@section('title', __('backend-texts.background-pictures.title'))
+@section('meta_description', __('backend-texts.background-pictures.description_show'))
 
 @section('content_breadcrumb')
-    {{  Breadcrumbs::render('pictures.show', false, $picture, $picture->title )}}
+    {{  Breadcrumbs::render('background-pictures.show', false, $backgroundPicture, $backgroundPicture->title )}}
 @stop
 
 @php
-    $controlerName = 'pictures';
+    $controlerName = 'background-pictures';
     $columns = 9;
 
     $typeForm = $identificator = $createdInfo = $updatedInfo = null;
-    if ( isset( $picture ) ) {
+    if ( isset( $backgroundPicture ) ) {
         $typeForm = 'show';
-        $identificator = $picture->slug;
-        $createdInfo = $picture->created_at;
-        $updatedInfo = $picture->updated_at;
+        $identificator = $backgroundPicture->slug;
+        $createdInfo = $backgroundPicture->created_at;
+        $updatedInfo = $backgroundPicture->updated_at;
     }
 @endphp
 
@@ -30,26 +30,30 @@
         <div class="row">
             <div class="col-lg-4">
                 <dt>Titulok</dt>
-                    <dd>{{ $picture->title ?? '---' }}</dd>
+                    <dd>{{ $backgroundPicture->title ?? '---' }}</dd>
                 <dt>Popis</dt>
-                    <dd>{{ $picture->source->description ?? '---' }}</dd>
+                    <dd>{{ $backgroundPicture->source->source_description ?? '---' }}</dd>
                 <dt>Zdroj:</dt>
-                    <dd>{{ $picture->source->source ?? '---' }}</dd>
+                    <dd>{{ $backgroundPicture->source->source_source ?? '---' }}</dd>
                 <dt>Zdroj URL:</dt>
-                    <dd>{{ $picture->source->source_url ?? '---' }}</dd>
+                    <dd>{{ $backgroundPicture->source->source_source_url ?? '---' }}</dd>
                 <dt>Autor:</dt>
-                    <dd>{{ $picture->source->author ?? '---' }}</dd>
+                    <dd>{{ $backgroundPicture->source->source_author ?? '---' }}</dd>
                 <dt>Autor URL:</dt>
-                    <dd>{{ $picture->source->author_url ?? '---' }}</dd>
+                    <dd>{{ $backgroundPicture->source->source_author_url ?? '---' }}</dd>
                 <dt>Licencia:</dt>
-                    <dd>{{ $picture->source->license ?? '---' }}</dd>
+                    <dd>{{ $backgroundPicture->source->source_license ?? '---' }}</dd>
                 <dt>Licencia URL:</dt>
-                    <dd>{{ $picture->source->license_url ?? '---' }}</dd>
+                    <dd>{{ $backgroundPicture->source->source_license_url ?? '---' }}</dd>
             </div>
             <div class="col-lg-8 mb-4">
                 <dt>Náhľad:</dt>
-                <div class="border border-2 border-warning pt-2 pb-3">
-                    <x-partials.picture titleSlug="{{ $picture->slug }}" columns="12"/>
+                <div class="border border-2 border-warning p-1">
+                    {!! (string) $backgroundPicture->getFirstMedia('background_picture')->img('extra-large',[
+                        'class' => 'w-100 img-fluid',
+                        'alt' => $backgroundPicture->source->source_description,
+                        'nonce' => csp_nonce(),
+                    ]) !!}
                 </div>
             </div>
         </div>

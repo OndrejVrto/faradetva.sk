@@ -31,12 +31,13 @@
         <h5 class="lead">{{ $banner->source->description }}</h5>
 
         <div class="row container-banner-show">
-            <div class="col border border-2 border-warning mx-2 mb-4 px-1 pb-4 pt-1">
-                <x-web.sections.banner
-                    header="{{ $banner->title }}"
-                    titleSlug="{{ $banner->slug }}"
-                    dimensionSource="full"
-                />
+            <div class="col border border-2 border-warning mx-2 p-1 mb-4">
+                {!! (string) $banner->getFirstMedia('banner')->img('extra-large',[
+                    'class' => 'w-100 img-fluid',
+                    'alt' => $banner->source->source_description,
+                    'nonce' => csp_nonce(),
+                ]) !!}
+            {{ $banner->source->source_description }}
             </div>
         </div>
 

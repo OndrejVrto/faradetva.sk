@@ -101,7 +101,7 @@ class Banner extends Component
             return $namesBanners;
         };
 
-        return (string) Str::of($namesBanners)
+        return [Str::of($namesBanners)
             ->explode(',')
             ->map(function($namesBanners){
                 return trim($namesBanners);
@@ -109,6 +109,6 @@ class Banner extends Component
             ->whereNotNull()
             ->filter(function ($namesBanners) {
                 return $namesBanners != '';
-            });
+            })];
     }
 }
