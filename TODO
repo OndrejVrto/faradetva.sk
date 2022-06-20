@@ -1,5 +1,5 @@
 Obsah stránky:
-  ☐ rozpis predmanželskej prípravy. V kontaktnom formulári je to asi nie správne. Kde to dať? a urobiť k tomu administráciu?
+  ☐ rozpis predmanželskej prípravy v kontaktoch som zmazal. V kontaktnom formulári to nebolo správne. Kde to dať? Urobiť k tomu administráciu?
   ☐ nahodiť všetky obrázky do stránok "O-nás"
   ☐ nahodiť chýbajúce texty pre spoločenstvá
   ☐ prepísať kategórie článkov a tagy a pridať ich do existujúcich správ.
@@ -67,7 +67,7 @@ Administrátorské rozhranie:
 
   Dashboard:
     ☐ štatistika a rôzne grafy (počet a zoznam subscriberov)
-
+    ☐ cache pre feedy
     ☐ @future pridať kartu s informáciou o posledných prihlásých uživateľoch
     ☐ @future pridať kartu s informáciou o posledných zmenách na stránke
     ☐ @future gooogle analytics na dashboard
@@ -98,7 +98,6 @@ Administrátorské rozhranie:
 
 
   Iné:
-    ☐ opraviť Show formulár a metódy pre všetky typy obrázkov
     ☐ dorobiť administráciu subscribers
     ☐ dorobiť administráciu predmanželskej prípravy
     ☐ upratať lang
@@ -110,6 +109,7 @@ Administrátorské rozhranie:
     ☐ @future vyhľadávanie v administrácii - implementovať Laravel Scout
     ☐ @future automatické zverejnenie článku na FaceBooku po zverejnení na stránke
 
+    ✔ opraviť Show formulár a metódy pre všetky typy obrázkov
     ✔ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
     ✘ response cache hlavnej stránky v inom časovaní ako ostatok
     ✘ prepínač customSwitch prehodiť do komponentu
@@ -160,6 +160,9 @@ Administrátorské rozhranie:
 SEO:
   ☐ @future vytvoriť AMP verziu článkov (https://amp-dev.translate.goog/documentation/guides-and-tutorials/learn/spec/amphtml/?referrer=ampproject.org&_x_tr_sl=auto&_x_tr_tl=sk&_x_tr_hl=cs)
 
+  ✔ spustiť proces v Google search console
+  ✔ odstrániť chyby cez testovanie https://developers.google.com/search/docs/advanced/structured-data
+  ✔ odstrániť čo najviac chýb cez testovanie https://pagespeed.web.dev
   ✔ implementovať RSS feed (spatie/laravel-feed)
   ✔ aktualizovať robots.txt tak aby neindexoval obsah ktorý je na stránke dvojmo (hlavne články) a administráciu
   ✔ v sitemap súbore zobrazovať len viditeľné správy
