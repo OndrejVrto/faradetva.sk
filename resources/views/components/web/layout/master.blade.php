@@ -110,14 +110,10 @@
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/animation/jquery.appear.js', true) }}" crossorigin="anonymous"></script> --}}
         <script @nonce type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.appear@1.0.1/jquery.appear.min.js" crossorigin="anonymous"></script>
 
-        {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/counter/jquery.countTo.js', true) }}" crossorigin="anonymous"></script> --}}
-        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js" crossorigin="anonymous"></script>
-
-        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" crossorigin="anonymous"></script>
-
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom-share.js', true) }}"></script> --}}
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/custom.js', true) }}"></script> --}}
         <script @nonce type="text/javascript" src="{{ asset(mix('asset/app.js'), true) }}"></script>
+
         @livewireScripts(['nonce' => csp_nonce()])
     </x-slot>
 

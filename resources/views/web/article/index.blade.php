@@ -1,3 +1,7 @@
+@push('js')
+    <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" crossorigin="anonymous"></script>
+@endpush
+
 <x-web.layout.master>
 
     <x-web.sections.banner
