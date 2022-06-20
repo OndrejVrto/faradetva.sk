@@ -27,23 +27,58 @@
 
 # EXPIRES CACHING
 <IfModule mod_expires.c>
-    ExpiresActive On
+    ExpiresActive on
 
-    ExpiresDefault "access 2 days"
+    # Perhaps better to whitelist expires rules? Perhaps.
+    ExpiresDefault "access plus 1 month"
 
-    ExpiresByType application/pdf "access 1 day"
+    # cache.appcache needs re-requests
+    # in FF 3.6 (thx Remy ~Introducing HTML5)
+    ExpiresByType text/cache-manifest "access plus 0 seconds"
 
-    ExpiresByType image/x-icon "access 1 year"
-    ExpiresByType image/jpg "access 1 year"
-    ExpiresByType image/jpeg "access 1 year"
-    ExpiresByType image/gif "access 1 year"
-    ExpiresByType image/png "access 1 year"
+    # Your document html
+    ExpiresByType text/html "access plus 0 seconds"
 
-    ExpiresByType text/css "access 1 month"
+    # Data
+    ExpiresByType text/xml "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType application/json "access plus 0 seconds"
 
-    ExpiresByType application/javascript "access 1 month"
-    ExpiresByType application/x-javascript "access 1 month"
-    ExpiresByType application/x-shockwave-flash "access 1 month"
+    # RSS feed
+    ExpiresByType application/rss+xml "access plus 1 hour"
+
+    # Favicon (cannot be renamed)
+    ExpiresByType image/x-icon "access plus 1 week"
+
+    # Media: images, video, audio
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType video/ogg "access plus 1 month"
+    ExpiresByType audio/ogg "access plus 1 month"
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType video/webm "access plus 1 month"
+
+    # HTC files  (css3pie)
+    ExpiresByType text/x-component "access plus 1 month"
+
+    # Webfonts
+    ExpiresByType font/truetype "access plus 1 month"
+    ExpiresByType font/opentype "access plus 1 month"
+    ExpiresByType application/x-font-woff   "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header append Cache-Control "public"
 </IfModule>
 
 # GZIP COMPRESSION

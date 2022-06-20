@@ -40,7 +40,7 @@ class Kernel extends HttpKernel
         ],
 
         'fast_web' => [
-            'header.http2.link',
+            // 'header.http2.link',
             'csp.headers',
             'response.headers',
             'preety.html',

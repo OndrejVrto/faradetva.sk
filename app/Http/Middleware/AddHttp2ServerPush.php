@@ -117,7 +117,7 @@ class AddHttp2ServerPush
         // preg_match_all("/src: url\((.*?)\)/sm", $response->getOriginalContent(), $woffFontsLinks);
 
         return collect([
-                $crawler->filter('link:not([rel*="icon"]), script[src], img[src], object[data]')->extract(['src', 'href', 'data']),
+                $crawler->filter('link:not([rel*="icon"]), link:not([rel*="alternate"]), script[src], img[src], object[data]')->extract(['src', 'href', 'data']),
                 // $woffFontsLinks[1]
             ])
             ->flatten()
