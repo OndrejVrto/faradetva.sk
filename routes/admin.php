@@ -80,7 +80,7 @@ Route::prefix('admin')->group( function() {
 
         Route::middleware('preety.html')->group( function() {
 
-            Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+            Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
             Route::resources([
                 'users'               => UserController::class,
