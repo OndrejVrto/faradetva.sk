@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Touhidurabir\ModelSanitize\Sanitizable;
 
-class BaseModel extends Model
+abstract class BaseModel extends Model
 {
     use Sanitizable;
 
