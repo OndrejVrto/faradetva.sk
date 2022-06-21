@@ -1,22 +1,22 @@
 <p align="center">
 	<a href="https://faradetva.sk" target="_blank">
-		<img src="https://github.com/OndrejVrto/faradetva.sk/blob/main/public/images/logo/logo-farnosti-detva.svg?raw=true" width="300">
+		<img src="https://github.com/OndrejVrto/faradetva.sk/blob/main/public/images/logo/logo-farnosti-detva-with-styles?raw=true" width="300">
 	</a>
 </p>
 
-# ⛪ <span style="color: orange;">Website and CMS for the [parish Detva](https://faradetva.sk) in Slovakia</span>
+# ⛪ <span class="orange" style="color: orange;">Website and CMS for the [parish Detva](https://faradetva.sk) in Slovakia</span>
 
 The [site](https://faradetva.sk) is created as part of my learning the Laravel framework.
 
 I tried to implement as many packages as possible and try as many ways of writing code as possible, because it is better to try once than to see 100 times.
 
-## 🧔 <span style="color: orange;">About author</span>
+## 🧔 <span class="orange" style="color: orange;">About author</span>
 **I like learning. I like programming. I'm a mechanical engineer, but I want to be a developer. But something needs to be done. That's why I'm doing this project.**
 
 You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 
-## 🛠️ <span style="color: orange;">What can this application do?</span>
-#### <span style="color: green;">Generaly</span>
+## 🛠️ <span class="orange" style="color: orange;">What can this application do?</span>
+#### <span class="green" style="color: green;">Generaly</span>
 * custom CMS system for pages
 * 25 various models
 * perfect image cropper with size lock function, optimization and automatic file renaming before uploading to the server
@@ -32,7 +32,7 @@ You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 * response cache for entire pages and queries
 * crawler full page search into MailiSearch
 
-#### <span style="color: green;">Design and SEO</span>
+#### <span class="green" style="color: green;">Design and SEO</span>
 * nice template for web and administration
 * custom Booststrap css variable for Mix
 * nice charts
@@ -40,7 +40,7 @@ You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 * several custom RSS feeds
 * custom Sitemap
 
-#### <span style="color: green;">Used</span>
+#### <span class="green" style="color: green;">Used</span>
 * many own validation rules, traits, services, facades, enums and commands
 * one DB table for multiple similar models
 * several polymorphic tables for one model
@@ -52,36 +52,36 @@ You can find out more about me on my [personal page](https://ondrejvrto.eu/).
 
 and much more ....
 
-<span style="color: cyan;">The TODO list is never empty.</span>
+<span class="cyan" style="color: cyan;">The TODO list is never empty.</span>
 
 Take a look at the web result https://faradetva.sk or [install this application](#install) on your computer.
 
-## 🧪 <span style="color: orange;">Examples screenshots</span>
-#### <span style="color: green;">Dashboard for super-administrator
+## 🧪 <span class="orange" style="color: orange;">Examples screenshots</span>
+#### <span class="green" style="color: green;">Dashboard for super-administrator
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/dashboard.jpg?raw=true)
 
-####  <span style="color: green;">Sample form (page)</span>
+####  <span class="green" style="color: green;">Sample form (page)</span>
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/sample-form.jpg?raw=true)
 
-####  <span style="color: green;">Sample list (pictures)</span>
+####  <span class="green" style="color: green;">Sample list (pictures)</span>
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/sample-list-item.jpg?raw=true)
 
-####  <span style="color: green;">Sample of front page</span>
+####  <span class="green" style="color: green;">Sample of front page</span>
 ![dashboard](https://github.com/OndrejVrto/faradetva.sk/blob/main/storage/demo/sample-front-page.jpg?raw=true)
 
 ---
-# <span id="install" style="color: orange;"> 📌 Install this application to local server in Windows</span>
-* <span style="color: green;">This application needs the following services to work properly.</span>
+# <span id="install" class="orange" style="color: orange;"> 📌 Install this application to local server in Windows</span>
+* <span class="green" style="color: green;">This application needs the following services to work properly.</span>
 	* Apache server with SSL and enabled Http2 protocol
 	* MySql 8.0
 	* php 8.1
 	* MeiliSearch
-* <span style="color: green;">Optional:</span>
+* <span class="green" style="color: green;">Optional:</span>
 	* Slack webhook for logging
 	* MailTrap.io for mail traping
 	* google.maps api key if wish nice maps
 
-## 🧾 <span style="color: orange;">Installation</span>
+## 🧾 <span class="orange" style="color: orange;">Installation</span>
 01. I'am work in Windows. Local development needs software. Best solution for me is [Laragon](https://laragon.org).
 	- instal [Laragon](https://laragon.org) in to directory `C:/` and run it **as administrator**.
 	- download [php 8.1](https://windows.php.net/download#php-8.1) and unpack to Laragon directory `c:\laragon\bin\php\`. Set php version in Laragon to this version.
@@ -206,21 +206,21 @@ Take a look at the web result https://faradetva.sk or [install this application]
 
 23. In browser go to [https://faradetva.test](https://faradetva.test)
 
-<span style="color: green; font-size: 24px">Congratulations. 🏆 You did it!</span>
+<span class="orange fs24" style="color: green; font-size: 24px">Congratulations. 🏆 You did it!</span>
 
-### <span style="color: cyan;">Notes</span>
+### <span class="cyan" style="color: cyan;">Notes</span>
 - check your MeiliSerch service in [http://127.0.0.1:7700](http://127.0.0.1:7700)
 - To use SLACK logging you must enter your address in the LOG_SLACK_WEBHOOK_URL variable in the .env file
 - To use google maps you need to insert your key into GOOGLE_MAP_API_KEY in an .env file
 
-# 🍕 <span style="color: orange;">Contributing</span>
+# 🍕 <span class="orange" style="color: orange;">Contributing</span>
 
 Thank you for considering contributing to this repository!
 
-# 🛡️ <span style="color: orange;">Security Vulnerabilities</span>
+# 🛡️ <span class="orange" style="color: orange;">Security Vulnerabilities</span>
 
 If you discover a security vulnerability, please send an e-mail to Ondrej Vrťo via [ondrej.vrto@gmail.com](mailto:ondrej.vrto@gmail.com).
 
-# 📖 <span style="color: orange;">License</span>
+# 📖 <span class="orange" style="color: orange;">License</span>
 
 This code in this page is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
