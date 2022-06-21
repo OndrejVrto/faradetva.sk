@@ -1,6 +1,6 @@
 <p align="center">
 	<a href="https://faradetva.sk" target="_blank">
-		<img src="https://github.com/OndrejVrto/faradetva.sk/blob/main/public/images/logo/logo-farnosti-detva-with-styles?raw=true" width="300">
+		<img src="https://github.com/OndrejVrto/faradetva.sk/blob/main/public/images/logo/logo-farnosti-detva-with-styles.svg?raw=true" width="300">
 	</a>
 </p>
 
