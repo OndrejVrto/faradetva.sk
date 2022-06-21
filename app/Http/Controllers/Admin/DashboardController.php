@@ -30,7 +30,7 @@ class DashboardController extends Controller
     }
 
     public function fresh(): RedirectResponse {
-        Artisan::call(RunHealthChecksCommand::class);
+        Artisan::call(RunHealthChecksCommand::class, ['--quiet' => true, '--no-interaction' => true]);
 
         toastr()->success('Stav aplikácie aktualizovaný.');
         return to_route('admin.dashboard');

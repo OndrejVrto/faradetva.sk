@@ -24,10 +24,10 @@ class SettingsSwitcherService
     public function __destruct() {
         // update config cache
         if (true == $this->checkbox->get('cache_config')) {
-            Artisan::call('config:cache');
+            Artisan::call('config:cache', ['--quiet' => true, '--no-interaction' => true]);
         }
         // refresh Health checks
-        Artisan::call(RunHealthChecksCommand::class);
+        Artisan::call(RunHealthChecksCommand::class, ['--quiet' => true, '--no-interaction' => true]);
     }
 
     public function run(string $command = null, bool $value) {
@@ -51,7 +51,7 @@ class SettingsSwitcherService
                 customConfig('config', [$config => false]);
             }
             if ($artisanFalse) {
-                Artisan::call($artisanFalse);
+                Artisan::call($artisanFalse, ['--quiet' => true, '--no-interaction' => true]);
             }
             // info($valueStore.' > OFF');
             return;
@@ -62,7 +62,7 @@ class SettingsSwitcherService
             customConfig('config', [$config => true]);
         }
         if ($artisanTrue) {
-            Artisan::call($artisanTrue);
+            Artisan::call($artisanTrue, ['--quiet' => true, '--no-interaction' => true]);
         }
         // info($valueStore.' > ON');
         return;
@@ -95,7 +95,7 @@ class SettingsSwitcherService
     private function cache_global(bool $require): void {
         if ($require == $this->checkbox->get('cache_global')) return;
         if (false == $require) {
-            Artisan::call('cache:clear');
+            Artisan::call('cache:clear', ['--quiet' => true, '--no-interaction' => true]);
             $this->checkbox->put('cache_global', false);
             customConfig('config', ['cache.default' => 'none']);
         } else {
