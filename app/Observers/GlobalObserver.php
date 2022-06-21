@@ -10,7 +10,7 @@ use Spatie\ResponseCache\Facades\ResponseCache;
 class GlobalObserver
 {
     private function clearAllCache() {
-        Artisan::call('cache:clear');
+        Artisan::call('cache:clear', ['--quiet' => true, '--no-interaction' => true]);
         ResponseCache::clear();
 
         customConfig('crawler')

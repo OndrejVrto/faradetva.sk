@@ -26,33 +26,33 @@ class DashboardCommandService
     }
 
     private function clean_directories() {
-        Artisan::call('debugbar:clear');
-        Artisan::call('media-library:clean');
-        Artisan::call('clean:directories');
+        Artisan::call('debugbar:clear', ['--quiet' => true, '--no-interaction' => true]);
+        Artisan::call('media-library:clean', ['--force', '--quiet' => true, '--no-interaction' => true]);
+        Artisan::call('clean:directories', ['--quiet' => true, '--no-interaction' => true]);
     }
 
     private function cache_reset() {
-        Artisan::call('optimize:clear');
-        Artisan::call('optimize');
-        Artisan::call('view:cache');
-        Artisan::call('event:cache');
-        Artisan::call('permission:cache-reset');
-        Artisan::call('schedule:clear-cache');
-        Artisan::call('debugbar:clear');
+        Artisan::call('optimize:clear', ['--quiet' => true, '--no-interaction' => true]);
+        Artisan::call('optimize', ['--quiet' => true, '--no-interaction' => true]);
+        Artisan::call('view:cache', ['--quiet' => true, '--no-interaction' => true]);
+        Artisan::call('event:cache', ['--quiet' => true, '--no-interaction' => true]);
+        Artisan::call('permission:cache-reset', ['--quiet' => true, '--no-interaction' => true]);
+        Artisan::call('schedule:clear-cache', ['--quiet' => true, '--no-interaction' => true]);
+        Artisan::call('debugbar:clear', ['--quiet' => true, '--no-interaction' => true]);
     }
 
     private function cache_data_reset() {
         ResponseCache::clear();
-        Artisan::call('cache:clear');
+        Artisan::call('cache:clear', ['--quiet' => true, '--no-interaction' => true]);
     }
 
     private function failed_jobs_delete() {
-        Artisan::call('queue:flush');
+        Artisan::call('queue:flush', ['--quiet' => true, '--no-interaction' => true]);
     }
 
     private function jobs_restart() {
         // Artisan::call('queue:restart');
-        Artisan::call('queue:retry', ['--queue' => 'default']);
+        Artisan::call('queue:retry', ['--queue' => 'default', '--quiet' => true, '--no-interaction' => true]);
     }
 
     private function crawl_url() {
