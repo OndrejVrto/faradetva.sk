@@ -116,7 +116,7 @@ class SettingsSwitcherService
     }
 
     private function cache_response(bool $require): void {
-        if ($require == $this->config->get('cache_response')) return;
+        if ($require == $this->checkbox->get('cache_response')) return;
         if (false == $require) {
             ResponseCache::clear();
             $this->checkbox->put('cache_response', false);
