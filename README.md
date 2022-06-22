@@ -155,7 +155,7 @@ Take a look at the web result https://faradetva.sk or [install this application]
 	```cmd
 	php artisan key:generate
 	```
-13. Copy `demo-data-faradetva-test.zip` from main [private google disk storage](https://drive.google.com/file/d/1A0iw5Jnj-wConGHdfYwH6JAjOAwn-U1_/view?usp=sharing)
+13. Copy `demo-data-faradetva-test.zip` from main [private google disk storage](https://drive.google.com/drive/folders/1XJDhf14HkVtQsQR-2nKiGBkNFI1NoVFI?usp=sharing)
 	- I don't want to version this data via git, but without it the application won't run. 
 	- MIT license does not apply to this content
 
