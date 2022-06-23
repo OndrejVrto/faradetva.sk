@@ -1,5 +1,5 @@
 <!-- GALLERY Start ({{ $gallery['title'] }}) -->
-    <div {{ $attributes->merge(['class' => 'row ch_about_desc']) }}>
+    <div {{ $attributes->merge(['class' => 'row ch_about_desc w-100']) }}>
         <h3 class="fromright wow" data-wow-delay="0.4s">{{ $gallery['title'] }}</h3>
 
         @isset($gallery['source_description'])
