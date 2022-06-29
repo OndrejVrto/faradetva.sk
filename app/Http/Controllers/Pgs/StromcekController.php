@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 class StromcekController extends Controller
 {
     public function __invoke(Request $request, int $layer = null, string $color = null) {
+
+        // validate form
         $validated = $request->validate([
             'color' => [
                 'nullable',
@@ -25,6 +27,7 @@ class StromcekController extends Controller
             ],
         ]);
 
+        // redirect for preety URL
         if($validated != []) {
             return redirect(url(route('psg.test') . '/' . $validated['count'] . '/' . Str::after($validated['color'], '#') ));
         }
@@ -38,7 +41,13 @@ class StromcekController extends Controller
 
         $color = is_null($color) ? random_hex_color() : $color;
 
-        $tree = (new TreeService($count))->print();
+        // generator
+        $tree = (new TreeService(
+                    layers      : $count,
+                    lightVersion: false,
+                    charTriagle : '*',
+                    charStump   : '|')
+                )->print();
 
         return view('web.psg.index', compact('count', 'color', 'tree'));
     }
