@@ -10,6 +10,7 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <form action="{{ route('psg.test') }}">
+                        @csrf
 
                         <div class="row">
                             <div class="col-6">

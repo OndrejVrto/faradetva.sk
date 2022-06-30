@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Services\TreeService;
 use App\Http\Controllers\Controller;
 
-class StromcekController extends Controller
+class PgsTreeController extends Controller
 {
     public function __invoke(Request $request, int $layer = null, string $color = null) {
 
