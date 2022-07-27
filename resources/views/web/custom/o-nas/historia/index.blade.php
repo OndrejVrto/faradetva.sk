@@ -8,7 +8,7 @@
                 <div class="col-md-6 col-xs-12">
                     <div class="ch_about_thumb fromleft wow">
                         {{-- <img src="images/about/about-thumb2.jpg" alt="" class="img-fluid"> --}}
-                                            </div>
+                    </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <div class="ch_about_desc fromright wow">
@@ -62,14 +62,14 @@
 
         <x-web.page.section-header header="Významné osobnosti"/>
 
-        {{-- <x-partials.page-card routeStaticPages="
+        <x-partials.page-card routeStaticPages="
             o-nas.historia.anton-prokop,
             o-nas.historia.imrich-durica,
             o-nas.historia.jozef-zavodsky,
             o-nas.historia.karol-anton-medvecky,
             o-nas.historia.jan-strban,
             o-nas.historia.jozef-buda
-        "/> --}}
+        "/>
 
     </x-web.page.section>
 

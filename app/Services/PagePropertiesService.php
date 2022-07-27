@@ -65,7 +65,8 @@ class PagePropertiesService
             return [
                 'img-representing' => $media->getUrl('representing'),
                 'img-thumb'        => $media->getUrl('representing-thumb'),
-                'img-file-name'    => $media->file_name,
+                // 'img-file-name'    => $media->file_name,
+                'img-file-name'    => pathinfo($media->file_name, PATHINFO_FILENAME),
                 'img-mime-type'    => $media->mime_type,
                 'img-size'         => $media->size,
                 'img-updated_at'   => $media->updated_at->toAtomString(),
