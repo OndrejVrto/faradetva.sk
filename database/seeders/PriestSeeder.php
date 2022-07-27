@@ -6,10 +6,8 @@ use App\Models\Priest;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
-class PriestSeeder extends Seeder
-{
+class PriestSeeder extends Seeder {
     public function run(): void {
-
         Priest::create([
             'active'  => '1',
             'titles_before'  => 'ThLic.',

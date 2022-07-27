@@ -29,8 +29,7 @@
  * PHP port by Ivan Weiler, 2014
  *
  */
-class BeautifyHtml
-{
+class BeautifyHtml {
     private $options;
 
     private $pos;
@@ -143,7 +142,6 @@ class BeautifyHtml
     private function traverse_whitespace() {
         $input_char = isset($this->input[$this->pos]) ? $this->input[$this->pos] : '';
         if ($input_char && in_array($input_char, $this->whitespace)) {
-
             $this->newlines = 0;
             while ($input_char && in_array($input_char, $this->whitespace)) {
                 if ($this->options['preserve_newlines'] &&
@@ -156,7 +154,6 @@ class BeautifyHtml
                 $input_char = isset($this->input[$this->pos]) ? $this->input[$this->pos] : '';
             }
             return true;
-
         }
         return false;
     }
@@ -168,7 +165,6 @@ class BeautifyHtml
         $space = false; //if a space is needed
 
         while (isset($this->input[$this->pos]) && $this->input[$this->pos] !== '<') {
-
             if ($this->pos >= $this->input_length) {
                 return count($content) ? implode('', $content) : array('', 'TK_EOF');
             }
@@ -338,7 +334,6 @@ class BeautifyHtml
                 $content = array($this->get_comment($tag_start));
                 break;
             }
-
         } while ($input_char !== '>');
 
         $tag_complete = implode('', $content);
@@ -360,7 +355,7 @@ class BeautifyHtml
             if (!$peek) {
                 $this->tag_type = 'SINGLE';
             }
-        } else if ($tag_check === 'script' /*&&
+        } elseif ($tag_check === 'script' /*&&
     (strpos($tag_complete, 'type') === false ||
     (strpos($tag_complete, 'type') !== false &&
     preg_match('/\b(text|application)\/(x-)?(javascript|ecmascript|jscript|livescript)/', $tag_complete)))*/
@@ -369,7 +364,7 @@ class BeautifyHtml
                 $this->record_tag($tag_check);
                 $this->tag_type = 'SCRIPT';
             }
-        } else if ($tag_check === 'style' /*&&
+        } elseif ($tag_check === 'style' /*&&
     (strpos($tag_complete, 'type') === false ||
     (strpos($tag_complete, 'type') !==false && strpos($tag_complete, 'text/css') !== false))*/
         ) {
@@ -377,7 +372,7 @@ class BeautifyHtml
                 $this->record_tag($tag_check);
                 $this->tag_type = 'STYLE';
             }
-        } else if ($this->is_unformatted($tag_check)) { // do not reformat the "unformatted" tags
+        } elseif ($this->is_unformatted($tag_check)) { // do not reformat the "unformatted" tags
             $comment = $this->get_unformatted('</' . $tag_check . '>', $tag_complete); //...delegate to get_unformatted function
 
             $content[] = $comment;
@@ -391,13 +386,13 @@ class BeautifyHtml
                 $content[] = $this->input[$tag_end + 1];
             }
             $this->tag_type = 'SINGLE';
-        } else if ($tag_check && $tag_check[0] === '!') { //peek for <! comment
+        } elseif ($tag_check && $tag_check[0] === '!') { //peek for <! comment
             // for comments content is already correct.
             if (!$peek) {
                 $this->tag_type = 'SINGLE';
                 $this->traverse_whitespace();
             }
-        } else if (!$peek) {
+        } elseif (!$peek) {
             if ($tag_check && $tag_check[0] === '/') { //this tag is a double tag so check for tag-ending
                 $this->retrieve_tag(substr($tag_check, 1)); //remove it and all ancestors
                 $this->tag_type = 'END';
@@ -453,13 +448,13 @@ class BeautifyHtml
                 if (strpos($comment, '<![if') === 0) { //peek for <![if conditional comment
                     $delimiter = '<![endif]>';
                     $matched = true;
-                } else if (strpos($comment, '<![cdata[') === 0) { //if it's a <[cdata[ comment...
+                } elseif (strpos($comment, '<![cdata[') === 0) { //if it's a <[cdata[ comment...
                     $delimiter = ']]>';
                     $matched = true;
-                } else if (strpos($comment, '<![') === 0) { // some other ![ comment? ...
+                } elseif (strpos($comment, '<![') === 0) { // some other ![ comment? ...
                     $delimiter = ']>';
                     $matched = true;
-                } else if (strpos($comment, '<!--') === 0) { // <!-- comment ...
+                } elseif (strpos($comment, '<!--') === 0) { // <!-- comment ...
                     $delimiter = '-->';
                     $matched = true;
                 }
@@ -528,7 +523,6 @@ class BeautifyHtml
 
                 continue;
             }
-
         } while (strpos(strtolower($content), $delimiter, $min_index) === false);
 
         return $content;
@@ -734,13 +728,13 @@ class BeautifyHtml
 
                         if ($this->token_type === 'TK_SCRIPT') {
                             $_beautifier = $this->js_beautify;
-                        } else if ($this->token_type === 'TK_STYLE') {
+                        } elseif ($this->token_type === 'TK_STYLE') {
                             $_beautifier = $this->css_beautify;
                         }
 
                         if ($this->options['indent_scripts'] === "keep") {
                             $script_indent_level = 0;
-                        } else if ($this->options['indent_scripts'] === "separate") {
+                        } elseif ($this->options['indent_scripts'] === "separate") {
                             $script_indent_level = -$this->indent_level;
                         }
 

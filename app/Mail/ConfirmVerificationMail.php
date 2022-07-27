@@ -9,9 +9,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ConfirmVerificationMail extends Mailable implements ShouldQueue
-{
-    use Queueable, SerializesModels;
+class ConfirmVerificationMail extends Mailable implements ShouldQueue {
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The number of times the job may be attempted.
@@ -47,8 +47,7 @@ class ConfirmVerificationMail extends Mailable implements ShouldQueue
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build() {
         return $this->markdown('mail.confirm-verification-mail', [
             'slug'             => $this->slug,
             'uuid'             => $this->uuid,

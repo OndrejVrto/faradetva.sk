@@ -1,11 +1,10 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Contracts;
 
 use Illuminate\Http\Request;
-use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Requests\NoticeRequest;
 use Illuminate\Http\RedirectResponse;

@@ -5,8 +5,7 @@ namespace App\Services\Health\Checks;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class DebugModeCheck extends Check
-{
+class DebugModeCheck extends Check {
     public function run(): Result {
         $name = 'health-results.debug_mode';
         $this->label("$name.label");

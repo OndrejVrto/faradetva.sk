@@ -7,8 +7,7 @@ use Illuminate\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\Traits\CanAuthorizeTrait;
 
-abstract class BaseRequest extends FormRequest
-{
+abstract class BaseRequest extends FormRequest {
     use CanAuthorizeTrait;
 
     protected function requireORnullable(): string {

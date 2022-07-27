@@ -15,8 +15,7 @@ use App\Services\Health\Checks\{
     CorrectPhpVersionInstalledCheck
 };
 
-class HealthServiceProvider extends ServiceProvider
-{
+class HealthServiceProvider extends ServiceProvider {
     public function boot(): void {
         Health::checks([
             //! critical

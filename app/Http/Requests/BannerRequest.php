@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasSourceFields;
 use App\Http\Requests\Traits\HasCropPictureFields;
 
-class BannerRequest extends BaseRequest
-{
+class BannerRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 

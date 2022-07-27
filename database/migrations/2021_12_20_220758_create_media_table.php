@@ -4,10 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
-{
-    public function up()
-    {
+return new class () extends Migration {
+    public function up() {
         Schema::create('media', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid')->nullable()->unique();

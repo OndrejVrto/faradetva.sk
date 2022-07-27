@@ -2,11 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasCropPictureFields;
 
-class PriestRequest extends BaseRequest
-{
+class PriestRequest extends BaseRequest {
     use HasCropPictureFields;
 
     public function rules(): array {
@@ -41,4 +39,3 @@ class PriestRequest extends BaseRequest
         ];
     }
 }
-

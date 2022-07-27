@@ -4,8 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class SingleWord implements Rule
-{
+class SingleWord implements Rule {
     public function __construct() {
         //
     }

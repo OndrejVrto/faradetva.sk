@@ -6,11 +6,8 @@ use Spatie\Crawler\Crawler;
 use GuzzleHttp\RequestOptions;
 use Spatie\SiteSearch\Profiles\DefaultSearchProfile;
 
-Class SearchCrawlProfile extends DefaultSearchProfile
-{
-    public function configureCrawler(Crawler $crawler): void
-    {
-
+class SearchCrawlProfile extends DefaultSearchProfile {
+    public function configureCrawler(Crawler $crawler): void {
         $crawlerClientOptions = [
             RequestOptions::COOKIES => true,
             RequestOptions::CONNECT_TIMEOUT => 10,

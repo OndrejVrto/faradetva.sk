@@ -7,8 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-class Notice extends Component
-{
+class Notice extends Component {
     public $notices;
 
     private $model;
@@ -42,12 +41,12 @@ class Notice extends Component
 
     private function getNotice(string $fullModel): array {
         $cacheName = Str::of($this->model)->kebab();
-        return Cache::rememberForever('NOTICE_'.$cacheName, function() use($fullModel): array {
+        return Cache::rememberForever('NOTICE_'.$cacheName, function () use ($fullModel): array {
             return  $fullModel::query()
                 ->visible()
                 ->with('media')
                 ->get()
-                ->map(function($notice): array {
+                ->map(function ($notice): array {
                     return [
                         'id'    => $notice->id,
                         'title' => $notice->title,

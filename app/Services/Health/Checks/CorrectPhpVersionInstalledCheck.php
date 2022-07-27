@@ -9,8 +9,7 @@ use Spatie\Health\Checks\Result;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
-class CorrectPhpVersionInstalledCheck extends Check
-{
+class CorrectPhpVersionInstalledCheck extends Check {
     public function run(): Result {
         $name = 'health-results.php_version';
         $this->label("$name.label");
@@ -25,11 +24,11 @@ class CorrectPhpVersionInstalledCheck extends Check
             return $result->failed("$name.crash_composer");
         }
 
-        Semver::satisfies($usedVersion, $requiredVersion )
+        Semver::satisfies($usedVersion, $requiredVersion)
             ? $result->notificationMessage("$name.ok")->ok()
             : $result->failed("$name.failed");
 
-            return $result->meta([
+        return $result->meta([
                 'required' => $requiredVersion,
                 'used'     => $usedVersion,
             ]);
@@ -40,7 +39,7 @@ class CorrectPhpVersionInstalledCheck extends Check
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function getRequiredPhpConstraint() {
-        $composer = json_decode((new Filesystem)->get(base_path('composer.json')), true);
+        $composer = json_decode((new Filesystem())->get(base_path('composer.json')), true);
 
         return Arr::get($composer, 'require.php');
     }

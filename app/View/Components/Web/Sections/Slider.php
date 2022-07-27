@@ -8,8 +8,7 @@ use App\Models\Slider as SliderModel;
 use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class Slider extends Component
-{
+class Slider extends Component {
     public $sliders = [];
 
     public function __construct() {
@@ -21,7 +20,7 @@ class Slider extends Component
             foreach ($this->sliders as $slider) {
                 (new SetSeoPropertiesService())->setPictureSchema($slider);
             }
-            
+
             return view('components.web.sections.slider.index');
         }
         return null;
@@ -36,12 +35,12 @@ class Slider extends Component
             ->get();
 
         foreach ($randomSliders as $oneSlider) {
-            $this->sliders[] = Cache::rememberForever('PICTURE_SLIDER_'.$oneSlider->id, function() use($oneSlider): array {
+            $this->sliders[] = Cache::rememberForever('PICTURE_SLIDER_'.$oneSlider->id, function () use ($oneSlider): array {
                 return SliderModel::query()
                         ->whereId($oneSlider->id)
                         ->with('media', 'source')
                         ->get()
-                        ->map(fn($e) => $this->mapOutput($e))
+                        ->map(fn ($e) => $this->mapOutput($e))
                         ->first();
             });
         }

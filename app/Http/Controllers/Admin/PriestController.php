@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,8 +13,7 @@ use App\Http\Requests\PriestRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
-class PriestController extends Controller
-{
+class PriestController extends Controller {
     public function index(Request $request): View {
         $priests = Priest::query()
             ->latest()
@@ -26,7 +25,7 @@ class PriestController extends Controller
         return view('admin.priests.index', compact('priests'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         return view('admin.priests.create');
     }
 
@@ -34,13 +33,13 @@ class PriestController extends Controller
         $validated = $request->validated();
         $priest = Priest::create(Priest::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
+        (new MediaStoreService())->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
 
         toastr()->success(__('app.priest.store'));
         return to_route('priests.index');
     }
 
-    public function edit(Priest $priest): View  {
+    public function edit(Priest $priest): View {
         return view('admin.priests.edit', compact('priest'));
     }
 
@@ -48,7 +47,7 @@ class PriestController extends Controller
         $validated = $request->validated();
         $priest->update($validated);
 
-        (new MediaStoreService)->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
+        (new MediaStoreService())->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
 
         toastr()->success(__('app.priest.update'));
         return to_route('priests.index');

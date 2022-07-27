@@ -4,8 +4,7 @@ namespace App\Http\Requests\Traits;
 
 use App\Rules\IsBase64Encoded;
 
-trait HasCropPictureFields
-{
+trait HasCropPictureFields {
     protected function cropPictureRules(): array {
         return [
             'crop_output_file_name' => [

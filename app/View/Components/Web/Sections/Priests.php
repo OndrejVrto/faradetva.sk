@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class Priests extends Component
-{
+class Priests extends Component {
     public $priests;
 
     public function __construct() {
@@ -28,12 +27,12 @@ class Priests extends Component
     }
 
     private function getPriests(): array {
-        return Cache::rememberForever('PRIESTS', function(): array {
+        return Cache::rememberForever('PRIESTS', function (): array {
             return PriestModel::query()
                 ->whereActive(1)
                 ->with('media')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
+                ->map(fn ($e) => $this->mapOutput($e))
                 ->toArray();
         });
     }
@@ -58,7 +57,7 @@ class Priests extends Component
             'function'          => $priest->function,
 
             'description_clean' => Str::plainText($priest->description),
-            'description'       => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
+            'description'       => (new PurifiAutolinkService())->getCleanTextWithLinks($priest->description),
 
             'img-url'           => isset($priest->media[0]) ? $priest->media[0]->getUrl('crop') : 'http://via.placeholder.com/230x270',
             'img-height'        => '270',

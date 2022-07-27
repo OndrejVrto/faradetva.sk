@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -15,8 +15,7 @@ use App\Http\Contracts\CrudInterface;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Database\Eloquent\Model;
 
-class NoticeController extends Controller implements CrudInterface
-{
+class NoticeController extends Controller implements CrudInterface {
     /**
      * Name of the resource, in lowercase plural form.
      */
@@ -36,9 +35,8 @@ class NoticeController extends Controller implements CrudInterface
      * Set an instance of the model.
      * @fixme Also this looks weird to me.
      */
-    function __construct()
-    {
-        $this->instance = new $this->model;
+    public function __construct() {
+        $this->instance = new $this->model();
     }
 
     public function index(Request $request): View {
@@ -64,7 +62,7 @@ class NoticeController extends Controller implements CrudInterface
             info($th);
         }
 
-        (new MediaStoreService)->handle($notice, $request, 'notice_file', $validated['slug'] );
+        (new MediaStoreService())->handle($notice, $request, 'notice_file', $validated['slug']);
 
         toastr()->success(__('app.'.$this->resource.'.store'));
         return to_route($this->resource.'.index');
@@ -84,7 +82,7 @@ class NoticeController extends Controller implements CrudInterface
             info($th);
         }
 
-        (new MediaStoreService)->handle($model, $request, 'notice_file', $validated['slug'] );
+        (new MediaStoreService())->handle($model, $request, 'notice_file', $validated['slug']);
 
         toastr()->success(__('app.'.$this->resource.'.update'));
         return to_route($this->resource.'.index');
@@ -104,7 +102,7 @@ class NoticeController extends Controller implements CrudInterface
         $model->restore();
 
         toastr()->success(__('app.'.$this->resource.'.restore'));
-        return to_route($this->resource.'.edit',  $model->slug);
+        return to_route($this->resource.'.edit', $model->slug);
     }
 
     public function force_delete($id): RedirectResponse {

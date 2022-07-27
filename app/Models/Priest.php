@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Illuminate\Support\Str;
 use Spatie\Image\Manipulations;
@@ -15,8 +14,7 @@ use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Priest extends BaseModel implements HasMedia
-{
+class Priest extends BaseModel implements HasMedia {
     use Loggable;
     use Restorable;
     use HasFactory;
@@ -52,11 +50,11 @@ class Priest extends BaseModel implements HasMedia
         parent::boot();
 
         static::creating(function ($priest) {
-            $priest->slug = Str::slug( $priest->getFullNameWithTitles() );
+            $priest->slug = Str::slug($priest->getFullNameWithTitles());
         });
 
         static::updating(function ($priest) {
-            $priest->slug = Str::slug( $priest->getFullNameWithTitles() );
+            $priest->slug = Str::slug($priest->getFullNameWithTitles());
         });
     }
 
@@ -65,9 +63,9 @@ class Priest extends BaseModel implements HasMedia
     }
 
     public function getPhoneDigitsAttribute() {
-        if(isset($this->phone)) {
-            $remove_plus = preg_replace("/\+/", "00", $this->phone );
-            return preg_replace("/[^0-9]/", "", $remove_plus );
+        if (isset($this->phone)) {
+            $remove_plus = preg_replace("/\+/", "00", $this->phone);
+            return preg_replace("/[^0-9]/", "", $remove_plus);
         }
         return;
     }
@@ -88,7 +86,7 @@ class Priest extends BaseModel implements HasMedia
         return $this->first_name . ' ' . $this->last_name;
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
+    public function registerMediaConversions(Media $media = null): void {
         $this->addMediaConversion('crop')
             ->fit(Manipulations::FIT_CROP, 230, 270)
             ->sharpen(2)

@@ -5,8 +5,7 @@ namespace App\View\Components\Partials;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class SourceSentence extends Component
-{
+class SourceSentence extends Component {
     public $source = null;
     public $source_url = null;
     public $author = null;

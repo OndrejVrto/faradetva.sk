@@ -7,10 +7,8 @@ use Spatie\Csp\Keyword;
 use Spatie\Csp\Directive;
 use Spatie\Csp\Policies\Basic;
 
-class CspPolicyService extends Basic
-{
-    public function configure()
-    {
+class CspPolicyService extends Basic {
+    public function configure() {
         $this
             ->addDirective(Directive::DEFAULT, [
                 Keyword::SELF,
@@ -57,6 +55,6 @@ class CspPolicyService extends Basic
             ])
             ->addNonceForDirective(Directive::SCRIPT)
             ->addNonceForDirective(Directive::IMG);
-            // ->addNonceForDirective(Directive::STYLE);
+        // ->addNonceForDirective(Directive::STYLE);
     }
 }

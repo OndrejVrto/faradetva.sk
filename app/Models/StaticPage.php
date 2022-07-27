@@ -1,15 +1,10 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Faq;
-use App\Models\File;
-use App\Models\Banner;
-use App\Models\Source;
 use App\Enums\PageType;
-use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
@@ -18,8 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class StaticPage extends BaseModel implements HasMedia
-{
+class StaticPage extends BaseModel implements HasMedia {
     use Restorable;
     use HasFactory;
     use SoftDeletes;
@@ -79,7 +73,7 @@ class StaticPage extends BaseModel implements HasMedia
         return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionName);
     }
 
-    public function registerMediaConversions(Media $media = null) : void {
+    public function registerMediaConversions(Media $media = null): void {
         if ($media->collection_name == $this->collectionName) {
             $this->addMediaConversion('crop-thumb')
                 ->fit(Manipulations::FIT_CROP, 100, 50)

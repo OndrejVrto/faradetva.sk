@@ -1,14 +1,9 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Tag;
-use App\Models\User;
-use App\Models\Source;
-use App\Models\Category;
-use App\Models\BaseModel;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 use App\Traits\Restorable;
@@ -24,8 +19,7 @@ use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class News extends BaseModel implements HasMedia, Feedable
-{
+class News extends BaseModel implements HasMedia, Feedable {
     use Loggable;
     use Restorable;
     use HasFactory;
@@ -84,7 +78,7 @@ class News extends BaseModel implements HasMedia, Feedable
     }
 
     public function getCleanTeaserAttribute() {
-        return (new PurifiAutolinkService)->getCleanTextWithLinks($this->teaser);
+        return (new PurifiAutolinkService())->getCleanTextWithLinks($this->teaser);
     }
 
     public function getTeaserMediumAttribute() {
@@ -156,7 +150,7 @@ class News extends BaseModel implements HasMedia, Feedable
         return News::visible()->limit(100)->get();
     }
 
-    public function registerMediaConversions(Media $media = null) : void {
+    public function registerMediaConversions(Media $media = null): void {
         if ($media->collection_name == $this->collectionName) {
             $this->addMediaConversion('large')
                 ->fit(Manipulations::FIT_CROP, 700, 400)

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Console\Commands;
 
@@ -10,8 +10,7 @@ use App\Enums\SubscribeModels;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 
-class SendNewNoticesToSubscribers extends Command
-{
+class SendNewNoticesToSubscribers extends Command {
     /** The name and signature of the console command. */
     protected $signature = 'notification:send-news-subscribers';
 
@@ -27,7 +26,7 @@ class SendNewNoticesToSubscribers extends Command
         $counterItems = 0;
 
         foreach (SubscribeModels::cases() as $case) {
-            $model      = new $case->value;
+            $model      = new $case->value();
             $modelName  = $case->value;
             $this->warn('Subscribe model: '. $modelName);
 

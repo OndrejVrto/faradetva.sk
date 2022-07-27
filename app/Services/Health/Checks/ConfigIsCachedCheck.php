@@ -5,8 +5,7 @@ namespace App\Services\Health\Checks;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class ConfigIsCachedCheck extends Check
-{
+class ConfigIsCachedCheck extends Check {
     public function run(): Result {
         $name = 'health-results.config_cached';
         $this->label("$name.label");

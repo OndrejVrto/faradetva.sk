@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -12,8 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\RedirectResponse;
 
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
     public function index(Request $request): View {
         $categories = Category::query()
             ->latest()
@@ -24,7 +23,7 @@ class CategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         return view('admin.categories.create');
     }
 
@@ -36,8 +35,8 @@ class CategoryController extends Controller
         return to_route('categories.index');
     }
 
-    public function edit(Category $category): View|RedirectResponse  {
-        if ($category->id = 1 AND auth()->user()->id != 1) {
+    public function edit(Category $category): View|RedirectResponse {
+        if ($category->id = 1 and auth()->user()->id != 1) {
             toastr()->error(__('app.category.update-error', ['name'=> $category->title]));
             return to_route('categories.index');
         }

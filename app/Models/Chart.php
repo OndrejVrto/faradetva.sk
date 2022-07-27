@@ -1,19 +1,16 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
 use App\Enums\ChartType;
-use App\Models\BaseModel;
-use App\Models\ChartData;
 use App\Traits\Restorable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Chart extends BaseModel
-{
+class Chart extends BaseModel {
     use Loggable;
     use Restorable;
     use HasFactory;

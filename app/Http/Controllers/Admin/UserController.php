@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -16,8 +16,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Services\ChunkPermissionService;
 
-class UserController extends Controller
-{
+class UserController extends Controller {
     public function index(Request $request): View {
         $users = User::query()
             ->withCount('permissions')
@@ -55,20 +54,20 @@ class UserController extends Controller
         $permissions = $request->input('permission');
         $user->permissions()->syncWithoutDetaching($permissions);
 
-        (new MediaStoreService)->handleCropPicture($user, $request, $validated['name']);
+        (new MediaStoreService())->handleCropPicture($user, $request, $validated['name']);
 
         toastr()->success(__('app.user.store', ['name'=> $user->name]));
         return to_route('users.index');
     }
 
-    public function show(User $user): View  {
+    public function show(User $user): View {
         $user->with('roles', 'media')->withCount('permissions');
 
-        return view('admin.users.show', compact('user') );
+        return view('admin.users.show', compact('user'));
     }
 
-    public function edit(User $user): View|RedirectResponse  {
-        if ($user->id < 3 AND auth()->user()->id != 1) {
+    public function edit(User $user): View|RedirectResponse {
+        if ($user->id < 3 and auth()->user()->id != 1) {
             toastr()->error(__('app.user.update-error', ['name'=> $user->name]));
             return to_route('users.index');
         }
@@ -111,13 +110,13 @@ class UserController extends Controller
         $permissions = $request->input('permission');
         $user->permissions()->sync($permissions);
 
-        (new MediaStoreService)->handleCropPicture($user, $request, $validated['name']);
+        (new MediaStoreService())->handleCropPicture($user, $request, $validated['name']);
 
         return to_route('users.index');
     }
 
     public function destroy(User $user): RedirectResponse {
-        if ($user->id == 1 OR $user->id == 2) {
+        if ($user->id == 1 or $user->id == 2) {
             toastr()->error(__('app.user.delete-error', ['name'=> $user->name]));
         } elseif ($user->id == auth()->user()->id) {
             toastr()->error(__('app.user.delete-self'));

@@ -5,8 +5,7 @@ namespace App\Services\Health\Checks;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class CspMiddlerwareEnabledCheck extends Check
-{
+class CspMiddlerwareEnabledCheck extends Check {
     public function run(): Result {
         $name = 'health-results.csp_enabled';
         $this->label("$name.label");

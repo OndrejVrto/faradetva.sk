@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Artisan;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
-class GlobalObserver
-{
+class GlobalObserver {
     private function clearAllCache() {
         Artisan::call('cache:clear', ['--quiet' => true, '--no-interaction' => true]);
         ResponseCache::clear();

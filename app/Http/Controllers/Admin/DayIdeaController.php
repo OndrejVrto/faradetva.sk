@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -11,8 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\DayIdeaRequest;
 
-class DayIdeaController extends Controller
-{
+class DayIdeaController extends Controller {
     public function index(Request $request): View {
         $ideas = DayIdea::query()
             ->latest()
@@ -21,7 +20,7 @@ class DayIdeaController extends Controller
         return view('admin.day-ideas.index', compact('ideas'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         return view('admin.day-ideas.create');
     }
 
@@ -33,7 +32,7 @@ class DayIdeaController extends Controller
         return to_route('day-ideas.index');
     }
 
-    public function edit(DayIdea $dayIdea): View  {
+    public function edit(DayIdea $dayIdea): View {
         return view('admin.day-ideas.edit', compact('dayIdea'));
     }
 

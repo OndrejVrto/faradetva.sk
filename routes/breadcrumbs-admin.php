@@ -1,4 +1,6 @@
-<?php // routes/breadcrumbs.php
+<?php
+
+// routes/breadcrumbs.php
 
 // Note: Laravel will automatically resolve `Breadcrumbs::` without
 // this import. This is nice for IDE syntax and refactoring.
@@ -25,7 +27,7 @@ Breadcrumbs::macro('resource', function (string $name, string $title) {
     // Home > Blog > Post 123
     Breadcrumbs::for("{$name}.show", function (BreadcrumbTrail $trail, $model, string|null $key = null, bool|null $show_route = false) use ($name) {
         $trail->parent("{$name}.index");
-        is_null($key) ?: ( $show_route ? $trail->push($key, route("{$name}.show", $model->slug)) : $trail->push($key) );
+        is_null($key) ?: ($show_route ? $trail->push($key, route("{$name}.show", $model->slug)) : $trail->push($key));
     });
 
     // Home > Blog > Post 123 > Edit

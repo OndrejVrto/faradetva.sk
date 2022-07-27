@@ -8,13 +8,12 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class Pray extends Component
-{
+class Pray extends Component {
     public $pray;
 
     public function __construct(
         public $link = null,
-    ){
+    ) {
         $this->pray = $this->getPray();
     }
 
@@ -42,7 +41,7 @@ class Pray extends Component
                 ->whereSlug($onePrayer->slug)
                 ->with('media', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
+                ->map(fn ($e) => $this->mapOutput($e))
                 ->first();
         });
     }

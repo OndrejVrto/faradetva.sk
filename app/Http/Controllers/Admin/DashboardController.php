@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -18,8 +18,7 @@ use Spatie\Health\Commands\RunHealthChecksCommand;
 use App\Services\Dashboard\DashboardCommandService;
 use App\Services\Dashboard\SettingsSwitcherService;
 
-class DashboardController extends Controller
-{
+class DashboardController extends Controller {
     public function index(Request $request, ResultStore $resultStore): JsonResponse|View {
         $checkResults = $resultStore->latestResults();
 
@@ -53,20 +52,20 @@ class DashboardController extends Controller
     }
 
     public function commands(string $command): RedirectResponse {
-        (new DashboardCommandService)->run($command);
+        (new DashboardCommandService())->run($command);
 
         toastr()->success("Príkaz '$command' vykonaný.");
         return to_route('admin.dashboard');
     }
 
     private function runSwitcher(Request $request) {
-        foreach($request->all() as $key => $attribute){
+        foreach ($request->all() as $key => $attribute) {
             // convert all attributes to boolean
             $validated[$key] = filter_var($attribute, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
         }
         $validated = Arr::except($validated, ['_method', '_token']);
 
-        $service = new SettingsSwitcherService;
+        $service = new SettingsSwitcherService();
 
         foreach ($validated as $key => $value) {
             $service->run($key, $value);

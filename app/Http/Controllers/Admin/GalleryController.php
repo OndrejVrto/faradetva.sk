@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -15,8 +15,7 @@ use App\Http\Requests\GalleryRequest;
 use Illuminate\Http\RedirectResponse;
 use Spatie\MediaLibrary\Support\MediaStream;
 
-class GalleryController extends Controller
-{
+class GalleryController extends Controller {
     public function index(): View {
         $galleries = Gallery::query()
             ->latest()

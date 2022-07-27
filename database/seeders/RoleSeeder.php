@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Database\Seeders;
 
@@ -8,10 +8,9 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class RoleSeeder extends Seeder
-{
+class RoleSeeder extends Seeder {
     public function run(): void {
-            // id 1
+        // id 1
         $roleMaster = Role::create(['name' => 'Super Administrátor']);
         $roleMaster->givePermissionTo(Permission::all());
 
@@ -533,5 +532,3 @@ class RoleSeeder extends Seeder
         };
     }
 }
-
-

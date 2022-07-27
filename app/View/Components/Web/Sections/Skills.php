@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-class Skills extends Component
-{
+class Skills extends Component {
     public $skills;
 
     public function __construct() {
@@ -26,7 +25,7 @@ class Skills extends Component
     }
 
     private function getSkills(): array {
-        return Cache::rememberForever('SKILLS', function(): array {
+        return Cache::rememberForever('SKILLS', function (): array {
             return [
                 'news'         => News::whereNotified(1)->withTrashed()->count(),
                 'notices'      => Notice::whereNotified(1)->withTrashed()->count(),

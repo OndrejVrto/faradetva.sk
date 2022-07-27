@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -11,17 +11,16 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\PermissionRequest;
 use Spatie\Permission\Models\Permission;
 
-class PermissionController extends Controller
-{
-    public function index(): View  {
+class PermissionController extends Controller {
+    public function index(): View {
         $permissions = Permission::query()
             ->orderBy('name')
             ->paginate(100);
 
-        return view( 'admin.permissions.index', compact( 'permissions' ) );
+        return view('admin.permissions.index', compact('permissions'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         return view('admin.permissions.create');
     }
 
@@ -34,8 +33,8 @@ class PermissionController extends Controller
         return to_route('permissions.index');
     }
 
-    public function edit(Permission $permission): View  {
-        return view( 'admin.permissions.edit', compact( 'permission' ) );
+    public function edit(Permission $permission): View {
+        return view('admin.permissions.edit', compact('permission'));
     }
 
     public function update(PermissionRequest $request, $id): RedirectResponse {

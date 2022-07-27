@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Web;
 
@@ -14,8 +14,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use App\Services\PagePropertiesService;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class PageController extends Controller
-{
+class PageController extends Controller {
     private $path = '';
 
     public function __invoke(...$param) {
@@ -23,7 +22,7 @@ class PageController extends Controller
         // create array of links
         $urls = collect($param)
                     ->whereNotNull()
-                    ->map(function($node) {
+                    ->map(function ($node) {
                         $this->path .= '/' . $node;
                         return collect([
                             'title' => $node,
@@ -33,22 +32,22 @@ class PageController extends Controller
 
         // check if last link exists in DB.
         $lastUrl = $urls->pop()->get('url');
-        $page = Cache::rememberForever('PAGE_' . Str::slug($lastUrl), function () use($lastUrl) {
-                    return StaticPage::query()
+        $page = Cache::rememberForever('PAGE_' . Str::slug($lastUrl), function () use ($lastUrl) {
+            return StaticPage::query()
                         ->whereUrl($lastUrl)
                         ->with('picture', 'source', 'banners', 'faqs')
                         ->firstOrFail();
         });
 
         // check if last link exists in views.
-        if (!$page->active OR !View::exists(PagePropertiesService::fullRoute($page->route_name))) {
+        if (!$page->active or !View::exists(PagePropertiesService::fullRoute($page->route_name))) {
             abort(Response::HTTP_NOT_FOUND);
         }
 
         // map data for SEO - BreadCrumb
         $pageChainBreadCrumb = $urls
-            ->map(function($node){
-                return Cache::rememberForever('PAGE_NODE_'.Str::slug($node), function () use($node) {
+            ->map(function ($node) {
+                return Cache::rememberForever('PAGE_NODE_'.Str::slug($node), function () use ($node) {
                     $item = StaticPage::query()
                         ->select('url', 'title', 'active')
                         ->whereUrl($node->get('url'))
@@ -80,6 +79,4 @@ class PageController extends Controller
 
         return view($pageData['route'], compact('pageData'));
     }
-
 }
-

@@ -3,7 +3,6 @@
 namespace App\Http\Helpers;
 
 trait DataFormater {
-
     public static function filterFilename($filename, $beautify=true) {
         // sanitize filename
         $filename = preg_replace(
@@ -14,11 +13,15 @@ trait DataFormater {
             [#\[\]@!$&\'()+,;=]|     # URI reserved https://www.rfc-editor.org/rfc/rfc3986#section-2.2
             [{}^\~`]                 # URL unsafe characters https://www.ietf.org/rfc/rfc1738.txt
             ~x',
-            '-', $filename);
+            '-',
+            $filename
+        );
         // avoids ".", ".." or ".hiddenFiles"
         $filename = ltrim($filename, '.-');
         // optional beautification
-        if ($beautify) return Self::beautifyFilename($filename);
+        if ($beautify) {
+            return self::beautifyFilename($filename);
+        }
         // maximize filename length to 255 bytes http://serverfault.com/a/9548/44086
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         $filename = mb_strcut(pathinfo($filename, PATHINFO_FILENAME), 0, 255 - ($ext ? strlen($ext) + 1 : 0), mb_detect_encoding($filename)) . ($ext ? '.' . $ext : '');

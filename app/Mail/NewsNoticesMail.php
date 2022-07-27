@@ -7,9 +7,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NewsNoticesMail extends Mailable implements ShouldQueue
-{
-    use Queueable, SerializesModels;
+class NewsNoticesMail extends Mailable implements ShouldQueue {
+    use Queueable;
+    use SerializesModels;
 
     public $tries = 5;
 

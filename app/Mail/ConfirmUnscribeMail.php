@@ -3,15 +3,14 @@
 namespace App\Mail;
 
 use App\Models\Subscriber;
-use Illuminate\Support\Str;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ConfirmUnscribeMail extends Mailable implements ShouldQueue
-{
-    use Queueable, SerializesModels;
+class ConfirmUnscribeMail extends Mailable implements ShouldQueue {
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The number of times the job may be attempted.
@@ -43,8 +42,7 @@ class ConfirmUnscribeMail extends Mailable implements ShouldQueue
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build() {
         return $this->markdown('mail.confirm-unscribe-mail', [
             'subscriber' => $this->subscriber,
         ]);

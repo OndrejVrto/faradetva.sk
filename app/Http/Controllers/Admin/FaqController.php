@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -11,8 +11,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
-class FaqController extends Controller
-{
+class FaqController extends Controller {
     public function index(): View {
         $faqs = Faq::query()
             ->latest('updated_at')

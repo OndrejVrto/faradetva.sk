@@ -6,8 +6,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\DayIdea as ModelsDayIdea;
 
-class DayIdea extends Component
-{
+class DayIdea extends Component {
     public $dayIdea;
 
     public function __construct() {
@@ -15,7 +14,7 @@ class DayIdea extends Component
             ->inRandomOrder()
             ->limit(1)
             ->get()
-            ->map(function($idea) {
+            ->map(function ($idea) {
                 return [
                     'id'     => $idea->id,
                     'idea'   => $idea->idea,

@@ -15,11 +15,11 @@ use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 
 // TODO: Refactor this mess
-class SetSeoPropertiesService
-{
+class SetSeoPropertiesService {
     public function __construct(
         private ?array $page = null,
-    ) {}
+    ) {
+    }
 
     public function setBreadcrumbSchemaGraph(array $breadcrumbLinks): self {
         SeoGraph::add($this->getBreadcrumbSchema($breadcrumbLinks), 'BreadCrumb');
@@ -39,7 +39,7 @@ class SetSeoPropertiesService
     // Twiter, Facebook and META
     public function setMetaTags(): self {
         // Global Meta
-        if($this->page['title'] != config('seotools.meta.defaults.title')){
+        if ($this->page['title'] != config('seotools.meta.defaults.title')) {
             SEOMeta::setTitle($this->page['title']);
         }
         SEOMeta::setDescription($this->page['page-description']);
@@ -76,7 +76,7 @@ class SetSeoPropertiesService
             SeoSchema::addValue('sameAs', $this->page['wikipedia']);
         }
         SeoSchema::addValue('keywords', $this->page['keywords']);
-        SeoSchema::addValue('primaryImageOfPage', $this->getPrimaryImagePageSchema($this->page) );
+        SeoSchema::addValue('primaryImageOfPage', $this->getPrimaryImagePageSchema($this->page));
         SeoSchema::addValue('potentialAction', $this->getReadActionSchema($this->page['url']));
         SeoSchema::addValue('datePublished', $this->page['datePublished']);
         SeoSchema::addValue('dateModified', $this->page['dateModified']);
@@ -103,9 +103,9 @@ class SetSeoPropertiesService
         SeoSchema::addValue('articleBody', $this->page['content-plain']);
         SeoSchema::addValue('articleSection', $this->page['category']);
         SeoSchema::addValue('wordCount', $this->page['count-words']);
-        SeoSchema::addValue('mainEntityOfPage', $this->getMainEntitySchema($this->page['title'], $this->page['url']) );
-        SeoSchema::addValue('potentialAction', $this->getReadActionSchema($this->page['url']) );
-        SeoSchema::addValue('image', $this->getPrimaryImagePageSchema($this->page) );
+        SeoSchema::addValue('mainEntityOfPage', $this->getMainEntitySchema($this->page['title'], $this->page['url']));
+        SeoSchema::addValue('potentialAction', $this->getReadActionSchema($this->page['url']));
+        SeoSchema::addValue('image', $this->getPrimaryImagePageSchema($this->page));
         SeoSchema::addValue('publisher', $this->getOrganizationSchema());
 
         return $this;
@@ -113,21 +113,21 @@ class SetSeoPropertiesService
 
     public function setFaqSeoMetaTags(array|Collection $faqData): void {
         $JsonLD = Schema::fAQPage()
-            ->mainEntity( $this->setFaqQuestions($faqData) )
+            ->mainEntity($this->setFaqQuestions($faqData))
             ->toArray();
         unset($JsonLD['@context']);
 
         if (SeoSchema::hasValue('hasPart')) {
-            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]) );
+            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]));
         } else {
-            SeoSchema::addValue('hasPart', [$JsonLD] );
+            SeoSchema::addValue('hasPart', [$JsonLD]);
         }
     }
 
     public function setCompletFaqSeo(array|Collection $faqData): void {
         $JsonLD = $this->setFaqQuestions($faqData);
 
-        SeoSchema::addValue('mainEntity', [$JsonLD] );
+        SeoSchema::addValue('mainEntity', [$JsonLD]);
     }
 
     public function setFaqQuestions(array|Collection $faqData): array {
@@ -249,7 +249,7 @@ class SetSeoPropertiesService
             ->height($this->page['img-height'])
             ->width($this->page['img-width'])
             ->uploadDate(e($this->page['img-updated_at']))
-            ->if(isset($this->page['img-author']) OR isset($this->page['img-author_url']), function (ImageObject $schema) {
+            ->if(isset($this->page['img-author']) or isset($this->page['img-author_url']), function (ImageObject $schema) {
                 $schema->author(
                     Schema::person()
                         ->name($this->page['img-author'])
@@ -258,7 +258,7 @@ class SetSeoPropertiesService
             })
             ->license($this->page['img-license_url'])
             ->acquireLicensePage($this->page['img-license_url'])
-            ->if( isset($this->page['img-source_url']) OR isset($this->page['img-source']), function (ImageObject $schema) {
+            ->if(isset($this->page['img-source_url']) or isset($this->page['img-source']), function (ImageObject $schema) {
                 $schema->copyrightHolder(
                     Schema::organization()
                         ->name($this->page['img-source'])
@@ -266,9 +266,9 @@ class SetSeoPropertiesService
                 );
             })
             ->toArray();
-            unset($JsonLD['@context']);
+        unset($JsonLD['@context']);
 
-            return $JsonLD;
+        return $JsonLD;
     }
 
     private function getBreadcrumbSchema(array $links): Type {
@@ -333,7 +333,7 @@ class SetSeoPropertiesService
             ->uploadDate($pictureData['img-updated'])
             ->license(e($pictureData['sourceArr']['source_license_url']))
             ->acquireLicensePage(e($pictureData['sourceArr']['source_license_url']))
-            ->if(isset($pictureData['sourceArr']['source_author']) OR isset($pictureData['sourceArr']['source_author_url']), function (ImageObject $schema) use ($pictureData) {
+            ->if(isset($pictureData['sourceArr']['source_author']) or isset($pictureData['sourceArr']['source_author_url']), function (ImageObject $schema) use ($pictureData) {
                 $schema->author(
                     Schema::person()
                         ->name(e($pictureData['sourceArr']['source_author']))
@@ -367,7 +367,7 @@ class SetSeoPropertiesService
         $JsonLD = Schema::imageGallery()
             ->name(e($album['title']))
             ->description(e($album['source_description']))
-            ->if(isset($album['sourceArr']['source_author']) OR isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album) {
+            ->if(isset($album['sourceArr']['source_author']) or isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album) {
                 $schema->author(
                     Schema::person()
                         ->name(e($album['sourceArr']['source_author']))
@@ -376,22 +376,22 @@ class SetSeoPropertiesService
             })
             ->license(e($album['sourceArr']['source_license_url']))
             ->acquireLicensePage(e($album['sourceArr']['source_license_url']))
-            ->if( isset($album['sourceArr']['source_source_url']) OR isset($album['sourceArr']['source_source']), function (ImageGallery $schema) use ($album) {
+            ->if(isset($album['sourceArr']['source_source_url']) or isset($album['sourceArr']['source_source']), function (ImageGallery $schema) use ($album) {
                 $schema->copyrightHolder(
                     Schema::organization()
                         ->name(e($album['sourceArr']['source_source']))
                         ->url(e($album['sourceArr']['source_source_url']))
                 );
             })
-            ->associatedMedia( $pictures )
+            ->associatedMedia($pictures)
             ->toArray();
 
         unset($JsonLD['@context']);
 
         if (SeoSchema::hasValue('hasPart')) {
-            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]) );
+            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]));
         } else {
-            SeoSchema::addValue('hasPart', [$JsonLD] );
+            SeoSchema::addValue('hasPart', [$JsonLD]);
         }
     }
 
@@ -404,7 +404,7 @@ class SetSeoPropertiesService
                 ->honorificPrefix(e($priest['titles_before']))
                 ->honorificSuffix(e($priest['titles_after']))
                 ->nationality('Slovak')
-                ->if(isset($priest['facebook']) OR isset($priest['twitter']), function ($schema) use ($priest) {
+                ->if(isset($priest['facebook']) or isset($priest['twitter']), function ($schema) use ($priest) {
                     $schema->sameAs([
                         isset($priest['facebook']) ? $priest['facebook'] : '',
                         isset($priest['twitter']) ? $priest['twitter'] : '',
@@ -434,6 +434,6 @@ class SetSeoPropertiesService
             $persons[] = $value;
         }
 
-        SeoSchema::addValue('alumni', $persons );
+        SeoSchema::addValue('alumni', $persons);
     }
 }

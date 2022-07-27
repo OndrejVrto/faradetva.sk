@@ -1,3 +1,8 @@
 {
-    "preset": "psr12"
+    "preset": "psr12",
+    "rules": {
+        "braces": {
+            "position_after_functions_and_oop_constructs": "same"
+        }
+    }
 }

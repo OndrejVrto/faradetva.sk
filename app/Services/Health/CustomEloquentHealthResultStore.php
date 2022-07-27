@@ -11,10 +11,8 @@ use Spatie\Health\Exceptions\CouldNotSaveResultsInStore;
 use Spatie\Health\ResultStores\StoredCheckResults\StoredCheckResult;
 use Spatie\Health\ResultStores\StoredCheckResults\StoredCheckResults;
 
-class CustomEloquentHealthResultStore implements ResultStore
-{
-    public static function determineHistoryItemModel(): string
-    {
+class CustomEloquentHealthResultStore implements ResultStore {
+    public static function determineHistoryItemModel(): string {
         $defaultHistoryClass = HealthCheckResultHistoryItem::class;
         $eloquentResultStore = EloquentHealthResultStore::class;
 
@@ -28,16 +26,14 @@ class CustomEloquentHealthResultStore implements ResultStore
     }
 
     /** @return HealthCheckResultHistoryItem|object */
-    public static function getHistoryItemInstance()
-    {
+    public static function getHistoryItemInstance() {
         $historyItemClassName = static::determineHistoryItemModel();
 
         return new $historyItemClassName();
     }
 
     /** @param Collection<int, Result> $checkResults */
-    public function save(Collection $checkResults): void
-    {
+    public function save(Collection $checkResults): void {
         $batch = Str::uuid();
         $checkResults->each(function (Result $result) use ($batch) {
             (static::determineHistoryItemModel())::create([
@@ -53,8 +49,7 @@ class CustomEloquentHealthResultStore implements ResultStore
         });
     }
 
-    public function latestResults(): ?StoredCheckResults
-    {
+    public function latestResults(): ?StoredCheckResults {
         if (! $latestItem = (static::determineHistoryItemModel())::latest()->first()) {
             return null;
         }

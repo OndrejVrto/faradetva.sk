@@ -6,8 +6,7 @@ use Diglactic\Breadcrumbs\Manager;
 use Illuminate\Contracts\View\View;
 use Diglactic\Breadcrumbs\Exceptions\ViewNotSetException;
 
-class BreadCrumbManagerService extends Manager
-{
+class BreadCrumbManagerService extends Manager {
     /**
      * Render breadcrumbs for a page with the default view.
      *
@@ -20,8 +19,7 @@ class BreadCrumbManagerService extends Manager
      *                                                                 have an associated name.
      * @throws \Diglactic\Breadcrumbs\Exceptions\ViewNotSetException if no view has been set.
      */
-    public function render(?string $name = null, $frontend = false,...$params): View
-    {
+    public function render(?string $name = null, $frontend = false, ...$params): View {
         $view = $frontend ? config('breadcrumbs.view-frontend') : config('breadcrumbs.view');
 
         if (!$view) {

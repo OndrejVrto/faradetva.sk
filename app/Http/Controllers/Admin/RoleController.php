@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,15 +13,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Services\ChunkPermissionService;
 
-class RoleController extends Controller
-{
-    public function index(Request $request): View  {
+class RoleController extends Controller {
+    public function index(Request $request): View {
         $roles = Role::paginate(10);
 
-        return view('admin.roles.index', compact( 'roles' ) );
+        return view('admin.roles.index', compact('roles'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         $permissions = (new ChunkPermissionService())->permission;
         $rolePermissions = [];
 
@@ -39,7 +38,7 @@ class RoleController extends Controller
         return to_route('roles.index');
     }
 
-    public function edit(Role $role): View  {
+    public function edit(Role $role): View {
         $rolePermissions = $role->permissions->pluck('name')->toArray();
         $permissions = (new ChunkPermissionService())->permission;
 

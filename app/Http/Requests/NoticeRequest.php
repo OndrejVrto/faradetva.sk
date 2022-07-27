@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 
-class NoticeRequest extends BaseRequest
-{
+class NoticeRequest extends BaseRequest {
     public function rules(): array {
         $modelName = Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"]);
         // dd(Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),);

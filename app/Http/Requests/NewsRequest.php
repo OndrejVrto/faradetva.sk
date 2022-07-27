@@ -5,12 +5,10 @@ namespace App\Http\Requests;
 use Illuminate\Support\Str;
 use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasSourceFields;
 use App\Http\Requests\Traits\HasCropPictureFields;
 
-class NewsRequest extends BaseRequest
-{
+class NewsRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 

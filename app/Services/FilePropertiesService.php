@@ -3,20 +3,18 @@
 namespace App\Services;
 
 use App\Models\File;
-use App\Http\Helpers\DataFormater;
 use App\Models\News;
 use Illuminate\Database\Eloquent\Collection;
 
-class FilePropertiesService
-{
-    public function allFileData(Collection|array $eloquentCollection): Array {
-        return collect($eloquentCollection)->map(function($file) {
+class FilePropertiesService {
+    public function allFileData(Collection|array $eloquentCollection): array {
+        return collect($eloquentCollection)->map(function ($file) {
             return $this->getFileItemProperties($file);
         })->toArray();
     }
 
-    public function allNewsAttachmentData(News $model): Array {
-        return $model->getMedia($model->collectionDocument)->map(function($item) {
+    public function allNewsAttachmentData(News $model): array {
+        return $model->getMedia($model->collectionDocument)->map(function ($item) {
             return [
                 'id'                => $item->id,
                 'mime_type'         => $item->mime_type,
@@ -31,7 +29,7 @@ class FilePropertiesService
         })->toArray();
     }
 
-    public function getFileItemProperties(File $item): Array {
+    public function getFileItemProperties(File $item): array {
         $fileMedia = $item->getFirstMedia($item->collectionName);
         return [
             'id'                => $item->id,
@@ -67,10 +65,12 @@ class FilePropertiesService
             'image'       => 'file-image',
             'video'       => 'file-video',
             'audio'       => 'file-audio',
-            'text'        => call_user_func(fn() => match($subtype) {
-                                'plain' => 'file-alt',
-                                default => 'file-code'
-                            }),
+            'text'        => call_user_func(
+                fn () => match ($subtype) {
+                    'plain' => 'file-alt',
+                    default => 'file-code'
+                }
+            ),
             'application' => $this->matchApplication($subtype),
             default       => 'file'
         };
@@ -88,7 +88,9 @@ class FilePropertiesService
         ];
 
         foreach ($SUBTYPES as $key => $value) {
-            if(str($subType)->contains($value)) $icon = $key;
+            if (str($subType)->contains($value)) {
+                $icon = $key;
+            }
         }
 
         return $icon;

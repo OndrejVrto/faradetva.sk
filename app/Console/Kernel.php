@@ -12,8 +12,7 @@ use Spatie\Health\Models\HealthCheckResultHistoryItem;
 use Spatie\Health\Commands\ScheduleCheckHeartbeatCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
-class Kernel extends ConsoleKernel
-{
+class Kernel extends ConsoleKernel {
     protected $commands = [
         'App\Console\Commands\SendNewNoticesToSubscribers'
     ];
@@ -28,8 +27,8 @@ class Kernel extends ConsoleKernel
             '--model' => [ HealthCheckResultHistoryItem::class ]
         ])->dailyAt('02:00');
 
-        if($this->needRenew()){
-            if(App::environment(['local', 'dev'])) {
+        if ($this->needRenew()) {
+            if (App::environment(['local', 'dev'])) {
                 $schedule->job(new UrlsCheckJob())->everyFiveMinutes();
                 $schedule->job(new GenerateSitemapJob())->everyFiveMinutes();
                 $schedule->job(new SiteSearchCrawlJob())->everyFiveMinutes();
@@ -51,6 +50,6 @@ class Kernel extends ConsoleKernel
     private function needRenew(string $key = '___RELOAD'): bool {
         $storeJson = customConfig('crawler');
 
-        return !$storeJson->has($key) OR true == $storeJson->get($key);
+        return !$storeJson->has($key) or true == $storeJson->get($key);
     }
 }

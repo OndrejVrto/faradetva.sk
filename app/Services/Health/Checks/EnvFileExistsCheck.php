@@ -5,8 +5,7 @@ namespace App\Services\Health\Checks;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class EnvFileExistsCheck extends Check
-{
+class EnvFileExistsCheck extends Check {
     public function run(): Result {
         $name = 'health-results.env_exists';
         $this->label("$name.label");

@@ -7,8 +7,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Validation\Rule;
 
-class DateTimeAfterNow implements Rule
-{
+class DateTimeAfterNow implements Rule {
     private $user_timezone;
 
     public function __construct($timezone) {

@@ -5,8 +5,7 @@ namespace App\Services\Health\Checks;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class CacheResponseCheck extends Check
-{
+class CacheResponseCheck extends Check {
     public function run(): Result {
         $name = 'health-results.cache_response';
         $this->label("$name.label");

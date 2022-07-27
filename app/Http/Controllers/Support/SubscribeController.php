@@ -10,13 +10,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmVerificationMail;
 
-class SubscribeController extends Controller
-{
+class SubscribeController extends Controller {
     public function verifyMail($slug, Subscriber $subscriber, $token) {
         if ($subscriber->email_verified_at !== null) {
             return to_route('home');
         }
-        if( $subscriber->verified_token !== trim($token)) {
+        if ($subscriber->verified_token !== trim($token)) {
             abort(Response::HTTP_NOT_FOUND);  // 404
         }
 
@@ -29,7 +28,7 @@ class SubscribeController extends Controller
     }
 
     public function unsubscribe($slug, Subscriber $subscriber, $unsubscribetoken) {
-        if( $subscriber->unsubscribe_token !== trim($unsubscribetoken)) {
+        if ($subscriber->unsubscribe_token !== trim($unsubscribetoken)) {
             abort(Response::HTTP_NOT_FOUND);  // 404
         }
 

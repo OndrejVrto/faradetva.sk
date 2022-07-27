@@ -5,13 +5,11 @@ namespace App\Http\Requests;
 use App\Enums\PageType;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 use Illuminate\Validation\Rules\Enum;
 use App\Http\Requests\Traits\HasSourceFields;
 use App\Http\Requests\Traits\HasCropPictureFields;
 
-class StaticPageRequest extends BaseRequest
-{
+class StaticPageRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 
@@ -42,7 +40,7 @@ class StaticPageRequest extends BaseRequest
     }
 
     protected function prepareForValidation() {
-        $slug = Str::slug(Str::replace('/','-',$this->url));
+        $slug = Str::slug(Str::replace('/', '-', $this->url));
         $this->merge([
             'slug' => empty($slug) ? Str::slug($this->title) : $slug
         ]);

@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
 use App\Models\Testimonial as TestimonialModel;
 
-class Testimonials extends Component
-{
+class Testimonials extends Component {
     public $testimonials;
 
     public function __construct() {
@@ -25,7 +24,7 @@ class Testimonials extends Component
     }
 
     private function getTestimonials(): array {
-        return Cache::remember('TESTIMONIALS', now()->addHours(1), function(): array {
+        return Cache::remember('TESTIMONIALS', now()->addHours(1), function (): array {
             $countTestimonials = TestimonialModel::query()
                 ->whereActive(1)
                 ->count();
@@ -36,12 +35,12 @@ class Testimonials extends Component
                 ->get()
                 ->shuffle()
                 ->random(min($countTestimonials, 3))
-                ->map(function($data): array {
+                ->map(function ($data): array {
                     return [
                         'id'          => $data->id,
                         'name'        => $data->name,
                         'function'    => $data->function,
-                        'description' => (new PurifiAutolinkService)->getCleanTextWithLinks($data->description),
+                        'description' => (new PurifiAutolinkService())->getCleanTextWithLinks($data->description),
                         'url'         => $data->url,
                         'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
                     ];

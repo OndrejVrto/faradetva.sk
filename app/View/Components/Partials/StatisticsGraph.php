@@ -7,8 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-class StatisticsGraph extends Component
-{
+class StatisticsGraph extends Component {
     public $graphs;
 
     public function __construct(
@@ -19,12 +18,12 @@ class StatisticsGraph extends Component
         if ($listOfGraphs) {
             $cacheName = getCacheName($listOfGraphs);
 
-            $this->graphs = Cache::rememberForever('CHART_'.$cacheName, function() use ($listOfGraphs) {
+            $this->graphs = Cache::rememberForever('CHART_'.$cacheName, function () use ($listOfGraphs) {
                 return Chart::query()
                     ->whereIn('slug', $listOfGraphs)
                     ->with('data')
                     ->get()
-                    ->map(fn($e) => $this->mapOutput($e));
+                    ->map(fn ($e) => $this->mapOutput($e));
             });
         }
     }

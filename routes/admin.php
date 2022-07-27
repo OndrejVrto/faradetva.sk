@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\{
     NoticeChurchController, NoticeAcolyteController, BackgroundPictureController,
 };
 
-Route::prefix('admin')->group( function() {
+Route::prefix('admin')->group(function () {
     //!  Inpersonate OUT
     Route::get('impersonate/leave', [ImpersonateController::class, 'leave'])->name('impersonate.leave');
 
@@ -30,13 +30,13 @@ Route::prefix('admin')->group( function() {
     });
 
 
-    Route::middleware(['auth', 'permission'])->group( function() {
+    Route::middleware(['auth', 'permission'])->group(function () {
 
         //!  Main routes
         Route::permanentRedirect('/', '/admin/dashboard');
 
         //!  Filemanager for TinyMCE Editor
-        Route::prefix('laravel-file-manager')->group( function() {
+        Route::prefix('laravel-file-manager')->group(function () {
             Lfm::routes();
         });
 
@@ -66,8 +66,8 @@ Route::prefix('admin')->group( function() {
         ];
         //!  Supplementing resource routes with restore and force delete methods
         foreach ($softDeleteMethodes as $name => $class) {
-            Route:: post($name.'/{id}/restore', [$class, 'restore'])->name($name.'.restore');
-            Route:: post($name.'/{id}/force_delete', [$class, 'force_delete'])->name($name.'.force_delete');
+            Route::post($name.'/{id}/restore', [$class, 'restore'])->name($name.'.restore');
+            Route::post($name.'/{id}/force_delete', [$class, 'force_delete'])->name($name.'.force_delete');
         }
 
         Route::controller(DashboardController::class)->name('admin.dashboard.')->prefix('dashboard')->group(function () {
@@ -78,8 +78,7 @@ Route::prefix('admin')->group( function() {
         });
 
 
-        Route::middleware('preety.html')->group( function() {
-
+        Route::middleware('preety.html')->group(function () {
             Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
             Route::resources([

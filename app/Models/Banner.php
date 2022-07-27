@@ -1,19 +1,15 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Source;
-use App\Models\BaseModel;
-use App\Models\StaticPage;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Banner extends BaseModel implements HasMedia
-{
+class Banner extends BaseModel implements HasMedia {
     use InteractsWithMedia;
 
     protected $table = 'banners';

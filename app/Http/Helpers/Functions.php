@@ -1,8 +1,8 @@
 <?php
+
 use Spatie\Valuestore\Valuestore;
 
-if(!function_exists('customConfig'))
-{
+if (!function_exists('customConfig')) {
     function customConfig(string $filename = 'config', $key = null, $default = null): Valuestore|string|null {
         try {
             $valueStore = Valuestore::make(
@@ -20,7 +20,7 @@ if(!function_exists('customConfig'))
             return $valueStore->put($key);
         }
 
-        if(!$valueStore->has($key)){
+        if (!$valueStore->has($key)) {
             $value = $default ?? config($key) ?? null;
             $valueStore->put([ $key => $value ]);
         }
@@ -30,8 +30,7 @@ if(!function_exists('customConfig'))
     }
 }
 
-if(!function_exists('prepareInput'))
-{
+if (!function_exists('prepareInput')) {
     function prepareInput($input): ?array {
         if (!$input) {
             return null;
@@ -47,15 +46,13 @@ if(!function_exists('prepareInput'))
     }
 }
 
-if (!function_exists('getCacheName'))
-{
+if (!function_exists('getCacheName')) {
     function getCacheName(array $listOfItems): string {
         return md5(implode('|', $listOfItems));
     }
 }
 
-if (!function_exists('minifyHtml'))
-{
+if (!function_exists('minifyHtml')) {
     function minifyHtml(string $html): string {
         // Author:  https://github.com/dipeshsukhia/laravel-html-minify
         $replace = [
@@ -101,8 +98,7 @@ if (!function_exists('minifyHtml'))
     }
 }
 
-if (!function_exists('formatBytes'))
-{
+if (!function_exists('formatBytes')) {
     function formatBytes(null|float|int $size, int $precision = 2): string {
         if ($size === 0 || $size === null) {
             return "0B";
