@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
@@ -8,12 +8,9 @@ use Closure;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Spatie\Valuestore\Valuestore;
 
-class AddResponseHeadersMiddleware
-{
+class AddResponseHeadersMiddleware {
     public function handle(Request $request, Closure $next) {
-
         $response = $next($request)
             ->header('Content-Language', config('app.faker_locale'))
             ->header('X-XSS-Protection', '1; mode=block')
@@ -27,7 +24,7 @@ class AddResponseHeadersMiddleware
 
         $store = customConfig('crawler');
 
-        if ($store->has('___LAST_MODIFIED') ) {
+        if ($store->has('___LAST_MODIFIED')) {
             $time = (int)$store->get('___LAST_MODIFIED');
             $modifiedSince = $request->headers->get('If-Modified-Since');
 

@@ -1,28 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Dashboard;
 
 use App\Jobs\UrlsCheckJob;
 use App\Jobs\GenerateSitemapJob;
 use App\Jobs\SiteSearchCrawlJob;
 use Illuminate\Support\Facades\Artisan;
-use App\Services\Dashboard\FutureTestService;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
-class DashboardCommandService
-{
+class DashboardCommandService {
     public function run(string $command = null) {
-        if (method_exists($this, $command)){
+        if (method_exists($this, $command)) {
             $this->$command();
         }
     }
 
     private function php_info() {
-        phpinfo(); exit;
+        phpinfo();
+        exit;
     }
 
     private function testFeatures() {
-        (new FutureTestService)->run();
+        (new FutureTestService())->run();
     }
 
     private function clean_directories() {

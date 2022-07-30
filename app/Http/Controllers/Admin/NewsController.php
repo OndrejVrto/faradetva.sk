@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -19,8 +19,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Spatie\MediaLibrary\Support\MediaStream;
 
-class NewsController extends Controller
-{
+class NewsController extends Controller {
     public function index(Request $request): View {
         $allNews = News::query()
             ->latest()
@@ -70,7 +69,7 @@ class NewsController extends Controller
         $news->tags()->syncWithoutDetaching($request->input('tags'));
         $news->source()->create(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($news, $request);
+        (new MediaStoreService())->handleCropPicture($news, $request);
 
         foreach ($request->input('document', []) as $file) {
             $news
@@ -82,7 +81,7 @@ class NewsController extends Controller
         return to_route('news.index');
     }
 
-    public function edit(News $news): View  {
+    public function edit(News $news): View {
         $this->authorize('view', $news);
 
         $news->load('media', 'tags');
@@ -101,7 +100,7 @@ class NewsController extends Controller
         $news->tags()->sync($request->input('tags'));
         $news->source()->update(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($news, $request);
+        (new MediaStoreService())->handleCropPicture($news, $request);
 
         if (count($news->document) > 0) {
             foreach ($news->document as $media) {

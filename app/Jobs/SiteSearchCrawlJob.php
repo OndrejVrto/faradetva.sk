@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Jobs;
 
-use Spatie\Valuestore\Valuestore;
 use Spatie\SiteSearch\Jobs\CrawlSiteJob;
 use Spatie\SiteSearch\Models\SiteSearchConfig;
 
-class SiteSearchCrawlJob
-{
+class SiteSearchCrawlJob {
     public function handle() {
         SiteSearchConfig::enabled()
             ->each(function (SiteSearchConfig $siteSearchConfig) {

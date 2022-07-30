@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Partials;
 
 use Illuminate\Support\Str;
@@ -9,8 +11,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class PictureResponsive extends Component
-{
+class PictureResponsive extends Component {
     public $picture;
 
     public function __construct(
@@ -20,12 +21,12 @@ class PictureResponsive extends Component
         public int|null $descriptionCrop = null,
         public string|null $class = null,
     ) {
-        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use($titleSlug, $class, $descriptionCrop) {
+        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use ($titleSlug, $class, $descriptionCrop) {
             return PictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('mediaOne', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
+                ->map(fn ($e) => $this->mapOutput($e))
                 ->first();
         });
     }

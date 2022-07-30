@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Web;
 
@@ -13,9 +13,8 @@ use App\Services\PagePropertiesService;
 use App\Services\PurifiAutolinkService;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class FaqController extends Controller
-{
-    public function __invoke(): View  {
+class FaqController extends Controller {
+    public function __invoke(): View {
         $faqs = Cache::rememberForever('FAQ_ALL', function (): Collection|null {
             return Faq::query()
                 ->with('staticPages')
@@ -32,7 +31,7 @@ class FaqController extends Controller
                         'id'           => $faq->id,
                         'question'     => $faq->question,
                         'answer-clean' => trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", $faq->answer))),
-                        'answer'       => (new PurifiAutolinkService)->getCleanTextWithLinks($faq->answer, 'link-template-light'),
+                        'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                         'pages'        => $pages,
                     ];
                 });

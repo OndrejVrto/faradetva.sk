@@ -1,21 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services;
 
 use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Eloquent\Collection;
 
-class ChunkPermissionService
-{
+class ChunkPermissionService {
     public $permission;
 
     public function __construct() {
-        $this->permission = Self::chunkByAlpha(Permission::orderBy('name')->get());
+        $this->permission = self::chunkByAlpha(Permission::orderBy('name')->get());
     }
 
     private static function chunkByAlpha(Collection $collection) {
         return $collection->mapToGroups(function ($item, $key) {
-            return (Self::isAlpha($item->name[0]) ? [strtoupper($item->name[0]) => $item] : ['#' => $item]);
+            return (self::isAlpha($item->name[0]) ? [strtoupper($item->name[0]) => $item] : ['#' => $item]);
         });
     }
 

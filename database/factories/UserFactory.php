@@ -1,16 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserFactory extends Factory
-{
-
-    public function definition()
-    {
+class UserFactory extends Factory {
+    public function definition() {
         return [
             'name' => $this->faker->name(),
             'nick' => $this->faker->unique()->username(),
@@ -23,8 +21,7 @@ class UserFactory extends Factory
     }
 
 
-    public function unverified()
-    {
+    public function unverified() {
         return $this->state(function (array $attributes) {
             return [
                 'email_verified_at' => null,

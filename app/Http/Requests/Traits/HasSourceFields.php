@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests\Traits;
 
-trait HasSourceFields
-{
+trait HasSourceFields {
     protected function sourceRules(): array {
         return [
             'source_description' => $this->reqStrRule(420),

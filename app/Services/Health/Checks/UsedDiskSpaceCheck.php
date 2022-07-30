@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Health\Checks;
 
 use Exception;
@@ -9,8 +11,7 @@ use Spatie\Health\Checks\Result;
 use Spatie\Health\Enums\Status;
 use Symfony\Component\Process\Process;
 
-class UsedDiskSpaceCheck extends Check
-{
+class UsedDiskSpaceCheck extends Check {
     protected int $warningThreshold = 70;
     protected int $errorThreshold = 90;
 

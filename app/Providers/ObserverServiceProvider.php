@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use App\Observers\GlobalObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
-class ObserverServiceProvider extends ServiceProvider
-{
+class ObserverServiceProvider extends ServiceProvider {
     public function boot() {
         $models = [
             \App\Models\BackgroundPicture::class,

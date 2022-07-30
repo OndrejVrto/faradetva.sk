@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,9 +13,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BannerRequest;
 use Illuminate\Http\RedirectResponse;
 
-class BannerController extends Controller
-{
-    public function index(): View  {
+class BannerController extends Controller {
+    public function index(): View {
         $banners = Banner::query()
             ->latest('updated_at')
             ->withCount('staticPages')
@@ -25,7 +24,7 @@ class BannerController extends Controller
         return view('admin.banners.index', compact('banners'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
         $selectedPages = [];
 
@@ -39,7 +38,7 @@ class BannerController extends Controller
         $banner->staticPages()->syncWithoutDetaching($request->input('page'));
         $banner->source()->create(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($banner, $request);
+        (new MediaStoreService())->handleCropPicture($banner, $request);
 
         toastr()->success(__('app.banner.store'));
         return to_route('banners.index');
@@ -51,7 +50,7 @@ class BannerController extends Controller
         return view('admin.banners.show', compact('banner'));
     }
 
-    public function edit(Banner $banner): View  {
+    public function edit(Banner $banner): View {
         $banner->load('source');
         $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
         $selectedPages = $banner->staticPages->pluck('id')->unique()->toArray();
@@ -67,7 +66,7 @@ class BannerController extends Controller
         $banner->staticPages()->sync($request->input('page'));
         $banner->touch(); // Touch because i need start observer for delete cache
 
-        (new MediaStoreService)->handleCropPicture($banner, $request);
+        (new MediaStoreService())->handleCropPicture($banner, $request);
 
         toastr()->success(__('app.banner.update'));
         return to_route('banners.index');

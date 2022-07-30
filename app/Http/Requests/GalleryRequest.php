@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasSourceFields;
 
-class GalleryRequest extends BaseRequest
-{
+class GalleryRequest extends BaseRequest {
     use HasSourceFields;
 
     public function rules(): array {

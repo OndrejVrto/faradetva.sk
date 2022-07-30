@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use Spatie\Health\Facades\Health;
@@ -15,8 +17,7 @@ use App\Services\Health\Checks\{
     CorrectPhpVersionInstalledCheck
 };
 
-class HealthServiceProvider extends ServiceProvider
-{
+class HealthServiceProvider extends ServiceProvider {
     public function boot(): void {
         Health::checks([
             //! critical

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Jobs;
 
@@ -16,8 +16,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-class UrlsCheckJob implements ShouldQueue
-{
+class UrlsCheckJob implements ShouldQueue {
     use Queueable;
     use Dispatchable;
     use SerializesModels;

@@ -9,8 +9,7 @@ use App\Http\Controllers\Web\{
 use App\Http\Controllers\Support\SubscribeController;
 
 //! FrontEnd Routes
-Route::middleware('fast_web')->group(function() {
-
+Route::middleware('fast_web')->group(function () {
     Route::feeds();
 
     //! Subscribe and mail
@@ -30,8 +29,7 @@ Route::middleware('fast_web')->group(function() {
             ->name('unsubscribe');
     });
 
-    Route::middleware('cache.headers:etag')->group(function(){
-
+    Route::middleware('cache.headers:etag')->group(function () {
         Route::get('/', HomeController::class)->name('home');
         Route::get('/otazky-a-odpovede', FaqController::class)->name('faq');
 

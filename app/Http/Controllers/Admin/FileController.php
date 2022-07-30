@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,11 +13,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Services\FilePropertiesService;
 
-class FileController extends Controller
-{
+class FileController extends Controller {
     public function index(): View {
         $paginator = File::query()
-            ->with('media','source')
+            ->with('media', 'source')
             ->latest()
             ->paginate(10);
         $files = (new FilePropertiesService())->allFileData($paginator->items());
@@ -35,7 +34,7 @@ class FileController extends Controller
         $file = File::create(File::sanitize($validated));
         $file->source()->create(Source::sanitize($validated));
 
-        (new MediaStoreService)->handle($file, $request, 'attachment', $validated['slug'] );
+        (new MediaStoreService())->handle($file, $request, 'attachment', $validated['slug']);
 
         toastr()->success(__('app.file.store'));
         return to_route('files.index');
@@ -54,7 +53,7 @@ class FileController extends Controller
         $file->source()->update(Source::sanitize($validated));
         $file->touch(); // Touch because i need start observer for delete cache
 
-        (new MediaStoreService)->handle($file, $request, 'attachment', $validated['slug'] );
+        (new MediaStoreService())->handle($file, $request, 'attachment', $validated['slug']);
 
         toastr()->success(__('app.file.update'));
         return to_route('files.index');

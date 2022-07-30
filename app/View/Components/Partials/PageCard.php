@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Partials;
 
 use App\Models\StaticPage;
@@ -9,8 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class PageCard extends Component
-{
+class PageCard extends Component {
     public $pageCards = [];
 
     public function __construct(
@@ -34,8 +35,8 @@ class PageCard extends Component
 
     private function getCards() {
         // all cards
-        if (is_null($this->countPages) AND is_null($this->routeStaticPages)) {
-            $this->pageCards = Cache::rememberForever('PAGE_CARD_ALL', function(): Collection {
+        if (is_null($this->countPages) and is_null($this->routeStaticPages)) {
+            $this->pageCards = Cache::rememberForever('PAGE_CARD_ALL', function (): Collection {
                 return StaticPage::query()
                     ->whereActive(1)
                     ->orderByDesc('virtual')
@@ -53,9 +54,9 @@ class PageCard extends Component
             ->whereActive(1)
             ->whereVirtual(0)
             ->select('id')
-            ->when($listOfPages, function($q) use($listOfPages) {
+            ->when($listOfPages, function ($q) use ($listOfPages) {
                 return $q->whereIn('route_name', $listOfPages);
-            }, function($q) {
+            }, function ($q) {
                 return $this->countPages > 0
                     ? $q->inRandomOrder()->limit($this->countPages)
                     : $q;
@@ -63,12 +64,12 @@ class PageCard extends Component
             ->get();
 
         foreach ($randomCards as $oneCard) {
-            $this->pageCards[] = Cache::rememberForever('PAGE_CARD_'.$oneCard->id, function() use($oneCard): array {
+            $this->pageCards[] = Cache::rememberForever('PAGE_CARD_'.$oneCard->id, function () use ($oneCard): array {
                 return StaticPage::query()
                     ->whereId($oneCard->id)
                     ->with('picture', 'source')
                     ->get()
-                    ->map(fn($page) => $this->mapOutput($page))
+                    ->map(fn ($page) => $this->mapOutput($page))
                     ->first();
             });
         }

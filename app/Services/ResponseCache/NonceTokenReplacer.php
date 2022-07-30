@@ -1,18 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\ResponseCache;
 
 use Spatie\ResponseCache\Replacers\Replacer;
 use Symfony\Component\HttpFoundation\Response;
 
-class NonceTokenReplacer implements Replacer
-{
+class NonceTokenReplacer implements Replacer {
     protected string $replacementString = '<laravel-responsecache-nonce-token-here>';
     protected string $replacementStringStyle = '<style laravel-responsecache-nonce-token-here>';
     protected string $replacementStringScript = '<script laravel-responsecache-nonce-token-here>';
 
-    public function prepareResponseToCache(Response $response): void
-    {
+    public function prepareResponseToCache(Response $response): void {
         if (! $response->getContent()) {
             return;
         }
@@ -32,8 +32,7 @@ class NonceTokenReplacer implements Replacer
         ));
     }
 
-    public function replaceInCachedResponse(Response $response): void
-    {
+    public function replaceInCachedResponse(Response $response): void {
         if (! $response->getContent()) {
             return;
         }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -8,8 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class PreetyHtmlMiddleware
-{
+class PreetyHtmlMiddleware {
     /**
      * Handle an incoming request.
      *
@@ -21,7 +22,6 @@ class PreetyHtmlMiddleware
         $response = $next($request);
 
         if ($response->getStatusCode() === Response::HTTP_OK) {
-
             if (in_array(config('app.env'), ['local', 'dev'])) {
                 $beautify = new BeautifyHtml([
                     'indent_inner_html' => false,
@@ -33,9 +33,9 @@ class PreetyHtmlMiddleware
                     'max_preserve_newlines' => 32786,
                     'indent_scripts'    => 'normal' // keep|separate|normal
                 ]);
-                $output = $beautify->beautify( $response->getContent() );
+                $output = $beautify->beautify($response->getContent());
             } else {
-                $output = minifyHtml( $response->getContent() );
+                $output = minifyHtml($response->getContent());
             }
 
             // $output = Str::replace((string)config('app.url').'/', "/", $output);

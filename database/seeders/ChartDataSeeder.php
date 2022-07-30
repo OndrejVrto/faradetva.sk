@@ -1,14 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Database\Seeders;
 
 use App\Models\ChartData;
 use Illuminate\Database\Seeder;
 
-class ChartDataSeeder extends Seeder
-{
+class ChartDataSeeder extends Seeder {
     public function run(): void {
         $seedData = [
             1 => [

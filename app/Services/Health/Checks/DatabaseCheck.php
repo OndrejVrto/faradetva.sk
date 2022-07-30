@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Health\Checks;
 
 use Exception;
@@ -7,11 +9,10 @@ use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 use Illuminate\Support\Facades\DB;
 
-class DatabaseCheck extends Check
-{
+class DatabaseCheck extends Check {
     protected ?string $connectionName = null;
 
-    public function connectionName(string $connectionName): self  {
+    public function connectionName(string $connectionName): self {
         $this->connectionName = $connectionName;
         return $this;
     }

@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Partials;
 
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class EmailLink extends Component
-{
+class EmailLink extends Component {
     public $name;
     public $domain;
 

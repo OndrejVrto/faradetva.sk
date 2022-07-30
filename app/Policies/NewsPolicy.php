@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Policies;
 
 use App\Models\News;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class NewsPolicy
-{
+class NewsPolicy {
     use HandlesAuthorization;
 
     public function viewAny(User $user) {
@@ -15,7 +16,7 @@ class NewsPolicy
     }
 
     public function view(User $user, News $news) {
-        return $news->user_id == $user->id OR $user->isAdmin();
+        return $news->user_id == $user->id or $user->isAdmin();
     }
 
     public function create(User $user) {
@@ -23,11 +24,11 @@ class NewsPolicy
     }
 
     public function update(User $user, News $news) {
-        return $news->user_id == $user->id OR $user->isAdmin();
+        return $news->user_id == $user->id or $user->isAdmin();
     }
 
     public function delete(User $user, News $news) {
-        return $news->user_id == $user->id OR $user->isAdmin();
+        return $news->user_id == $user->id or $user->isAdmin();
     }
 
     public function restore(User $user, News $news) {

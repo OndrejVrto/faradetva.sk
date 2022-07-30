@@ -1,19 +1,17 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
 use App\Traits\HasUuid;
-use App\Models\BaseModel;
 use Illuminate\Support\Str;
 use App\Mail\VerificationEmailMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
-class Subscriber extends BaseModel
-{
+class Subscriber extends BaseModel {
     use HasUuid;
     use Loggable;
     use SoftDeletes;

@@ -1,19 +1,15 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-
-use App\Models\Source;
-use App\Models\BaseModel;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Gallery extends BaseModel implements HasMedia
-{
+class Gallery extends BaseModel implements HasMedia {
     use InteractsWithMedia;
 
     protected $table = 'galleries';
@@ -33,7 +29,7 @@ class Gallery extends BaseModel implements HasMedia
         return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionName);
     }
 
-    public function registerMediaConversions(Media $media = null) : void {
+    public function registerMediaConversions(Media $media = null): void {
         if ($media->collection_name == $this->collectionName) {
             $this->addMediaConversion('orginal')
                 ->fit(Manipulations::FIT_MAX, 1280, 960)

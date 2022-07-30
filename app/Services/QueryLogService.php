@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
-class QueryLogService
-{
+class QueryLogService {
     private $file_name = 'query.log';
 
     private $file_path;
@@ -19,9 +20,7 @@ class QueryLogService
     private $final;
 
     public function __construct() {
-
-        if (config('farnost-detva.guery_loging', false) AND !Str::startsWith(request()->path(), '_debugbar')) {
-
+        if (config('farnost-detva.guery_loging', false) and !Str::startsWith(request()->path(), '_debugbar')) {
             $this->file_path = storage_path("logs\\".$this->file_name);
             $this->total_query = 0;
             $this->total_time = 0;
@@ -32,7 +31,6 @@ class QueryLogService
             DB::listen(function ($query) {
                 // Not cache Query
                 if (!Str::startsWith($query->sql, ["insert into `cache`", "update `cache`", "select * from `cache`"])) {
-
                     $this->total_query++;
                     $this->total_time += $query->time;
 
@@ -48,7 +46,7 @@ class QueryLogService
                 }
             });
 
-            app()->terminating(function(){
+            app()->terminating(function () {
                 $this->final['meta'] = [
                     'Date'          => date('Y-m-d H:i:s'),
                     'URL'           => request()->url(),
@@ -59,12 +57,10 @@ class QueryLogService
 
                 $this->write();
             });
-
         }
     }
 
-    private function addQuery($query, $trace)
-    {
+    private function addQuery($query, $trace) {
         $queryStr = $this->getSqlWithBindings($query);
         $time = $query->time;
         $file = $trace['file'];
@@ -81,8 +77,7 @@ class QueryLogService
         ];
     }
 
-    private function getSqlWithBindings($query)
-    {
+    private function getSqlWithBindings($query) {
         return vsprintf(str_replace('?', '%s', $query->sql), collect($query->bindings)
             ->map(function ($binding) {
                 return is_numeric($binding) ? $binding : "'{$binding}'";
@@ -90,14 +85,13 @@ class QueryLogService
     }
 
     private function write() {
-
         foreach ($this->final['meta'] as $key => $value) {
             $this->writeLine($this->addSpace($key, 14) . ":  $value");
         }
 
         $this->writeLine(str_repeat("-", 100) . PHP_EOL);
 
-        if (isset($this->final['queries']) AND is_array($this->final['queries'])) {
+        if (isset($this->final['queries']) and is_array($this->final['queries'])) {
             foreach ($this->final['queries'] as $q) {
                 foreach ($q as $key => $val) {
                     if (is_array($val)) {
@@ -113,7 +107,7 @@ class QueryLogService
     }
 
     private function addSpace($key, $max) {
-        return $key . str_repeat(' ', max($max-strlen($key), 0) );
+        return $key . str_repeat(' ', max($max-strlen($key), 0));
     }
 
     private function writeLine($txt) {

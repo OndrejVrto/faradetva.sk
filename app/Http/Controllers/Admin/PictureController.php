@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -12,8 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PictureRequest;
 use Illuminate\Http\RedirectResponse;
 
-class PictureController extends Controller
-{
+class PictureController extends Controller {
     public function index(): View {
         $pictures = Picture::query()
             ->latest('updated_at')
@@ -33,7 +32,7 @@ class PictureController extends Controller
         $picture = Picture::create(Picture::sanitize($validated));
         $picture->source()->create(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($picture, $request);
+        (new MediaStoreService())->handleCropPicture($picture, $request);
 
         toastr()->success(__('app.picture.store'));
         return to_route('pictures.index');
@@ -58,7 +57,7 @@ class PictureController extends Controller
         $picture->source()->update(Source::sanitize($validated));
         $picture->touch(); // Touch because i need start observer for delete cache
 
-        (new MediaStoreService)->handleCropPicture($picture, $request);
+        (new MediaStoreService())->handleCropPicture($picture, $request);
 
         toastr()->success(__('app.picture.update'));
         return to_route('pictures.index');

@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Partials;
 
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Cohensive\OEmbed\Facades\OEmbed;
 
-class VideoEmbed extends Component
-{
+class VideoEmbed extends Component {
     public $video = null;
     public $dataVideo = null;
 

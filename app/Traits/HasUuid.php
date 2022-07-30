@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
@@ -9,9 +11,7 @@ use Illuminate\Support\Str;
  * Trait HasUuid
  * @package Jamesh\Uuid
  */
-trait HasUuid
-{
-
+trait HasUuid {
     protected $isLockedUuid = true;
 
     /**
@@ -19,8 +19,7 @@ trait HasUuid
      * UUID Identified primary key column
      * @return string
      */
-    public function getKeyName()
-    {
+    public function getKeyName() {
         return 'uuid';
     }
 
@@ -29,8 +28,7 @@ trait HasUuid
      * UUID Identified as a string.
      * @return string
      */
-    public function getKeyType()
-    {
+    public function getKeyType() {
         return 'string';
     }
 
@@ -39,8 +37,7 @@ trait HasUuid
      * UUID is not.
      * @return bool
      */
-    public function getIncrementing()
-    {
+    public function getIncrementing() {
         return false;
     }
 
@@ -48,8 +45,7 @@ trait HasUuid
      * Add behavior to creating and saving Eloquent events.
      * @return void
      */
-    public static function bootHasUuid()
-    {
+    public static function bootHasUuid() {
         // Create a UUID to the model if it does not have one
         static::creating(function (Model $model) {
             $model->keyType = 'string';

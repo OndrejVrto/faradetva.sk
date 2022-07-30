@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
@@ -7,8 +9,7 @@ use Illuminate\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\Traits\CanAuthorizeTrait;
 
-abstract class BaseRequest extends FormRequest
-{
+abstract class BaseRequest extends FormRequest {
     use CanAuthorizeTrait;
 
     protected function requireORnullable(): string {

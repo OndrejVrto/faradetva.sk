@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,8 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\TestimonialRequest;
 
-class TestimonialController extends Controller
-{
+class TestimonialController extends Controller {
     public function index(Request $request): View {
         $testimonials = Testimonial::query()
             ->latest('updated_at')
@@ -26,7 +25,7 @@ class TestimonialController extends Controller
         return view('admin.testimonials.index', compact('testimonials'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         return view('admin.testimonials.create');
     }
 
@@ -34,13 +33,13 @@ class TestimonialController extends Controller
         $validated = $request->validated();
         $testimonial = Testimonial::create(Testimonial::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($testimonial, $request, $validated['slug']);
+        (new MediaStoreService())->handleCropPicture($testimonial, $request, $validated['slug']);
 
         toastr()->success(__('app.testimonial.store'));
         return to_route('testimonials.index');
     }
 
-    public function edit(Testimonial $testimonial): View  {
+    public function edit(Testimonial $testimonial): View {
         return view('admin.testimonials.edit', compact('testimonial'));
     }
 
@@ -48,7 +47,7 @@ class TestimonialController extends Controller
         $validated = $request->validated();
         $testimonial->update(Testimonial::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($testimonial, $request, $validated['slug']);
+        (new MediaStoreService())->handleCropPicture($testimonial, $request, $validated['slug']);
 
         toastr()->success(__('app.testimonial.update'));
         return to_route('testimonials.index');

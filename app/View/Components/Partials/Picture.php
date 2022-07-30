@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Partials;
 
 use Illuminate\Support\Str;
@@ -9,8 +11,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class Picture extends Component
-{
+class Picture extends Component {
     public $picture;
     public array $classColumns;
 
@@ -63,7 +64,6 @@ class Picture extends Component
         $this->classColumns = $this->solveColumns($columns, $maxColumns);
 
         $this->picture = $this->getPicture($titleSlug);
-
     }
 
     public function render(): View|null {
@@ -97,12 +97,12 @@ class Picture extends Component
     }
 
     private function getPicture($slug): ?array {
-        return Cache::rememberForever('PICTURE_'.$slug, function () use($slug) {
+        return Cache::rememberForever('PICTURE_'.$slug, function () use ($slug) {
             return PictureModel::query()
                 ->whereSlug($slug)
                 ->with('mediaOne', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
+                ->map(fn ($e) => $this->mapOutput($e))
                 ->first();
         });
     }

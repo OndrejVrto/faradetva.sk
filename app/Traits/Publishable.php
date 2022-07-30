@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
-trait Publishable
-{
+trait Publishable {
     public function scopePublished(Builder $query) {
         return $query
-                    ->where('published_at','<=', now())
+                    ->where('published_at', '<=', now())
                     ->orWhereNull('published_at');
     }
 
@@ -40,8 +41,8 @@ trait Publishable
 
     public function getVisibleAttribute(): bool {
         return  $this->active
-            AND ($this->published_at <= now() OR is_null($this->published_at))
-            AND ($this->unpublished_at > now() OR is_null($this->unpublished_at));
+            and ($this->published_at <= now() or is_null($this->published_at))
+            and ($this->unpublished_at > now() or is_null($this->unpublished_at));
     }
 
     public function getPublishedAtAttribute($value) {

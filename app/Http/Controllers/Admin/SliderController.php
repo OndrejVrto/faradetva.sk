@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Slider;
 use App\Models\Source;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
@@ -14,8 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
 use Illuminate\Http\RedirectResponse;
 
-class SliderController extends Controller
-{
+class SliderController extends Controller {
     public function index(Request $request): View {
         $sliders = Slider::query()
             ->latest('updated_at')
@@ -27,7 +25,7 @@ class SliderController extends Controller
         return view('admin.sliders.index', compact('sliders'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         return view('admin.sliders.create');
     }
 
@@ -37,7 +35,7 @@ class SliderController extends Controller
         $slider = Slider::create(Slider::sanitize($validated));
         $slider->source()->create(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
+        (new MediaStoreService())->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
 
         toastr()->success(__('app.slider.store'));
         return to_route('sliders.index');
@@ -56,7 +54,7 @@ class SliderController extends Controller
         $slider->source()->update(Source::sanitize($validated));
         $slider->touch(); // Touch because i need start observer for delete cache
 
-        (new MediaStoreService)->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
+        (new MediaStoreService())->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
 
         toastr()->success(__('app.slider.update'));
         return to_route('sliders.index');

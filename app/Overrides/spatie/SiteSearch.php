@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spatie\SiteSearch;
 
 use Spatie\Crawler\Crawler;
@@ -12,11 +14,8 @@ use Spatie\SiteSearch\Profiles\SearchProfile;
 use Spatie\SiteSearch\SearchResults\SearchResults;
 use GuzzleHttp\RequestOptions;
 
-
-class SiteSearch
-{
-    public static function index(string $indexName): self
-    {
+class SiteSearch {
+    public static function index(string $indexName): self {
         $siteSearchConfig = SiteSearchConfig::firstWhere('name', $indexName);
 
         if (! $siteSearchConfig) {
@@ -26,8 +25,7 @@ class SiteSearch
         return self::make($siteSearchConfig);
     }
 
-    public static function make(SiteSearchConfig $siteSearchConfig): self
-    {
+    public static function make(SiteSearchConfig $siteSearchConfig): self {
         $driver = $siteSearchConfig->getDriver();
 
         $profile = $siteSearchConfig->getProfile();
@@ -42,8 +40,7 @@ class SiteSearch
     ) {
     }
 
-    public function crawl(string $baseUrl): self
-    {
+    public function crawl(string $baseUrl): self {
         $crawlProfile = new SiteSearchCrawlProfile($this->searchProfile, $baseUrl);
 
         $observer = new SearchProfileCrawlObserver(
@@ -52,7 +49,7 @@ class SiteSearch
             $this->driver
         );
 
-//! THIS IS REWRITE - START
+        //! THIS IS REWRITE - START
         $crawlerClientOptions = [
             RequestOptions::COOKIES => true,
             RequestOptions::CONNECT_TIMEOUT => 10,
@@ -69,9 +66,9 @@ class SiteSearch
             ->setCrawlObserver($observer);
 
         // $crawler = Crawler::create()
-            // ->setCrawlProfile($crawlProfile)
-            // ->setCrawlObserver($observer);
-//! THIS IS REWRITE - END
+        // ->setCrawlProfile($crawlProfile)
+        // ->setCrawlObserver($observer);
+        //! THIS IS REWRITE - END
 
         $this->searchProfile->configureCrawler($crawler);
 
@@ -80,8 +77,7 @@ class SiteSearch
         return $this;
     }
 
-    public function search(string $query, ?int $limit = null, ?int $offset = 0): SearchResults
-    {
+    public function search(string $query, ?int $limit = null, ?int $offset = 0): SearchResults {
         return $this->driver->search($this->indexName, $query, $limit, $offset);
     }
 }

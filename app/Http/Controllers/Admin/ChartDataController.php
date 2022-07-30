@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -11,8 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\ChartDataRequest;
 
-class ChartDataController extends Controller
-{
+class ChartDataController extends Controller {
     public function index(Chart $chart): View {
         $data = ChartData::query()
             ->where('chart_id', $chart->id)

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Partials;
 
 use App\Models\Gallery;
@@ -8,8 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class PhotoGallery extends Component
-{
+class PhotoGallery extends Component {
     public $gallery;
 
     public function __construct(
@@ -20,7 +21,7 @@ class PhotoGallery extends Component
     }
 
     public function render(): View|null {
-        if(!is_null($this->gallery)){
+        if (!is_null($this->gallery)) {
             (new SetSeoPropertiesService())->setGallerySchema($this->gallery);
 
             return view('components.partials.photo-gallery.index');
@@ -29,12 +30,12 @@ class PhotoGallery extends Component
     }
 
     private function getGallery($slug): array {
-        return Cache::rememberForever('GALLERY_'.$slug, function () use($slug): array {
+        return Cache::rememberForever('GALLERY_'.$slug, function () use ($slug): array {
             return Gallery::query()
                 ->whereSlug($slug)
                 ->with('media', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
+                ->map(fn ($e) => $this->mapOutput($e))
                 ->first();
         });
     }

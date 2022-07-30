@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,8 +13,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
-class ChartController extends Controller
-{
+class ChartController extends Controller {
     public function index(Request $request): View {
         $charts = Chart::query()
             ->withCount('data')
@@ -50,7 +49,7 @@ class ChartController extends Controller
         return view('admin.charts.edit', compact('chart', 'chartTypes'));
     }
 
-    public function update( ChartRequest $request, Chart $chart): RedirectResponse {
+    public function update(ChartRequest $request, Chart $chart): RedirectResponse {
         $validated = $request->validated();
         $chart->update(Chart::sanitize($validated));
 

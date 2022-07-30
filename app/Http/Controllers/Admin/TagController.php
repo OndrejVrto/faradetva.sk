@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -12,8 +12,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
-class TagController extends Controller
-{
+class TagController extends Controller {
     public function index(Request $request): View {
         $tags = Tag::query()
             ->latest()
@@ -24,7 +23,7 @@ class TagController extends Controller
         return view('admin.tags.index', compact('tags'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         return view('admin.tags.create');
     }
 
@@ -36,7 +35,7 @@ class TagController extends Controller
         return to_route('tags.index');
     }
 
-    public function edit(Tag $tag): View  {
+    public function edit(Tag $tag): View {
         return view('admin.tags.edit', compact('tag'));
     }
 

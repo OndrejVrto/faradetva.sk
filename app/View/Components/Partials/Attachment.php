@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Partials;
 
 use App\Models\File;
@@ -8,8 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Services\FilePropertiesService;
 
-class Attachment extends Component
-{
+class Attachment extends Component {
     public $attachments = null;
 
     public function __construct(
@@ -25,7 +26,7 @@ class Attachment extends Component
                     ->whereIn('slug', $listOfAttachments)
                     ->with('media', 'source')
                     ->get()
-                    ->map(function($file) {
+                    ->map(function ($file) {
                         return (new FilePropertiesService())->getFileItemProperties($file);
                     });
             });

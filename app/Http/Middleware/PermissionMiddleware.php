@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Closure;
 use Spatie\Permission\Exceptions\UnauthorizedException;
 
-class PermissionMiddleware
-{
+class PermissionMiddleware {
     /**
      * Handle an incoming request.
      *
@@ -27,7 +28,7 @@ class PermissionMiddleware
                 : explode('|', $permission);
         }
 
-        if ( is_null($permission) ) {
+        if (is_null($permission)) {
             $permission = $request->route()->getName();
 
             $permissions = array($permission);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use Illuminate\Support\Str;
@@ -16,8 +18,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use App\Http\Middleware\CacheResponseMiddleware;
 
-class AppServiceProvider extends ServiceProvider
-{
+class AppServiceProvider extends ServiceProvider {
     public function register() {
         //
     }
@@ -38,35 +39,35 @@ class AppServiceProvider extends ServiceProvider
                 return "<?php echo ($expression)->format('m/d/Y H:i'); ?>";
             });
 
-            Str::macro('readDurationWords', function($totalWords) {
+            Str::macro('readDurationWords', function ($totalWords) {
                 $minutesToRead = round($totalWords / 210);  // Slovenčina: priemer 180-250 slov za minútu
                 return (int) max(1, $minutesToRead);
             });
 
-            Str::macro('readDurationText', function(...$text) {
+            Str::macro('readDurationText', function (...$text) {
                 return Str::readDurationWords(str_word_count(implode(" ", $text)));
             });
 
             // Plain text from Html
-            Str::macro('plainText', function(...$text) {
-                return trim( preg_replace('!\s+!', ' ', preg_replace( "/\r|\n/", " ", html_entity_decode( strip_tags( implode(" ", $text) ) ) ) ) );
+            Str::macro('plainText', function (...$text) {
+                return trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", html_entity_decode(strip_tags(implode(" ", $text))))));
             });
 
             //! singleton for aplly cache time whole page
             $this->app->singleton(CacheResponseMiddleware::class);
 
-            $this->app->singleton('seo.graph', fn() => new Graph() );
-            $this->app->singleton('seo.schema-org', fn() => new CustomJsonLd(config('seotools.json-ld.defaults', [])) );
+            $this->app->singleton('seo.graph', fn () => new Graph());
+            $this->app->singleton('seo.schema-org', fn () => new CustomJsonLd(config('seotools.json-ld.defaults', [])));
 
             //! only for Dev
-            if ($request->userAgent() !== 'fara-detva-crawl' AND App::environment(['local', 'dev', 'staging'])) {
+            if ($request->userAgent() !== 'fara-detva-crawl' and App::environment(['local', 'dev', 'staging'])) {
                 //! correctly url adres in Nqrock
                 if (!empty(config('farnost-detva.ngrok_url')) && $request->server->has('HTTP_X_ORIGINAL_HOST')) {
                     $this->app['url']->forceRootUrl(config('farnost-detva.ngrok_url'));
                 }
 
                 //! Loging Query-s to log file
-                new QueryLogService;
+                new QueryLogService();
             }
 
             // force website to load with HTTPS

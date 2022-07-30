@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\News;
 use App\Traits\Restorable;
 use Spatie\Image\Manipulations;
 use Laravel\Sanctum\HasApiTokens;
@@ -19,8 +18,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements HasMedia
-{
+class User extends Authenticatable implements HasMedia {
     use Loggable;
     use HasRoles;
     use Restorable;
@@ -66,7 +64,7 @@ class User extends Authenticatable implements HasMedia
         return 'slug';
     }
 
-    public function setPasswordAttribute($value){
+    public function setPasswordAttribute($value) {
         $this->attributes['password'] = bcrypt($value);
     }
 
@@ -97,7 +95,7 @@ class User extends Authenticatable implements HasMedia
         return route('users.show', $this->slug);
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
+    public function registerMediaConversions(Media $media = null): void {
         $this->addMediaConversion('crop')
             ->fit(Manipulations::FIT_CROP, 100, 100)
             ->sharpen(2)

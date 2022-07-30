@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Health\Checks;
 
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class MaintenanceModeCheck extends Check
-{
+class MaintenanceModeCheck extends Check {
     public function run(): Result {
         $name = 'health-results.maintenance';
         $this->label("$name.label");

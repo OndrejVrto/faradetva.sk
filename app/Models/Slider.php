@@ -1,11 +1,9 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Source;
-use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Illuminate\Support\Str;
 use Spatie\Image\Manipulations;
@@ -17,7 +15,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Slider extends BaseModel implements HasMedia {
-
     use Loggable;
     use Restorable;
     use HasFactory;
@@ -62,10 +59,10 @@ class Slider extends BaseModel implements HasMedia {
     }
 
     private function fullHeading() {
-        return trim( $this->heading_1.' '.$this->heading_2.' '.$this->heading_3 );
+        return trim($this->heading_1.' '.$this->heading_2.' '.$this->heading_3);
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
+    public function registerMediaConversions(Media $media = null): void {
         $this->addMediaConversion('extra-large')
             ->fit(Manipulations::FIT_CROP, 1920, 800)    // 1200px and up
             ->sharpen(2)

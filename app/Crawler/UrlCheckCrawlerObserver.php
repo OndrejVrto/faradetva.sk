@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Crawler;
 
 use App\Models\StaticPage;
@@ -11,14 +13,12 @@ use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\RequestException;
 use Spatie\Crawler\CrawlObservers\CrawlObserver;
 
-class UrlCheckCrawlerObserver extends CrawlObserver
-{
+class UrlCheckCrawlerObserver extends CrawlObserver {
     private int $pages = 0;
 
     private $loging = false;
 
-    public function __construct()
-    {
+    public function __construct() {
         if (App::environment(['local', 'dev', 'staging'])) {
             $this->loging = true;
         }
@@ -27,9 +27,8 @@ class UrlCheckCrawlerObserver extends CrawlObserver
     /**
      * Called when the crawler will crawl the url.
      */
-    public function willCrawl(UriInterface $url): void
-    {
-        if($this->loging){
+    public function willCrawl(UriInterface $url): void {
+        if ($this->loging) {
             Log::info("Crawling: " . (string) $url);
         }
     }
@@ -42,9 +41,7 @@ class UrlCheckCrawlerObserver extends CrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ): void {
-
-        if( Arr::exists($response->getHeaders(), 'Content-Type') ){
-
+        if (Arr::exists($response->getHeaders(), 'Content-Type')) {
             $mineTypes = [
                 'text/html',
                 'text/html; charset=UTF-8',
@@ -53,7 +50,7 @@ class UrlCheckCrawlerObserver extends CrawlObserver
             ];
 
             if (in_array($response->getHeader('Content-Type')[0], $mineTypes)) {
-                StaticPage::withoutEvents(function() use($url) {
+                StaticPage::withoutEvents(function () use ($url) {
                     $pageExistinDB = StaticPage::query()
                         ->whereUrl(substr($url->getPath(), 1))
                         ->first();
@@ -65,7 +62,7 @@ class UrlCheckCrawlerObserver extends CrawlObserver
                     }
                 });
 
-                if($this->loging){
+                if ($this->loging) {
                     $fullPath = (string) $url;
                     Log::info("Process_: ". $fullPath);
                     Log::info("Found in: ". $foundOnUrl);
@@ -83,18 +80,17 @@ class UrlCheckCrawlerObserver extends CrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ): void {
-        if($this->loging){
+        if ($this->loging) {
             Log::info('Failed: ' . (string) $url);
-            Log::warning( (string)$requestException );
+            Log::warning((string)$requestException);
         }
     }
 
     /**
      * Called when the crawl has ended.
      */
-    public function finishedCrawling(): void
-    {
-        if($this->loging){
+    public function finishedCrawling(): void {
+        if ($this->loging) {
             Log::info('Crawled ' . $this->pages . ' urls');
         }
     }

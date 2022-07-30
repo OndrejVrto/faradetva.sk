@@ -1,18 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yoeunes\Toastr;
 
 use Illuminate\Config\Repository;
 use Illuminate\Session\SessionManager;
 
-class Toastr
-{
-    const ERROR = 'error';
-    const INFO = 'info';
-    const SUCCESS = 'success';
-    const WARNING = 'warning';
+class Toastr {
+    public const ERROR = 'error';
+    public const INFO = 'info';
+    public const SUCCESS = 'success';
+    public const WARNING = 'warning';
 
-    const TOASTR_NOTIFICATIONS = 'toastr::notifications';
+    public const TOASTR_NOTIFICATIONS = 'toastr::notifications';
 
     /**
      * Added notifications.
@@ -48,8 +49,7 @@ class Toastr
      * @param  SessionManager  $session
      * @param  Repository  $config
      */
-    public function __construct(SessionManager $session, Repository $config)
-    {
+    public function __construct(SessionManager $session, Repository $config) {
         $this->session = $session;
 
         $this->config = $config;
@@ -74,8 +74,7 @@ class Toastr
      * @param  array  $options
      * @return Toastr
      */
-    public function error(string $message, string $title = '', array $options = []): self
-    {
+    public function error(string $message, string $title = '', array $options = []): self {
         return $this->addNotification(self::ERROR, $message, $title, $options);
     }
 
@@ -87,8 +86,7 @@ class Toastr
      * @param  array  $options
      * @return Toastr
      */
-    public function info(string $message, string $title = '', array $options = []): self
-    {
+    public function info(string $message, string $title = '', array $options = []): self {
         return $this->addNotification(self::INFO, $message, $title, $options);
     }
 
@@ -100,8 +98,7 @@ class Toastr
      * @param  array  $options
      * @return Toastr
      */
-    public function success(string $message, string $title = '', array $options = []): self
-    {
+    public function success(string $message, string $title = '', array $options = []): self {
         return $this->addNotification(self::SUCCESS, $message, $title, $options);
     }
 
@@ -113,8 +110,7 @@ class Toastr
      * @param  array  $options
      * @return Toastr
      */
-    public function warning(string $message, string $title = '', array $options = []): self
-    {
+    public function warning(string $message, string $title = '', array $options = []): self {
         return $this->addNotification(self::WARNING, $message, $title, $options);
     }
 
@@ -127,8 +123,7 @@ class Toastr
      * @param  array  $options
      * @return Toastr
      */
-    public function addNotification(string $type, string $message, string $title = '', array $options = []): self
-    {
+    public function addNotification(string $type, string $message, string $title = '', array $options = []): self {
         $this->notifications[] = [
             'type'    => in_array($type, $this->allowedTypes, true) ? $type : self::WARNING,
             'title'   => $this->escapeSingleQuote($title),
@@ -147,8 +142,7 @@ class Toastr
      * @param  string  $nonce
      * @return string
      */
-    public function render(string $nonce = null): string
-    {
+    public function render(string $nonce = null): string {
         if (null !== $nonce) {
             $nonce = ' nonce="'.$nonce.'"';
         }
@@ -165,16 +159,14 @@ class Toastr
      *
      * @return string
      */
-    public function options(): string
-    {
+    public function options(): string {
         return 'toastr.options = '.json_encode($this->config->get('toastr.options', [])).';';
     }
 
     /**
      * @return string
      */
-    public function notificationsAsString(): string
-    {
+    public function notificationsAsString(): string {
         return implode('', array_slice($this->notifications(), -$this->maxItems));
     }
 
@@ -183,8 +175,7 @@ class Toastr
      *
      * @return array
      */
-    public function notifications(): array
-    {
+    public function notifications(): array {
         return array_map(
             function ($n) {
                 return $this->toastr($n['type'], $n['message'], $n['title'], $n['options']);
@@ -202,8 +193,7 @@ class Toastr
      * @param  string|null  $options
      * @return string
      */
-    public function toastr(string $type, string $message = '', string $title = '', string $options = ''): string
-    {
+    public function toastr(string $type, string $message = '', string $title = '', string $options = ''): string {
         return "toastr.$type('$message', '$title', $options);";
     }
 
@@ -212,8 +202,7 @@ class Toastr
      *
      * @return Toastr
      */
-    public function clear(): self
-    {
+    public function clear(): self {
         $this->notifications = [];
 
         return $this;
@@ -225,8 +214,7 @@ class Toastr
      * @param  int  $max
      * @return \Yoeunes\Toastr\Toastr
      */
-    public function maxItems(int $max): self
-    {
+    public function maxItems(int $max): self {
         $this->maxItems = $max;
 
         return $this;
@@ -238,8 +226,7 @@ class Toastr
      * @param  string  $value
      * @return string
      */
-    private function escapeSingleQuote(string $value): string
-    {
+    private function escapeSingleQuote(string $value): string {
         return str_replace("'", "\\'", $value);
     }
 }

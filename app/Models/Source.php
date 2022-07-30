@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\BaseModel;
 use Illuminate\Support\Str;
 
-class Source extends BaseModel
-{
+class Source extends BaseModel {
     protected $table = 'source';
 
     protected $fillable = [
@@ -29,7 +27,7 @@ class Source extends BaseModel
         return $this->morphTo();
     }
 
-    public function getSourceDescriptionCropAttribute(){
+    public function getSourceDescriptionCropAttribute() {
         return Str::words($this->source_description, 10, '...');
     }
 }

@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Health\Checks;
 
 use Carbon\Carbon;
 use Spatie\Health\Checks\Result;
 use Spatie\Health\Checks\Checks\ScheduleCheck as SpatieScheduleCheck;
 
-class ScheduleCheck extends SpatieScheduleCheck
-{
+class ScheduleCheck extends SpatieScheduleCheck {
     public function run(): Result {
         $name = 'health-results.schedule';
         $this->label("$name.label");

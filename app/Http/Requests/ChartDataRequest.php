@@ -1,13 +1,10 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\BaseRequest;
-
-class ChartDataRequest extends BaseRequest
-{
+class ChartDataRequest extends BaseRequest {
     public function rules(): array {
         return [
             'key' => [

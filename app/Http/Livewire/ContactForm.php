@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
 
-class ContactForm extends Component
-{
+class ContactForm extends Component {
     public $name = '';
     public $email = '';
     public $contact = '';
@@ -55,7 +56,7 @@ class ContactForm extends Component
         $contact['address'] = $this->address;
         $contact['message'] = $this->message;
 
-        Mail::to(config('farnost-detva.mail_contact_form','detva@fara.sk'))
+        Mail::to(config('farnost-detva.mail_contact_form', 'detva@fara.sk'))
             ->send(new ContactMail($contact));
 
         $this->reset();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Web\Sections;
 
 use Illuminate\Support\Str;
@@ -9,8 +11,7 @@ use App\Models\Banner as BannerModel;
 use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
-class Banner extends Component
-{
+class Banner extends Component {
     public $banner = null;
 
     public function __construct(
@@ -48,12 +49,12 @@ class Banner extends Component
             ->first();
 
         // Get all data Slider to Cache
-        return Cache::rememberForever('PICTURE_BANNER_'.$oneBanner->slug, function () use($oneBanner): array {
+        return Cache::rememberForever('PICTURE_BANNER_'.$oneBanner->slug, function () use ($oneBanner): array {
             return BannerModel::query()
                 ->whereSlug($oneBanner->slug)
                 ->with('media', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
+                ->map(fn ($e) => $this->mapOutput($e))
                 ->first();
         });
     }
@@ -93,17 +94,17 @@ class Banner extends Component
     }
 
     private function cleanListBanners(null|string|array $namesBanners): ?array {
-        if(is_null($namesBanners)){
+        if (is_null($namesBanners)) {
             return null;
         }
 
-        if(is_array($namesBanners)){
+        if (is_array($namesBanners)) {
             return $namesBanners;
         };
 
         return [Str::of($namesBanners)
             ->explode(',')
-            ->map(function($namesBanners){
+            ->map(function ($namesBanners) {
                 return trim($namesBanners);
             })
             ->whereNotNull()

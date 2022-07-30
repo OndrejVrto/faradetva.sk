@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 
-class CategoryRequest extends BaseRequest
-{
+class CategoryRequest extends BaseRequest {
     public function rules(): array {
         return [
             'title' => [

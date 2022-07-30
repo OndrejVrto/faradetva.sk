@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -14,8 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PrayerRequest;
 use Illuminate\Http\RedirectResponse;
 
-class PrayerController extends Controller
-{
+class PrayerController extends Controller {
     public function index(Request $request): View {
         $prayers = Prayer::query()
             ->latest('updated_at')
@@ -37,7 +36,7 @@ class PrayerController extends Controller
         $prayer = Prayer::create(Prayer::sanitize($validated));
         $prayer->source()->create(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($prayer, $request);
+        (new MediaStoreService())->handleCropPicture($prayer, $request);
 
         toastr()->success(__('app.prayer.store'));
         return to_route('prayers.index');
@@ -62,7 +61,7 @@ class PrayerController extends Controller
         $prayer->source()->update(Source::sanitize($validated));
         $prayer->touch(); // Touch because i need start observer for delete cache
 
-        (new MediaStoreService)->handleCropPicture($prayer, $request);
+        (new MediaStoreService())->handleCropPicture($prayer, $request);
 
         toastr()->success(__('app.prayer.update'));
         return to_route('prayers.index');

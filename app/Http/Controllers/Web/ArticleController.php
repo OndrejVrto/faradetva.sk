@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Web;
 
@@ -19,12 +19,11 @@ use App\Services\SEO\SetSeoPropertiesService;
 
 // TODO:  refactor Title in all methods to View::composer
 
-class ArticleController extends Controller
-{
+class ArticleController extends Controller {
     private $viewIndex = 'web.article.index';
 
-    public function show($slug): View  {
-        $oneNews = Cache::rememberForever('ONE_NEWS_'.Str::slug($slug), function () use($slug) {
+    public function show($slug): View {
+        $oneNews = Cache::rememberForever('ONE_NEWS_'.Str::slug($slug), function () use ($slug) {
             return News::query()
                 ->visible()
                 ->whereSlug($slug)
@@ -55,13 +54,13 @@ class ArticleController extends Controller
                 ->withCount('news')
                 ->orderByRaw('news_count DESC')
                 ->get()
-                ->filter(function($value){
+                ->filter(function ($value) {
                     return $value->news_count > 0;
                 });
         });
 
-        $attachments = Cache::rememberForever('ATTACHMENTS_'.Str::slug($slug), function () use($oneNews) {
-            return (new FilePropertiesService)->allNewsAttachmentData($oneNews);
+        $attachments = Cache::rememberForever('ATTACHMENTS_'.Str::slug($slug), function () use ($oneNews) {
+            return (new FilePropertiesService())->allNewsAttachmentData($oneNews);
         });
 
         $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
@@ -85,7 +84,7 @@ class ArticleController extends Controller
         return view('web.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
     }
 
-    public function indexAll(): View  {
+    public function indexAll(): View {
         $articles = Cache::rememberForever('NEWS_ALL_PAGE-' . request('page', 1), function () {
             return News::newsComplete();
         });
@@ -98,8 +97,8 @@ class ArticleController extends Controller
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
-    public function indexAuthor($userSlug): View  {
-        $articles = Cache::rememberForever('NEWS_USER_'.$userSlug.'_PAGE-' . request('page', 1), function() use($userSlug){
+    public function indexAuthor($userSlug): View {
+        $articles = Cache::rememberForever('NEWS_USER_'.$userSlug.'_PAGE-' . request('page', 1), function () use ($userSlug) {
             return News::whereHas('user', function ($query) use ($userSlug) {
                 $query->withTrashed()->whereSlug($userSlug);
             })->newsComplete();
@@ -115,8 +114,8 @@ class ArticleController extends Controller
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
-    public function indexCategory($categorySlug): View  {
-        $articles = Cache::rememberForever('NEWS_CATEGORY_'.$categorySlug.'_PAGE-' . request('page', 1), function() use($categorySlug){
+    public function indexCategory($categorySlug): View {
+        $articles = Cache::rememberForever('NEWS_CATEGORY_'.$categorySlug.'_PAGE-' . request('page', 1), function () use ($categorySlug) {
             return News::whereHas('category', function ($query) use ($categorySlug) {
                 $query->withTrashed()->whereSlug($categorySlug);
             })->newsComplete();
@@ -132,8 +131,8 @@ class ArticleController extends Controller
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
-    public function indexDate($year): View  {
-        $articles = Cache::rememberForever('NEWS_YEAR_'.$year.'_PAGE-' . request('page', 1), function() use($year){
+    public function indexDate($year): View {
+        $articles = Cache::rememberForever('NEWS_YEAR_'.$year.'_PAGE-' . request('page', 1), function () use ($year) {
             return News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete();
         });
 
@@ -146,8 +145,8 @@ class ArticleController extends Controller
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
-    public function indexTag($tagSlug): View  {
-        $articles = Cache::rememberForever('NEWS_TAG_'.$tagSlug.'_PAGE-' . request('page', 1), function() use($tagSlug){
+    public function indexTag($tagSlug): View {
+        $articles = Cache::rememberForever('NEWS_TAG_'.$tagSlug.'_PAGE-' . request('page', 1), function () use ($tagSlug) {
             return News::whereHas('tags', function ($query) use ($tagSlug) {
                 $query->withTrashed()->whereSlug($tagSlug);
             })->newsComplete();
@@ -163,7 +162,7 @@ class ArticleController extends Controller
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
-    public function indexSearch($search = null): View  {
+    public function indexSearch($search = null): View {
         if (!$search) {
             return to_route('article.all');
         }

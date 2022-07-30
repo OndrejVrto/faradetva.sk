@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
@@ -14,8 +13,7 @@ use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Testimonial extends BaseModel implements HasMedia
-{
+class Testimonial extends BaseModel implements HasMedia {
     use Loggable;
     use Restorable;
     use HasFactory;
@@ -45,7 +43,7 @@ class Testimonial extends BaseModel implements HasMedia
         return $this->getFirstMedia($this->collectionName)->file_name ?? null;
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
+    public function registerMediaConversions(Media $media = null): void {
         $this->addMediaConversion('crop')
             ->fit(Manipulations::FIT_CROP, 120, 120)
             ->sharpen(2)
@@ -56,4 +54,3 @@ class Testimonial extends BaseModel implements HasMedia
             ->quality(60);
     }
 }
-

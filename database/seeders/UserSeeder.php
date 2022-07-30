@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
-{
+class UserSeeder extends Seeder {
     public function run(): void {
-
         $user = User::create([
             'name' => 'Super Administrátor',
             'nick' => 'super-admin',
@@ -129,6 +129,5 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10)
         ]);
         $user->assignRole(['9']); // Hosť
-
     }
 }

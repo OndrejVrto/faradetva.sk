@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Health\Checks;
 
 use Carbon\Carbon;
@@ -7,8 +9,7 @@ use App\Models\StaticPage;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class StaticPagesCrawlerCheck extends Check
-{
+class StaticPagesCrawlerCheck extends Check {
     private int $allPages = 0;
 
     private int $checkPages = 0;

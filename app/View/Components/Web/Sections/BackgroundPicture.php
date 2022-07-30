@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Web\Sections;
 
 use Illuminate\View\Component;
@@ -8,8 +10,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 use App\Models\BackgroundPicture as BackgroundPictureModel;
 
-class BackgroundPicture extends Component
-{
+class BackgroundPicture extends Component {
     public $backgroundPicture;
 
     public function __construct(
@@ -28,12 +29,12 @@ class BackgroundPicture extends Component
     }
 
     private function getPicture($titleSlug): array {
-        return Cache::rememberForever('PICTURE_BACKGROUND_'.$titleSlug, function () use($titleSlug): array {
+        return Cache::rememberForever('PICTURE_BACKGROUND_'.$titleSlug, function () use ($titleSlug): array {
             return BackgroundPictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('media', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
+                ->map(fn ($e) => $this->mapOutput($e))
                 ->first();
         });
     }

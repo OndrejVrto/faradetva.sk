@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services;
 
 use App\Models\News;
@@ -7,12 +9,9 @@ use App\Models\StaticPage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
 
-class PagePropertiesService
-{
-
+class PagePropertiesService {
     public static function virtualPageData(string $route): ?array {
-
-        $page = Cache::rememberForever('PAGE_VIRTUAL_'.Str::slug($route), function () use($route) {
+        $page = Cache::rememberForever('PAGE_VIRTUAL_'.Str::slug($route), function () use ($route) {
             return StaticPage::query()
                 ->where('route_name', $route)
                 ->with('picture', 'source', 'banners', 'faqs')
@@ -28,7 +27,7 @@ class PagePropertiesService
 
     /** create full route name **/
     public static function fullRoute(string $route_name): string {
-        $route = config('farnost-detva.preppend_route_static_pages','web.custom') . '.' . $route_name;
+        $route = config('farnost-detva.preppend_route_static_pages', 'web.custom') . '.' . $route_name;
 
         return Str::startsWith($route, '.')
                     ? substr($route, 1)
@@ -60,7 +59,7 @@ class PagePropertiesService
 
     private static function getImageData($page): array {
         // TODO: delete example picture after develoop
-        if(isset($page->picture[0])){
+        if (isset($page->picture[0])) {
             $media = $page->picture[0];
             return [
                 'img-representing' => $media->getUrl('representing'),

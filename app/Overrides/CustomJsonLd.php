@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Overrides;
 
 use Illuminate\Support\Arr;
 use Artesaos\SEOTools\JsonLd;
 
-class CustomJsonLd extends JsonLd
-{
+class CustomJsonLd extends JsonLd {
     public function getValues(): array {
         return $this->values;
     }

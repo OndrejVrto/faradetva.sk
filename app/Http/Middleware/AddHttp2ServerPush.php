@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
@@ -10,8 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Symfony\Component\DomCrawler\Crawler;
 
-class AddHttp2ServerPush
-{
+class AddHttp2ServerPush {
     /**
      * The DomCrawler instance.
      *
@@ -27,8 +26,7 @@ class AddHttp2ServerPush
      *
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $limit = null, $sizeLimit = null, $excludeKeywords=null)
-    {
+    public function handle(Request $request, Closure $next, $limit = null, $sizeLimit = null, $excludeKeywords=null) {
         $response = $next($request);
 
         if ($response->isRedirection() || !$response instanceof Response || $request->isJson()) {
@@ -41,7 +39,7 @@ class AddHttp2ServerPush
     }
 
     public function getConfig($key, $default=false) {
-        if(!function_exists('config')) { // for tests..
+        if (!function_exists('config')) { // for tests..
             return $default;
         }
         return config('http2serverpush.'.$key, $default);
@@ -52,19 +50,20 @@ class AddHttp2ServerPush
      *
      * @return $this
      */
-    protected function generateAndAttachLinkHeaders(Response $response, $limit = null, $sizeLimit = null, $excludeKeywords=null)
-    {
+    protected function generateAndAttachLinkHeaders(Response $response, $limit = null, $sizeLimit = null, $excludeKeywords=null) {
         $excludeKeywords = $excludeKeywords ?? $this->getConfig('exclude_keywords', []);
         $headers = $this->fetchLinkableNodes($response)
             ->map(function ($url) {
                 return $this->buildLinkHeaderString($url);
             })
-            ->filter(function($value, $key) use ($excludeKeywords){
-                if(!$value) return false;
+            ->filter(function ($value, $key) use ($excludeKeywords) {
+                if (!$value) {
+                    return false;
+                }
                 $exclude_keywords = collect($excludeKeywords)->map(function ($keyword) {
                     return preg_quote($keyword);
                 });
-                if($exclude_keywords->count() <= 0) {
+                if ($exclude_keywords->count() <= 0) {
                     return true;
                 }
                 return !preg_match('%('.$exclude_keywords->implode('|').')%i', $value);
@@ -73,7 +72,7 @@ class AddHttp2ServerPush
 
         $sizeLimit = $sizeLimit ?? max(1, intval($this->getConfig('size_limit', 32*1024)));
         $headersText = trim($headers->implode(','));
-        while(strlen($headersText) > $sizeLimit) {
+        while (strlen($headersText) > $sizeLimit) {
             $headers->pop();
             $headersText = trim($headers->implode(','));
         }
@@ -92,8 +91,7 @@ class AddHttp2ServerPush
      *
      * @return \Symfony\Component\DomCrawler\Crawler
      */
-    protected function getCrawler(Response $response)
-    {
+    protected function getCrawler(Response $response) {
         if ($this->crawler) {
             return $this->crawler;
         }
@@ -108,8 +106,7 @@ class AddHttp2ServerPush
      *
      * @return \Illuminate\Support\Collection
      */
-    protected function fetchLinkableNodes($response)
-    {
+    protected function fetchLinkableNodes($response) {
         $crawler = $this->getCrawler($response);
 
         $baseUrl = $crawler->getBaseHref();
@@ -122,7 +119,7 @@ class AddHttp2ServerPush
             ])
             ->flatten()
             ->unique()
-            ->reject(fn ($value) => $value == $baseUrl OR $value == $actualUrlFromCannonicalLink OR !$value);
+            ->reject(fn ($value) => $value == $baseUrl or $value == $actualUrlFromCannonicalLink or !$value);
     }
 
     /**
@@ -132,8 +129,7 @@ class AddHttp2ServerPush
      *
      * @return string
      */
-    private function buildLinkHeaderString($url)
-    {
+    private function buildLinkHeaderString($url) {
         $linkTypeMap = [
             '.CSS'   => 'style',
             '.JS'    => 'script',
@@ -155,7 +151,7 @@ class AddHttp2ServerPush
             $type = 'fetch';
         }
 
-        if(!preg_match('%^(https?:)?//%i', $url)) {
+        if (!preg_match('%^(https?:)?//%i', $url)) {
             $basePath = $this->getConfig('base_path', '/');
             $url = $basePath . ltrim($url, '/');
         }
@@ -170,8 +166,7 @@ class AddHttp2ServerPush
      *
      * @param $link
      */
-    private function addLinkHeader(Response $response, $link)
-    {
+    private function addLinkHeader(Response $response, $link) {
         if ($response->headers->get('Link')) {
             $link = $response->headers->get('Link') . ',' . $link;
         }

@@ -1,16 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Spatie\Valuestore\Valuestore;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class QueueCheckJob implements ShouldQueue
-{
+class QueueCheckJob implements ShouldQueue {
     use Queueable;
 
-    public function __construct(private string $key, private string $value){}
+    public function __construct(private string $key, private string $value) {
+    }
 
     public function handle() {
         customConfig('health-checks')->put($this->key, $this->value);

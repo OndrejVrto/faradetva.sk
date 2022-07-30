@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
 use App\Models\News;
 use Livewire\Component;
 use App\Models\Subscriber;
 
-class SubscribeForm extends Component
-{
+class SubscribeForm extends Component {
     public $model = News::class;
     public $name = '';
     public $email = '';
@@ -32,7 +33,7 @@ class SubscribeForm extends Component
         $className = "App\\Models\\".$modelName;
         $this->type = $section ? true : false;
 
-        if ($modelName AND class_exists($className, false)) {
+        if ($modelName and class_exists($className, false)) {
             $this->model = $className;
         };
     }

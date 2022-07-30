@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Dashboard;
 
 use Illuminate\Support\Str;
@@ -9,8 +11,7 @@ use Illuminate\Support\Facades\Artisan;
 use Spatie\ResponseCache\Facades\ResponseCache;
 use Spatie\Health\Commands\RunHealthChecksCommand;
 
-class SettingsSwitcherService
-{
+class SettingsSwitcherService {
     public ?string $secretKey = null;
 
     private $config;
@@ -31,7 +32,7 @@ class SettingsSwitcherService
     }
 
     public function run(string $command = null, bool $value) {
-        if (method_exists($this, $command)){
+        if (method_exists($this, $command)) {
             $this->$command($value);
         }
     }
@@ -43,11 +44,13 @@ class SettingsSwitcherService
         string $artisanFalse = null,
         string $artisanTrue = null
     ) {
-        if ($require == $this->checkbox->get($valueStore)) return;
+        if ($require == $this->checkbox->get($valueStore)) {
+            return;
+        }
 
         if (false == $require) {
             $this->checkbox->put($valueStore, false);
-            if($config){
+            if ($config) {
                 customConfig('config', [$config => false]);
             }
             if ($artisanFalse) {
@@ -70,7 +73,9 @@ class SettingsSwitcherService
 
     private function maintenance_mode(bool $require): void {
         // dd($require, app()->isDownForMaintenance());
-        if ($require == app()->isDownForMaintenance()) return;
+        if ($require == app()->isDownForMaintenance()) {
+            return;
+        }
         if (true == $require) {
             $secretKey = Str::uuid();
             Artisan::call('down', ['--secret' => $secretKey]);
@@ -93,7 +98,9 @@ class SettingsSwitcherService
     }
 
     private function cache_global(bool $require): void {
-        if ($require == $this->checkbox->get('cache_global')) return;
+        if ($require == $this->checkbox->get('cache_global')) {
+            return;
+        }
         if (false == $require) {
             Artisan::call('cache:clear', ['--quiet' => true, '--no-interaction' => true]);
             $this->checkbox->put('cache_global', false);
@@ -105,7 +112,9 @@ class SettingsSwitcherService
     }
 
     private function app_enviroment_mode(bool $require): void {
-        if ($require == $this->checkbox->get('app_enviroment_mode')) return;
+        if ($require == $this->checkbox->get('app_enviroment_mode')) {
+            return;
+        }
         if (false == $require) {
             $this->checkbox->put('app_enviroment_mode', false);
             customConfig('config', ['app.env' => 'production']);
@@ -116,7 +125,9 @@ class SettingsSwitcherService
     }
 
     private function cache_response(bool $require): void {
-        if ($require == $this->checkbox->get('cache_response')) return;
+        if ($require == $this->checkbox->get('cache_response')) {
+            return;
+        }
         if (false == $require) {
             ResponseCache::clear();
             $this->checkbox->put('cache_response', false);

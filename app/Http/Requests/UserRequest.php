@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 use Illuminate\Validation\Rules\Password;
 use App\Http\Requests\Traits\HasCropPictureFields;
 
-class UserRequest extends BaseRequest
-{
+class UserRequest extends BaseRequest {
     use HasCropPictureFields;
 
     public function rules(): array {

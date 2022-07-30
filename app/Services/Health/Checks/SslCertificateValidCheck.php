@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Health\Checks;
 
 use Carbon\Carbon;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class SslCertificateValidCheck extends Check
-{
+class SslCertificateValidCheck extends Check {
     /**  @var array */
     protected $certificateInfo;
 
@@ -37,8 +38,7 @@ class SslCertificateValidCheck extends Check
      *
      * @return $this
      */
-    public function warnWhenSslCertificationExpiringDay(int $day): self
-    {
+    public function warnWhenSslCertificationExpiringDay(int $day): self {
         $this->warningThreshold = $day;
 
         return $this;
@@ -49,8 +49,7 @@ class SslCertificateValidCheck extends Check
      *
      * @return $this
      */
-    public function failWhenSslCertificationExpiringDay(int $day): self
-    {
+    public function failWhenSslCertificationExpiringDay(int $day): self {
         $this->errorThreshold = $day;
 
         return $this;
@@ -61,8 +60,7 @@ class SslCertificateValidCheck extends Check
      *
      * @return $this
      */
-    public function url(string $url): self
-    {
+    public function url(string $url): self {
         $this->url = $url;
 
         return $this;
@@ -74,8 +72,7 @@ class SslCertificateValidCheck extends Check
      * @param array $config
      * @return bool
      */
-    public function check(array $config): bool
-    {
+    public function check(array $config): bool {
         if ($this->url == null) {
             $this->url = $config['url'];
         }
@@ -97,7 +94,8 @@ class SslCertificateValidCheck extends Check
         if (
             $this->certificateDaysUntilExpiration < 0 ||
             !$this->hostCoveredByCertificate(
-                $urlParts['host'], $this->certificateDomain,
+                $urlParts['host'],
+                $this->certificateDomain,
                 $this->certificateAdditionalDomains
             )
         ) {
@@ -140,7 +138,7 @@ class SslCertificateValidCheck extends Check
                 'dateExpiration' => $this->certificateExpiration,
             ]);
 
-        if (!$this->hostCoveredByCertificate($urlParts['host'], $this->certificateDomain, $this->certificateAdditionalDomains) ) {
+        if (!$this->hostCoveredByCertificate($urlParts['host'], $this->certificateDomain, $this->certificateAdditionalDomains)) {
             return $result->failed("$name.failed_uncovered_host");
         }
 
@@ -159,8 +157,7 @@ class SslCertificateValidCheck extends Check
         return $result->notificationMessage("$name.ok")->ok();
     }
 
-    protected function downloadCertificate($urlParts)
-    {
+    protected function downloadCertificate($urlParts) {
         $streamContext = stream_context_create([
             'ssl' => [
                 'capture_peer_cert' => true
@@ -181,8 +178,7 @@ class SslCertificateValidCheck extends Check
         return openssl_x509_parse($certificateContext['options']['ssl']['peer_certificate']);
     }
 
-    public function processCertificate($certificateInfo)
-    {
+    public function processCertificate($certificateInfo) {
         if (!empty($certificateInfo['subject']) && !empty($certificateInfo['subject']['CN'])) {
             $this->certificateDomain = $certificateInfo['subject']['CN'];
         }
@@ -203,8 +199,7 @@ class SslCertificateValidCheck extends Check
         }
     }
 
-    public function hostCoveredByCertificate($host, $certificateHost, array $certificateAdditionalDomains = [])
-    {
+    public function hostCoveredByCertificate($host, $certificateHost, array $certificateAdditionalDomains = []) {
         if ($host == $certificateHost) {
             return true;
         }
@@ -220,8 +215,7 @@ class SslCertificateValidCheck extends Check
         return in_array($host, $certificateAdditionalDomains, true);
     }
 
-    protected function parseUrl($url)
-    {
+    protected function parseUrl($url) {
         $urlParts = parse_url($url);
 
         if (!$urlParts) {

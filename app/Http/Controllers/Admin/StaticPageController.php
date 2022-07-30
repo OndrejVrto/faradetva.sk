@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -16,8 +16,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StaticPageRequest;
 
-class StaticPageController extends Controller
-{
+class StaticPageController extends Controller {
     public function index(Request $request): View {
         $pages = StaticPage::query()
             ->orderByDesc('virtual')
@@ -26,12 +25,13 @@ class StaticPageController extends Controller
             ->withCount('banners')
             ->withCount('faqs')
             ->archive($request, 'pages')
+            ->filterDeactivated($request)
             ->get();
 
         return view('admin.static-pages.index', compact('pages'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         $banners = Banner::with('media', 'source')->get();
         $selectedBanners = [];
         $pageTypes = PageType::cases();
@@ -46,7 +46,7 @@ class StaticPageController extends Controller
         $staticPage->source()->create(Source::sanitize($validated));
         $staticPage->banners()->syncWithoutDetaching($request->input('banner'));
 
-        (new MediaStoreService)->handleCropPicture($staticPage, $request);
+        (new MediaStoreService())->handleCropPicture($staticPage, $request);
 
         toastr()->success(__('app.static-page.store'));
         return to_route('static-pages.index');
@@ -69,7 +69,7 @@ class StaticPageController extends Controller
         $staticPage->banners()->sync($request->input('banner'));
         $staticPage->touch(); // Touch because i need start observer for delete cache
 
-        (new MediaStoreService)->handleCropPicture($staticPage, $request);
+        (new MediaStoreService())->handleCropPicture($staticPage, $request);
 
         toastr()->success(__('app.static-page.update'));
         return to_route('static-pages.index');
@@ -84,7 +84,7 @@ class StaticPageController extends Controller
 
     public function restore($id): RedirectResponse {
         $staticPage = StaticPage::onlyTrashed()->findOrFail($id);
-        $staticPage->slug = Str::slug( Str::replace('/', '-', $staticPage->url) ).'-'.Str::random(5);
+        $staticPage->slug = Str::slug(Str::replace('/', '-', $staticPage->url)).'-'.Str::random(5);
         $staticPage->title = '*'.$staticPage->title;
         $staticPage->restore();
 
