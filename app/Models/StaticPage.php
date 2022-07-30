@@ -6,8 +6,10 @@ namespace App\Models;
 
 use App\Enums\PageType;
 use App\Traits\Restorable;
+use Illuminate\Http\Request;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,6 +51,17 @@ class StaticPage extends BaseModel implements HasMedia {
         'type_page' => PageType::class,
     ];
 
+    public function getFullUrlAttribute() {
+        return url($this->url);
+    }
+
+    public function scopeFilterDeactivated(Builder $query, Request $request) {
+        return $query
+            ->when($request->has('only-deactivated'), function ($query) {
+                $query->where('active', false);
+            });
+    }
+
     public function files() {
         return $this->hasMany(File::class);
     }
@@ -59,10 +72,6 @@ class StaticPage extends BaseModel implements HasMedia {
 
     public function faqs() {
         return $this->belongsToMany(Faq::class, 'static_page_faq', 'static_page_id', 'faq_id');
-    }
-
-    public function getFullUrlAttribute() {
-        return url($this->url);
     }
 
     public function source() {

@@ -25,6 +25,7 @@ class StaticPageController extends Controller {
             ->withCount('banners')
             ->withCount('faqs')
             ->archive($request, 'pages')
+            ->filterDeactivated($request)
             ->get();
 
         return view('admin.static-pages.index', compact('pages'));

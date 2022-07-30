@@ -22,6 +22,12 @@
                 >
                     Scanovať<strong class="mx-1">všetky</strong>URL
                 </a>
+
+                <a  href="{{ route('static-pages.index', ['only-deactivated=true']) }}"
+                    class="ml-3 btn btn-flat bg-gradient-secondary flex-fill flex-md-grow-0 mb-2 mb-md-0"
+                >
+                    Zobraziť iba<strong class="mx-1">deaktivované</strong>stránky
+                </a>
             @endcan
         </x-slot>
 
