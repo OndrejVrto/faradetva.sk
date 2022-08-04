@@ -68,7 +68,7 @@ class PrayerController extends Controller {
         return to_route('prayers.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $prayer = Prayer::onlyTrashed()->findOrFail($id);
         $prayer->slug = Str::slug($prayer->title).'-'.Str::random(5);
         $prayer->title = '*'.$prayer->title;
@@ -78,7 +78,7 @@ class PrayerController extends Controller {
         return to_route('prayers.edit', $prayer->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $prayer = Prayer::onlyTrashed()->findOrFail($id);
         $prayer->source()->delete();
         $prayer->clearMediaCollection($prayer->collectionName);

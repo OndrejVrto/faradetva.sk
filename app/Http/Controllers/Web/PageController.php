@@ -11,13 +11,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
+use Illuminate\Contracts\View\Factory;
 use App\Services\PagePropertiesService;
+use Illuminate\Contracts\View\View as iView;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class PageController extends Controller {
-    private $path = '';
+    private string $path = '';
 
-    public function __invoke(...$param) {
+    public function __invoke(string ...$param): iView|Factory {
 
         // create array of links
         $urls = collect($param)

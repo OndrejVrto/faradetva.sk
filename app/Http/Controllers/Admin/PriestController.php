@@ -60,7 +60,7 @@ class PriestController extends Controller {
         return to_route('priests.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $priest = Priest::onlyTrashed()->findOrFail($id);
         $priest->slug = Str::slug($priest->full_name_titles).'-'.Str::random(5);
         $priest->titles_before = '*'.$priest->titles_before;
@@ -70,7 +70,7 @@ class PriestController extends Controller {
         return to_route('priests.edit', $priest->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $priest = Priest::onlyTrashed()->findOrFail($id);
         $priest->clearMediaCollection($priest->collectionName);
         $priest->forceDelete();

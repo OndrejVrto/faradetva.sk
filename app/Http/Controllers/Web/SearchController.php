@@ -7,11 +7,12 @@ namespace App\Http\Controllers\Web;
 use Spatie\SiteSearch\Search;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\Factory;
 use App\Services\PagePropertiesService;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class SearchController extends Controller {
-    public function __invoke($searchFrase = null): View {
+    public function __invoke(string $searchFrase = null): View|Factory {
         $searchResults = $searchFrase
             ? Search::onIndex('HTTPS_FaraDetva')
                 ->query($searchFrase)

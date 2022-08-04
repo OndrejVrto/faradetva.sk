@@ -11,7 +11,7 @@ use App\Services\PurifiAutolinkService;
 use App\Models\Testimonial as TestimonialModel;
 
 class Testimonials extends Component {
-    public $testimonials;
+    public ?array $testimonials;
 
     public function __construct() {
         $this->testimonials = $this->getTestimonials();
@@ -25,7 +25,7 @@ class Testimonials extends Component {
         return null;
     }
 
-    private function getTestimonials(): array {
+    private function getTestimonials(): ?array {
         return Cache::remember('TESTIMONIALS', now()->addHours(1), function (): array {
             $countTestimonials = TestimonialModel::query()
                 ->whereActive(1)

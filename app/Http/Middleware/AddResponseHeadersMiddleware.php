@@ -6,11 +6,22 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Carbon\Carbon;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Psr\Container\NotFoundExceptionInterface;
+use Psr\Container\ContainerExceptionInterface;
 
 class AddResponseHeadersMiddleware {
-    public function handle(Request $request, Closure $next) {
+    /**
+     * @param Request $request
+     * @param Closure $next
+     * @return mixed
+     * @throws BindingResolutionException
+     * @throws NotFoundExceptionInterface
+     * @throws ContainerExceptionInterface
+     */
+    public function handle(Request $request, Closure $next): mixed {
         $response = $next($request)
             ->header('Content-Language', config('app.faker_locale'))
             ->header('X-XSS-Protection', '1; mode=block')

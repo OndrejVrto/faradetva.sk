@@ -67,7 +67,7 @@ class SliderController extends Controller {
         return to_route('sliders.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $slider = Slider::onlyTrashed()->findOrFail($id);
         $slider->restore();
 
@@ -75,7 +75,7 @@ class SliderController extends Controller {
         return to_route('sliders.edit', $slider->id);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $slider = Slider::onlyTrashed()->findOrFail($id);
         $slider->source()->delete();
         $slider->clearMediaCollection($slider->collectionName);

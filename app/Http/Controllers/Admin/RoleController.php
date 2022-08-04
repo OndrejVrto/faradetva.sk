@@ -45,11 +45,10 @@ class RoleController extends Controller {
         return view('admin.roles.edit', compact('role', 'rolePermissions', 'permissions'));
     }
 
-    public function update(RoleRequest $request, $id): RedirectResponse {
+    public function update(RoleRequest $request, Role $role): RedirectResponse {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
-        $role = Role::findOrFail($id);
         $role->update($data);
         $role->syncPermissions($request->get('permission'));
 

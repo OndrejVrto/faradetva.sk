@@ -3,7 +3,7 @@
 use Spatie\Valuestore\Valuestore;
 
 if (!function_exists('customConfig')) {
-    function customConfig(string $filename = 'config', $key = null, $default = null): Valuestore|string|null {
+    function customConfig(string $filename = 'config', null|array|string $key = null, null|string|int $default = null): Valuestore|string|null {
         try {
             $valueStore = Valuestore::make(
                 storage_path("app/value-store/$filename.json")
@@ -31,7 +31,7 @@ if (!function_exists('customConfig')) {
 }
 
 if (!function_exists('prepareInput')) {
-    function prepareInput($input): ?array {
+    function prepareInput(array|string $input): ?array {
         if (!$input) {
             return null;
         }

@@ -6,17 +6,19 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Mail\ContactMail;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Contracts\View\Factory;
 
 class ContactForm extends Component {
-    public $name = '';
-    public $email = '';
-    public $contact = '';
-    public $address = '';
-    public $message = '';
-    public $successMesage = '';
+    public string $name = '';
+    public string $email = '';
+    public string $contact = '';
+    public string $address = '';
+    public string $message = '';
+    public string $successMesage = '';
 
-    protected $rules = [
+    protected array $rules = [
         'name' => [
             'required',
             'min:6',
@@ -43,11 +45,11 @@ class ContactForm extends Component {
         ],
     ];
 
-    public function updated($property) {
+    public function updated(mixed $property): void {
         $this->validateOnly($property);
     }
 
-    public function submitForm() {
+    public function submitForm(): void {
         $this->validate();
 
         $contact['name']    = $this->name;
@@ -64,7 +66,7 @@ class ContactForm extends Component {
         $this->successMesage = 'Vaša správa bola odoslaná.';
     }
 
-    public function render() {
+    public function render(): View|Factory {
         return view('livewire.contact-form');
     }
 }

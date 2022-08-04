@@ -26,7 +26,7 @@ class AddHttp2ServerPush {
      *
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $limit = null, $sizeLimit = null, $excludeKeywords=null) {
+    public function handle(Request $request, Closure $next, mixed $limit = null, mixed $sizeLimit = null, mixed $excludeKeywords=null): mixed {
         $response = $next($request);
 
         if ($response->isRedirection() || !$response instanceof Response || $request->isJson()) {
@@ -38,7 +38,7 @@ class AddHttp2ServerPush {
         return $response;
     }
 
-    public function getConfig($key, $default=false) {
+    public function getConfig($key, $default = false) {
         if (!function_exists('config')) { // for tests..
             return $default;
         }

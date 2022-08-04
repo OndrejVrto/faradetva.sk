@@ -64,7 +64,7 @@ class ChartController extends Controller {
         return to_route('charts.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $chart = Chart::onlyTrashed()->findOrFail($id);
         $chart->slug = Str::slug($chart->title).'-'.Str::random(5);
         $chart->title = '*'.$chart->title;
@@ -74,7 +74,7 @@ class ChartController extends Controller {
         return to_route('charts.edit', $chart->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $chart = Chart::onlyTrashed()->findOrFail($id);
         $chart->data()->delete();
         $chart->forceDelete();

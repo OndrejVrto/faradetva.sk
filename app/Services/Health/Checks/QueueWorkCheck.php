@@ -18,7 +18,7 @@ class QueueWorkCheck extends Check {
         $new_value = Str::uuid()->toString();
         (new QueueCheckJob($key, $new_value))->handle();
         sleep(1);
-        $stored_value = customConfig('health-checks', $key, false);
+        $stored_value = customConfig('health-checks', $key, "false");
 
         if ($stored_value == $new_value) {
             return Result::make("$name.ok");

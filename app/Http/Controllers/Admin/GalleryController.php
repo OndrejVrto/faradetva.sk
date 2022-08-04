@@ -109,7 +109,7 @@ class GalleryController extends Controller {
         return to_route('galleries.index');
     }
 
-    public function download(Gallery $gallery) {
+    public function download(Gallery $gallery): MediaStream {
         $downloads = $gallery->getMedia($gallery->collectionName);
 
         return MediaStream::create('Album_'.$gallery->slug.'.zip')->addMedia($downloads);

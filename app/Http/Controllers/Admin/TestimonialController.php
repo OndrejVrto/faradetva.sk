@@ -60,7 +60,7 @@ class TestimonialController extends Controller {
         return to_route('testimonials.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $testimonial = Testimonial::onlyTrashed()->findOrFail($id);
         $testimonial->slug = Str::slug($testimonial->name).'-'.Str::random(5);
         $testimonial->name = '*'.$testimonial->name;
@@ -70,7 +70,7 @@ class TestimonialController extends Controller {
         return to_route('testimonials.edit', $testimonial->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $testimonial = Testimonial::onlyTrashed()->findOrFail($id);
         $testimonial->clearMediaCollection($testimonial->collectionName);
         $testimonial->forceDelete();

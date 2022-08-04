@@ -54,7 +54,7 @@ class TagController extends Controller {
         return to_route('tags.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $tag = Tag::onlyTrashed()->findOrFail($id);
         $tag->slug = Str::slug($tag->title).'-'.Str::random(5);
         $tag->title = '*'.$tag->title;
@@ -64,7 +64,7 @@ class TagController extends Controller {
         return to_route('tags.edit', $tag->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $tag = Tag::onlyTrashed()->findOrFail($id);
         $tag->forceDelete();
 

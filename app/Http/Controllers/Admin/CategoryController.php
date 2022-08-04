@@ -63,7 +63,7 @@ class CategoryController extends Controller {
         return to_route('categories.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $category = Category::onlyTrashed()->findOrFail($id);
         $category->slug = Str::slug($category->title).'-'.Str::random(5);
         $category->title = '*'.$category->title;
@@ -73,7 +73,7 @@ class CategoryController extends Controller {
         return to_route('categories.edit', $category->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $category = Category::onlyTrashed()->findOrFail($id);
         $category->news()->update(['category_id' => 1]);
         $category->forceDelete();

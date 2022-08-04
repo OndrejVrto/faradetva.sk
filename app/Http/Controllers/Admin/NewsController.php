@@ -124,7 +124,7 @@ class NewsController extends Controller {
         return to_route('news.index');
     }
 
-    public function download(News $news) {
+    public function download(News $news): MediaStream {
         $downloads = $news->getMedia($news->collectionDocument);
 
         return MediaStream::create('Prilohy_'.$news->slug.'.zip')->addMedia($downloads);
@@ -138,7 +138,7 @@ class NewsController extends Controller {
         return to_route('news.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $news = News::onlyTrashed()->findOrFail($id);
         $news->slug = Str::slug($news->title).'-'.Str::random(5);
         $news->title = '*'.$news->title;
@@ -148,7 +148,7 @@ class NewsController extends Controller {
         return to_route('news.edit', $news->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $news = News::onlyTrashed()->findOrFail($id);
         $news->tags()->detach($news->id);
         $news->clearMediaCollection($news->collectionName);

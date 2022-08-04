@@ -37,10 +37,10 @@ class PermissionController extends Controller {
         return view('admin.permissions.edit', compact('permission'));
     }
 
-    public function update(PermissionRequest $request, $id): RedirectResponse {
+    public function update(PermissionRequest $request, Permission $permission): RedirectResponse {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
-        Permission::findOrFail($id)->update($data);
+        $permission->update($data);
 
         toastr()->success(strval(__('app.permission.update')));
         return to_route('permissions.index');

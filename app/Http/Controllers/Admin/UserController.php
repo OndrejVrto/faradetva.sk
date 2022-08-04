@@ -128,7 +128,7 @@ class UserController extends Controller {
         return to_route('users.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $user = User::onlyTrashed()->findOrFail($id);
         $user->slug = Str::slug($user->name).'-'.Str::random(5);
         $user->name = '*'.$user->name;
@@ -138,7 +138,7 @@ class UserController extends Controller {
         return to_route('users.edit', $user->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $user = User::onlyTrashed()->findOrFail($id);
 
         $user->permissions()->detach($id);

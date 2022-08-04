@@ -16,7 +16,7 @@ class GenerateSitemap extends Command {
         parent::__construct();
     }
 
-    public function handle() {
+    public function handle(): void {
         dispatch((new GenerateSitemapJob()));
 
         $this->warn('Add generate sitemap to jobs.');

@@ -86,7 +86,7 @@ class StaticPageController extends Controller {
         return to_route('static-pages.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $staticPage = StaticPage::onlyTrashed()->findOrFail($id);
         $staticPage->slug = Str::slug(Str::replace('/', '-', $staticPage->url)).'-'.Str::random(5);
         $staticPage->title = '*'.$staticPage->title;
@@ -96,7 +96,7 @@ class StaticPageController extends Controller {
         return to_route('static-pages.edit', $staticPage->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $staticPage = StaticPage::onlyTrashed()->findOrFail($id);
         $staticPage->source()->delete();
         $staticPage->clearMediaCollection($staticPage->collectionName);

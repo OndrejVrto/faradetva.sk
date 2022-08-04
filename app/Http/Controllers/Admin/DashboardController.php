@@ -58,7 +58,7 @@ class DashboardController extends Controller {
         return to_route('admin.dashboard');
     }
 
-    private function runSwitcher(Request $request) {
+    private function runSwitcher(Request $request): SettingsSwitcherService {
         $validated = [];
         foreach ($request->all() as $key => $attribute) {
             // convert all attributes to boolean
