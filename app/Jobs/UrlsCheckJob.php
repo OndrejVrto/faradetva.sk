@@ -23,7 +23,7 @@ class UrlsCheckJob implements ShouldQueue {
     use SerializesModels;
     use InteractsWithQueue;
 
-    public function handle() {
+    public function handle(): void {
         File::delete(storage_path('/logs/laravel.log'));
         // File::delete(storage_path('/logs/query.log'));
 

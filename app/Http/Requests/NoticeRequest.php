@@ -12,7 +12,7 @@ use Illuminate\Validation\Rule;
 class NoticeRequest extends BaseRequest {
     public function rules(): array {
         $modelName = $this->route() instanceof Route
-                        ? Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"])
+                        ? Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"])  // @phpstan-ignore-line
                         : 'notice';
 
         // dd(Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),);

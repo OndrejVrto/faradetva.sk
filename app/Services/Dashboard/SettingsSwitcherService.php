@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Dashboard;
 
 use Illuminate\Support\Str;
+use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Artisan;
@@ -15,7 +16,7 @@ class SettingsSwitcherService {
     public ?string $secretKey = null;
 
     // private $config;
-    private $checkbox;
+    private Valuestore $checkbox;
 
     public function __construct() {
         // $this->config   = customConfig();
@@ -31,7 +32,7 @@ class SettingsSwitcherService {
         Artisan::call(RunHealthChecksCommand::class, ['--quiet' => true, '--no-interaction' => true]);
     }
 
-    public function run(string $command = null, bool $value) {
+    public function run(string $command = null, bool $value): void {
         if (method_exists($this, $command)) {
             $this->$command($value);
         }
@@ -43,7 +44,7 @@ class SettingsSwitcherService {
         string $config = null,
         string $artisanFalse = null,
         string $artisanTrue = null
-    ) {
+    ): void {
         if ($require == $this->checkbox->get($valueStore)) {
             return;
         }

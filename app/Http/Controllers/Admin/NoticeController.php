@@ -19,17 +19,17 @@ class NoticeController extends Controller implements CrudInterface {
     /**
      * Name of the resource, in lowercase plural form.
      */
-    protected $resource;
+    protected string $resource;
 
     /**
      * Name of the model class.
      */
-    protected $model;
+    protected string $model;
 
     /**
      * Model instance.
      */
-    private $instance;
+    private object $instance;
 
     /**
      * Set an instance of the model.
@@ -95,7 +95,7 @@ class NoticeController extends Controller implements CrudInterface {
         return to_route($this->resource.'.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $model = $this->instance::onlyTrashed()->findOrFail($id);
         $model->slug = Str::slug($model->title).'-'.Str::random(5);
         $model->title = '*'. $model->title;
@@ -105,7 +105,7 @@ class NoticeController extends Controller implements CrudInterface {
         return to_route($this->resource.'.edit', $model->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $model = $this->instance::onlyTrashed()->findOrFail($id);
         $model->clearMediaCollection($model->collectionName);
         $model->forceDelete();

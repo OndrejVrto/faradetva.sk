@@ -9,7 +9,7 @@ use Spatie\SiteSearch\Jobs\CrawlSiteJob;
 use Spatie\SiteSearch\Models\SiteSearchConfig;
 
 class SiteSearchCrawlJob {
-    public function handle() {
+    public function handle(): void {
         SiteSearchConfig::enabled()
             ->each(function (SiteSearchConfig $siteSearchConfig) {
                 dispatch(new CrawlSiteJob($siteSearchConfig));

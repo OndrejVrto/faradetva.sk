@@ -13,10 +13,10 @@ use Illuminate\Contracts\View\Factory;
 class ContactForm extends Component {
     public string $name = '';
     public string $email = '';
-    public string $contact = '';
     public string $address = '';
     public string $message = '';
     public string $successMesage = '';
+    public array $contact = [];
 
     protected array $rules = [
         'name' => [

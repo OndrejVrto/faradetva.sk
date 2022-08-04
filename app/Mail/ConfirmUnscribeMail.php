@@ -19,32 +19,30 @@ class ConfirmUnscribeMail extends Mailable implements ShouldQueue {
      *
      * @var int
      */
-    public $tries = 2;
+    public int $tries = 2;
 
     /**
      * The number of seconds to wait before retrying the job.
      *
      * @var int
      */
-    public $backoff = 5;
-
-    public $subscriber;
+    public int $backoff = 5;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Subscriber $subscriber) {
-        $this->subscriber = $subscriber;
-    }
+    public function __construct(
+        public Subscriber $subscriber
+    ) {}
 
     /**
      * Build the message.
      *
      * @return $this
      */
-    public function build() {
+    public function build(): self {
         return $this->markdown('mail.confirm-unscribe-mail', [
             'subscriber' => $this->subscriber,
         ]);

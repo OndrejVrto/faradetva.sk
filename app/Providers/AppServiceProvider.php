@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
-    public function register() {
+    public function register(): void {
         //
     }
 
-    public function boot(Request $request) {
+    public function boot(Request $request): void {
         if ($request->userAgent() !== 'Symfony') {
             Paginator::useBootstrap();
 
