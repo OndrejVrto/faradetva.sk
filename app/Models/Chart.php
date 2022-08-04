@@ -8,6 +8,7 @@ use App\Enums\ChartType;
 use App\Traits\Restorable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Chart extends BaseModel {
@@ -36,7 +37,7 @@ class Chart extends BaseModel {
         'type_chart' => ChartType::class,
     ];
 
-    public function data() {
+    public function data(): HasMany {
         return $this->hasMany(ChartData::class)->orderBy('key');
     }
 }

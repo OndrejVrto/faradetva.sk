@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ChartData extends BaseModel {
@@ -19,11 +20,11 @@ class ChartData extends BaseModel {
         'value',
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName(): string {
         return 'id';
     }
 
-    public function chart() {
+    public function chart(): BelongsTo {
         return $this->belongsTo(Chart::class, 'chart_id');
     }
 }

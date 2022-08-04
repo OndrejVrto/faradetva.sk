@@ -23,7 +23,7 @@ class Priest extends BaseModel implements HasMedia {
 
     protected $table = 'priests';
 
-    public $collectionName = 'priest';
+    public string $collectionName = 'priest';
 
     protected $fillable = [
         'active',
@@ -46,7 +46,7 @@ class Priest extends BaseModel implements HasMedia {
         'deleted_at' => 'datetime',
     ];
 
-    protected static function boot() {
+    protected static function boot(): void {
         parent::boot();
 
         static::creating(function ($priest) {
@@ -58,23 +58,23 @@ class Priest extends BaseModel implements HasMedia {
         });
     }
 
-    public function getFullNameTitlesAttribute() {
+    public function getFullNameTitlesAttribute(): string {
         return $this->getFullNameWithTitles();
     }
 
-    public function getPhoneDigitsAttribute() {
+    public function getPhoneDigitsAttribute(): ?string {
         if (isset($this->phone)) {
             $remove_plus = preg_replace("/\+/", "00", $this->phone);
             return preg_replace("/[^0-9]/", "", $remove_plus);
         }
-        return;
+        return null;
     }
 
-    public function getFullNameAttribute() {
+    public function getFullNameAttribute(): string {
         return $this->getFullName();
     }
 
-    private function getFullNameWithTitles() {
+    private function getFullNameWithTitles(): string {
         $name = isset($this->titles_before) ? $this->titles_before . ' ' : '';
         $name .= $this->getFullName();
         $name .= isset($this->titles_after) ? ', ' . $this->titles_after : '';
@@ -82,7 +82,7 @@ class Priest extends BaseModel implements HasMedia {
         return trim($name);
     }
 
-    private function getFullName() {
+    private function getFullName(): string {
         return $this->first_name . ' ' . $this->last_name;
     }
 

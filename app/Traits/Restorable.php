@@ -12,7 +12,7 @@ trait Restorable {
 
     use SoftDeletes;
 
-    public function scopeArchive(Builder $query, Request $request, string $modelName) {
+    public function scopeArchive(Builder $query, Request $request, string $modelName): Builder {
         return $query
             ->when($request->has('only-deleted') and $this->canRestore($modelName), function ($query) {
                 $query->onlyTrashed();
@@ -33,7 +33,7 @@ trait Restorable {
             auth()->user()->hasAnyPermission($permissions)
             or
             auth()->user()->hasRole('Super Administrátor')
-            ? true
-            : false;
+                ? true
+                : false;
     }
 }

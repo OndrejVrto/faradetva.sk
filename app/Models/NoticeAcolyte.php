@@ -5,5 +5,5 @@ declare(strict_types=1);
 namespace App\Models;
 
 class NoticeAcolyte extends Notice {
-    protected static $singleTableType = 'Acolyte';
+    protected static string $singleTableType = 'Acolyte';
 }
