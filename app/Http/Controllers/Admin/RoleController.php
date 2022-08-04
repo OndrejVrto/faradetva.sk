@@ -34,7 +34,7 @@ class RoleController extends Controller {
         $role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success(__('app.role.store', ['name'=> $role->name]));
+        toastr()->success(strval(__('app.role.store', ['name'=> $role->name])));
         return to_route('roles.index');
     }
 
@@ -53,16 +53,16 @@ class RoleController extends Controller {
         $role->update($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success(__('app.role.update', ['name'=> $role->name]));
+        toastr()->success(strval(__('app.role.update', ['name'=> $role->name])));
         return to_route('roles.index');
     }
 
     public function destroy(Role $role): RedirectResponse {
         if ($role->id == 1) {
-            toastr()->error(__('app.role.delete-error', ['name'=> $role->name]));
+            toastr()->error(strval(__('app.role.delete-error', ['name'=> $role->name])));
         } else {
             $role->delete();
-            toastr()->success(__('app.role.delete', ['name'=> $role->name]));
+            toastr()->success(strval(__('app.role.delete', ['name'=> $role->name])));
         }
 
         return to_route('roles.index');

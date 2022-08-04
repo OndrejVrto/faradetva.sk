@@ -36,7 +36,7 @@ class FileController extends Controller {
 
         (new MediaStoreService())->handle($file, $request, 'attachment', $validated['slug']);
 
-        toastr()->success(__('app.file.store'));
+        toastr()->success(strval(__('app.file.store')));
         return to_route('files.index');
     }
 
@@ -55,7 +55,7 @@ class FileController extends Controller {
 
         (new MediaStoreService())->handle($file, $request, 'attachment', $validated['slug']);
 
-        toastr()->success(__('app.file.update'));
+        toastr()->success(strval(__('app.file.update')));
         return to_route('files.index');
     }
 
@@ -64,7 +64,7 @@ class FileController extends Controller {
         $file->delete();
         $file->clearMediaCollection($file->collectionName);
 
-        toastr()->success(__('app.file.delete'));
+        toastr()->success(strval(__('app.file.delete')));
         return to_route('files.index');
     }
 }

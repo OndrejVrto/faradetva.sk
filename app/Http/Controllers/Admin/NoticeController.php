@@ -59,10 +59,10 @@ class NoticeController extends Controller implements CrudInterface {
         try {
             $notice = $this->instance::create(Notice::sanitize($validated));
             (new MediaStoreService())->handle($notice, $request, 'notice_file', $validated['slug']);
-            toastr()->success(__('app.'.$this->resource.'.store'));
+            toastr()->success(strval(__('app.'.$this->resource.'.store')));
         } catch (\Throwable $th) {
             info($th->getMessage());
-            toastr()->error(__('app.'.$this->resource.'.store-error'));
+            toastr()->error(strval(strval(__('app.'.$this->resource.'.store-error'))));
         }
 
         return to_route($this->resource.'.index');
@@ -79,10 +79,10 @@ class NoticeController extends Controller implements CrudInterface {
         try {
             $model->update(Notice::sanitize($validated));
             (new MediaStoreService())->handle($model, $request, 'notice_file', $validated['slug']);
-            toastr()->success(__('app.'.$this->resource.'.update'));
+            toastr()->success(strval(__('app.'.$this->resource.'.update')));
         } catch (\Throwable $th) {
             info($th->getMessage());
-            toastr()->success(__('app.'.$this->resource.'.update-error'));
+            toastr()->error(strval(strval(__('app.'.$this->resource.'.update-error'))));
         }
 
         return to_route($this->resource.'.index');
@@ -91,7 +91,7 @@ class NoticeController extends Controller implements CrudInterface {
     public function destroy(Model $model): RedirectResponse {
         $model->delete();
 
-        toastr()->success(__('app.'.$this->resource.'.delete'));
+        toastr()->success(strval(__('app.'.$this->resource.'.delete')));
         return to_route($this->resource.'.index');
     }
 
@@ -101,7 +101,7 @@ class NoticeController extends Controller implements CrudInterface {
         $model->title = '*'. $model->title;
         $model->restore();
 
-        toastr()->success(__('app.'.$this->resource.'.restore'));
+        toastr()->success(strval(__('app.'.$this->resource.'.restore')));
         return to_route($this->resource.'.edit', $model->slug);
     }
 
@@ -110,7 +110,7 @@ class NoticeController extends Controller implements CrudInterface {
         $model->clearMediaCollection($model->collectionName);
         $model->forceDelete();
 
-        toastr()->success(__('app.'.$this->resource.'.force-delete'));
+        toastr()->success(strval(__('app.'.$this->resource.'.force-delete')));
         return to_route($this->resource.'.index', ['only-deleted' => 'true']);
     }
 }

@@ -35,7 +35,7 @@ class ChartController extends Controller {
         $validated = $request->validated();
         Chart::create(Chart::sanitize($validated));
 
-        toastr()->success(__('app.chart.store'));
+        toastr()->success(strval(__('app.chart.store')));
         return to_route('charts.index');
     }
 
@@ -53,14 +53,14 @@ class ChartController extends Controller {
         $validated = $request->validated();
         $chart->update(Chart::sanitize($validated));
 
-        toastr()->success(__('app.chart.update'));
+        toastr()->success(strval(__('app.chart.update')));
         return to_route('charts.index');
     }
 
     public function destroy(Chart $chart): RedirectResponse {
         $chart->delete();
 
-        toastr()->success(__('app.chart.delete'));
+        toastr()->success(strval(__('app.chart.delete')));
         return to_route('charts.index');
     }
 
@@ -70,7 +70,7 @@ class ChartController extends Controller {
         $chart->title = '*'.$chart->title;
         $chart->restore();
 
-        toastr()->success(__('app.chart.restore'));
+        toastr()->success(strval(__('app.chart.restore')));
         return to_route('charts.edit', $chart->slug);
     }
 
@@ -79,7 +79,7 @@ class ChartController extends Controller {
         $chart->data()->delete();
         $chart->forceDelete();
 
-        toastr()->success(__('app.chart.force-delete'));
+        toastr()->success(strval(__('app.chart.force-delete')));
         return to_route('charts.index', ['only-deleted' => 'true']);
     }
 }

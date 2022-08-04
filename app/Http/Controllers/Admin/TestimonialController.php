@@ -35,7 +35,7 @@ class TestimonialController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($testimonial, $request, $validated['slug']);
 
-        toastr()->success(__('app.testimonial.store'));
+        toastr()->success(strval(__('app.testimonial.store')));
         return to_route('testimonials.index');
     }
 
@@ -49,14 +49,14 @@ class TestimonialController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($testimonial, $request, $validated['slug']);
 
-        toastr()->success(__('app.testimonial.update'));
+        toastr()->success(strval(__('app.testimonial.update')));
         return to_route('testimonials.index');
     }
 
     public function destroy(Testimonial $testimonial): RedirectResponse {
         $testimonial->delete();
 
-        toastr()->success(__('app.testimonial.delete'));
+        toastr()->success(strval(__('app.testimonial.delete')));
         return to_route('testimonials.index');
     }
 
@@ -66,7 +66,7 @@ class TestimonialController extends Controller {
         $testimonial->name = '*'.$testimonial->name;
         $testimonial->restore();
 
-        toastr()->success(__('app.testimonial.restore'));
+        toastr()->success(strval(__('app.testimonial.restore')));
         return to_route('testimonials.edit', $testimonial->slug);
     }
 
@@ -75,7 +75,7 @@ class TestimonialController extends Controller {
         $testimonial->clearMediaCollection($testimonial->collectionName);
         $testimonial->forceDelete();
 
-        toastr()->success(__('app.testimonial.force-delete'));
+        toastr()->success(strval(__('app.testimonial.force-delete')));
         return to_route('testimonials.index', ['only-deleted' => 'true']);
     }
 }

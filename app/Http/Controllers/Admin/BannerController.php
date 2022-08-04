@@ -40,7 +40,7 @@ class BannerController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($banner, $request);
 
-        toastr()->success(__('app.banner.store'));
+        toastr()->success(strval(__('app.banner.store')));
         return to_route('banners.index');
     }
 
@@ -68,7 +68,7 @@ class BannerController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($banner, $request);
 
-        toastr()->success(__('app.banner.update'));
+        toastr()->success(strval(__('app.banner.update')));
         return to_route('banners.index');
     }
 
@@ -77,7 +77,7 @@ class BannerController extends Controller {
         $banner->delete();
         $banner->clearMediaCollection($banner->collectionName);
 
-        toastr()->success(__('app.banner.delete'));
+        toastr()->success(strval(__('app.banner.delete')));
         return to_route('banners.index');
     }
 }

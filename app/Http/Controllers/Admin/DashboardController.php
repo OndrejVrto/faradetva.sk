@@ -31,14 +31,14 @@ class DashboardController extends Controller {
     public function fresh(): RedirectResponse {
         Artisan::call(RunHealthChecksCommand::class, ['--quiet' => true, '--no-interaction' => true]);
 
-        toastr()->success('Stav aplikácie aktualizovaný.');
+        toastr()->success(strval('Stav aplikácie aktualizovaný.'));
         return to_route('admin.dashboard');
     }
 
     public function maintenance(Request $request): RedirectResponse {
         $service = $this->runSwitcher($request);
 
-        toastr()->success('Prostredie nastavené.');
+        toastr()->success(strval('Prostredie nastavené.'));
         return $service->secretKey
             ? Redirect::to(route('home')."/$service->secretKey")
             : to_route('admin.dashboard');
@@ -47,14 +47,14 @@ class DashboardController extends Controller {
     public function settings(Request $request): RedirectResponse {
         $this->runSwitcher($request);
 
-        toastr()->success('Nastavenia uložené.');
+        toastr()->success(strval('Nastavenia uložené.'));
         return to_route('admin.dashboard');
     }
 
     public function commands(string $command): RedirectResponse {
         (new DashboardCommandService())->run($command);
 
-        toastr()->success("Príkaz '$command' vykonaný.");
+        toastr()->success(strval("Príkaz '$command' vykonaný."));
         return to_route('admin.dashboard');
     }
 

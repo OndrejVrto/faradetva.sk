@@ -48,7 +48,7 @@ class StaticPageController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($staticPage, $request);
 
-        toastr()->success(__('app.static-page.store'));
+        toastr()->success(strval(__('app.static-page.store')));
         return to_route('static-pages.index');
     }
 
@@ -75,14 +75,14 @@ class StaticPageController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($staticPage, $request);
 
-        toastr()->success(__('app.static-page.update'));
+        toastr()->success(strval(__('app.static-page.update')));
         return to_route('static-pages.index');
     }
 
     public function destroy(StaticPage $staticPage): RedirectResponse {
         $staticPage->delete();
 
-        toastr()->success(__('app.static-page.delete'));
+        toastr()->success(strval(__('app.static-page.delete')));
         return to_route('static-pages.index');
     }
 
@@ -92,7 +92,7 @@ class StaticPageController extends Controller {
         $staticPage->title = '*'.$staticPage->title;
         $staticPage->restore();
 
-        toastr()->success(__('app.static-page.restore'));
+        toastr()->success(strval(__('app.static-page.restore')));
         return to_route('static-pages.edit', $staticPage->slug);
     }
 
@@ -103,7 +103,7 @@ class StaticPageController extends Controller {
         $staticPage->banners()->detach($id);
         $staticPage->forceDelete();
 
-        toastr()->success(__('app.static-page.force-delete'));
+        toastr()->success(strval(__('app.static-page.force-delete')));
         return to_route('static-pages.index', ['only-deleted' => 'true']);
     }
 }
