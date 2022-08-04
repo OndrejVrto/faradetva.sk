@@ -58,13 +58,13 @@ class NoticeController extends Controller implements CrudInterface {
         $validated = $request->validated();
         try {
             $notice = $this->instance::create(Notice::sanitize($validated));
+            (new MediaStoreService())->handle($notice, $request, 'notice_file', $validated['slug']);
+            toastr()->success(__('app.'.$this->resource.'.store'));
         } catch (\Throwable $th) {
-            info($th);
+            info($th->getMessage());
+            toastr()->error(__('app.'.$this->resource.'.store-error'));
         }
 
-        (new MediaStoreService())->handle($notice, $request, 'notice_file', $validated['slug']);
-
-        toastr()->success(__('app.'.$this->resource.'.store'));
         return to_route($this->resource.'.index');
     }
 
@@ -78,13 +78,13 @@ class NoticeController extends Controller implements CrudInterface {
         $validated = $request->validated();
         try {
             $model->update(Notice::sanitize($validated));
+            (new MediaStoreService())->handle($model, $request, 'notice_file', $validated['slug']);
+            toastr()->success(__('app.'.$this->resource.'.update'));
         } catch (\Throwable $th) {
-            info($th);
+            info($th->getMessage());
+            toastr()->success(__('app.'.$this->resource.'.update-error'));
         }
 
-        (new MediaStoreService())->handle($model, $request, 'notice_file', $validated['slug']);
-
-        toastr()->success(__('app.'.$this->resource.'.update'));
         return to_route($this->resource.'.index');
     }
 

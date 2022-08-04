@@ -92,11 +92,11 @@ class AddHttp2ServerPush {
      * @return \Symfony\Component\DomCrawler\Crawler
      */
     protected function getCrawler(Response $response) {
-        if ($this->crawler) {
-            return $this->crawler;
+        if (!$this->crawler instanceof Crawler) {
+            $this->crawler = new Crawler($response->getContent());
         }
 
-        return $this->crawler = new Crawler($response->getContent());
+        return $this->crawler;
     }
 
     /**
@@ -163,10 +163,10 @@ class AddHttp2ServerPush {
      * Add Link Header
      *
      * @param \Illuminate\Http\Response $response
-     *
-     * @param $link
+     * @param string $link
+     * @return void
      */
-    private function addLinkHeader(Response $response, $link) {
+    private function addLinkHeader(Response $response, string $link): void {
         if ($response->headers->get('Link')) {
             $link = $response->headers->get('Link') . ',' . $link;
         }

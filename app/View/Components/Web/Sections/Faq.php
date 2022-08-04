@@ -24,7 +24,7 @@ class Faq extends Component {
         if ($listOfFaqs) {
             $cacheName = getCacheName($listOfFaqs);
 
-            $this->faqs = Cache::rememberForever('FAQ_'.$cacheName, function () use ($listOfFaqs): ?Collection {
+            $this->faqs = Cache::rememberForever('FAQ_'.$cacheName, function () use ($listOfFaqs): Collection {
                 return FaqModel::query()
                     ->whereIn('slug', $listOfFaqs)
                     ->orderBy('order')
@@ -33,7 +33,7 @@ class Faq extends Component {
                         return [
                             'id'           => $faq->id,
                             'question'     => $faq->question,
-                            'answer-clean' => Str::plainText($faq->answer),
+                            'answer-clean' => Str::plainText($faq->answer), // @phpstan-ignore-line
                             'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                         ];
                     });
@@ -41,7 +41,7 @@ class Faq extends Component {
         }
     }
 
-    public function render(): View {
+    public function render(): ?View {
         if (!is_null($this->faqs)) {
             (new SetSeoPropertiesService())->setFaqSeoMetaTags($this->faqs);
 

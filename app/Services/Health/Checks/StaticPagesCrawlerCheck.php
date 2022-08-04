@@ -30,7 +30,7 @@ class StaticPagesCrawlerCheck extends Check {
 
         $result->shortSummary("$name.short")
             ->meta([
-                'lastCrawlDate' => Carbon::create($lastCrawledTime)->format('d.m.Y H:m'),
+                'lastCrawlDate' => Carbon::parse($lastCrawledTime)->format('d.m.Y H:m'),
                 'checkPages'    => $this->checkPages,
                 'allPages'      => $this->allPages,
             ]);

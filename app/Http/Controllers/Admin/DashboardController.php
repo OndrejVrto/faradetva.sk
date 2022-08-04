@@ -59,6 +59,7 @@ class DashboardController extends Controller {
     }
 
     private function runSwitcher(Request $request) {
+        $validated = [];
         foreach ($request->all() as $key => $attribute) {
             // convert all attributes to boolean
             $validated[$key] = filter_var($attribute, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);

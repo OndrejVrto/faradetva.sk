@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Spatie\Health\ResultStores\ResultStore;
 use Spatie\Health\Models\HealthCheckResultHistoryItem;
 use Spatie\Health\Exceptions\CouldNotSaveResultsInStore;
+use Spatie\Health\ResultStores\EloquentHealthResultStore;
 use Spatie\Health\ResultStores\StoredCheckResults\StoredCheckResult;
 use Spatie\Health\ResultStores\StoredCheckResults\StoredCheckResults;
 

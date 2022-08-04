@@ -39,12 +39,12 @@ abstract class BaseRequest extends FormRequest {
         ];
     }
 
-    protected function nullUrlRule(): array {
+    protected function nullUrlRule(int $max = 512): array {
         return [
             'nullable',
             'url',
             'string',
-            'max:512',
+            'max:'.$max,
         ];
     }
 

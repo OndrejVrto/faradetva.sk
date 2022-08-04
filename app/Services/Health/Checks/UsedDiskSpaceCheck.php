@@ -15,9 +15,9 @@ class UsedDiskSpaceCheck extends Check {
     protected int $warningThreshold = 70;
     protected int $errorThreshold = 90;
 
-    protected int $totalDiskSpace;
-    protected int $usedDiskSpace;
-    protected int $freeDiskSpace;
+    protected int|float|bool $totalDiskSpace;
+    protected int|float|bool $usedDiskSpace;
+    protected int|float|bool $freeDiskSpace;
 
     public function warnWhenUsedSpaceIsAbovePercentage(int $percentage): self {
         $this->warningThreshold = $percentage;
@@ -71,7 +71,7 @@ class UsedDiskSpaceCheck extends Check {
                 $this->totalDiskSpace = disk_total_space($drive);
                 $this->usedDiskSpace  = $this->freeDiskSpace ? $this->totalDiskSpace - $this->freeDiskSpace : 0;
             } catch (\Throwable $th) {
-                return $th;
+                return new Exception('Error loading free disk space.');
             }
             return $this->freeDiskSpace ? 100 - (round($this->freeDiskSpace / $this->totalDiskSpace, 2) * 100) : 0;
         }

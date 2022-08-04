@@ -47,9 +47,9 @@ class Picture extends Component {
     ];
 
     public function __construct(
-        private string $titleSlug,
-        private int|null $columns = 4,
-        private int|null $maxColumns = 7,
+        string $titleSlug,
+        int|null $columns = 4,
+        int|null $maxColumns = 7,
         public string|null $side = null,
         public string|null $animation = null,
         public string|null $dimensionSource = 'full',
@@ -133,7 +133,7 @@ class Picture extends Component {
             'img_thumbnail_height' => 100,
 
             'source_description'      => $img->source->source_description,
-            'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
+            'source_description_crop' => Str::words($img->source->source_description, $this->descriptionCrop ?? 6, '...'),
             'sourceArr' => [
                 'source_source'       => $img->source->source_source,
                 'source_source_url'   => $img->source->source_source_url,

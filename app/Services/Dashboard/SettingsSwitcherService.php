@@ -14,11 +14,11 @@ use Spatie\Health\Commands\RunHealthChecksCommand;
 class SettingsSwitcherService {
     public ?string $secretKey = null;
 
-    private $config;
+    // private $config;
     private $checkbox;
 
     public function __construct() {
-        $this->config   = customConfig();
+        // $this->config   = customConfig();
         $this->checkbox = customConfig('dashboard-checkbox');
     }
 
@@ -77,17 +77,16 @@ class SettingsSwitcherService {
             return;
         }
         if (true == $require) {
-            $secretKey = Str::uuid();
-            Artisan::call('down', ['--secret' => $secretKey]);
+            $this->secretKey = Str::uuid()->toString();
+            Artisan::call('down', ['--secret' => $this->secretKey]);
 
             // TODO: send email to all administrator with secret key url
             Log::channel('slack')->alert('Aplikácia je prepnutá do údržbového módu.', [
-                'Secret url' => url(route('home').'/'.$secretKey),
+                'Secret url' => url(route('home').'/'.$this->secretKey),
                 'Uživateľ ktorý vypol aplikáciu' => Auth::user()->name,
                 'Uživateľov e-mail' => Auth::user()->email,
             ]);
             $this->checkbox->put('maintenance_mode', true);
-            $this->secretKey = $secretKey;
         } else {
             $this->checkbox->put('maintenance_mode', false);
             Artisan::call('up');

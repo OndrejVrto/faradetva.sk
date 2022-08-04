@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Routing\Route;
 use Spatie\Permission\Exceptions\UnauthorizedException;
 
 class PermissionMiddleware {
@@ -26,12 +27,13 @@ class PermissionMiddleware {
             $permissions = is_array($permission)
                 ? $permission
                 : explode('|', $permission);
-        }
+        } else {
+            $permissions = [];
+            $routeName = $request->route();
 
-        if (is_null($permission)) {
-            $permission = $request->route()->getName();
-
-            $permissions = array($permission);
+            if ($routeName instanceof Route) {
+                $permissions[] = $routeName->getName();
+            }
         }
 
         foreach ($permissions as $permission) {

@@ -11,6 +11,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use App\Services\FilePropertiesService;
@@ -63,7 +64,7 @@ class ArticleController extends Controller {
             return (new FilePropertiesService())->allNewsAttachmentData($oneNews);
         });
 
-        $breadCrumb = (string) Breadcrumbs::render('article.show', true, $oneNews);
+        $breadCrumb = Breadcrumbs::render('article.show', true, $oneNews)->render();
 
         $pageData = PagePropertiesService::getArticlePageData($oneNews);
         (new SetSeoPropertiesService($pageData))
@@ -89,7 +90,7 @@ class ArticleController extends Controller {
             return News::newsComplete();
         });
         $title = __('frontend-texts.articles-title.all');
-        $breadCrumb = (string) Breadcrumbs::render('articles.all', true);
+        $breadCrumb = Breadcrumbs::render('articles.all', true)->render();
         $emptyTitle = ['name'=> 'V', 'value' => 'sekcii'];
 
         $this->seoIndex();
@@ -106,7 +107,7 @@ class ArticleController extends Controller {
 
         $userName = User::withTrashed()->whereSlug($userSlug)->value('name');
         $title = __('frontend-texts.articles-title.author') . $userName;
-        $breadCrumb = (string) Breadcrumbs::render('articles.author', true, $userSlug, $userName);
+        $breadCrumb = Breadcrumbs::render('articles.author', true, $userSlug, $userName)->render();
         $emptyTitle = ['name'=> 'Zvolený autor', 'value' => $userName];
 
         $this->seoIndex();
@@ -123,7 +124,7 @@ class ArticleController extends Controller {
 
         $categoryName = Category::withTrashed()->whereSlug($categorySlug)->value('title');
         $title = __('frontend-texts.articles-title.category') . $categoryName;
-        $breadCrumb = (string) Breadcrumbs::render('articles.category', true, $categorySlug, $categoryName);
+        $breadCrumb = Breadcrumbs::render('articles.category', true, $categorySlug, $categoryName)->render();
         $emptyTitle = ['name'=> 'Vybraná kategória', 'value' => $categoryName];
 
         $this->seoIndex();
@@ -137,7 +138,7 @@ class ArticleController extends Controller {
         });
 
         $title = __('frontend-texts.articles-title.date') . $year;
-        $breadCrumb = (string) Breadcrumbs::render('articles.date', true, $year, $year);
+        $breadCrumb = Breadcrumbs::render('articles.date', true, $year, $year)->render();
         $emptyTitle = ['name'=> 'Vybraný rok', 'value' => (string)$year];
 
         $this->seoIndex();
@@ -154,7 +155,7 @@ class ArticleController extends Controller {
 
         $tagName = Tag::withTrashed()->whereSlug($tagSlug)->value('title');
         $title = __('frontend-texts.articles-title.tags') . $tagName;
-        $breadCrumb = (string) Breadcrumbs::render('articles.tag', true, $tagSlug, $tagName);
+        $breadCrumb = Breadcrumbs::render('articles.tag', true, $tagSlug, $tagName)->render();
         $emptyTitle = ['name'=> 'Klúčové slovo', 'value' => $tagName];
 
         $this->seoIndex();
@@ -162,13 +163,13 @@ class ArticleController extends Controller {
         return view($this->viewIndex, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
-    public function indexSearch($search = null): View {
+    public function indexSearch($search = null): View|RedirectResponse {
         if (!$search) {
             return to_route('article.all');
         }
         $articles = News::whereFulltext(['title', 'teaser' ,'content_plain'], $search)->newsComplete();
         $title = __('frontend-texts.articles-title.search') . $search;
-        $breadCrumb = (string) Breadcrumbs::render('articles.search', true);
+        $breadCrumb = Breadcrumbs::render('articles.search', true)->render();
         $emptyTitle = ['name'=> 'Hľadaný výraz', 'value' => $search];
 
         $this->seoIndex();

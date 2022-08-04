@@ -12,7 +12,7 @@ class EmailLink extends Component {
     public $domain;
 
     public function __construct(
-        private string $email,
+        string $email,
         public ?string $nonce = null,
         public string $class = 'link-secondary',
         public ?string $icon = 'fa-regular fa-paper-plane fa-flip-horizontal ps-2'

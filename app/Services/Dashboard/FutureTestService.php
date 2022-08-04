@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Dashboard;
 
+use Carbon\Carbon;
 use App\Jobs\GenerateSitemapJob;
 use Cohensive\OEmbed\Facades\OEmbed;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,17 @@ class FutureTestService {
         if (!$this->gate()) {
             return;
         }
+
+        dd(
+            Carbon::now()->toISOString(),
+            Carbon::now()->getTimestamp(),
+
+            Carbon::parse(customConfig('crawler', 'CRAWLER.url_check', null) )
+             ->format('d.m.Y H:m')
+        );
+
+        // customConfig('crawler')->put('CRAWLER.sitemap', Carbon::now()->toISOString());
+
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
 

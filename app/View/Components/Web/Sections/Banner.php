@@ -17,8 +17,8 @@ class Banner extends Component {
     public function __construct(
         public $header = null,
         public $breadcrumb = null,
-        private null|string|array $titleSlug = null,
         public null|string $dimensionSourceBanner = "medium",
+        null|string|array $titleSlug = null,
     ) {
         $this->banner = $this->getBanner($this->cleanListBanners($titleSlug));
     }

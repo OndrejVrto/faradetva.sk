@@ -13,8 +13,8 @@ class VideoEmbed extends Component {
     public $dataVideo = null;
 
     public function __construct(
-        private string $urlVideo,
-        private array $config = [],
+        string $urlVideo,
+        array $config = [],
     ) {
         $embed = OEmbed::get($urlVideo);
 
@@ -24,7 +24,7 @@ class VideoEmbed extends Component {
         }
     }
 
-    public function render(): View {
+    public function render(): ?View {
         if (!is_null($this->video)) {
             return view('components.partials.video-embed.index');
         }

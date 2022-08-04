@@ -34,8 +34,8 @@ class AddResponseHeadersMiddleware {
                 $response->header('Last-Modified', gmdate("D, d M Y H:i:s", $time)." GMT");
             }
         } else {
-            $store->put('___LAST_MODIFIED', Carbon::now()->timestamp);
-            $store->put('___RELOAD', true);
+            $store->put('___LAST_MODIFIED', Carbon::now()->getTimestamp());
+            $store->put('___RELOAD', "true");
         }
 
         return $response;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Jobs;
 
+use Carbon\Carbon;
 use Spatie\SiteSearch\Jobs\CrawlSiteJob;
 use Spatie\SiteSearch\Models\SiteSearchConfig;
 
@@ -15,7 +16,7 @@ class SiteSearchCrawlJob {
             });
 
         customConfig('crawler')
-            ->put('___RELOAD', false)
-            ->put('CRAWLER.site_search', now());
+            ->put('___RELOAD', "false")
+            ->put('CRAWLER.site_search', Carbon::now()->toISOString());
     }
 }

@@ -42,12 +42,6 @@ class PrayerController extends Controller {
         return to_route('prayers.index');
     }
 
-    public function show(Prayer $prayer): View {
-        $prayer->load('media', 'source');
-
-        return view('admin.prayers.show', compact('prayer'));
-    }
-
     public function edit(Prayer $prayer): View {
         $prayer->load('source');
 

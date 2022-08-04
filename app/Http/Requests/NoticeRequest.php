@@ -5,12 +5,17 @@ declare(strict_types=1);
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
+use Illuminate\Routing\Route;
 use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
 
 class NoticeRequest extends BaseRequest {
     public function rules(): array {
-        $modelName = Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"]);
+
+        $modelName = $this->route() instanceof Route
+                        ? Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"])
+                        : 'notice';
+
         // dd(Rule::unique('notices', 'slug')->ignore($this->{$modelName})->withoutTrashed(),);
         return [
             'active' => $this->reqBoolRule(),

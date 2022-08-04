@@ -15,8 +15,8 @@ class GlobalObserver {
         ResponseCache::clear();
 
         customConfig('crawler')
-            ->put('___LAST_MODIFIED', Carbon::now()->timestamp)
-            ->put('___RELOAD', true);
+            ->put('___LAST_MODIFIED', Carbon::now()->getTimestamp())
+            ->put('___RELOAD', "true");
     }
 
     public function created(Model $model) {

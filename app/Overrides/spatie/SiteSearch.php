@@ -14,7 +14,7 @@ use Spatie\SiteSearch\Profiles\SearchProfile;
 use Spatie\SiteSearch\SearchResults\SearchResults;
 use GuzzleHttp\RequestOptions;
 
-class SiteSearch {
+final class SiteSearch {
     public static function index(string $indexName): self {
         $siteSearchConfig = SiteSearchConfig::firstWhere('name', $indexName);
 

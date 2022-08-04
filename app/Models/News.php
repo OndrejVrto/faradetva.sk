@@ -29,9 +29,9 @@ class News extends BaseModel implements HasMedia, Feedable {
 
     protected $table = 'news';
 
-    public $collectionName = 'front_picture';
+    public string $collectionName = 'front_picture';
 
-    public $collectionDocument = 'attachment';
+    public string $collectionDocument = 'attachment';
 
     protected $fillable = [
         'active',

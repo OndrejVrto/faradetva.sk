@@ -11,6 +11,7 @@ use App\Models\Priest as PriestModel;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
 use App\Services\SEO\SetSeoPropertiesService;
+use Enlightn\Enlightn\PHPStan;
 
 class Priests extends Component {
     public $priests;
@@ -58,7 +59,7 @@ class Priests extends Component {
 
             'function'          => $priest->function,
 
-            'description_clean' => Str::plainText($priest->description),
+            'description_clean' => Str::plainText($priest->description), // @phpstan-ignore-line
             'description'       => (new PurifiAutolinkService())->getCleanTextWithLinks($priest->description),
 
             'img-url'           => isset($priest->media[0]) ? $priest->media[0]->getUrl('crop') : 'http://via.placeholder.com/230x270',

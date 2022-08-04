@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\File;
 use App\Models\News;
 use Illuminate\Database\Eloquent\Collection;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class FilePropertiesService {
     public function allFileData(Collection|array $eloquentCollection): array {
@@ -16,7 +17,7 @@ class FilePropertiesService {
     }
 
     public function allNewsAttachmentData(News $model): array {
-        return $model->getMedia($model->collectionDocument)->map(function ($item) {
+        return collect($model->getMedia($model->collectionDocument))->map(function ($item) {
             return [
                 'id'                => $item->id,
                 'mime_type'         => $item->mime_type,

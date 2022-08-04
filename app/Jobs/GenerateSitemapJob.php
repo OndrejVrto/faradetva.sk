@@ -98,6 +98,6 @@ class GenerateSitemapJob implements ShouldQueue {
 
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
-        customConfig('crawler')->put('CRAWLER.sitemap', now());
+        customConfig('crawler')->put('CRAWLER.sitemap', Carbon::now()->toISOString());
     }
 }

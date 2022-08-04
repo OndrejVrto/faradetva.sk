@@ -15,13 +15,13 @@ class PictureResponsive extends Component {
     public $picture;
 
     public function __construct(
-        private string $titleSlug,
+        string $titleSlug,
         public string|null $dimensionSource = 'full',
         public string|null $descriptionSide = 'right',
         public int|null $descriptionCrop = null,
         public string|null $class = null,
     ) {
-        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use ($titleSlug, $class, $descriptionCrop) {
+        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use ($titleSlug) {
             return PictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('mediaOne', 'source')
@@ -66,7 +66,7 @@ class PictureResponsive extends Component {
             'img_thumbnail_height'    => 100,
 
             'source_description'      => $img->source->source_description,
-            'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
+            'source_description_crop' => Str::words($img->source->source_description, $this->descriptionCrop ?? 6, '...'),
             'sourceArr' => [
                 'source_source'       => $img->source->source_source,
                 'source_source_url'   => $img->source->source_source_url,

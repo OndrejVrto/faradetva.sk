@@ -13,7 +13,7 @@ class PurifiAutolinkService {
         return !$text
             ? null
             : Purify::clean(
-                Autolink::convert(
+                strval(Autolink::convert(
                     $text,
                     function ($element) use ($class) {
                         return new UrlElement(
@@ -24,7 +24,7 @@ class PurifiAutolinkService {
                             attributes: ['class' => $class],
                         );
                     }
-                )
+                ))
             );
     }
 }

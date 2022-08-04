@@ -14,7 +14,7 @@ class BackgroundPicture extends Component {
     public $backgroundPicture;
 
     public function __construct(
-        private string $titleSlug,
+        string $titleSlug,
     ) {
         $this->backgroundPicture = $this->getPicture($titleSlug);
     }

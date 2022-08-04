@@ -15,7 +15,7 @@ class QueueWorkCheck extends Check {
         $this->label("$name.label");
 
         $key   = 'HEALTH.check.queue.proces';
-        $new_value = Str::uuid();
+        $new_value = Str::uuid()->toString();
         (new QueueCheckJob($key, $new_value))->handle();
         sleep(1);
         $stored_value = customConfig('health-checks', $key, false);

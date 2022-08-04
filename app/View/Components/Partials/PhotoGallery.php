@@ -41,6 +41,7 @@ class PhotoGallery extends Component {
     }
 
     private function mapOutput($album): array {
+        $picture = [];
         foreach ($album->picture as $pic) {
             $picture['picture'][] = [
                 'href' => $pic->getUrl(),

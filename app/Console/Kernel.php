@@ -52,6 +52,6 @@ class Kernel extends ConsoleKernel {
     private function needRenew(string $key = '___RELOAD'): bool {
         $storeJson = customConfig('crawler');
 
-        return !$storeJson->has($key) or true == $storeJson->get($key);
+        return !$storeJson->has($key) or "true" === $storeJson->get($key);
     }
 }

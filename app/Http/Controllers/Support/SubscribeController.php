@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Support;
 
+use Carbon\Carbon;
 use App\Models\Subscriber;
 use Illuminate\Http\Response;
 use App\Mail\ConfirmUnscribeMail;
@@ -21,7 +22,7 @@ class SubscribeController extends Controller {
             abort(Response::HTTP_NOT_FOUND);  // 404
         }
 
-        $subscriber->email_verified_at = now()->timestamp;
+        $subscriber->email_verified_at = Carbon::now();
         $subscriber->save();
 
         Mail::to($subscriber->email)->send(new ConfirmVerificationMail($subscriber));

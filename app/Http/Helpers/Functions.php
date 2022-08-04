@@ -36,13 +36,11 @@ if (!function_exists('prepareInput')) {
             return null;
         }
 
-        if (is_string($input)) {
-            return array_map('trim', explode(',', $input));
-        }
-
         if (is_array($input)) {
             return array_filter(Illuminate\Support\Arr::flatten($input));
         }
+
+        return array_map('trim', explode(',', $input));
     }
 }
 

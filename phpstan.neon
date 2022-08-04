@@ -1,0 +1,30 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+        - routes
+        - database
+
+    # The level 9 is the highest level
+    level: 7
+
+    ignoreErrors:
+        - '#PHPDoc tag @var#'
+        - '#^Call to an undefined static method.*\\Enums\\\w+::(from|tryFrom|cases)\(\)\.$#'
+        - '#^Access to an undefined property.*\.#'
+        - '#Call to an undefined method Spatie\\Image\\Manipulations::withResponsiveImages\(\)\.#'
+        - '#Call to an undefined static method Illuminate\\Support\\Str::plainText\(\)\.#'
+        - '#Call to an undefined static method Illuminate\\Support\\Str::readDurationWords\(\)\.#'
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::\w+\(\)\.#'
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Model::\w+\(\)\.#'
+        # - '##'
+
+    excludePaths:
+        - ./app/Enums/*
+        - ./app/Http/Helpers/BeautifyHtml.php
+        - ./app/Services/Dashboard/FutureTestService.php
+
+    checkMissingIterableValueType: false

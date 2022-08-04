@@ -19,7 +19,7 @@ class BannerController extends Controller {
             ->latest('updated_at')
             ->withCount('staticPages')
             ->with('media', 'source', 'staticPages')
-            ->paginate(10);
+            ->paginate(100);
 
         return view('admin.banners.index', compact('banners'));
     }

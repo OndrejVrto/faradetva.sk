@@ -43,7 +43,7 @@ class StaticPageController extends Controller {
         $validated = $request->validated();
 
         $staticPage = StaticPage::create(StaticPage::sanitize($validated));
-        $staticPage->source()->create(Source::sanitize($validated));
+        $staticPage->source->create(Source::sanitize($validated));
         $staticPage->banners()->syncWithoutDetaching($request->input('banner'));
 
         (new MediaStoreService())->handleCropPicture($staticPage, $request);
@@ -65,7 +65,11 @@ class StaticPageController extends Controller {
         $validated = $request->validated();
 
         $staticPage->update(StaticPage::sanitize($validated));
-        $staticPage->source()->updateOrCreate(Source::sanitize($validated));   //TODO: after develop change to update
+        if($staticPage->source()->exists()){
+            $staticPage->source()->update(Source::sanitize($validated));
+        } else {
+            $staticPage->source()->create(Source::sanitize($validated));
+        }
         $staticPage->banners()->sync($request->input('banner'));
         $staticPage->touch(); // Touch because i need start observer for delete cache
 
