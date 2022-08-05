@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -66,10 +67,9 @@ class News extends BaseModel implements HasMedia, Feedable {
         'read_duration',
     ];
 
-    /* The number of models to return for pagination. */
     protected $perPage = 10;
 
-    public function scopeNewsComplete(Builder $query): Builder {
+    public function scopeNewsComplete(Builder $query): LengthAwarePaginator {
         return $query
                     ->visible()
                     ->with('media', 'user', 'category', 'source')

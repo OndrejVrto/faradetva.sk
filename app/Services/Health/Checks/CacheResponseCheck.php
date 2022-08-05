@@ -20,7 +20,7 @@ class CacheResponseCheck extends Check {
 
         return $result->meta([
             'driver' => config('responsecache.cache_store'),
-            'time'   => gmdate("H:i:s", config('responsecache.cache_lifetime_in_seconds')),
+            'time'   => gmdate("H:i:s", intval(config('responsecache.cache_lifetime_in_seconds'))),
         ]);
     }
 }

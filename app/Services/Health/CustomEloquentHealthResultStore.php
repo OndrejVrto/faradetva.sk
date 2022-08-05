@@ -44,7 +44,7 @@ class CustomEloquentHealthResultStore implements ResultStore {
                 'check_label' => $result->check->getLabel(),
                 'status' => $result->status,
                 'notification_message' => $result->notificationMessage,
-                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, $result->status),
+                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, strval($result->status)),
                 'meta' => $result->meta,
                 'batch' => $batch,
                 'ended_at' => $result->ended_at,
@@ -78,7 +78,7 @@ class CustomEloquentHealthResultStore implements ResultStore {
         );
     }
 
-    private function getTranslatadedShortSummary($shortSummary, $status): string {
+    private function getTranslatadedShortSummary(string $shortSummary, string $status): string {
         return !empty($shortSummary) ? $shortSummary : "health-results.".Str::lower($status);
     }
 }

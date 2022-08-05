@@ -57,7 +57,7 @@ class PagePropertiesService {
         ];
     }
 
-    private static function getImageData($page): array {
+    private static function getImageData(StaticPage $page): array {
         // TODO: delete example picture after develoop
         if (isset($page->picture[0])) {
             $media = $page->picture[0];

@@ -31,8 +31,8 @@ if (!function_exists('customConfig')) {
 }
 
 if (!function_exists('prepareInput')) {
-    function prepareInput(array|string $input): ?array {
-        if (!$input) {
+    function prepareInput(null|array|string $input): ?array {
+        if (is_null($input)) {
             return null;
         }
 
