@@ -8,8 +8,8 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
 class EmailLink extends Component {
-    public $name;
-    public $domain;
+    public string $name;
+    public string $domain;
 
     public function __construct(
         string $email,

@@ -12,7 +12,7 @@ use App\Models\Picture as PictureModel;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class PictureResponsive extends Component {
-    public $picture;
+    public ?array $picture;
 
     public function __construct(
         string $titleSlug,
@@ -21,7 +21,7 @@ class PictureResponsive extends Component {
         public int|null $descriptionCrop = null,
         public string|null $class = null,
     ) {
-        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use ($titleSlug) {
+        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use ($titleSlug): ?array {
             return PictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('mediaOne', 'source')
@@ -31,16 +31,17 @@ class PictureResponsive extends Component {
         });
     }
 
-    public function render(): View|null {
-        if (!is_null($this->picture)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->picture);
-
-            return view('components.partials.picture-responsive.index');
+    public function render(): ?View {
+        if (is_null($this->picture)) {
+            return null;
         }
-        return null;
+
+        (new SetSeoPropertiesService())->setPictureSchema($this->picture);
+
+        return view('components.partials.picture-responsive.index');
     }
 
-    private function mapOutput($img): array {
+    private function mapOutput(PictureModel $img): array {
         $colectionName = $img->mediaOne->collection_name;
         $media = $img->getFirstMedia($colectionName);
 

@@ -9,8 +9,8 @@ use Illuminate\Contracts\View\View;
 use Cohensive\OEmbed\Facades\OEmbed;
 
 class VideoEmbed extends Component {
-    public $video = null;
-    public $dataVideo = null;
+    public ?string $video = null;
+    public ?array $dataVideo = null;
 
     public function __construct(
         string $urlVideo,
@@ -25,9 +25,8 @@ class VideoEmbed extends Component {
     }
 
     public function render(): ?View {
-        if (!is_null($this->video)) {
-            return view('components.partials.video-embed.index');
-        }
-        return null;
+        return is_null($this->video)
+            ? null
+            : view('components.partials.video-embed.index');
     }
 }

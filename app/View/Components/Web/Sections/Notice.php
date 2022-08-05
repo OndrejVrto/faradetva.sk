@@ -10,9 +10,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
 class Notice extends Component {
-    public $notices;
+    public array $notices;
 
-    private $model;
+    private string $model;
 
     private const NAMESPACE = '\\App\\Models\\';
 
@@ -23,22 +23,26 @@ class Notice extends Component {
     ];
 
     public function __construct(
-        public $typeNotice
+        public ?string $typeNotice
     ) {
         $this->model = $this->getModelName($typeNotice);
         $this->notices = $this->getNotice(self::NAMESPACE.$this->model);
     }
 
-    public function render(): View|null {
-        if (!is_null($this->notices)) {
-            return view('components.web.sections.notice.index');
-        }
-        return null;
+    public function render(): ?View {
+        return view('components.web.sections.notice.index');
     }
 
     private function getModelName(string|null $type): string {
-        $nameModel = Str::of($type)->lower()->ucfirst()->start('Notice');
-        return in_array($nameModel, self::TYPE) ? $nameModel : self::TYPE['church'];
+        $nameModel = Str::of($type)
+                        ->lower()
+                        ->ucfirst()
+                        ->start('Notice')
+                        ->value();
+
+        return in_array($nameModel, self::TYPE)
+                ? $nameModel
+                : self::TYPE['church'];
     }
 
     private function getNotice(string $fullModel): array {
@@ -47,6 +51,7 @@ class Notice extends Component {
             return  $fullModel::query()
                 ->visible()
                 ->with('media')
+                ->limit(0)
                 ->get()
                 ->map(function ($notice): array {
                     return [

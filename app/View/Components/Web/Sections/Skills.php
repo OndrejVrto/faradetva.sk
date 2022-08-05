@@ -13,17 +13,14 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
 class Skills extends Component {
-    public $skills;
+    public array $skills;
 
     public function __construct() {
         $this->skills = $this->getSkills();
     }
 
-    public function render(): View|null {
-        if (!is_null($this->skills)) {
-            return view('components.web.sections.skills.index');
-        }
-        return null;
+    public function render(): View {
+        return view('components.web.sections.skills.index');
     }
 
     private function getSkills(): array {

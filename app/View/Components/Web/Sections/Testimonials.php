@@ -11,18 +11,18 @@ use App\Services\PurifiAutolinkService;
 use App\Models\Testimonial as TestimonialModel;
 
 class Testimonials extends Component {
-    public ?array $testimonials;
+    public array $testimonials;
 
     public function __construct() {
         $this->testimonials = $this->getTestimonials();
         // TODO: SEO Person
     }
 
-    public function render(): View|null {
-        if (!is_null($this->testimonials)) {
-            return view('components.web.sections.testimonials.index');
+    public function render(): ?View {
+        if (empty($this->testimonials)) {
+            return null;
         }
-        return null;
+        return view('components.web.sections.testimonials.index');
     }
 
     private function getTestimonials(): ?array {

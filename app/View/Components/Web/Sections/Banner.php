@@ -12,18 +12,18 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class Banner extends Component {
-    public $banner = null;
+    public ?array $banner = null;
 
     public function __construct(
-        public $header = null,
-        public $breadcrumb = null,
-        public null|string $dimensionSourceBanner = "medium",
+        public ?string $header = null,
+        public ?string $breadcrumb = null,
+        public ?string $dimensionSourceBanner = "medium",
         null|string|array $titleSlug = null,
     ) {
         $this->banner = $this->getBanner($this->cleanListBanners($titleSlug));
     }
 
-    public function render(): View|null {
+    public function render(): ?View {
         if (!is_null($this->banner)) {
             (new SetSeoPropertiesService())->setPictureSchema($this->banner);
 
@@ -37,7 +37,7 @@ class Banner extends Component {
         return null;
     }
 
-    private function getBanner(?array $slugs) {
+    private function getBanner(?array $slugs): ?array {
         // Get one ramdom slider
         $oneBanner = BannerModel::query()
             ->select('slug')
@@ -49,7 +49,7 @@ class Banner extends Component {
             ->first();
 
         // Get all data Slider to Cache
-        return Cache::rememberForever('PICTURE_BANNER_'.$oneBanner->slug, function () use ($oneBanner): array {
+        return Cache::rememberForever('PICTURE_BANNER_'.$oneBanner->slug, function () use ($oneBanner): ?array {
             return BannerModel::query()
                 ->whereSlug($oneBanner->slug)
                 ->with('media', 'source')
@@ -59,7 +59,7 @@ class Banner extends Component {
         });
     }
 
-    private function mapOutput($banner): array {
+    private function mapOutput(BannerModel $banner): array {
         return [
             'id' => $banner->id,
             'slug' => $banner->slug,

@@ -11,22 +11,21 @@ use App\Models\Priest as PriestModel;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
 use App\Services\SEO\SetSeoPropertiesService;
-use Enlightn\Enlightn\PHPStan;
 
 class Priests extends Component {
-    public $priests;
+    public array $priests;
 
     public function __construct() {
         $this->priests = $this->getPriests();
     }
 
-    public function render(): View|null {
-        if (!is_null($this->priests)) {
-            (new SetSeoPropertiesService())->setPriestsSchema($this->priests);
-
-            return view('components.web.sections.priests.index');
+    public function render(): ?View {
+        if (empty($this->priests)) {
+            return null;
         }
-        return null;
+
+        (new SetSeoPropertiesService())->setPriestsSchema($this->priests);
+        return view('components.web.sections.priests.index');
     }
 
     private function getPriests(): array {
@@ -40,7 +39,7 @@ class Priests extends Component {
         });
     }
 
-    private function mapOutput($priest): array {
+    private function mapOutput(PriestModel $priest): array {
         return [
             'id'                => $priest->id,
 

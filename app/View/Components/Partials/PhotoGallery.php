@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class PhotoGallery extends Component {
-    public $gallery;
+    public ?array $gallery;
 
     public function __construct(
         public string $titleSlug,
@@ -21,16 +21,17 @@ class PhotoGallery extends Component {
     }
 
     public function render(): View|null {
-        if (!is_null($this->gallery)) {
-            (new SetSeoPropertiesService())->setGallerySchema($this->gallery);
-
-            return view('components.partials.photo-gallery.index');
+        if (is_null($this->gallery)) {
+            return null;
         }
-        return null;
+
+        (new SetSeoPropertiesService())->setGallerySchema($this->gallery);
+
+        return view('components.partials.photo-gallery.index');
     }
 
-    private function getGallery($slug): array {
-        return Cache::rememberForever('GALLERY_'.$slug, function () use ($slug): array {
+    private function getGallery(string $slug): ?array {
+        return Cache::rememberForever('GALLERY_'.$slug, function () use ($slug): ?array {
             return Gallery::query()
                 ->whereSlug($slug)
                 ->with('media', 'source')
@@ -40,7 +41,7 @@ class PhotoGallery extends Component {
         });
     }
 
-    private function mapOutput($album): array {
+    private function mapOutput(Gallery $album): array {
         $picture = [];
         foreach ($album->picture as $pic) {
             $picture['picture'][] = [
