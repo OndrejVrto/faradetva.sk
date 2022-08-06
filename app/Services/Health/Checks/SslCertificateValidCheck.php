@@ -10,19 +10,19 @@ use Spatie\Health\Checks\Result;
 
 class SslCertificateValidCheck extends Check {
     /**  @var array */
-    protected $certificateInfo;
+    protected array $certificateInfo;
 
     /**  @var string */
-    protected $certificateExpiration;
+    protected string $certificateExpiration;
 
     /**  @var string */
-    protected $certificateDomain;
+    protected string $certificateDomain;
 
     /**  @var array */
-    protected $certificateAdditionalDomains = [];
+    protected array $certificateAdditionalDomains = [];
 
     /**  @var int */
-    protected $certificateDaysUntilExpiration;
+    protected int $certificateDaysUntilExpiration;
 
     /**  @var string */
     public ?string $url = null;
@@ -157,7 +157,7 @@ class SslCertificateValidCheck extends Check {
         return $result->notificationMessage("$name.ok")->ok();
     }
 
-    protected function downloadCertificate($urlParts) {
+    protected function downloadCertificate(array $urlParts): array {
         $streamContext = stream_context_create([
             'ssl' => [
                 'capture_peer_cert' => true
@@ -178,7 +178,7 @@ class SslCertificateValidCheck extends Check {
         return openssl_x509_parse($certificateContext['options']['ssl']['peer_certificate']);
     }
 
-    public function processCertificate($certificateInfo) {
+    public function processCertificate(array $certificateInfo): void {
         if (!empty($certificateInfo['subject']) && !empty($certificateInfo['subject']['CN'])) {
             $this->certificateDomain = $certificateInfo['subject']['CN'];
         }
@@ -199,7 +199,7 @@ class SslCertificateValidCheck extends Check {
         }
     }
 
-    public function hostCoveredByCertificate($host, $certificateHost, array $certificateAdditionalDomains = []) {
+    public function hostCoveredByCertificate(string $host, string $certificateHost, array $certificateAdditionalDomains = []): bool {
         if ($host == $certificateHost) {
             return true;
         }
@@ -215,7 +215,7 @@ class SslCertificateValidCheck extends Check {
         return in_array($host, $certificateAdditionalDomains, true);
     }
 
-    protected function parseUrl($url) {
+    protected function parseUrl(string $url): array|string|int|null|false {
         $urlParts = parse_url($url);
 
         if (!$urlParts) {

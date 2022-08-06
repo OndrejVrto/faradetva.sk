@@ -52,7 +52,7 @@ trait HasUuid {
             $model->incrementing = false;
 
             if (!$model->getKey()) {
-                $model->{$model->getKeyName()} = (string) Str::uuid();
+                $model->{$model->getKeyName()} = strval(Str::uuid());
             }
         });
 
