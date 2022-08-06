@@ -65,7 +65,7 @@ class StaticPageController extends Controller {
         $validated = $request->validated();
 
         $staticPage->update(StaticPage::sanitize($validated));
-        if($staticPage->source()->exists()){
+        if ($staticPage->source()->exists()) {
             $staticPage->source()->update(Source::sanitize($validated));
         } else {
             $staticPage->source()->create(Source::sanitize($validated));

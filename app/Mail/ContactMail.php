@@ -34,7 +34,8 @@ class ContactMail extends Mailable implements ShouldQueue {
      */
     public function __construct(
         private array $contact
-    ) {}
+    ) {
+    }
 
     /**
      * Build the message.

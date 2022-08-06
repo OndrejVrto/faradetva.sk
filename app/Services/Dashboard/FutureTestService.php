@@ -24,8 +24,7 @@ class FutureTestService {
         dd(
             Carbon::now()->toISOString(),
             Carbon::now()->getTimestamp(),
-
-            Carbon::parse(customConfig('crawler', 'CRAWLER.url_check', null) )
+            Carbon::parse(customConfig('crawler', 'CRAWLER.url_check', null))
              ->format('d.m.Y H:m')
         );
 

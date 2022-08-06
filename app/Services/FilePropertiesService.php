@@ -7,7 +7,6 @@ namespace App\Services;
 use App\Models\File;
 use App\Models\News;
 use Illuminate\Database\Eloquent\Collection;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class FilePropertiesService {
     public function allFileData(Collection|array $eloquentCollection): array {

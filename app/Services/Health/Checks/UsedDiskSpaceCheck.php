@@ -6,7 +6,6 @@ namespace App\Services\Health\Checks;
 
 use Exception;
 use Spatie\Regex\Regex;
-use Illuminate\Support\Arr;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Enums\Status;
 use Spatie\Health\Checks\Result;
@@ -16,9 +15,9 @@ class UsedDiskSpaceCheck extends Check {
     protected int $warningThreshold = 70;
     protected int $errorThreshold = 90;
 
-    protected int|float|bool $totalDiskSpace;
-    protected int|float|bool $usedDiskSpace;
-    protected int|float|bool $freeDiskSpace;
+    protected int|float $totalDiskSpace;
+    protected int|float $usedDiskSpace;
+    protected int|float $freeDiskSpace;
 
     public function warnWhenUsedSpaceIsAbovePercentage(int $percentage): self {
         $this->warningThreshold = $percentage;
@@ -85,7 +84,7 @@ class UsedDiskSpaceCheck extends Check {
         $data = array_values(
             array_filter(
                 array: $output_array[0],
-                callback: fn($val) => !empty($val),
+                callback: fn ($val) => !empty($val),
                 mode: ARRAY_FILTER_USE_BOTH
             )
         );

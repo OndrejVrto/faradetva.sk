@@ -6,7 +6,6 @@ namespace App\Services;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Illuminate\Support\TValue;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Events\QueryExecuted;
@@ -74,11 +73,11 @@ class QueryLogService {
 
     private function grabFirstElementNonvendorCalls(): array {
         return head(Arr::where(
-                        debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS),
-                        function($trace) {
-                            return isset($trace['file']) ? !str_contains($trace['file'], 'vendor') : false;
-                        }
-                    ));
+            debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS),
+            function ($trace) {
+                return isset($trace['file']) ? !str_contains($trace['file'], 'vendor') : false;
+            }
+        ));
     }
 
     private function getSqlWithBindings(QueryExecuted $query): string {
@@ -87,13 +86,14 @@ class QueryLogService {
                 format: str_replace(
                     search:  '?',
                     replace: '%s',
-                    subject: $query->sql),
+                    subject: $query->sql
+                ),
                 values: collect($query->bindings)
                             ->map(function ($binding) {
                                 return is_numeric($binding) ? $binding : "'{$binding}'";
                             })
                         ->toArray()
-                );
+            );
     }
 
     private function write(): void {

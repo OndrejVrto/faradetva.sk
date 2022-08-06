@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 trait Restorable {
-
     use SoftDeletes;
 
     public function scopeArchive(Builder $query, Request $request, string $modelName): Builder {

@@ -35,7 +35,8 @@ class ConfirmUnscribeMail extends Mailable implements ShouldQueue {
      */
     public function __construct(
         public Subscriber $subscriber
-    ) {}
+    ) {
+    }
 
     /**
      * Build the message.

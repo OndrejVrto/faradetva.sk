@@ -13,7 +13,8 @@ class QueueCheckJob implements ShouldQueue {
     public function __construct(
         private string $key,
         private string $value,
-    ) {}
+    ) {
+    }
 
     public function handle(): bool {
         customConfig('health-checks')->put($this->key, $this->value);
