@@ -4,9 +4,14 @@ includes:
 parameters:
 
     paths:
+        - app
+        - routes
+        - database
+        - tests
+        # - app/Http
+        # - app/Models
         # - app/View
         # - app/Services
-        - app
 
     # The level 9 is the highest level
     level: 6
