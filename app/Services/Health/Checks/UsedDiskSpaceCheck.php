@@ -6,9 +6,10 @@ namespace App\Services\Health\Checks;
 
 use Exception;
 use Spatie\Regex\Regex;
+use Illuminate\Support\Arr;
 use Spatie\Health\Checks\Check;
-use Spatie\Health\Checks\Result;
 use Spatie\Health\Enums\Status;
+use Spatie\Health\Checks\Result;
 use Symfony\Component\Process\Process;
 
 class UsedDiskSpaceCheck extends Check {
@@ -81,9 +82,15 @@ class UsedDiskSpaceCheck extends Check {
 
     private function setSizes(string $input): void {
         preg_match_all('/(\d*)/', $input, $output_array);
-        $data = collect($output_array[0])->filter()->values();
-        $this->totalDiskSpace = (int) $data->get(1) * 1024;
-        $this->usedDiskSpace = (int) $data->get(2) * 1024;
-        $this->freeDiskSpace = (int) $data->get(3) * 1024;
+        $data = array_values(
+            array_filter(
+                array: $output_array[0],
+                callback: fn($val) => !empty($val),
+                mode: ARRAY_FILTER_USE_BOTH
+            )
+        );
+        $this->totalDiskSpace = intval($data[1]) * 1024;
+        $this->usedDiskSpace  = intval($data[2]) * 1024;
+        $this->freeDiskSpace  = intval($data[3]) * 1024;
     }
 }

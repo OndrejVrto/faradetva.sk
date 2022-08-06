@@ -7,7 +7,7 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 
 class SeoSchema extends Facade {
-    protected static function getFacadeAccessor() {
-        return 'seo.schema-org';
+    protected static function getFacadeAccessor(): string {
+        return 'seo-schema-org';
     }
 }

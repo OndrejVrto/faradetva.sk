@@ -42,7 +42,7 @@ class UserController extends Controller {
         $user = User::create($validated);
 
         // store roles to user
-        $role = collect($request->input('role'))
+        $role = collect([$request->input('role')])
             ->filter(function ($value, $key) {
                 return $value >= 2; // SuperAdmin remove
             })->when($user->id == 1, function ($collection) {
@@ -98,7 +98,7 @@ class UserController extends Controller {
         $user->update($validated);
 
         // store roles to user
-        $role = collect($request->input('role'))
+        $role = collect([$request->input('role')])
             ->filter(function ($value, $key) {
                 return $value >= 2; // SuperAdmin remove
             })->when($user->id == 1, function ($collection) {
