@@ -34,7 +34,7 @@ class FaqController extends Controller {
         $faq = Faq::create(Faq::sanitize($validated));
         $faq->staticPages()->syncWithoutDetaching($request->input('page'));
 
-        toastr()->success(__('app.faq.store'));
+        toastr()->success(strval(__('app.faq.store')));
         return to_route('faqs.index');
     }
 
@@ -51,7 +51,7 @@ class FaqController extends Controller {
         $faq->update(Faq::sanitize($validated));
         $faq->staticPages()->sync($request->input('page'));
 
-        toastr()->success(__('app.faq.update'));
+        toastr()->success(strval(__('app.faq.update')));
         return to_route('faqs.index');
     }
 
@@ -59,7 +59,7 @@ class FaqController extends Controller {
         $faq->staticPages()->detach();
         $faq->delete();
 
-        toastr()->success(__('app.faq.delete'));
+        toastr()->success(strval(__('app.faq.delete')));
         return to_route('faqs.index');
     }
 }

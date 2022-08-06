@@ -15,7 +15,7 @@ class ToastrServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot() {
+    public function boot(): void {
         if ($this->app instanceof LaravelApplication) {
             $this->publishes([$this->configPath() => config_path('toastr.php')], 'toastr-config');
         }
@@ -28,7 +28,7 @@ class ToastrServiceProvider extends ServiceProvider {
      *
      * @return string
      */
-    protected function configPath() {
+    protected function configPath(): string {
         return toastr_path(__DIR__.'/config/toastr.php');
     }
 
@@ -37,7 +37,7 @@ class ToastrServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function register() {
+    public function register(): void {
         $this->mergeConfigFrom($this->configPath(), 'toastr');
 
         $this->app->singleton('toastr', function (Container $app) {
@@ -47,7 +47,7 @@ class ToastrServiceProvider extends ServiceProvider {
         $this->app->alias('toastr', Toastr::class);
     }
 
-    public function registerBladeDirectives() {
+    public function registerBladeDirectives(): void {
         Blade::directive('toastr_render', function ($nonce) {
             return "<?php echo app('toastr')->render($nonce); ?>";
         });
@@ -58,7 +58,7 @@ class ToastrServiceProvider extends ServiceProvider {
      *
      * @return string[]
      */
-    public function provides() {
+    public function provides(): array {
         return [
             'toastr',
         ];

@@ -3,7 +3,7 @@
 use Spatie\Valuestore\Valuestore;
 
 if (!function_exists('customConfig')) {
-    function customConfig(string $filename = 'config', $key = null, $default = null): Valuestore|string|null {
+    function customConfig(string $filename = 'config', null|array|string $key = null, null|string|int $default = null): Valuestore|string|null {
         try {
             $valueStore = Valuestore::make(
                 storage_path("app/value-store/$filename.json")
@@ -31,18 +31,16 @@ if (!function_exists('customConfig')) {
 }
 
 if (!function_exists('prepareInput')) {
-    function prepareInput($input): ?array {
-        if (!$input) {
+    function prepareInput(null|array|string $input): ?array {
+        if (is_null($input)) {
             return null;
-        }
-
-        if (is_string($input)) {
-            return array_map('trim', explode(',', $input));
         }
 
         if (is_array($input)) {
             return array_filter(Illuminate\Support\Arr::flatten($input));
         }
+
+        return array_map('trim', explode(',', $input));
     }
 }
 

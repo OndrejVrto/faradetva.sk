@@ -12,16 +12,16 @@ use App\Models\Picture as PictureModel;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class PictureResponsive extends Component {
-    public $picture;
+    public ?array $picture;
 
     public function __construct(
-        private string $titleSlug,
+        string $titleSlug,
         public string|null $dimensionSource = 'full',
         public string|null $descriptionSide = 'right',
         public int|null $descriptionCrop = null,
         public string|null $class = null,
     ) {
-        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use ($titleSlug, $class, $descriptionCrop) {
+        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use ($titleSlug): ?array {
             return PictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('mediaOne', 'source')
@@ -31,16 +31,17 @@ class PictureResponsive extends Component {
         });
     }
 
-    public function render(): View|null {
-        if (!is_null($this->picture)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->picture);
-
-            return view('components.partials.picture-responsive.index');
+    public function render(): ?View {
+        if (is_null($this->picture)) {
+            return null;
         }
-        return null;
+
+        (new SetSeoPropertiesService())->setPictureSchema($this->picture);
+
+        return view('components.partials.picture-responsive.index');
     }
 
-    private function mapOutput($img): array {
+    private function mapOutput(PictureModel $img): array {
         $colectionName = $img->mediaOne->collection_name;
         $media = $img->getFirstMedia($colectionName);
 
@@ -66,7 +67,7 @@ class PictureResponsive extends Component {
             'img_thumbnail_height'    => 100,
 
             'source_description'      => $img->source->source_description,
-            'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
+            'source_description_crop' => Str::words($img->source->source_description, $this->descriptionCrop ?? 6, '...'),
             'sourceArr' => [
                 'source_source'       => $img->source->source_source,
                 'source_source_url'   => $img->source->source_source_url,

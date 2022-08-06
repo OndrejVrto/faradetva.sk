@@ -11,13 +11,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
+use Illuminate\Contracts\View\Factory;
 use App\Services\PagePropertiesService;
+use Illuminate\Contracts\View\View as iView;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class PageController extends Controller {
-    private $path = '';
+    private string $path = '';
 
-    public function __invoke(...$param) {
+    public function __invoke(string ...$param): iView|Factory {
 
         // create array of links
         $urls = collect($param)
@@ -43,11 +45,10 @@ class PageController extends Controller {
         if (!$page->active or !View::exists(PagePropertiesService::fullRoute($page->route_name))) {
             abort(Response::HTTP_NOT_FOUND);
         }
-
         // map data for SEO - BreadCrumb
         $pageChainBreadCrumb = $urls
             ->map(function ($node) {
-                return Cache::rememberForever('PAGE_NODE_'.Str::slug($node), function () use ($node) {
+                return Cache::rememberForever('PAGE_NODE_'.Str::slug($node->get('url')), function () use ($node) {
                     $item = StaticPage::query()
                         ->select('url', 'title', 'active')
                         ->whereUrl($node->get('url'))
@@ -67,7 +68,7 @@ class PageController extends Controller {
 
         // map data for SEO - Page Properties
         $pageData = PagePropertiesService::getStaticPageData($page);
-        $pageData['breadCrumb'] = (string) Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb);
+        $pageData['breadCrumb'] = Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb)->render();
 
         // set SEO
         (new SetSeoPropertiesService($pageData))

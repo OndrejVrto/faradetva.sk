@@ -15,7 +15,7 @@ use App\Services\SEO\SetSeoPropertiesService;
 
 class FaqController extends Controller {
     public function __invoke(): View {
-        $faqs = Cache::rememberForever('FAQ_ALL', function (): Collection|null {
+        $faqs = Cache::rememberForever('FAQ_ALL', function (): Collection {
             return Faq::query()
                 ->with('staticPages')
                 ->get()

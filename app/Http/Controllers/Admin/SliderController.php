@@ -37,7 +37,7 @@ class SliderController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
 
-        toastr()->success(__('app.slider.store'));
+        toastr()->success(strval(__('app.slider.store')));
         return to_route('sliders.index');
     }
 
@@ -56,32 +56,32 @@ class SliderController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($slider, $request, $slider->breadcrumb_teaser);
 
-        toastr()->success(__('app.slider.update'));
+        toastr()->success(strval(__('app.slider.update')));
         return to_route('sliders.index');
     }
 
     public function destroy(Slider $slider): RedirectResponse {
         $slider->delete();
 
-        toastr()->success(__('app.slider.delete'));
+        toastr()->success(strval(__('app.slider.delete')));
         return to_route('sliders.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $slider = Slider::onlyTrashed()->findOrFail($id);
         $slider->restore();
 
-        toastr()->success(__('app.slider.restore'));
+        toastr()->success(strval(__('app.slider.restore')));
         return to_route('sliders.edit', $slider->id);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $slider = Slider::onlyTrashed()->findOrFail($id);
         $slider->source()->delete();
         $slider->clearMediaCollection($slider->collectionName);
         $slider->forceDelete();
 
-        toastr()->success(__('app.slider.force-delete'));
+        toastr()->success(strval(__('app.slider.force-delete')));
         return to_route('sliders.index', ['only-deleted' => 'true']);
     }
 }

@@ -12,7 +12,7 @@ use App\Models\Picture as PictureModel;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class Picture extends Component {
-    public $picture;
+    public ?array $picture;
     public array $classColumns;
 
     private const SIDE = [
@@ -47,9 +47,9 @@ class Picture extends Component {
     ];
 
     public function __construct(
-        private string $titleSlug,
-        private int|null $columns = 4,
-        private int|null $maxColumns = 7,
+        string $titleSlug,
+        int|null $columns = 4,
+        int|null $maxColumns = 7,
         public string|null $side = null,
         public string|null $animation = null,
         public string|null $dimensionSource = 'full',
@@ -67,12 +67,13 @@ class Picture extends Component {
     }
 
     public function render(): View|null {
-        if (!is_null($this->picture)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->picture);
-
-            return view('components.partials.picture.index');
+        if (is_null($this->picture)) {
+            return null;
         }
-        return null;
+
+        (new SetSeoPropertiesService())->setPictureSchema($this->picture);
+
+        return view('components.partials.picture.index');
     }
 
 
@@ -96,8 +97,8 @@ class Picture extends Component {
         return $value;
     }
 
-    private function getPicture($slug): ?array {
-        return Cache::rememberForever('PICTURE_'.$slug, function () use ($slug) {
+    private function getPicture(string $slug): ?array {
+        return Cache::rememberForever('PICTURE_'.$slug, function () use ($slug): ?array {
             return PictureModel::query()
                 ->whereSlug($slug)
                 ->with('mediaOne', 'source')
@@ -107,7 +108,7 @@ class Picture extends Component {
         });
     }
 
-    private function mapOutput($img): array {
+    private function mapOutput(PictureModel $img): array {
         $colectionName = $img->mediaOne->collection_name;
         $media = $img->getFirstMedia($colectionName);
 
@@ -133,7 +134,7 @@ class Picture extends Component {
             'img_thumbnail_height' => 100,
 
             'source_description'      => $img->source->source_description,
-            'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
+            'source_description_crop' => Str::words($img->source->source_description, $this->descriptionCrop ?? 6, '...'),
             'sourceArr' => [
                 'source_source'       => $img->source->source_source,
                 'source_source_url'   => $img->source->source_source_url,

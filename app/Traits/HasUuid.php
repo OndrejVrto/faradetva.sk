@@ -12,14 +12,14 @@ use Illuminate\Support\Str;
  * @package Jamesh\Uuid
  */
 trait HasUuid {
-    protected $isLockedUuid = true;
+    protected bool $isLockedUuid = true;
 
     /**
      * Get the primary key for the model.
      * UUID Identified primary key column
      * @return string
      */
-    public function getKeyName() {
+    public function getKeyName(): string {
         return 'uuid';
     }
 
@@ -28,7 +28,7 @@ trait HasUuid {
      * UUID Identified as a string.
      * @return string
      */
-    public function getKeyType() {
+    public function getKeyType(): string {
         return 'string';
     }
 
@@ -37,7 +37,7 @@ trait HasUuid {
      * UUID is not.
      * @return bool
      */
-    public function getIncrementing() {
+    public function getIncrementing(): bool {
         return false;
     }
 
@@ -45,14 +45,14 @@ trait HasUuid {
      * Add behavior to creating and saving Eloquent events.
      * @return void
      */
-    public static function bootHasUuid() {
+    public static function bootHasUuid(): void {
         // Create a UUID to the model if it does not have one
         static::creating(function (Model $model) {
             $model->keyType = 'string';
             $model->incrementing = false;
 
             if (!$model->getKey()) {
-                $model->{$model->getKeyName()} = (string) Str::uuid();
+                $model->{$model->getKeyName()} = strval(Str::uuid());
             }
         });
 

@@ -34,7 +34,7 @@ class PictureController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($picture, $request);
 
-        toastr()->success(__('app.picture.store'));
+        toastr()->success(strval(__('app.picture.store')));
         return to_route('pictures.index');
     }
 
@@ -59,7 +59,7 @@ class PictureController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($picture, $request);
 
-        toastr()->success(__('app.picture.update'));
+        toastr()->success(strval(__('app.picture.update')));
         return to_route('pictures.index');
     }
 
@@ -68,7 +68,7 @@ class PictureController extends Controller {
         $picture->delete();
         $picture->clearMediaCollection($picture->collectionName);
 
-        toastr()->success(__('app.picture.delete'));
+        toastr()->success(strval(__('app.picture.delete')));
         return to_route('pictures.index');
     }
 }

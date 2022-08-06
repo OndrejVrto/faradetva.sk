@@ -77,7 +77,7 @@ class NewsController extends Controller {
                 ->toMediaCollection($news->collectionDocument);
         }
 
-        toastr()->success(__('app.news.store'));
+        toastr()->success(strval(__('app.news.store')));
         return to_route('news.index');
     }
 
@@ -120,11 +120,11 @@ class NewsController extends Controller {
             }
         }
 
-        toastr()->success(__('app.news.update'));
+        toastr()->success(strval(__('app.news.update')));
         return to_route('news.index');
     }
 
-    public function download(News $news) {
+    public function download(News $news): MediaStream {
         $downloads = $news->getMedia($news->collectionDocument);
 
         return MediaStream::create('Prilohy_'.$news->slug.'.zip')->addMedia($downloads);
@@ -134,28 +134,28 @@ class NewsController extends Controller {
         $this->authorize('delete', $news);
         $news->delete();
 
-        toastr()->success(__('app.news.delete'));
+        toastr()->success(strval(__('app.news.delete')));
         return to_route('news.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $news = News::onlyTrashed()->findOrFail($id);
         $news->slug = Str::slug($news->title).'-'.Str::random(5);
         $news->title = '*'.$news->title;
         $news->restore();
 
-        toastr()->success(__('app.news.restore'));
+        toastr()->success(strval(__('app.news.restore')));
         return to_route('news.edit', $news->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $news = News::onlyTrashed()->findOrFail($id);
         $news->tags()->detach($news->id);
         $news->clearMediaCollection($news->collectionName);
         $news->clearMediaCollection($news->collectionDocument);
         $news->forceDelete();
 
-        toastr()->success(__('app.news.force-delete'));
+        toastr()->success(strval(__('app.news.force-delete')));
         return to_route('news.index', ['only-deleted' => 'true']);
     }
 }

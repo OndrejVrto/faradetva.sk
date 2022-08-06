@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use Carbon\Carbon;
 use App\Models\News;
 use App\Models\StaticPage;
 use Illuminate\Support\Str;
@@ -57,7 +58,7 @@ class PagePropertiesService {
         ];
     }
 
-    private static function getImageData($page): array {
+    private static function getImageData(StaticPage $page): array {
         // TODO: delete example picture after develoop
         if (isset($page->picture[0])) {
             $media = $page->picture[0];
@@ -114,9 +115,14 @@ class PagePropertiesService {
             'category'         => e($page->category->title),
             'tags'             => $page->tags->pluck('title')->implode(', '),
 
-            'datePublished'    => isset($page->published_at) ? $page->published_at->toAtomString() : $page->created_at->toAtomString(),
+            'datePublished'    => isset($page->published_at)
+                                    ? Carbon::createFromFormat('d.m.Y G:i', $page->published_at)->toAtomString()
+                                    : $page->created_at->toAtomString(),
             'dateModified'     => $page->updated_at->toAtomString(),
-            'expires'          => isset($page->unpublished_at) ? $page->unpublished_at->toAtomString() : null,
+
+            'expires'          => isset($page->unpublished_at)
+                                    ? Carbon::createFromFormat('d.m.Y G:i', $page->unpublished_at)->toAtomString()
+                                    : null,
 
             'author'           => e($page->user->name),
             'author-slug'      => $page->user->slug,

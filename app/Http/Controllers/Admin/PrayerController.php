@@ -38,14 +38,8 @@ class PrayerController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($prayer, $request);
 
-        toastr()->success(__('app.prayer.store'));
+        toastr()->success(strval(__('app.prayer.store')));
         return to_route('prayers.index');
-    }
-
-    public function show(Prayer $prayer): View {
-        $prayer->load('media', 'source');
-
-        return view('admin.prayers.show', compact('prayer'));
     }
 
     public function edit(Prayer $prayer): View {
@@ -63,34 +57,34 @@ class PrayerController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($prayer, $request);
 
-        toastr()->success(__('app.prayer.update'));
+        toastr()->success(strval(__('app.prayer.update')));
         return to_route('prayers.index');
     }
 
     public function destroy(Prayer $prayer): RedirectResponse {
         $prayer->delete();
 
-        toastr()->success(__('app.prayer.delete'));
+        toastr()->success(strval(__('app.prayer.delete')));
         return to_route('prayers.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $prayer = Prayer::onlyTrashed()->findOrFail($id);
         $prayer->slug = Str::slug($prayer->title).'-'.Str::random(5);
         $prayer->title = '*'.$prayer->title;
         $prayer->restore();
 
-        toastr()->success(__('app.prayer.restore'));
+        toastr()->success(strval(__('app.prayer.restore')));
         return to_route('prayers.edit', $prayer->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $prayer = Prayer::onlyTrashed()->findOrFail($id);
         $prayer->source()->delete();
         $prayer->clearMediaCollection($prayer->collectionName);
         $prayer->forceDelete();
 
-        toastr()->success(__('app.prayer.force-delete'));
+        toastr()->success(strval(__('app.prayer.force-delete')));
         return to_route('prayers.index', ['only-deleted' => 'true']);
     }
 }

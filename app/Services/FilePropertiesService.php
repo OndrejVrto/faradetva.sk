@@ -16,7 +16,7 @@ class FilePropertiesService {
     }
 
     public function allNewsAttachmentData(News $model): array {
-        return $model->getMedia($model->collectionDocument)->map(function ($item) {
+        return collect($model->getMedia($model->collectionDocument))->map(function ($item) {
             return [
                 'id'                => $item->id,
                 'mime_type'         => $item->mime_type,

@@ -32,6 +32,14 @@
 class BeautifyHtml {
     private $options;
 
+    private $css_beautify;
+    private $js_beautify;
+    private $input;
+    private $output;
+    private $input_length;
+
+
+
     private $pos;
     private $token;
     private $current_mode;

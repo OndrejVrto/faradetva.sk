@@ -11,24 +11,25 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class Slider extends Component {
-    public $sliders = [];
+    public ?array $sliders;
 
     public function __construct() {
-        $this->getSliders();
+        $this->sliders = $this->getSliders();
     }
 
-    public function render(): View|null {
-        if (!is_null($this->sliders)) {
-            foreach ($this->sliders as $slider) {
-                (new SetSeoPropertiesService())->setPictureSchema($slider);
-            }
-
-            return view('components.web.sections.slider.index');
+    public function render(): ?View {
+        if (is_null($this->sliders)) {
+            return null;
         }
-        return null;
+
+        foreach ($this->sliders as $slider) {
+            (new SetSeoPropertiesService())->setPictureSchema($slider);
+        }
+
+        return view('components.web.sections.slider.index');
     }
 
-    private function getSliders(): void {
+    private function getSliders(): ?array {
         $randomSliders = SliderModel::query()
             ->select('id')
             ->whereActive(1)
@@ -37,7 +38,7 @@ class Slider extends Component {
             ->get();
 
         foreach ($randomSliders as $oneSlider) {
-            $this->sliders[] = Cache::rememberForever('PICTURE_SLIDER_'.$oneSlider->id, function () use ($oneSlider): array {
+            $slider[] = Cache::rememberForever('PICTURE_SLIDER_'.$oneSlider->id, function () use ($oneSlider): ?array {
                 return SliderModel::query()
                         ->whereId($oneSlider->id)
                         ->with('media', 'source')
@@ -46,9 +47,11 @@ class Slider extends Component {
                         ->first();
             });
         }
+
+        return $slider ?? null;
     }
 
-    private function mapOutput($slider): array {
+    private function mapOutput(SliderModel $slider): array {
         return [
             'id'                => $slider->id,
 

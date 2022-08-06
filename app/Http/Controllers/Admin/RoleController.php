@@ -34,7 +34,7 @@ class RoleController extends Controller {
         $role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success(__('app.role.store', ['name'=> $role->name]));
+        toastr()->success(strval(__('app.role.store', ['name'=> $role->name])));
         return to_route('roles.index');
     }
 
@@ -45,24 +45,23 @@ class RoleController extends Controller {
         return view('admin.roles.edit', compact('role', 'rolePermissions', 'permissions'));
     }
 
-    public function update(RoleRequest $request, $id): RedirectResponse {
+    public function update(RoleRequest $request, Role $role): RedirectResponse {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
-        $role = Role::findOrFail($id);
         $role->update($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success(__('app.role.update', ['name'=> $role->name]));
+        toastr()->success(strval(__('app.role.update', ['name'=> $role->name])));
         return to_route('roles.index');
     }
 
     public function destroy(Role $role): RedirectResponse {
         if ($role->id == 1) {
-            toastr()->error(__('app.role.delete-error', ['name'=> $role->name]));
+            toastr()->error(strval(__('app.role.delete-error', ['name'=> $role->name])));
         } else {
             $role->delete();
-            toastr()->success(__('app.role.delete', ['name'=> $role->name]));
+            toastr()->success(strval(__('app.role.delete', ['name'=> $role->name])));
         }
 
         return to_route('roles.index');

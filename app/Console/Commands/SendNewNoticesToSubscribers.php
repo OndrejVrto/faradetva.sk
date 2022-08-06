@@ -21,7 +21,7 @@ class SendNewNoticesToSubscribers extends Command {
         parent::__construct();
     }
 
-    public function handle() {
+    public function handle(): void {
         $counterSubscribers = 0;
         $counterItems = 0;
 

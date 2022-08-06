@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 class Faq extends BaseModel {
     protected $table = 'faqs';
 
@@ -14,11 +16,11 @@ class Faq extends BaseModel {
         'order',
     ];
 
-    protected $cast = [
-        'order' => 'integer',
+    protected array $cast = [
+        'order' => 'integer'
     ];
 
-    public function staticPages() {
+    public function staticPages(): BelongsToMany {
         return $this->belongsToMany(StaticPage::class, 'static_page_faq', 'faq_id', 'static_page_id');
     }
 }

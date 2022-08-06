@@ -7,7 +7,7 @@ namespace App\Http\Requests;
 use Illuminate\Validation\Rule;
 
 class PermissionRequest extends BaseRequest {
-    public function rules() {
+    public function rules(): array {
         return [
             'name' => [
                 'required',

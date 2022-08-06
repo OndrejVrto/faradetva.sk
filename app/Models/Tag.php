@@ -8,6 +8,7 @@ use App\Traits\Restorable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends BaseModel {
     use Loggable;
@@ -28,7 +29,7 @@ class Tag extends BaseModel {
         'deleted_at' => 'datetime',
     ];
 
-    public function news() {
+    public function news(): BelongsToMany {
         return $this->belongsToMany(News::class);
     }
 }

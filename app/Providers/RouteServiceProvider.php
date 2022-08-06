@@ -60,7 +60,7 @@ class RouteServiceProvider extends ServiceProvider {
 
             Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group([
+                ->group([  // @phpstan-ignore-line
                     base_path('routes/auth.php'),
                     base_path('routes/admin.php'),
                     base_path('routes/web.php'),

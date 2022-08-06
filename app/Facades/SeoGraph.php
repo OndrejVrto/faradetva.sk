@@ -7,7 +7,7 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 
 class SeoGraph extends Facade {
-    protected static function getFacadeAccessor() {
-        return 'seo.graph';
+    protected static function getFacadeAccessor(): string {
+        return 'seo-graph';
     }
 }

@@ -11,21 +11,21 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class Pray extends Component {
-    public $pray;
+    public ?array $pray;
 
     public function __construct(
-        public $link = null,
+        public ?string $link = null,
     ) {
         $this->pray = $this->getPray();
     }
 
-    public function render(): View|null {
-        if (!is_null($this->pray)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->pray);
-
-            return view('components.web.sections.pray.index');
+    public function render(): ?View {
+        if (is_null($this->pray)) {
+            return null;
         }
-        return null;
+
+        (new SetSeoPropertiesService())->setPictureSchema($this->pray);
+        return view('components.web.sections.pray.index');
     }
 
     private function getPray(): ?array {
@@ -38,7 +38,7 @@ class Pray extends Component {
             ->first();
 
         // Get all data Prayer to Cache
-        return Cache::rememberForever('PICTURE_PRAYER_'.$onePrayer->slug, function () use ($onePrayer): array {
+        return Cache::rememberForever('PICTURE_PRAYER_'.$onePrayer->slug, function () use ($onePrayer): ?array {
             return Prayer::query()
                 ->whereSlug($onePrayer->slug)
                 ->with('media', 'source')
@@ -48,7 +48,7 @@ class Pray extends Component {
         });
     }
 
-    private function mapOutput($prayer): array {
+    private function mapOutput(Prayer $prayer): array {
         return [
             'id'                => $prayer->id,
             'title'             => $prayer->title,

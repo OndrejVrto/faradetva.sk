@@ -37,8 +37,7 @@ class MeiliSearchCheck extends Check {
                 ->meta(['url' => $this->url]);
         }
 
-        /** @phpstan-ignore-next-line */
-        if (! $response) {
+        if ($response->failed()) {
             return Result::make()
                 ->failed("$name.not-respond")
                 ->shortSummary("$name.not-respond-short")

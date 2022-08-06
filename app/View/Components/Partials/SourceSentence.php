@@ -8,12 +8,12 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
 class SourceSentence extends Component {
-    public $source = null;
-    public $source_url = null;
-    public $author = null;
-    public $author_url = null;
-    public $license = null;
-    public $license_url = null;
+    public ?string $source = null;
+    public ?string $source_url = null;
+    public ?string $author = null;
+    public ?string $author_url = null;
+    public ?string $license = null;
+    public ?string $license_url = null;
 
     public function __construct(
         public array $sourceArray = [],

@@ -7,6 +7,8 @@ namespace App\Models;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Gallery extends BaseModel implements HasMedia {
@@ -14,18 +16,18 @@ class Gallery extends BaseModel implements HasMedia {
 
     protected $table = 'galleries';
 
-    public $collectionName = 'gallery_picture';
+    public string $collectionName = 'gallery_picture';
 
     protected $fillable = [
         'title',
         'slug',
     ];
 
-    public function source() {
+    public function source(): MorphOne {
         return $this->morphOne(Source::class, 'sourceable');
     }
 
-    public function picture() {
+    public function picture(): MorphMany {
         return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionName);
     }
 

@@ -34,10 +34,8 @@ class CreateRoutePermissionsCommand extends Command {
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
-    public function handle() {
+    public function handle(): void {
         $routes = Route::getRoutes()->getRoutes();
 
         foreach ($routes as $route) {

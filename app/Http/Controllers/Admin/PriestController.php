@@ -35,7 +35,7 @@ class PriestController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
 
-        toastr()->success(__('app.priest.store'));
+        toastr()->success(strval(__('app.priest.store')));
         return to_route('priests.index');
     }
 
@@ -49,33 +49,33 @@ class PriestController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
 
-        toastr()->success(__('app.priest.update'));
+        toastr()->success(strval(__('app.priest.update')));
         return to_route('priests.index');
     }
 
     public function destroy(Priest $priest): RedirectResponse {
         $priest->delete();
 
-        toastr()->success(__('app.priest.delete'));
+        toastr()->success(strval(__('app.priest.delete')));
         return to_route('priests.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $priest = Priest::onlyTrashed()->findOrFail($id);
         $priest->slug = Str::slug($priest->full_name_titles).'-'.Str::random(5);
         $priest->titles_before = '*'.$priest->titles_before;
         $priest->restore();
 
-        toastr()->success(__('app.priest.restore'));
+        toastr()->success(strval(__('app.priest.restore')));
         return to_route('priests.edit', $priest->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $priest = Priest::onlyTrashed()->findOrFail($id);
         $priest->clearMediaCollection($priest->collectionName);
         $priest->forceDelete();
 
-        toastr()->success(__('app.priest.force-delete'));
+        toastr()->success(strval(__('app.priest.force-delete')));
         return to_route('priests.index', ['only-deleted' => 'true']);
     }
 }

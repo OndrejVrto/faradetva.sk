@@ -9,14 +9,14 @@ use Illuminate\Contracts\View\View;
 use App\Models\DayIdea as ModelsDayIdea;
 
 class DayIdea extends Component {
-    public $dayIdea;
+    public ?array $dayIdea;
 
     public function __construct() {
         $this->dayIdea = ModelsDayIdea::query()
             ->inRandomOrder()
             ->limit(1)
             ->get()
-            ->map(function ($idea) {
+            ->map(function (ModelsDayIdea $idea): array {
                 return [
                     'id'     => $idea->id,
                     'idea'   => $idea->idea,
@@ -26,7 +26,9 @@ class DayIdea extends Component {
             ->first();
     }
 
-    public function render(): View {
-        return view('components.partials.day-idea.index');
+    public function render(): ?View {
+        return is_null($this->dayIdea)
+            ? null
+            : view('components.partials.day-idea.index');
     }
 }

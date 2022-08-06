@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Source extends BaseModel {
     protected $table = 'source';
@@ -19,15 +20,15 @@ class Source extends BaseModel {
         'source_license_url',
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName(): string {
         return 'id';
     }
 
-    public function sourceable() {
+    public function sourceable(): MorphTo {
         return $this->morphTo();
     }
 
-    public function getSourceDescriptionCropAttribute() {
+    public function getSourceDescriptionCropAttribute(): string {
         return Str::words($this->source_description, 10, '...');
     }
 }

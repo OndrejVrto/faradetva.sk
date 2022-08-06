@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Jobs;
 
+use Carbon\Carbon;
 use Spatie\Crawler\Crawler;
 use Illuminate\Bus\Queueable;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Facades\DB;
-use App\Crawler\UrlCheckCrawlProfile;
 use Illuminate\Support\Facades\File;
+use App\Crawler\UrlCheckCrawlProfile;
 use Illuminate\Queue\SerializesModels;
 use App\Crawler\UrlCheckCrawlerObserver;
 use Illuminate\Queue\InteractsWithQueue;
@@ -22,7 +23,7 @@ class UrlsCheckJob implements ShouldQueue {
     use SerializesModels;
     use InteractsWithQueue;
 
-    public function handle() {
+    public function handle(): void {
         File::delete(storage_path('/logs/laravel.log'));
         // File::delete(storage_path('/logs/query.log'));
 
@@ -46,7 +47,7 @@ class UrlsCheckJob implements ShouldQueue {
             ->startCrawling(config('app.url'));
 
         customConfig('crawler')
-            ->put('___RELOAD', false)
-            ->put('CRAWLER.url_check', now());
+            ->put('___RELOAD', "false")
+            ->put('CRAWLER.url_check', Carbon::now()->toISOString());
     }
 }

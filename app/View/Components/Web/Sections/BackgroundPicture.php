@@ -11,25 +11,26 @@ use App\Services\SEO\SetSeoPropertiesService;
 use App\Models\BackgroundPicture as BackgroundPictureModel;
 
 class BackgroundPicture extends Component {
-    public $backgroundPicture;
+    public ?array $backgroundPicture;
 
     public function __construct(
-        private string $titleSlug,
+        string $titleSlug,
     ) {
         $this->backgroundPicture = $this->getPicture($titleSlug);
     }
 
     public function render(): View|null {
-        if (!is_null($this->backgroundPicture)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->backgroundPicture);
-
-            return view('components.web.sections.background-picture.index');
+        if (is_null($this->backgroundPicture)) {
+            return null;
         }
-        return null;
+
+        (new SetSeoPropertiesService())->setPictureSchema($this->backgroundPicture);
+
+        return view('components.web.sections.background-picture.index');
     }
 
-    private function getPicture($titleSlug): array {
-        return Cache::rememberForever('PICTURE_BACKGROUND_'.$titleSlug, function () use ($titleSlug): array {
+    private function getPicture(string $titleSlug): ?array {
+        return Cache::rememberForever('PICTURE_BACKGROUND_'.$titleSlug, function () use ($titleSlug): ?array {
             return BackgroundPictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('media', 'source')
@@ -39,7 +40,7 @@ class BackgroundPicture extends Component {
         });
     }
 
-    private function mapOutput($img): array {
+    private function mapOutput(BackgroundPictureModel $img): array {
         return [
             'id'                => $img->id,
             'title'             => $img->title,

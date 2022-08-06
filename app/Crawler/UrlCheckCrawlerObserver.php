@@ -16,7 +16,7 @@ use Spatie\Crawler\CrawlObservers\CrawlObserver;
 class UrlCheckCrawlerObserver extends CrawlObserver {
     private int $pages = 0;
 
-    private $loging = false;
+    private bool $loging = false;
 
     public function __construct() {
         if (App::environment(['local', 'dev', 'staging'])) {

@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Validation\Rule;
 
 class DateTimeAfterNow implements Rule {
-    private $user_timezone;
+    private string $user_timezone;
 
-    public function __construct($timezone) {
+    public function __construct(string $timezone) {
         $this->user_timezone = $timezone;
     }
 

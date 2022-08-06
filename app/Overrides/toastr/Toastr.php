@@ -193,7 +193,7 @@ class Toastr {
      * @param  string|null  $options
      * @return string
      */
-    public function toastr(string $type, string $message = '', string $title = '', string $options = ''): string {
+    public function toastr(string $type, string $message = '', ?string $title = '', ?string $options = ''): string {
         return "toastr.$type('$message', '$title', $options);";
     }
 

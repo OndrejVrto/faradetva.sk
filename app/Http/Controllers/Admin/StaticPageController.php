@@ -43,12 +43,12 @@ class StaticPageController extends Controller {
         $validated = $request->validated();
 
         $staticPage = StaticPage::create(StaticPage::sanitize($validated));
-        $staticPage->source()->create(Source::sanitize($validated));
+        $staticPage->source->create(Source::sanitize($validated));
         $staticPage->banners()->syncWithoutDetaching($request->input('banner'));
 
         (new MediaStoreService())->handleCropPicture($staticPage, $request);
 
-        toastr()->success(__('app.static-page.store'));
+        toastr()->success(strval(__('app.static-page.store')));
         return to_route('static-pages.index');
     }
 
@@ -65,41 +65,45 @@ class StaticPageController extends Controller {
         $validated = $request->validated();
 
         $staticPage->update(StaticPage::sanitize($validated));
-        $staticPage->source()->updateOrCreate(Source::sanitize($validated));   //TODO: after develop change to update
+        if ($staticPage->source()->exists()) {
+            $staticPage->source()->update(Source::sanitize($validated));
+        } else {
+            $staticPage->source()->create(Source::sanitize($validated));
+        }
         $staticPage->banners()->sync($request->input('banner'));
         $staticPage->touch(); // Touch because i need start observer for delete cache
 
         (new MediaStoreService())->handleCropPicture($staticPage, $request);
 
-        toastr()->success(__('app.static-page.update'));
+        toastr()->success(strval(__('app.static-page.update')));
         return to_route('static-pages.index');
     }
 
     public function destroy(StaticPage $staticPage): RedirectResponse {
         $staticPage->delete();
 
-        toastr()->success(__('app.static-page.delete'));
+        toastr()->success(strval(__('app.static-page.delete')));
         return to_route('static-pages.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $staticPage = StaticPage::onlyTrashed()->findOrFail($id);
         $staticPage->slug = Str::slug(Str::replace('/', '-', $staticPage->url)).'-'.Str::random(5);
         $staticPage->title = '*'.$staticPage->title;
         $staticPage->restore();
 
-        toastr()->success(__('app.static-page.restore'));
+        toastr()->success(strval(__('app.static-page.restore')));
         return to_route('static-pages.edit', $staticPage->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $staticPage = StaticPage::onlyTrashed()->findOrFail($id);
         $staticPage->source()->delete();
         $staticPage->clearMediaCollection($staticPage->collectionName);
         $staticPage->banners()->detach($id);
         $staticPage->forceDelete();
 
-        toastr()->success(__('app.static-page.force-delete'));
+        toastr()->success(strval(__('app.static-page.force-delete')));
         return to_route('static-pages.index', ['only-deleted' => 'true']);
     }
 }

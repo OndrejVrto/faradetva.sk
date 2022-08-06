@@ -20,18 +20,18 @@ class ConfirmVerificationMail extends Mailable implements ShouldQueue {
      *
      * @var int
      */
-    public $tries = 2;
+    public int $tries = 2;
 
     /**
      * The number of seconds to wait before retrying the job.
      *
      * @var int
      */
-    public $backoff = 5;
+    public int $backoff = 5;
 
-    public $unsubscribeToken;
-    public $uuid;
-    public $slug;
+    public string $slug;
+    public string $uuid;
+    public string $unsubscribeToken;
 
     /**
      * Create a new message instance.
@@ -49,7 +49,7 @@ class ConfirmVerificationMail extends Mailable implements ShouldQueue {
      *
      * @return $this
      */
-    public function build() {
+    public function build(): self {
         return $this->markdown('mail.confirm-verification-mail', [
             'slug'             => $this->slug,
             'uuid'             => $this->uuid,

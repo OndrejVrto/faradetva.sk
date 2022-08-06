@@ -11,29 +11,35 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\FilePropertiesService;
 
 class Attachment extends Component {
-    public $attachments = null;
+    public array $attachments;
 
     public function __construct(
-        public string|array|null $nameSlugs = null
+        public string|array $nameSlugs
     ) {
         $listOfAttachments = prepareInput($nameSlugs);
 
         if ($listOfAttachments) {
             $cacheName = getCacheName($listOfAttachments);
 
-            $this->attachments = Cache::rememberForever('ATTACHMENT_'.$cacheName, function () use ($listOfAttachments) {
+            $this->attachments = Cache::rememberForever('ATTACHMENT_'.$cacheName, function () use ($listOfAttachments): array {
                 return File::query()
                     ->whereIn('slug', $listOfAttachments)
                     ->with('media', 'source')
+                    ->limit(0)
                     ->get()
-                    ->map(function ($file) {
+                    ->map(function (File $file): array {
                         return (new FilePropertiesService())->getFileItemProperties($file);
-                    });
+                    })
+                    ->toArray();
             });
         }
     }
 
-    public function render(): View {
+    public function render(): ?View {
+        if (empty($this->attachments)) {
+            return null;
+        }
+
         return view('components.partials.attachment.index');
     }
 }

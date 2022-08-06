@@ -9,11 +9,11 @@ use OsiemSiedem\Autolink\Facades\Autolink;
 use OsiemSiedem\Autolink\Elements\UrlElement;
 
 class PurifiAutolinkService {
-    public function getCleanTextWithLinks(?string $text, string $class = 'link-template'): ?string {
+    public function getCleanTextWithLinks(string $text, string $class = 'link-template'): string {
         return !$text
-            ? null
+            ? ''
             : Purify::clean(
-                Autolink::convert(
+                strval(Autolink::convert(
                     $text,
                     function ($element) use ($class) {
                         return new UrlElement(
@@ -24,7 +24,7 @@ class PurifiAutolinkService {
                             attributes: ['class' => $class],
                         );
                     }
-                )
+                ))
             );
     }
 }

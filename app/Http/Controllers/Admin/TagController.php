@@ -31,7 +31,7 @@ class TagController extends Controller {
         $validated = $request->validated();
         Tag::create(Tag::sanitize($validated));
 
-        toastr()->success(__('app.tag.store'));
+        toastr()->success(strval(__('app.tag.store')));
         return to_route('tags.index');
     }
 
@@ -43,32 +43,32 @@ class TagController extends Controller {
         $validated = $request->validated();
         $tag->update(Tag::sanitize($validated));
 
-        toastr()->success(__('app.tag.update'));
+        toastr()->success(strval(__('app.tag.update')));
         return to_route('tags.index');
     }
 
     public function destroy(Tag $tag): RedirectResponse {
         $tag->delete();
 
-        toastr()->success(__('app.tag.delete'));
+        toastr()->success(strval(__('app.tag.delete')));
         return to_route('tags.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $tag = Tag::onlyTrashed()->findOrFail($id);
         $tag->slug = Str::slug($tag->title).'-'.Str::random(5);
         $tag->title = '*'.$tag->title;
         $tag->restore();
 
-        toastr()->success(__('app.tag.restore'));
+        toastr()->success(strval(__('app.tag.restore')));
         return to_route('tags.edit', $tag->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $tag = Tag::onlyTrashed()->findOrFail($id);
         $tag->forceDelete();
 
-        toastr()->success(__('app.tag.force-delete'));
+        toastr()->success(strval(__('app.tag.force-delete')));
         return to_route('tags.index', ['only-deleted' => 'true']);
     }
 }

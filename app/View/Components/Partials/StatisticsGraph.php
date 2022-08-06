@@ -10,7 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
 class StatisticsGraph extends Component {
-    public $graphs;
+    public array $graphs;
 
     public function __construct(
         public array|string|null $names = null
@@ -20,21 +20,24 @@ class StatisticsGraph extends Component {
         if ($listOfGraphs) {
             $cacheName = getCacheName($listOfGraphs);
 
-            $this->graphs = Cache::rememberForever('CHART_'.$cacheName, function () use ($listOfGraphs) {
+            $this->graphs = Cache::rememberForever('CHART_'.$cacheName, function () use ($listOfGraphs): array {
                 return Chart::query()
                     ->whereIn('slug', $listOfGraphs)
                     ->with('data')
                     ->get()
-                    ->map(fn ($e) => $this->mapOutput($e));
+                    ->map(fn ($e) => $this->mapOutput($e))
+                    ->toArray();
             });
         }
     }
 
-    public function render(): View {
-        return view('components.partials.statistics-graph.index');
+    public function render(): ?View {
+        return empty($this->graphs)
+            ? null
+            : view('components.partials.statistics-graph.index');
     }
 
-    private function mapOutput($chart): array {
+    private function mapOutput(Chart $chart): array {
         return [
             'id'          => $chart->id,
             'title'       => $chart->title,

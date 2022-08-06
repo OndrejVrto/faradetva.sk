@@ -6,54 +6,43 @@ namespace App\View\Components\Partials;
 
 use App\Models\StaticPage;
 use Illuminate\View\Component;
-use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Collection;
 use App\Services\SEO\SetSeoPropertiesService;
 
 class PageCard extends Component {
-    public $pageCards = [];
+    public array $pageCards;
 
     public function __construct(
         private ?int $countPages = null,
-        private $routeStaticPages = null,
+        private null|array|string $routeStaticPages = null,
         public string $buttonText = 'Dozvedieť sa viac',
     ) {
-        $this->getCards();
+        $this->pageCards = (is_null($countPages) and is_null($routeStaticPages))
+            ? $this->getAllCards()
+            : $this->getCustomCards($this->getListPages());
     }
 
     public function render(): ?View {
-        if (!is_null($this->pageCards)) {
-            foreach ($this->pageCards as $card) {
-                (new SetSeoPropertiesService())->setPictureSchema($card);
-            }
-            return view('components.partials.page-card.index');
+        if (empty($this->pageCards)) {
+            return null;
         }
 
-        return null;
+        foreach ($this->pageCards as $card) {
+            (new SetSeoPropertiesService())->setPictureSchema($card);
+        }
+
+        return view('components.partials.page-card.index');
     }
 
-    private function getCards() {
-        // all cards
-        if (is_null($this->countPages) and is_null($this->routeStaticPages)) {
-            $this->pageCards = Cache::rememberForever('PAGE_CARD_ALL', function (): Collection {
-                return StaticPage::query()
-                    ->whereActive(1)
-                    ->orderByDesc('virtual')
-                    ->orderBy('url')
-                    ->with('picture', 'source')
-                    ->get()
-                    ->map(fn ($page) => $this->mapOutput($page));
-            });
-            return;
-        }
-
+    private function getListPages(): Collection {
         $listOfPages = prepareInput($this->routeStaticPages);
 
-        $randomCards = StaticPage::query()
+        return StaticPage::query()
+            ->select('id')
             ->whereActive(1)
             ->whereVirtual(0)
-            ->select('id')
             ->when($listOfPages, function ($q) use ($listOfPages) {
                 return $q->whereIn('route_name', $listOfPages);
             }, function ($q) {
@@ -62,9 +51,25 @@ class PageCard extends Component {
                     : $q;
             })
             ->get();
+    }
 
-        foreach ($randomCards as $oneCard) {
-            $this->pageCards[] = Cache::rememberForever('PAGE_CARD_'.$oneCard->id, function () use ($oneCard): array {
+    private function getAllCards(): array {
+        return Cache::rememberForever('PAGE_CARD_ALL', function (): array {
+            return StaticPage::query()
+                ->whereActive(1)
+                ->orderByDesc('virtual')
+                ->orderBy('url')
+                ->with('picture', 'source')
+                ->get()
+                ->map(fn ($page) => $this->mapOutput($page))
+                ->toArray();
+        });
+    }
+
+    private function getCustomCards(Collection $listOfCards): array {
+        $cards = [];
+        foreach ($listOfCards as $oneCard) {
+            $cards[] = Cache::rememberForever('PAGE_CARD_'.$oneCard->id, function () use ($oneCard): array {
                 return StaticPage::query()
                     ->whereId($oneCard->id)
                     ->with('picture', 'source')
@@ -73,9 +78,10 @@ class PageCard extends Component {
                     ->first();
             });
         }
+        return $cards;
     }
 
-    private function mapOutput($page): array {
+    private function mapOutput(StaticPage $page): array {
         $media = $page->picture[0];
         return  [
             'id'              => $page->id,

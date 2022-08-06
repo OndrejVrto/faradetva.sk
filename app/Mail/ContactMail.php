@@ -18,25 +18,23 @@ class ContactMail extends Mailable implements ShouldQueue {
      *
      * @var int
      */
-    public $tries = 2;
+    public int $tries = 2;
 
     /**
      * The number of seconds to wait before retrying the job.
      *
      * @var int
      */
-    public $backoff = 5;
-
-
-    private $contact;
+    public int $backoff = 5;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($contact) {
-        $this->contact = $contact;
+    public function __construct(
+        private array $contact
+    ) {
     }
 
     /**

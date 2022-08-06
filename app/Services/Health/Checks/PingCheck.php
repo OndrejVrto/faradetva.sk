@@ -50,7 +50,7 @@ class PingCheck extends Check {
             ]);
     }
 
-    protected function failedResult($name): Result {
+    protected function failedResult(string $name): Result {
         return Result::make()
             ->failed("$name.failed")
             ->shortSummary("$name.failed-short")

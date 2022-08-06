@@ -6,9 +6,12 @@ namespace App\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 trait Restorable {
-    public function scopeArchive(Builder $query, Request $request, string $modelName) {
+    use SoftDeletes;
+
+    public function scopeArchive(Builder $query, Request $request, string $modelName): Builder {
         return $query
             ->when($request->has('only-deleted') and $this->canRestore($modelName), function ($query) {
                 $query->onlyTrashed();
@@ -29,7 +32,7 @@ trait Restorable {
             auth()->user()->hasAnyPermission($permissions)
             or
             auth()->user()->hasRole('Super Administrátor')
-            ? true
-            : false;
+                ? true
+                : false;
     }
 }

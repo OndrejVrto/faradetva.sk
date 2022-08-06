@@ -9,21 +9,19 @@ use Spatie\SchemaOrg\Graph;
 use Illuminate\Http\Request;
 use App\Overrides\CustomJsonLd;
 use App\Services\QueryLogService;
-use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\App;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use App\Http\Middleware\CacheResponseMiddleware;
 
 class AppServiceProvider extends ServiceProvider {
-    public function register() {
+    public function register(): void {
         //
     }
 
-    public function boot(Request $request) {
+    public function boot(Request $request): void {
         if ($request->userAgent() !== 'Symfony') {
             Paginator::useBootstrap();
 
@@ -53,11 +51,8 @@ class AppServiceProvider extends ServiceProvider {
                 return trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", html_entity_decode(strip_tags(implode(" ", $text))))));
             });
 
-            //! singleton for aplly cache time whole page
-            $this->app->singleton(CacheResponseMiddleware::class);
-
-            $this->app->singleton('seo.graph', fn () => new Graph());
-            $this->app->singleton('seo.schema-org', fn () => new CustomJsonLd(config('seotools.json-ld.defaults', [])));
+            $this->app->singleton('seo-graph', fn () => new Graph());
+            $this->app->singleton('seo-schema-org', fn () => new CustomJsonLd(config('seotools.json-ld.defaults', [])));
 
             //! only for Dev
             if ($request->userAgent() !== 'fara-detva-crawl' and App::environment(['local', 'dev', 'staging'])) {

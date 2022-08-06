@@ -10,7 +10,7 @@ use Spatie\Csp\Directive;
 use Spatie\Csp\Policies\Basic;
 
 class CspPolicyService extends Basic {
-    public function configure() {
+    public function configure(): void {
         $this
             ->addDirective(Directive::DEFAULT, [
                 Keyword::SELF,

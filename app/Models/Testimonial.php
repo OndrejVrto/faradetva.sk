@@ -22,7 +22,7 @@ class Testimonial extends BaseModel implements HasMedia {
 
     protected $table = 'testimonials';
 
-    public $collectionName = 'testimonial';
+    public string $collectionName = 'testimonial';
 
     protected $fillable = [
         'active',
@@ -39,8 +39,8 @@ class Testimonial extends BaseModel implements HasMedia {
         'deleted_at' => 'datetime',
     ];
 
-    public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
+    public function getMediaFileNameAttribute(): ?string {
+        return $this->getFirstMedia($this->collectionName)?->file_name ?? null;
     }
 
     public function registerMediaConversions(Media $media = null): void {
