@@ -33,7 +33,7 @@ class PageController extends Controller {
                     });
 
         // check if last link exists in DB.
-        $lastUrl = $urls->pop()->get('url');
+        $lastUrl = $urls->last()->get('url');
         $page = Cache::rememberForever('PAGE_' . Str::slug($lastUrl), function () use ($lastUrl) {
             return StaticPage::query()
                         ->whereUrl($lastUrl)

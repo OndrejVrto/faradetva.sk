@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider {
                 return trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", html_entity_decode(strip_tags(implode(" ", $text))))));
             });
 
-            $this->app->singleton('seo-graph', fn () => new Graph());
+            $this->app->singleton('SeoGraph', fn () => new Graph());
             $this->app->singleton('seo-schema-org', fn () => new CustomJsonLd(config('seotools.json-ld.defaults', [])));
 
             //! only for Dev

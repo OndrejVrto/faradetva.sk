@@ -8,6 +8,6 @@ use Illuminate\Support\Facades\Facade;
 
 class SeoGraph extends Facade {
     protected static function getFacadeAccessor(): string {
-        return 'seo-graph';
+        return 'SeoGraph';
     }
 }
