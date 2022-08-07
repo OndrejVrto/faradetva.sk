@@ -4,10 +4,11 @@ includes:
 parameters:
 
     paths:
-        - app
-        - routes
-        - database
-        - tests
+        - app/Http/Controllers
+        # - app
+        # - routes
+        # - database
+        # - tests
         # - app/Http
         # - app/Models
         # - app/View

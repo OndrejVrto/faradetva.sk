@@ -23,7 +23,6 @@
         "artesaos/seotools": "^0.22.0",
         "cohensive/oembed": "^0.16.0",
         "diglactic/laravel-breadcrumbs": "^v7.1.1",
-        "enlightn/enlightn": "^1.25",
         "guzzlehttp/guzzle": "^7.2",
         "haruncpi/laravel-user-activity": "^1.0",
         "intervention/image": "^2.7",
@@ -70,6 +69,7 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
+        "nunomaduro/larastan": "^2.1",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0"
     },
