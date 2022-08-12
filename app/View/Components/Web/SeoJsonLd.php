@@ -14,10 +14,10 @@ class SeoJsonLd extends Component {
 
     public function __construct() {
         $generated = SeoGraph::toArray();
-        array_push($generated['@graph'], SeoSchema::convertToArray());
+        $generated['@graph'][] = SeoSchema::convertToArray();
         try {
             $this->jsonLd = json_encode($generated, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
-        } catch (\Throwable $th) {
+        } catch (\Throwable) {
         }
     }
 

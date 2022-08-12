@@ -63,7 +63,7 @@ class Priest extends BaseModel implements HasMedia {
     }
 
     public function getPhoneDigitsAttribute(): ?string {
-        if (isset($this->phone)) {
+        if (property_exists($this, 'phone') && $this->phone !== null) {
             $remove_plus = preg_replace("/\+/", "00", $this->phone);
             return preg_replace("/[^0-9]/", "", $remove_plus);
         }
@@ -75,9 +75,9 @@ class Priest extends BaseModel implements HasMedia {
     }
 
     private function getFullNameWithTitles(): string {
-        $name = isset($this->titles_before) ? $this->titles_before . ' ' : '';
+        $name = property_exists($this, 'titles_before') && $this->titles_before !== null ? $this->titles_before . ' ' : '';
         $name .= $this->getFullName();
-        $name .= isset($this->titles_after) ? ', ' . $this->titles_after : '';
+        $name .= property_exists($this, 'titles_after') && $this->titles_after !== null ? ', ' . $this->titles_after : '';
 
         return trim($name);
     }

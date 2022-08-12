@@ -43,7 +43,7 @@ class SendNewNoticesToSubscribers extends Command {
             foreach ($subscribers as $subscriber) {
                 $counterSubscribers++;
 
-                info($counterSubscribers.'. Send Email to '.$subscriber->email.' with '.count($items).' items.');
+                info($counterSubscribers.'. Send Email to '.$subscriber->email.' with '.(is_countable($items) ? count($items) : 0).' items.');
 
                 // TODO: Enable send email only in production because in Mailtrap.io is free only 500email/month
                 Mail::to($subscriber->email)->send(new NewsNoticesMail($items));
@@ -56,8 +56,8 @@ class SendNewNoticesToSubscribers extends Command {
                 ]);
             }
 
-            $this->line('Count of subscribers: '.count($subscribers));
-            $this->line('Count of items: '.count($items));
+            $this->line('Count of subscribers: '.(is_countable($subscribers) ? count($subscribers) : 0));
+            $this->line('Count of items: '.(is_countable($items) ? count($items) : 0));
             $this->newLine();
         }
 

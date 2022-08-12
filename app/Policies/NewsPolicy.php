@@ -16,7 +16,7 @@ class NewsPolicy {
     }
 
     public function view(User $user, News $news): bool {
-        return $news->user_id == $user->id or $user->isAdmin();
+        return $news->user_id == $user->id || $user->isAdmin();
     }
 
     public function create(User $user): bool {
@@ -24,11 +24,11 @@ class NewsPolicy {
     }
 
     public function update(User $user, News $news): bool {
-        return $news->user_id == $user->id or $user->isAdmin();
+        return $news->user_id == $user->id || $user->isAdmin();
     }
 
     public function delete(User $user, News $news): bool {
-        return $news->user_id == $user->id or $user->isAdmin();
+        return $news->user_id == $user->id || $user->isAdmin();
     }
 
     public function restore(User $user, News $news): bool {

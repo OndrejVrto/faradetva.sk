@@ -21,14 +21,14 @@ class PictureResponsive extends Component {
         public int|null $descriptionCrop = null,
         public string|null $class = null,
     ) {
-        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug, function () use ($titleSlug): ?array {
-            return PictureModel::query()
+        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug,
+            fn(): ?array => PictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('mediaOne', 'source')
                 ->get()
-                ->map(fn ($e) => $this->mapOutput($e))
-                ->first();
-        });
+                ->map(fn ($img) => $this->mapOutput($img))
+                ->first()
+        );
     }
 
     public function render(): ?View {

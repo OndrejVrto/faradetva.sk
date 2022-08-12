@@ -38,14 +38,14 @@ class Pray extends Component {
             ->first();
 
         // Get all data Prayer to Cache
-        return Cache::rememberForever('PICTURE_PRAYER_'.$onePrayer->slug, function () use ($onePrayer): ?array {
-            return Prayer::query()
+        return Cache::rememberForever('PICTURE_PRAYER_'.$onePrayer->slug,
+            fn(): ?array => Prayer::query()
                 ->whereSlug($onePrayer->slug)
                 ->with('media', 'source')
                 ->get()
                 ->map(fn ($e) => $this->mapOutput($e))
-                ->first();
-        });
+                ->first()
+        );
     }
 
     private function mapOutput(Prayer $prayer): array {

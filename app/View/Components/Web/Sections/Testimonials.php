@@ -37,16 +37,14 @@ class Testimonials extends Component {
                 ->get()
                 ->shuffle()
                 ->random(min($countTestimonials, 3))
-                ->map(function ($data): array {
-                    return [
-                        'id'          => $data->id,
-                        'name'        => $data->name,
-                        'function'    => $data->function,
-                        'description' => (new PurifiAutolinkService())->getCleanTextWithLinks($data->description),
-                        'url'         => $data->url,
-                        'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
-                    ];
-                })
+                ->map(fn($data): array => [
+                    'id'          => $data->id,
+                    'name'        => $data->name,
+                    'function'    => $data->function,
+                    'description' => (new PurifiAutolinkService())->getCleanTextWithLinks($data->description),
+                    'url'         => $data->url,
+                    'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
+                ])
                 ->toArray();
         });
     }

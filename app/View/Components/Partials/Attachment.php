@@ -21,17 +21,15 @@ class Attachment extends Component {
         if ($listOfAttachments) {
             $cacheName = getCacheName($listOfAttachments);
 
-            $this->attachments = Cache::rememberForever('ATTACHMENT_'.$cacheName, function () use ($listOfAttachments): array {
-                return File::query()
+            $this->attachments = Cache::rememberForever('ATTACHMENT_'.$cacheName,
+                fn(): array => File::query()
                     ->whereIn('slug', $listOfAttachments)
                     ->with('media', 'source')
                     ->limit(0)
                     ->get()
-                    ->map(function (File $file): array {
-                        return (new FilePropertiesService())->getFileItemProperties($file);
-                    })
-                    ->toArray();
-            });
+                    ->map(fn(File $file): array => (new FilePropertiesService())->getFileItemProperties($file))
+                    ->toArray()
+            );
         }
     }
 

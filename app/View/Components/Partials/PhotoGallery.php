@@ -31,14 +31,14 @@ class PhotoGallery extends Component {
     }
 
     private function getGallery(string $slug): ?array {
-        return Cache::rememberForever('GALLERY_'.$slug, function () use ($slug): ?array {
-            return Gallery::query()
+        return Cache::rememberForever('GALLERY_'.$slug,
+            fn(): ?array => Gallery::query()
                 ->whereSlug($slug)
                 ->with('media', 'source')
                 ->get()
                 ->map(fn ($e) => $this->mapOutput($e))
-                ->first();
-        });
+                ->first()
+        );
     }
 
     private function mapOutput(Gallery $album): array {

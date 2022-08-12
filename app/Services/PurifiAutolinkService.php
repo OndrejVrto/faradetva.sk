@@ -10,21 +10,19 @@ use OsiemSiedem\Autolink\Elements\UrlElement;
 
 class PurifiAutolinkService {
     public function getCleanTextWithLinks(string $text, string $class = 'link-template'): string {
-        return !$text
-            ? ''
-            : Purify::clean(
+        return $text !== '' && $text !== '0'
+            ? Purify::clean(
                 strval(Autolink::convert(
                     $text,
-                    function ($element) use ($class) {
-                        return new UrlElement(
-                            title: $element->getTitle(),
-                            url: $element->getUrl(),
-                            start: $element->getStart(),
-                            end: $element->getEnd(),
-                            attributes: ['class' => $class],
-                        );
-                    }
+                    fn($element) => new UrlElement(
+                        title: $element->getTitle(),
+                        url: $element->getUrl(),
+                        start: $element->getStart(),
+                        end: $element->getEnd(),
+                        attributes: ['class' => $class],
+                    )
                 ))
-            );
+            )
+            : '';
     }
 }

@@ -67,7 +67,7 @@ abstract class BaseRequest extends FormRequest {
             return array_reduce($classes, function ($rulesAndMessages, $trait) {
                 preg_match('/^Has([A-Za-z]+)Fields$/', class_basename($trait), $matchTraitConvention);
 
-                if ($traitSubject = isset($matchTraitConvention[1]) ? $matchTraitConvention[1] : null) {
+                if ($traitSubject = $matchTraitConvention[1] ?? null) {
                     $rulesAndMessages['rules'] = array_merge($rulesAndMessages['rules'], $this->getTraitRules($traitSubject));
                     $rulesAndMessages['messages'] = array_merge($rulesAndMessages['messages'], $this->getTraitMessages($traitSubject));
                 }

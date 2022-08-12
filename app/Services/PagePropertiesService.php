@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Cache;
 
 class PagePropertiesService {
     public static function virtualPageData(string $route): ?array {
-        $page = Cache::rememberForever('PAGE_VIRTUAL_'.Str::slug($route), function () use ($route) {
-            return StaticPage::query()
+        $page = Cache::rememberForever('PAGE_VIRTUAL_'.Str::slug($route),
+            fn() => StaticPage::query()
                 ->where('route_name', $route)
                 ->with('picture', 'source', 'banners', 'faqs')
-                ->first();
-        });
+                ->first()
+        );
 
         if (!$page) {
             return null;
@@ -66,7 +66,7 @@ class PagePropertiesService {
                 'img-representing' => $media->getUrl('representing'),
                 'img-thumb'        => $media->getUrl('representing-thumb'),
                 // 'img-file-name'    => $media->file_name,
-                'img-file-name'    => pathinfo($media->file_name, PATHINFO_FILENAME),
+                'img-file-name'    => pathinfo(strval($media->file_name), PATHINFO_FILENAME),
                 'img-mime-type'    => $media->mime_type,
                 'img-size'         => $media->size,
                 'img-updated_at'   => $media->updated_at->toAtomString(),
@@ -115,12 +115,12 @@ class PagePropertiesService {
             'category'         => e($page->category->title),
             'tags'             => $page->tags->pluck('title')->implode(', '),
 
-            'datePublished'    => isset($page->published_at)
+            'datePublished'    => property_exists($page, 'published_at') && $page->published_at !== null
                                     ? Carbon::createFromFormat('d.m.Y G:i', $page->published_at)->toAtomString()
                                     : $page->created_at->toAtomString(),
             'dateModified'     => $page->updated_at->toAtomString(),
 
-            'expires'          => isset($page->unpublished_at)
+            'expires'          => property_exists($page, 'unpublished_at') && $page->unpublished_at !== null
                                     ? Carbon::createFromFormat('d.m.Y G:i', $page->unpublished_at)->toAtomString()
                                     : null,
 

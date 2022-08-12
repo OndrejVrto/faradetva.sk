@@ -77,35 +77,36 @@ class Picture extends Component {
     }
 
 
-    private function solveColumns(int $columns, int $maxColumns = 7): array {
-        $class['maxXXL'] = $this->cropValue($columns + 0, $maxColumns);
-        $class['maxXL']  = $this->cropValue($columns + 1, $maxColumns);
-        $class['maxLG']  = $this->cropValue($columns + 2, $maxColumns);
-        $class['maxMD']  = $this->cropValue($columns + 3, $maxColumns);
-        $class['maxSM']  = $this->cropValue($columns + 4, $maxColumns);
-
-        return $class;
+    private function solveColumns(int $columns, int $maxColumns = 7): array
+    {
+        return [
+            'maxXXL' => $this->cropValue($columns + 0, $maxColumns),
+            'maxXL'  => $this->cropValue($columns + 1, $maxColumns),
+            'maxLG'  => $this->cropValue($columns + 2, $maxColumns),
+            'maxMD'  => $this->cropValue($columns + 3, $maxColumns),
+            'maxSM'  => $this->cropValue($columns + 4, $maxColumns),
+        ];
     }
 
     private function cropValue(int $value, int $max): int {
         if ($value < 1) {
             return 1;
         }
-        if ($value > 12 or $value > $max) {
+        if ($value > 12 || $value > $max) {
             return 12;
         }
         return $value;
     }
 
     private function getPicture(string $slug): ?array {
-        return Cache::rememberForever('PICTURE_'.$slug, function () use ($slug): ?array {
-            return PictureModel::query()
+        return Cache::rememberForever('PICTURE_'.$slug,
+            fn(): ?array => PictureModel::query()
                 ->whereSlug($slug)
                 ->with('mediaOne', 'source')
                 ->get()
-                ->map(fn ($e) => $this->mapOutput($e))
-                ->first();
-        });
+                ->map(fn ($img) => $this->mapOutput($img))
+                ->first()
+        );
     }
 
     private function mapOutput(PictureModel $img): array {

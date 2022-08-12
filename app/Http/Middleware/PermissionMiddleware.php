@@ -5,18 +5,15 @@ declare(strict_types=1);
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Spatie\Permission\Exceptions\UnauthorizedException;
 
 class PermissionMiddleware {
     /**
      * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
      */
-    public function handle($request, Closure $next, null|array|string $permission = null, string $guard = null): mixed {
+    public function handle(Request $request, Closure $next, null|array|string $permission = null, string $guard = null): mixed {
         $authGuard = app('auth')->guard($guard);
 
         if ($authGuard->guest()) {

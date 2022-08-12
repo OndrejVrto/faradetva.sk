@@ -50,6 +50,7 @@ class ContactForm extends Component {
     }
 
     public function submitForm(): void {
+        $contact = [];
         $this->validate();
 
         $contact['name']    = $this->name;

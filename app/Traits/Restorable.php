@@ -13,10 +13,10 @@ trait Restorable {
 
     public function scopeArchive(Builder $query, Request $request, string $modelName): Builder {
         return $query
-            ->when($request->has('only-deleted') and $this->canRestore($modelName), function ($query) {
+            ->when($request->has('only-deleted') && $this->canRestore($modelName), function ($query) {
                 $query->onlyTrashed();
             })
-            ->when($request->has('with-deleted') and $this->canRestore($modelName), function ($query) {
+            ->when($request->has('with-deleted') && $this->canRestore($modelName), function ($query) {
                 $query->withTrashed();
             });
     }
@@ -29,10 +29,6 @@ trait Restorable {
         ];
 
         return
-            auth()->user()->hasAnyPermission($permissions)
-            or
-            auth()->user()->hasRole('Super Administrátor')
-                ? true
-                : false;
+            auth()->user()->hasAnyPermission($permissions) || (bool) auth()->user()->hasRole('Super Administrátor');
     }
 }

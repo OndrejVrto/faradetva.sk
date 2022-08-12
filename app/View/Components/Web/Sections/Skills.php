@@ -24,13 +24,13 @@ class Skills extends Component {
     }
 
     private function getSkills(): array {
-        return Cache::rememberForever('SKILLS', function (): array {
-            return [
+        return Cache::rememberForever('SKILLS',
+            fn(): array => [
                 'news'         => News::whereNotified(1)->withTrashed()->count(),
                 'notices'      => Notice::whereNotified(1)->withTrashed()->count(),
                 'testimonials' => Testimonial::whereActive(1)->count(),
                 'subscribers'  => Subscriber::whereNotNull('email_verified_at')->count(),
-            ];
-        });
+            ]
+        );
     }
 }

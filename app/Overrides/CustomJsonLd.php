@@ -17,6 +17,6 @@ class CustomJsonLd extends JsonLd {
     }
 
     public function hasValue(string $value): bool {
-        return (Arr::exists($this->values, $value)) ? true : false ;
+        return Arr::exists($this->values, $value) ;
     }
 }

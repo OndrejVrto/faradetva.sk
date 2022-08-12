@@ -14,9 +14,6 @@ use Psr\Container\ContainerExceptionInterface;
 
 class AddResponseHeadersMiddleware {
     /**
-     * @param Request $request
-     * @param Closure $next
-     * @return mixed
      * @throws BindingResolutionException
      * @throws NotFoundExceptionInterface
      * @throws ContainerExceptionInterface

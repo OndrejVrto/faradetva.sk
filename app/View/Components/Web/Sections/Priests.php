@@ -29,14 +29,14 @@ class Priests extends Component {
     }
 
     private function getPriests(): array {
-        return Cache::rememberForever('PRIESTS', function (): array {
-            return PriestModel::query()
+        return Cache::rememberForever('PRIESTS',
+            fn(): array => PriestModel::query()
                 ->whereActive(1)
                 ->with('media')
                 ->get()
                 ->map(fn ($e) => $this->mapOutput($e))
-                ->toArray();
-        });
+                ->toArray()
+        );
     }
 
     private function mapOutput(PriestModel $priest): array {

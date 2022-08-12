@@ -26,30 +26,37 @@ trait DataFormater {
         }
         // maximize filename length to 255 bytes http://serverfault.com/a/9548/44086
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        $filename = mb_strcut(pathinfo($filename, PATHINFO_FILENAME), 0, 255 - ($ext ? strlen($ext) + 1 : 0), mb_detect_encoding($filename)) . ($ext ? '.' . $ext : '');
-        return $filename;
+
+        $filename = mb_strcut(
+                        string: pathinfo($filename, PATHINFO_FILENAME),
+                        start: 0,
+                        lenght: 255 - ($ext !== '' && $ext !== '0' ? strlen($ext) + 1 : 0),
+                        encoding: mb_detect_encoding($filename)
+                    );
+        return $filename . $ext !== '' && $ext !== '0' ? '.' . $ext : '';
     }
 
     public static function beautifyFilename($filename) {
         // reduce consecutive characters
-        $filename = preg_replace(array(
+        $filename = preg_replace([
             // "file   name.zip" becomes "file-name.zip"
             '/ +/',
             // "file___name.zip" becomes "file-name.zip"
             '/_+/',
             // "file---name.zip" becomes "file-name.zip"
-            '/-+/'
-        ), '-', $filename);
-        $filename = preg_replace(array(
+            '/-+/',
+        ], '-', $filename);
+        $filename = preg_replace([
             // "file--.--.-.--name.zip" becomes "file.name.zip"
             '/-*\.-*/',
             // "file...name..zip" becomes "file.name.zip"
-            '/\.{2,}/'
-        ), '.', $filename);
+            '/\.{2,}/',
+        ], '.', $filename);
         // lowercase for windows/unix interoperability http://support.microsoft.com/kb/100625
         $filename = mb_strtolower($filename, mb_detect_encoding($filename));
         // ".file-name.-" becomes "file-name"
         $filename = trim($filename, '.-');
+
         return $filename;
     }
 }

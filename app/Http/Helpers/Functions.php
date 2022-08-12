@@ -8,7 +8,7 @@ if (!function_exists('customConfig')) {
             $valueStore = Valuestore::make(
                 storage_path("app/value-store/$filename.json")
             );
-        } catch (\Throwable $th) {
+        } catch (\Throwable) {
             return null;
         }
 
@@ -106,8 +106,8 @@ if (!function_exists('formatBytes')) {
         $size = abs($size);
 
         $base = log($size) / log(1024);
-        $suffixes = array('B', 'kB', 'MB', 'GB', 'TB');
+        $suffixes = ['B', 'kB', 'MB', 'GB', 'TB'];
 
-        return $sign . round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
+        return $sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)];
     }
 }

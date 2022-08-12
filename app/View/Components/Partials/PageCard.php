@@ -15,11 +15,11 @@ class PageCard extends Component {
     public array $pageCards;
 
     public function __construct(
-        private ?int $countPages = null,
-        private null|array|string $routeStaticPages = null,
+        private readonly ?int $countPages = null,
+        private readonly null|array|string $routeStaticPages = null,
         public string $buttonText = 'Dozvedieť sa viac',
     ) {
-        $this->pageCards = (is_null($countPages) and is_null($routeStaticPages))
+        $this->pageCards = (is_null($countPages) && is_null($routeStaticPages))
             ? $this->getAllCards()
             : $this->getCustomCards($this->getListPages());
     }
@@ -43,40 +43,39 @@ class PageCard extends Component {
             ->select('id')
             ->whereActive(1)
             ->whereVirtual(0)
-            ->when($listOfPages, function ($q) use ($listOfPages) {
-                return $q->whereIn('route_name', $listOfPages);
-            }, function ($q) {
-                return $this->countPages > 0
-                    ? $q->inRandomOrder()->limit($this->countPages)
-                    : $q;
-            })
+            ->when($listOfPages,
+                fn($query) => $query->whereIn('route_name', $listOfPages),
+                fn($query) => $this->countPages > 0
+                    ? $query->inRandomOrder()->limit($this->countPages)
+                    : $query
+            )
             ->get();
     }
 
     private function getAllCards(): array {
-        return Cache::rememberForever('PAGE_CARD_ALL', function (): array {
-            return StaticPage::query()
+        return Cache::rememberForever('PAGE_CARD_ALL',
+            fn(): array => StaticPage::query()
                 ->whereActive(1)
                 ->orderByDesc('virtual')
                 ->orderBy('url')
                 ->with('picture', 'source')
                 ->get()
                 ->map(fn ($page) => $this->mapOutput($page))
-                ->toArray();
-        });
+                ->toArray()
+        );
     }
 
     private function getCustomCards(Collection $listOfCards): array {
         $cards = [];
         foreach ($listOfCards as $oneCard) {
-            $cards[] = Cache::rememberForever('PAGE_CARD_'.$oneCard->id, function () use ($oneCard): array {
-                return StaticPage::query()
+            $cards[] = Cache::rememberForever('PAGE_CARD_'.$oneCard->id,
+                fn(): array => StaticPage::query()
                     ->whereId($oneCard->id)
                     ->with('picture', 'source')
                     ->get()
                     ->map(fn ($page) => $this->mapOutput($page))
-                    ->first();
-            });
+                    ->first()
+            );
         }
         return $cards;
     }
@@ -99,7 +98,7 @@ class PageCard extends Component {
             'img-updated'            => $page->updated_at->toAtomString(),
             'img-width'              => '370',
             'img-height'             => '248',
-            'img-url'                => $media->getUrl('card'),  // 'http://via.placeholder.com/370x248',
+            'img-url'                => $media->getUrl('card') ?? 'http://via.placeholder.com/370x248',
             'img-mime'               => $media->mime_type,
 
             'img_thumbnail_url'      => $media->getUrl('crop-thumb'),

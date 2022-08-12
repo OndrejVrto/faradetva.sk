@@ -22,7 +22,7 @@ class QueryLogService {
     private array $final = [];
 
     public function __construct() {
-        if (config('farnost-detva.guery_loging', false) and !Str::startsWith(request()->path(), '_debugbar')) {
+        if (config('farnost-detva.guery_loging', false) && !Str::startsWith(request()->path(), '_debugbar')) {
             $this->file_path = storage_path("logs\\".$this->file_name);
 
             File::delete($this->file_path);
@@ -74,9 +74,9 @@ class QueryLogService {
     private function grabFirstElementNonvendorCalls(): array {
         return head(Arr::where(
             debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS),
-            function ($trace) {
-                return isset($trace['file']) ? !str_contains($trace['file'], 'vendor') : false;
-            }
+            fn($trace) => isset($trace['file'])
+                            ? !str_contains((string) $trace['file'], 'vendor')
+                            : false
         ));
     }
 
@@ -89,10 +89,11 @@ class QueryLogService {
                     subject: $query->sql
                 ),
                 values: collect($query->bindings)
-                            ->map(function ($binding) {
-                                return is_numeric($binding) ? $binding : "'{$binding}'";
-                            })
-                        ->toArray()
+                            ->map(fn($binding) => is_numeric($binding)
+                                    ? $binding
+                                    : "'{$binding}'"
+                            )
+                            ->toArray()
             );
     }
 
@@ -103,7 +104,7 @@ class QueryLogService {
 
         $this->writeLineToQueryLogFile(str_repeat("-", 100) . PHP_EOL);
 
-        if (isset($this->final['queries']) and is_array($this->final['queries'])) {
+        if (isset($this->final['queries']) && is_array($this->final['queries'])) {
             foreach ($this->final['queries'] as $q) {
                 foreach ($q as $key => $val) {
                     if (is_array($val)) {

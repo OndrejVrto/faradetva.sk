@@ -11,8 +11,8 @@ class QueueCheckJob implements ShouldQueue {
     use Queueable;
 
     public function __construct(
-        private string $key,
-        private string $value,
+        private readonly string $key,
+        private readonly string $value,
     ) {
     }
 

@@ -23,22 +23,20 @@ class Faq extends Component {
         if ($listOfFaqs) {
             $cacheName = getCacheName($listOfFaqs);
 
-            $this->faqs = Cache::rememberForever('FAQ_'.$cacheName, function () use ($listOfFaqs): array {
-                return FaqModel::query()
+            $this->faqs = Cache::rememberForever('FAQ_'.$cacheName,
+                fn(): array => FaqModel::query()
                     ->select(['id', 'question', 'answer'])
                     ->whereIn('slug', $listOfFaqs)
                     ->orderBy('order')
                     ->get()
-                    ->map(function (FaqModel $faq): array {
-                        return [
-                            'id'           => $faq->id,
-                            'question'     => $faq->question,
-                            'answer-clean' => strval(Str::plainText($faq->answer)),
-                            'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
-                        ];
-                    })
-                    ->toArray();
-            });
+                    ->map(fn(FaqModel $faq): array => [
+                        'id'           => $faq->id,
+                        'question'     => $faq->question,
+                        'answer-clean' => strval(Str::plainText($faq->answer)),
+                        'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
+                    ])
+                    ->toArray()
+            );
         }
     }
 

@@ -10,13 +10,11 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Validation\Rule;
 
 class DateTimeAfterNow implements Rule {
-    private string $user_timezone;
-
-    public function __construct(string $timezone) {
-        $this->user_timezone = $timezone;
+    public function __construct(private readonly string $user_timezone)
+    {
     }
 
-    public function passes($attribute, $value) {
+    public function passes(mixed $attribute, mixed $value): bool {
         $app_timezone = Config::get('app.timezone');
 
         $nowInApp = Carbon::now(new DateTimeZone($app_timezone));
@@ -26,7 +24,7 @@ class DateTimeAfterNow implements Rule {
         return $valueFromTZ->greaterThanOrEqualTo($nowInApp);
     }
 
-    public function message() {
+    public function message(): string|array {
         return 'Zvolený čas musí byť v "budúcnosti".';
     }
 }

@@ -51,7 +51,9 @@ class Handler extends ExceptionHandler {
      */
     public function report(Throwable $e) {
         // Some exceptions don't have a message
-        $exception_message = (!empty($e->getMessage()) ? trim($e->getMessage()) : 'App Error Exception');
+        $exception_message = empty($e->getMessage())
+                                ? 'App Error Exception'
+                                : trim($e->getMessage());
         // Log message
         $log_message = '['.$e->getCode().'] "'.$exception_message.'" on line ['.$e->getLine().'] of file "'.$e->getFile().'"';
 

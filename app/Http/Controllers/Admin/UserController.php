@@ -116,7 +116,7 @@ class UserController extends Controller {
     }
 
     public function destroy(User $user): RedirectResponse {
-        if ($user->id == 1 or $user->id == 2) {
+        if ($user->id == 1 || $user->id == 2) {
             toastr()->error(strval(__('app.user.delete-error', ['name'=> $user->name])));
         } elseif ($user->id == auth()->user()->id) {
             toastr()->error(strval(strval(__('app.user.delete-self'))));

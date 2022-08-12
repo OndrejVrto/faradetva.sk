@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Cache;
 class Notice extends Component {
     public array $notices;
 
-    private string $model;
+    private readonly string $model;
 
     private const NAMESPACE = '\\App\\Models\\';
 
@@ -47,20 +47,18 @@ class Notice extends Component {
 
     private function getNotice(string $fullModel): array {
         $cacheName = Str::of($this->model)->kebab();
-        return Cache::rememberForever('NOTICE_'.$cacheName, function () use ($fullModel): array {
-            return  $fullModel::query()
+        return Cache::rememberForever('NOTICE_'.$cacheName,
+            fn(): array => $fullModel::query()
                 ->visible()
                 ->with('media')
                 ->limit(0)
                 ->get()
-                ->map(function ($notice): array {
-                    return [
-                        'id'    => $notice->id,
-                        'title' => $notice->title,
-                        'url'   => $notice->getFirstMedia('notice_pdf')->getFullUrl(),
-                    ];
-                })
-                ->toArray();
-        });
+                ->map(fn($notice): array => [
+                    'id'    => $notice->id,
+                    'title' => $notice->title,
+                    'url'   => $notice->getFirstMedia('notice_pdf')->getFullUrl(),
+                ])
+                ->toArray()
+        );
     }
 }

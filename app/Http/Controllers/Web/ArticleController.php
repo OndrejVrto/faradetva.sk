@@ -22,6 +22,8 @@ use App\Services\SEO\SetSeoPropertiesService;
 // TODO:  refactor Title in all methods to View::composer
 
 class ArticleController extends Controller {
+    private const ViewNameINDEX = 'web.article.index';
+
     public function show(string $slug): View|Factory {
         $oneNews = Cache::rememberForever('ONE_NEWS_'.Str::slug($slug), function () use ($slug) {
             return News::query()
@@ -94,7 +96,7 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view('web.article.index', compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexAuthor(string $userSlug): View|Factory {
@@ -111,7 +113,7 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view('web.article.index', compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexCategory(string $categorySlug): View|Factory {
@@ -128,7 +130,7 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view('web.article.index', compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexDate(int $year): View|Factory {
@@ -143,7 +145,7 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view('web.article.index', compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexTag(string $tagSlug): View|Factory {
@@ -160,7 +162,7 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view('web.article.index', compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexSearch(string $search = null): View|Factory|RedirectResponse {
@@ -174,7 +176,7 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view('web.article.index', compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     private function seoIndex(): void {

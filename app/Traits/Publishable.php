@@ -29,8 +29,8 @@ trait Publishable {
 
     public function getVisibleAttribute(): bool {
         return  $this->active
-            and ($this->published_at <= now() or is_null($this->published_at))
-            and ($this->unpublished_at > now() or is_null($this->unpublished_at));
+            && ($this->published_at <= now() || is_null($this->published_at))
+            && ($this->unpublished_at > now() || is_null($this->unpublished_at));
     }
 
     public function getPublishedAtAttribute(?string $value): string|false|null {

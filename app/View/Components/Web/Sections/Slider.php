@@ -38,14 +38,14 @@ class Slider extends Component {
             ->get();
 
         foreach ($randomSliders as $oneSlider) {
-            $slider[] = Cache::rememberForever('PICTURE_SLIDER_'.$oneSlider->id, function () use ($oneSlider): ?array {
-                return SliderModel::query()
-                        ->whereId($oneSlider->id)
-                        ->with('media', 'source')
-                        ->get()
-                        ->map(fn ($e) => $this->mapOutput($e))
-                        ->first();
-            });
+            $slider[] = Cache::rememberForever('PICTURE_SLIDER_'.$oneSlider->id,
+                fn(): ?array => SliderModel::query()
+                    ->whereId($oneSlider->id)
+                    ->with('media', 'source')
+                    ->get()
+                    ->map(fn ($slider) => $this->mapOutput($slider))
+                    ->first()
+            );
         }
 
         return $slider ?? null;

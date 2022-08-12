@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider {
      *
      * @var string
      */
-    public const HOME = '/admin/dashboard';
+    final public const HOME = '/admin/dashboard';
 
     /**
      * The controller namespace for the application.
@@ -67,15 +67,9 @@ class RouteServiceProvider extends ServiceProvider {
                 ]);
         });
 
-        Route::bind('notice-acolyte', function ($value) {
-            return NoticeAcolyte::whereSlug($value)->firstOrFail();
-        });
-        Route::bind('notice-church', function ($value) {
-            return NoticeChurch::whereSlug($value)->firstOrFail();
-        });
-        Route::bind('notice-lecturer', function ($value) {
-            return NoticeLecturer::whereSlug($value)->firstOrFail();
-        });
+        Route::bind('notice-church', fn($val) => NoticeChurch::whereSlug($val)->firstOrFail());
+        Route::bind('notice-acolyte', fn($val) => NoticeAcolyte::whereSlug($val)->firstOrFail());
+        Route::bind('notice-lecturer', fn($val) => NoticeLecturer::whereSlug($val)->firstOrFail());
     }
 
     /**
@@ -84,8 +78,9 @@ class RouteServiceProvider extends ServiceProvider {
      * @return void
      */
     protected function configureRateLimiting() {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
-        });
+        RateLimiter::for('api',
+            fn(Request $request)
+                => Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip())
+        );
     }
 }

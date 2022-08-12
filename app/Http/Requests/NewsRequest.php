@@ -58,7 +58,12 @@ class NewsRequest extends BaseRequest {
             'slug'  => Str::slug($this->title)
         ]);
 
-        is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s', strtotime($this->published_at))]);
-        is_null($this->unpublished_at) ?: $this->merge(['unpublished_at' => date('Y-m-d H:i:s', strtotime($this->unpublished_at))]);
+        is_null($this->published_at) ?: $this->merge([
+            'published_at' => date('Y-m-d H:i:s', strtotime((string) $this->published_at))
+        ]);
+
+        is_null($this->unpublished_at) ?: $this->merge([
+            'unpublished_at' => date('Y-m-d H:i:s', strtotime((string) $this->unpublished_at))
+        ]);
     }
 }

@@ -33,9 +33,9 @@ class SubscribeForm extends Component {
 
     public function mount(string $modelName, bool|string|int|null $section = false): void {
         $className = "App\\Models\\".$modelName;
-        $this->type = $section ? true : false;
+        $this->type = (bool) $section;
 
-        if ($modelName and class_exists($className, false)) {
+        if ($modelName && class_exists($className, false)) {
             $this->model = $className;
         };
     }

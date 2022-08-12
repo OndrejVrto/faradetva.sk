@@ -14,16 +14,16 @@ class LastArticle extends Component {
     public Collection $lastArticles;
 
     public function __construct(
-        private ?int $count = 3
+        private readonly ?int $count = 3
     ) {
-        $this->lastArticles = Cache::rememberForever('LAST_ARTICLES', function (): Collection {
-            return  News::query()
-                        ->visible()
-                        ->with('media', 'source', 'category', 'user')
-                        ->latest()
-                        ->take($this->count)
-                        ->get();
-        });
+        $this->lastArticles = Cache::rememberForever('LAST_ARTICLES',
+            fn(): Collection => News::query()
+                ->visible()
+                ->with('media', 'source', 'category', 'user')
+                ->latest()
+                ->take($this->count)
+                ->get()
+        );
     }
 
     public function render(): ?View {

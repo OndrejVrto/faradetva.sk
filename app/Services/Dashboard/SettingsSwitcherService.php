@@ -16,7 +16,7 @@ class SettingsSwitcherService {
     public ?string $secretKey = null;
 
     // private $config;
-    private Valuestore $checkbox;
+    private readonly Valuestore $checkbox;
 
     public function __construct() {
         // $this->config   = customConfig();
@@ -32,7 +32,7 @@ class SettingsSwitcherService {
         Artisan::call(RunHealthChecksCommand::class, ['--quiet' => true, '--no-interaction' => true]);
     }
 
-    public function run(string $command = null, bool $value): void {
+    public function run(bool $value, string $command = null): void {
         if (method_exists($this, $command)) {
             $this->$command($value);
         }
@@ -45,7 +45,7 @@ class SettingsSwitcherService {
         string $artisanFalse = null,
         string $artisanTrue = null
     ): void {
-        if ($require == boolval($this->checkbox->get($valueStore))) {
+        if ($require === boolval($this->checkbox->get($valueStore))) {
             return;
         }
 
@@ -98,7 +98,7 @@ class SettingsSwitcherService {
     }
 
     private function cache_global(bool $require): void {
-        if ($require == boolval($this->checkbox->get('cache_global'))) {
+        if ($require === boolval($this->checkbox->get('cache_global'))) {
             return;
         }
         if (false == $require) {
@@ -112,7 +112,7 @@ class SettingsSwitcherService {
     }
 
     private function app_enviroment_mode(bool $require): void {
-        if ($require == boolval($this->checkbox->get('app_enviroment_mode'))) {
+        if ($require === boolval($this->checkbox->get('app_enviroment_mode'))) {
             return;
         }
         if (false == $require) {
@@ -125,7 +125,7 @@ class SettingsSwitcherService {
     }
 
     private function cache_response(bool $require): void {
-        if ($require == boolval($this->checkbox->get('cache_response'))) {
+        if ($require === boolval($this->checkbox->get('cache_response'))) {
             return;
         }
         if (false == $require) {

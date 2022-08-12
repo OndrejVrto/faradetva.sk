@@ -74,10 +74,8 @@ class User extends Authenticatable implements HasMedia {
     }
 
     public function isAdmin(): bool {
-        return $this->roles->pluck('id')->contains(function ($value, $key) {
-            //* id1 = SuperAdmin, id2 = Admin,  id3 = Moderator
-            return $value <= 3;
-        });
+        //* id1 = SuperAdmin, id2 = Admin,  id3 = Moderator
+        return $this->roles->pluck('id')->contains(fn($val) => $val <= 3);
     }
 
     public function canBeImpersonated(): bool {
