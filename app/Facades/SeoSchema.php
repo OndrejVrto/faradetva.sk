@@ -8,6 +8,6 @@ use Illuminate\Support\Facades\Facade;
 
 class SeoSchema extends Facade {
     protected static function getFacadeAccessor(): string {
-        return 'seo-schema-org';
+        return 'seo-schema';
     }
 }

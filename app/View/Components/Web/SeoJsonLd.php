@@ -22,7 +22,7 @@ class SeoJsonLd extends Component {
     }
 
     public function render(): ?View {
-        return $this->jsonLd
+        return empty($this->jsonLd)
             ? null
             : view('components.web.seo-json-ld');
     }
