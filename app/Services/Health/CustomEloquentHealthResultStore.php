@@ -61,7 +61,7 @@ class CustomEloquentHealthResultStore implements ResultStore {
         $storedCheckResults = (static::determineHistoryItemModel())::query()
             ->where('batch', $latestItem->batch)
             ->get()
-            ->map(fn(HealthCheckResultHistoryItem $historyItem) => new StoredCheckResult(
+            ->map(fn (HealthCheckResultHistoryItem $historyItem) => new StoredCheckResult(
                 name: $historyItem->check_name,
                 label: $historyItem->check_label,
                 notificationMessage: $historyItem->notification_message,

@@ -38,8 +38,9 @@ class Slider extends Component {
             ->get();
 
         foreach ($randomSliders as $oneSlider) {
-            $slider[] = Cache::rememberForever('PICTURE_SLIDER_'.$oneSlider->id,
-                fn(): ?array => SliderModel::query()
+            $slider[] = Cache::rememberForever(
+                key: 'PICTURE_SLIDER_'.$oneSlider->id,
+                callback: fn (): ?array => SliderModel::query()
                     ->whereId($oneSlider->id)
                     ->with('media', 'source')
                     ->get()

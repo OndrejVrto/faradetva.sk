@@ -20,8 +20,9 @@ class StatisticsGraph extends Component {
         if ($listOfGraphs) {
             $cacheName = getCacheName($listOfGraphs);
 
-            $this->graphs = Cache::rememberForever('CHART_'.$cacheName,
-                fn(): array => Chart::query()
+            $this->graphs = Cache::rememberForever(
+                key: 'CHART_'.$cacheName,
+                callback: fn (): array => Chart::query()
                     ->whereIn('slug', $listOfGraphs)
                     ->with('data')
                     ->get()

@@ -47,13 +47,14 @@ class Notice extends Component {
 
     private function getNotice(string $fullModel): array {
         $cacheName = Str::of($this->model)->kebab();
-        return Cache::rememberForever('NOTICE_'.$cacheName,
-            fn(): array => $fullModel::query()
+        return Cache::rememberForever(
+            key: 'NOTICE_'.$cacheName,
+            callback: fn (): array => $fullModel::query()
                 ->visible()
                 ->with('media')
                 ->limit(0)
                 ->get()
-                ->map(fn($notice): array => [
+                ->map(fn ($notice): array => [
                     'id'    => $notice->id,
                     'title' => $notice->title,
                     'url'   => $notice->getFirstMedia('notice_pdf')->getFullUrl(),

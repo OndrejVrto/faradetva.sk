@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Validation\Rule;
 
 class DateTimeAfterNow implements Rule {
-    public function __construct(private readonly string $user_timezone)
-    {
+    public function __construct(private readonly string $user_timezone) {
     }
 
     public function passes(mixed $attribute, mixed $value): bool {

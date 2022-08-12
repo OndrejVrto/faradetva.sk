@@ -16,7 +16,7 @@ class DayIdea extends Component {
             ->inRandomOrder()
             ->limit(1)
             ->get()
-            ->map(fn(ModelsDayIdea $idea): array => [
+            ->map(fn (ModelsDayIdea $idea): array => [
                 'id'     => $idea->id,
                 'idea'   => $idea->idea,
                 'author' => $idea->author,

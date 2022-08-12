@@ -28,11 +28,11 @@ trait DataFormater {
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
         $filename = mb_strcut(
-                        string: pathinfo($filename, PATHINFO_FILENAME),
-                        start: 0,
-                        lenght: 255 - ($ext !== '' && $ext !== '0' ? strlen($ext) + 1 : 0),
-                        encoding: mb_detect_encoding($filename)
-                    );
+            string: pathinfo($filename, PATHINFO_FILENAME),
+            start: 0,
+            lenght: 255 - ($ext !== '' && $ext !== '0' ? strlen($ext) + 1 : 0),
+            encoding: mb_detect_encoding($filename)
+        );
         return $filename . $ext !== '' && $ext !== '0' ? '.' . $ext : '';
     }
 

@@ -77,8 +77,7 @@ class Picture extends Component {
     }
 
 
-    private function solveColumns(int $columns, int $maxColumns = 7): array
-    {
+    private function solveColumns(int $columns, int $maxColumns = 7): array {
         return [
             'maxXXL' => $this->cropValue($columns + 0, $maxColumns),
             'maxXL'  => $this->cropValue($columns + 1, $maxColumns),
@@ -99,8 +98,9 @@ class Picture extends Component {
     }
 
     private function getPicture(string $slug): ?array {
-        return Cache::rememberForever('PICTURE_'.$slug,
-            fn(): ?array => PictureModel::query()
+        return Cache::rememberForever(
+            key: 'PICTURE_'.$slug,
+            callback: fn (): ?array => PictureModel::query()
                 ->whereSlug($slug)
                 ->with('mediaOne', 'source')
                 ->get()

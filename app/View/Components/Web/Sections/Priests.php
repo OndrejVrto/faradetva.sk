@@ -29,8 +29,9 @@ class Priests extends Component {
     }
 
     private function getPriests(): array {
-        return Cache::rememberForever('PRIESTS',
-            fn(): array => PriestModel::query()
+        return Cache::rememberForever(
+            key: 'PRIESTS',
+            callback: fn (): array => PriestModel::query()
                 ->whereActive(1)
                 ->with('media')
                 ->get()

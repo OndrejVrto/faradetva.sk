@@ -24,8 +24,9 @@ class Skills extends Component {
     }
 
     private function getSkills(): array {
-        return Cache::rememberForever('SKILLS',
-            fn(): array => [
+        return Cache::rememberForever(
+            key: 'SKILLS',
+            callback: fn (): array => [
                 'news'         => News::whereNotified(1)->withTrashed()->count(),
                 'notices'      => Notice::whereNotified(1)->withTrashed()->count(),
                 'testimonials' => Testimonial::whereActive(1)->count(),

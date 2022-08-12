@@ -67,9 +67,9 @@ class RouteServiceProvider extends ServiceProvider {
                 ]);
         });
 
-        Route::bind('notice-church', fn($val) => NoticeChurch::whereSlug($val)->firstOrFail());
-        Route::bind('notice-acolyte', fn($val) => NoticeAcolyte::whereSlug($val)->firstOrFail());
-        Route::bind('notice-lecturer', fn($val) => NoticeLecturer::whereSlug($val)->firstOrFail());
+        Route::bind('notice-church', fn ($val) => NoticeChurch::whereSlug($val)->firstOrFail());
+        Route::bind('notice-acolyte', fn ($val) => NoticeAcolyte::whereSlug($val)->firstOrFail());
+        Route::bind('notice-lecturer', fn ($val) => NoticeLecturer::whereSlug($val)->firstOrFail());
     }
 
     /**
@@ -78,9 +78,13 @@ class RouteServiceProvider extends ServiceProvider {
      * @return void
      */
     protected function configureRateLimiting() {
-        RateLimiter::for('api',
-            fn(Request $request)
-                => Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip())
+        RateLimiter::for(
+            name: 'api',
+            callback: fn (Request $request) => Limit::perMinute(60)
+                                                    ->by(
+                                                        optional($request->user())->id
+                                                        ?: $request->ip()
+                                                    )
         );
     }
 }

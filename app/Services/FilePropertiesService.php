@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Collection;
 class FilePropertiesService {
     public function allFileData(Collection|array $eloquentCollection): array {
         return collect($eloquentCollection)
-                ->map(fn($file) => $this->getFileItemProperties($file))
+                ->map(fn ($file) => $this->getFileItemProperties($file))
                 ->toArray();
     }
 
     public function allNewsAttachmentData(News $model): array {
         return collect($model->getMedia($model->collectionDocument))
-                ->map(fn($item) => [
+                ->map(fn ($item) => [
                     'id'                => $item->id,
                     'mime_type'         => $item->mime_type,
                     'icon'              => $this->getFileIcon($item->mime_type),

@@ -16,7 +16,7 @@ class ChunkPermissionService {
     }
 
     private static function chunkByAlpha(EloquentCollection $collection): Collection {
-        return $collection->mapToGroups(fn($item): array => self::isAlpha(strval($item->name[0]))
+        return $collection->mapToGroups(fn ($item): array => self::isAlpha(strval($item->name[0]))
                     ? [strtoupper(strval($item->name[0])) => $item]
                     : ['#' => $item]);
     }

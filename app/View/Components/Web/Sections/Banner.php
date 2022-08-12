@@ -41,14 +41,15 @@ class Banner extends Component {
         // Get one ramdom slider
         $oneBanner = BannerModel::query()
             ->select('slug')
-            ->when($slugs, fn($query) => $query->whereIn('slug', $slugs))
+            ->when($slugs, fn ($query) => $query->whereIn('slug', $slugs))
             ->inRandomOrder()
             ->limit(1)
             ->first();
 
         // Get all data Slider to Cache
-        return Cache::rememberForever('PICTURE_BANNER_'.$oneBanner->slug,
-            fn(): ?array => BannerModel::query()
+        return Cache::rememberForever(
+            key: 'PICTURE_BANNER_'.$oneBanner->slug,
+            callback: fn (): ?array => BannerModel::query()
                 ->whereSlug($oneBanner->slug)
                 ->with('media', 'source')
                 ->get()
@@ -102,8 +103,8 @@ class Banner extends Component {
 
         return [Str::of($namesBanners)
             ->explode(',')
-            ->map(fn($namesBanners) => trim((string) $namesBanners))
+            ->map(fn ($namesBanners) => trim((string) $namesBanners))
             ->whereNotNull()
-            ->filter(fn($namesBanners) => $namesBanners != '')];
+            ->filter(fn ($namesBanners) => $namesBanners != '')];
     }
 }

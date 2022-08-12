@@ -23,13 +23,14 @@ class Faq extends Component {
         if ($listOfFaqs) {
             $cacheName = getCacheName($listOfFaqs);
 
-            $this->faqs = Cache::rememberForever('FAQ_'.$cacheName,
-                fn(): array => FaqModel::query()
+            $this->faqs = Cache::rememberForever(
+                key: 'FAQ_'.$cacheName,
+                callback: fn (): array => FaqModel::query()
                     ->select(['id', 'question', 'answer'])
                     ->whereIn('slug', $listOfFaqs)
                     ->orderBy('order')
                     ->get()
-                    ->map(fn(FaqModel $faq): array => [
+                    ->map(fn (FaqModel $faq): array => [
                         'id'           => $faq->id,
                         'question'     => $faq->question,
                         'answer-clean' => strval(Str::plainText($faq->answer)),

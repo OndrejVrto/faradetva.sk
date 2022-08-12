@@ -21,8 +21,9 @@ class PictureResponsive extends Component {
         public int|null $descriptionCrop = null,
         public string|null $class = null,
     ) {
-        $this->picture = Cache::rememberForever('PICTURE_RESPONSIVE_'.$titleSlug,
-            fn(): ?array => PictureModel::query()
+        $this->picture = Cache::rememberForever(
+            key: 'PICTURE_RESPONSIVE_'.$titleSlug,
+            callback: fn (): ?array => PictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('mediaOne', 'source')
                 ->get()

@@ -25,36 +25,46 @@ class ArticleController extends Controller {
     private const ViewNameINDEX = 'web.article.index';
 
     public function show(string $slug): View|Factory {
-        $oneNews = Cache::rememberForever('ONE_NEWS_'.Str::slug($slug),
-            fn() => News::query()
+        $oneNews = Cache::rememberForever(
+            key: 'ONE_NEWS_'.Str::slug($slug),
+            callback: fn () => News::query()
                 ->visible()
                 ->whereSlug($slug)
                 ->with('media', 'source', 'category', 'tags', 'user')
-                ->firstOrFail());
+                ->firstOrFail()
+        );
 
-        $lastNews = Cache::rememberForever('NEWS_LAST',
-            fn() => News::query()
+        $lastNews = Cache::rememberForever(
+            key: 'NEWS_LAST',
+            callback: fn () => News::query()
                 ->visible()
                 ->take(3)
                 ->with('media')
-                ->get());
+                ->get()
+        );
 
-        $allCategories = Cache::rememberForever('CATEGORIES',
-            fn() => Category::query()
+        $allCategories = Cache::rememberForever(
+            key: 'CATEGORIES',
+            callback: fn () => Category::query()
                 ->withCount('news')
                 ->orderByRaw('news_count DESC')
                 ->get()
-                ->filter(fn($value) => $value->news_count > 0));
+                ->filter(fn ($value) => $value->news_count > 0)
+        );
 
-        $allTags = Cache::rememberForever('TAGS',
-            fn() => Tag::query()
+        $allTags = Cache::rememberForever(
+            key: 'TAGS',
+            callback: fn () => Tag::query()
                 ->withCount('news')
                 ->orderByRaw('news_count DESC')
                 ->get()
-                ->filter(fn($value) => $value->news_count > 0));
+                ->filter(fn ($value) => $value->news_count > 0)
+        );
 
-        $attachments = Cache::rememberForever('ATTACHMENTS_'.Str::slug($slug),
-            fn() => (new FilePropertiesService())->allNewsAttachmentData($oneNews));
+        $attachments = Cache::rememberForever(
+            key: 'ATTACHMENTS_'.Str::slug($slug),
+            callback: fn () => (new FilePropertiesService())->allNewsAttachmentData($oneNews)
+        );
 
         $breadCrumb = Breadcrumbs::render('article.show', true, $oneNews)->render();
 
@@ -78,22 +88,26 @@ class ArticleController extends Controller {
     }
 
     public function indexAll(): View {
-        $articles = Cache::rememberForever('NEWS_ALL_PAGE-' . request('page', 1), fn() => News::newsComplete());
+        $articles = Cache::rememberForever(
+            key: 'NEWS_ALL_PAGE-'.request('page', 1),
+            callback: fn () => News::newsComplete()
+        );
         $title = strval(__('frontend-texts.articles-title.all'));
         $breadCrumb = Breadcrumbs::render('articles.all', true)->render();
         $emptyTitle = ['name'=> 'V', 'value' => 'sekcii'];
 
         $this->seoIndex();
 
-        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexAuthor(string $userSlug): View|Factory {
-        $articles = Cache::rememberForever('NEWS_USER_'.$userSlug.'_PAGE-'.request('page', 1),
-            fn() => News::whereHas('user', function ($query) use ($userSlug) {
-                        $query->withTrashed()->whereSlug($userSlug);
-                    })
-                    ->newsComplete()
+        $articles = Cache::rememberForever(
+            key: 'NEWS_USER_'.$userSlug.'_PAGE-'.request('page', 1),
+            callback: fn () => News::whereHas('user', function ($query) use ($userSlug) {
+                $query->withTrashed()->whereSlug($userSlug);
+            })
+                                ->newsComplete()
         );
 
         $userName = User::withTrashed()->whereSlug($userSlug)->value('name');
@@ -103,15 +117,16 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexCategory(string $categorySlug): View|Factory {
-        $articles = Cache::rememberForever('NEWS_CATEGORY_'.$categorySlug.'_PAGE-' . request('page', 1),
-            fn() => News::whereHas('category', function ($query) use ($categorySlug) {
-                        $query->withTrashed()->whereSlug($categorySlug);
-                    })
-                    ->newsComplete()
+        $articles = Cache::rememberForever(
+            key: 'NEWS_CATEGORY_'.$categorySlug.'_PAGE-' . request('page', 1),
+            callback: fn () => News::whereHas('category', function ($query) use ($categorySlug) {
+                $query->withTrashed()->whereSlug($categorySlug);
+            })
+                                ->newsComplete()
         );
 
         $categoryName = Category::withTrashed()->whereSlug($categorySlug)->value('title');
@@ -121,12 +136,15 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexDate(int $year): View|Factory {
         $yearString = strval($year);
-        $articles = Cache::rememberForever('NEWS_YEAR_'.$yearString.'_PAGE-' . request('page', 1), fn() => News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete());
+        $articles = Cache::rememberForever(
+            key: 'NEWS_YEAR_'.$yearString.'_PAGE-'.request('page', 1),
+            callback: fn () => News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete()
+        );
 
         $title = strval(__('frontend-texts.articles-title.date')) . $yearString;
         $breadCrumb = Breadcrumbs::render('articles.date', true, $year, $year)->render();
@@ -134,15 +152,16 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexTag(string $tagSlug): View|Factory {
-        $articles = Cache::rememberForever('NEWS_TAG_'.$tagSlug.'_PAGE-' . request('page', 1),
-            fn() => News::whereHas('tags', function ($query) use ($tagSlug) {
-                        $query->withTrashed()->whereSlug($tagSlug);
-                    })
-                    ->newsComplete()
+        $articles = Cache::rememberForever(
+            key: 'NEWS_TAG_'.$tagSlug.'_PAGE-' . request('page', 1),
+            callback: fn () => News::whereHas('tags', function ($query) use ($tagSlug) {
+                $query->withTrashed()->whereSlug($tagSlug);
+            })
+                                ->newsComplete()
         );
 
         $tagName = Tag::withTrashed()->whereSlug($tagSlug)->value('title');
@@ -152,7 +171,7 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     public function indexSearch(string $search = null): View|Factory|RedirectResponse {
@@ -166,7 +185,7 @@ class ArticleController extends Controller {
 
         $this->seoIndex();
 
-        return view(Self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
+        return view(self::ViewNameINDEX, compact('articles', 'title', 'breadCrumb', 'emptyTitle'));
     }
 
     private function seoIndex(): void {

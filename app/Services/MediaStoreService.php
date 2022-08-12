@@ -16,7 +16,7 @@ class MediaStoreService {
 
             $model->clearMediaCollection($colectionName);
             $model->addMediaFromRequest($requestAttributte)
-                ->sanitizingFileName(fn($filename) => (isset($manualFileName) && !empty(trim($manualFileName)))
+                ->sanitizingFileName(fn ($filename) => (isset($manualFileName) && !empty(trim($manualFileName)))
                     ? $manualFileName.'.'.pathinfo((string) $filename, PATHINFO_EXTENSION)
                     : DataFormater::filterFilename($filename, true))
                 ->toMediaCollection($colectionName);

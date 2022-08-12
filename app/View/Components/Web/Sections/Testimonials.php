@@ -26,26 +26,30 @@ class Testimonials extends Component {
     }
 
     private function getTestimonials(): ?array {
-        return Cache::remember('TESTIMONIALS', now()->addHours(1), function (): array {
-            $countTestimonials = TestimonialModel::query()
-                ->whereActive(1)
-                ->count();
+        return Cache::remember(
+            key: 'TESTIMONIALS',
+            ttl: now()->addHours(1),
+            callback: function (): array {
+                $countTestimonials = TestimonialModel::query()
+                    ->whereActive(1)
+                    ->count();
 
-            return TestimonialModel::query()
-                ->whereActive(1)
-                ->with('media')
-                ->get()
-                ->shuffle()
-                ->random(min($countTestimonials, 3))
-                ->map(fn($data): array => [
-                    'id'          => $data->id,
-                    'name'        => $data->name,
-                    'function'    => $data->function,
-                    'description' => (new PurifiAutolinkService())->getCleanTextWithLinks($data->description),
-                    'url'         => $data->url,
-                    'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
-                ])
-                ->toArray();
-        });
+                return TestimonialModel::query()
+                    ->whereActive(1)
+                    ->with('media')
+                    ->get()
+                    ->shuffle()
+                    ->random(min($countTestimonials, 3))
+                    ->map(fn ($data): array => [
+                        'id'          => $data->id,
+                        'name'        => $data->name,
+                        'function'    => $data->function,
+                        'description' => (new PurifiAutolinkService())->getCleanTextWithLinks($data->description),
+                        'url'         => $data->url,
+                        'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
+                    ])
+                    ->toArray();
+            }
+        );
     }
 }

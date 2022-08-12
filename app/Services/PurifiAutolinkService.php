@@ -14,12 +14,12 @@ class PurifiAutolinkService {
             ? Purify::clean(
                 strval(Autolink::convert(
                     $text,
-                    fn($element) => new UrlElement(
-                        title: $element->getTitle(),
-                        url: $element->getUrl(),
-                        start: $element->getStart(),
-                        end: $element->getEnd(),
-                        attributes: ['class' => $class],
+                    fn ($element) => new UrlElement(
+                        title      : $element->getTitle(),
+                        url        : $element->getUrl(),
+                        start      : $element->getStart(),
+                        end        : $element->getEnd(),
+                        attributes : ['class' => $class],
                     )
                 ))
             )

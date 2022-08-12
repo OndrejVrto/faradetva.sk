@@ -74,7 +74,7 @@ class QueryLogService {
     private function grabFirstElementNonvendorCalls(): array {
         return head(Arr::where(
             debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS),
-            fn($trace) => isset($trace['file'])
+            fn ($trace) => isset($trace['file'])
                             ? !str_contains((string) $trace['file'], 'vendor')
                             : false
         ));
@@ -89,7 +89,8 @@ class QueryLogService {
                     subject: $query->sql
                 ),
                 values: collect($query->bindings)
-                            ->map(fn($binding) => is_numeric($binding)
+                            ->map(
+                                fn ($binding) => is_numeric($binding)
                                     ? $binding
                                     : "'{$binding}'"
                             )

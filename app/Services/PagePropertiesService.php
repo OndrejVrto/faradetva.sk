@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Cache;
 
 class PagePropertiesService {
     public static function virtualPageData(string $route): ?array {
-        $page = Cache::rememberForever('PAGE_VIRTUAL_'.Str::slug($route),
-            fn() => StaticPage::query()
+        $page = Cache::rememberForever(
+            key: 'PAGE_VIRTUAL_'.Str::slug($route),
+            callback: fn () => StaticPage::query()
                 ->where('route_name', $route)
                 ->with('picture', 'source', 'banners', 'faqs')
                 ->first()

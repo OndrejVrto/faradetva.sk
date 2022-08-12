@@ -31,17 +31,17 @@ class AppServiceProvider extends ServiceProvider {
             View::share('maintenanceMode', app()->isDownForMaintenance());
 
             //! Blade extensions
-            Blade::directive('datetime', fn($expression) => "<?php echo ($expression)->format('m/d/Y H:i'); ?>");
+            Blade::directive('datetime', fn ($expression) => "<?php echo ($expression)->format('m/d/Y H:i'); ?>");
 
             Str::macro('readDurationWords', function ($totalWords) {
                 $minutesToRead = round($totalWords / 210);  // Slovenčina: priemer 180-250 slov za minútu
                 return (int) max(1, $minutesToRead);
             });
 
-            Str::macro('readDurationText', fn(...$text) => Str::readDurationWords(str_word_count(implode(" ", $text))));
+            Str::macro('readDurationText', fn (...$text) => Str::readDurationWords(str_word_count(implode(" ", $text))));
 
             // Plain text from Html
-            Str::macro('plainText', fn(...$text) => trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", html_entity_decode(strip_tags(implode(" ", $text)))))));
+            Str::macro('plainText', fn (...$text) => trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", html_entity_decode(strip_tags(implode(" ", $text)))))));
 
             $this->app->singleton('SeoGraph', fn () => new Graph());
             $this->app->singleton('seo-schema-org', fn () => new CustomJsonLd(config('seotools.json-ld.defaults', [])));

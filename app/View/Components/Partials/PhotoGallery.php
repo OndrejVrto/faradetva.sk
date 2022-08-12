@@ -31,8 +31,9 @@ class PhotoGallery extends Component {
     }
 
     private function getGallery(string $slug): ?array {
-        return Cache::rememberForever('GALLERY_'.$slug,
-            fn(): ?array => Gallery::query()
+        return Cache::rememberForever(
+            key: 'GALLERY_'.$slug,
+            callback: fn (): ?array => Gallery::query()
                 ->whereSlug($slug)
                 ->with('media', 'source')
                 ->get()

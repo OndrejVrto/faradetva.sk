@@ -38,8 +38,9 @@ class Pray extends Component {
             ->first();
 
         // Get all data Prayer to Cache
-        return Cache::rememberForever('PICTURE_PRAYER_'.$onePrayer->slug,
-            fn(): ?array => Prayer::query()
+        return Cache::rememberForever(
+            key: 'PICTURE_PRAYER_'.$onePrayer->slug,
+            callback: fn (): ?array => Prayer::query()
                 ->whereSlug($onePrayer->slug)
                 ->with('media', 'source')
                 ->get()

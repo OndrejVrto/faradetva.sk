@@ -16,8 +16,9 @@ class LastArticle extends Component {
     public function __construct(
         private readonly ?int $count = 3
     ) {
-        $this->lastArticles = Cache::rememberForever('LAST_ARTICLES',
-            fn(): Collection => News::query()
+        $this->lastArticles = Cache::rememberForever(
+            key: 'LAST_ARTICLES',
+            callback: fn (): Collection => News::query()
                 ->visible()
                 ->with('media', 'source', 'category', 'user')
                 ->latest()
