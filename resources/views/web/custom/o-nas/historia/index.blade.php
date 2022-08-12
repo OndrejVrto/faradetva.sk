@@ -16,7 +16,7 @@
                         <p class="text-justify">
                             Podpoľanie je oblasť situovaná na južných a juhovýchodných svahoch najvyššieho sopečného pohoria na Slovensku - Poľany, územie na rozhraní medzi Slovenským rudohorím a Slovenským stredohorím. Roztratené osídlenie po svahoch nečinného vulkánu predstavuje špecifiká, ktoré výrazne ovplyvňovali život miestnych obyvateľov. Táto rozsiahla časť Zvolenskej kotliny dostala svoj rázovitý charakter vďaka kopaničiarskej kolonizácii 17. storočia. Centrom tejto kolonizácie na území Vígľašského panstva sa stala Detva, ktorá bola založená priamo na podnet svojho zemepána. Sťahovali sa sem obyvatelia okolitých dedín, klčovali lesy na okolí majera a stavali si domy. Farnosť v Detve bola oficiálne zriadená v roku 1644.
                         </p>
-                        <a href="{{ secure_url('o-nas/historia/dejiny-farnosti') }}" class="about_btn read_btn">Čítať ďalej</a>
+                        <a href="{{ secure_url('o-nas/historia/dejiny-farnosti-detva') }}" class="about_btn read_btn">Čítať ďalej</a>
                     </div>
                 </div>
             </div>

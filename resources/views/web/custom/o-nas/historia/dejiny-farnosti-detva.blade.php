@@ -5,12 +5,20 @@
     <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
 
     <x-web.page.subsection>
+
+        <x-partials.picture titleSlug="dejf-059" side="left" columns="3" />
+        <x-partials.picture titleSlug="dejf-002" side="right" columns="3" data-wow-delay="0.4s"/>
+
+
         <x-web.page.text-segment animation="fromright">
             <p>
                 Podpoľanie je oblasť situovaná na južných a juhovýchodných svahoch najvyššieho sopečného pohoria na Slovensku - Poľany, územie na rozhraní medzi Slovenským rudohorím a Slovenským stredohorím. Roztratené osídlenie po svahoch nečinného vulkánu predstavuje špecifiká, ktoré výrazne ovplyvňovali život miestnych obyvateľov. Táto rozsiahla časť Zvolenskej kotliny dostala svoj rázovitý charakter vďaka kopaničiarskej kolonizácii 17. storočia. Do oblasti Podpoľania patrili už stredoveké sídla Očová a Zvolenská Slatina so sídlom hradného panstva v dedine Vígľaš a na severovýchodnej strane Poľany obce Hrochoť a Čerín.
             </p>
         </x-web.page.text-segment>
+
+
         <x-web.page.text-segment animation="fromleft">
+
             <p>
                 V prvej polovici 17. storočia sa napriek neustálemu tureckému nebezpečenstvu začalo vplyvom kopaničiarskej kolonizácie rozvíjať roztratené osídlenie na území Vígľašského panstva. Na východ od hradu Vígľaš sa v tom čase nenachádzalo trvalé sídlo, hoci obyvatelia panstva toto územie už dobre poznali a hospodársky využívali. V horských a podhorských oblastiach Podpoľania postupne vznikali dočasné obydlia a hospodárske stavby. Postupom času sa tieto sezónne hospodárstva stali základom trvalých kopaničiarskych sídlisk. Centrom kopaničiarskej kolonizácie na území Vígľašského panstva sa stala Detva, ktorá bola založená priamo na podnet svojho zemepána Csákyho. Na jeho podnet sa sem sťahovali obyvatelia okolitých dedín, klčovali lesy na okolí majera a stavali si domy.
             </p>
