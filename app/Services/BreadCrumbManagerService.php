@@ -21,7 +21,7 @@ class BreadCrumbManagerService extends Manager {
      *                                                                 have an associated name.
      * @throws \Diglactic\Breadcrumbs\Exceptions\ViewNotSetException if no view has been set.
      */
-    public function render(?string $name = null, $frontend = false, ...$params): View {
+    public function render(?string $name = null, mixed $frontend = false, mixed ...$params): View {
         $view = $frontend ? config('breadcrumbs.view-frontend') : config('breadcrumbs.view');
 
         if (!$view) {

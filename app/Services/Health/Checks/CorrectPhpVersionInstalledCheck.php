@@ -22,7 +22,7 @@ class CorrectPhpVersionInstalledCheck extends Check {
 
         try {
             $requiredVersion = $this->getRequiredPhpConstraint();
-        } catch (FileNotFoundException $e) {
+        } catch (FileNotFoundException) {
             return $result->failed("$name.crash_composer");
         }
 
@@ -41,7 +41,7 @@ class CorrectPhpVersionInstalledCheck extends Check {
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function getRequiredPhpConstraint() {
-        $composer = json_decode((new Filesystem())->get(base_path('composer.json')), true);
+        $composer = json_decode((new Filesystem())->get(base_path('composer.json')), true, 512, JSON_THROW_ON_ERROR);
 
         return Arr::get($composer, 'require.php');
     }

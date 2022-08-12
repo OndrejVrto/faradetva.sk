@@ -56,7 +56,7 @@ class MeiliSearchCheck extends Check {
             return Result::make()
                 ->failed("$name.available")
                 ->shortSummary("$name.available-short")
-                ->meta(['status' => ucfirst($status)]);
+                ->meta(['status' => ucfirst(strval($status))]);
         }
 
         return Result::make()

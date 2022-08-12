@@ -29,7 +29,7 @@ class CustomEloquentHealthResultStore implements ResultStore {
     }
 
     /** @return HealthCheckResultHistoryItem|object */
-    public static function getHistoryItemInstance() {
+    public static function getHistoryItemInstance(): HealthCheckResultHistoryItem {
         $historyItemClassName = static::determineHistoryItemModel();
 
         return new $historyItemClassName();
@@ -61,16 +61,14 @@ class CustomEloquentHealthResultStore implements ResultStore {
         $storedCheckResults = (static::determineHistoryItemModel())::query()
             ->where('batch', $latestItem->batch)
             ->get()
-            ->map(function (HealthCheckResultHistoryItem $historyItem) {
-                return new StoredCheckResult(
-                    name: $historyItem->check_name,
-                    label: $historyItem->check_label,
-                    notificationMessage: $historyItem->notification_message,
-                    shortSummary: $historyItem->short_summary,
-                    status: $historyItem->status,
-                    meta: $historyItem->meta + ['eol' => '<br>'],
-                );
-            });
+            ->map(fn(HealthCheckResultHistoryItem $historyItem) => new StoredCheckResult(
+                name: $historyItem->check_name,
+                label: $historyItem->check_label,
+                notificationMessage: $historyItem->notification_message,
+                shortSummary: $historyItem->short_summary,
+                status: $historyItem->status,
+                meta: $historyItem->meta + ['eol' => '<br>'],
+            ));
 
         return new StoredCheckResults(
             finishedAt: $latestItem->created_at,
@@ -79,6 +77,6 @@ class CustomEloquentHealthResultStore implements ResultStore {
     }
 
     private function getTranslatadedShortSummary(string $shortSummary, string $status): string {
-        return !empty($shortSummary) ? $shortSummary : "health-results.".Str::lower($status);
+        return empty($shortSummary) ? "health-results.".Str::lower($status) : $shortSummary;
     }
 }

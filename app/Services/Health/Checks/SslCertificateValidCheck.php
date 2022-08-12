@@ -34,8 +34,6 @@ class SslCertificateValidCheck extends Check {
     protected int $errorThreshold = 14;
 
     /**
-     * @param int $day
-     *
      * @return $this
      */
     public function warnWhenSslCertificationExpiringDay(int $day): self {
@@ -45,8 +43,6 @@ class SslCertificateValidCheck extends Check {
     }
 
     /**
-     * @param int $day
-     *
      * @return $this
      */
     public function failWhenSslCertificationExpiringDay(int $day): self {
@@ -56,8 +52,6 @@ class SslCertificateValidCheck extends Check {
     }
 
     /**
-     * @param string $url
-     *
      * @return $this
      */
     public function url(string $url): self {
@@ -68,9 +62,6 @@ class SslCertificateValidCheck extends Check {
 
     /**
      * Perform the actual verification of this check.
-     *
-     * @param array $config
-     * @return bool
      */
     public function check(array $config): bool {
         if ($this->url == null) {
@@ -85,24 +76,19 @@ class SslCertificateValidCheck extends Check {
 
         try {
             $this->certificateInfo = $this->downloadCertificate($urlParts);
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return false;
         }
 
         $this->processCertificate($this->certificateInfo);
-
-        if (
-            $this->certificateDaysUntilExpiration < 0 ||
-            !$this->hostCoveredByCertificate(
-                $urlParts['host'],
-                $this->certificateDomain,
-                $this->certificateAdditionalDomains
-            )
-        ) {
-            return false;
-        }
-
-        return true;
+        return
+            $this->certificateDaysUntilExpiration >= 0
+            &&
+            $this->hostCoveredByCertificate(
+                host: $urlParts['host'],
+                certificateHost: $this->certificateDomain,
+                certificateAdditionalDomains: $this->certificateAdditionalDomains
+            );
     }
 
     public function run(): Result {
@@ -122,7 +108,7 @@ class SslCertificateValidCheck extends Check {
 
         try {
             $this->certificateInfo = $this->downloadCertificate($urlParts);
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return $result->failed("$name.failed_certificate_non_exist")->meta([
                 'url' => $this->url,
             ]);
@@ -191,7 +177,7 @@ class SslCertificateValidCheck extends Check {
 
         if (!empty($certificateInfo['extensions']) && !empty($certificateInfo['extensions']['subjectAltName'])) {
             $this->certificateAdditionalDomains = [];
-            $domains = explode(', ', $certificateInfo['extensions']['subjectAltName']);
+            $domains = explode(', ', (string) $certificateInfo['extensions']['subjectAltName']);
 
             foreach ($domains as $domain) {
                 $this->certificateAdditionalDomains[] = str_replace('DNS:', '', $domain);
@@ -200,7 +186,7 @@ class SslCertificateValidCheck extends Check {
     }
 
     public function hostCoveredByCertificate(string $host, string $certificateHost, array $certificateAdditionalDomains = []): bool {
-        if ($host == $certificateHost) {
+        if ($host === $certificateHost) {
             return true;
         }
 
@@ -208,7 +194,7 @@ class SslCertificateValidCheck extends Check {
         if ($certificateHost[0] == '*' && substr_count($host, '.') > 1) {
             $certificateHost = substr($certificateHost, 1);
             $host = substr($host, strpos($host, '.'));
-            return $certificateHost == $host;
+            return $certificateHost === $host;
         }
 
         // Determine if the host domain is in the certificate's additional domains

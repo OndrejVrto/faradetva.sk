@@ -64,13 +64,13 @@ class UsedDiskSpaceCheck extends Check {
             $process = Process::fromShellCommandline('df -P .');
             $process->run();
             $output = $process->getOutput();
-        } catch (\Throwable $th) {
+        } catch (\Throwable) {
             try {
                 $drive = '.';
                 $this->freeDiskSpace  = disk_free_space($drive);
                 $this->totalDiskSpace = disk_total_space($drive);
                 $this->usedDiskSpace  = $this->freeDiskSpace ? $this->totalDiskSpace - $this->freeDiskSpace : 0;
-            } catch (\Throwable $th) {
+            } catch (\Throwable) {
                 return new Exception('Error loading free disk space.');
             }
             return $this->freeDiskSpace ? 100 - (round($this->freeDiskSpace / $this->totalDiskSpace, 2) * 100) : 0;
@@ -88,8 +88,8 @@ class UsedDiskSpaceCheck extends Check {
                 mode: ARRAY_FILTER_USE_BOTH
             )
         );
-        $this->totalDiskSpace = intval($data[1]) * 1024;
-        $this->usedDiskSpace  = intval($data[2]) * 1024;
-        $this->freeDiskSpace  = intval($data[3]) * 1024;
+        $this->totalDiskSpace = (int) $data[1] * 1024;
+        $this->usedDiskSpace  = (int) $data[2] * 1024;
+        $this->freeDiskSpace  = (int) $data[3] * 1024;
     }
 }

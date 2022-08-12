@@ -40,57 +40,38 @@ class BeautifyHtml {
 
 
 
-    private $pos;
-    private $token;
-    private $current_mode;
-    private $tags;
-    private $tag_type;
+    private int $pos = 0;
+    private string $token = '';
+    private string $current_mode = 'CONTENT';
+    private $tags = ['parent' => 'parent1', 'parentcount' => 1, 'parent1' => ''];
+    private string $tag_type = '';
     private $token_text;
     private $last_token;
     private $last_text;
     private $token_type;
-    private $newlines;
+    private int $newlines = 0;
     private $indent_content;
-    private $indent_level;
-    private $line_char_count;
+    private int $indent_level = 0;
+    private int $line_char_count = 0;
     private $indent_string;
 
-    private $whitespace = array("\n", "\r", "\t", " ");
+    private array $whitespace = ["\n", "\r", "\t", " "];
 
     //all the single tags for HTML
-    private $single_token = array(
-        'br', 'input', 'link', 'meta', '!doctype', 'basefont', 'base', 'area',
-        'hr', 'wbr', 'param', 'img', 'isindex', '?xml', 'embed', '?php', '?', '?=',
-    );
+    private array $single_token = ['br', 'input', 'link', 'meta', '!doctype', 'basefont', 'base', 'area', 'hr', 'wbr', 'param', 'img', 'isindex', '?xml', 'embed', '?php', '?', '?='];
 
     //for tags that need a line of whitespace before them
-    private $extra_liners = array('head', 'body', '/html');
+    private array $extra_liners = ['head', 'body', '/html'];
 
-    public function __construct($options = array(), $css_beautify = null, $js_beautify = null) {
+    public function __construct($options = [], $css_beautify = null, $js_beautify = null) {
         $this->set_options($options);
 
         $this->css_beautify = ($css_beautify && is_callable($css_beautify)) ? $css_beautify : false;
         $this->js_beautify = ($js_beautify && is_callable($js_beautify)) ? $js_beautify : false;
-
-        $this->pos = 0; //Parser position
-        $this->token = '';
-        $this->current_mode = 'CONTENT'; //reflects the current Parser mode: TAG/CONTENT
-
-        //An object to hold tags, their position, and their parent-tags, initiated with default values
-        $this->tags = array(
-            'parent' => 'parent1',
-            'parentcount' => 1,
-            'parent1' => '',
-        );
-
-        $this->tag_type = '';
         $this->token_text = $this->last_token = $this->last_text = $this->token_type = '';
-        $this->newlines = 0;
 
-        $this->indent_content = $this->options['indent_inner_html'];
-        $this->indent_level = 0;
-        $this->line_char_count = 0; //count to see if wrap_line_length was exceeded
-        $this->indent_string = str_repeat($this->options['indent_char'], $this->options['indent_size']);
+        $this->indent_content = $this->options['indent_inner_html']; //count to see if wrap_line_length was exceeded
+        $this->indent_string = str_repeat((string) $this->options['indent_char'], $this->options['indent_size']);
     }
 
     public function set_options($options) {
@@ -100,38 +81,22 @@ class BeautifyHtml {
             $this->options['indent_inner_html'] = false;
         }
 
-        if (isset($options['indent_size'])) {
-            $this->options['indent_size'] = (int) $options['indent_size'];
-        } else {
-            $this->options['indent_size'] = 4;
-        }
+        $this->options['indent_size'] = isset($options['indent_size']) ? (int) $options['indent_size'] : 4;
 
-        if (isset($options['indent_char'])) {
-            $this->options['indent_char'] = (string) $options['indent_char'];
-        } else {
-            $this->options['indent_char'] = ' ';
-        }
+        $this->options['indent_char'] = isset($options['indent_char']) ? (string) $options['indent_char'] : ' ';
 
-        if (isset($options['indent_scripts']) && in_array($options['indent_scripts'], array('keep', 'separate', 'normal'))) {
+        if (isset($options['indent_scripts']) && in_array($options['indent_scripts'], ['keep', 'separate', 'normal'])) {
             $this->options['indent_scripts'] = $options['indent_scripts'];
         } else {
             $this->options['indent_scripts'] = 'normal';
         }
 
-        if (isset($options['wrap_line_length'])) {
-            $this->options['wrap_line_length'] = (int) $options['wrap_line_length'];
-        } else {
-            $this->options['wrap_line_length'] = 32786;
-        }
+        $this->options['wrap_line_length'] = isset($options['wrap_line_length']) ? (int) $options['wrap_line_length'] : 32786;
 
         if (isset($options['unformatted']) && is_array($options['unformatted'])) {
             $this->options['unformatted'] = $options['unformatted'];
         } else {
-            $this->options['unformatted'] = array(
-                'a', 'span', 'bdo', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr',
-                'acronym', 'q', 'sub', 'sup', 'tt', 'i', 'b', 'big', 'small', 'u', 's', 'strike',
-                'font', 'ins', 'del', 'pre', 'address', 'dt', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-            );
+            $this->options['unformatted'] = ['a', 'span', 'bdo', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'q', 'sub', 'sup', 'tt', 'i', 'b', 'big', 'small', 'u', 's', 'strike', 'font', 'ins', 'del', 'pre', 'address', 'dt', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
         }
 
         if (isset($options['preserve_newlines'])) {
@@ -148,7 +113,7 @@ class BeautifyHtml {
     }
 
     private function traverse_whitespace() {
-        $input_char = isset($this->input[$this->pos]) ? $this->input[$this->pos] : '';
+        $input_char = $this->input[$this->pos] ?? '';
         if ($input_char && in_array($input_char, $this->whitespace)) {
             $this->newlines = 0;
             while ($input_char && in_array($input_char, $this->whitespace)) {
@@ -159,7 +124,7 @@ class BeautifyHtml {
                 }
 
                 $this->pos++;
-                $input_char = isset($this->input[$this->pos]) ? $this->input[$this->pos] : '';
+                $input_char = $this->input[$this->pos] ?? '';
             }
             return true;
         }
@@ -169,16 +134,16 @@ class BeautifyHtml {
     //function to capture regular content between tags
     private function get_content() {
         $input_char = '';
-        $content = array();
+        $content = [];
         $space = false; //if a space is needed
 
         while (isset($this->input[$this->pos]) && $this->input[$this->pos] !== '<') {
             if ($this->pos >= $this->input_length) {
-                return count($content) ? implode('', $content) : array('', 'TK_EOF');
+                return (is_countable($content) ? count($content) : 0) > 0 ? implode('', $content) : ['', 'TK_EOF'];
             }
 
             if ($this->traverse_whitespace()) {
-                if (count($content)) {
+                if ((is_countable($content) ? count($content) : 0) > 0) {
                     $space = true;
                 }
                 continue; //don't want to insert unnecessary space
@@ -201,23 +166,23 @@ class BeautifyHtml {
             $content[] = $input_char; //letter at-a-time (or string) inserted to an array
         }
 
-        return count($content) ? implode('', $content) : '';
+        return (is_countable($content) ? count($content) : 0) > 0 ? implode('', $content) : '';
     }
 
     //get the full content of a script or style to pass to js_beautify
     private function get_contents_to($name) {
         if ($this->pos === $this->input_length) {
-            return array('', 'TK_EOF');
+            return ['', 'TK_EOF'];
         }
         $input_char = '';
         $content = '';
 
-        $reg_array = array();
-        preg_match('#</' . preg_quote($name, '#') . '\\s*>#im', $this->input, $reg_array, PREG_OFFSET_CAPTURE, $this->pos);
-        $end_script = $reg_array ? ($reg_array[0][1]) : $this->input_length; //absolute end of script
+        $reg_array = [];
+        preg_match('#</' . preg_quote((string) $name, '#') . '\\s*>#im', (string) $this->input, $reg_array, PREG_OFFSET_CAPTURE, $this->pos);
+        $end_script = $reg_array !== [] ? ($reg_array[0][1]) : $this->input_length; //absolute end of script
 
         if ($this->pos < $end_script) { //get everything in between the script tags
-            $content = substr($this->input, $this->pos, max($end_script - $this->pos, 0));
+            $content = substr((string) $this->input, $this->pos, max($end_script - $this->pos, 0));
             $this->pos = $end_script;
         }
 
@@ -245,7 +210,7 @@ class BeautifyHtml {
                 if ($tag . $this->tags[$tag . 'count'] === $temp_parent) { //if this is it use it
                     break;
                 }
-                $temp_parent = isset($this->tags[$temp_parent . 'parent']) ? $this->tags[$temp_parent . 'parent'] : ''; //otherwise keep on climbing up the DOM Tree
+                $temp_parent = $this->tags[$temp_parent . 'parent'] ?? ''; //otherwise keep on climbing up the DOM Tree
             }
             if ($temp_parent) { //if we caught something
                 $this->indent_level = $this->tags[$tag . $this->tags[$tag . 'count']]; //set the indent_level accordingly
@@ -280,8 +245,9 @@ class BeautifyHtml {
 
     //function to get a full tag and parse its type
     private function get_tag($peek = false) {
+        $tag_start = null;
         $input_char = '';
-        $content = array();
+        $content = [];
         $comment = '';
         $space = false;
         // $tag_start;
@@ -296,7 +262,7 @@ class BeautifyHtml {
                     $this->pos = $orig_pos;
                     $this->line_char_count = $orig_line_char_count;
                 }
-                return count($content) ? implode('', $content) : array('', 'TK_EOF');
+                return (is_countable($content) ? count($content) : 0) > 0 ? implode('', $content) : ['', 'TK_EOF'];
             }
 
             $input_char = $this->input[$this->pos];
@@ -316,7 +282,7 @@ class BeautifyHtml {
                 $space = false;
             }
 
-            if (count($content) && $content[count($content) - 1] !== '=' && $input_char !== '>' && $space) {
+            if ((is_countable($content) ? count($content) : 0) && $content[(is_countable($content) ? count($content) : 0) - 1] !== '=' && $input_char !== '>' && $space) {
                 //no space after = or before >
                 if ($this->line_char_count >= $this->options['wrap_line_length']) {
                     $this->print_newline(false, $content);
@@ -339,18 +305,14 @@ class BeautifyHtml {
             if (isset($content[1]) && $content[1] === '!') { //if we're in a comment, do something special
                 // We treat all comments as literals, even more than preformatted tags
                 // we just look for the appropriate close tag
-                $content = array($this->get_comment($tag_start));
+                $content = [$this->get_comment($tag_start)];
                 break;
             }
         } while ($input_char !== '>');
 
         $tag_complete = implode('', $content);
 
-        if (strpos($tag_complete, ' ') !== false) { //if there's whitespace, thats where the tag name ends
-            $tag_index = strpos($tag_complete, ' ');
-        } else { //otherwise go with the tag ending
-            $tag_index = strpos($tag_complete, '>');
-        }
+        $tag_index = str_contains($tag_complete, ' ') ? strpos($tag_complete, ' ') : strpos($tag_complete, '>');
         if ($tag_complete[0] === '<') {
             $tag_offset = 1;
         } else {
@@ -417,7 +379,7 @@ class BeautifyHtml {
             }
             if (in_array($tag_check, $this->extra_liners)) { //check if this double needs an extra line
                 $this->print_newline(false, $this->output);
-                if (count($this->output) && $this->output[count($this->output) - 2] !== "\n") {
+                if ((is_countable($this->output) ? count($this->output) : 0) && $this->output[(is_countable($this->output) ? count($this->output) : 0) - 2] !== "\n") {
                     $this->print_newline(true, $this->output);
                 }
             }
@@ -447,22 +409,22 @@ class BeautifyHtml {
 
             // only need to check for the delimiter if the last chars match
             if ($comment[strlen($comment) - 1] === $delimiter[strlen($delimiter) - 1] &&
-                strpos($comment, $delimiter) !== false) {
+                str_contains($comment, $delimiter)) {
                 break;
             }
 
             // only need to search for custom delimiter for the first few characters
             if (!$matched && strlen($comment) < 10) {
-                if (strpos($comment, '<![if') === 0) { //peek for <![if conditional comment
+                if (str_starts_with($comment, '<![if')) { //peek for <![if conditional comment
                     $delimiter = '<![endif]>';
                     $matched = true;
-                } elseif (strpos($comment, '<![cdata[') === 0) { //if it's a <[cdata[ comment...
+                } elseif (str_starts_with($comment, '<![cdata[')) { //if it's a <[cdata[ comment...
                     $delimiter = ']]>';
                     $matched = true;
-                } elseif (strpos($comment, '<![') === 0) { // some other ![ comment? ...
+                } elseif (str_starts_with($comment, '<![')) { // some other ![ comment? ...
                     $delimiter = ']>';
                     $matched = true;
-                } elseif (strpos($comment, '<!--') === 0) { // <!-- comment ...
+                } elseif (str_starts_with($comment, '<!--')) { // <!-- comment ...
                     $delimiter = '-->';
                     $matched = true;
                 }
@@ -477,7 +439,7 @@ class BeautifyHtml {
 
     //function to return unformatted content in its entirety
     private function get_unformatted($delimiter, $orig_tag = false) {
-        if ($orig_tag && strpos(strtolower($orig_tag), $delimiter) !== false) {
+        if ($orig_tag && str_contains(strtolower((string) $orig_tag), (string) $delimiter)) {
             return '';
         }
 
@@ -523,15 +485,15 @@ class BeautifyHtml {
              */
 
             if (preg_match('/^data:image\/(bmp|gif|jpeg|png|svg\+xml|tiff|x-icon);base64$/', $content)) {
-                $content .= substr($this->input, $this->pos, strpos($this->input, $delimiter, $this->pos) - $this->pos);
+                $content .= substr((string) $this->input, $this->pos, strpos((string) $this->input, (string) $delimiter, $this->pos) - $this->pos);
 
-                $this->line_char_count = strpos($this->input, $delimiter, $this->pos) - $this->pos;
+                $this->line_char_count = strpos((string) $this->input, (string) $delimiter, $this->pos) - $this->pos;
 
-                $this->pos = strpos($this->input, $delimiter, $this->pos);
+                $this->pos = strpos((string) $this->input, (string) $delimiter, $this->pos);
 
                 continue;
             }
-        } while (strpos(strtolower($content), $delimiter, $min_index) === false);
+        } while (!str_contains(strtolower($content), (string) $delimiter));
 
         return $content;
     }
@@ -544,7 +506,7 @@ class BeautifyHtml {
             if (!is_string($token)) {
                 return $token;
             }
-            return array($token, 'TK_' . $type);
+            return [$token, 'TK_' . $type];
         }
         if ($this->current_mode === 'CONTENT') {
             $token = $this->get_content();
@@ -552,7 +514,7 @@ class BeautifyHtml {
             if (!is_string($token)) {
                 return $token;
             } else {
-                return array($token, 'TK_CONTENT');
+                return [$token, 'TK_CONTENT'];
             }
         }
 
@@ -563,7 +525,7 @@ class BeautifyHtml {
                 return $token;
             } else {
                 $tag_name_type = 'TK_TAG_' . $this->tag_type;
-                return array($token, $tag_name_type);
+                return [$token, $tag_name_type];
             }
         }
     }
@@ -583,7 +545,7 @@ class BeautifyHtml {
             return false;
         }
 
-        if (strtolower($tag_check) !== 'a' || !in_array('a', $this->options['unformatted'])) {
+        if (strtolower((string) $tag_check) !== 'a' || !in_array('a', $this->options['unformatted'])) {
             return true;
         }
 
@@ -591,9 +553,9 @@ class BeautifyHtml {
         $next_tag = $this->get_tag(true/* peek. */);
 
         // test next_tag to see if it is just html tag (no external content)
-        $matches = array();
-        preg_match('/^\s*<\s*\/?([a-z]*)\s*[^>]*>\s*$/', ($next_tag ? $next_tag : ""), $matches);
-        $tag = $matches ? $matches : null;
+        $matches = [];
+        preg_match('/^\s*<\s*\/?([a-z]*)\s*[^>]*>\s*$/', ((string) ($next_tag ?: "")), $matches);
+        $tag = $matches !== [] ? $matches : null;
 
         // if next_tag comes back but is not an isolated tag, then
         // let's treat the 'a' tag as having content
@@ -607,10 +569,10 @@ class BeautifyHtml {
 
     private function print_newline($force, &$arr) {
         $this->line_char_count = 0;
-        if (!$arr || !count($arr)) {
+        if (!$arr || !(is_countable($arr) ? count($arr) : 0)) {
             return;
         }
-        if ($force || ($arr[count($arr) - 1] !== "\n")) { //we might want the extra line
+        if ($force || ($arr[(is_countable($arr) ? count($arr) : 0) - 1] !== "\n")) { //we might want the extra line
             $arr[] = "\n";
         }
     }
@@ -623,20 +585,18 @@ class BeautifyHtml {
     }
 
     private function print_token($text) {
-        if ($text || $text !== '') {
-            if (count($this->output) && $this->output[count($this->output) - 1] === "\n") {
-                $this->print_indentation($this->output);
-                $text = ltrim($text);
-            }
+        if (($text || $text !== '') && ((is_countable($this->output) ? count($this->output) : 0) && $this->output[(is_countable($this->output) ? count($this->output) : 0) - 1] === "\n")) {
+            $this->print_indentation($this->output);
+            $text = ltrim((string) $text);
         }
         $this->print_token_raw($text);
     }
 
     private function print_token_raw($text) {
         if ($text && $text !== '') {
-            if (strlen($text) > 1 && $text[strlen($text) - 1] === "\n") {
+            if (strlen((string) $text) > 1 && $text[strlen((string) $text) - 1] === "\n") {
                 // unformatted tags can grab newlines as their last character
-                $this->output[] = substr($text, 0, -1);
+                $this->output[] = substr((string) $text, 0, -1);
                 $this->print_newline(false, $this->output);
             } else {
                 $this->output[] = $text;
@@ -661,8 +621,8 @@ class BeautifyHtml {
 
     public function beautify($input) {
         $this->input = $input; //gets the input for the Parser
-        $this->input_length = strlen($this->input);
-        $this->output = array();
+        $this->input_length = strlen((string) $this->input);
+        $this->output = [];
 
         while (true) {
             $t = $this->get_token();
@@ -693,15 +653,15 @@ class BeautifyHtml {
                 case 'TK_TAG_END':
                     //Print new line only if the tag has no content and has child
                     if ($this->last_token === 'TK_CONTENT' && $this->last_text === '') {
-                        $matches = array();
-                        preg_match('/\w+/', $this->token_text, $matches);
-                        $tag_name = isset($matches[0]) ? $matches[0] : null;
+                        $matches = [];
+                        preg_match('/\w+/', (string) $this->token_text, $matches);
+                        $tag_name = $matches[0] ?? null;
 
                         $tag_extracted_from_last_output = null;
-                        if (count($this->output)) {
-                            $matches = array();
-                            preg_match('/(?:<|{{#)\s*(\w+)/', $this->output[count($this->output) - 1], $matches);
-                            $tag_extracted_from_last_output = isset($matches[0]) ? $matches[0] : null;
+                        if ($this->output !== []) {
+                            $matches = [];
+                            preg_match('/(?:<|{{#)\s*(\w+)/', (string) $this->output[count($this->output) - 1], $matches);
+                            $tag_extracted_from_last_output = $matches[0] ?? null;
                         }
                         if ($tag_extracted_from_last_output === null || $tag_extracted_from_last_output[1] !== $tag_name) {
                             $this->print_newline(false, $this->output);
@@ -712,9 +672,9 @@ class BeautifyHtml {
                     break;
                 case 'TK_TAG_SINGLE':
                     // Don't add a newline before elements that should remain unformatted.
-                    $matches = array();
-                    preg_match('/^\s*<([a-z]+)/i', $this->token_text, $matches);
-                    $tag_check = $matches ? $matches : null;
+                    $matches = [];
+                    preg_match('/^\s*<([a-z]+)/i', (string) $this->token_text, $matches);
+                    $tag_check = $matches !== [] ? $matches : null;
 
                     if (!$tag_check || !in_array($tag_check[1], $this->options['unformatted'])) {
                         $this->print_newline(false, $this->output);
@@ -753,15 +713,15 @@ class BeautifyHtml {
                         } else {
                             // simply indent the string otherwise
 
-                            $matches = array();
-                            preg_match('/^\s*/', $text, $matches);
-                            $white = isset($matches[0]) ? $matches[0] : null;
+                            $matches = [];
+                            preg_match('/^\s*/', (string) $text, $matches);
+                            $white = $matches[0] ?? null;
 
-                            $matches = array();
-                            preg_match('/[^\n\r]*$/', $white, $matches);
-                            $dummy = isset($matches[0]) ? $matches[0] : null;
+                            $matches = [];
+                            preg_match('/[^\n\r]*$/', (string) $white, $matches);
+                            $dummy = $matches[0] ?? null;
 
-                            $_level = count(explode($this->indent_string, $dummy)) - 1;
+                            $_level = count(explode($this->indent_string, (string) $dummy)) - 1;
                             $reindent = $this->get_full_indent($script_indent_level - $_level);
 
                             $text = preg_replace('/^\s*/', $indentation, $text);
@@ -770,7 +730,7 @@ class BeautifyHtml {
                         }
 
                         if ($text) {
-                            $this->print_token_raw($indentation . trim($text));
+                            $this->print_token_raw($indentation . trim((string) $text));
                             $this->print_newline(false, $this->output);
                         }
                     }

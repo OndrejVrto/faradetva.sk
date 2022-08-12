@@ -35,7 +35,7 @@ class StaticPagesCrawlerCheck extends Check {
                 'allPages'      => $this->allPages,
             ]);
 
-        return $this->allPages == $this->checkPages
+        return $this->allPages === $this->checkPages
             ? $result->notificationMessage("$name.ok")->ok()
             : $result->failed("$name.failed");
     }

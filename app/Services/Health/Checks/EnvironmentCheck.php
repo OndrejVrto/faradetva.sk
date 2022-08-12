@@ -30,7 +30,7 @@ class EnvironmentCheck extends Check {
             ])
             ->shortSummary($actualEnvironment);
 
-        return $this->expectedEnvironment == $actualEnvironment
+        return $this->expectedEnvironment === $actualEnvironment
             ? $result->notificationMessage("$name.ok")->ok()
             : $result->failed("$name.failed");
     }

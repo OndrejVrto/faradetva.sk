@@ -21,13 +21,8 @@ class IsBase64Encoded implements Rule {
         if (! $decoded) {
             return false;
         }
-
         // Encode the string again
-        if (base64_encode($decoded) != $s) {
-            return false;
-        }
-
-        return true;
+        return base64_encode($decoded) === $s;
     }
 
     public function message(): string|array {
