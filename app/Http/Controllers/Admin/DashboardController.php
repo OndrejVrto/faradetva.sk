@@ -69,7 +69,7 @@ class DashboardController extends Controller {
         $service = new SettingsSwitcherService();
 
         foreach ($validated as $key => $value) {
-            $service->run($key, $value);
+            $service->run($value, $key);
         }
 
         return $service;

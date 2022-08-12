@@ -28,7 +28,6 @@ class CustomEloquentHealthResultStore implements ResultStore {
         return $historyItemModel;
     }
 
-    /** @return HealthCheckResultHistoryItem|object */
     public static function getHistoryItemInstance(): HealthCheckResultHistoryItem {
         $historyItemClassName = static::determineHistoryItemModel();
 

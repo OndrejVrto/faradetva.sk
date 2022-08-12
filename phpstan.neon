@@ -1,11 +1,17 @@
 includes:
+    - phpstan-baseline.neon
     - ./vendor/nunomaduro/larastan/extension.neon
+    # - ./vendor/canvural/larastan-strict-rules/rules.neon
 
 parameters:
 
+    # The level 9 is the highest level
+    level: 6
+
     paths:
-        - app/Http/Controllers
-        # - app
+        - app
+        # - app/Http/Controllers
+        # - app/Providers
         # - routes
         # - database
         # - tests
@@ -14,8 +20,8 @@ parameters:
         # - app/View
         # - app/Services
 
-    # The level 9 is the highest level
-    level: 6
+    databaseMigrationsPath:
+        - database/migrations
 
     ignoreErrors:
         - '#PHPDoc tag @var#'
@@ -32,6 +38,9 @@ parameters:
         - ./app/Enums/*
         - ./app/Http/Helpers/BeautifyHtml.php
         - ./app/Services/Dashboard/FutureTestService.php
+        - ./app/View/Components/Web/SeoJsonLd.php
+        - ./app/Services/SEO/SetSeoPropertiesService.php
 
     checkMissingIterableValueType: false
     checkGenericClassInNonGenericObjectType: false
+    checkModelProperties: true

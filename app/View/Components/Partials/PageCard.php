@@ -101,7 +101,7 @@ class PageCard extends Component {
             'img-updated'            => $page->updated_at->toAtomString(),
             'img-width'              => '370',
             'img-height'             => '248',
-            'img-url'                => $media->getUrl('card') ?? 'http://via.placeholder.com/370x248',
+            'img-url'                => $media->getUrl('card'), // 'http://via.placeholder.com/370x248'
             'img-mime'               => $media->mime_type,
 
             'img_thumbnail_url'      => $media->getUrl('crop-thumb'),

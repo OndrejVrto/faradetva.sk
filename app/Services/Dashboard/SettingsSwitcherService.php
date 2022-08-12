@@ -45,7 +45,7 @@ class SettingsSwitcherService {
         string $artisanFalse = null,
         string $artisanTrue = null
     ): void {
-        if ($require === boolval($this->checkbox->get($valueStore))) {
+        if ($require === $this->convertValueFromStore($valueStore)) {
             return;
         }
 
@@ -72,6 +72,13 @@ class SettingsSwitcherService {
         return;
     }
 
+    private function convertValueFromStore(string $valueStore): bool {
+        return (boolean) filter_var($this->checkbox->get($valueStore), FILTER_VALIDATE_BOOLEAN);
+    }
+
+    /**
+     * Switches
+     */
     private function maintenance_mode(bool $require): void {
         // dd($require, app()->isDownForMaintenance());
         if ($require == app()->isDownForMaintenance()) {
@@ -98,7 +105,7 @@ class SettingsSwitcherService {
     }
 
     private function cache_global(bool $require): void {
-        if ($require === boolval($this->checkbox->get('cache_global'))) {
+        if ($require === $this->convertValueFromStore('cache_global')) {
             return;
         }
         if (false == $require) {
@@ -112,7 +119,7 @@ class SettingsSwitcherService {
     }
 
     private function app_enviroment_mode(bool $require): void {
-        if ($require === boolval($this->checkbox->get('app_enviroment_mode'))) {
+        if ($require === $this->convertValueFromStore('app_enviroment_mode')) {
             return;
         }
         if (false == $require) {
@@ -125,7 +132,7 @@ class SettingsSwitcherService {
     }
 
     private function cache_response(bool $require): void {
-        if ($require === boolval($this->checkbox->get('cache_response'))) {
+        if ($require === $this->convertValueFromStore('cache_response')) {
             return;
         }
         if (false == $require) {
