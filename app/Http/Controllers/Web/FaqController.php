@@ -15,8 +15,8 @@ use App\Services\SEO\SetSeoPropertiesService;
 
 class FaqController extends Controller {
     public function __invoke(): View {
-        $faqs = Cache::rememberForever('FAQ_ALL', function (): Collection {
-            return Faq::query()
+        $faqs = Cache::rememberForever('FAQ_ALL',
+            fn(): Collection => Faq::query()
                 ->with('staticPages')
                 ->get()
                 ->map(function ($faq) {
@@ -34,8 +34,8 @@ class FaqController extends Controller {
                         'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                         'pages'        => $pages,
                     ];
-                });
-        });
+                })
+        );
 
         $pageData = PagePropertiesService::virtualPageData('vsetky-otazky-a-odpovede');
         (new SetSeoPropertiesService($pageData))

@@ -29,7 +29,7 @@ class NoticeController extends Controller implements CrudInterface {
     /**
      * Model instance.
      */
-    private object $instance;
+    private readonly object $instance;
 
     /**
      * Set an instance of the model.

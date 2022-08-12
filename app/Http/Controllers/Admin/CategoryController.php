@@ -36,7 +36,7 @@ class CategoryController extends Controller {
     }
 
     public function edit(Category $category): View|RedirectResponse {
-        if ($category->id == 1 and auth()->user()->id != 1) {
+        if ($category->id == 1 && auth()->user()->id != 1) {
             toastr()->error(strval(__('app.category.update-error', ['name'=> $category->title])));
             return to_route('categories.index');
         }

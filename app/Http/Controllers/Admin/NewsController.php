@@ -102,7 +102,7 @@ class NewsController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($news, $request);
 
-        if (count($news->document) > 0) {
+        if ((is_countable($news->document) ? count($news->document) : 0) > 0) {
             foreach ($news->document as $media) {
                 if (!in_array($media->file_name, $request->input('document', []))) {
                     $media->delete();
@@ -113,7 +113,7 @@ class NewsController extends Controller {
         $media = $news->document->pluck('file_name')->toArray();
 
         foreach ($request->input('document', []) as $file) {
-            if (count($media) === 0 || !in_array($file, $media)) {
+            if ((is_countable($media) ? count($media) : 0) === 0 || !in_array($file, $media)) {
                 $news
                     ->addMedia(storage_path('tmp/uploads/' . $file))
                     ->toMediaCollection($news->collectionDocument);

@@ -34,12 +34,12 @@ class PageController extends Controller {
 
         // check if last link exists in DB.
         $lastUrl = $urls->last()->get('url');
-        $page = Cache::rememberForever('PAGE_' . Str::slug($lastUrl), function () use ($lastUrl) {
-            return StaticPage::query()
+        $page = Cache::rememberForever('PAGE_' . Str::slug($lastUrl),
+                    fn() => StaticPage::query()
                         ->whereUrl($lastUrl)
                         ->with('picture', 'source', 'banners', 'faqs')
-                        ->firstOrFail();
-        });
+                        ->firstOrFail()
+                );
 
         // check if last link exists in views.
         if (!$page->active || !View::exists(PagePropertiesService::fullRoute($page->route_name))) {
@@ -47,19 +47,23 @@ class PageController extends Controller {
         }
         // map data for SEO - BreadCrumb
         $pageChainBreadCrumb = $urls
-            ->map(function ($node) {
-                return Cache::rememberForever('PAGE_NODE_'.Str::slug($node->get('url')), function () use ($node) {
+            ->map(fn($node) => Cache::rememberForever('PAGE_NODE_'.Str::slug($node->get('url')),
+                function () use ($node) {
                     $item = StaticPage::query()
                         ->select('url', 'title', 'active')
                         ->whereUrl($node->get('url'))
                         ->first();
 
                     return [
-                        'title' => isset($item->title) ? e($item->title) : trans('messages.'.$node->get('title')),
-                        'url'   => isset($item->url) ? e($item->url) : null,
+                        'title' => property_exists($item, 'title') && $item->title !== null
+                            ? e($item->title)
+                            : trans('messages.'.$node->get('title')),
+                        'url'   => property_exists($item, 'url') && $item->url !== null
+                            ? e($item->url)
+                            : null,
                     ];
-                });
-            })
+                })
+            )
             ->push([
                 'title' => e($page->title),
                 'url'   => e($page->url),

@@ -87,7 +87,7 @@ class GalleryController extends Controller {
         $gallery->touch(); // Touch because i need start observer for delete cache
 
         set_time_limit(300); // 5 minutes
-        if (count($gallery->picture) > 0) {
+        if ((is_countable($gallery->picture) ? count($gallery->picture) : 0) > 0) {
             foreach ($gallery->picture as $media) {
                 if (!in_array($media->file_name, $request->input('picture', []))) {
                     $media->delete();
@@ -98,7 +98,7 @@ class GalleryController extends Controller {
         $media = $gallery->picture->pluck('file_name')->toArray();
 
         foreach ($request->input('picture', []) as $file) {
-            if (count($media) === 0 || !in_array($file, $media)) {
+            if ((is_countable($media) ? count($media) : 0) === 0 || !in_array($file, $media)) {
                 $gallery
                     ->addMedia(storage_path('tmp/uploads/' . $file))
                     ->toMediaCollection($gallery->collectionName);
