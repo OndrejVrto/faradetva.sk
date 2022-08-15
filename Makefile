@@ -1,3 +1,12 @@
+atest:
+	php artisan test --without-tty --testsuite Feature
+
+test:
+	vendor\bin\phpunit
+
+testhelp:
+	vendor\bin\phpunit --help
+
 pint:
 	vendor\bin\pint
 

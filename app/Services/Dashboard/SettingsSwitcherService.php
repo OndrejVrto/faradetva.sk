@@ -71,7 +71,7 @@ class SettingsSwitcherService {
     }
 
     private function convertValueFromStore(string $valueStore): bool {
-        return (boolean) filter_var($this->checkbox->get($valueStore), FILTER_VALIDATE_BOOLEAN);
+        return (bool) filter_var($this->checkbox->get($valueStore), FILTER_VALIDATE_BOOLEAN);
     }
 
     /**
