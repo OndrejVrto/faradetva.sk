@@ -6,7 +6,7 @@ use App\Models\Prayer;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
 class Pray extends Component {
     public ?array $pray;
@@ -22,7 +22,7 @@ class Pray extends Component {
             return null;
         }
 
-        (new SetSeoPropertiesService())->setPictureSchema($this->pray);
+        (new SeoPropertiesService())->setPictureSchema($this->pray);
         return view('components.web.sections.pray.index');
     }
 

@@ -8,7 +8,7 @@ use App\Models\Faq as FaqModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
 class Faq extends Component {
     public array $faqs;
@@ -44,7 +44,7 @@ class Faq extends Component {
             return null;
         }
 
-        (new SetSeoPropertiesService())->setFaqSeoMetaTags($this->faqs);
+        (new SeoPropertiesService())->setFaqSeoMetaTags($this->faqs);
         return view('components.web.sections.faq.index');
     }
 }

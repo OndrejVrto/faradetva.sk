@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
 class PictureResponsive extends Component {
     public ?array $picture;
@@ -35,7 +35,7 @@ class PictureResponsive extends Component {
             return null;
         }
 
-        (new SetSeoPropertiesService())->setPictureSchema($this->picture);
+        (new SeoPropertiesService())->setPictureSchema($this->picture);
 
         return view('components.partials.picture-responsive.index');
     }

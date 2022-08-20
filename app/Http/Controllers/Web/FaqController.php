@@ -9,7 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PagePropertiesService;
 use App\Services\PurifiAutolinkService;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
+use App\Services\SEO\PageSeoPropertiesService;
 
 class FaqController extends Controller {
     public function __invoke(): View {
@@ -37,12 +38,14 @@ class FaqController extends Controller {
         );
 
         $pageData = PagePropertiesService::virtualPageData('vsetky-otazky-a-odpovede');
-        (new SetSeoPropertiesService($pageData))
-            ->setMetaTags()
-            ->setWebPageSchema()
-            ->setWebsiteSchemaGraph()
-            ->setOrganisationSchemaGraph()
-            ->setCompletFaqSeo($faqs);
+        if ($pageData) {
+            (new PageSeoPropertiesService($pageData))
+                ->setMetaTags()
+                ->setWebPageSchema()
+                ->setWebsiteSchemaGraph()
+                ->setOrganisationSchemaGraph();
+        }
+        (new SeoPropertiesService())->setCompletFaqSeo($faqs);
 
         return view('web.faq.index', compact('faqs'));
     }

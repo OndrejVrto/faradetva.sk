@@ -2,22 +2,21 @@
 
 namespace App\Services\SEO;
 
+use DateTime;
 use App\Facades\SeoGraph;
 use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Type;
 use Illuminate\Support\Str;
 use Spatie\SchemaOrg\Schema;
 use Spatie\SchemaOrg\ImageObject;
-use Illuminate\Support\Collection;
-use Spatie\SchemaOrg\ImageGallery;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 
 // TODO: Refactor this mess
-class SetSeoPropertiesService {
+class PageSeoPropertiesService {
     public function __construct(
-        private ?array $page = null,
+        private array $page,
     ) {
     }
 
@@ -98,7 +97,7 @@ class SetSeoPropertiesService {
             SeoSchema::addValue('expires', $this->page['expires']);
         }
         SeoSchema::addValue('author', $this->getArticleAuthorSchema());
-        SeoSchema::addValue('isAccessibleForFree', true);
+        SeoSchema::addValue('isAccessibleForFree', true);   // @phpstan-ignore-line
         SeoSchema::addValue('articleBody', $this->page['content-plain']);
         SeoSchema::addValue('articleBody', $this->page['content-plain']);
         SeoSchema::addValue('articleSection', $this->page['category']);
@@ -106,43 +105,9 @@ class SetSeoPropertiesService {
         SeoSchema::addValue('mainEntityOfPage', $this->getMainEntitySchema($this->page['title'], $this->page['url']));
         SeoSchema::addValue('potentialAction', $this->getReadActionSchema($this->page['url']));
         SeoSchema::addValue('image', $this->getPrimaryImagePageSchema());
-        SeoSchema::addValue('publisher', $this->getOrganizationSchema());
+        SeoSchema::addValue('publisher', $this->getOrganizationSchemaArray());
 
         return $this;
-    }
-
-    public function setFaqSeoMetaTags(array|Collection $faqData): void {
-        $JsonLD = Schema::fAQPage()
-            ->mainEntity($this->setFaqQuestions($faqData))
-            ->toArray();
-        unset($JsonLD['@context']);
-
-        if (SeoSchema::hasValue('hasPart')) {
-            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]));
-        } else {
-            SeoSchema::addValue('hasPart', [$JsonLD]);
-        }
-    }
-
-    public function setCompletFaqSeo(array|Collection $faqData): void {
-        $JsonLD = $this->setFaqQuestions($faqData);
-
-        SeoSchema::addValue('mainEntity', [$JsonLD]);
-    }
-
-    public function setFaqQuestions(array|Collection $faqData): array {
-        $questions = [];
-        foreach ($faqData as $faq) {
-            $tmp = Schema::question()
-                    ->name(e($faq['question']))
-                    ->acceptedAnswer(
-                        Schema::answer()
-                            ->text(e($faq['answer-clean']))
-                    )->toArray();
-            unset($tmp['@context']);
-            $questions[] = $tmp;
-        }
-        return $questions;
     }
 
     private function getWebSiteSchema(): Type {
@@ -155,7 +120,7 @@ class SetSeoPropertiesService {
             )
             ->inLanguage('sk-SK')
             ->potentialAction(
-                $this->getSearchActionSchema()
+                $this->getSearchActionSchemaArray()
             );
     }
 
@@ -168,9 +133,15 @@ class SetSeoPropertiesService {
             ->setProperty('query-input', 'required name=search_term_string');
     }
 
+    private function getSearchActionSchemaArray(): array {
+        $JsonLD = $this->getSearchActionSchema()->toArray();
+        unset($JsonLD['@context']);
+        return $JsonLD;
+    }
+
     private function getReadActionSchema(string $url): array {
         $JsonLD = Schema::readAction()
-            ->target($url)->toArray();
+            ->url($url)->toArray();
         unset($JsonLD['@context']);
 
         return $JsonLD;
@@ -187,6 +158,12 @@ class SetSeoPropertiesService {
         return $JsonLD;
     }
 
+    private function getOrganizationSchemaArray(): array {
+        $JsonLD = $this->getOrganizationSchema()->toArray();
+        unset($JsonLD['@context']);
+        return $JsonLD;
+    }
+
     private function getOrganizationSchema(): Type {
         return Schema::organization()
             ->identifier('#FaraDetva')
@@ -199,16 +176,16 @@ class SetSeoPropertiesService {
                     ->identifier('#LogoFaraDetva')
                     ->url(asset('images/logo/logo-farnosti-detva.svg', true))
                     ->encodingFormat('image/svg+xml')
-                    ->width(500)
-                    ->height(500)
+                    ->width(Schema::quantitativeValue()->value(500))
+                    ->height(Schema::quantitativeValue()->value(500))
                     ->caption('Logo farnosti Detva')
             )
             ->image(
                 Schema::imageObject()
                     ->url(asset('images/pictures/Farnost-Detva.jpg', true))
                     ->encodingFormat('image/jpeg')
-                    ->width(1024)
-                    ->height(712)
+                    ->width(Schema::quantitativeValue()->value(1024))
+                    ->height(Schema::quantitativeValue()->value(712))
                     ->author(
                         Schema::person()
                             ->name('Tomáš Belko')
@@ -248,7 +225,7 @@ class SetSeoPropertiesService {
             ->encodingFormat($this->page['img-mime-type'])
             ->height($this->page['img-height'])
             ->width($this->page['img-width'])
-            ->uploadDate(e($this->page['img-updated_at']))
+            ->uploadDate(DateTime::createFromFormat('Y-m-d H:i:s', $this->page['img-updated_at']))
             ->if(isset($this->page['img-author']) || isset($this->page['img-author_url']), function (ImageObject $schema) {
                 $schema->author(
                     Schema::person()
@@ -319,123 +296,5 @@ class SetSeoPropertiesService {
         unset($JsonLD['@context']);
 
         return $JsonLD;
-    }
-
-    public function setPictureSchema(array $pictureData): void {
-        $JsonLD = Schema::imageObject()
-            ->name(e($pictureData['img-title']))
-            ->identifier(e($pictureData['img-url']))
-            ->url(e($pictureData['img-url']))
-            ->description(e($pictureData['source_description']))
-            ->alternateName(e($pictureData['source_description']))
-            ->width($pictureData['img-width'])
-            ->height($pictureData['img-height'])
-            ->encodingFormat($pictureData['img-mime'])
-            ->uploadDate($pictureData['img-updated'])
-            ->license(e($pictureData['sourceArr']['source_license_url']))
-            ->acquireLicensePage(e($pictureData['sourceArr']['source_license_url']))
-            ->if(isset($pictureData['sourceArr']['source_author']) || isset($pictureData['sourceArr']['source_author_url']), function (ImageObject $schema) use ($pictureData) {
-                $schema->author(
-                    Schema::person()
-                        ->name(e($pictureData['sourceArr']['source_author']))
-                        ->sameAs(e($pictureData['sourceArr']['source_author_url']))
-                );
-            })
-            ->thumbnail(
-                Schema::imageObject()
-                    ->url(e($pictureData['img_thumbnail_url']))
-                    ->encodingFormat($pictureData['img-mime'])
-                    ->width($pictureData['img_thumbnail_width'])
-                    ->height($pictureData['img_thumbnail_height'])
-            )
-            ->toArray();
-
-        unset($JsonLD['@context']);
-
-        SeoSchema::addImage([
-            $JsonLD
-        ]);
-    }
-
-    public function setGallerySchema(array $album): void {
-        $pictures = [];
-        foreach ($album['picture'] as $picture) {
-            $pictures[] = Schema::imageObject()
-                ->contentUrl(e($picture['href']))
-                ->name(e($picture['title']));
-        }
-
-        $JsonLD = Schema::imageGallery()
-            ->name(e($album['title']))
-            ->description(e($album['source_description']))
-            ->if(isset($album['sourceArr']['source_author']) || isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album) {
-                $schema->author(
-                    Schema::person()
-                        ->name(e($album['sourceArr']['source_author']))
-                        ->sameAs(e($album['sourceArr']['source_author_url']))
-                );
-            })
-            ->license(e($album['sourceArr']['source_license_url']))
-            ->acquireLicensePage(e($album['sourceArr']['source_license_url']))
-            ->if(isset($album['sourceArr']['source_source_url']) || isset($album['sourceArr']['source_source']), function (ImageGallery $schema) use ($album) {
-                $schema->copyrightHolder(
-                    Schema::organization()
-                        ->name(e($album['sourceArr']['source_source']))
-                        ->url(e($album['sourceArr']['source_source_url']))
-                );
-            })
-            ->associatedMedia($pictures)
-            ->toArray();
-
-        unset($JsonLD['@context']);
-
-        if (SeoSchema::hasValue('hasPart')) {
-            SeoSchema::addValue('hasPart', array_merge(SeoSchema::getValue('hasPart'), [$JsonLD]));
-        } else {
-            SeoSchema::addValue('hasPart', [$JsonLD]);
-        }
-    }
-
-    public function setPriestsSchema(array $priestData): void {
-        $persons = [];
-        foreach ($priestData as $priest) {
-            $value = Schema::person()
-                ->name(e($priest['full_name_titles']))
-                ->givenName(e($priest['first_name']))
-                ->familyName(e($priest['last_name']))
-                ->honorificPrefix(e($priest['titles_before']))
-                ->honorificSuffix(e($priest['titles_after']))
-                ->nationality('Slovak')
-                ->if(isset($priest['facebook']) || isset($priest['twitter']), function ($schema) use ($priest) {
-                    $schema->sameAs([
-                        $priest['facebook'] ?? '',
-                        $priest['twitter'] ?? '',
-                    ]);
-                })
-                ->if(isset($priest['phone']), function ($schema) use ($priest) {
-                    $schema->telephone([
-                        e($priest['phone']),
-                        e($priest['phone_digits'])
-                    ]);
-                })
-                ->email(e($priest['email']))
-                ->jobTitle('Priest'.'|'.e($priest['function']))
-                ->gender('https://schema.org/Male')
-                ->url($priest['personal_url'])
-                ->description(e($priest['description_clean']))
-                ->image(e($priest['img-url']))
-                ->worksFor(
-                    Schema::organization()
-                        ->name('Rímskokatolícka cirkev')
-                        ->url('https://www.kbs.sk')
-                        ->sameAs('https://sk.wikipedia.org/wiki/R%C3%ADmskokatol%C3%ADcka_cirkev_v_Slovenskej_republike')
-                )
-                ->toArray();
-
-            unset($value['@context']);
-            $persons[] = $value;
-        }
-
-        SeoSchema::addValue('alumni', $persons);
     }
 }

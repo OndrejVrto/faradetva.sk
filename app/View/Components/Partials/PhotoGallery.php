@@ -6,7 +6,7 @@ use App\Models\Gallery;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
 class PhotoGallery extends Component {
     public ?array $gallery;
@@ -23,7 +23,7 @@ class PhotoGallery extends Component {
             return null;
         }
 
-        (new SetSeoPropertiesService())->setGallerySchema($this->gallery);
+        (new SeoPropertiesService())->setGallerySchema($this->gallery);
 
         return view('components.partials.photo-gallery.index');
     }

@@ -5,7 +5,7 @@ namespace App\View\Components\Web\Sections;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 use App\Models\BackgroundPicture as BackgroundPictureModel;
 
 class BackgroundPicture extends Component {
@@ -22,7 +22,7 @@ class BackgroundPicture extends Component {
             return null;
         }
 
-        (new SetSeoPropertiesService())->setPictureSchema($this->backgroundPicture);
+        (new SeoPropertiesService())->setPictureSchema($this->backgroundPicture);
 
         return view('components.web.sections.background-picture.index');
     }

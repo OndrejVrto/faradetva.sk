@@ -6,8 +6,8 @@ use App\Models\StaticPage;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
+use App\Services\SEO\SeoPropertiesService;
 use Illuminate\Database\Eloquent\Collection;
-use App\Services\SEO\SetSeoPropertiesService;
 
 class PageCard extends Component {
     public array $pageCards;
@@ -28,7 +28,7 @@ class PageCard extends Component {
         }
 
         foreach ($this->pageCards as $card) {
-            (new SetSeoPropertiesService())->setPictureSchema($card);
+            (new SeoPropertiesService())->setPictureSchema($card);
         }
 
         return view('components.partials.page-card.index');

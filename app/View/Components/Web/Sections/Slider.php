@@ -6,7 +6,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Slider as SliderModel;
 use Illuminate\Support\Facades\Cache;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
 class Slider extends Component {
     public ?array $sliders;
@@ -21,7 +21,7 @@ class Slider extends Component {
         }
 
         foreach ($this->sliders as $slider) {
-            (new SetSeoPropertiesService())->setPictureSchema($slider);
+            (new SeoPropertiesService())->setPictureSchema($slider);
         }
 
         return view('components.web.sections.slider.index');

@@ -15,7 +15,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Contracts\View\Factory;
 use App\Services\FilePropertiesService;
 use App\Services\PagePropertiesService;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\PageSeoPropertiesService;
 
 // TODO:  refactor Title in all methods to View::composer
 
@@ -67,7 +67,7 @@ class ArticleController extends Controller {
         $breadCrumb = Breadcrumbs::render('article.show', true, $oneNews)->render();
 
         $pageData = PagePropertiesService::getArticlePageData($oneNews);
-        (new SetSeoPropertiesService($pageData))
+        (new PageSeoPropertiesService($pageData))
             ->setWebPageArticleSchema()
             ->setMetaTags()
             ->setWebsiteSchemaGraph()
@@ -188,16 +188,18 @@ class ArticleController extends Controller {
 
     private function seoIndex(): void {
         $pageData = PagePropertiesService::virtualPageData('clanky');
-        (new SetSeoPropertiesService($pageData))
-            ->setMetaTags()
-            ->setWebPageSchema()
-            ->setWebsiteSchemaGraph()
-            ->setOrganisationSchemaGraph()
-            ->setBreadcrumbSchemaGraph([
-                0 => [
-                    'title' => 'Všetky články',
-                    'url' => route('article.all')
-                ]
-            ]);
+        if ($pageData) {
+            (new PageSeoPropertiesService($pageData))
+                ->setMetaTags()
+                ->setWebPageSchema()
+                ->setWebsiteSchemaGraph()
+                ->setOrganisationSchemaGraph()
+                ->setBreadcrumbSchemaGraph([
+                    0 => [
+                        'title' => 'Všetky články',
+                        'url' => route('article.all')
+                    ]
+                ]);
+        }
     }
 }

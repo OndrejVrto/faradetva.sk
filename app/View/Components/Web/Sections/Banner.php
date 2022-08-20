@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Banner as BannerModel;
 use Illuminate\Support\Facades\Cache;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
 class Banner extends Component {
     public ?array $banner = null;
@@ -23,7 +23,7 @@ class Banner extends Component {
 
     public function render(): ?View {
         if (!is_null($this->banner)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->banner);
+            (new SeoPropertiesService())->setPictureSchema($this->banner);
 
             return view('components.web.sections.banner.index');
         }

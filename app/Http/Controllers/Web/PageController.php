@@ -12,7 +12,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Contracts\View\Factory;
 use App\Services\PagePropertiesService;
 use Illuminate\Contracts\View\View as iView;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\PageSeoPropertiesService;
 
 class PageController extends Controller {
     private string $path = '';
@@ -77,7 +77,7 @@ class PageController extends Controller {
         $pageData['breadCrumb'] = Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb)->render();
 
         // set SEO
-        (new SetSeoPropertiesService($pageData))
+        (new PageSeoPropertiesService($pageData))
             ->setMetaTags()
             ->setWebPageSchema()
             ->setWebsiteSchemaGraph()

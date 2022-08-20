@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\Factory;
 use App\Services\PagePropertiesService;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\PageSeoPropertiesService;
 
 class SearchController extends Controller {
     public function __invoke(string $searchFrase = null): View|Factory {
@@ -19,12 +19,14 @@ class SearchController extends Controller {
             : null;
 
         // set SEO
-        $pageData = PagePropertiesService::virtualPageData('globalne-vyhladavanie');
-        (new SetSeoPropertiesService($pageData))
-            ->setMetaTags()
-            ->setWebPageSchema()
-            ->setWebsiteSchemaGraph()
-            ->setOrganisationSchemaGraph();
+        $pageData = (new PagePropertiesService())->virtualPageData('globalne-vyhladavanie');
+        if ($pageData) {
+            (new PageSeoPropertiesService($pageData))
+                ->setMetaTags()
+                ->setWebPageSchema()
+                ->setWebsiteSchemaGraph()
+                ->setOrganisationSchemaGraph();
+        }
 
         return view('web.global-search.index', compact('searchResults', 'searchFrase'));
     }
