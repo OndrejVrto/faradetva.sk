@@ -38,14 +38,11 @@ class CreateRoutePermissionsCommand extends Command {
 
         foreach ($routes as $route) {
             $routeName = $route->getName();
-            if ($routeName != '') {
+            if ($routeName != '' && !is_null($routeName)) {
                 foreach ($route->getAction()['middleware'] as $midleware) {
                     if ($midleware == 'permission') {
-                        $permission = Permission::where('name', $routeName)->first();
-                        if (is_null($permission)) {
-                            $this->line('Create permissions: '.$routeName);
-                            Permission::create(['name' => $routeName]);
-                        }
+                        Permission::findOrCreate($routeName);
+                        $this->line('Update or create permissions: '.$routeName);
                     }
                 }
             }
