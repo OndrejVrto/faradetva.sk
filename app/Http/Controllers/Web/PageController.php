@@ -41,9 +41,8 @@ class PageController extends Controller {
         );
 
         // check if last link exists in views.
-        if (!$page->active || !View::exists(PagePropertiesService::fullRoute($page->route_name))) {
-            abort(Response::HTTP_NOT_FOUND);
-        }
+        abort_if(!$page->active || !View::exists($pageService->fullRoute($page->route_name)), Response::HTTP_NOT_FOUND);
+
         // map data for SEO - BreadCrumb
         $pageChainBreadCrumb = $urls
             ->map(

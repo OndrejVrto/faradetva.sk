@@ -20,9 +20,7 @@ class SubscribeController extends Controller {
             return to_route('home');
         }
 
-        if ($subscriber->verified_token !== trim($token)) {
-            abort(Response::HTTP_NOT_FOUND);  // 404
-        }
+        abort_if($subscriber->verified_token !== trim($token), Response::HTTP_NOT_FOUND);  // 404
 
         $subscriber->email_verified_at = Carbon::now();
         $subscriber->save();
@@ -34,9 +32,7 @@ class SubscribeController extends Controller {
     }
 
     public function unsubscribe(string $slug, Subscriber $subscriber, string $unsubscribetoken): View|Factory {
-        if ($subscriber->unsubscribe_token !== trim($unsubscribetoken)) {
-            abort(Response::HTTP_NOT_FOUND);  // 404
-        }
+        abort_if($subscriber->unsubscribe_token !== trim($unsubscribetoken), Response::HTTP_NOT_FOUND);  // 404
 
         $subscriber->delete();
 
