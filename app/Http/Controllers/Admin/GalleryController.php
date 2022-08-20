@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Source;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use App\Http\Helpers\DataFormater;
+use App\Services\FilenameSanitize;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GalleryRequest;
@@ -35,16 +36,22 @@ class GalleryController extends Controller {
             mkdir($path, 0777, true);
         }
 
-        $file = $request->file('pictures');
-        // sanitize filename
-        $name = DataFormater::filterFilename($file->getClientOriginalName(), true);
+        if ($request->hasFile('pictures')) {
+            /** @var \Illuminate\Http\UploadedFile $file  */
+            $file = $request->file('pictures');
+            // sanitize filename
+            $name = (new FilenameSanitize())($file->getClientOriginalName());
 
-        $file->move($path, $name);
+            $file->move($path, $name);
 
-        return response()->json([
-            'name'          => $name,
-            'original_name' => $file->getClientOriginalName(),
-        ]);
+            return response()->json([
+                'name'          => $name,
+                'original_name' => $file->getClientOriginalName(),
+            ]);
+        } else {
+            // no file
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
     }
 
     public function store(GalleryRequest $request): RedirectResponse {
@@ -85,7 +92,7 @@ class GalleryController extends Controller {
         $gallery->touch(); // Touch because i need start observer for delete cache
 
         set_time_limit(300); // 5 minutes
-        if ((is_countable($gallery->picture) ? count($gallery->picture) : 0) > 0) {
+        if (count($gallery->picture) > 0) {
             foreach ($gallery->picture as $media) {
                 if (!in_array($media->file_name, $request->input('picture', []))) {
                     $media->delete();
@@ -96,7 +103,7 @@ class GalleryController extends Controller {
         $media = $gallery->picture->pluck('file_name')->toArray();
 
         foreach ($request->input('picture', []) as $file) {
-            if ((is_countable($media) ? count($media) : 0) === 0 || !in_array($file, $media)) {
+            if (count($media) === 0 || !in_array($file, $media)) {
                 $gallery
                     ->addMedia(storage_path('tmp/uploads/' . $file))
                     ->toMediaCollection($gallery->collectionName);

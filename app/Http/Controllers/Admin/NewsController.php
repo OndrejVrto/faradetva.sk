@@ -8,9 +8,10 @@ use App\Models\Source;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use App\Http\Helpers\DataFormater;
 use App\Http\Requests\NewsRequest;
+use App\Services\FilenameSanitize;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -46,18 +47,22 @@ class NewsController extends Controller {
             mkdir($path, 0777, true);
         }
 
-        $file = $request->file('doc');
-        // $name = uniqid() . '_' . trim($file->getClientOriginalName());
+        if ($request->hasFile('doc')) {
+            /** @var \Illuminate\Http\UploadedFile $file  */
+            $file = $request->file('doc');
+            // sanitize filename
+            $name = (new FilenameSanitize())($file->getClientOriginalName());
 
-        // sanitize filename
-        $name = DataFormater::filterFilename($file->getClientOriginalName(), true);
+            $file->move($path, $name);
 
-        $file->move($path, $name);
-
-        return response()->json([
-            'name'          => $name,
-            'original_name' => $file->getClientOriginalName(),
-        ]);
+            return response()->json([
+                'name'          => $name,
+                'original_name' => $file->getClientOriginalName(),
+            ]);
+        } else {
+            // no file
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
     }
 
     public function store(NewsRequest $request): RedirectResponse {
@@ -100,7 +105,7 @@ class NewsController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($news, $request);
 
-        if ((is_countable($news->document) ? count($news->document) : 0) > 0) {
+        if (count($news->document) > 0) {
             foreach ($news->document as $media) {
                 if (!in_array($media->file_name, $request->input('document', []))) {
                     $media->delete();
@@ -111,7 +116,7 @@ class NewsController extends Controller {
         $media = $news->document->pluck('file_name')->toArray();
 
         foreach ($request->input('document', []) as $file) {
-            if ((is_countable($media) ? count($media) : 0) === 0 || !in_array($file, $media)) {
+            if (count($media) === 0 || !in_array($file, $media)) {
                 $news
                     ->addMedia(storage_path('tmp/uploads/' . $file))
                     ->toMediaCollection($news->collectionDocument);

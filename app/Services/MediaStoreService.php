@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use Illuminate\Support\Str;
-use App\Http\Helpers\DataFormater;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -16,7 +15,7 @@ class MediaStoreService {
             $model->addMediaFromRequest($requestAttributte)
                 ->sanitizingFileName(fn ($filename) => (isset($manualFileName) && !empty(trim($manualFileName)))
                     ? $manualFileName.'.'.pathinfo((string) $filename, PATHINFO_EXTENSION)
-                    : DataFormater::filterFilename($filename, true))
+                    : (new FilenameSanitize())($filename))
                 ->toMediaCollection($colectionName);
         }
     }
@@ -31,7 +30,7 @@ class MediaStoreService {
             } elseif (property_exists($request, 'source_description') && $request->source_description !== null) {
                 $fileName = Str::slug($request->source_description).'.'.$fileExtension;
             } else {
-                $fileName = DataFormater::filterFilename($request->crop_output_file_name, true);
+                $fileName = (new FilenameSanitize())($request->crop_output_file_name);
             }
 
             $model->clearMediaCollection($colectionName);
