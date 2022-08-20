@@ -22,7 +22,7 @@
         "php": "^8.1.2",
         "artesaos/seotools": "^0.22.0",
         "cohensive/oembed": "^0.16.0",
-        "diglactic/laravel-breadcrumbs": "^v7.1.1",
+        "diglactic/laravel-breadcrumbs": "^8.0",
         "guzzlehttp/guzzle": "^7.2",
         "haruncpi/laravel-user-activity": "^1.0",
         "intervention/image": "^2.7",
@@ -30,11 +30,11 @@
         "jorenvanhocht/laravel-share": "^4.2",
         "lab404/laravel-impersonate": "^1.7.3",
         "laravel/framework": "^9",
-        "laravel/sanctum": "^2.14",
+        "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "laravel/ui": "^3.4",
+        "laravel/ui": "^4.0",
         "livewire/livewire": "^2.10",
-        "meilisearch/meilisearch-php": "^0.23.1",
+        "meilisearch/meilisearch-php": "^0.24.2",
         "nanigans/single-table-inheritance": "~1.0",
         "osiemsiedem/laravel-autolink": "^6.0",
         "spatie/crawler": "^7.1",
@@ -53,11 +53,11 @@
         "spatie/laravel-sitemap": "^6.1",
         "spatie/schema-org": "^3.10",
         "spatie/valuestore": "^1.3",
-        "stevebauman/purify": "^4.0",
-        "tinymce/tinymce": "^5.10",
+        "stevebauman/purify": "^5.0",
+        "tinymce/tinymce": "^6.1",
         "touhidurabir/laravel-model-sanitize": "^1.1",
         "unisharp/laravel-filemanager": "^2.4",
-        "yoeunes/toastr": "^1.2"
+        "yoeunes/toastr": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
@@ -72,7 +72,7 @@
         "nunomaduro/collision": "^6.1",
         "nunomaduro/larastan": "^2.1",
         "phpunit/phpunit": "^9.5.10",
-        "rector/rector": "^0.13.10",
+        "rector/rector": "^0.14.0",
         "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
@@ -90,7 +90,6 @@
             "app/Overrides/spatie/SiteSearch.php",
 
 			"app/Http/Helpers/BeautifyHtml.php",
-			"app/Http/Helpers/DataFormater.php",
 			"app/Http/Helpers/Functions.php"
 		]
     },
