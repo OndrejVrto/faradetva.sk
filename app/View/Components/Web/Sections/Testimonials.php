@@ -9,6 +9,7 @@ use App\Services\PurifiAutolinkService;
 use App\Models\Testimonial as TestimonialModel;
 
 class Testimonials extends Component {
+    final public const LIMIT = 3;
     public array $testimonials;
 
     public function __construct() {
@@ -23,7 +24,7 @@ class Testimonials extends Component {
         return view('components.web.sections.testimonials.index');
     }
 
-    private function getTestimonials(): ?array {
+    private function getTestimonials(): array {
         return Cache::remember(
             key: 'TESTIMONIALS',
             ttl: now()->addHours(1),
@@ -32,12 +33,16 @@ class Testimonials extends Component {
                     ->whereActive(1)
                     ->count();
 
+                if ($countTestimonials < self::LIMIT) {
+                    return [];
+                }
+
                 return TestimonialModel::query()
                     ->whereActive(1)
+                    ->inRandomOrder()
+                    ->limit(self::LIMIT)
                     ->with('media')
                     ->get()
-                    ->shuffle()
-                    ->random(min($countTestimonials, 3))
                     ->map(fn ($data): array => [
                         'id'          => $data->id,
                         'name'        => $data->name,
