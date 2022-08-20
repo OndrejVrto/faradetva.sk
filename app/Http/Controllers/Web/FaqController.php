@@ -30,7 +30,7 @@ class FaqController extends Controller {
                     return [
                         'id'           => $faq->id,
                         'question'     => $faq->question,
-                        'answer-clean' => trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", $faq->answer))),
+                        'answer-clean' => trim((string) preg_replace(["!\s+!", "/\r|\n/"], [' ', ' '], $faq->answer ?? '')),
                         'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                         'pages'        => $pages,
                     ];

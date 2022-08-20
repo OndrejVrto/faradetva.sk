@@ -29,7 +29,18 @@ class AppServiceProvider extends ServiceProvider {
         Str::macro('readDurationText', fn (...$text) => Str::readDurationWords(str_word_count(implode(" ", $text))));
 
         // Plain text from Html
-        Str::macro('plainText', fn (...$text) => trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", html_entity_decode(strip_tags(implode(" ", $text)))))));
+        Str::macro(
+            'plainText',
+            fn (...$text) => trim(
+                (string) preg_replace(
+                    ["!\s+!", "/\r|\n/"],
+                    [' ', ' '],
+                    html_entity_decode(
+                        strip_tags(implode(" ", $text))
+                    )
+                )
+            )
+        );
 
         $this->app->singleton('seo-graph', fn () => new Graph());
         $this->app->singleton('seo-schema', fn () => new CustomJsonLd(config('seotools.json-ld.defaults', [])));
@@ -46,7 +57,7 @@ class AppServiceProvider extends ServiceProvider {
             if ($request->userAgent() !== 'fara-detva-crawl' && App::environment(['local', 'dev', 'staging'])) {
                 //! correctly url adres in Nqrock
                 if (!empty(config('farnost-detva.ngrok_url')) && $request->server->has('HTTP_X_ORIGINAL_HOST')) {
-                    $this->app['url']->forceRootUrl(config('farnost-detva.ngrok_url'));
+                    app('url')->forceRootUrl(config('farnost-detva.ngrok_url'));
                 }
 
                 //! Loging Query-s to log file

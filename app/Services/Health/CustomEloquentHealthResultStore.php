@@ -13,11 +13,14 @@ use Spatie\Health\ResultStores\StoredCheckResults\StoredCheckResult;
 use Spatie\Health\ResultStores\StoredCheckResults\StoredCheckResults;
 
 class CustomEloquentHealthResultStore implements ResultStore {
+    /**
+     * @return class-string
+     */
     public static function determineHistoryItemModel(): string {
         $defaultHistoryClass = HealthCheckResultHistoryItem::class;
         $eloquentResultStore = EloquentHealthResultStore::class;
 
-        $historyItemModel = config("health.result_stores.{$eloquentResultStore}.model", $defaultHistoryClass);
+        $historyItemModel = (string) config("health.result_stores.{$eloquentResultStore}.model", $defaultHistoryClass);
 
         if (! is_a($historyItemModel, $defaultHistoryClass, true)) {
             throw CouldNotSaveResultsInStore::doesNotExtendHealthCheckResultHistoryItem($historyItemModel);
@@ -27,6 +30,7 @@ class CustomEloquentHealthResultStore implements ResultStore {
     }
 
     public static function getHistoryItemInstance(): HealthCheckResultHistoryItem {
+        /** @var HealthCheckResultHistoryItem $historyItemClassName */
         $historyItemClassName = static::determineHistoryItemModel();
 
         return new $historyItemClassName();
