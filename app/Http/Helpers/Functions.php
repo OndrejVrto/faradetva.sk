@@ -3,7 +3,8 @@
 use Spatie\Valuestore\Valuestore;
 
 if (!function_exists('customConfig')) {
-    function customConfig(string $filename = 'config', null|array|string $key = null, null|string|int $default = null): Valuestore|string|null {
+    // TODO: Refactor this !!!!
+    function customConfig(string $filename = 'config', null|array|string $key = null, null|string|int $default = null): Valuestore|array|string|null {
         try {
             $valueStore = Valuestore::make(
                 storage_path("app/value-store/$filename.json")
@@ -92,7 +93,7 @@ if (!function_exists('minifyHtml')) {
             // # strip whitespaces between = "'
             '/=\s+(\"|\')/' => "=$1"
         ];
-        return preg_replace(array_keys($replace), array_values($replace), $html);
+        return strval(preg_replace(array_keys($replace), array_values($replace), $html));
     }
 }
 
@@ -108,6 +109,6 @@ if (!function_exists('formatBytes')) {
         $base = log($size) / log(1024);
         $suffixes = ['B', 'kB', 'MB', 'GB', 'TB'];
 
-        return $sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)];
+        return strval($sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)]);
     }
 }

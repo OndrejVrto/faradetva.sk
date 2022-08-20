@@ -53,8 +53,8 @@ class StaticPage extends BaseModel implements HasMedia {
         'type_page' => PageType::class,
     ];
 
-    public function getFullUrlAttribute(): string|array|null {
-        return url($this->url);
+    public function getFullUrlAttribute(): string {
+        return strval(url($this->url));
     }
 
     public function scopeFilterDeactivated(Builder $query, Request $request): Builder {

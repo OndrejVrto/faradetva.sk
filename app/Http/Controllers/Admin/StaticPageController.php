@@ -41,7 +41,7 @@ class StaticPageController extends Controller {
         $validated = $request->validated();
 
         $staticPage = StaticPage::create(StaticPage::sanitize($validated));
-        $staticPage->source->create(Source::sanitize($validated));
+        $staticPage->source?->create(Source::sanitize($validated));
         $staticPage->banners()->syncWithoutDetaching($request->input('banner'));
 
         (new MediaStoreService())->handleCropPicture($staticPage, $request);

@@ -62,8 +62,11 @@ class Priest extends BaseModel implements HasMedia {
 
     public function getPhoneDigitsAttribute(): ?string {
         if (property_exists($this, 'phone') && $this->phone !== null) {
-            $remove_plus = preg_replace("/\+/", "00", $this->phone);
-            return preg_replace("/[^0-9]/", "", $remove_plus);
+            return preg_replace(
+                pattern: ["/\+/", "/[^0-9]/"],
+                replacement: ["00", ""],
+                subject: $this->phone
+            );
         }
         return null;
     }

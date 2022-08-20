@@ -21,7 +21,7 @@ class Notice extends Component {
     ];
 
     public function __construct(
-        public ?string $typeNotice
+        public string $typeNotice = self::TYPE['church']
     ) {
         $this->model = $this->getModelName($typeNotice);
         $this->notices = $this->getNotice(self::NAMESPACE.$this->model);
@@ -31,7 +31,7 @@ class Notice extends Component {
         return view('components.web.sections.notice.index');
     }
 
-    private function getModelName(string|null $type): string {
+    private function getModelName(string $type): string {
         $nameModel = Str::of($type)
                         ->lower()
                         ->ucfirst()
@@ -50,7 +50,6 @@ class Notice extends Component {
             callback: fn (): array => $fullModel::query()
                 ->visible()
                 ->with('media')
-                ->limit(0)
                 ->get()
                 ->map(fn ($notice): array => [
                     'id'    => $notice->id,

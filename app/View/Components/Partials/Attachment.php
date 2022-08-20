@@ -24,7 +24,6 @@ class Attachment extends Component {
                 callback: fn (): array => File::query()
                     ->whereIn('slug', $listOfAttachments)
                     ->with('media', 'source')
-                    ->limit(0)
                     ->get()
                     ->map(fn (File $file): array => (new FilePropertiesService())->getFileItemProperties($file))
                     ->toArray()
