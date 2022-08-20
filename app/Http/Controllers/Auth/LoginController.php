@@ -53,8 +53,8 @@ class LoginController extends Controller {
      * @return mixed
      */
     protected function authenticated() {
-        if (!Auth::user()->active) {
-            $name = Auth::user();
+        $name = Auth::user();
+        if (!is_null($name) && !$name->active) {
             Auth::logout();
 
             Log::channel('slack')

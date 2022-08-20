@@ -65,7 +65,7 @@
                         <div class="d-inline-flex">
                             @if ( !is_impersonating() AND !$user->trashed() )
                                 @canImpersonate()
-                                    @if ($user->canBeImpersonated() and $user->id != auth()->user()->id )
+                                    @if ($user->canBeImpersonated() and $user->id != auth()->id() )
                                         <a  href="{{ route('impersonate', $user->id) }}"
                                             class="w35 ml-1 btn btn-outline-dark btn-sm btn-flat"
                                             title="Stelesniť sa">
@@ -83,7 +83,7 @@
                             </a>
                         </div>
                     </x-admin.table.td>
-                    @if ( $user->id > 2 OR auth()->user()->id == 1 )
+                    @if ( $user->id > 2 OR auth()->id() == 1 )
                         <x-admin.table.td-actions
                             controlerName="users"
                             identificator="{{ $user->slug }}"

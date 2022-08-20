@@ -65,7 +65,7 @@ class UserController extends Controller {
     }
 
     public function edit(User $user): View|RedirectResponse {
-        if ($user->id < 3 && auth()->user()->id != 1) {
+        if ($user->id < 3 && auth()->id() !== 1) {
             toastr()->error(strval(__('app.user.update-error', ['name'=> $user->name])));
             return to_route('users.index');
         }
@@ -86,7 +86,7 @@ class UserController extends Controller {
         }
 
         // if user change self
-        if ($user->id == auth()->user()->id) {
+        if ($user->id == auth()->id()) {
             $validated = Arr::except($validated, ['active']);
             toastr()->warning(strval(strval(__('app.user.update-self'))));
         } else {
@@ -114,9 +114,9 @@ class UserController extends Controller {
     }
 
     public function destroy(User $user): RedirectResponse {
-        if ($user->id == 1 || $user->id == 2) {
+        if ($user->id === 1 || $user->id === 2) {
             toastr()->error(strval(__('app.user.delete-error', ['name'=> $user->name])));
-        } elseif ($user->id == auth()->user()->id) {
+        } elseif ($user->id === auth()->id()) {
             toastr()->error(strval(strval(__('app.user.delete-self'))));
         } else {
             $user->delete();
