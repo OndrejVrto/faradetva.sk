@@ -24,14 +24,13 @@ class PageController extends Controller {
                     ->whereNotNull()
                     ->map(function ($node) {
                         $this->path .= '/' . $node;
-                        return collect([
+                        return [
                             'title' => $node,
                             'url' => substr($this->path, 1)
-                        ]);
+                        ];
                     });
 
-        // check if last link exists in DB.
-        $lastUrl = $urls->last()->get('url');
+        $lastUrl = $urls->pop()['url'];
         $page = Cache::rememberForever(
             key: 'PAGE_'.Str::slug($lastUrl),
             callback: fn () => StaticPage::query()
@@ -39,6 +38,7 @@ class PageController extends Controller {
                 ->with('picture', 'source', 'banners', 'faqs')
                 ->firstOrFail()
         );
+        $pageService = new PagePropertiesService();
 
         // check if last link exists in views.
         abort_if(!$page->active || !View::exists($pageService->fullRoute($page->route_name)), Response::HTTP_NOT_FOUND);
@@ -47,20 +47,16 @@ class PageController extends Controller {
         $pageChainBreadCrumb = $urls
             ->map(
                 fn ($node) => Cache::rememberForever(
-                    key: 'PAGE_NODE_'.Str::slug($node->get('url')),
+                    key: 'PAGE_NODE_'.Str::slug($node['url']),
                     callback: function () use ($node) {
                         $item = StaticPage::query()
                             ->select('url', 'title', 'active')
-                            ->whereUrl($node->get('url'))
+                            ->whereUrl($node['url'])
                             ->first();
 
                         return [
-                            'title' => property_exists($item, 'title') && $item->title !== null
-                                ? e($item->title)
-                                : trans('messages.'.$node->get('title')),
-                            'url'   => property_exists($item, 'url') && $item->url !== null
-                                ? e($item->url)
-                                : null,
+                            'title' => is_null($item) ? trans('messages.'.$node['title']) : e($item->title),
+                            'url'   => is_null($item) ? null : e($item->url),
                         ];
                     }
                 )
@@ -72,7 +68,7 @@ class PageController extends Controller {
             ->toArray();
 
         // map data for SEO - Page Properties
-        $pageData = PagePropertiesService::getStaticPageData($page);
+        $pageData = $pageService->getStaticPageData($page);
         $pageData['breadCrumb'] = Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb)->render();
 
         // set SEO
