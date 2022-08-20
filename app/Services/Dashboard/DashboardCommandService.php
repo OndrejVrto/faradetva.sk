@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Artisan;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
 class DashboardCommandService {
-    public function run(string $command = null): void {
+    public function run(string $command): void {
         if (method_exists($this, $command)) {
             $this->$command();
         }

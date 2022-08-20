@@ -17,7 +17,7 @@ class MaintenanceModeCheck extends Check {
                 ->ok();
         }
 
-        $data = json_decode(file_get_contents(storage_path('framework').'down'), true, 512, JSON_THROW_ON_ERROR);
+        $data = json_decode(file_get_contents(storage_path('framework').'down') ?: '{}', true, 512, JSON_THROW_ON_ERROR);
         if (is_null($data['secret'])) {
             return $result
                 ->shortSummary("$name.failed-no-key-short")

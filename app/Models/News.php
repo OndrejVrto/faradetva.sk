@@ -76,7 +76,7 @@ class News extends BaseModel implements HasMedia, Feedable {
 
     public function setTeaserAttribute(?string $value): void {
         $this->attributes['teaser'] = empty($value)
-            ? Str::words($this->content_plain, 50)
+            ? Str::words($this->content_plain ?? '', 50)
             : $value;
     }
 
@@ -85,25 +85,25 @@ class News extends BaseModel implements HasMedia, Feedable {
     }
 
     public function getTeaserMediumAttribute(): string {
-        return Str::words($this->teaser, 20, '...');
+        return Str::words($this->teaser ?? '', 20, '...');
         // return Str::limit($this->teaser, 200, '...');
     }
 
     public function getTeaserLightAttribute(): string {
-        return Str::words($this->teaser, 9, '...');
+        return Str::words($this->teaser ?? '', 9, '...');
         // return Str::limit($this->teaser, 55, '...');
     }
 
     public function getCreatedAttribute(): string {
-        return $this->created_at->format("d. m. Y");
+        return $this->created_at?->format("d. m. Y");
     }
 
     public function getCreatedStringAttribute(): string {
-        return $this->created_at->format('Y');
+        return $this->created_at?->format('Y');
     }
 
     public function getUpdatedAttribute(): string {
-        return $this->updated_at->format("d. m. Y");
+        return $this->updated_at?->format("d. m. Y");
     }
 
     public function getReadDurationAttribute(): int {
@@ -142,11 +142,11 @@ class News extends BaseModel implements HasMedia, Feedable {
             ->id("clanok/$this->id")
             ->image($this->getFirstMediaUrl('front_picture', 'large'))
             ->title($this->title)
-            ->summary($this->teaser)
+            ->summary($this->teaser ?? '')
             ->updated($this->updated_at)
             ->link(route('article.show', $this->slug))
-            ->authorName($this->user->name)
-            ->category($this->category->title);
+            ->authorName($this->user?->name)
+            ->category($this->category?->title);
     }
 
     public static function getFeedItems(): Collection {
@@ -154,7 +154,7 @@ class News extends BaseModel implements HasMedia, Feedable {
     }
 
     public function registerMediaConversions(Media $media = null): void {
-        if ($media->collection_name == $this->collectionName) {
+        if ($media?->collection_name == $this->collectionName) {
             $this->addMediaConversion('large')
                 ->fit(Manipulations::FIT_CROP, 700, 400)
                 ->sharpen(2)

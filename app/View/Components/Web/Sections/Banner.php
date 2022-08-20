@@ -70,7 +70,7 @@ class Banner extends Component {
             'img-title'         => $banner->title,
             'img-url'           => $banner->getFirstMediaUrl('banner', 'extra-large'),
             'img-mime'          => $banner->mime_type,
-            'img-updated'       => $banner->updated_at->toAtomString(),
+            'img-updated'       => $banner->updated_at?->toAtomString(),
             'img-width'         => 1920,
             'img-height'        => 480,
 
@@ -78,14 +78,14 @@ class Banner extends Component {
             'img_thumbnail_width'  => 360,
             'img_thumbnail_height' => 90,
 
-            'source_description'       => $banner->source->source_description,
+            'source_description'       => $banner->source?->source_description,
             'sourceArr' => [
-                'source_source'        => $banner->source->source_source,
-                'source_source_url'    => $banner->source->source_source_url,
-                'source_author'        => $banner->source->source_author,
-                'source_author_url'    => $banner->source->source_author_url,
-                'source_license'       => $banner->source->source_license,
-                'source_license_url'   => $banner->source->source_license_url,
+                'source_source'        => $banner->source?->source_source,
+                'source_source_url'    => $banner->source?->source_source_url,
+                'source_author'        => $banner->source?->source_author,
+                'source_author_url'    => $banner->source?->source_author_url,
+                'source_license'       => $banner->source?->source_license,
+                'source_license_url'   => $banner->source?->source_license_url,
             ],
         ];
     }

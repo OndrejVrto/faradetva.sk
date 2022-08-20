@@ -30,10 +30,11 @@ class SettingsSwitcherService {
         Artisan::call(RunHealthChecksCommand::class, ['--quiet' => true, '--no-interaction' => true]);
     }
 
-    public function run(bool $value, string $command = null): void {
+    public function run(bool $value, string $command): void {
         if (method_exists($this, $command)) {
             $this->$command($value);
         }
+        return;
     }
 
     private function handle(
@@ -89,15 +90,15 @@ class SettingsSwitcherService {
             // TODO: send email to all administrator with secret key url
             Log::channel('slack')->alert('Aplikácia je prepnutá do údržbového módu.', [
                 'Secret url' => url(route('home').'/'.$this->secretKey),
-                'Uživateľ ktorý vypol aplikáciu' => Auth::user()->name,
-                'Uživateľov e-mail' => Auth::user()->email,
+                'Uživateľ ktorý vypol aplikáciu' => Auth::user()?->getAuthIdentifierName(),
+                'Uživateľov e-mail' => Auth::user()?->email,
             ]);
             $this->checkbox->put('maintenance_mode', "true");
         } else {
             $this->checkbox->put('maintenance_mode', "false");
             Artisan::call('up');
             Log::channel('slack')->alert('Aplikácia je opäť spustená.', [
-                'Uživateľ ktorý spustil aplikáciu' => Auth::user()->name,
+                'Uživateľ ktorý spustil aplikáciu' => Auth::user()->getAuthIdentifierName(),
             ]);
         }
     }

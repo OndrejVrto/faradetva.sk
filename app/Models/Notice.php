@@ -63,7 +63,7 @@ class Notice extends BaseModel implements HasMedia, Feedable {
             ->title($this->title)
             ->updated($this->updated_at)
             ->summary($this->title)
-            ->link($this->getFirstMedia('notice_pdf')->getFullUrl())
+            ->link($this->getFirstMedia('notice_pdf')?->getFullUrl())
             ->authorName("Farská kancelária")
             ->category($this->type_model);
     }

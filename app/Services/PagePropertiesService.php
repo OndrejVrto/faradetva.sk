@@ -8,7 +8,7 @@ use App\Models\StaticPage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
 
-class PagePropertiesService {
+final class PagePropertiesService {
     public static function virtualPageData(string $route): ?array {
         $page = Cache::rememberForever(
             key: 'PAGE_VIRTUAL_'.Str::slug($route),
@@ -52,8 +52,8 @@ class PagePropertiesService {
             'wikipedia'        => e($page->wikipedia),
             'banners'          => $page->banners->pluck('slug')->toArray(),
             'faqs'             => $page->faqs->pluck('slug')->toArray(),
-            'datePublished'    => $page->created_at->toAtomString(),
-            'dateModified'     => $page->updated_at->toAtomString(),
+            'datePublished'    => $page->created_at?->toAtomString(),
+            'dateModified'     => $page->updated_at?->toAtomString(),
         ];
     }
 
@@ -64,22 +64,22 @@ class PagePropertiesService {
             return [
                 'img-representing' => $media->getUrl('representing'),
                 'img-thumb'        => $media->getUrl('representing-thumb'),
-                // 'img-file-name'    => $media->file_name,
+                // 'img-file-name'    => $media?->file_name,
                 'img-file-name'    => pathinfo(strval($media->file_name), PATHINFO_FILENAME),
                 'img-mime-type'    => $media->mime_type,
                 'img-size'         => $media->size,
-                'img-updated_at'   => $media->updated_at->toAtomString(),
+                'img-updated_at'   => $media->updated_at?->toAtomString(),
                 'img-width'        => '960',
                 'img-height'       => '480',
-                // 'img-width'        => Image::load( $media->getPath('representing') )->getWidth(),
-                // 'img-height'       => Image::load( $media->getPath('representing') )->getHeight(),
-                'img-description'  => e($page->source->source_description),
-                'img-source'       => e($page->source->source_source),
-                'img-source_url'   => e($page->source->source_source_url),
-                'img-author'       => e($page->source->source_author),
-                'img-author_url'   => e($page->source->source_author_url),
-                'img-license'      => e($page->source->source_license),
-                'img-license_url'  => e($page->source->source_license_url),
+                // 'img-width'        => Image::load( $media?->getPath('representing') )->getWidth(),
+                // 'img-height'       => Image::load( $media?->getPath('representing') )->getHeight(),
+                'img-description'  => e($page->source?->source_description),
+                'img-source'       => e($page->source?->source_source),
+                'img-source_url'   => e($page->source?->source_source_url),
+                'img-author'       => e($page->source?->source_author),
+                'img-author_url'   => e($page->source?->source_author_url),
+                'img-license'      => e($page->source?->source_license),
+                'img-license_url'  => e($page->source?->source_license_url),
             ];
         } else {
             return [
@@ -111,49 +111,49 @@ class PagePropertiesService {
             'teaser'           => e($page->teaser),
             'content-plain'    => e($page->content_plain),
             'count-words'      => $page->count_words,
-            'category'         => e($page->category->title),
+            'category'         => e($page->category?->title),
             'tags'             => $page->tags->pluck('title')->implode(', '),
 
             'datePublished'    => property_exists($page, 'published_at') && $page->published_at !== null
                                     ? Carbon::createFromFormat('d.m.Y G:i', $page->published_at)->toAtomString()
-                                    : $page->created_at->toAtomString(),
-            'dateModified'     => $page->updated_at->toAtomString(),
+                                    : $page->created_at?->toAtomString(),
+            'dateModified'     => $page->updated_at?->toAtomString(),
 
             'expires'          => property_exists($page, 'unpublished_at') && $page->unpublished_at !== null
                                     ? Carbon::createFromFormat('d.m.Y G:i', $page->unpublished_at)->toAtomString()
                                     : null,
 
-            'author'           => e($page->user->name),
-            'author-slug'      => $page->user->slug,
-            'author-email'     => e($page->user->email),
-            'author-www'       => e($page->user->www_page_url),
-            'author-twitter'   => e($page->user->twitter_url),
-            'author-facebook'  => e($page->user->facebook_url),
-            'author-phone'     => e($page->user->phone),
+            'author'           => e($page->user?->name),
+            'author-slug'      => $page->user?->slug,
+            'author-email'     => e($page->user?->email),
+            'author-www'       => e($page->user?->www_page_url),
+            'author-twitter'   => e($page->user?->twitter_url),
+            'author-facebook'  => e($page->user?->facebook_url),
+            'author-phone'     => e($page->user?->phone),
 
             'slug'             => e($page->slug),
             'title'            => e($page->title),
             'page-description' => e($page->teaser),
-            'keywords'         => e($page->title.', '.$page->category->title.', '.$page->tags->pluck('title')->implode(', ').', Detva, farnosť, aktuality, zamyslenia, článok'),
+            'keywords'         => e($page->title.', '.$page->category?->title.', '.$page->tags->pluck('title')->implode(', ').', Detva, farnosť, aktuality, zamyslenia, článok'),
             'wikipedia'        => null,
 
             'url'              => route('article.show', $page->slug),
 
-            'img-representing' => $media->getUrl('large'),
-            'img-thumb'        => $media->getUrl('small'),
-            'img-file-name'    => $media->file_name,
-            'img-mime-type'    => $media->mime_type,
-            'img-size'         => $media->size,
-            'img-updated_at'   => $media->updated_at->toAtomString(),
+            'img-representing' => $media?->getUrl('large'),
+            'img-thumb'        => $media?->getUrl('small'),
+            'img-file-name'    => $media?->file_name,
+            'img-mime-type'    => $media?->mime_type,
+            'img-size'         => $media?->size,
+            'img-updated_at'   => $media?->updated_at?->toAtomString(),
             'img-width'        => '700',
             'img-height'       => '400',
-            'img-description'  => e($page->source->source_description),
-            'img-source'       => e($page->source->source_source),
-            'img-source_url'   => e($page->source->source_source_url),
-            'img-author'       => e($page->source->source_author),
-            'img-author_url'   => e($page->source->source_author_url),
-            'img-license'      => e($page->source->source_license),
-            'img-license_url'  => e($page->source->source_license_url),
+            'img-description'  => e($page->source?->source_description),
+            'img-source'       => e($page->source?->source_source),
+            'img-source_url'   => e($page->source?->source_source_url),
+            'img-author'       => e($page->source?->source_author),
+            'img-author_url'   => e($page->source?->source_author_url),
+            'img-license'      => e($page->source?->source_license),
+            'img-license_url'  => e($page->source?->source_license_url),
         ];
     }
 }

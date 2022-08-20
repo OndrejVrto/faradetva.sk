@@ -54,7 +54,7 @@ class BackgroundPicture extends Component {
             'img-title'         => $img->title,
             'img-url'           => $img->getFirstMediaUrl('background_picture', 'extra-large'),
             'img-mime'          => $img->mime_type,
-            'img-updated'       => $img->updated_at->toAtomString(),
+            'img-updated'       => $img->updated_at?->toAtomString(),
             'img-width'         => 1920,
             'img-height'        => 1440,
 
@@ -62,14 +62,14 @@ class BackgroundPicture extends Component {
             'img_thumbnail_width'  => 192,
             'img_thumbnail_height' => 144,
 
-            'source_description'       => $img->source->source_description,
+            'source_description'       => $img->source?->source_description,
             'sourceArr' => [
-                'source_source'        => $img->source->source_source,
-                'source_source_url'    => $img->source->source_source_url,
-                'source_author'        => $img->source->source_author,
-                'source_author_url'    => $img->source->source_author_url,
-                'source_license'       => $img->source->source_license,
-                'source_license_url'   => $img->source->source_license_url,
+                'source_source'        => $img->source?->source_source,
+                'source_source_url'    => $img->source?->source_source_url,
+                'source_author'        => $img->source?->source_author,
+                'source_author_url'    => $img->source?->source_author_url,
+                'source_license'       => $img->source?->source_license,
+                'source_license_url'   => $img->source?->source_license_url,
             ],
         ];
     }

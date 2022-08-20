@@ -53,14 +53,14 @@ class PhotoGallery extends Component {
         return $picture + [
             'title' => $album->title,
             'slug'  => $album->slug,
-            'source_description' => $album->source->source_description,
+            'source_description' => $album->source?->source_description,
             'sourceArr' => [
-                'source_source'      => $album->source->source_source,
-                'source_source_url'  => $album->source->source_source_url,
-                'source_author'      => $album->source->source_author,
-                'source_author_url'  => $album->source->source_author_url,
-                'source_license'     => $album->source->source_license,
-                'source_license_url' => $album->source->source_license_url,
+                'source_source'      => $album->source?->source_source,
+                'source_source_url'  => $album->source?->source_source_url,
+                'source_author'      => $album->source?->source_author,
+                'source_author_url'  => $album->source?->source_author_url,
+                'source_license'     => $album->source?->source_license,
+                'source_license_url' => $album->source?->source_license_url,
             ],
         ];
     }

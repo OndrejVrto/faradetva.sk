@@ -37,9 +37,9 @@ class Pray extends Component {
 
         // Get all data Prayer to Cache
         return Cache::rememberForever(
-            key: 'PICTURE_PRAYER_'.$onePrayer->slug,
+            key: 'PICTURE_PRAYER_'.$onePrayer?->slug,
             callback: fn (): ?array => Prayer::query()
-                ->whereSlug($onePrayer->slug)
+                ->whereSlug($onePrayer?->slug)
                 ->with('media', 'source')
                 ->get()
                 ->map(fn ($e) => $this->mapOutput($e))
@@ -68,7 +68,7 @@ class Pray extends Component {
             'img-title'         => $prayer->title,
             'img-url'           => $prayer->getFirstMediaUrl('prayer', 'extra-large'),
             'img-mime'          => $prayer->mime_type,
-            'img-updated'       => $prayer->updated_at->toAtomString(),
+            'img-updated'       => $prayer->updated_at?->toAtomString(),
             'img-width'         => 1920,
             'img-height'        => 800,
 
@@ -76,14 +76,14 @@ class Pray extends Component {
             'img_thumbnail_width'  => 192,
             'img_thumbnail_height' => 80,
 
-            'source_description'       => $prayer->source->source_description,
+            'source_description'       => $prayer->source?->source_description,
             'sourceArr' => [
-                'source_source'        => $prayer->source->source_source,
-                'source_source_url'    => $prayer->source->source_source_url,
-                'source_author'        => $prayer->source->source_author,
-                'source_author_url'    => $prayer->source->source_author_url,
-                'source_license'       => $prayer->source->source_license,
-                'source_license_url'   => $prayer->source->source_license_url,
+                'source_source'        => $prayer->source?->source_source,
+                'source_source_url'    => $prayer->source?->source_source_url,
+                'source_author'        => $prayer->source?->source_author,
+                'source_author_url'    => $prayer->source?->source_author_url,
+                'source_license'       => $prayer->source?->source_license,
+                'source_license_url'   => $prayer->source?->source_license_url,
             ],
         ];
     }

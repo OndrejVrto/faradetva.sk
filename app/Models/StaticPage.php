@@ -85,7 +85,7 @@ class StaticPage extends BaseModel implements HasMedia {
     }
 
     public function registerMediaConversions(Media $media = null): void {
-        if ($media->collection_name == $this->collectionName) {
+        if ($media?->collection_name == $this->collectionName) {
             $this->addMediaConversion('crop-thumb')
                 ->fit(Manipulations::FIT_CROP, 100, 50)
                 ->sharpen(2)

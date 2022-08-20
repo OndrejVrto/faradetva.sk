@@ -12,7 +12,7 @@ class LastArticle extends Component {
     public Collection $lastArticles;
 
     public function __construct(
-        private readonly ?int $count = 3
+        private readonly int $count = 3
     ) {
         $this->lastArticles = Cache::rememberForever(
             key: 'LAST_ARTICLES',

@@ -27,6 +27,6 @@ trait Restorable {
         ];
 
         return
-            auth()->user()->hasAnyPermission($permissions) || (bool) auth()->user()->hasRole('Super Administrátor');
+            auth()->user()?->hasAnyPermission($permissions) || (bool) auth()->user()?->hasRole('Super Administrátor');
     }
 }

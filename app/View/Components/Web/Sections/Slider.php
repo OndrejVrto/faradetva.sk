@@ -67,7 +67,7 @@ class Slider extends Component {
             'img-title'         => $slider->id.': '.$slider->heading_1,
             'img-url'           => $slider->getFirstMediaUrl('slider', 'extra-large'),
             'img-mime'          => $slider->mime_type,
-            'img-updated'       => $slider->updated_at->toAtomString(),
+            'img-updated'       => $slider->updated_at?->toAtomString(),
             'img-width'         => 1920,
             'img-height'        => 800,
 
@@ -75,14 +75,14 @@ class Slider extends Component {
             'img_thumbnail_width'  => 192,
             'img_thumbnail_height' => 80,
 
-            'source_description'       => $slider->source->source_description,
+            'source_description'       => $slider->source?->source_description,
             'sourceArr' => [
-                'source_source'        => $slider->source->source_source,
-                'source_source_url'    => $slider->source->source_source_url,
-                'source_author'        => $slider->source->source_author,
-                'source_author_url'    => $slider->source->source_author_url,
-                'source_license'       => $slider->source->source_license,
-                'source_license_url'   => $slider->source->source_license_url,
+                'source_source'        => $slider->source?->source_source,
+                'source_source_url'    => $slider->source?->source_source_url,
+                'source_author'        => $slider->source?->source_author,
+                'source_author_url'    => $slider->source?->source_author_url,
+                'source_license'       => $slider->source?->source_license,
+                'source_license_url'   => $slider->source?->source_license_url,
             ],
         ];
     }

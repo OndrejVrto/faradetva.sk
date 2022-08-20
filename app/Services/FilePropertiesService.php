@@ -35,30 +35,34 @@ class FilePropertiesService {
             'id'                => $item->id,
             'slug'              => $item->slug,
             'title'             => $item->title,
-            'source_description'=> $item->source->source_description,
+            'source_description'=> $item->source?->source_description,
 
-            'mime_type'         => $fileMedia->mime_type,
-            'icon'              => $this->getFileIcon($fileMedia->mime_type),
+            'mime_type'         => $fileMedia?->mime_type,
+            'icon'              => $this->getFileIcon($fileMedia?->mime_type),
 
-            'file_url'          => $fileMedia->getUrl(),
-            'file_name'         => $fileMedia->file_name,
-            'file_extension'    => pathinfo((string) $fileMedia->file_name, PATHINFO_EXTENSION),
-            'name'              => $fileMedia->name,
-            'size'              => $fileMedia->size,
-            'humanReadableSize' => formatBytes($fileMedia->size),
+            'file_url'          => $fileMedia?->getUrl(),
+            'file_name'         => $fileMedia?->file_name,
+            'file_extension'    => pathinfo((string) $fileMedia?->file_name, PATHINFO_EXTENSION),
+            'name'              => $fileMedia?->name,
+            'size'              => $fileMedia?->size,
+            'humanReadableSize' => formatBytes($fileMedia?->size),
 
             'sourceArr' => [
-                'source_source'        => $item->source->source_source,
-                'source_source_url'    => $item->source->source_source_url,
-                'source_author'        => $item->source->source_author,
-                'source_author_url'    => $item->source->source_author_url,
-                'source_license'       => $item->source->source_license,
-                'source_license_url'   => $item->source->source_license_url,
+                'source_source'        => $item->source?->source_source,
+                'source_source_url'    => $item->source?->source_source_url,
+                'source_author'        => $item->source?->source_author,
+                'source_author_url'    => $item->source?->source_author_url,
+                'source_license'       => $item->source?->source_license,
+                'source_license_url'   => $item->source?->source_license_url,
             ],
         ];
     }
 
-    public function getFileIcon(string $mimeType): string {
+    public function getFileIcon(?string $mimeType): string {
+        if (is_null($mimeType)) {
+            return 'file';
+        }
+
         [$type, $subtype] = explode("/", $mimeType);
 
         return match ($type) {

@@ -27,6 +27,6 @@ class Source extends BaseModel {
     }
 
     public function getSourceDescriptionCropAttribute(): string {
-        return Str::words($this->source_description, 10, '...');
+        return Str::words($this->source_description ?? '', 10, '...');
     }
 }
