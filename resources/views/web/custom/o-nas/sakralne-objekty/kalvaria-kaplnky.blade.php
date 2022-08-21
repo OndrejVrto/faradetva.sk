@@ -2,7 +2,7 @@
 
     {{-- Kalvária a kaplnky --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" class="static-page pad_b_50">
 
     <x-web.page.subsection title="Kaplnka Sedembolestnej Panny Márie - Kalvária">
         <x-web.page.text-segment animation="fromright">

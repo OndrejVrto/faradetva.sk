@@ -2,7 +2,7 @@
 
     {{-- Pozvätný stav --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection title="Čo je sviatosť posvätného stavu?">
             <x-web.page.text-segment animation="fromright">
@@ -46,7 +46,7 @@
 
     <x-web.sections.background-picture titleSlug="sacr6-002"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Účinok kňazskej vysviacky">
             <x-web.page.text-segment animation="fromright">

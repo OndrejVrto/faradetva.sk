@@ -2,7 +2,7 @@
 
     {{-- Pomazanie chorých --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection title="Prečo Ježiš prejavoval taký veľký záujem o chorých?">
             <x-web.page.text-segment animation="fromright">
@@ -35,7 +35,7 @@
 
     <x-web.sections.background-picture titleSlug="sacr5-007"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Aké účinky má sviatosť chorých?">
             <x-web.page.text-segment animation="fromleft">

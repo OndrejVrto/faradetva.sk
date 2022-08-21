@@ -2,7 +2,7 @@
 
     {{-- Spoveď --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection title="Ako inak nazývame túto sviatosť a prečo ju potrebujeme">
             <x-web.page.text-segment animation="fromright">
@@ -52,7 +52,7 @@
 
     <x-web.sections.background-picture titleSlug="sacr4-003"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Z akých hriechov sa mám vlastne spovedať?">
             <x-web.page.text-segment animation="fromleft">

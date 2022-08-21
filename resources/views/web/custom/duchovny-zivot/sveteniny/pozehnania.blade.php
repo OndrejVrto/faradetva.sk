@@ -2,7 +2,7 @@
 
     {{-- Požehnania --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_30">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_30">
 
         <x-web.page.subsection>
 
@@ -30,7 +30,7 @@
 
     <x-web.sections.background-picture titleSlug="poz-003"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_b_50">
 
         <x-web.page.subsection class="pt-5">
 

@@ -2,7 +2,7 @@
 
     {{-- Ministériá --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page">
 
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
@@ -36,7 +36,7 @@
 
     <x-web.sections.background-picture titleSlug="min-003"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
         <x-web.page.subsection title="Lektorát">
 
             <x-web.page.text-segment>

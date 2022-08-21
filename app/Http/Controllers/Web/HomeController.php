@@ -10,11 +10,11 @@ use App\Services\SEO\PageSeoPropertiesService;
 class HomeController extends Controller {
     public function __invoke(): View {
         $pageData = PagePropertiesService::virtualPageData('hlavna-stranka');
-
-        if ($pageData) {
-            (new PageSeoPropertiesService($pageData))
-                ->setMetaTags()
-                ->setWebPageSchema()
+        // dump($pageData);
+        if ($pageData !== null) {
+            (new PageSeoPropertiesService())
+                ->setMetaTags($pageData->title, $pageData->description, $pageData->keywords, $pageData->author, $pageData->image)
+                ->setWebPageSchema($pageData)
                 ->setWebsiteSchemaGraph()
                 ->setOrganisationSchemaGraph();
         }

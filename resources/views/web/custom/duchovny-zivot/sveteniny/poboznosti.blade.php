@@ -2,7 +2,7 @@
 
     {{-- Pobožnosti --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
 
@@ -51,7 +51,7 @@
 
     <x-web.sections.background-picture titleSlug="pob-002"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_b_50">
 
         <x-web.page.subsection class="pt-5">
             <x-web.page.text-segment>

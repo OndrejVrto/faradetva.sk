@@ -40,7 +40,7 @@ class MediaStoreService {
                     'oldFileName'     => $request->crop_output_file_name,
                     'width'           => $request->crop_output_width,
                     'height'          => $request->crop_output_height,
-                    'exactDimansions' => $request->crop_output_exact_dimensions,
+                    'exactDimansions' => $request->crop_output_exact_dimensions, //TODO: rename exactDimansions to exactDimensions + change values in database
                 ])
                 ->toMediaCollection($colectionName);
         }

@@ -2,7 +2,7 @@
 
     {{-- Manželstvo --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection title="Ako sa uskutočňuje sviatosť manželstva?">
             <x-web.page.text-segment animation="fromright">
@@ -60,7 +60,7 @@
 
     <x-web.sections.background-picture titleSlug="sacr7-005"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Čo robiť ak sa chce katolík zosobášiť s nekatolíkom, alebo nepokrsteným?">
             <x-web.page.text-segment animation="fromleft">

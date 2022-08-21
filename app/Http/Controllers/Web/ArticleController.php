@@ -67,9 +67,9 @@ class ArticleController extends Controller {
         $breadCrumb = Breadcrumbs::render('article.show', true, $oneNews)->render();
 
         $pageData = PagePropertiesService::getArticlePageData($oneNews);
-        (new PageSeoPropertiesService($pageData))
-            ->setWebPageArticleSchema()
-            ->setMetaTags()
+        (new PageSeoPropertiesService())
+            ->setWebPageArticleSchema($pageData)
+            ->setMetaTags($pageData->title, $pageData->description, $pageData->keywords, $pageData->author->name, $pageData->image)
             ->setWebsiteSchemaGraph()
             ->setBreadcrumbSchemaGraph([
                 0 => [
@@ -188,10 +188,10 @@ class ArticleController extends Controller {
 
     private function seoIndex(): void {
         $pageData = PagePropertiesService::virtualPageData('clanky');
-        if ($pageData) {
-            (new PageSeoPropertiesService($pageData))
-                ->setMetaTags()
-                ->setWebPageSchema()
+        if ($pageData !== null) {
+            (new PageSeoPropertiesService())
+                ->setMetaTags($pageData->title, $pageData->description, $pageData->keywords, $pageData->author, $pageData->image)
+                ->setWebPageSchema($pageData)
                 ->setWebsiteSchemaGraph()
                 ->setOrganisationSchemaGraph()
                 ->setBreadcrumbSchemaGraph([
