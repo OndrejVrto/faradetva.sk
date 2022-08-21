@@ -20,10 +20,10 @@ class SearchController extends Controller {
 
         // set SEO
         $pageData = (new PagePropertiesService())->virtualPageData('globalne-vyhladavanie');
-        if ($pageData) {
-            (new PageSeoPropertiesService($pageData))
-                ->setMetaTags()
-                ->setWebPageSchema()
+        if ($pageData !== null) {
+            (new PageSeoPropertiesService())
+                ->setMetaTags($pageData->title, $pageData->description, $pageData->keywords, $pageData->author, $pageData->image)
+                ->setWebPageSchema($pageData)
                 ->setWebsiteSchemaGraph()
                 ->setOrganisationSchemaGraph();
         }

@@ -67,18 +67,20 @@ class PageController extends Controller {
             ])
             ->toArray();
 
+        $breadCrumb = Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb)->render();
+
         // map data for SEO - Page Properties
-        $pageData = $pageService->getStaticPageData($page);
-        $pageData['breadCrumb'] = Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb)->render();
+        $pageData = $pageService->getStaticPageData($page, $breadCrumb);
+        // dump($page, $pageData);
 
         // set SEO
-        (new PageSeoPropertiesService($pageData))
-            ->setMetaTags()
-            ->setWebPageSchema()
+        (new PageSeoPropertiesService())
+            ->setMetaTags($pageData->title, $pageData->description, $pageData->keywords, $pageData->author, $pageData->image)
+            ->setWebPageSchema($pageData)
             ->setWebsiteSchemaGraph()
             ->setOrganisationSchemaGraph()
             ->setBreadcrumbSchemaGraph($pageChainBreadCrumb);
 
-        return view($pageData['route'], compact('pageData'));
+        return view($pageData->route, compact('pageData'));
     }
 }

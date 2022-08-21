@@ -2,109 +2,111 @@
 
 namespace App\Services\SEO;
 
-use DateTime;
 use App\Facades\SeoGraph;
 use App\Facades\SeoSchema;
 use Spatie\SchemaOrg\Type;
 use Illuminate\Support\Str;
 use Spatie\SchemaOrg\Schema;
 use Spatie\SchemaOrg\ImageObject;
+use App\DataTransferObjects\PageData;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
+use App\DataTransferObjects\PageArticleData;
+use App\DataTransferObjects\AuthorArticleData;
+use App\DataTransferObjects\RepresentingImageData;
 
-// TODO: Refactor this mess
 class PageSeoPropertiesService {
-    public function __construct(
-        private array $page,
-    ) {
-    }
-
-    public function setBreadcrumbSchemaGraph(array $breadcrumbLinks): self {
+    public function setBreadcrumbSchemaGraph(array $breadcrumbLinks): static {
         SeoGraph::add($this->getBreadcrumbSchema($breadcrumbLinks), 'BreadCrumb');
         return $this;
     }
 
-    public function setWebsiteSchemaGraph(): self {
+    public function setWebsiteSchemaGraph(): static {
         SeoGraph::add($this->getWebSiteSchema(), 'WebSite');
         return $this;
     }
 
-    public function setOrganisationSchemaGraph(): self {
+    public function setOrganisationSchemaGraph(): static {
         SeoGraph::add($this->getOrganizationSchema(), 'Organization');
         return $this;
     }
 
     // Twiter, Facebook and META
-    public function setMetaTags(): self {
+    public function setMetaTags(
+        string $title,
+        string $description,
+        string $keywords,
+        string $author,
+        RepresentingImageData $image,
+    ): static {
         // Global Meta
-        if ($this->page['title'] != config('seotools.meta.defaults.title')) {
-            SEOMeta::setTitle($this->page['title']);
+        if ($title != config('seotools.meta.defaults.title')) {
+            SEOMeta::setTitle($title);
         }
-        SEOMeta::setDescription($this->page['page-description']);
-        SEOMeta::addKeyword($this->page['keywords']);
-        SEOMeta::addMeta('author', $this->page['author'], 'name');
+        SEOMeta::setDescription($description);
+        SEOMeta::addKeyword($keywords);
+        SEOMeta::addMeta('author', $author, 'name');
         // SEOMeta::addMeta('robots', 'index, follow', 'name');
 
         // Facebook and other social site
-        OpenGraph::setDescription($this->page['page-description']);
-        OpenGraph::setTitle($this->page['title']);
-        OpenGraph::addImage($this->page['img-representing'], [
-            'alt' => $this->page['img-description'],
-            'type' => $this->page['img-mime-type'],
-            'width' => $this->page['img-width'],
-            'height' => $this->page['img-height'],
+        OpenGraph::setDescription($description);
+        OpenGraph::setTitle($title);
+        OpenGraph::addImage($image->url, [
+            'alt' => $image->source->description,
+            'type' => $image->mimeType,
+            'width' => $image->width,
+            'height' => $image->height,
         ]);
 
         // Twitter
-        TwitterCard::setTitle($this->page['title']);
-        TwitterCard::setDescription($this->page['page-description']);
-        TwitterCard::setImage($this->page['img-representing']);
-        TwitterCard::addValue('image:alt', $this->page['img-description']);
+        TwitterCard::setTitle($title);
+        TwitterCard::setDescription($description);
+        TwitterCard::setImage($image->url);
+        TwitterCard::addValue('image:alt', $image->source->description);
 
         return $this;
     }
 
     // For general pages
-    public function setWebPageSchema(): self {
-        SeoSchema::setType($this->page['type_page']);
-        SeoSchema::setTitle($this->page['title']);
-        SeoSchema::setDescription($this->page['page-description']);
+    public function setWebPageSchema(PageData $page): static {
+        SeoSchema::setType($page->type->type());
+        SeoSchema::setTitle($page->title);
+        SeoSchema::setDescription($page->description);
         SeoSchema::addValue('inLanguage', "sk-SK");
-        if ($this->page['wikipedia']) {
-            SeoSchema::addValue('sameAs', $this->page['wikipedia']);
+        if ($page->wikipedia) {
+            SeoSchema::addValue('sameAs', $page->wikipedia);
         }
-        SeoSchema::addValue('keywords', $this->page['keywords']);
-        SeoSchema::addValue('primaryImageOfPage', $this->getPrimaryImagePageSchema());
-        SeoSchema::addValue('potentialAction', $this->getReadActionSchema($this->page['url']));
-        SeoSchema::addValue('datePublished', $this->page['datePublished']);
-        SeoSchema::addValue('dateModified', $this->page['dateModified']);
+        SeoSchema::addValue('keywords', $page->keywords);
+        SeoSchema::addValue('primaryImageOfPage', $this->getPrimaryImagePageSchema($page->image));
+        SeoSchema::addValue('potentialAction', $this->getReadActionSchema($page->url));
+        SeoSchema::addValue('datePublished', $page->datePublished->toAtomString());
+        SeoSchema::addValue('dateModified', $page->dateModified->toAtomString());
 
         return $this;
     }
 
     // For Article pages
-    public function setWebPageArticleSchema(): self {
-        SeoSchema::setType($this->page['type_page']);
-        SeoSchema::setTitle(e($this->page['title']));
-        SeoSchema::setDescription(e($this->page['page-description']));
+    public function setWebPageArticleSchema(PageArticleData $pageArticle): static {
+        SeoSchema::setType($pageArticle->type->type());
+        SeoSchema::setTitle(e($pageArticle->title));
+        SeoSchema::setDescription(e($pageArticle->description));
         SeoSchema::addValue('inLanguage', "sk-SK");
-        SeoSchema::addValue('keywords', e($this->page['keywords']));
-        SeoSchema::addValue('headline', e($this->page['teaser']));
-        SeoSchema::addValue('datePublished', $this->page['datePublished']);
-        SeoSchema::addValue('dateModified', $this->page['dateModified']);
-        if ($this->page['expires']) {
-            SeoSchema::addValue('expires', $this->page['expires']);
+        SeoSchema::addValue('keywords', e($pageArticle->keywords));
+        SeoSchema::addValue('headline', e($pageArticle->teaser));
+        SeoSchema::addValue('datePublished', $pageArticle->datePublished->toAtomString());
+        SeoSchema::addValue('dateModified', $pageArticle->dateModified->toAtomString());
+        if ($pageArticle->dateExpires !== null) {
+            SeoSchema::addValue('expires', $pageArticle->dateExpires->toAtomString());
         }
-        SeoSchema::addValue('author', $this->getArticleAuthorSchema());
+        SeoSchema::addValue('author', $this->getArticleAuthorSchema($pageArticle->author));
         SeoSchema::addValue('isAccessibleForFree', true);   // @phpstan-ignore-line
-        SeoSchema::addValue('articleBody', $this->page['content-plain']);
-        SeoSchema::addValue('articleBody', $this->page['content-plain']);
-        SeoSchema::addValue('articleSection', $this->page['category']);
-        SeoSchema::addValue('wordCount', $this->page['count-words']);
-        SeoSchema::addValue('mainEntityOfPage', $this->getMainEntitySchema($this->page['title'], $this->page['url']));
-        SeoSchema::addValue('potentialAction', $this->getReadActionSchema($this->page['url']));
-        SeoSchema::addValue('image', $this->getPrimaryImagePageSchema());
+        SeoSchema::addValue('articleBody', $pageArticle->contentPlain);
+        SeoSchema::addValue('articleSection', $pageArticle->category);
+        SeoSchema::addValue('wordCount', (string) $pageArticle->countWords);
+        SeoSchema::addValue('mainEntityOfPage', $this->getMainEntitySchema($pageArticle->title, $pageArticle->url));
+        SeoSchema::addValue('potentialAction', $this->getReadActionSchema($pageArticle->url));
+        SeoSchema::addValue('image', $this->getPrimaryImagePageSchema($pageArticle->image));
         SeoSchema::addValue('publisher', $this->getOrganizationSchemaArray());
 
         return $this;
@@ -215,31 +217,31 @@ class PageSeoPropertiesService {
             );
     }
 
-    private function getPrimaryImagePageSchema(): array {
+    private function getPrimaryImagePageSchema(RepresentingImageData $imageData): array {
         $JsonLD = Schema::imageObject()
-            ->url($this->page['img-representing'])
-            ->thumbnailUrl($this->page['img-thumb'])
-            ->name($this->page['img-file-name'])
-            ->description($this->page['img-description'])
-            ->alternateName($this->page['img-description'])
-            ->encodingFormat($this->page['img-mime-type'])
-            ->height($this->page['img-height'])
-            ->width($this->page['img-width'])
-            ->uploadDate(DateTime::createFromFormat('Y-m-d H:i:s', $this->page['img-updated_at']))
-            ->if(isset($this->page['img-author']) || isset($this->page['img-author_url']), function (ImageObject $schema) {
+            ->url($imageData->url)
+            ->thumbnailUrl($imageData->urlThumb)
+            ->name($imageData->fileName)
+            ->description($imageData->source->description)
+            ->alternateName($imageData->source->description)
+            ->encodingFormat($imageData->mimeType)
+            ->height(Schema::quantitativeValue()->value($imageData->height))
+            ->width(Schema::quantitativeValue()->value($imageData->width))
+            ->uploadDate($imageData->updated_at)
+            ->if(isset($imageData->source->author) || isset($imageData->source->authorUrl), function (ImageObject $schema) use ($imageData) {
                 $schema->author(
                     Schema::person()
-                        ->name($this->page['img-author'])
-                        ->sameAs($this->page['img-author_url'])
+                        ->name($imageData->source->author)
+                        ->sameAs($imageData->source->authorUrl)
                 );
             })
-            ->license($this->page['img-license_url'])
-            ->acquireLicensePage($this->page['img-license_url'])
-            ->if(isset($this->page['img-source_url']) || isset($this->page['img-source']), function (ImageObject $schema) {
+            ->license($imageData->source->licenseUrl)
+            ->acquireLicensePage($imageData->source->licenseUrl)
+            ->if(isset($imageData->source->source) || isset($imageData->source->sourceUrl), function (ImageObject $schema) use ($imageData) {
                 $schema->copyrightHolder(
                     Schema::organization()
-                        ->name($this->page['img-source'])
-                        ->url($this->page['img-source_url'])
+                        ->name($imageData->source->source)
+                        ->url($imageData->source->sourceUrl)
                 );
             })
             ->toArray();
@@ -279,17 +281,17 @@ class PageSeoPropertiesService {
             );
     }
 
-    private function getArticleAuthorSchema(): array {
+    private function getArticleAuthorSchema(AuthorArticleData $author): array {
         $JsonLD = Schema::person()
-            ->name($this->page['author'])
-            ->sameAs($this->page['author-twitter'])
-            ->sameAs($this->page['author-facebook'])
-            ->telephone($this->page['author-phone'])
-            ->email($this->page['author-email'])
+            ->name($author->name)
+            ->sameAs($author->twitterUrl)
+            ->sameAs($author->facebookUrl)
+            ->telephone($author->phone)
+            ->email($author->email)
             ->url(
-                empty($this->page['author-www'])
-                    ? route('article.author', $this->page['author-slug'])
-                    : $this->page['author-www']
+                empty($author->wwwPageUrl)
+                    ? route('article.author', $author->slug)
+                    : $author->wwwPageUrl
             )
             ->toArray();
 

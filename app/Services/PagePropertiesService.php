@@ -4,12 +4,18 @@ namespace App\Services;
 
 use Carbon\Carbon;
 use App\Models\News;
+use App\Enums\PageType;
 use App\Models\StaticPage;
 use Illuminate\Support\Str;
+use App\DataTransferObjects\PageData;
 use Illuminate\Support\Facades\Cache;
+use App\DataTransferObjects\SourceData;
+use App\DataTransferObjects\PageArticleData;
+use App\DataTransferObjects\AuthorArticleData;
+use App\DataTransferObjects\RepresentingImageData;
 
 final class PagePropertiesService {
-    public static function virtualPageData(string $route): ?array {
+    public static function virtualPageData(string $route): ?PageData {
         $page = Cache::rememberForever(
             key: 'PAGE_VIRTUAL_'.Str::slug($route),
             callback: fn () => StaticPage::query()
@@ -22,7 +28,7 @@ final class PagePropertiesService {
             return null;
         }
 
-        return self::getStaticPageData($page);
+        return self::getStaticPageData($page, null);
     }
 
     /** create full route name **/
@@ -34,126 +40,143 @@ final class PagePropertiesService {
                     : $route;
     }
 
-    public static function getStaticPageData(StaticPage $page): array {
-        return self::getImageData($page) + [
-            'id'               => $page->id,
-            'active'           => $page->active,
-            'virtual'          => $page->virtual,
-            'type_page'        => $page->type_page->type(),
-            'author'           => e($page->author_page),
-            'page-description' => e($page->description_page),
-            'header'           => e($page->header),
-            'keywords'         => e($page->keywords),
-            'route'            => e(self::fullRoute($page->route_name)),
-            'slug'             => e($page->slug),
-            'teaser'           => e($page->teaser),
-            'title'            => e($page->title),
-            'url'              => e($page->full_url),
-            'wikipedia'        => e($page->wikipedia),
-            'banners'          => $page->banners->pluck('slug')->toArray(),
-            'faqs'             => $page->faqs->pluck('slug')->toArray(),
-            'datePublished'    => $page->created_at?->toAtomString(),
-            'dateModified'     => $page->updated_at?->toAtomString(),
-        ];
+    public static function getStaticPageData(StaticPage $page, ?string $breadCrumb): PageData {
+        return new PageData(
+            id:             $page->id,
+            isActive:       $page->active,
+            isVirtual:      $page->virtual,
+            title:          e($page->title),
+            slug:           e($page->slug),
+            url:            e($page->full_url),
+            description:    e($page->description_page),
+            keywords:       e($page->keywords),
+            header:         e($page->header),
+            teaser:         e($page->teaser),
+            route:          e(self::fullRoute($page->route_name)),
+            type:           $page->type_page,
+            author:         e($page->author_page),
+            wikipedia:      e($page->wikipedia),
+            datePublished:  $page->created_at,
+            dateModified:   $page->updated_at,
+            banners:        $page->banners->pluck('slug')->toArray(),
+            faqs:           $page->faqs->pluck('slug')->toArray(),
+            image:          self::getImageData($page),
+            breadCrumb:     $breadCrumb,
+        );
     }
 
-    private static function getImageData(StaticPage $page): array {
-        // TODO: delete example picture after develoop
-        if (isset($page->picture[0])) {
-            $media = $page->picture[0];
-            return [
-                'img-representing' => $media->getUrl('representing'),
-                'img-thumb'        => $media->getUrl('representing-thumb'),
-                // 'img-file-name'    => $media?->file_name,
-                'img-file-name'    => pathinfo(strval($media->file_name), PATHINFO_FILENAME),
-                'img-mime-type'    => $media->mime_type,
-                'img-size'         => $media->size,
-                'img-updated_at'   => $media->updated_at?->toAtomString(),
-                'img-width'        => '960',
-                'img-height'       => '480',
-                // 'img-width'        => Image::load( $media?->getPath('representing') )->getWidth(),
-                // 'img-height'       => Image::load( $media?->getPath('representing') )->getHeight(),
-                'img-description'  => e($page->source?->source_description),
-                'img-source'       => e($page->source?->source_source),
-                'img-source_url'   => e($page->source?->source_source_url),
-                'img-author'       => e($page->source?->source_author),
-                'img-author_url'   => e($page->source?->source_author_url),
-                'img-license'      => e($page->source?->source_license),
-                'img-license_url'  => e($page->source?->source_license_url),
-            ];
+    private static function getImageData(StaticPage $page): RepresentingImageData {
+        $media = $page->picture[0];
+
+        if (isset($media)) {
+            return new RepresentingImageData(
+                url:        $media->getUrl('representing'),
+                urlThumb:   $media->getUrl('representing-thumb'),
+                fileName:   pathinfo(strval($media->file_name), PATHINFO_FILENAME),
+                mimeType:   $media->mime_type,
+                size:       $media->size,
+                width:      960,
+                height:     480,
+                updated_at: $media->updated_at,
+                source:     new SourceData(
+                    description:    empty(e($page->source?->source_description)) ? 'Bez popisu' : e($page->source->source_description),
+                    source:         e($page->source?->source_source),
+                    sourceUrl:      e($page->source?->source_source_url),
+                    author:         e($page->source?->source_author),
+                    authorUrl:      e($page->source?->source_author_url),
+                    license:        e($page->source?->source_license),
+                    licenseUrl:     e($page->source?->source_license_url),
+                ),
+            );
         } else {
-            return [
-                'img-representing' => 'http://via.placeholder.com/960x480',
-                'img-thumb'        => 'http://via.placeholder.com/256x256',
-                'img-file-name'    => 'placeholder_960x480.jpg',
-                'img-mime-type'    => 'image/png',
-                'img-size'         => '15',
-                'img-updated_at'   => '022-06-05T17:06:30+02:00',
-                'img-width'        => '960',
-                'img-height'       => '480',
-                'img-description'  => 'example picture description',
-                'img-source'       => 'example source',
-                'img-source_url'   => 'http://source.example.com',
-                'img-author'       => 'example author',
-                'img-author_url'   => 'http://author.example.com',
-                'img-license'      => 'example license',
-                'img-license_url'  => 'http://license.example.com',
-            ];
+            //TODO: delete this example picture after develoop
+            return new RepresentingImageData(
+                url:        'http://via.placeholder.com/960x480',
+                urlThumb:   'http://via.placeholder.com/256x256',
+                fileName:   'placeholder_960x480.jpg',
+                mimeType:   'image/png',
+                size:       15,
+                width:      960,
+                height:     480,
+                updated_at: now(),
+                source:     new SourceData(
+                    description:'example picture description',
+                    source:     'example source',
+                    sourceUrl:  'http://source.example.com',
+                    author:     'example author',
+                    authorUrl:  'http://author.example.com',
+                    license:    'example license',
+                    licenseUrl: 'http://license.example.com',
+                ),
+            );
         }
     }
 
-    public static function getArticlePageData(News $page): array {
-        $media = $page->getFirstMedia('front_picture');
+    public static function getArticlePageData(News $news): PageArticleData {
+        $newsMedia = $news->getFirstMedia('front_picture');
 
-        return [
-            'id'               => $page->id,
-            'type_page'        => 'NewsArticle',
-            'teaser'           => e($page->teaser),
-            'content-plain'    => e($page->content_plain),
-            'count-words'      => $page->count_words,
-            'category'         => e($page->category?->title),
-            'tags'             => $page->tags->pluck('title')->implode(', '),
+        $image = new RepresentingImageData(
+            url:        $newsMedia->getUrl('large'),
+            urlThumb:   $newsMedia->getUrl('small'),
+            fileName:   pathinfo(strval($newsMedia->file_name), PATHINFO_FILENAME),
+            mimeType:   $newsMedia->mime_type,
+            size:       $newsMedia->size,
+            width:      700,
+            height:     400,
+            updated_at: $newsMedia->updated_at,
+            source:     new SourceData(
+                description: empty($news->source?->source_description) ? 'Bez popisu' : e($news->source->source_description),
+                source:      e($news->source?->source_source),
+                sourceUrl:   e($news->source?->source_source_url),
+                author:      e($news->source?->source_author),
+                authorUrl:   e($news->source?->source_author_url),
+                license:     e($news->source?->source_license),
+                licenseUrl:  e($news->source?->source_license_url)
+            ),
+        );
 
-            'datePublished'    => property_exists($page, 'published_at') && $page->published_at !== null
-                                    ? Carbon::createFromFormat('d.m.Y G:i', $page->published_at)->toAtomString()
-                                    : $page->created_at?->toAtomString(),
-            'dateModified'     => $page->updated_at?->toAtomString(),
+        $author = new AuthorArticleData(
+            name:         e($news->user?->name),
+            slug:         $news->user?->slug,
+            email:        e($news->user?->email),
+            phone:        e($news->user?->phone),
+            wwwPageUrl:   e($news->user?->www_page_url),
+            twitterUrl:   e($news->user?->twitter_url),
+            facebookUrl:  e($news->user?->facebook_url),
+        );
 
-            'expires'          => property_exists($page, 'unpublished_at') && $page->unpublished_at !== null
-                                    ? Carbon::createFromFormat('d.m.Y G:i', $page->unpublished_at)->toAtomString()
-                                    : null,
+        $keywords =
+            $news->title
+            .', '
+            .$news->category?->title
+            .', '
+            .$news->tags->pluck('title')->implode(', ')
+            .', '
+            .'Detva, farnosť, aktuality, zamyslenia, článok';
 
-            'author'           => e($page->user?->name),
-            'author-slug'      => $page->user?->slug,
-            'author-email'     => e($page->user?->email),
-            'author-www'       => e($page->user?->www_page_url),
-            'author-twitter'   => e($page->user?->twitter_url),
-            'author-facebook'  => e($page->user?->facebook_url),
-            'author-phone'     => e($page->user?->phone),
-
-            'slug'             => e($page->slug),
-            'title'            => e($page->title),
-            'page-description' => e($page->teaser),
-            'keywords'         => e($page->title.', '.$page->category?->title.', '.$page->tags->pluck('title')->implode(', ').', Detva, farnosť, aktuality, zamyslenia, článok'),
-            'wikipedia'        => null,
-
-            'url'              => route('article.show', $page->slug),
-
-            'img-representing' => $media?->getUrl('large'),
-            'img-thumb'        => $media?->getUrl('small'),
-            'img-file-name'    => $media?->file_name,
-            'img-mime-type'    => $media?->mime_type,
-            'img-size'         => $media?->size,
-            'img-updated_at'   => $media?->updated_at?->toAtomString(),
-            'img-width'        => '700',
-            'img-height'       => '400',
-            'img-description'  => e($page->source?->source_description),
-            'img-source'       => e($page->source?->source_source),
-            'img-source_url'   => e($page->source?->source_source_url),
-            'img-author'       => e($page->source?->source_author),
-            'img-author_url'   => e($page->source?->source_author_url),
-            'img-license'      => e($page->source?->source_license),
-            'img-license_url'  => e($page->source?->source_license_url),
-        ];
+        return new PageArticleData(
+            id:             $news->id,
+            url:            route('article.show', $news->slug),
+            type:           PageType::ARTICLE,
+            slug:           e($news->slug),
+            title:          e($news->title),
+            teaser:         e($news->teaser),
+            keywords:       e($keywords),
+            category:       e($news->category?->title),
+            countWords:     $news->count_words,
+            description:    e($news->teaser),
+            contentPlain:   e($news->content_plain),
+            wikipedia:      null,
+            dateExpires:    property_exists($news, 'unpublished_at') && $news->unpublished_at !== null
+                                ? Carbon::createFromFormat('d.m.Y G:i', $news->unpublished_at)
+                                : null,
+            dateModified:   $news->updated_at,
+            datePublished:  property_exists($news, 'published_at') && $news->published_at !== null
+                                ? Carbon::createFromFormat('d.m.Y G:i', $news->published_at)
+                                : $news->created_at,
+            tags:   $news->tags->pluck('title')->implode(', '),
+            author: $author,
+            image:  $image,
+        );
     }
 }
