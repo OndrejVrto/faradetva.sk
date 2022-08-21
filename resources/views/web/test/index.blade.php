@@ -108,7 +108,7 @@
 
     <x-web.sections.skills />
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}} - Texty) -" class="static-page pad_t_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }} - Texty) -" class="static-page pad_t_50">
 
         <x-web.page.section-header header="Texty a prílohy" />
 

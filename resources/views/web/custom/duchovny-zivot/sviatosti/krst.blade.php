@@ -2,7 +2,7 @@
 
     {{-- Krst --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection title="Čo je to krst">
             <x-web.page.text-segment animation="fromleft">
@@ -46,7 +46,7 @@
 
     <x-web.sections.background-picture titleSlug="sacr1-002"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Kto môže krstiť">
             <x-web.page.text-segment animation="fromleft">

@@ -2,7 +2,7 @@
 
     {{-- O nás / História / Významné osobnosti --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" row="true" class="ch_ministry_section pad_t_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" row="true" class="ch_ministry_section pad_t_50">
 
         <x-web.page.section-header :header="$pageData['header']" class=""/>
 

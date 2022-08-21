@@ -2,7 +2,7 @@
 
     {{-- Päť cirkevných prikázaní --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
@@ -66,7 +66,7 @@
 
     <x-web.sections.background-picture titleSlug="cpr-002"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="III. Aspoň raz v roku sa vyspovedať a vo Veľkonočnom období prijať Oltárnu sviatosť">
             <x-web.page.text-segment>

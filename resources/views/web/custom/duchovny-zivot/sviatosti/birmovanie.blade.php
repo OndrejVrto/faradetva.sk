@@ -2,7 +2,7 @@
 
     {{-- Birmovanie --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection title="Čo je birmovanie">
             <x-web.page.text-segment animation="fromright">
@@ -35,7 +35,7 @@
 
     <x-web.sections.background-picture titleSlug="sacr2-001"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Kto môže prijať birmovanie a čo sa očakáva od uchádzača o birmovanie">
             <x-web.page.text-segment animation="fromleft">

@@ -3,12 +3,6 @@
     'header' => null,
     'pageData',
 ])
-@if( isset($pageData['breadCrumbJsonLd']) AND Str::contains($pageData['breadCrumbJsonLd'], 'BreadcrumbList') )
-    @push('BreadCrumbJSonLd')
-        {!! $pageData['breadCrumbJsonLd'] !!}
-    @endpush
-@endif
-
 <x-web.layout.general>
 
     @if ($maintenanceMode)
@@ -28,24 +22,18 @@
     <!-- MASTER CONTENT Start -->
     <main>
         @isset($pageData)
-            {{-- @if(count($pageData['banners']) > 0) --}}
-                <x-web.sections.banner
-                    :header="$pageData['header']"
-                    :breadcrumb="$pageData['breadCrumb']"
-                    :titleSlug="$pageData['banners']"
-                    dimensionSource="full"
-                />
-            {{-- @elseif($header === null)
-                <x-web.page.section name="MASTER HEADER" class="static-page pad_t_50">
-                    <x-web.page.section-header :header="$pageData['header']"/>
-                </x-web.page.section>
-            @endif --}}
+            <x-web.sections.banner
+                :header="$pageData->header"
+                :breadcrumb="$pageData->breadCrumb"
+                :titleSlug="$pageData->banners"
+                dimensionSource="full"
+            />
 
             {{ $slot }}
 
-            @if(count($pageData['faqs']) > 0)
+            @if(count($pageData->faqs) > 0)
                 <x-web.sections.faq
-                    :questionsSlug="$pageData['faqs']"
+                    :questionsSlug="$pageData->faqs"
                 />
             @endif
         @else
