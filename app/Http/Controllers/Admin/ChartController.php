@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,8 +11,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
-class ChartController extends Controller
-{
+class ChartController extends Controller {
     public function index(Request $request): View {
         $charts = Chart::query()
             ->withCount('data')
@@ -36,7 +33,7 @@ class ChartController extends Controller
         $validated = $request->validated();
         Chart::create(Chart::sanitize($validated));
 
-        toastr()->success(__('app.chart.store'));
+        toastr()->success(strval(__('app.chart.store')));
         return to_route('charts.index');
     }
 
@@ -50,37 +47,37 @@ class ChartController extends Controller
         return view('admin.charts.edit', compact('chart', 'chartTypes'));
     }
 
-    public function update( ChartRequest $request, Chart $chart): RedirectResponse {
+    public function update(ChartRequest $request, Chart $chart): RedirectResponse {
         $validated = $request->validated();
         $chart->update(Chart::sanitize($validated));
 
-        toastr()->success(__('app.chart.update'));
+        toastr()->success(strval(__('app.chart.update')));
         return to_route('charts.index');
     }
 
     public function destroy(Chart $chart): RedirectResponse {
         $chart->delete();
 
-        toastr()->success(__('app.chart.delete'));
+        toastr()->success(strval(__('app.chart.delete')));
         return to_route('charts.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $chart = Chart::onlyTrashed()->findOrFail($id);
         $chart->slug = Str::slug($chart->title).'-'.Str::random(5);
         $chart->title = '*'.$chart->title;
         $chart->restore();
 
-        toastr()->success(__('app.chart.restore'));
+        toastr()->success(strval(__('app.chart.restore')));
         return to_route('charts.edit', $chart->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $chart = Chart::onlyTrashed()->findOrFail($id);
         $chart->data()->delete();
         $chart->forceDelete();
 
-        toastr()->success(__('app.chart.force-delete'));
+        toastr()->success(strval(__('app.chart.force-delete')));
         return to_route('charts.index', ['only-deleted' => 'true']);
     }
 }

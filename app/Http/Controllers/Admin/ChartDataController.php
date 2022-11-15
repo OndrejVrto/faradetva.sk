@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -11,8 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\ChartDataRequest;
 
-class ChartDataController extends Controller
-{
+class ChartDataController extends Controller {
     public function index(Chart $chart): View {
         $data = ChartData::query()
             ->where('chart_id', $chart->id)
@@ -30,7 +27,7 @@ class ChartDataController extends Controller
         $validated = $request->validated() + ['chart_id' => $chart->id];
         ChartData::create(ChartData::sanitize($validated));
 
-        toastr()->success(__('app.chart-data.store'));
+        toastr()->success(strval(__('app.chart-data.store')));
         return to_route('charts.data.index', $chart);
     }
 
@@ -42,14 +39,14 @@ class ChartDataController extends Controller
         $validated = $request->validated() + ['chart_id' => $chart->id];
         $data->update(ChartData::sanitize($validated));
 
-        toastr()->success(__('app.chart-data.update'));
+        toastr()->success(strval(__('app.chart-data.update')));
         return to_route('charts.data.index', $chart);
     }
 
     public function destroy(Chart $chart, ChartData $data): RedirectResponse {
         $data->delete();
 
-        toastr()->success(__('app.chart-data.delete'));
+        toastr()->success(strval(__('app.chart-data.delete')));
         return to_route('charts.data.index', $chart);
     }
 }

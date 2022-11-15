@@ -1,21 +1,18 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Database\Factories;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class NewsFactory extends Factory
-{
-
-    public function definition()
-    {
+class NewsFactory extends Factory {
+    public function definition() {
         $title = Str::ucfirst($this->faker->words(6, true));
-        $user_id = $this->faker->numberBetween(1,5);
+        $user_id = $this->faker->numberBetween(1, 5);
         return [
-            'active' => $this->faker->numberBetween(0,1),
+            'active' => $this->faker->numberBetween(0, 1),
             'user_id' => $user_id,
-            'category_id' =>  $this->faker->numberBetween(1,7),
+            'category_id' =>  $this->faker->numberBetween(1, 7),
             'title' => $title,
             'slug' => Str::slug($title),
             'teaser' => $this->faker->paragraph(1),

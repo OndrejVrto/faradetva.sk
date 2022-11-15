@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Mail;
 
@@ -7,34 +7,32 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactMail extends Mailable implements ShouldQueue
-{
-    use Queueable, SerializesModels;
+class ContactMail extends Mailable implements ShouldQueue {
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The number of times the job may be attempted.
      *
      * @var int
      */
-    public $tries = 2;
+    public int $tries = 2;
 
     /**
      * The number of seconds to wait before retrying the job.
      *
      * @var int
      */
-    public $backoff = 5;
-
-
-    private $contact;
+    public int $backoff = 5;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($contact) {
-        $this->contact = $contact;
+    public function __construct(
+        private readonly array $contact
+    ) {
     }
 
     /**
@@ -42,8 +40,7 @@ class ContactMail extends Mailable implements ShouldQueue
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build() {
         return $this->markdown('mail.contact-mail', ['contact' => $this->contact]);
     }
 }

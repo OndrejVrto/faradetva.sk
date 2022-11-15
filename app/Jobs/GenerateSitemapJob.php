@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Jobs;
 
@@ -17,8 +15,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-class GenerateSitemapJob implements ShouldQueue
-{
+class GenerateSitemapJob implements ShouldQueue {
     use Queueable;
     use Dispatchable;
     use SerializesModels;
@@ -28,7 +25,7 @@ class GenerateSitemapJob implements ShouldQueue
         $sitemap = Sitemap::create()
             ->add(
                 Url::create('/')
-                    ->setLastModificationDate( Carbon::createFromTimestamp(customConfig('crawler')->get('___LAST_MODIFIED')) )
+                    ->setLastModificationDate(Carbon::createFromTimestamp(customConfig('crawler')->get('___LAST_MODIFIED')))
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
                     ->setPriority(1.0)
             );
@@ -43,7 +40,7 @@ class GenerateSitemapJob implements ShouldQueue
                         ->setPriority(0.2)
                 );
             // articles olds as 3 months
-            } elseif($news->updated_at < now()->subQuarter()) {
+            } elseif ($news->updated_at < now()->subQuarter()) {
                 $sitemap->add(
                     Url::create("/clanok/{$news->slug}")
                         ->setLastModificationDate($news->updated_at)
@@ -51,7 +48,7 @@ class GenerateSitemapJob implements ShouldQueue
                         ->setPriority(0.5)
                 );
             // articles olds as 1 week
-            } elseif($news->updated_at < now()->subWeek()) {
+            } elseif ($news->updated_at < now()->subWeek()) {
                 $sitemap->add(
                     Url::create("/clanok/{$news->slug}")
                         ->setLastModificationDate($news->updated_at)
@@ -92,13 +89,13 @@ class GenerateSitemapJob implements ShouldQueue
 
         $sitemap->add(
             Url::create('/otazky-a-odpovede')
-                ->setLastModificationDate( Faq::select('updated_at')->orderBy('updated_at','DESC')->first()->updated_at )
+                ->setLastModificationDate(Faq::select('updated_at')->orderBy('updated_at', 'DESC')->first()->updated_at)
                 ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
                 ->setPriority(0.1)
         );
 
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
-        customConfig('crawler')->put('CRAWLER.sitemap', now());
+        customConfig('crawler')->put('CRAWLER.sitemap', Carbon::now()->toISOString());
     }
 }

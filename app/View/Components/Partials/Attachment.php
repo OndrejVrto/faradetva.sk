@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Partials;
 
@@ -8,31 +8,34 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Services\FilePropertiesService;
 
-class Attachment extends Component
-{
-    public $attachments = null;
+class Attachment extends Component {
+    public array $attachments;
 
     public function __construct(
-        public string|array|null $nameSlugs = null
+        public string|array $nameSlugs
     ) {
         $listOfAttachments = prepareInput($nameSlugs);
 
         if ($listOfAttachments) {
             $cacheName = getCacheName($listOfAttachments);
 
-            $this->attachments = Cache::rememberForever('ATTACHMENT_'.$cacheName, function () use ($listOfAttachments) {
-                return File::query()
+            $this->attachments = Cache::rememberForever(
+                key: 'ATTACHMENT_'.$cacheName,
+                callback: fn (): array => File::query()
                     ->whereIn('slug', $listOfAttachments)
                     ->with('media', 'source')
                     ->get()
-                    ->map(function($file) {
-                        return (new FilePropertiesService())->getFileItemProperties($file);
-                    });
-            });
+                    ->map(fn (File $file): array => (new FilePropertiesService())->getFileItemProperties($file))
+                    ->toArray()
+            );
         }
     }
 
-    public function render(): View {
+    public function render(): ?View {
+        if (empty($this->attachments)) {
+            return null;
+        }
+
         return view('components.partials.attachment.index');
     }
 }

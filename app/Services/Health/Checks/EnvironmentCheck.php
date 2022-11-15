@@ -1,13 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Health\Checks;
 
-use function app;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class EnvironmentCheck extends Check
-{
+use function app;
+
+class EnvironmentCheck extends Check {
     protected string $expectedEnvironment = 'production';
 
     public function expectEnvironment(string $expectedEnvironment): self {
@@ -28,7 +28,7 @@ class EnvironmentCheck extends Check
             ])
             ->shortSummary($actualEnvironment);
 
-        return $this->expectedEnvironment == $actualEnvironment
+        return $this->expectedEnvironment === $actualEnvironment
             ? $result->notificationMessage("$name.ok")->ok()
             : $result->failed("$name.failed");
     }

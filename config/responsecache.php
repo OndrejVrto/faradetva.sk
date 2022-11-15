@@ -22,7 +22,7 @@ return [
     // one day  = 1 * 24 * 60 * 60
     // one hour =      1 * 60 * 60
     // one minute =    1 * 60
-    'cache_lifetime_in_seconds' => env('RESPONSE_CACHE_LIFETIME', 60 ),
+    'cache_lifetime_in_seconds' => env('RESPONSE_CACHE_LIFETIME', 60),
 
     /**
      * This setting determines if a http header named with the cache time

@@ -1,22 +1,20 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Source;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use App\Http\Helpers\DataFormater;
+use App\Services\FilenameSanitize;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GalleryRequest;
 use Illuminate\Http\RedirectResponse;
 use Spatie\MediaLibrary\Support\MediaStream;
 
-class GalleryController extends Controller
-{
+class GalleryController extends Controller {
     public function index(): View {
         $galleries = Gallery::query()
             ->latest()
@@ -38,16 +36,22 @@ class GalleryController extends Controller
             mkdir($path, 0777, true);
         }
 
-        $file = $request->file('pictures');
-        // sanitize filename
-        $name = DataFormater::filterFilename($file->getClientOriginalName(), true);
+        if ($request->hasFile('pictures')) {
+            /** @var \Illuminate\Http\UploadedFile $file  */
+            $file = $request->file('pictures');
+            // sanitize filename
+            $name = (new FilenameSanitize())($file->getClientOriginalName());
 
-        $file->move($path, $name);
+            $file->move($path, $name);
 
-        return response()->json([
-            'name'          => $name,
-            'original_name' => $file->getClientOriginalName(),
-        ]);
+            return response()->json([
+                'name'          => $name,
+                'original_name' => $file->getClientOriginalName(),
+            ]);
+        } else {
+            // no file
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
     }
 
     public function store(GalleryRequest $request): RedirectResponse {
@@ -63,7 +67,7 @@ class GalleryController extends Controller
                 ->toMediaCollection($gallery->collectionName);
         }
 
-        toastr()->success(__('app.gallery.store'));
+        toastr()->success(strval(__('app.gallery.store')));
         return to_route('galleries.index');
     }
 
@@ -106,11 +110,11 @@ class GalleryController extends Controller
             }
         }
 
-        toastr()->success(__('app.gallery.update'));
+        toastr()->success(strval(__('app.gallery.update')));
         return to_route('galleries.index');
     }
 
-    public function download(Gallery $gallery) {
+    public function download(Gallery $gallery): MediaStream {
         $downloads = $gallery->getMedia($gallery->collectionName);
 
         return MediaStream::create('Album_'.$gallery->slug.'.zip')->addMedia($downloads);
@@ -121,7 +125,7 @@ class GalleryController extends Controller
         $gallery->delete();
         $gallery->clearMediaCollection($gallery->collectionName);
 
-        toastr()->success(__('app.gallery.delete'));
+        toastr()->success(strval(__('app.gallery.delete')));
         return to_route('galleries.index');
     }
 }

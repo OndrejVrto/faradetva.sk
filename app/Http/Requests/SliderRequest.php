@@ -1,13 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasSourceFields;
 use App\Http\Requests\Traits\HasCropPictureFields;
 
-class SliderRequest extends BaseRequest
-{
+class SliderRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 

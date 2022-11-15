@@ -1,0 +1,9 @@
+{
+    "preset": "psr12",
+    "rules": {
+        "blank_line_after_opening_tag": false,
+        "braces": {
+            "position_after_functions_and_oop_constructs": "same"
+        }
+    }
+}

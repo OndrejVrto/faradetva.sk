@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Web\Sections;
 
@@ -6,25 +6,24 @@ use App\Models\Prayer;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
-class Pray extends Component
-{
-    public $pray;
+class Pray extends Component {
+    public ?array $pray;
 
     public function __construct(
-        public $link = null,
-    ){
+        public ?string $link = null,
+    ) {
         $this->pray = $this->getPray();
     }
 
-    public function render(): View|null {
-        if (!is_null($this->pray)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->pray);
-
-            return view('components.web.sections.pray.index');
+    public function render(): ?View {
+        if (is_null($this->pray)) {
+            return null;
         }
-        return null;
+
+        (new SeoPropertiesService())->setPictureSchema($this->pray);
+        return view('components.web.sections.pray.index');
     }
 
     private function getPray(): ?array {
@@ -37,17 +36,18 @@ class Pray extends Component
             ->first();
 
         // Get all data Prayer to Cache
-        return Cache::rememberForever('PICTURE_PRAYER_'.$onePrayer->slug, function () use ($onePrayer): array {
-            return Prayer::query()
-                ->whereSlug($onePrayer->slug)
+        return Cache::rememberForever(
+            key: 'PICTURE_PRAYER_'.$onePrayer?->slug,
+            callback: fn (): ?array => Prayer::query()
+                ->whereSlug($onePrayer?->slug)
                 ->with('media', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
-                ->first();
-        });
+                ->map(fn ($e) => $this->mapOutput($e))
+                ->first()
+        );
     }
 
-    private function mapOutput($prayer): array {
+    private function mapOutput(Prayer $prayer): array {
         return [
             'id'                => $prayer->id,
             'title'             => $prayer->title,
@@ -68,7 +68,7 @@ class Pray extends Component
             'img-title'         => $prayer->title,
             'img-url'           => $prayer->getFirstMediaUrl('prayer', 'extra-large'),
             'img-mime'          => $prayer->mime_type,
-            'img-updated'       => $prayer->updated_at->toAtomString(),
+            'img-updated'       => $prayer->updated_at?->toAtomString(),
             'img-width'         => 1920,
             'img-height'        => 800,
 
@@ -76,14 +76,14 @@ class Pray extends Component
             'img_thumbnail_width'  => 192,
             'img_thumbnail_height' => 80,
 
-            'source_description'       => $prayer->source->source_description,
+            'source_description'       => $prayer->source?->source_description,
             'sourceArr' => [
-                'source_source'        => $prayer->source->source_source,
-                'source_source_url'    => $prayer->source->source_source_url,
-                'source_author'        => $prayer->source->source_author,
-                'source_author_url'    => $prayer->source->source_author_url,
-                'source_license'       => $prayer->source->source_license,
-                'source_license_url'   => $prayer->source->source_license_url,
+                'source_source'        => $prayer->source?->source_source,
+                'source_source_url'    => $prayer->source?->source_source_url,
+                'source_author'        => $prayer->source?->source_author,
+                'source_author_url'    => $prayer->source?->source_author_url,
+                'source_license'       => $prayer->source?->source_license,
+                'source_license_url'   => $prayer->source?->source_license_url,
             ],
         ];
     }

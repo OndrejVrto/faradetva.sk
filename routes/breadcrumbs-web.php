@@ -1,4 +1,4 @@
-<?php // routes/breadcrumbs.php
+<?php
 
 // Note: Laravel will automatically resolve `Breadcrumbs::` without
 // this import. This is nice for IDE syntax and refactoring.
@@ -9,7 +9,6 @@ use App\Models\News;
 //  with `$trail`. This is nice for IDE type checking and completion.
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
-
 
 //! Home
 Breadcrumbs::for('web.home', function (BreadcrumbTrail $trail) {

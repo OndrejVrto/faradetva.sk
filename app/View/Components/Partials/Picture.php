@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Partials;
 
@@ -7,11 +7,10 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Picture as PictureModel;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
-class Picture extends Component
-{
-    public $picture;
+class Picture extends Component {
+    public ?array $picture;
     public array $classColumns;
 
     private const SIDE = [
@@ -46,9 +45,9 @@ class Picture extends Component
     ];
 
     public function __construct(
-        private string $titleSlug,
-        private int|null $columns = 4,
-        private int|null $maxColumns = 7,
+        string $titleSlug,
+        int $columns = 4,
+        int $maxColumns = 7,
         public string|null $side = null,
         public string|null $animation = null,
         public string|null $dimensionSource = 'full',
@@ -63,84 +62,87 @@ class Picture extends Component
         $this->classColumns = $this->solveColumns($columns, $maxColumns);
 
         $this->picture = $this->getPicture($titleSlug);
-
     }
 
     public function render(): View|null {
-        if (!is_null($this->picture)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->picture);
-
-            return view('components.partials.picture.index');
+        if (is_null($this->picture)) {
+            return null;
         }
-        return null;
+
+        (new SeoPropertiesService())->setPictureSchema($this->picture);
+
+        return view('components.partials.picture.index');
     }
 
 
-    private function solveColumns(int $columns, int $maxColumns = 7): array {
-        $class['maxXXL'] = $this->cropValue($columns + 0, $maxColumns);
-        $class['maxXL']  = $this->cropValue($columns + 1, $maxColumns);
-        $class['maxLG']  = $this->cropValue($columns + 2, $maxColumns);
-        $class['maxMD']  = $this->cropValue($columns + 3, $maxColumns);
-        $class['maxSM']  = $this->cropValue($columns + 4, $maxColumns);
-
-        return $class;
+    private function solveColumns(int $columns, int $maxColumns): array {
+        return [
+            'maxXXL' => $this->cropValue($columns + 0, $maxColumns),
+            'maxXL'  => $this->cropValue($columns + 1, $maxColumns),
+            'maxLG'  => $this->cropValue($columns + 2, $maxColumns),
+            'maxMD'  => $this->cropValue($columns + 3, $maxColumns),
+            'maxSM'  => $this->cropValue($columns + 4, $maxColumns),
+        ];
     }
 
     private function cropValue(int $value, int $max): int {
         if ($value < 1) {
             return 1;
         }
-        if ($value > 12 or $value > $max) {
+        if ($value > 12 || $value > $max) {
             return 12;
         }
         return $value;
     }
 
-    private function getPicture($slug): ?array {
-        return Cache::rememberForever('PICTURE_'.$slug, function () use($slug) {
-            return PictureModel::query()
+    private function getPicture(string $slug): ?array {
+        return Cache::rememberForever(
+            key: 'PICTURE_'.$slug,
+            callback: fn (): ?array => PictureModel::query()
                 ->whereSlug($slug)
                 ->with('mediaOne', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
-                ->first();
-        });
+                ->map(fn ($img) => $this->mapOutput($img))
+                ->first()
+        );
     }
 
-    private function mapOutput($img): array {
-        $colectionName = $img->mediaOne->collection_name;
+    private function mapOutput(PictureModel $img): array {
+        $colectionName = $img->mediaOne?->collection_name;
         $media = $img->getFirstMedia($colectionName);
 
         return [
             'img-title'   => $img->title,
             'img-slug'    => $img->slug,
-            'img-updated' => $img->updated_at->toAtomString(),
+            'img-updated' => $img->updated_at?->toAtomString(),
             'img-width'   => $img->crop_output_width,
             'img-height'  => $img->crop_output_height,
 
-            'responsivePicture'  => (string) $media
-                                    ->img('optimize', [
-                                        'id' => 'pic-'.$img->slug,
-                                        'class' => 'w-100 img-fluid',
-                                        'alt' => $img->source->source_description,
-                                        'nonce' => csp_nonce(),
-                                    ]),
-            'img-url'                 => $media->getUrl('optimize'),
-            'img-mime'                => $media->mime_type,
+            'responsivePicture'  => (string) $media?->img(
+                conversionName: 'optimize',
+                extraAttributes: [
+                    'id' => 'pic-'.$img->slug,
+                    'class' => 'w-100 img-fluid',
+                    'alt' => $img->source?->source_description,
+                    'nonce' => csp_nonce(),
+                ]
+            ),
+            'img-url'                 => $media?->getUrl('optimize'),
+            'img-mime'                => $media?->mime_type,
 
-            'img_thumbnail_url'    => $media->getUrl('crop-thumb'),
+            'img_thumbnail_url'    => $media?->getUrl('crop-thumb'),
             'img_thumbnail_width'  => floor($img->crop_output_width/$img->crop_output_height * 100),
             'img_thumbnail_height' => 100,
 
-            'source_description'      => $img->source->source_description,
-            'source_description_crop' => Str::words($img->source->source_description, $descriptionCrop ?? 6, '...'),
+            'source_description'      => $img->source?->source_description,
+            'source_description_crop' => Str::words($img->source->source_description ?? '', $this->descriptionCrop ?? 6, '...'),
             'sourceArr' => [
-                'source_source'       => $img->source->source_source,
-                'source_source_url'   => $img->source->source_source_url,
-                'source_author'       => $img->source->source_author,
-                'source_author_url'   => $img->source->source_author_url,
-                'source_license'      => $img->source->source_license,
-                'source_license_url'  => $img->source->source_license_url,
+                'source_source'       => $img->source?->source_source,
+                'source_source_url'   => $img->source?->source_source_url,
+                'source_author'       => $img->source?->source_author,
+                'source_author_url'   => $img->source?->source_author_url,
+                'source_license'      => $img->source?->source_license,
+                'source_license_url'  => $img->source?->source_license_url,
             ],
         ];
     }

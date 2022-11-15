@@ -1,14 +1,11 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\BaseModel;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Source extends BaseModel
-{
+class Source extends BaseModel {
     protected $table = 'source';
 
     protected $fillable = [
@@ -21,15 +18,15 @@ class Source extends BaseModel
         'source_license_url',
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName(): string {
         return 'id';
     }
 
-    public function sourceable() {
+    public function sourceable(): MorphTo {
         return $this->morphTo();
     }
 
-    public function getSourceDescriptionCropAttribute(){
-        return Str::words($this->source_description, 10, '...');
+    public function getSourceDescriptionCropAttribute(): string {
+        return Str::words($this->source_description ?? '', 10, '...');
     }
 }

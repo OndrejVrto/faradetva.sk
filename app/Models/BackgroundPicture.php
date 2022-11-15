@@ -1,23 +1,19 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Source;
-use App\Models\BaseModel;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class BackgroundPicture extends BaseModel implements HasMedia
-{
+class BackgroundPicture extends BaseModel implements HasMedia {
     use InteractsWithMedia;
 
     protected $table = 'background_pictures';
 
-    public $collectionName = 'background_picture';
+    public string $collectionName = 'background_picture';
 
     protected $fillable = [
         'title',
@@ -29,7 +25,7 @@ class BackgroundPicture extends BaseModel implements HasMedia
         'slug'  => 'string',
     ];
 
-    public function source() {
+    public function source(): MorphOne {
         return $this->morphOne(Source::class, 'sourceable');
     }
 

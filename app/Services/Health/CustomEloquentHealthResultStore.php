@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Health;
 
@@ -8,17 +8,19 @@ use Illuminate\Support\Collection;
 use Spatie\Health\ResultStores\ResultStore;
 use Spatie\Health\Models\HealthCheckResultHistoryItem;
 use Spatie\Health\Exceptions\CouldNotSaveResultsInStore;
+use Spatie\Health\ResultStores\EloquentHealthResultStore;
 use Spatie\Health\ResultStores\StoredCheckResults\StoredCheckResult;
 use Spatie\Health\ResultStores\StoredCheckResults\StoredCheckResults;
 
-class CustomEloquentHealthResultStore implements ResultStore
-{
-    public static function determineHistoryItemModel(): string
-    {
+class CustomEloquentHealthResultStore implements ResultStore {
+    /**
+     * @return class-string
+     */
+    public static function determineHistoryItemModel(): string {
         $defaultHistoryClass = HealthCheckResultHistoryItem::class;
         $eloquentResultStore = EloquentHealthResultStore::class;
 
-        $historyItemModel = config("health.result_stores.{$eloquentResultStore}.model", $defaultHistoryClass);
+        $historyItemModel = (string) config("health.result_stores.{$eloquentResultStore}.model", $defaultHistoryClass);
 
         if (! is_a($historyItemModel, $defaultHistoryClass, true)) {
             throw CouldNotSaveResultsInStore::doesNotExtendHealthCheckResultHistoryItem($historyItemModel);
@@ -27,17 +29,15 @@ class CustomEloquentHealthResultStore implements ResultStore
         return $historyItemModel;
     }
 
-    /** @return HealthCheckResultHistoryItem|object */
-    public static function getHistoryItemInstance()
-    {
+    public static function getHistoryItemInstance(): HealthCheckResultHistoryItem {
+        /** @var HealthCheckResultHistoryItem $historyItemClassName */
         $historyItemClassName = static::determineHistoryItemModel();
 
         return new $historyItemClassName();
     }
 
     /** @param Collection<int, Result> $checkResults */
-    public function save(Collection $checkResults): void
-    {
+    public function save(Collection $checkResults): void {
         $batch = Str::uuid();
         $checkResults->each(function (Result $result) use ($batch) {
             (static::determineHistoryItemModel())::create([
@@ -45,7 +45,7 @@ class CustomEloquentHealthResultStore implements ResultStore
                 'check_label' => $result->check->getLabel(),
                 'status' => $result->status,
                 'notification_message' => $result->notificationMessage,
-                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, $result->status),
+                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, strval($result->status)),
                 'meta' => $result->meta,
                 'batch' => $batch,
                 'ended_at' => $result->ended_at,
@@ -53,8 +53,7 @@ class CustomEloquentHealthResultStore implements ResultStore
         });
     }
 
-    public function latestResults(): ?StoredCheckResults
-    {
+    public function latestResults(): ?StoredCheckResults {
         if (! $latestItem = (static::determineHistoryItemModel())::latest()->first()) {
             return null;
         }
@@ -63,16 +62,14 @@ class CustomEloquentHealthResultStore implements ResultStore
         $storedCheckResults = (static::determineHistoryItemModel())::query()
             ->where('batch', $latestItem->batch)
             ->get()
-            ->map(function (HealthCheckResultHistoryItem $historyItem) {
-                return new StoredCheckResult(
-                    name: $historyItem->check_name,
-                    label: $historyItem->check_label,
-                    notificationMessage: $historyItem->notification_message,
-                    shortSummary: $historyItem->short_summary,
-                    status: $historyItem->status,
-                    meta: $historyItem->meta + ['eol' => '<br>'],
-                );
-            });
+            ->map(fn (HealthCheckResultHistoryItem $historyItem) => new StoredCheckResult(
+                name: $historyItem->check_name,
+                label: $historyItem->check_label,
+                notificationMessage: $historyItem->notification_message,
+                shortSummary: $historyItem->short_summary,
+                status: $historyItem->status,
+                meta: $historyItem->meta + ['eol' => '<br>'],
+            ));
 
         return new StoredCheckResults(
             finishedAt: $latestItem->created_at,
@@ -80,7 +77,7 @@ class CustomEloquentHealthResultStore implements ResultStore
         );
     }
 
-    private function getTranslatadedShortSummary($shortSummary, $status): string {
-        return !empty($shortSummary) ? $shortSummary : "health-results.".Str::lower($status);
+    private function getTranslatadedShortSummary(string $shortSummary, string $status): string {
+        return empty($shortSummary) ? "health-results.".Str::lower($status) : $shortSummary;
     }
 }

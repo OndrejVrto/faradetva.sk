@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Providers;
 
@@ -12,8 +12,7 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-class RouteServiceProvider extends ServiceProvider
-{
+class RouteServiceProvider extends ServiceProvider {
     /**
      * The path to the "home" route for your application.
      *
@@ -21,7 +20,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/admin/dashboard';
+    final public const HOME = '/admin/dashboard';
 
     /**
      * The controller namespace for the application.
@@ -59,23 +58,16 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group([
-                    base_path('routes/pgs.php'),
+                ->group([  // @phpstan-ignore-line
                     base_path('routes/auth.php'),
                     base_path('routes/admin.php'),
                     base_path('routes/web.php'),
                 ]);
         });
 
-        Route::bind('notice-acolyte', function ($value) {
-            return NoticeAcolyte::whereSlug($value)->firstOrFail();
-        });
-        Route::bind('notice-church', function ($value) {
-            return NoticeChurch::whereSlug($value)->firstOrFail();
-        });
-        Route::bind('notice-lecturer', function ($value) {
-            return NoticeLecturer::whereSlug($value)->firstOrFail();
-        });
+        Route::bind('notice-church', fn ($val) => NoticeChurch::whereSlug($val)->firstOrFail());
+        Route::bind('notice-acolyte', fn ($val) => NoticeAcolyte::whereSlug($val)->firstOrFail());
+        Route::bind('notice-lecturer', fn ($val) => NoticeLecturer::whereSlug($val)->firstOrFail());
     }
 
     /**
@@ -84,8 +76,13 @@ class RouteServiceProvider extends ServiceProvider
      * @return void
      */
     protected function configureRateLimiting() {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
-        });
+        RateLimiter::for(
+            name: 'api',
+            callback: fn (Request $request) => Limit::perMinute(60)
+                                                    ->by(
+                                                        optional($request->user())->id
+                                                        ?: $request->ip()
+                                                    )
+        );
     }
 }

@@ -1,25 +1,23 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Faq;
-use App\Models\File;
-use App\Models\Banner;
-use App\Models\Source;
 use App\Enums\PageType;
-use App\Models\BaseModel;
 use App\Traits\Restorable;
+use Illuminate\Http\Request;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class StaticPage extends BaseModel implements HasMedia
-{
+class StaticPage extends BaseModel implements HasMedia {
     use Restorable;
     use HasFactory;
     use SoftDeletes;
@@ -27,7 +25,7 @@ class StaticPage extends BaseModel implements HasMedia
 
     protected $table = 'static_pages';
 
-    public $collectionName = 'static_page_representing_image';
+    public string $collectionName = 'static_page_representing_image';
 
     protected $fillable = [
         'active',
@@ -55,32 +53,39 @@ class StaticPage extends BaseModel implements HasMedia
         'type_page' => PageType::class,
     ];
 
-    public function files() {
+    public function getFullUrlAttribute(): string {
+        return strval(url($this->url));
+    }
+
+    public function scopeFilterDeactivated(Builder $query, Request $request): Builder {
+        return $query
+            ->when($request->has('only-deactivated'), function ($query) {
+                $query->where('active', false);
+            });
+    }
+
+    public function files(): HasMany {
         return $this->hasMany(File::class);
     }
 
-    public function banners() {
+    public function banners(): BelongsToMany {
         return $this->belongsToMany(Banner::class, 'static_page_banner', 'static_page_id', 'banner_id');
     }
 
-    public function faqs() {
+    public function faqs(): BelongsToMany {
         return $this->belongsToMany(Faq::class, 'static_page_faq', 'static_page_id', 'faq_id');
     }
 
-    public function getFullUrlAttribute() {
-        return url($this->url);
-    }
-
-    public function source() {
+    public function source(): MorphOne {
         return $this->morphOne(Source::class, 'sourceable');
     }
 
-    public function picture() {
+    public function picture(): MorphMany {
         return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionName);
     }
 
-    public function registerMediaConversions(Media $media = null) : void {
-        if ($media->collection_name == $this->collectionName) {
+    public function registerMediaConversions(Media $media = null): void {
+        if ($media?->collection_name == $this->collectionName) {
             $this->addMediaConversion('crop-thumb')
                 ->fit(Manipulations::FIT_CROP, 100, 50)
                 ->sharpen(2)

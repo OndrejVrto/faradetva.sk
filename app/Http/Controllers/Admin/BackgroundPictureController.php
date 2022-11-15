@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -12,8 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\BackgroundPictureRequest;
 
-class BackgroundPictureController extends Controller
-{
+class BackgroundPictureController extends Controller {
     public function index(): View {
         $backgroundPictures = BackgroundPicture::query()
             ->latest('updated_at')
@@ -33,9 +30,9 @@ class BackgroundPictureController extends Controller
         $backgroundPicture = BackgroundPicture::create(BackgroundPicture::sanitize($validated));
         $backgroundPicture->source()->create(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($backgroundPicture, $request);
+        (new MediaStoreService())->handleCropPicture($backgroundPicture, $request);
 
-        toastr()->success(__('app.background-picture.store'));
+        toastr()->success(strval(__('app.background-picture.store')));
         return to_route('background-pictures.index');
     }
 
@@ -58,9 +55,9 @@ class BackgroundPictureController extends Controller
         $backgroundPicture->source()->update(Source::sanitize($validated));
         $backgroundPicture->touch(); // Touch because i need start observer for delete cache
 
-        (new MediaStoreService)->handleCropPicture($backgroundPicture, $request);
+        (new MediaStoreService())->handleCropPicture($backgroundPicture, $request);
 
-        toastr()->success(__('app.background-picture.update'));
+        toastr()->success(strval(__('app.background-picture.update')));
         return to_route('background-pictures.index');
     }
 
@@ -69,7 +66,7 @@ class BackgroundPictureController extends Controller
         $backgroundPicture->delete();
         $backgroundPicture->clearMediaCollection($backgroundPicture->collectionName);
 
-        toastr()->success(__('app.background-picture.delete'));
+        toastr()->success(strval(__('app.background-picture.delete')));
         return to_route('background-pictures.index');
     }
 }

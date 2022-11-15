@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -12,8 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\RedirectResponse;
 
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
     public function index(Request $request): View {
         $categories = Category::query()
             ->latest()
@@ -24,7 +21,7 @@ class CategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         return view('admin.categories.create');
     }
 
@@ -32,13 +29,13 @@ class CategoryController extends Controller
         $validated = $request->validated();
         Category::create(Category::sanitize($validated));
 
-        toastr()->success(__('app.category.store'));
+        toastr()->success(strval(__('app.category.store')));
         return to_route('categories.index');
     }
 
-    public function edit(Category $category): View|RedirectResponse  {
-        if ($category->id = 1 AND auth()->user()->id != 1) {
-            toastr()->error(__('app.category.update-error', ['name'=> $category->title]));
+    public function edit(Category $category): View|RedirectResponse {
+        if ($category->id === 1 && auth()->id() !== 1) {
+            toastr()->error(strval(__('app.category.update-error', ['name'=> $category->title])));
             return to_route('categories.index');
         }
 
@@ -49,37 +46,37 @@ class CategoryController extends Controller
         $validated = $request->validated();
         $category->update(Category::sanitize($validated));
 
-        toastr()->success(__('app.category.update'));
+        toastr()->success(strval(__('app.category.update')));
         return to_route('categories.index');
     }
 
     public function destroy(Category $category): RedirectResponse {
         if ($category->id == 1) {
-            toastr()->error(__('app.category.delete-error', ['name'=> $category->title]));
+            toastr()->error(strval(__('app.category.delete-error', ['name'=> $category->title])));
         } else {
             $category->delete();
-            toastr()->success(__('app.category.delete'));
+            toastr()->success(strval(__('app.category.delete')));
         }
 
         return to_route('categories.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $category = Category::onlyTrashed()->findOrFail($id);
         $category->slug = Str::slug($category->title).'-'.Str::random(5);
         $category->title = '*'.$category->title;
         $category->restore();
 
-        toastr()->success(__('app.category.restore'));
+        toastr()->success(strval(__('app.category.restore')));
         return to_route('categories.edit', $category->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $category = Category::onlyTrashed()->findOrFail($id);
         $category->news()->update(['category_id' => 1]);
         $category->forceDelete();
 
-        toastr()->success(__('app.category.force-delete'));
+        toastr()->success(strval(__('app.category.force-delete')));
         return to_route('categories.index', ['only-deleted' => 'true']);
     }
 }

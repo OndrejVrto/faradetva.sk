@@ -1,22 +1,18 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Source;
-use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Prayer extends BaseModel implements HasMedia {
-
     use Loggable;
     use Restorable;
     use HasFactory;
@@ -25,7 +21,7 @@ class Prayer extends BaseModel implements HasMedia {
 
     protected $table = 'prayers';
 
-    public $collectionName = 'prayer';
+    public string $collectionName = 'prayer';
 
     protected $fillable = [
         'active',
@@ -45,11 +41,11 @@ class Prayer extends BaseModel implements HasMedia {
         'deleted_at' => 'datetime',
     ];
 
-    public function source() {
+    public function source(): MorphOne {
         return $this->morphOne(Source::class, 'sourceable');
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
+    public function registerMediaConversions(Media $media = null): void {
         $this->addMediaConversion('extra-large')
             ->fit(Manipulations::FIT_CROP, 1920, 800)    // 1200px and up
             ->sharpen(2)

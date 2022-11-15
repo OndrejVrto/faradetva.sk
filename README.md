@@ -223,4 +223,4 @@ If you discover a security vulnerability, please send an e-mail to Ondrej Vrťo 
 
 # 📖 <span style="color: orange;">License</span>
 
-This code in this page is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This code in this page is open-sourced software licensed under the [MIT license](./LICENSE.md).

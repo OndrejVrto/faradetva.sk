@@ -1,4 +1,5 @@
 <?php
+
 use Spatie\Valuestore\Valuestore;
 
 if (!function_exists('random_color_part'))
@@ -22,7 +23,7 @@ if(!function_exists('customConfig'))
             $valueStore = Valuestore::make(
                 storage_path("app/value-store/$filename.json")
             );
-        } catch (\Throwable $th) {
+        } catch (\Throwable) {
             return null;
         }
 
@@ -34,7 +35,7 @@ if(!function_exists('customConfig'))
             return $valueStore->put($key);
         }
 
-        if(!$valueStore->has($key)){
+        if (!$valueStore->has($key)) {
             $value = $default ?? config($key) ?? null;
             $valueStore->put([ $key => $value ]);
         }
@@ -44,32 +45,27 @@ if(!function_exists('customConfig'))
     }
 }
 
-if(!function_exists('prepareInput'))
-{
-    function prepareInput($input): ?array {
-        if (!$input) {
+if (!function_exists('prepareInput')) {
+    function prepareInput(null|array|string $input): ?array {
+        if (is_null($input)) {
             return null;
-        }
-
-        if (is_string($input)) {
-            return array_map('trim', explode(',', $input));
         }
 
         if (is_array($input)) {
             return array_filter(Illuminate\Support\Arr::flatten($input));
         }
+
+        return array_map('trim', explode(',', $input));
     }
 }
 
-if (!function_exists('getCacheName'))
-{
+if (!function_exists('getCacheName')) {
     function getCacheName(array $listOfItems): string {
         return md5(implode('|', $listOfItems));
     }
 }
 
-if (!function_exists('minifyHtml'))
-{
+if (!function_exists('minifyHtml')) {
     function minifyHtml(string $html): string {
         // Author:  https://github.com/dipeshsukhia/laravel-html-minify
         $replace = [
@@ -111,12 +107,11 @@ if (!function_exists('minifyHtml'))
             // # strip whitespaces between = "'
             '/=\s+(\"|\')/' => "=$1"
         ];
-        return preg_replace(array_keys($replace), array_values($replace), $html);
+        return strval(preg_replace(array_keys($replace), array_values($replace), $html));
     }
 }
 
-if (!function_exists('formatBytes'))
-{
+if (!function_exists('formatBytes')) {
     function formatBytes(null|float|int $size, int $precision = 2): string {
         if ($size === 0 || $size === null) {
             return "0B";
@@ -126,8 +121,8 @@ if (!function_exists('formatBytes'))
         $size = abs($size);
 
         $base = log($size) / log(1024);
-        $suffixes = array('B', 'kB', 'MB', 'GB', 'TB');
+        $suffixes = ['B', 'kB', 'MB', 'GB', 'TB'];
 
-        return $sign . round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
+        return strval($sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)]);
     }
 }

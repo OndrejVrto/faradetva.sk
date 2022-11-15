@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Rules;
 
@@ -7,15 +7,11 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Validation\Rule;
 
-class DateTimeAfterNow implements Rule
-{
-    private $user_timezone;
-
-    public function __construct($timezone) {
-        $this->user_timezone = $timezone;
+class DateTimeAfterNow implements Rule {
+    public function __construct(private readonly string $user_timezone) {
     }
 
-    public function passes($attribute, $value) {
+    public function passes(mixed $attribute, mixed $value): bool {
         $app_timezone = Config::get('app.timezone');
 
         $nowInApp = Carbon::now(new DateTimeZone($app_timezone));
@@ -25,7 +21,7 @@ class DateTimeAfterNow implements Rule
         return $valueFromTZ->greaterThanOrEqualTo($nowInApp);
     }
 
-    public function message() {
+    public function message(): string|array {
         return 'Zvolený čas musí byť v "budúcnosti".';
     }
 }

@@ -1,0 +1,45 @@
+includes:
+    - phpstan-baseline.neon
+    - ./vendor/nunomaduro/larastan/extension.neon
+    # - ./vendor/canvural/larastan-strict-rules/rules.neon
+
+parameters:
+
+    # The level 9 is the highest level
+    level: 6
+
+    paths:
+        - app
+        # - routes
+        # - database
+        # - tests
+        # - app/Http/Controllers
+        # - app/Providers
+        # - app/Http
+        # - app/Models
+        # - app/View
+        # - app/Services
+
+    databaseMigrationsPath:
+        - database/migrations
+
+    ignoreErrors:
+        - '#PHPDoc tag @var#'
+        - '#^Access to an undefined property.*Model.*#'
+        - '#Call to an undefined method Spatie\\Image\\Manipulations::withResponsiveImages\(\)\.#'
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::\w+\(\)\.#'
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Model::\w+\(\)\.#'
+        # - '#Cannot call method.*Spatie\\Valuestore\\Valuestore.*\.#'
+        # - '#Call to an undefined static method Illuminate\\Support\\Str::plainText\(\)\.#'
+        # - '#Call to an undefined static method Illuminate\\Support\\Str::readDurationWords\(\)\.#'
+        # - '#Call to an undefined static method App\\Enums\\\w+::(from|tryFrom|cases)\(\)\.$#'
+        # - '##'
+
+    excludePaths:
+        - ./app/Enums/*
+        - ./app/Http/Helpers/BeautifyHtml.php
+        - ./app/Services/Dashboard/FutureTestService.php
+
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    checkModelProperties: true

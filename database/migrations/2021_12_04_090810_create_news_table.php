@@ -1,14 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-
-    public function up()
-    {
+return new class () extends Migration {
+    public function up(): void {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
 
@@ -17,8 +14,8 @@ return new class extends Migration
                     ->constrained()
                     ->onUpdate('NO ACTION')
                     ->onDelete('NO ACTION');
-                    // ->onUpdate('CASCADE')
-                    // ->onDelete('SET NULL');
+            // ->onUpdate('CASCADE')
+            // ->onDelete('SET NULL');
             $table->foreignId('category_id')
                     ->nullable()
                     ->constrained()
@@ -29,8 +26,8 @@ return new class extends Migration
             $table->fulltext(['title', 'teaser', 'content_plain']);
 
             $table->boolean('active')->default(1);
-            $table->timestamp('published_at')->nullable()->default(NULL);
-            $table->timestamp('unpublished_at')->nullable()->default(NULL);
+            $table->timestamp('published_at')->nullable()->default(null);
+            $table->timestamp('unpublished_at')->nullable()->default(null);
             $table->boolean('notified')->default(0);
             $table->string('title', 110);
             $table->string('slug', 110);
@@ -44,9 +41,7 @@ return new class extends Migration
         });
     }
 
-
-    public function down()
-    {
+    public function down(): void {
         Schema::dropIfExists('news');
     }
 };

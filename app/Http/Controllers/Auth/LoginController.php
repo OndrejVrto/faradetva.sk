@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Auth;
 
@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
-{
+class LoginController extends Controller {
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -51,14 +50,11 @@ class LoginController extends Controller
     /**
      * The user has been authenticated.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
      * @return mixed
      */
     protected function authenticated() {
-
-        if(!Auth::user()->active) {
-            $name = Auth::user();
+        $name = Auth::user();
+        if (!is_null($name) && !$name->active) {
             Auth::logout();
 
             Log::channel('slack')

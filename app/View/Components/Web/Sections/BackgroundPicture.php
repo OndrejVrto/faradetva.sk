@@ -1,44 +1,45 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Web\Sections;
 
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 use App\Models\BackgroundPicture as BackgroundPictureModel;
 
-class BackgroundPicture extends Component
-{
-    public $backgroundPicture;
+class BackgroundPicture extends Component {
+    public ?array $backgroundPicture;
 
     public function __construct(
-        private string $titleSlug,
+        string $titleSlug,
     ) {
         $this->backgroundPicture = $this->getPicture($titleSlug);
     }
 
     public function render(): View|null {
-        if (!is_null($this->backgroundPicture)) {
-            (new SetSeoPropertiesService())->setPictureSchema($this->backgroundPicture);
-
-            return view('components.web.sections.background-picture.index');
+        if (is_null($this->backgroundPicture)) {
+            return null;
         }
-        return null;
+
+        (new SeoPropertiesService())->setPictureSchema($this->backgroundPicture);
+
+        return view('components.web.sections.background-picture.index');
     }
 
-    private function getPicture($titleSlug): array {
-        return Cache::rememberForever('PICTURE_BACKGROUND_'.$titleSlug, function () use($titleSlug): array {
-            return BackgroundPictureModel::query()
+    private function getPicture(string $titleSlug): ?array {
+        return Cache::rememberForever(
+            key: 'PICTURE_BACKGROUND_'.$titleSlug,
+            callback: fn (): ?array => BackgroundPictureModel::query()
                 ->whereSlug($titleSlug)
                 ->with('media', 'source')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
-                ->first();
-        });
+                ->map(fn ($img) => $this->mapOutput($img))
+                ->first()
+        );
     }
 
-    private function mapOutput($img): array {
+    private function mapOutput(BackgroundPictureModel $img): array {
         return [
             'id'                => $img->id,
             'title'             => $img->title,
@@ -53,7 +54,7 @@ class BackgroundPicture extends Component
             'img-title'         => $img->title,
             'img-url'           => $img->getFirstMediaUrl('background_picture', 'extra-large'),
             'img-mime'          => $img->mime_type,
-            'img-updated'       => $img->updated_at->toAtomString(),
+            'img-updated'       => $img->updated_at?->toAtomString(),
             'img-width'         => 1920,
             'img-height'        => 1440,
 
@@ -61,14 +62,14 @@ class BackgroundPicture extends Component
             'img_thumbnail_width'  => 192,
             'img_thumbnail_height' => 144,
 
-            'source_description'       => $img->source->source_description,
+            'source_description'       => $img->source?->source_description,
             'sourceArr' => [
-                'source_source'        => $img->source->source_source,
-                'source_source_url'    => $img->source->source_source_url,
-                'source_author'        => $img->source->source_author,
-                'source_author_url'    => $img->source->source_author_url,
-                'source_license'       => $img->source->source_license,
-                'source_license_url'   => $img->source->source_license_url,
+                'source_source'        => $img->source?->source_source,
+                'source_source_url'    => $img->source?->source_source_url,
+                'source_author'        => $img->source?->source_author,
+                'source_author_url'    => $img->source?->source_author_url,
+                'source_license'       => $img->source?->source_license,
+                'source_license_url'   => $img->source?->source_license_url,
             ],
         ];
     }

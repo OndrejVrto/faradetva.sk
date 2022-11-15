@@ -1,23 +1,20 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Jobs;
 
-use Spatie\Valuestore\Valuestore;
+use Carbon\Carbon;
 use Spatie\SiteSearch\Jobs\CrawlSiteJob;
 use Spatie\SiteSearch\Models\SiteSearchConfig;
 
-class SiteSearchCrawlJob
-{
-    public function handle() {
+class SiteSearchCrawlJob {
+    public function handle(): void {
         SiteSearchConfig::enabled()
             ->each(function (SiteSearchConfig $siteSearchConfig) {
                 dispatch(new CrawlSiteJob($siteSearchConfig));
             });
 
         customConfig('crawler')
-            ->put('___RELOAD', false)
-            ->put('CRAWLER.site_search', now());
+            ->put('___RELOAD', "false")
+            ->put('CRAWLER.site_search', Carbon::now()->toISOString());
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Console\Commands;
 
@@ -6,8 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
 
-class CreateRoutePermissionsCommand extends Command
-{
+class CreateRoutePermissionsCommand extends Command {
     /**
      * The name and signature of the console command.
      *
@@ -33,22 +32,17 @@ class CreateRoutePermissionsCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
-    public function handle() {
+    public function handle(): void {
         $routes = Route::getRoutes()->getRoutes();
 
         foreach ($routes as $route) {
             $routeName = $route->getName();
-            if ($routeName != '') {
+            if ($routeName != '' && !is_null($routeName)) {
                 foreach ($route->getAction()['middleware'] as $midleware) {
-                    if($midleware == 'permission') {
-                        $permission = Permission::where('name', $routeName)->first();
-                        if (is_null($permission)) {
-                            $this->line('Create permissions: '.$routeName);
-                            Permission::create(['name' => $routeName]);
-                        }
+                    if ($midleware == 'permission') {
+                        Permission::findOrCreate($routeName);
+                        $this->line('Update or create permissions: '.$routeName);
                     }
                 }
             }

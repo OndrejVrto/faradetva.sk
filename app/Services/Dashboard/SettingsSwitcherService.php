@@ -1,39 +1,40 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Dashboard;
 
 use Illuminate\Support\Str;
+use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Artisan;
 use Spatie\ResponseCache\Facades\ResponseCache;
 use Spatie\Health\Commands\RunHealthChecksCommand;
 
-class SettingsSwitcherService
-{
+class SettingsSwitcherService {
     public ?string $secretKey = null;
 
-    private $config;
-    private $checkbox;
+    // private $config;
+    private readonly Valuestore $checkbox;
 
     public function __construct() {
-        $this->config   = customConfig();
+        // $this->config   = customConfig();
         $this->checkbox = customConfig('dashboard-checkbox');
     }
 
     public function __destruct() {
         // update config cache
-        if (true == $this->checkbox->get('cache_config')) {
+        if (true == boolval($this->checkbox->get('cache_config'))) {
             Artisan::call('config:cache', ['--quiet' => true, '--no-interaction' => true]);
         }
         // refresh Health checks
         Artisan::call(RunHealthChecksCommand::class, ['--quiet' => true, '--no-interaction' => true]);
     }
 
-    public function run(string $command = null, bool $value) {
-        if (method_exists($this, $command)){
+    public function run(bool $value, string $command): void {
+        if (method_exists($this, $command)) {
             $this->$command($value);
         }
+        return;
     }
 
     private function handle(
@@ -42,12 +43,14 @@ class SettingsSwitcherService
         string $config = null,
         string $artisanFalse = null,
         string $artisanTrue = null
-    ) {
-        if ($require == $this->checkbox->get($valueStore)) return;
+    ): void {
+        if ($require === $this->convertValueFromStore($valueStore)) {
+            return;
+        }
 
         if (false == $require) {
-            $this->checkbox->put($valueStore, false);
-            if($config){
+            $this->checkbox->put($valueStore, "false");
+            if ($config) {
                 customConfig('config', [$config => false]);
             }
             if ($artisanFalse) {
@@ -57,7 +60,7 @@ class SettingsSwitcherService
             return;
         }
 
-        $this->checkbox->put($valueStore, true);
+        $this->checkbox->put($valueStore, "true");
         if ($config) {
             customConfig('config', [$config => true]);
         }
@@ -68,61 +71,75 @@ class SettingsSwitcherService
         return;
     }
 
+    private function convertValueFromStore(string $valueStore): bool {
+        return (bool) filter_var($this->checkbox->get($valueStore), FILTER_VALIDATE_BOOLEAN);
+    }
+
+    /**
+     * Switches
+     */
     private function maintenance_mode(bool $require): void {
         // dd($require, app()->isDownForMaintenance());
-        if ($require == app()->isDownForMaintenance()) return;
+        if ($require == app()->isDownForMaintenance()) {
+            return;
+        }
         if (true == $require) {
-            $secretKey = Str::uuid();
-            Artisan::call('down', ['--secret' => $secretKey]);
+            $this->secretKey = Str::uuid()->toString();
+            Artisan::call('down', ['--secret' => $this->secretKey]);
 
             // TODO: send email to all administrator with secret key url
             Log::channel('slack')->alert('Aplikácia je prepnutá do údržbového módu.', [
-                'Secret url' => url(route('home').'/'.$secretKey),
-                'Uživateľ ktorý vypol aplikáciu' => Auth::user()->name,
-                'Uživateľov e-mail' => Auth::user()->email,
+                'Secret url' => url(route('home').'/'.$this->secretKey),
+                'Uživateľ ktorý vypol aplikáciu' => Auth::user()?->getAuthIdentifierName(),
+                'Uživateľov e-mail' => Auth::user()?->email,
             ]);
-            $this->checkbox->put('maintenance_mode', true);
-            $this->secretKey = $secretKey;
+            $this->checkbox->put('maintenance_mode', "true");
         } else {
-            $this->checkbox->put('maintenance_mode', false);
+            $this->checkbox->put('maintenance_mode', "false");
             Artisan::call('up');
             Log::channel('slack')->alert('Aplikácia je opäť spustená.', [
-                'Uživateľ ktorý spustil aplikáciu' => Auth::user()->name,
+                'Uživateľ ktorý spustil aplikáciu' => Auth::user()->getAuthIdentifierName(),
             ]);
         }
     }
 
     private function cache_global(bool $require): void {
-        if ($require == $this->checkbox->get('cache_global')) return;
+        if ($require === $this->convertValueFromStore('cache_global')) {
+            return;
+        }
         if (false == $require) {
             Artisan::call('cache:clear', ['--quiet' => true, '--no-interaction' => true]);
-            $this->checkbox->put('cache_global', false);
+            $this->checkbox->put('cache_global', "false");
             customConfig('config', ['cache.default' => 'none']);
         } else {
-            $this->checkbox->put('cache_global', true);
+            $this->checkbox->put('cache_global', "true");
             customConfig('config', ['cache.default' => 'file']);
         }
     }
 
     private function app_enviroment_mode(bool $require): void {
-        if ($require == $this->checkbox->get('app_enviroment_mode')) return;
+        if ($require === $this->convertValueFromStore('app_enviroment_mode')) {
+            return;
+        }
         if (false == $require) {
-            $this->checkbox->put('app_enviroment_mode', false);
+            $this->checkbox->put('app_enviroment_mode', "false");
             customConfig('config', ['app.env' => 'production']);
         } else {
-            $this->checkbox->put('app_enviroment_mode', true);
+            $this->checkbox->put('app_enviroment_mode', "true");
             customConfig('config', ['app.env' => 'local']);
         }
     }
 
     private function cache_response(bool $require): void {
-        if ($require == $this->checkbox->get('cache_response')) return;
+        if ($require === $this->convertValueFromStore('cache_response')) {
+            return;
+        }
         if (false == $require) {
             ResponseCache::clear();
-            $this->checkbox->put('cache_response', false);
+            $this->checkbox->put('cache_response', "false");
             customConfig('config', ['responsecache.enabled' => false]);
         } else {
-            $this->checkbox->put('cache_response', true);
+            $this->checkbox->put('cache_response', "true");
             customConfig('config', ['responsecache.enabled' => true]);
         }
     }

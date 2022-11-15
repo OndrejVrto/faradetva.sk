@@ -100,7 +100,7 @@
                     </x-admin.table.td>
 
                     <x-admin.table.td class="d-none d-md-table-cell text-wrap text-break text-center">{{-- $news->file_count --}}</x-admin.table.td>
-                    @if ( $news->user_id == auth()->user()->id OR auth()->user()->isAdmin())
+                    @if ( $news->user_id == auth()->id() OR auth()->user()->isAdmin())
                         <x-admin.table.td-actions
                             controlerName="news"
                             identificator="{{ $news->slug }}"

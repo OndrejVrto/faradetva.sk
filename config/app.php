@@ -256,7 +256,7 @@ return [
         // 'JsonLd'        => Artesaos\SEOTools\Facades\JsonLd::class,
         // 'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
         'SeoGraph'      => App\Facades\SeoGraph::class,
-        'SeoSchema'     => App\Facades\SeoJsonLd::class,
+        'SeoSchema'     => App\Facades\SeoSchema::class,
 
         'OEmbed' => Cohensive\OEmbed\Facades\OEmbed::class,
 

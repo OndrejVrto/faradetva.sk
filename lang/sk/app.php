@@ -114,17 +114,23 @@ return [
     ],
     'notice-lecturer'   => [
         'store'  => 'Nový rozpis lektorov bol pridaný!',
+        'store-error'  => 'Zlyhalo pridanie rozpisu!',
         'update' => 'Rozpis lektorov bol upravený.',
+        'update-error'  => 'Zlyhala úprava rozpisu!',
         'delete' => 'Rozpis lektorov bol odstránený!',
     ],
     'notice-acolyte'   => [
         'store'  => 'Nový rozpis akolytov bol pridaný!',
+        'store-error'  => 'Zlyhalo pridanie rozpisu!',
         'update' => 'Rozpis akolytov bol upravený.',
+        'update-error'  => 'Zlyhala úprava rozpisu!',
         'delete' => 'Rozpis akolytov bol odstránený!',
     ],
     'notice-church'   => [
         'store'  => 'Farské oznamy boli pridané!',
+        'store-error'  => 'Zlyhalo pridanie oznamu!',
         'update' => 'Farské oznamy boli upravené.',
+        'update-error'  => 'Zlyhala úprava oznamu!',
         'delete' => 'Farské oznamy boli odstránené!',
     ],
     'prayer'   => [

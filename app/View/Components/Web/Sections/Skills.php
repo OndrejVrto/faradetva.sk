@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Web\Sections;
 
@@ -10,29 +10,26 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-class Skills extends Component
-{
-    public $skills;
+class Skills extends Component {
+    public array $skills;
 
     public function __construct() {
         $this->skills = $this->getSkills();
     }
 
-    public function render(): View|null {
-        if (!is_null($this->skills)) {
-            return view('components.web.sections.skills.index');
-        }
-        return null;
+    public function render(): View {
+        return view('components.web.sections.skills.index');
     }
 
     private function getSkills(): array {
-        return Cache::rememberForever('SKILLS', function(): array {
-            return [
+        return Cache::rememberForever(
+            key: 'SKILLS',
+            callback: fn (): array => [
                 'news'         => News::whereNotified(1)->withTrashed()->count(),
                 'notices'      => Notice::whereNotified(1)->withTrashed()->count(),
                 'testimonials' => Testimonial::whereActive(1)->count(),
                 'subscribers'  => Subscriber::whereNotNull('email_verified_at')->count(),
-            ];
-        });
+            ]
+        );
     }
 }

@@ -1,19 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use App\Rules\SingleWord;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 
-class TagRequest extends BaseRequest
-{
+class TagRequest extends BaseRequest {
     public function rules(): array {
         return [
             'title' => [
                 'required',
-                new SingleWord,
+                new SingleWord(),
                 'max:30',
                 'alpha',
             ],

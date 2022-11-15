@@ -27,7 +27,7 @@ class {{ class }} extends Controller
         $validated = $request->validated();
         {{ model }}::create($validated);
 
-        toastr()->success(__('app.{{ modelVariable }}.store'));
+        toastr()->success(strval(__('app.{{ modelVariable }}.store')));
         return to_route('{{ modelVariable }}s.index');
     }
 
@@ -43,14 +43,14 @@ class {{ class }} extends Controller
         $validated = $request->validated();
         ${{ modelVariable }}->update($validated);
 
-        toastr()->success(__('app.{{ modelVariable }}.update'));
+        toastr()->success(strval(__('app.{{ modelVariable }}.update')));
         return to_route('{{ modelVariable }}s.index');
     }
 
     public function destroy({{ model }} ${{ modelVariable }}): RedirectResponse {
         ${{ modelVariable }}->delete();
 
-        toastr()->success(__('app.{{ modelVariable }}.delete'));
+        toastr()->success(strval(__('app.{{ modelVariable }}.delete')));
         return to_route('{{ modelVariable }}s.index');
     }
 }

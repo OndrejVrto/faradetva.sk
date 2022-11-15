@@ -1,15 +1,13 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Services\Dashboard;
 
+use Carbon\Carbon;
 use App\Jobs\GenerateSitemapJob;
 use Cohensive\OEmbed\Facades\OEmbed;
 use Illuminate\Support\Facades\Auth;
 
-class FutureTestService
-{
+class FutureTestService {
     private function gate(): bool {
         $user = Auth::user();
         return $user->hasRole('Super Administrátor');
@@ -17,11 +15,23 @@ class FutureTestService
 
     // any test code or service here
     public function run() {
-        if (!$this->gate()) { return; }
+        if (!$this->gate()) {
+            return;
+        }
+
+        dd(
+            Carbon::now()->toISOString(),
+            Carbon::now()->getTimestamp(),
+            Carbon::parse(customConfig('crawler', 'CRAWLER.url_check', null))
+             ->format('d.m.Y H:m')
+        );
+
+        // customConfig('crawler')->put('CRAWLER.sitemap', Carbon::now()->toISOString());
+
 
         // $url = 'https://www.facebook.com/Farnos%C5%A5-Detva-103739418174148';
 
-        (new GenerateSitemapJob)->handle();
+        (new GenerateSitemapJob())->handle();
         exit;
 
         $drive = '.';
@@ -31,7 +41,7 @@ class FutureTestService
         $percentage_free    = $freespace ? 100 - round($freespace / $total_space, 2) * 100 : 0;
 
 
-     /* Show in HTML */
+        /* Show in HTML */
         echo("<b>".$drive."</b> has [".$percentage_free."] % free diskspace<br>");
         echo("<b>".$drive."</b> has [".round($total_space/1024/1024)."]MB totalspace<br>");
         echo("<b>".$drive."</b> has [".round($freespace/1024/1024)."] MB free diskspace<br>");
@@ -194,6 +204,5 @@ class FutureTestService
             // $embed->data();
             dd($embed->data());
         }
-
     }
 }

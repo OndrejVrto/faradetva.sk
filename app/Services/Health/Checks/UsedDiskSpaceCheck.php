@@ -1,22 +1,21 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Health\Checks;
 
 use Exception;
 use Spatie\Regex\Regex;
 use Spatie\Health\Checks\Check;
-use Spatie\Health\Checks\Result;
 use Spatie\Health\Enums\Status;
+use Spatie\Health\Checks\Result;
 use Symfony\Component\Process\Process;
 
-class UsedDiskSpaceCheck extends Check
-{
+class UsedDiskSpaceCheck extends Check {
     protected int $warningThreshold = 70;
     protected int $errorThreshold = 90;
 
-    protected int $totalDiskSpace;
-    protected int $usedDiskSpace;
-    protected int $freeDiskSpace;
+    protected int|float $totalDiskSpace;
+    protected int|float $usedDiskSpace;
+    protected int|float $freeDiskSpace;
 
     public function warnWhenUsedSpaceIsAbovePercentage(int $percentage): self {
         $this->warningThreshold = $percentage;
@@ -63,14 +62,14 @@ class UsedDiskSpaceCheck extends Check
             $process = Process::fromShellCommandline('df -P .');
             $process->run();
             $output = $process->getOutput();
-        } catch (\Throwable $th) {
+        } catch (\Throwable) {
             try {
                 $drive = '.';
                 $this->freeDiskSpace  = disk_free_space($drive);
                 $this->totalDiskSpace = disk_total_space($drive);
                 $this->usedDiskSpace  = $this->freeDiskSpace ? $this->totalDiskSpace - $this->freeDiskSpace : 0;
-            } catch (\Throwable $th) {
-                return $th;
+            } catch (\Throwable) {
+                return new Exception('Error loading free disk space.');
             }
             return $this->freeDiskSpace ? 100 - (round($this->freeDiskSpace / $this->totalDiskSpace, 2) * 100) : 0;
         }
@@ -80,9 +79,15 @@ class UsedDiskSpaceCheck extends Check
 
     private function setSizes(string $input): void {
         preg_match_all('/(\d*)/', $input, $output_array);
-        $data = collect($output_array[0])->filter()->values();
-        $this->totalDiskSpace = (int) $data->get(1) * 1024;
-        $this->usedDiskSpace = (int) $data->get(2) * 1024;
-        $this->freeDiskSpace = (int) $data->get(3) * 1024;
+        $data = array_values(
+            array_filter(
+                array: $output_array[0],
+                callback: fn ($val) => !empty($val),
+                mode: ARRAY_FILTER_USE_BOTH
+            )
+        );
+        $this->totalDiskSpace = (int) $data[1] * 1024;
+        $this->usedDiskSpace  = (int) $data[2] * 1024;
+        $this->freeDiskSpace  = (int) $data[3] * 1024;
     }
 }

@@ -12,9 +12,7 @@
 
     if (is_null($value)) {
         $value = customConfig('dashboard-checkbox', $name, $error);
-        if ($value !== $error) {
-            $state = (bool) $value;
-        }
+        $state = (boolean) filter_var($value, FILTER_VALIDATE_BOOLEAN);
     }
 @endphp
 

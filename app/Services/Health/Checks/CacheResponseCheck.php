@@ -1,12 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Health\Checks;
 
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class CacheResponseCheck extends Check
-{
+class CacheResponseCheck extends Check {
     public function run(): Result {
         $name = 'health-results.cache_response';
         $this->label("$name.label");
@@ -19,7 +18,7 @@ class CacheResponseCheck extends Check
 
         return $result->meta([
             'driver' => config('responsecache.cache_store'),
-            'time'   => gmdate("H:i:s", config('responsecache.cache_lifetime_in_seconds')),
+            'time'   => gmdate("H:i:s", (int) config('responsecache.cache_lifetime_in_seconds')),
         ]);
     }
 }

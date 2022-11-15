@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Web\Sections;
 
@@ -8,37 +8,37 @@ use Illuminate\Contracts\View\View;
 use App\Models\Priest as PriestModel;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
-class Priests extends Component
-{
-    public $priests;
+class Priests extends Component {
+    public array $priests;
 
     public function __construct() {
         $this->priests = $this->getPriests();
     }
 
-    public function render(): View|null {
-        if (!is_null($this->priests)) {
-            (new SetSeoPropertiesService())->setPriestsSchema($this->priests);
-
-            return view('components.web.sections.priests.index');
+    public function render(): ?View {
+        if (empty($this->priests)) {
+            return null;
         }
-        return null;
+
+        (new SeoPropertiesService())->setPriestsSchema($this->priests);
+        return view('components.web.sections.priests.index');
     }
 
     private function getPriests(): array {
-        return Cache::rememberForever('PRIESTS', function(): array {
-            return PriestModel::query()
+        return Cache::rememberForever(
+            key: 'PRIESTS',
+            callback: fn (): array => PriestModel::query()
                 ->whereActive(1)
                 ->with('media')
                 ->get()
-                ->map(fn($e) => $this->mapOutput($e))
-                ->toArray();
-        });
+                ->map(fn ($e) => $this->mapOutput($e))
+                ->toArray()
+        );
     }
 
-    private function mapOutput($priest): array {
+    private function mapOutput(PriestModel $priest): array {
         return [
             'id'                => $priest->id,
 
@@ -58,7 +58,7 @@ class Priests extends Component
             'function'          => $priest->function,
 
             'description_clean' => Str::plainText($priest->description),
-            'description'       => (new PurifiAutolinkService)->getCleanTextWithLinks($priest->description),
+            'description'       => (new PurifiAutolinkService())->getCleanTextWithLinks($priest->description),
 
             'img-url'           => isset($priest->media[0]) ? $priest->media[0]->getUrl('crop') : 'http://via.placeholder.com/230x270',
             'img-height'        => '270',

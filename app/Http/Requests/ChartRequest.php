@@ -1,17 +1,13 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use App\Enums\ChartType;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 use Illuminate\Validation\Rules\Enum;
 
-class ChartRequest extends BaseRequest
-{
+class ChartRequest extends BaseRequest {
     public function rules(): array {
         return [
             'active'      => $this->reqBoolRule(),

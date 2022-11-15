@@ -1,24 +1,25 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-trait Restorable
-{
-    public function scopeArchive(Builder $query, Request $request, string $modelName) {
+trait Restorable {
+    use SoftDeletes;
+
+    public function scopeArchive(Builder $query, Request $request, string $modelName): Builder {
         return $query
-            ->when($request->has('only-deleted') AND $this->canRestore($modelName), function ($query) {
+            ->when($request->has('only-deleted') && $this->canRestore($modelName), function ($query) {
                 $query->onlyTrashed();
             })
-            ->when($request->has('with-deleted') AND $this->canRestore($modelName), function ($query) {
+            ->when($request->has('with-deleted') && $this->canRestore($modelName), function ($query) {
                 $query->withTrashed();
             });
-        }
+    }
 
-    private function canRestore(string $modelName): bool
-    {
+    private function canRestore(string $modelName): bool {
         // prepare permissions name
         $permissions = [
             $modelName.'.restore',
@@ -26,10 +27,6 @@ trait Restorable
         ];
 
         return
-            auth()->user()->hasAnyPermission($permissions)
-            OR
-            auth()->user()->hasRole('Super Administrátor')
-            ? true
-            : false;
+            auth()->user()?->hasAnyPermission($permissions) || (bool) auth()->user()?->hasRole('Super Administrátor');
     }
 }

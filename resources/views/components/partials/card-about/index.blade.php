@@ -16,15 +16,14 @@
                 'order-2' => $side === 'right',
             ])
         >
-            <div class="
-                ch_about_thumb
-                wow
-                d-flex
-                justify-content-end
-                {{ $side === 'right'
-                    ? 'fromright'
-                    : 'fromleft justify-content-lg-start'
-                }}"
+            <div @class([
+                    'ch_about_thumb',
+                    'wow',
+                    'd-flex',
+                    'justify-content-end',
+                    'fromright' => $side === 'right',
+                    'fromleft justify-content-lg-start' => $side !== 'right'
+                ])
             >
                 {!! $img !!}
             </div>

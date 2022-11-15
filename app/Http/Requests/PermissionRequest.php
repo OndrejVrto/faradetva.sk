@@ -1,13 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 
-class PermissionRequest extends BaseRequest
-{
-    public function rules() {
+class PermissionRequest extends BaseRequest {
+    public function rules(): array {
         return [
             'name' => [
                 'required',

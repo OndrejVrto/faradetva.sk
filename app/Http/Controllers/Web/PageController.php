@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Web;
 
@@ -11,75 +9,78 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
 use Diglactic\Breadcrumbs\Breadcrumbs;
+use Illuminate\Contracts\View\Factory;
 use App\Services\PagePropertiesService;
-use App\Services\SEO\SetSeoPropertiesService;
+use Illuminate\Contracts\View\View as iView;
+use App\Services\SEO\PageSeoPropertiesService;
 
-class PageController extends Controller
-{
-    private $path = '';
+class PageController extends Controller {
+    private string $path = '';
 
-    public function __invoke(...$param) {
+    public function __invoke(string ...$param): iView|Factory {
 
         // create array of links
         $urls = collect($param)
                     ->whereNotNull()
-                    ->map(function($node) {
+                    ->map(function ($node) {
                         $this->path .= '/' . $node;
-                        return collect([
+                        return [
                             'title' => $node,
                             'url' => substr($this->path, 1)
-                        ]);
+                        ];
                     });
 
-        // check if last link exists in DB.
-        $lastUrl = $urls->pop()->get('url');
-        $page = Cache::rememberForever('PAGE_' . Str::slug($lastUrl), function () use($lastUrl) {
-                    return StaticPage::query()
-                        ->whereUrl($lastUrl)
-                        ->with('picture', 'source', 'banners', 'faqs')
-                        ->firstOrFail();
-        });
+        $lastUrl = $urls->pop()['url'];
+        $page = Cache::rememberForever(
+            key: 'PAGE_'.Str::slug($lastUrl),
+            callback: fn () => StaticPage::query()
+                ->whereUrl($lastUrl)
+                ->with('picture', 'source', 'banners', 'faqs')
+                ->firstOrFail()
+        );
+        $pageService = new PagePropertiesService();
 
         // check if last link exists in views.
-        if (!$page->active OR !View::exists(PagePropertiesService::fullRoute($page->route_name))) {
-            abort(Response::HTTP_NOT_FOUND);
-        }
+        abort_if(!$page->active || !View::exists($pageService->fullRoute($page->route_name)), Response::HTTP_NOT_FOUND);
 
         // map data for SEO - BreadCrumb
         $pageChainBreadCrumb = $urls
-            ->map(function($node){
-                return Cache::rememberForever('PAGE_NODE_'.Str::slug($node), function () use($node) {
-                    $item = StaticPage::query()
-                        ->select('url', 'title', 'active')
-                        ->whereUrl($node->get('url'))
-                        ->first();
+            ->map(
+                fn ($node) => Cache::rememberForever(
+                    key: 'PAGE_NODE_'.Str::slug($node['url']),
+                    callback: function () use ($node) {
+                        $item = StaticPage::query()
+                            ->select('url', 'title', 'active')
+                            ->whereUrl($node['url'])
+                            ->first();
 
-                    return [
-                        'title' => isset($item->title) ? e($item->title) : trans('messages.'.$node->get('title')),
-                        'url'   => isset($item->url) ? e($item->url) : null,
-                    ];
-                });
-            })
+                        return [
+                            'title' => is_null($item) ? trans('messages.'.$node['title']) : e($item->title),
+                            'url'   => is_null($item) ? null : e($item->url),
+                        ];
+                    }
+                )
+            )
             ->push([
                 'title' => e($page->title),
                 'url'   => e($page->url),
             ])
             ->toArray();
 
+        $breadCrumb = Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb)->render();
+
         // map data for SEO - Page Properties
-        $pageData = PagePropertiesService::getStaticPageData($page);
-        $pageData['breadCrumb'] = (string) Breadcrumbs::render('pages.others', true, $pageChainBreadCrumb);
+        $pageData = $pageService->getStaticPageData($page, $breadCrumb);
+        // dump($page, $pageData);
 
         // set SEO
-        (new SetSeoPropertiesService($pageData))
-            ->setMetaTags()
-            ->setWebPageSchema()
+        (new PageSeoPropertiesService())
+            ->setMetaTags($pageData->title, $pageData->description, $pageData->keywords, $pageData->author, $pageData->image)
+            ->setWebPageSchema($pageData)
             ->setWebsiteSchemaGraph()
             ->setOrganisationSchemaGraph()
             ->setBreadcrumbSchemaGraph($pageChainBreadCrumb);
 
-        return view($pageData['route'], compact('pageData'));
+        return view($pageData->route, compact('pageData'));
     }
-
 }
-

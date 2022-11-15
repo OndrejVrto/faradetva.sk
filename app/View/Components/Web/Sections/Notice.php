@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Web\Sections;
 
@@ -7,11 +7,10 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-class Notice extends Component
-{
-    public $notices;
+class Notice extends Component {
+    public array $notices;
 
-    private $model;
+    private readonly string $model;
 
     private const NAMESPACE = '\\App\\Models\\';
 
@@ -22,39 +21,42 @@ class Notice extends Component
     ];
 
     public function __construct(
-        public $typeNotice
+        public string $typeNotice = self::TYPE['church']
     ) {
         $this->model = $this->getModelName($typeNotice);
         $this->notices = $this->getNotice(self::NAMESPACE.$this->model);
     }
 
-    public function render(): View|null {
-        if (!is_null($this->notices)) {
-            return view('components.web.sections.notice.index');
-        }
-        return null;
+    public function render(): ?View {
+        return view('components.web.sections.notice.index');
     }
 
-    private function getModelName(string|null $type): string {
-        $nameModel = Str::of($type)->lower()->ucfirst()->start('Notice');
-        return in_array($nameModel, self::TYPE) ? $nameModel : self::TYPE['church'];
+    private function getModelName(string $type): string {
+        $nameModel = Str::of($type)
+                        ->lower()
+                        ->ucfirst()
+                        ->start('Notice')
+                        ->value();
+
+        return in_array($nameModel, self::TYPE)
+                ? $nameModel
+                : self::TYPE['church'];
     }
 
     private function getNotice(string $fullModel): array {
         $cacheName = Str::of($this->model)->kebab();
-        return Cache::rememberForever('NOTICE_'.$cacheName, function() use($fullModel): array {
-            return  $fullModel::query()
+        return Cache::rememberForever(
+            key: 'NOTICE_'.$cacheName,
+            callback: fn (): array => $fullModel::query()
                 ->visible()
                 ->with('media')
                 ->get()
-                ->map(function($notice): array {
-                    return [
-                        'id'    => $notice->id,
-                        'title' => $notice->title,
-                        'url'   => $notice->getFirstMedia('notice_pdf')->getFullUrl(),
-                    ];
-                })
-                ->toArray();
-        });
+                ->map(fn ($notice): array => [
+                    'id'    => $notice->id,
+                    'title' => $notice->title,
+                    'url'   => $notice->getFirstMedia('notice_pdf')->getFullUrl(),
+                ])
+                ->toArray()
+        );
     }
 }

@@ -1,18 +1,15 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Category extends BaseModel
-{
+class Category extends BaseModel {
     use Loggable;
     use Restorable;
     use HasFactory;
@@ -31,11 +28,11 @@ class Category extends BaseModel
         'deleted_at' => 'datetime',
     ];
 
-    public function news() {
+    public function news(): HasMany {
         return $this->hasMany(News::class);
     }
 
-    public function getTitleLightAttribute() {
+    public function getTitleLightAttribute(): string {
         return Str::limit($this->title, 15, '...');
     }
 }

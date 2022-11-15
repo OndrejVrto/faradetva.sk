@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Mail;
 
@@ -9,27 +9,27 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class VerificationEmailMail extends Mailable implements ShouldQueue
-{
-    use Queueable, SerializesModels;
+class VerificationEmailMail extends Mailable implements ShouldQueue {
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The number of times the job may be attempted.
      *
      * @var int
      */
-    public $tries = 2;
+    public int $tries = 2;
 
     /**
      * The number of seconds to wait before retrying the job.
      *
      * @var int
      */
-    public $backoff = 5;
+    public int $backoff = 5;
 
-    public $token;
-    public $uuid;
-    public $slug;
+    public string $slug;
+    public string $uuid;
+    public string $token;
 
     /**
      * Create a new message instance.
@@ -47,8 +47,7 @@ class VerificationEmailMail extends Mailable implements ShouldQueue
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build(): self {
         return $this->markdown('mail.verification-mail', [
             'slug' => $this->slug,
             'uuid' => $this->uuid,

@@ -1,17 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Partials;
 
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class EmailLink extends Component
-{
-    public $name;
-    public $domain;
+class EmailLink extends Component {
+    public string $name;
+    public string $domain;
 
     public function __construct(
-        private string $email,
+        string $email,
         public ?string $nonce = null,
         public string $class = 'link-secondary',
         public ?string $icon = 'fa-regular fa-paper-plane fa-flip-horizontal ps-2'

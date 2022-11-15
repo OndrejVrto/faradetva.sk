@@ -1,16 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
 use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
-use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Traits\HasSourceFields;
 use App\Http\Requests\Traits\HasCropPictureFields;
 
-class NewsRequest extends BaseRequest
-{
+class NewsRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 
@@ -58,7 +56,12 @@ class NewsRequest extends BaseRequest
             'slug'  => Str::slug($this->title)
         ]);
 
-        is_null($this->published_at) ?: $this->merge(['published_at' => date('Y-m-d H:i:s', strtotime($this->published_at))]);
-        is_null($this->unpublished_at) ?: $this->merge(['unpublished_at' => date('Y-m-d H:i:s', strtotime($this->unpublished_at))]);
+        is_null($this->published_at) ?: $this->merge([
+            'published_at' => date('Y-m-d H:i:s', strtotime((string) $this->published_at))
+        ]);
+
+        is_null($this->unpublished_at) ?: $this->merge([
+            'unpublished_at' => date('Y-m-d H:i:s', strtotime((string) $this->unpublished_at))
+        ]);
     }
 }

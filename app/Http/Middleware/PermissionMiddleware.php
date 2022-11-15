@@ -1,20 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Spatie\Permission\Exceptions\UnauthorizedException;
 
-class PermissionMiddleware
-{
+class PermissionMiddleware {
     /**
      * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
      */
-    public function handle($request, Closure $next, $permission = null, $guard = null) {
+    public function handle(Request $request, Closure $next, null|array|string $permission = null, string $guard = null): mixed {
         $authGuard = app('auth')->guard($guard);
 
         if ($authGuard->guest()) {
@@ -25,16 +22,17 @@ class PermissionMiddleware
             $permissions = is_array($permission)
                 ? $permission
                 : explode('|', $permission);
-        }
+        } else {
+            $permissions = [];
+            $routeName = $request->route();
 
-        if ( is_null($permission) ) {
-            $permission = $request->route()->getName();
-
-            $permissions = array($permission);
+            if ($routeName instanceof Route) {
+                $permissions[] = $routeName->getName();
+            }
         }
 
         foreach ($permissions as $permission) {
-            if ($authGuard->user()->can($permission)) {
+            if ($authGuard->user()?->can($permission)) {
                 return $next($request);
             }
         }

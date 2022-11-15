@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Exceptions;
 
@@ -6,12 +6,11 @@ use Throwable;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
-class Handler extends ExceptionHandler
-{
+class Handler extends ExceptionHandler {
     /**
      * A list of the exception types that are not reported.
      *
-     * @var string[]
+     * @var array<int, class-string<\Throwable>>
      */
     protected $dontReport = [
         //
@@ -20,7 +19,7 @@ class Handler extends ExceptionHandler
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
-     * @var string[]
+     * @var array<int, string>
      */
     protected $dontFlash = [
         'current_password',
@@ -48,10 +47,11 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      */
-    public function report(Throwable $e)
-    {
+    public function report(Throwable $e) {
         // Some exceptions don't have a message
-        $exception_message = (!empty($e->getMessage()) ? trim($e->getMessage()) : 'App Error Exception');
+        $exception_message = empty($e->getMessage())
+                                ? 'App Error Exception'
+                                : trim($e->getMessage());
         // Log message
         $log_message = '['.$e->getCode().'] "'.$exception_message.'" on line ['.$e->getLine().'] of file "'.$e->getFile().'"';
 

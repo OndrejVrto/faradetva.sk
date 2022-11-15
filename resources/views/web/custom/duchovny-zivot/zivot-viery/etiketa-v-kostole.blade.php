@@ -2,7 +2,7 @@
 
     {{-- Etiketa platí aj v kostole --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
@@ -60,7 +60,7 @@
 
     <x-web.sections.background-picture titleSlug="etik-003"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Na čo by sme mali dávať pozor?">
             <x-web.page.text-segment>
@@ -101,7 +101,7 @@
 
     <x-web.sections.background-picture titleSlug="etik-011"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART III -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Praktické rady" animation="fromleft">
             <x-web.page.text-segment animation="fromleft">

@@ -1,21 +1,18 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Crawler;
 
 use Psr\Http\Message\UriInterface;
 use Spatie\Crawler\CrawlProfiles\CrawlInternalUrls;
 
-class UrlCheckCrawlProfile extends CrawlInternalUrls
-{
+class UrlCheckCrawlProfile extends CrawlInternalUrls {
     public function __construct(
         protected mixed $baseUrl,
     ) {
         parent::__construct($this->baseUrl);
     }
 
-    public function shouldCrawl(UriInterface $url): bool
-    {
-
+    public function shouldCrawl(UriInterface $url): bool {
         if (! str_starts_with((string)$url, (string)$this->baseUrl)) {
             return false;
         }
@@ -27,8 +24,7 @@ class UrlCheckCrawlProfile extends CrawlInternalUrls
         return $this->baseUrl->getHost() === $url->getHost();
     }
 
-    protected function isConfiguredNotToBeCrawled(UriInterface $url): bool
-    {
+    protected function isConfiguredNotToBeCrawled(UriInterface $url): bool {
         foreach (config('farnost-detva.do_not_crawl_urls') as $configuredUrl) {
             if (fnmatch($configuredUrl, $url->getPath())) {
                 return true;

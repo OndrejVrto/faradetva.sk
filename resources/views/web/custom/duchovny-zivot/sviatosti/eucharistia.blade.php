@@ -2,7 +2,7 @@
 
     {{-- Eucharistia --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection title="Čo je Eucharistia">
             <x-web.page.text-segment animation="fromright">
@@ -73,7 +73,7 @@
 
     <x-web.sections.background-picture titleSlug="sacr3-012"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Ako často sa má kresťan katolík zúčastňovať na svätej omši">
             <x-web.page.text-segment animation="fromleft">

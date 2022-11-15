@@ -1,11 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
-class Kernel extends HttpKernel
-{
+class Kernel extends HttpKernel {
     /**
      * The application's global HTTP middleware stack.
      *
@@ -40,7 +39,6 @@ class Kernel extends HttpKernel
         ],
 
         'fast_web' => [
-            // 'header.http2.link',
             'csp.headers',
             'response.headers',
             'preety.html',
@@ -75,7 +73,6 @@ class Kernel extends HttpKernel
         'csp.headers'        => \Spatie\Csp\AddCspHeaders::class,
         'auth'               => \App\Http\Middleware\Authenticate::class,
         'can'                => \Illuminate\Auth\Middleware\Authorize::class,
-        'header.http2.link'  => \App\Http\Middleware\AddHttp2ServerPush::class,
         'permission'         => \App\Http\Middleware\PermissionMiddleware::class,
         'preety.html'        => \App\Http\Middleware\PreetyHtmlMiddleware::class,
         'cache.headers'      => \Illuminate\Http\Middleware\SetCacheHeaders::class,

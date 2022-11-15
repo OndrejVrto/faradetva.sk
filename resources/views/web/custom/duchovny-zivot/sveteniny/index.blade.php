@@ -2,7 +2,7 @@
 
     {{-- Duchovný život / Sveteniny --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) -" class="ch_event_section pad_t_30">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" class="ch_event_section pad_t_30">
 
         <x-partials.card-event
             title="Pobožnosti"

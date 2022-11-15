@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Health\Checks;
 
@@ -7,8 +7,7 @@ use App\Models\StaticPage;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class StaticPagesCrawlerCheck extends Check
-{
+class StaticPagesCrawlerCheck extends Check {
     private int $allPages = 0;
 
     private int $checkPages = 0;
@@ -29,12 +28,12 @@ class StaticPagesCrawlerCheck extends Check
 
         $result->shortSummary("$name.short")
             ->meta([
-                'lastCrawlDate' => Carbon::create($lastCrawledTime)->format('d.m.Y H:m'),
+                'lastCrawlDate' => Carbon::parse($lastCrawledTime)->format('d.m.Y H:m'),
                 'checkPages'    => $this->checkPages,
                 'allPages'      => $this->allPages,
             ]);
 
-        return $this->allPages == $this->checkPages
+        return $this->allPages === $this->checkPages
             ? $result->notificationMessage("$name.ok")->ok()
             : $result->failed("$name.failed");
     }

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Database\Seeders;
 
@@ -8,8 +6,7 @@ use App\Models\Chart;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
-class ChartSeeder extends Seeder
-{
+class ChartSeeder extends Seeder {
     public function run(): void {
         Chart::create([
             'title' => 'Krsty',

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Console;
 
@@ -8,14 +8,14 @@ use App\Jobs\SiteSearchCrawlJob;
 use Illuminate\Support\Facades\App;
 use Illuminate\Console\Scheduling\Schedule;
 use Spatie\Health\Commands\RunHealthChecksCommand;
+use App\Console\Commands\SendNewNoticesToSubscribers;
 use Spatie\Health\Models\HealthCheckResultHistoryItem;
 use Spatie\Health\Commands\ScheduleCheckHeartbeatCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
-class Kernel extends ConsoleKernel
-{
+class Kernel extends ConsoleKernel {
     protected $commands = [
-        'App\Console\Commands\SendNewNoticesToSubscribers'
+        SendNewNoticesToSubscribers::class
     ];
 
     protected function schedule(Schedule $schedule): void {
@@ -28,8 +28,8 @@ class Kernel extends ConsoleKernel
             '--model' => [ HealthCheckResultHistoryItem::class ]
         ])->dailyAt('02:00');
 
-        if($this->needRenew()){
-            if(App::environment(['local', 'dev'])) {
+        if ($this->needRenew()) {
+            if (App::environment(['local', 'dev'])) {
                 $schedule->job(new UrlsCheckJob())->everyFiveMinutes();
                 $schedule->job(new GenerateSitemapJob())->everyFiveMinutes();
                 $schedule->job(new SiteSearchCrawlJob())->everyFiveMinutes();
@@ -51,6 +51,6 @@ class Kernel extends ConsoleKernel
     private function needRenew(string $key = '___RELOAD'): bool {
         $storeJson = customConfig('crawler');
 
-        return !$storeJson->has($key) OR true == $storeJson->get($key);
+        return !$storeJson->has($key) || "true" === $storeJson->get($key);
     }
 }

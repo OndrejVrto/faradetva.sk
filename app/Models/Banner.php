@@ -1,40 +1,36 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Source;
-use App\Models\BaseModel;
-use App\Models\StaticPage;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Banner extends BaseModel implements HasMedia
-{
+class Banner extends BaseModel implements HasMedia {
     use InteractsWithMedia;
 
     protected $table = 'banners';
 
-    public $collectionName = 'banner';
+    public string $collectionName = 'banner';
 
     protected $fillable = [
         'title',
         'slug',
     ];
 
-    public function source() {
+    public function source(): MorphOne {
         return $this->morphOne(Source::class, 'sourceable');
     }
 
-    public function staticPages() {
+    public function staticPages(): BelongsToMany {
         return $this->belongsToMany(StaticPage::class, 'static_page_banner', 'banner_id', 'static_page_id');
     }
 
-    public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
+    public function getMediaFileNameAttribute(): null|string {
+        return $this->getFirstMedia($this->collectionName)?->file_name ?? null;
     }
 
     public function registerMediaConversions(Media $media = null): void {

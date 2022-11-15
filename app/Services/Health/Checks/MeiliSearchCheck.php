@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Health\Checks;
 
@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Http;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class MeiliSearchCheck extends Check
-{
+class MeiliSearchCheck extends Check {
     public int $timeout = 1;
     public string $url = 'http://127.0.0.1:7700/health';
 
@@ -36,8 +35,7 @@ class MeiliSearchCheck extends Check
                 ->meta(['url' => $this->url]);
         }
 
-        /** @phpstan-ignore-next-line */
-        if (! $response) {
+        if ($response->failed()) {
             return Result::make()
                 ->failed("$name.not-respond")
                 ->shortSummary("$name.not-respond-short")
@@ -56,7 +54,7 @@ class MeiliSearchCheck extends Check
             return Result::make()
                 ->failed("$name.available")
                 ->shortSummary("$name.available-short")
-                ->meta(['status' => ucfirst($status)]);
+                ->meta(['status' => ucfirst(strval($status))]);
         }
 
         return Result::make()

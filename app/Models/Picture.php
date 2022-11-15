@@ -1,23 +1,19 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Source;
-use App\Models\BaseModel;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Picture extends BaseModel implements HasMedia
-{
+class Picture extends BaseModel implements HasMedia {
     use InteractsWithMedia;
 
     protected $table = 'pictures';
 
-    public $collectionName = 'picture';
+    public string $collectionName = 'picture';
 
     protected $fillable = [
         'title',
@@ -35,16 +31,16 @@ class Picture extends BaseModel implements HasMedia
         'crop_output_exact_dimensions' => 'boolean',
     ];
 
-    public function source() {
+    public function source(): MorphOne {
         return $this->morphOne(Source::class, 'sourceable');
     }
 
-    public function mediaOne() {
+    public function mediaOne(): MorphOne {
         return $this->morphOne(config('media-library.media_model'), 'model');
     }
 
-    public function getMediaFileNameAttribute() {
-        return $this->getFirstMedia($this->collectionName)->file_name ?? null;
+    public function getMediaFileNameAttribute(): ?string {
+        return $this->getFirstMedia($this->collectionName)?->file_name ?? null;
     }
 
     public function registerMediaConversions(Media $media = null): void {

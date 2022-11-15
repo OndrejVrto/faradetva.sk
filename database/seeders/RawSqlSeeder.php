@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Database\Seeders;
 
@@ -8,10 +6,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
-class RawSqlSeeder extends Seeder
-{
+class RawSqlSeeder extends Seeder {
     public function run(): void {
-
         $sqlFiles = [
             'demo-data'
             // 'prayers',

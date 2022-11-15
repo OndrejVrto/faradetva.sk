@@ -2,7 +2,7 @@
 
     {{-- Desať Božích prikázaní --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
@@ -70,7 +70,7 @@
 
     <x-web.sections.background-picture titleSlug="bpr-003"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
 
         <x-web.page.subsection title="IV. Cti svojho otca a svoju matku" animation="fromleft">
@@ -125,7 +125,7 @@
 
     <x-web.sections.background-picture titleSlug="bpr-013"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART III -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="VII. Nepokradneš">
             <x-web.page.text-segment>

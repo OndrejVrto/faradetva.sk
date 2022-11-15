@@ -1,10 +1,7 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\BaseModel;
 use App\Traits\Restorable;
 use Illuminate\Support\Str;
 use Spatie\Image\Manipulations;
@@ -15,8 +12,7 @@ use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Priest extends BaseModel implements HasMedia
-{
+class Priest extends BaseModel implements HasMedia {
     use Loggable;
     use Restorable;
     use HasFactory;
@@ -25,7 +21,7 @@ class Priest extends BaseModel implements HasMedia
 
     protected $table = 'priests';
 
-    public $collectionName = 'priest';
+    public string $collectionName = 'priest';
 
     protected $fillable = [
         'active',
@@ -48,47 +44,50 @@ class Priest extends BaseModel implements HasMedia
         'deleted_at' => 'datetime',
     ];
 
-    protected static function boot() {
+    protected static function boot(): void {
         parent::boot();
 
         static::creating(function ($priest) {
-            $priest->slug = Str::slug( $priest->getFullNameWithTitles() );
+            $priest->slug = Str::slug($priest->getFullNameWithTitles());
         });
 
         static::updating(function ($priest) {
-            $priest->slug = Str::slug( $priest->getFullNameWithTitles() );
+            $priest->slug = Str::slug($priest->getFullNameWithTitles());
         });
     }
 
-    public function getFullNameTitlesAttribute() {
+    public function getFullNameTitlesAttribute(): string {
         return $this->getFullNameWithTitles();
     }
 
-    public function getPhoneDigitsAttribute() {
-        if(isset($this->phone)) {
-            $remove_plus = preg_replace("/\+/", "00", $this->phone );
-            return preg_replace("/[^0-9]/", "", $remove_plus );
+    public function getPhoneDigitsAttribute(): ?string {
+        if (property_exists($this, 'phone') && $this->phone !== null) {
+            return preg_replace(
+                pattern: ["/\+/", "/[^0-9]/"],
+                replacement: ["00", ""],
+                subject: $this->phone
+            );
         }
-        return;
+        return null;
     }
 
-    public function getFullNameAttribute() {
+    public function getFullNameAttribute(): string {
         return $this->getFullName();
     }
 
-    private function getFullNameWithTitles() {
-        $name = isset($this->titles_before) ? $this->titles_before . ' ' : '';
+    private function getFullNameWithTitles(): string {
+        $name = property_exists($this, 'titles_before') && $this->titles_before !== null ? $this->titles_before . ' ' : '';
         $name .= $this->getFullName();
-        $name .= isset($this->titles_after) ? ', ' . $this->titles_after : '';
+        $name .= property_exists($this, 'titles_after') && $this->titles_after !== null ? ', ' . $this->titles_after : '';
 
         return trim($name);
     }
 
-    private function getFullName() {
+    private function getFullName(): string {
         return $this->first_name . ' ' . $this->last_name;
     }
 
-    public function registerMediaConversions( Media $media = null ) : void {
+    public function registerMediaConversions(Media $media = null): void {
         $this->addMediaConversion('crop')
             ->fit(Manipulations::FIT_CROP, 230, 270)
             ->sharpen(2)

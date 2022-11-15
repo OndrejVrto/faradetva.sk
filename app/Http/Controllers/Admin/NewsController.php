@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -10,17 +8,17 @@ use App\Models\Source;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use App\Http\Helpers\DataFormater;
 use App\Http\Requests\NewsRequest;
+use App\Services\FilenameSanitize;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Spatie\MediaLibrary\Support\MediaStream;
 
-class NewsController extends Controller
-{
+class NewsController extends Controller {
     public function index(Request $request): View {
         $allNews = News::query()
             ->latest()
@@ -49,18 +47,22 @@ class NewsController extends Controller
             mkdir($path, 0777, true);
         }
 
-        $file = $request->file('doc');
-        // $name = uniqid() . '_' . trim($file->getClientOriginalName());
+        if ($request->hasFile('doc')) {
+            /** @var \Illuminate\Http\UploadedFile $file  */
+            $file = $request->file('doc');
+            // sanitize filename
+            $name = (new FilenameSanitize())($file->getClientOriginalName());
 
-        // sanitize filename
-        $name = DataFormater::filterFilename($file->getClientOriginalName(), true);
+            $file->move($path, $name);
 
-        $file->move($path, $name);
-
-        return response()->json([
-            'name'          => $name,
-            'original_name' => $file->getClientOriginalName(),
-        ]);
+            return response()->json([
+                'name'          => $name,
+                'original_name' => $file->getClientOriginalName(),
+            ]);
+        } else {
+            // no file
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
     }
 
     public function store(NewsRequest $request): RedirectResponse {
@@ -70,7 +72,7 @@ class NewsController extends Controller
         $news->tags()->syncWithoutDetaching($request->input('tags'));
         $news->source()->create(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($news, $request);
+        (new MediaStoreService())->handleCropPicture($news, $request);
 
         foreach ($request->input('document', []) as $file) {
             $news
@@ -78,11 +80,11 @@ class NewsController extends Controller
                 ->toMediaCollection($news->collectionDocument);
         }
 
-        toastr()->success(__('app.news.store'));
+        toastr()->success(strval(__('app.news.store')));
         return to_route('news.index');
     }
 
-    public function edit(News $news): View  {
+    public function edit(News $news): View {
         $this->authorize('view', $news);
 
         $news->load('media', 'tags');
@@ -101,7 +103,7 @@ class NewsController extends Controller
         $news->tags()->sync($request->input('tags'));
         $news->source()->update(Source::sanitize($validated));
 
-        (new MediaStoreService)->handleCropPicture($news, $request);
+        (new MediaStoreService())->handleCropPicture($news, $request);
 
         if (count($news->document) > 0) {
             foreach ($news->document as $media) {
@@ -121,11 +123,11 @@ class NewsController extends Controller
             }
         }
 
-        toastr()->success(__('app.news.update'));
+        toastr()->success(strval(__('app.news.update')));
         return to_route('news.index');
     }
 
-    public function download(News $news) {
+    public function download(News $news): MediaStream {
         $downloads = $news->getMedia($news->collectionDocument);
 
         return MediaStream::create('Prilohy_'.$news->slug.'.zip')->addMedia($downloads);
@@ -135,28 +137,28 @@ class NewsController extends Controller
         $this->authorize('delete', $news);
         $news->delete();
 
-        toastr()->success(__('app.news.delete'));
+        toastr()->success(strval(__('app.news.delete')));
         return to_route('news.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $news = News::onlyTrashed()->findOrFail($id);
         $news->slug = Str::slug($news->title).'-'.Str::random(5);
         $news->title = '*'.$news->title;
         $news->restore();
 
-        toastr()->success(__('app.news.restore'));
+        toastr()->success(strval(__('app.news.restore')));
         return to_route('news.edit', $news->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $news = News::onlyTrashed()->findOrFail($id);
         $news->tags()->detach($news->id);
         $news->clearMediaCollection($news->collectionName);
         $news->clearMediaCollection($news->collectionDocument);
         $news->forceDelete();
 
-        toastr()->success(__('app.news.force-delete'));
+        toastr()->success(strval(__('app.news.force-delete')));
         return to_route('news.index', ['only-deleted' => 'true']);
     }
 }

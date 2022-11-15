@@ -9,7 +9,7 @@
     {{-- <a href="{{ secure_url('o-nas') }}">O nás</a> --}}
     <a href="#" class="link-submenu">O nás</a>
     <ul class="sub-menu">
-        {{-- <li>
+        <li>
             <a href="{{ secure_url('o-nas/historia') }}">História</a>
             <!-- Dejiny farnosti -->
             <!-- Farári v Detve -->
@@ -26,7 +26,7 @@
                 <!-- Karol Anton Medvecký -->
                 <!-- Mons. Ján Štrbáň -->
                 <!-- prof. Jozef Búda -->
-        </li> --}}
+        </li>
         <li>
             <a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a>
         </li>
@@ -114,11 +114,13 @@
     <span data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fa-solid fa-magnifying-glass"></i></span>
 </li>
 
-{{-- @auth --}}
-    {{-- <li><a class="text-template text-muted ms-5" href="{{ route('admin.dashboard') }}"><small>Admin</small></a></li> --}}
-{{-- @else --}}
-    {{-- <li><a class="text-template text-muted ms-5" href="{{ route('login') }}" rel="nofollow"><small>Login</small></a></li> --}}
-    {{-- @if (Route::has('register'))
-    <li><a class="text-template" href="{{ route('register') }}" rel="nofollow">Registrovať</a></li>
-    @endif --}}
-{{-- @endauth --}}
+@env(['local'])
+    @auth
+        <li><a class="text-primary" href="{{ route('admin.dashboard') }}"><small>Admin</small></a></li>
+    @else
+        <li><a class="text-primary" href="{{ route('login') }}" rel="nofollow"><small>Login</small></a></li>
+        {{-- @if (Route::has('register'))
+        <li><a class="text-template" href="{{ route('register') }}" rel="nofollow">Registrovať</a></li>
+        @endif --}}
+    @endauth
+@endenv

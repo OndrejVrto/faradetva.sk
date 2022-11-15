@@ -1,54 +1,50 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Web\Sections;
 
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use App\Models\Faq as FaqModel;
-use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PurifiAutolinkService;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
 
-class Faq extends Component
-{
-    public $faqs;
+class Faq extends Component {
+    public array $faqs;
 
     public function __construct(
-        public array $questionsSlug
+        public null|array|string $questionsSlug
     ) {
         $listOfFaqs = prepareInput($questionsSlug);
 
         if ($listOfFaqs) {
             $cacheName = getCacheName($listOfFaqs);
 
-            $this->faqs = Cache::rememberForever('FAQ_'.$cacheName, function () use($listOfFaqs): ?Collection {
-                return FaqModel::query()
+            $this->faqs = Cache::rememberForever(
+                key: 'FAQ_'.$cacheName,
+                callback: fn (): array => FaqModel::query()
+                    ->select(['id', 'question', 'answer'])
                     ->whereIn('slug', $listOfFaqs)
                     ->orderBy('order')
                     ->get()
-                    ->map(function ($faq) {
-                        return [
-                            'id'           => $faq->id,
-                            'question'     => $faq->question,
-                            'answer-clean' => Str::plainText($faq->answer),
-                            'answer'       => (new PurifiAutolinkService)->getCleanTextWithLinks($faq->answer, 'link-template-light'),
-                        ];
-                    });
-            });
+                    ->map(fn (FaqModel $faq): array => [
+                        'id'           => $faq->id,
+                        'question'     => $faq->question,
+                        'answer-clean' => strval(Str::plainText($faq->answer)),
+                        'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
+                    ])
+                    ->toArray()
+            );
         }
     }
 
-    public function render(): View {
-        if (!is_null($this->faqs)) {
-            (new SetSeoPropertiesService())->setFaqSeoMetaTags($this->faqs);
-            
-            return view('components.web.sections.faq.index');
+    public function render(): ?View {
+        if (empty($this->faqs)) {
+            return null;
         }
 
-        return null;
+        (new SeoPropertiesService())->setFaqSeoMetaTags($this->faqs);
+        return view('components.web.sections.faq.index');
     }
-
-
 }

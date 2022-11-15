@@ -1,21 +1,22 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Livewire;
 
 use App\Models\News;
 use Livewire\Component;
 use App\Models\Subscriber;
+use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\View\Factory;
 
-class SubscribeForm extends Component
-{
-    public $model = News::class;
-    public $name = '';
-    public $email = '';
-    public $type;
+class SubscribeForm extends Component {
+    public string $model = News::class;
+    public string $name = '';
+    public string $email = '';
+    public bool $type;
 
-    public $successMesage = '';
+    public string $successMesage = '';
 
-    protected $rules = [
+    protected array $rules = [
         'name' => [
             'required',
             'min:6',
@@ -28,16 +29,16 @@ class SubscribeForm extends Component
         ],
     ];
 
-    public function mount($modelName, $section = false) {
+    public function mount(string $modelName, bool|string|int|null $section = false): void {
         $className = "App\\Models\\".$modelName;
-        $this->type = $section ? true : false;
+        $this->type = (bool) $section;
 
-        if ($modelName AND class_exists($className, false)) {
+        if ($modelName && class_exists($className, false)) {
             $this->model = $className;
         };
     }
 
-    public function submitForm() {
+    public function submitForm(): void {
         $this->validate();
 
         Subscriber::create([
@@ -53,7 +54,7 @@ class SubscribeForm extends Component
         $this->successMesage = 'Boli ste zaregistrovaný k odberu noviniek.';
     }
 
-    public function render() {
+    public function render(): View|Factory {
         return view('livewire.subscribe-form');
     }
 }

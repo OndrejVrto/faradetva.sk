@@ -2,7 +2,7 @@
 
     {{-- Sväté písmo - Biblia --}}
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART I -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
@@ -52,7 +52,7 @@
 
     <x-web.sections.background-picture titleSlug="svp-001"/>
 
-    <x-web.page.section name="PAGE: ({{$pageData['title']}}) PART II -" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Sväté písmo v živote Cirkvi a veriacich" animation="fromleft">
             <x-web.page.text-segment animation="fromleft">

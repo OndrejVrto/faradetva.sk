@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Web;
 
@@ -11,13 +9,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PagePropertiesService;
 use App\Services\PurifiAutolinkService;
-use App\Services\SEO\SetSeoPropertiesService;
+use App\Services\SEO\SeoPropertiesService;
+use App\Services\SEO\PageSeoPropertiesService;
 
-class FaqController extends Controller
-{
-    public function __invoke(): View  {
-        $faqs = Cache::rememberForever('FAQ_ALL', function (): Collection|null {
-            return Faq::query()
+class FaqController extends Controller {
+    public function __invoke(): View {
+        $faqs = Cache::rememberForever(
+            key: 'FAQ_ALL',
+            callback: fn (): Collection => Faq::query()
                 ->with('staticPages')
                 ->get()
                 ->map(function ($faq) {
@@ -31,20 +30,22 @@ class FaqController extends Controller
                     return [
                         'id'           => $faq->id,
                         'question'     => $faq->question,
-                        'answer-clean' => trim(preg_replace('!\s+!', ' ', preg_replace("/\r|\n/", " ", $faq->answer))),
-                        'answer'       => (new PurifiAutolinkService)->getCleanTextWithLinks($faq->answer, 'link-template-light'),
+                        'answer-clean' => trim((string) preg_replace(["!\s+!", "/\r|\n/"], [' ', ' '], $faq->answer ?? '')),
+                        'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                         'pages'        => $pages,
                     ];
-                });
-        });
+                })
+        );
 
         $pageData = PagePropertiesService::virtualPageData('vsetky-otazky-a-odpovede');
-        (new SetSeoPropertiesService($pageData))
-            ->setMetaTags()
-            ->setWebPageSchema()
-            ->setWebsiteSchemaGraph()
-            ->setOrganisationSchemaGraph()
-            ->setCompletFaqSeo($faqs);
+        if ($pageData !== null) {
+            (new PageSeoPropertiesService())
+                ->setMetaTags($pageData->title, $pageData->description, $pageData->keywords, $pageData->author, $pageData->image)
+                ->setWebPageSchema($pageData)
+                ->setWebsiteSchemaGraph()
+                ->setOrganisationSchemaGraph();
+        }
+        (new SeoPropertiesService())->setCompletFaqSeo($faqs);
 
         return view('web.faq.index', compact('faqs'));
     }

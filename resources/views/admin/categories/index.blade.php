@@ -30,7 +30,7 @@
                     <x-admin.table.td class="text-wrap text-break">{{$category->title}}</x-admin.table.td>
                     <x-admin.table.td class="text-wrap text-break">{{$category->description}}</x-admin.table.td>
 
-                    @if ( $category->id != 1 OR auth()->user()->id == 1 )
+                    @if ( $category->id != 1 OR auth()->id() == 1 )
                         <x-admin.table.td-actions
                             controlerName="categories"
                             identificator="{{ $category->slug }}"

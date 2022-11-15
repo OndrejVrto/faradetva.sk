@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Components\Partials;
 
@@ -7,9 +7,8 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-class StatisticsGraph extends Component
-{
-    public $graphs;
+class StatisticsGraph extends Component {
+    public array $graphs;
 
     public function __construct(
         public array|string|null $names = null
@@ -19,21 +18,25 @@ class StatisticsGraph extends Component
         if ($listOfGraphs) {
             $cacheName = getCacheName($listOfGraphs);
 
-            $this->graphs = Cache::rememberForever('CHART_'.$cacheName, function() use ($listOfGraphs) {
-                return Chart::query()
+            $this->graphs = Cache::rememberForever(
+                key: 'CHART_'.$cacheName,
+                callback: fn (): array => Chart::query()
                     ->whereIn('slug', $listOfGraphs)
                     ->with('data')
                     ->get()
-                    ->map(fn($e) => $this->mapOutput($e));
-            });
+                    ->map(fn ($chart) => $this->mapOutput($chart))
+                    ->toArray()
+            );
         }
     }
 
-    public function render(): View {
-        return view('components.partials.statistics-graph.index');
+    public function render(): ?View {
+        return empty($this->graphs)
+            ? null
+            : view('components.partials.statistics-graph.index');
     }
 
-    private function mapOutput($chart): array {
+    private function mapOutput(Chart $chart): array {
         return [
             'id'          => $chart->id,
             'title'       => $chart->title,

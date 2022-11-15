@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Health\Checks;
 
@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Http;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
-class PingCheck extends Check
-{
+class PingCheck extends Check {
     public ?string $url = null;
     public ?string $failureMessage = null;
     public int $timeout = 1;
@@ -18,7 +17,7 @@ class PingCheck extends Check
         return $this;
     }
 
-    public function timeout(int $seconds): self  {
+    public function timeout(int $seconds): self {
         $this->timeout = $seconds;
         return $this;
     }
@@ -36,7 +35,7 @@ class PingCheck extends Check
             if (! Http::timeout($this->timeout)->get($this->url)->successful()) {
                 return $this->failedResult($name);
             }
-        } catch (Exception $ex) {
+        } catch (Exception) {
             return $this->failedResult($name);
         }
 
@@ -49,7 +48,7 @@ class PingCheck extends Check
             ]);
     }
 
-    protected function failedResult($name): Result {
+    protected function failedResult(string $name): Result {
         return Result::make()
             ->failed("$name.failed")
             ->shortSummary("$name.failed-short")

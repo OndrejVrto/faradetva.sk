@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -18,8 +16,7 @@ use Spatie\Health\Commands\RunHealthChecksCommand;
 use App\Services\Dashboard\DashboardCommandService;
 use App\Services\Dashboard\SettingsSwitcherService;
 
-class DashboardController extends Controller
-{
+class DashboardController extends Controller {
     public function index(Request $request, ResultStore $resultStore): JsonResponse|View {
         $checkResults = $resultStore->latestResults();
 
@@ -32,14 +29,14 @@ class DashboardController extends Controller
     public function fresh(): RedirectResponse {
         Artisan::call(RunHealthChecksCommand::class, ['--quiet' => true, '--no-interaction' => true]);
 
-        toastr()->success('Stav aplikácie aktualizovaný.');
+        toastr()->success(strval('Stav aplikácie aktualizovaný.'));
         return to_route('admin.dashboard');
     }
 
     public function maintenance(Request $request): RedirectResponse {
         $service = $this->runSwitcher($request);
 
-        toastr()->success('Prostredie nastavené.');
+        toastr()->success(strval('Prostredie nastavené.'));
         return $service->secretKey
             ? Redirect::to(route('home')."/$service->secretKey")
             : to_route('admin.dashboard');
@@ -48,28 +45,29 @@ class DashboardController extends Controller
     public function settings(Request $request): RedirectResponse {
         $this->runSwitcher($request);
 
-        toastr()->success('Nastavenia uložené.');
+        toastr()->success(strval('Nastavenia uložené.'));
         return to_route('admin.dashboard');
     }
 
     public function commands(string $command): RedirectResponse {
-        (new DashboardCommandService)->run($command);
+        (new DashboardCommandService())->run($command);
 
-        toastr()->success("Príkaz '$command' vykonaný.");
+        toastr()->success(strval("Príkaz '$command' vykonaný."));
         return to_route('admin.dashboard');
     }
 
-    private function runSwitcher(Request $request) {
-        foreach($request->all() as $key => $attribute){
+    private function runSwitcher(Request $request): SettingsSwitcherService {
+        $validated = [];
+        foreach ($request->all() as $key => $attribute) {
             // convert all attributes to boolean
             $validated[$key] = filter_var($attribute, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
         }
         $validated = Arr::except($validated, ['_method', '_token']);
 
-        $service = new SettingsSwitcherService;
+        $service = new SettingsSwitcherService();
 
         foreach ($validated as $key => $value) {
-            $service->run($key, $value);
+            $service->run($value, $key);
         }
 
         return $service;

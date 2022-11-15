@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,15 +11,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Services\ChunkPermissionService;
 
-class RoleController extends Controller
-{
-    public function index(Request $request): View  {
+class RoleController extends Controller {
+    public function index(Request $request): View {
         $roles = Role::paginate(10);
 
-        return view('admin.roles.index', compact( 'roles' ) );
+        return view('admin.roles.index', compact('roles'));
     }
 
-    public function create(): View  {
+    public function create(): View {
         $permissions = (new ChunkPermissionService())->permission;
         $rolePermissions = [];
 
@@ -35,35 +32,34 @@ class RoleController extends Controller
         $role = Role::create($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success(__('app.role.store', ['name'=> $role->name]));
+        toastr()->success(strval(__('app.role.store', ['name'=> $role->name])));
         return to_route('roles.index');
     }
 
-    public function edit(Role $role): View  {
+    public function edit(Role $role): View {
         $rolePermissions = $role->permissions->pluck('name')->toArray();
         $permissions = (new ChunkPermissionService())->permission;
 
         return view('admin.roles.edit', compact('role', 'rolePermissions', 'permissions'));
     }
 
-    public function update(RoleRequest $request, $id): RedirectResponse {
+    public function update(RoleRequest $request, Role $role): RedirectResponse {
         $validated = $request->validated();
         $data = Arr::only($validated, ['name']);
 
-        $role = Role::findOrFail($id);
         $role->update($data);
         $role->syncPermissions($request->get('permission'));
 
-        toastr()->success(__('app.role.update', ['name'=> $role->name]));
+        toastr()->success(strval(__('app.role.update', ['name'=> $role->name])));
         return to_route('roles.index');
     }
 
     public function destroy(Role $role): RedirectResponse {
         if ($role->id == 1) {
-            toastr()->error(__('app.role.delete-error', ['name'=> $role->name]));
+            toastr()->error(strval(__('app.role.delete-error', ['name'=> $role->name])));
         } else {
             $role->delete();
-            toastr()->success(__('app.role.delete', ['name'=> $role->name]));
+            toastr()->success(strval(__('app.role.delete', ['name'=> $role->name])));
         }
 
         return to_route('roles.index');

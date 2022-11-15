@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
@@ -15,30 +13,28 @@ use App\Http\Contracts\CrudInterface;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Database\Eloquent\Model;
 
-class NoticeController extends Controller implements CrudInterface
-{
+class NoticeController extends Controller implements CrudInterface {
     /**
      * Name of the resource, in lowercase plural form.
      */
-    protected $resource;
+    protected string $resource;
 
     /**
      * Name of the model class.
      */
-    protected $model;
+    protected string $model;
 
     /**
      * Model instance.
      */
-    private $instance;
+    private readonly object $instance;
 
     /**
      * Set an instance of the model.
      * @fixme Also this looks weird to me.
      */
-    function __construct()
-    {
-        $this->instance = new $this->model;
+    public function __construct() {
+        $this->instance = new $this->model();
     }
 
     public function index(Request $request): View {
@@ -60,13 +56,13 @@ class NoticeController extends Controller implements CrudInterface
         $validated = $request->validated();
         try {
             $notice = $this->instance::create(Notice::sanitize($validated));
+            (new MediaStoreService())->handle($notice, $request, 'notice_file', $validated['slug']);
+            toastr()->success(strval(__('app.'.$this->resource.'.store')));
         } catch (\Throwable $th) {
-            info($th);
+            info($th->getMessage());
+            toastr()->error(strval(strval(__('app.'.$this->resource.'.store-error'))));
         }
 
-        (new MediaStoreService)->handle($notice, $request, 'notice_file', $validated['slug'] );
-
-        toastr()->success(__('app.'.$this->resource.'.store'));
         return to_route($this->resource.'.index');
     }
 
@@ -80,39 +76,39 @@ class NoticeController extends Controller implements CrudInterface
         $validated = $request->validated();
         try {
             $model->update(Notice::sanitize($validated));
+            (new MediaStoreService())->handle($model, $request, 'notice_file', $validated['slug']);
+            toastr()->success(strval(__('app.'.$this->resource.'.update')));
         } catch (\Throwable $th) {
-            info($th);
+            info($th->getMessage());
+            toastr()->error(strval(strval(__('app.'.$this->resource.'.update-error'))));
         }
 
-        (new MediaStoreService)->handle($model, $request, 'notice_file', $validated['slug'] );
-
-        toastr()->success(__('app.'.$this->resource.'.update'));
         return to_route($this->resource.'.index');
     }
 
     public function destroy(Model $model): RedirectResponse {
         $model->delete();
 
-        toastr()->success(__('app.'.$this->resource.'.delete'));
+        toastr()->success(strval(__('app.'.$this->resource.'.delete')));
         return to_route($this->resource.'.index');
     }
 
-    public function restore($id): RedirectResponse {
+    public function restore(int $id): RedirectResponse {
         $model = $this->instance::onlyTrashed()->findOrFail($id);
         $model->slug = Str::slug($model->title).'-'.Str::random(5);
         $model->title = '*'. $model->title;
         $model->restore();
 
-        toastr()->success(__('app.'.$this->resource.'.restore'));
-        return to_route($this->resource.'.edit',  $model->slug);
+        toastr()->success(strval(__('app.'.$this->resource.'.restore')));
+        return to_route($this->resource.'.edit', $model->slug);
     }
 
-    public function force_delete($id): RedirectResponse {
+    public function force_delete(int $id): RedirectResponse {
         $model = $this->instance::onlyTrashed()->findOrFail($id);
         $model->clearMediaCollection($model->collectionName);
         $model->forceDelete();
 
-        toastr()->success(__('app.'.$this->resource.'.force-delete'));
+        toastr()->success(strval(__('app.'.$this->resource.'.force-delete')));
         return to_route($this->resource.'.index', ['only-deleted' => 'true']);
     }
 }
