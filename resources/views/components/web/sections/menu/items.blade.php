@@ -9,7 +9,7 @@
     {{-- <a href="{{ secure_url('o-nas') }}">O nás</a> --}}
     <a href="#" class="link-submenu">O nás</a>
     <ul class="sub-menu">
-        <li>
+        {{-- <li>
             <a href="{{ secure_url('o-nas/historia') }}">História</a>
             <!-- Dejiny farnosti -->
             <!-- Farári v Detve -->
@@ -26,7 +26,7 @@
                 <!-- Karol Anton Medvecký -->
                 <!-- Mons. Ján Štrbáň -->
                 <!-- prof. Jozef Búda -->
-        </li>
+        </li> --}}
         <li>
             <a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a>
         </li>
