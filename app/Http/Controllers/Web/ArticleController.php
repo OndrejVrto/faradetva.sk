@@ -32,6 +32,8 @@ class ArticleController extends Controller {
                 ->firstOrFail()
         );
 
+        visits($oneNews)->increment();
+
         $lastNews = Cache::rememberForever(
             key: 'NEWS_LAST',
             callback: fn () => News::query()

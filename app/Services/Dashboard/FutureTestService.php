@@ -3,6 +3,8 @@
 namespace App\Services\Dashboard;
 
 use Carbon\Carbon;
+use App\Models\News;
+use App\Models\StaticPage;
 use App\Jobs\GenerateSitemapJob;
 use Cohensive\OEmbed\Facades\OEmbed;
 use Illuminate\Support\Facades\Auth;
@@ -19,11 +21,40 @@ class FutureTestService {
             return;
         }
 
+
+        $news = News::find(11);
+        $homepage = StaticPage::find(73); // home page
+
+        // visits(News::class)->reset('lists');
+
+        dd(
+            visits(News::class)->count(),
+            visits(News::class)->topIds(10, ['active' => true]),
+            visits(News::class)->top(10, ['active' => true]),
+
+            visits($news)->count(),
+            visits($news)->countries(),
+            // visits($news)->refs(),
+            visits($news)->operatingSystems(),
+            visits($news)->languages(),
+
+            visits(StaticPage::class)->count(),
+            visits(StaticPage::class)->top(10, ['active' => true]),
+            visits($homepage)->count(),
+            visits($homepage)->countries(),
+            // visits($homepage)->refs(),
+            visits($homepage)->operatingSystems(),
+            visits($homepage)->languages(),
+        );
+
+
+
+
         dd(
             Carbon::now()->toISOString(),
             Carbon::now()->getTimestamp(),
             Carbon::parse(customConfig('crawler', 'CRAWLER.url_check', null))
-             ->format('d.m.Y H:m')
+            ->format('d.m.Y H:m')
         );
 
         // customConfig('crawler')->put('CRAWLER.sitemap', Carbon::now()->toISOString());

@@ -28,6 +28,9 @@ final class PagePropertiesService {
             return null;
         }
 
+        // counter of visits page
+        visits($page)->increment();
+
         return self::getStaticPageData($page, null);
     }
 

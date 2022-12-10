@@ -81,6 +81,9 @@ class PageController extends Controller {
             ->setOrganisationSchemaGraph()
             ->setBreadcrumbSchemaGraph($pageChainBreadCrumb);
 
+        // counter of visits page
+        visits($page)->increment();
+
         return view($pageData->route, compact('pageData'));
     }
 }
