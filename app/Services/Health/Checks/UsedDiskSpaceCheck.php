@@ -57,7 +57,7 @@ class UsedDiskSpaceCheck extends Check {
         return $result->notificationMessage("$name.ok")->ok();
     }
 
-    protected function getDiskUsagePercentage(): int|Exception {
+    protected function getDiskUsagePercentage(): float|Exception {
         try {
             $process = Process::fromShellCommandline('df -P .');
             $process->run();
