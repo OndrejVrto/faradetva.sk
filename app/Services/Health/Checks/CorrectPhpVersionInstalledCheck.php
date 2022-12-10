@@ -2,11 +2,11 @@
 
 namespace App\Services\Health\Checks;
 
+use Composer\Semver\Semver;
 use Illuminate\Support\Arr;
 use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 use Illuminate\Filesystem\Filesystem;
-use RectorPrefix202208\Composer\Semver\Semver;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 class CorrectPhpVersionInstalledCheck extends Check {
