@@ -31,13 +31,11 @@ class FutureTestService {
             visits(News::class)->count(),
             visits(News::class)->topIds(10, ['active' => true]),
             visits(News::class)->top(10, ['active' => true]),
-
             visits($news)->count(),
             visits($news)->countries(),
             // visits($news)->refs(),
             visits($news)->operatingSystems(),
             visits($news)->languages(),
-
             visits(StaticPage::class)->count(),
             visits(StaticPage::class)->top(10, ['active' => true]),
             visits($homepage)->count(),

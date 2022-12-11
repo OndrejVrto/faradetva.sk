@@ -18,7 +18,6 @@ class PageController extends Controller {
     private string $path = '';
 
     public function __invoke(string ...$param): iView|Factory {
-
         // create array of links
         $urls = collect($param)
                     ->whereNotNull()

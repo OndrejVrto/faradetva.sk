@@ -2,7 +2,6 @@
 
 namespace App\Traits;
 
-use App\Traits\Activable;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Publishable {

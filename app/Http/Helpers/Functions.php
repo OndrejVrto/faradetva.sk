@@ -2,9 +2,7 @@
 
 use Spatie\Valuestore\Valuestore;
 
-if(!function_exists('customConfig'))
-{
-
+if (!function_exists('customConfig')) {
     function customConfig(string $filename = 'config', mixed $key = null, mixed $default = null): Valuestore|string|null {
         try {
             $valueStore = Valuestore::make(
