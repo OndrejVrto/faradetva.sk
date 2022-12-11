@@ -23,7 +23,7 @@ class SettingsSwitcherService {
 
     public function __destruct() {
         // update config cache
-        if (true == boolval($this->checkbox->get('cache_config'))) {
+        if (true == (bool) $this->checkbox->get('cache_config')) {
             Artisan::call('config:cache', ['--quiet' => true, '--no-interaction' => true]);
         }
         // refresh Health checks

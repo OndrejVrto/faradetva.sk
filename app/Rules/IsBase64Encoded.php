@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Rule;
 class IsBase64Encoded implements Rule {
     // $value must be base64 string
     public function passes($attribute, mixed $value): bool {
-        $s = explode(";base64,", strval($value))[1] ?? strval($value);
+        $s = explode(";base64,", (string) $value)[1] ?? (string) $value;
 
         // Check if there are valid base64 characters
         if (! preg_match('/^[a-zA-Z0-9\/\r\n+]*={0,2}$/', $s)) {

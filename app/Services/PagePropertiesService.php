@@ -75,7 +75,7 @@ final class PagePropertiesService {
             return new RepresentingImageData(
                 url:        $media->getUrl('representing'),
                 urlThumb:   $media->getUrl('representing-thumb'),
-                fileName:   pathinfo(strval($media->file_name), PATHINFO_FILENAME),
+                fileName:   pathinfo((string) $media->file_name, PATHINFO_FILENAME),
                 mimeType:   $media->mime_type,
                 size:       $media->size,
                 width:      960,
@@ -121,7 +121,7 @@ final class PagePropertiesService {
         $image = new RepresentingImageData(
             url:        $newsMedia->getUrl('large'),
             urlThumb:   $newsMedia->getUrl('small'),
-            fileName:   pathinfo(strval($newsMedia->file_name), PATHINFO_FILENAME),
+            fileName:   pathinfo((string) $newsMedia->file_name, PATHINFO_FILENAME),
             mimeType:   $newsMedia->mime_type,
             size:       $newsMedia->size,
             width:      700,

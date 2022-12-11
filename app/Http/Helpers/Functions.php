@@ -92,7 +92,7 @@ if (!function_exists('minifyHtml')) {
             // # strip whitespaces between = "'
             '/=\s+(\"|\')/' => "=$1"
         ];
-        return strval(preg_replace(array_keys($replace), array_values($replace), $html));
+        return (string) preg_replace(array_keys($replace), array_values($replace), $html);
     }
 }
 
@@ -108,6 +108,6 @@ if (!function_exists('formatBytes')) {
         $base = log($size) / log(1024);
         $suffixes = ['B', 'kB', 'MB', 'GB', 'TB'];
 
-        return strval($sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)]);
+        return (string) ($sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)]);
     }
 }

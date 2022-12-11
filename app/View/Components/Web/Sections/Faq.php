@@ -31,7 +31,7 @@ class Faq extends Component {
                     ->map(fn (FaqModel $faq): array => [
                         'id'           => $faq->id,
                         'question'     => $faq->question,
-                        'answer-clean' => strval(Str::plainText($faq->answer)),
+                        'answer-clean' => (string) Str::plainText($faq->answer),
                         'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                     ])
                     ->toArray()

@@ -66,6 +66,7 @@
         "barryvdh/laravel-ide-helper": "^2.12",
         "beyondcode/laravel-query-detector": "^1.6.0",
         "canvural/larastan-strict-rules": "^2.1",
+        "driftingly/rector-laravel": "^0.14.1",
         "fakerphp/faker": "^1.9.1",
         "glhd/laravel-dumper": "^1.0",
         "laravel/pint": "^1.1",

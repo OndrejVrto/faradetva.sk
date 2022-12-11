@@ -2,7 +2,7 @@
 
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
-use Rector\Laravel\Set\LaravelSetList;
+use RectorLaravel\Set\LaravelSetList;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Arguments\Rector\ClassMethod\ArgumentAdderRector;
@@ -20,8 +20,13 @@ return static function (RectorConfig $rectorConfig): void {
     // define sets of rules
     $rectorConfig->sets([
         SetList::CODE_QUALITY,
-        LevelSetList::UP_TO_PHP_81,
-        LaravelSetList::LARAVEL_90
+        LevelSetList::UP_TO_PHP_82,
+
+        LaravelSetList::LARAVEL_90,
+        LaravelSetList::LARAVEL_CODE_QUALITY,
+        // LaravelSetList::LARAVEL_STATIC_TO_INJECTION,
+        // LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL,
+        // LaravelSetList::LARAVEL_LEGACY_FACTORIES_TO_CLASSES,
     ]);
 
     // $rectorConfig->phpstanConfig(__DIR__ . '/phpstan.neon');

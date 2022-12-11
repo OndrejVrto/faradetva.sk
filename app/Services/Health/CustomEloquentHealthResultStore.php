@@ -45,7 +45,7 @@ class CustomEloquentHealthResultStore implements ResultStore {
                 'check_label' => $result->check->getLabel(),
                 'status' => $result->status,
                 'notification_message' => $result->notificationMessage,
-                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, strval($result->status)),
+                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, (string) $result->status),
                 'meta' => $result->meta,
                 'batch' => $batch,
                 'ended_at' => $result->ended_at,

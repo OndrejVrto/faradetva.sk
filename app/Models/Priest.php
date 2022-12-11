@@ -67,7 +67,7 @@ class Priest extends BaseModel implements HasMedia {
             return preg_replace(
                 pattern: ["/\+/", "/[^0-9]/"],
                 replacement: ["00", ""],
-                subject: $this->phone
+                subject: (string) $this->phone
             );
         }
         return null;

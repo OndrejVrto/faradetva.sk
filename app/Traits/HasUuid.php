@@ -46,7 +46,7 @@ trait HasUuid {
             $model->setIncrementing(false);
 
             if (!$model->getKey()) {
-                $model->{$model->getKeyName()} = strval(Str::uuid());
+                $model->{$model->getKeyName()} = (string) Str::uuid();
             }
         });
 
