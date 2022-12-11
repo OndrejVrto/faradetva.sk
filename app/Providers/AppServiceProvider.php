@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider {
         //! Blade extensions
         Blade::directive('datetime', fn ($expression) => "<?php echo ($expression)->format('m/d/Y H:i'); ?>");
 
-        Str::macro('readDurationWords', function ($totalWords) {
+        Str::macro('readDurationWords', function ($totalWords): int {
             $minutesToRead = round($totalWords / 210);  // Slovenčina: priemer 180-250 slov za minútu
             return (int) max(1, $minutesToRead);
         });
@@ -42,8 +42,8 @@ class AppServiceProvider extends ServiceProvider {
             )
         );
 
-        $this->app->singleton('seo-graph', fn () => new Graph());
-        $this->app->singleton('seo-schema', fn () => new CustomJsonLd(config('seotools.json-ld.defaults', [])));
+        $this->app->singleton('seo-graph', fn (): Graph => new Graph());
+        $this->app->singleton('seo-schema', fn (): CustomJsonLd => new CustomJsonLd(config('seotools.json-ld.defaults', [])));
     }
 
     public function boot(Request $request): void {

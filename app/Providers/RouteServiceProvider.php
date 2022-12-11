@@ -30,13 +30,11 @@ class RouteServiceProvider extends ServiceProvider {
      * @var string|null
      */
     // protected $namespace = 'App\\Http\\Controllers';
-
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @return void
      */
-    public function boot() {
+    public function boot(): void {
         // Route::resourceVerbs([
         //     'create' => 'vytvorit',
         //     'edit' => 'editovat',
@@ -44,7 +42,7 @@ class RouteServiceProvider extends ServiceProvider {
 
         $this->configureRateLimiting();
 
-        $this->routes(function () {
+        $this->routes(function (): void {
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)

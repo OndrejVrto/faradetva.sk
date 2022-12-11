@@ -41,7 +41,7 @@ trait HasUuid {
      */
     public static function bootHasUuid(): void {
         // Create a UUID to the model if it does not have one
-        static::creating(function (Model $model) {
+        static::creating(function (Model $model): void {
             $model->setKeyType('string');
             $model->setIncrementing(false);
 
@@ -51,7 +51,7 @@ trait HasUuid {
         });
 
         // Set original if someone try to change UUID on update/save existing model
-        static::saving(function (Model $model) {
+        static::saving(function (Model $model): void {
             $original_id = $model->getOriginal('id');
             if (!is_null($original_id) && $model->isLockedUuid && $original_id !== $model->id) {
                 $model->id = $original_id;
