@@ -11,15 +11,19 @@ use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
-        __DIR__ . '/app',
+        // __DIR__ . '/app',
         // __DIR__ . '/app/Enums',
         // __DIR__ . '/app/Exceptions',
         // __DIR__ . '/app/Facades',
+        __DIR__ . '/app/Services',
     ]);
 
     // define sets of rules
     $rectorConfig->sets([
+        SetList::DEAD_CODE,
         SetList::CODE_QUALITY,
+        SetList::EARLY_RETURN,
+        SetList::TYPE_DECLARATION_STRICT,
         LevelSetList::UP_TO_PHP_82,
 
         LaravelSetList::LARAVEL_90,
@@ -45,6 +49,8 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/app/Http/Helpers/BeautifyHtml.php',
         __DIR__ . '/app/Services/Dashboard/FutureTestService.php',
         //skip directory
-        __DIR__ . '/app/Overides/*',
+        __DIR__ . '/app/Overrides/*',
     ]);
+
+    $rectorConfig->indent(' ', 4);
 };
