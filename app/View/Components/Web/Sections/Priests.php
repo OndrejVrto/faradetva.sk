@@ -30,7 +30,7 @@ class Priests extends Component {
         return Cache::rememberForever(
             key: 'PRIESTS',
             callback: fn (): array => PriestModel::query()
-                ->whereActive(1)
+                ->activated()
                 ->with('media')
                 ->get()
                 ->map(fn ($e) => $this->mapOutput($e))

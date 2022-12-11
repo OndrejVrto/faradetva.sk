@@ -23,7 +23,11 @@ class BannerController extends Controller {
     }
 
     public function create(): View {
-        $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
+        $pages = StaticPage::query()
+            ->select(['id','title','description_page'])
+            ->activated()
+            ->orderBy('title')
+            ->get();
         $selectedPages = [];
 
         return view('admin.banners.create', compact('pages', 'selectedPages'));
@@ -50,7 +54,11 @@ class BannerController extends Controller {
 
     public function edit(Banner $banner): View {
         $banner->load('source');
-        $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
+        $pages = StaticPage::query()
+            ->select(['id','title','description_page'])
+            ->activated()
+            ->orderBy('title')
+            ->get();
         $selectedPages = $banner->staticPages->pluck('id')->unique()->toArray();
 
         return view('admin.banners.edit', compact('banner', 'pages', 'selectedPages'));

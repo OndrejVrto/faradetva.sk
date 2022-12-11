@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\PageType;
+use App\Traits\Activable;
 use App\Traits\Restorable;
 use Illuminate\Http\Request;
 use Spatie\Image\Manipulations;
@@ -18,6 +19,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class StaticPage extends BaseModel implements HasMedia {
+    use Activable;
     use Restorable;
     use HasFactory;
     use SoftDeletes;
@@ -60,8 +62,18 @@ class StaticPage extends BaseModel implements HasMedia {
     public function scopeFilterDeactivated(Builder $query, Request $request): Builder {
         return $query
             ->when($request->has('only-deactivated'), function ($query) {
-                $query->where('active', false);
+                $query->notActivated();
             });
+    }
+
+    public function scopeVirtual(Builder $query): Builder {
+        return $query
+            ->where('virtual', true);
+    }
+
+    public function scopeNotVirtual(Builder $query): Builder {
+        return $query
+            ->where('virtual', false);
     }
 
     public function files(): HasMany {

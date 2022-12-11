@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Activable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -10,6 +11,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Banner extends BaseModel implements HasMedia {
+    use Activable;
     use InteractsWithMedia;
 
     protected $table = 'banners';

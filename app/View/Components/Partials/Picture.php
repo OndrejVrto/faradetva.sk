@@ -98,8 +98,8 @@ class Picture extends Component {
     private function getPicture(string $slug): ?array {
         return Cache::rememberForever(
             key: 'PICTURE_'.$slug,
-            callback: fn (): ?array => PictureModel::query()
-                ->whereSlug($slug)
+            callback: fn () => PictureModel::query()
+                ->where('slug', $slug)
                 ->with('mediaOne', 'source')
                 ->get()
                 ->map(fn ($img) => $this->mapOutput($img))

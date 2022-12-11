@@ -67,8 +67,8 @@ class GenerateSitemapJob implements ShouldQueue {
         });
 
         StaticPage::query()
-            ->whereActive(1)
-            ->whereVirtual(0)
+            ->activated()
+            ->notVirtual()
             ->each(function (StaticPage $page) use ($sitemap) {
                 if (Str::contains($page->slug, 'oznamy')) {
                     $sitemap->add(

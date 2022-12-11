@@ -30,7 +30,7 @@ class Pray extends Component {
         // Get one ramdom Prayer
         $onePrayer = Prayer::query()
             ->select('slug')
-            ->whereActive(1)
+            ->activated()
             ->inRandomOrder()
             ->limit(1)
             ->first();
@@ -38,8 +38,8 @@ class Pray extends Component {
         // Get all data Prayer to Cache
         return Cache::rememberForever(
             key: 'PICTURE_PRAYER_'.$onePrayer?->slug,
-            callback: fn (): ?array => Prayer::query()
-                ->whereSlug($onePrayer?->slug)
+            callback: fn () => Prayer::query()
+                ->where('slug', $onePrayer?->slug)
                 ->with('media', 'source')
                 ->get()
                 ->map(fn ($e) => $this->mapOutput($e))

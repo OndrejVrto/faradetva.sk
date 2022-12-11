@@ -34,7 +34,7 @@ class PageController extends Controller {
         $page = Cache::rememberForever(
             key: 'PAGE_'.Str::slug($lastUrl),
             callback: fn () => StaticPage::query()
-                ->whereUrl($lastUrl)
+                ->where('url', $lastUrl)
                 ->with('picture', 'source', 'banners', 'faqs')
                 ->firstOrFail()
         );
@@ -51,7 +51,7 @@ class PageController extends Controller {
                     callback: function () use ($node) {
                         $item = StaticPage::query()
                             ->select('url', 'title', 'active')
-                            ->whereUrl($node['url'])
+                            ->where('url', $node['url'])
                             ->first();
 
                         return [

@@ -39,8 +39,8 @@ class PageCard extends Component {
 
         return StaticPage::query()
             ->select('id')
-            ->whereActive(1)
-            ->whereVirtual(0)
+            ->activated()
+            ->notVirtual()
             ->when(
                 $listOfPages,
                 fn ($query) => $query->whereIn('route_name', $listOfPages),
@@ -55,7 +55,7 @@ class PageCard extends Component {
         return Cache::rememberForever(
             key: 'PAGE_CARD_ALL',
             callback: fn (): array => StaticPage::query()
-                ->whereActive(1)
+                ->activated()
                 ->orderByDesc('virtual')
                 ->orderBy('url')
                 ->with('picture', 'source')
@@ -70,8 +70,8 @@ class PageCard extends Component {
         foreach ($listOfCards as $oneCard) {
             $cards[] = Cache::rememberForever(
                 key: 'PAGE_CARD_'.$oneCard->id,
-                callback: fn (): ?array => StaticPage::query()
-                    ->whereId($oneCard->id)
+                callback: fn () => StaticPage::query()
+                    ->where('id', $oneCard->id)
                     ->with('picture', 'source')
                     ->get()
                     ->map(fn ($page) => $this->mapOutput($page))

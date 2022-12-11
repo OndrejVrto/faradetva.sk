@@ -27,7 +27,7 @@ class ArticleController extends Controller {
             key: 'ONE_NEWS_'.Str::slug($slug),
             callback: fn () => News::query()
                 ->visible()
-                ->whereSlug($slug)
+                ->where('slug', $slug)
                 ->with('media', 'source', 'category', 'tags', 'user')
                 ->firstOrFail()
         );
@@ -90,7 +90,7 @@ class ArticleController extends Controller {
     public function indexAll(): View {
         $articles = Cache::rememberForever(
             key: 'NEWS_ALL_PAGE-'.request('page', 1),
-            callback: fn () => News::newsComplete()
+            callback: fn () => News::newsComplete()->paginate()
         );
         $title = strval(__('frontend-texts.articles-title.all'));
         $breadCrumb = Breadcrumbs::render('articles.all', true)->render();
@@ -106,11 +106,10 @@ class ArticleController extends Controller {
             key: 'NEWS_USER_'.$userSlug.'_PAGE-'.request('page', 1),
             callback: fn () => News::whereHas('user', function ($query) use ($userSlug) {
                 $query->withTrashed()->whereSlug($userSlug);
-            })
-                                ->newsComplete()
+            })->newsComplete()->paginate()
         );
 
-        $userName = User::withTrashed()->whereSlug($userSlug)->value('name');
+        $userName = User::withTrashed()->where('slug', $userSlug)->value('name');
         $title = strval(__('frontend-texts.articles-title.author')) . $userName;
         $breadCrumb = Breadcrumbs::render('articles.author', true, $userSlug, $userName)->render();
         $emptyTitle = ['name'=> 'Zvolený autor', 'value' => $userName];
@@ -125,11 +124,10 @@ class ArticleController extends Controller {
             key: 'NEWS_CATEGORY_'.$categorySlug.'_PAGE-' . request('page', 1),
             callback: fn () => News::whereHas('category', function ($query) use ($categorySlug) {
                 $query->withTrashed()->whereSlug($categorySlug);
-            })
-                                ->newsComplete()
+            })->newsComplete()->paginate()
         );
 
-        $categoryName = Category::withTrashed()->whereSlug($categorySlug)->value('title');
+        $categoryName = Category::withTrashed()->where('slug', $categorySlug)->value('title');
         $title = strval(__('frontend-texts.articles-title.category')) . $categoryName;
         $breadCrumb = Breadcrumbs::render('articles.category', true, $categorySlug, $categoryName)->render();
         $emptyTitle = ['name'=> 'Vybraná kategória', 'value' => $categoryName];
@@ -143,7 +141,7 @@ class ArticleController extends Controller {
         $yearString = strval($year);
         $articles = Cache::rememberForever(
             key: 'NEWS_YEAR_'.$yearString.'_PAGE-'.request('page', 1),
-            callback: fn () => News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete()
+            callback: fn () => News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete()->paginate()
         );
 
         $title = strval(__('frontend-texts.articles-title.date')) . $yearString;
@@ -160,11 +158,10 @@ class ArticleController extends Controller {
             key: 'NEWS_TAG_'.$tagSlug.'_PAGE-' . request('page', 1),
             callback: fn () => News::whereHas('tags', function ($query) use ($tagSlug) {
                 $query->withTrashed()->whereSlug($tagSlug);
-            })
-                                ->newsComplete()
+            })->newsComplete()->paginate()
         );
 
-        $tagName = Tag::withTrashed()->whereSlug($tagSlug)->value('title');
+        $tagName = Tag::withTrashed()->where('slug', $tagSlug)->value('title');
         $title = strval(__('frontend-texts.articles-title.tags')) . $tagName;
         $breadCrumb = Breadcrumbs::render('articles.tag', true, $tagSlug, $tagName)->render();
         $emptyTitle = ['name'=> 'Klúčové slovo', 'value' => $tagName];
@@ -178,7 +175,7 @@ class ArticleController extends Controller {
         if (!$search) {
             return to_route('article.all');
         }
-        $articles = News::whereFulltext(['title', 'teaser' ,'content_plain'], $search)->newsComplete();
+        $articles = News::whereFulltext(['title', 'teaser' ,'content_plain'], $search)->newsComplete()->paginate();
         $title = strval(__('frontend-texts.articles-title.search')) . $search;
         $breadCrumb = Breadcrumbs::render('articles.search', true)->render();
         $emptyTitle = ['name'=> 'Hľadaný výraz', 'value' => $search];

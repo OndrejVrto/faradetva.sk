@@ -67,11 +67,10 @@ class News extends BaseModel implements HasMedia, Feedable {
 
     protected $perPage = 10;
 
-    public function scopeNewsComplete(Builder $query): LengthAwarePaginator {
+    public function scopeNewsComplete(Builder $query): Builder {
         return $query
                     ->visible()
-                    ->with('media', 'user', 'category', 'source')
-                    ->paginate();
+                    ->with('media', 'user', 'category', 'source');
     }
 
     public function setTeaserAttribute(?string $value): void {

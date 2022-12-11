@@ -30,8 +30,8 @@ class BackgroundPicture extends Component {
     private function getPicture(string $titleSlug): ?array {
         return Cache::rememberForever(
             key: 'PICTURE_BACKGROUND_'.$titleSlug,
-            callback: fn (): ?array => BackgroundPictureModel::query()
-                ->whereSlug($titleSlug)
+            callback: fn () => BackgroundPictureModel::query()
+                ->where('slug', $titleSlug)
                 ->with('media', 'source')
                 ->get()
                 ->map(fn ($img) => $this->mapOutput($img))

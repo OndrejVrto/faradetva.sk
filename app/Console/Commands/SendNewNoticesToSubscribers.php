@@ -30,7 +30,7 @@ class SendNewNoticesToSubscribers extends Command {
 
             $items = $model::query()
                     ->visible()
-                    ->whereNotified(0)
+                    ->where('notified', false)
                     ->get();
 
             $subscribers = Subscriber::query()

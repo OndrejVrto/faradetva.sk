@@ -30,7 +30,7 @@ class Testimonials extends Component {
             ttl: now()->addHours(1),
             callback: function (): array {
                 $countTestimonials = TestimonialModel::query()
-                    ->whereActive(1)
+                    ->activated()
                     ->count();
 
                 if ($countTestimonials < self::LIMIT) {
@@ -38,7 +38,7 @@ class Testimonials extends Component {
                 }
 
                 return TestimonialModel::query()
-                    ->whereActive(1)
+                    ->activated()
                     ->inRandomOrder()
                     ->limit(self::LIMIT)
                     ->with('media')

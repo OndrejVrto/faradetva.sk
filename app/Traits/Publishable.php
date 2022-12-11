@@ -2,9 +2,12 @@
 
 namespace App\Traits;
 
+use App\Traits\Activable;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Publishable {
+    use Activable;
+
     public function scopePublished(Builder $query): Builder {
         return $query
                     ->where('published_at', '<=', now())
@@ -19,7 +22,7 @@ trait Publishable {
 
     public function scopeVisible(Builder $query): Builder {
         return $query
-                    ->where('active', 1)
+                    ->activated()
                     ->published()
                     ->unpublished()
                     ->latest();
