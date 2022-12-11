@@ -15,7 +15,7 @@ class PurifiAutolinkService {
         return (string) Purify::clean(
             (string) Autolink::convert(
                 $text,
-                fn ($element) => new UrlElement(
+                fn ($element): UrlElement => new UrlElement(
                     title      : $element->getTitle(),
                     url        : $element->getUrl(),
                     start      : $element->getStart(),

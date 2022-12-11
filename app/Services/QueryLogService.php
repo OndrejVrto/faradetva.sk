@@ -25,7 +25,7 @@ class QueryLogService {
 
             File::delete($this->file_path);
 
-            DB::listen(function ($query) {
+            DB::listen(function ($query): void {
                 // Not cache Query
                 if (!Str::startsWith($query->sql, ["insert into `cache`", "update `cache`", "select * from `cache`"])) {
                     $this->total_query++;
@@ -38,7 +38,7 @@ class QueryLogService {
                 }
             });
 
-            app()->terminating(function () {
+            app()->terminating(function (): void {
                 $this->final['meta'] = [
                     'Date'          => date('Y-m-d H:i:s'),
                     'URL'           => request()->url(),
