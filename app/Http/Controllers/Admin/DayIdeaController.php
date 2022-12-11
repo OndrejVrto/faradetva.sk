@@ -26,7 +26,7 @@ class DayIdeaController extends Controller {
         $validated = $request->validated();
         DayIdea::create(DayIdea::sanitize($validated));
 
-        toastr()->success(strval(__('app.day-idea.store')));
+        toastr()->success((string) __('app.day-idea.store'));
         return to_route('day-ideas.index');
     }
 
@@ -38,14 +38,14 @@ class DayIdeaController extends Controller {
         $validated = $request->validated();
         $dayIdea->update(DayIdea::sanitize($validated));
 
-        toastr()->success(strval(__('app.day-idea.update')));
+        toastr()->success((string) __('app.day-idea.update'));
         return to_route('day-ideas.index');
     }
 
     public function destroy(DayIdea $dayIdea): RedirectResponse {
         $dayIdea->delete();
 
-        toastr()->success(strval(__('app.day-idea.delete')));
+        toastr()->success((string) __('app.day-idea.delete'));
         return to_route('day-ideas.index');
     }
 }

@@ -32,7 +32,7 @@ class BackgroundPictureController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($backgroundPicture, $request);
 
-        toastr()->success(strval(__('app.background-picture.store')));
+        toastr()->success((string) __('app.background-picture.store'));
         return to_route('background-pictures.index');
     }
 
@@ -57,7 +57,7 @@ class BackgroundPictureController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($backgroundPicture, $request);
 
-        toastr()->success(strval(__('app.background-picture.update')));
+        toastr()->success((string) __('app.background-picture.update'));
         return to_route('background-pictures.index');
     }
 
@@ -66,7 +66,7 @@ class BackgroundPictureController extends Controller {
         $backgroundPicture->delete();
         $backgroundPicture->clearMediaCollection($backgroundPicture->collectionName);
 
-        toastr()->success(strval(__('app.background-picture.delete')));
+        toastr()->success((string) __('app.background-picture.delete'));
         return to_route('background-pictures.index');
     }
 }

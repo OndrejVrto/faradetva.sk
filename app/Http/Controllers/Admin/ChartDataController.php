@@ -27,7 +27,7 @@ class ChartDataController extends Controller {
         $validated = $request->validated() + ['chart_id' => $chart->id];
         ChartData::create(ChartData::sanitize($validated));
 
-        toastr()->success(strval(__('app.chart-data.store')));
+        toastr()->success((string) __('app.chart-data.store'));
         return to_route('charts.data.index', $chart);
     }
 
@@ -39,14 +39,14 @@ class ChartDataController extends Controller {
         $validated = $request->validated() + ['chart_id' => $chart->id];
         $data->update(ChartData::sanitize($validated));
 
-        toastr()->success(strval(__('app.chart-data.update')));
+        toastr()->success((string) __('app.chart-data.update'));
         return to_route('charts.data.index', $chart);
     }
 
     public function destroy(Chart $chart, ChartData $data): RedirectResponse {
         $data->delete();
 
-        toastr()->success(strval(__('app.chart-data.delete')));
+        toastr()->success((string) __('app.chart-data.delete'));
         return to_route('charts.data.index', $chart);
     }
 }

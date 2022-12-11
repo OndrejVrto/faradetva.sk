@@ -92,7 +92,7 @@ class ArticleController extends Controller {
             key: 'NEWS_ALL_PAGE-'.request('page', 1),
             callback: fn () => News::newsComplete()->paginate()
         );
-        $title = strval(__('frontend-texts.articles-title.all'));
+        $title = (string) __('frontend-texts.articles-title.all');
         $breadCrumb = Breadcrumbs::render('articles.all', true)->render();
         $emptyTitle = ['name'=> 'V', 'value' => 'sekcii'];
 
@@ -110,7 +110,7 @@ class ArticleController extends Controller {
         );
 
         $userName = User::withTrashed()->where('slug', $userSlug)->value('name');
-        $title = strval(__('frontend-texts.articles-title.author')) . $userName;
+        $title = (string) __('frontend-texts.articles-title.author') . $userName;
         $breadCrumb = Breadcrumbs::render('articles.author', true, $userSlug, $userName)->render();
         $emptyTitle = ['name'=> 'Zvolený autor', 'value' => $userName];
 
@@ -128,7 +128,7 @@ class ArticleController extends Controller {
         );
 
         $categoryName = Category::withTrashed()->where('slug', $categorySlug)->value('title');
-        $title = strval(__('frontend-texts.articles-title.category')) . $categoryName;
+        $title = (string) __('frontend-texts.articles-title.category') . $categoryName;
         $breadCrumb = Breadcrumbs::render('articles.category', true, $categorySlug, $categoryName)->render();
         $emptyTitle = ['name'=> 'Vybraná kategória', 'value' => $categoryName];
 
@@ -138,13 +138,13 @@ class ArticleController extends Controller {
     }
 
     public function indexDate(int $year): View|Factory {
-        $yearString = strval($year);
+        $yearString = (string) $year;
         $articles = Cache::rememberForever(
             key: 'NEWS_YEAR_'.$yearString.'_PAGE-'.request('page', 1),
             callback: fn () => News::whereRaw('YEAR(created_at) = ?', $year)->newsComplete()->paginate()
         );
 
-        $title = strval(__('frontend-texts.articles-title.date')) . $yearString;
+        $title = (string) __('frontend-texts.articles-title.date') . $yearString;
         $breadCrumb = Breadcrumbs::render('articles.date', true, $year, $year)->render();
         $emptyTitle = ['name'=> 'Vybraný rok', 'value' => $yearString];
 
@@ -162,7 +162,7 @@ class ArticleController extends Controller {
         );
 
         $tagName = Tag::withTrashed()->where('slug', $tagSlug)->value('title');
-        $title = strval(__('frontend-texts.articles-title.tags')) . $tagName;
+        $title = (string) __('frontend-texts.articles-title.tags') . $tagName;
         $breadCrumb = Breadcrumbs::render('articles.tag', true, $tagSlug, $tagName)->render();
         $emptyTitle = ['name'=> 'Klúčové slovo', 'value' => $tagName];
 
@@ -176,7 +176,7 @@ class ArticleController extends Controller {
             return to_route('article.all');
         }
         $articles = News::whereFulltext(['title', 'teaser' ,'content_plain'], $search)->newsComplete()->paginate();
-        $title = strval(__('frontend-texts.articles-title.search')) . $search;
+        $title = (string) __('frontend-texts.articles-title.search') . $search;
         $breadCrumb = Breadcrumbs::render('articles.search', true)->render();
         $emptyTitle = ['name'=> 'Hľadaný výraz', 'value' => $search];
 

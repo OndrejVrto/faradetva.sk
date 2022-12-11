@@ -80,7 +80,7 @@ class NewsController extends Controller {
                 ->toMediaCollection($news->collectionDocument);
         }
 
-        toastr()->success(strval(__('app.news.store')));
+        toastr()->success((string) __('app.news.store'));
         return to_route('news.index');
     }
 
@@ -105,7 +105,7 @@ class NewsController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($news, $request);
 
-        if (count($news->document) > 0) {
+        if ((is_countable($news->document) ? count($news->document) : 0) > 0) {
             foreach ($news->document as $media) {
                 if (!in_array($media->file_name, $request->input('document', []))) {
                     $media->delete();
@@ -116,14 +116,14 @@ class NewsController extends Controller {
         $media = $news->document->pluck('file_name')->toArray();
 
         foreach ($request->input('document', []) as $file) {
-            if (count($media) === 0 || !in_array($file, $media)) {
+            if ((is_countable($media) ? count($media) : 0) === 0 || !in_array($file, $media)) {
                 $news
                     ->addMedia(storage_path('tmp/uploads/' . $file))
                     ->toMediaCollection($news->collectionDocument);
             }
         }
 
-        toastr()->success(strval(__('app.news.update')));
+        toastr()->success((string) __('app.news.update'));
         return to_route('news.index');
     }
 
@@ -137,7 +137,7 @@ class NewsController extends Controller {
         $this->authorize('delete', $news);
         $news->delete();
 
-        toastr()->success(strval(__('app.news.delete')));
+        toastr()->success((string) __('app.news.delete'));
         return to_route('news.index');
     }
 
@@ -147,7 +147,7 @@ class NewsController extends Controller {
         $news->title = '*'.$news->title;
         $news->restore();
 
-        toastr()->success(strval(__('app.news.restore')));
+        toastr()->success((string) __('app.news.restore'));
         return to_route('news.edit', $news->slug);
     }
 
@@ -158,7 +158,7 @@ class NewsController extends Controller {
         $news->clearMediaCollection($news->collectionDocument);
         $news->forceDelete();
 
-        toastr()->success(strval(__('app.news.force-delete')));
+        toastr()->success((string) __('app.news.force-delete'));
         return to_route('news.index', ['only-deleted' => 'true']);
     }
 }

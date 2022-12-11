@@ -36,7 +36,7 @@ class PrayerController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($prayer, $request);
 
-        toastr()->success(strval(__('app.prayer.store')));
+        toastr()->success((string) __('app.prayer.store'));
         return to_route('prayers.index');
     }
 
@@ -55,14 +55,14 @@ class PrayerController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($prayer, $request);
 
-        toastr()->success(strval(__('app.prayer.update')));
+        toastr()->success((string) __('app.prayer.update'));
         return to_route('prayers.index');
     }
 
     public function destroy(Prayer $prayer): RedirectResponse {
         $prayer->delete();
 
-        toastr()->success(strval(__('app.prayer.delete')));
+        toastr()->success((string) __('app.prayer.delete'));
         return to_route('prayers.index');
     }
 
@@ -72,7 +72,7 @@ class PrayerController extends Controller {
         $prayer->title = '*'.$prayer->title;
         $prayer->restore();
 
-        toastr()->success(strval(__('app.prayer.restore')));
+        toastr()->success((string) __('app.prayer.restore'));
         return to_route('prayers.edit', $prayer->slug);
     }
 
@@ -82,7 +82,7 @@ class PrayerController extends Controller {
         $prayer->clearMediaCollection($prayer->collectionName);
         $prayer->forceDelete();
 
-        toastr()->success(strval(__('app.prayer.force-delete')));
+        toastr()->success((string) __('app.prayer.force-delete'));
         return to_route('prayers.index', ['only-deleted' => 'true']);
     }
 }
