@@ -54,7 +54,7 @@ class UserController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($user, $request, $validated['name']);
 
-        toastr()->success((string) __('app.user.store', ['name'=> $user->name]));
+        toastr()->success(__('app.user.store', ['name'=> $user->name]));
         return to_route('users.index');
     }
 
@@ -66,7 +66,7 @@ class UserController extends Controller {
 
     public function edit(User $user): View|RedirectResponse {
         if ($user->id < 3 && auth()->id() !== 1) {
-            toastr()->error((string) __('app.user.update-error', ['name'=> $user->name]));
+            toastr()->error(__('app.user.update-error', ['name'=> $user->name]));
             return to_route('users.index');
         }
         $roles = Role::where('id', '>', 1)->get();
@@ -88,9 +88,9 @@ class UserController extends Controller {
         // if user change self
         if ($user->id == auth()->id()) {
             $validated = Arr::except($validated, ['active']);
-            toastr()->warning((string) (string) __('app.user.update-self'));
+            toastr()->warning((string) __('app.user.update-self'));
         } else {
-            toastr()->success((string) __('app.user.update', ['name'=> $user->name]));
+            toastr()->success(__('app.user.update', ['name'=> $user->name]));
         }
 
         $user->update($validated);
@@ -115,12 +115,12 @@ class UserController extends Controller {
 
     public function destroy(User $user): RedirectResponse {
         if ($user->id === 1 || $user->id === 2) {
-            toastr()->error((string) __('app.user.delete-error', ['name'=> $user->name]));
+            toastr()->error(__('app.user.delete-error', ['name'=> $user->name]));
         } elseif ($user->id === auth()->id()) {
-            toastr()->error((string) __('app.user.delete-self'));
+            toastr()->error(__('app.user.delete-self'));
         } else {
             $user->delete();
-            toastr()->success((string) __('app.user.delete', ['name'=> $user->name]));
+            toastr()->success(__('app.user.delete', ['name'=> $user->name]));
         }
 
         return to_route('users.index');
@@ -132,7 +132,7 @@ class UserController extends Controller {
         $user->name = '*'.$user->name;
         $user->restore();
 
-        toastr()->success((string) __('app.user.restore'));
+        toastr()->success(__('app.user.restore'));
         return to_route('users.edit', $user->slug);
     }
 
@@ -147,7 +147,7 @@ class UserController extends Controller {
         $user->clearMediaCollection($user->collectionName);
         $user->forceDelete();
 
-        toastr()->success((string) __('app.user.force-delete'));
+        toastr()->success(__('app.user.force-delete'));
         return to_route('users.index', ['only-deleted' => 'true']);
     }
 }

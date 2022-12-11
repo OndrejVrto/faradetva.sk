@@ -67,7 +67,7 @@ class GalleryController extends Controller {
                 ->toMediaCollection($gallery->collectionName);
         }
 
-        toastr()->success((string) __('app.gallery.store'));
+        toastr()->success(__('app.gallery.store'));
         return to_route('galleries.index');
     }
 
@@ -110,7 +110,7 @@ class GalleryController extends Controller {
             }
         }
 
-        toastr()->success((string) __('app.gallery.update'));
+        toastr()->success(__('app.gallery.update'));
         return to_route('galleries.index');
     }
 
@@ -125,7 +125,7 @@ class GalleryController extends Controller {
         $gallery->delete();
         $gallery->clearMediaCollection($gallery->collectionName);
 
-        toastr()->success((string) __('app.gallery.delete'));
+        toastr()->success(__('app.gallery.delete'));
         return to_route('galleries.index');
     }
 }

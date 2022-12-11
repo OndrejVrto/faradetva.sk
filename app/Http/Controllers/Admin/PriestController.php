@@ -33,7 +33,7 @@ class PriestController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
 
-        toastr()->success((string) __('app.priest.store'));
+        toastr()->success(__('app.priest.store'));
         return to_route('priests.index');
     }
 
@@ -47,14 +47,14 @@ class PriestController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($priest, $request, $priest->full_name_titles.'-'.$priest->function);
 
-        toastr()->success((string) __('app.priest.update'));
+        toastr()->success(__('app.priest.update'));
         return to_route('priests.index');
     }
 
     public function destroy(Priest $priest): RedirectResponse {
         $priest->delete();
 
-        toastr()->success((string) __('app.priest.delete'));
+        toastr()->success(__('app.priest.delete'));
         return to_route('priests.index');
     }
 
@@ -64,7 +64,7 @@ class PriestController extends Controller {
         $priest->titles_before = '*'.$priest->titles_before;
         $priest->restore();
 
-        toastr()->success((string) __('app.priest.restore'));
+        toastr()->success(__('app.priest.restore'));
         return to_route('priests.edit', $priest->slug);
     }
 
@@ -73,7 +73,7 @@ class PriestController extends Controller {
         $priest->clearMediaCollection($priest->collectionName);
         $priest->forceDelete();
 
-        toastr()->success((string) __('app.priest.force-delete'));
+        toastr()->success(__('app.priest.force-delete'));
         return to_route('priests.index', ['only-deleted' => 'true']);
     }
 }
