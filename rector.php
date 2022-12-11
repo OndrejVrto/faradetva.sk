@@ -11,18 +11,44 @@ use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
-        // __DIR__ . '/app',
+        /** All */
+        __DIR__ . '/app',
+
+        /** part 1 */
+        // __DIR__ . '/app/Console',
+        // __DIR__ . '/app/Crawler',
+        // __DIR__ . '/app/DataTransferObjects',
         // __DIR__ . '/app/Enums',
         // __DIR__ . '/app/Exceptions',
         // __DIR__ . '/app/Facades',
-        __DIR__ . '/app/Services',
+
+        /** part 2 */
+        // __DIR__ . '/app/Http',
+
+        /** part 3 */
+        // __DIR__ . '/app/Jobs',
+        // __DIR__ . '/app/Mail',
+        // __DIR__ . '/app/Models',
+
+        /** part 4 */
+        // __DIR__ . '/app/Observers',
+        // __DIR__ . '/app/Policies',
+        // __DIR__ . '/app/Providers',
+        // __DIR__ . '/app/Rules',
+        // __DIR__ . '/app/Traits',
+
+        /** part 5 */
+        // __DIR__ . '/app/Services',
+
+        /** part 6 */
+        // __DIR__ . '/app/View',
     ]);
 
     // define sets of rules
     $rectorConfig->sets([
         SetList::DEAD_CODE,
-        SetList::CODE_QUALITY,
-        SetList::EARLY_RETURN,
+        // SetList::CODE_QUALITY,
+        // SetList::EARLY_RETURN,
         SetList::TYPE_DECLARATION_STRICT,
         LevelSetList::UP_TO_PHP_82,
 
@@ -32,8 +58,6 @@ return static function (RectorConfig $rectorConfig): void {
         // LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL,
         // LaravelSetList::LARAVEL_LEGACY_FACTORIES_TO_CLASSES,
     ]);
-
-    // $rectorConfig->phpstanConfig(__DIR__ . '/phpstan.neon');
 
     $rectorConfig->phpVersion(PhpVersion::PHP_81);
 
@@ -53,4 +77,11 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->indent(' ', 4);
+
+    $rectorConfig->disableParallel();
+    // $rectorConfig->parallel(
+    //     seconds           : 60,
+    //     maxNumberOfProcess: 5,
+    //     jobSize           : 5
+    // );
 };
