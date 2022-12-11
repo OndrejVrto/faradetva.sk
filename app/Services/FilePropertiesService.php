@@ -29,6 +29,30 @@ class FilePropertiesService {
                 ->toArray();
     }
 
+    /**
+     * @return array{
+            id: positive-int,
+            slug: string,
+            title: string,
+            source_description: string|null,
+            mime_type: string|null,
+            icon: string,
+            file_url: string|null,
+            file_name: string|null,
+            file_extension: string,
+            name: string|null,
+            size: string|null,
+            humanReadableSize: string,
+            sourceArr: array{
+                source_source: string|null,
+                source_source_url: string|null,
+                source_author: string|null,
+                source_author_url: string|null,
+                source_license: string|null,
+                source_license_url: string|null
+            }
+        }
+     */
     public function getFileItemProperties(File $item): array {
         $fileMedia = $item->getFirstMedia($item->collectionName);
         return [

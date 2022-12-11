@@ -34,7 +34,6 @@ class SettingsSwitcherService {
         if (method_exists($this, $command)) {
             $this->$command($value);
         }
-        return;
     }
 
     private function handle(
@@ -67,12 +66,10 @@ class SettingsSwitcherService {
         if ($artisanTrue) {
             Artisan::call($artisanTrue, ['--quiet' => true, '--no-interaction' => true]);
         }
-        // info($valueStore.' > ON');
-        return;
     }
 
     private function convertValueFromStore(string $valueStore): bool {
-        return (bool) filter_var($this->checkbox->get($valueStore), FILTER_VALIDATE_BOOLEAN);
+        return filter_var($this->checkbox->get($valueStore), FILTER_VALIDATE_BOOLEAN);
     }
 
     /**

@@ -49,11 +49,11 @@ class Priest extends BaseModel implements HasMedia {
     protected static function boot(): void {
         parent::boot();
 
-        static::creating(function ($priest) {
+        static::creating(function ($priest): void {
             $priest->slug = Str::slug($priest->getFullNameWithTitles());
         });
 
-        static::updating(function ($priest) {
+        static::updating(function ($priest): void {
             $priest->slug = Str::slug($priest->getFullNameWithTitles());
         });
     }

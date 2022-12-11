@@ -7,6 +7,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Collection;
 use Spatie\Permission\Models\Role;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
@@ -41,9 +42,9 @@ class UserController extends Controller {
 
         // store roles to user
         $role = collect([$request->input('role')])
-            ->filter(function ($value, $key) {
+            ->filter(function ($value, $key): bool {
                 return $value >= 2; // SuperAdmin remove
-            })->when($user->id == 1, function ($collection) {
+            })->when($user->id == 1, function ($collection): Collection {
                 return $collection->push(1); // SuperAdmin add
             })->toArray();
         $user->roles()->syncWithoutDetaching($role);
@@ -97,9 +98,9 @@ class UserController extends Controller {
 
         // store roles to user
         $role = collect([$request->input('role')])
-            ->filter(function ($value, $key) {
+            ->filter(function ($value, $key): bool {
                 return $value >= 2; // SuperAdmin remove
-            })->when($user->id == 1, function ($collection) {
+            })->when($user->id == 1, function ($collection): Collection {
                 return $collection->push(1);  // SuperAdmin add
             })->toArray();
         $user->roles()->sync($role);

@@ -65,8 +65,8 @@ class UsedDiskSpaceCheck extends Check {
         } catch (\Throwable) {
             try {
                 $drive = '.';
-                $this->freeDiskSpace  = disk_free_space($drive);
-                $this->totalDiskSpace = disk_total_space($drive);
+                $this->freeDiskSpace  = disk_free_space($drive) ?: 0;
+                $this->totalDiskSpace = disk_total_space($drive) ?: 0;
                 $this->usedDiskSpace  = $this->freeDiskSpace ? $this->totalDiskSpace - $this->freeDiskSpace : 0;
             } catch (\Throwable) {
                 return new Exception('Error loading free disk space.');

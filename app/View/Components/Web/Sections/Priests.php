@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use App\Models\Priest as PriestModel;
 use Illuminate\Support\Facades\Cache;
-use App\Services\PurifiAutolinkService;
+use App\Services\PurifyAutolinkService;
 use App\Services\SEO\SeoPropertiesService;
 
 class Priests extends Component {
@@ -58,7 +58,7 @@ class Priests extends Component {
             'function'          => $priest->function,
 
             'description_clean' => Str::plainText($priest->description),
-            'description'       => (new PurifiAutolinkService())->getCleanTextWithLinks($priest->description),
+            'description'       => (new PurifyAutolinkService())->getCleanTextWithLinks($priest->description),
 
             'img-url'           => isset($priest->media[0]) ? $priest->media[0]->getUrl('crop') : 'http://via.placeholder.com/230x270',
             'img-height'        => '270',

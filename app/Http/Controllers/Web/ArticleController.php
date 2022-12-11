@@ -104,7 +104,7 @@ class ArticleController extends Controller {
     public function indexAuthor(string $userSlug): View|Factory {
         $articles = Cache::rememberForever(
             key: 'NEWS_USER_'.$userSlug.'_PAGE-'.request('page', 1),
-            callback: fn () => News::whereHas('user', function ($query) use ($userSlug) {
+            callback: fn () => News::whereHas('user', function ($query) use ($userSlug): void {
                 $query->withTrashed()->whereSlug($userSlug);
             })->newsComplete()->paginate()
         );
@@ -122,7 +122,7 @@ class ArticleController extends Controller {
     public function indexCategory(string $categorySlug): View|Factory {
         $articles = Cache::rememberForever(
             key: 'NEWS_CATEGORY_'.$categorySlug.'_PAGE-' . request('page', 1),
-            callback: fn () => News::whereHas('category', function ($query) use ($categorySlug) {
+            callback: fn () => News::whereHas('category', function ($query) use ($categorySlug): void {
                 $query->withTrashed()->whereSlug($categorySlug);
             })->newsComplete()->paginate()
         );
@@ -156,7 +156,7 @@ class ArticleController extends Controller {
     public function indexTag(string $tagSlug): View|Factory {
         $articles = Cache::rememberForever(
             key: 'NEWS_TAG_'.$tagSlug.'_PAGE-' . request('page', 1),
-            callback: fn () => News::whereHas('tags', function ($query) use ($tagSlug) {
+            callback: fn () => News::whereHas('tags', function ($query) use ($tagSlug): void {
                 $query->withTrashed()->whereSlug($tagSlug);
             })->newsComplete()->paginate()
         );

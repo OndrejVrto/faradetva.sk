@@ -5,7 +5,7 @@ namespace App\View\Components\Web\Sections;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use App\Services\PurifiAutolinkService;
+use App\Services\PurifyAutolinkService;
 use App\Models\Testimonial as TestimonialModel;
 
 class Testimonials extends Component {
@@ -47,7 +47,7 @@ class Testimonials extends Component {
                         'id'          => $data->id,
                         'name'        => $data->name,
                         'function'    => $data->function,
-                        'description' => (new PurifiAutolinkService())->getCleanTextWithLinks($data->description),
+                        'description' => (new PurifyAutolinkService())->getCleanTextWithLinks($data->description),
                         'url'         => $data->url,
                         'img-url'     => $data->getFirstMediaUrl('testimonial', 'crop'),
                     ])

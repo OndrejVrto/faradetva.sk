@@ -72,9 +72,7 @@ class QueryLogService {
     private function grabFirstElementNonvendorCalls(): array {
         return head(Arr::where(
             debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS),
-            fn ($trace) => isset($trace['file'])
-                            ? !str_contains((string) $trace['file'], 'vendor')
-                            : false
+            fn ($trace) => isset($trace['file']) && !str_contains((string) $trace['file'], 'vendor')
         ));
     }
 

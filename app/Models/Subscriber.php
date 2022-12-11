@@ -28,19 +28,19 @@ class Subscriber extends BaseModel {
         'deleted_at' => 'datetime',
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName(): string {
         return 'id';
     }
 
     protected static function boot() {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             $model->unsubscribe_token = Str::random(32);
             $model->verified_token = Str::random(32);
         });
 
-        static::created(function ($model) {
+        static::created(function ($model): void {
             Mail::to($model->email)->send(new VerificationEmailMail($model));
             // Log::debug('Poslať na mail '.$model->email . ' token ' . $model->verified_token);
         });

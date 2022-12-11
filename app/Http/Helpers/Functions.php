@@ -108,6 +108,6 @@ if (!function_exists('formatBytes')) {
         $base = log($size) / log(1024);
         $suffixes = ['B', 'kB', 'MB', 'GB', 'TB'];
 
-        return (string) ($sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)]);
+        return $sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)];
     }
 }

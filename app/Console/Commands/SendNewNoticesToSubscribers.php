@@ -15,10 +15,6 @@ class SendNewNoticesToSubscribers extends Command {
     /** The console command description. */
     protected $description = 'Sends notifications of news to subscribers.';
 
-    public function __construct() {
-        parent::__construct();
-    }
-
     public function handle(): void {
         $counterSubscribers = 0;
         $counterItems = 0;

@@ -22,15 +22,6 @@ class CreateRoutePermissionsCommand extends Command {
     protected $description = 'Create a permission routes.';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct() {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      */
     public function handle(): void {

@@ -30,11 +30,10 @@ class Handler extends ExceptionHandler {
     /**
      * Register the exception handling callbacks for the application.
      *
-     * @return void
      */
-    public function register() {
+    public function register(): void {
         if (!config('app.debug')) {
-            $this->reportable(function (Throwable $e) {
+            $this->reportable(function (Throwable $e): void {
                 Log::channel('slack')->error($e->getMessage(), [
                     'file' => $e->getFile(),
                     'line' => $e->getLine(),
@@ -47,7 +46,7 @@ class Handler extends ExceptionHandler {
     /**
      * Report or log an exception.
      */
-    public function report(Throwable $e) {
+    public function report(Throwable $e): void {
         // Some exceptions don't have a message
         $exception_message = empty($e->getMessage())
                                 ? 'App Error Exception'

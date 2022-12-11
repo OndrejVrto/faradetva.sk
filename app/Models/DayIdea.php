@@ -10,7 +10,7 @@ class DayIdea extends BaseModel {
         'idea',
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName(): string {
         return 'id';
     }
 }

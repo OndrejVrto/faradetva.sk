@@ -21,7 +21,7 @@ class PageController extends Controller {
         // create array of links
         $urls = collect($param)
                     ->whereNotNull()
-                    ->map(function ($node) {
+                    ->map(function ($node): array {
                         $this->path .= '/' . $node;
                         return [
                             'title' => $node,
@@ -47,7 +47,7 @@ class PageController extends Controller {
             ->map(
                 fn ($node) => Cache::rememberForever(
                     key: 'PAGE_NODE_'.Str::slug($node['url']),
-                    callback: function () use ($node) {
+                    callback: function () use ($node): array {
                         $item = StaticPage::query()
                             ->select('url', 'title', 'active')
                             ->where('url', $node['url'])

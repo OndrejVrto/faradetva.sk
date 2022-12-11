@@ -9,7 +9,7 @@ use App\Traits\Publishable;
 use Illuminate\Support\Str;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
-use App\Services\PurifiAutolinkService;
+use App\Services\PurifyAutolinkService;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Collection;
@@ -79,7 +79,7 @@ class News extends BaseModel implements HasMedia, Feedable {
     }
 
     public function getCleanTeaserAttribute(): ?string {
-        return (new PurifiAutolinkService())->getCleanTextWithLinks($this->teaser);
+        return (new PurifyAutolinkService())->getCleanTextWithLinks($this->teaser);
     }
 
     public function getTeaserMediumAttribute(): string {

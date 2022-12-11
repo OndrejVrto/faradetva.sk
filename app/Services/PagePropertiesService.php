@@ -170,16 +170,33 @@ final class PagePropertiesService {
             description:    e($news->teaser),
             contentPlain:   e($news->content_plain),
             wikipedia:      null,
-            dateExpires:    property_exists($news, 'unpublished_at') && $news->unpublished_at !== null
-                                ? Carbon::createFromFormat('d.m.Y G:i', $news->unpublished_at)
-                                : null,
+            dateExpires:    (new self)->handleDate(
+                                object        : $news,
+                                propertyOfData: "unpublished_at",
+                                defaultDate   : null,
+                            ),
             dateModified:   $news->updated_at,
-            datePublished:  property_exists($news, 'published_at') && $news->published_at !== null
-                                ? Carbon::createFromFormat('d.m.Y G:i', $news->published_at)
-                                : $news->created_at,
+            datePublished:  (new self)->handleDate(
+                                object        : $news,
+                                propertyOfData: "published_at",
+                                defaultDate   : $news->created_at,
+                            ),
             tags:   $news->tags->pluck('title')->implode(', '),
             author: $author,
             image:  $image,
         );
+    }
+
+    private function handleDate(object|string $object, string $propertyOfData , Carbon|null $defaultDate = null): ?Carbon {
+        if (!property_exists($object, $propertyOfData)
+            || $object->{$propertyOfData} === null
+            || $object->{$propertyOfData} === false
+        ) {
+            return $defaultDate;
+        }
+
+        $date = Carbon::createFromFormat('d.m.Y G:i', $object->{$propertyOfData});
+
+        return $date ?: $defaultDate;
     }
 }

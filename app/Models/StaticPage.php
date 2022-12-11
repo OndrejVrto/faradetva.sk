@@ -61,7 +61,7 @@ class StaticPage extends BaseModel implements HasMedia {
 
     public function scopeFilterDeactivated(Builder $query, Request $request): Builder {
         return $query
-            ->when($request->has('only-deactivated'), function ($query) {
+            ->when($request->has('only-deactivated'), function ($query): void {
                 $query->notActivated();
             });
     }

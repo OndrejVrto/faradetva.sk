@@ -34,10 +34,10 @@ trait Publishable {
     }
 
     public function getPublishedAtAttribute(?string $value): string|false|null {
-        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
+        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value) ?: null);
     }
 
     public function getUnpublishedAtAttribute(?string $value): string|false|null {
-        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
+        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value) ?: null);
     }
 }
