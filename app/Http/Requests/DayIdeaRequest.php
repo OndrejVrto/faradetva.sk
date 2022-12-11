@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 class DayIdeaRequest extends BaseRequest {
+    /**
+     * @return array{author: mixed[], idea: mixed[]}
+     */
     public function rules(): array {
         return [
             'author' => $this->reqStrRule(),

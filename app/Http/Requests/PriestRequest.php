@@ -7,6 +7,9 @@ use App\Http\Requests\Traits\HasCropPictureFields;
 class PriestRequest extends BaseRequest {
     use HasCropPictureFields;
 
+    /**
+     * @return array{active: mixed[], first_name: mixed[], last_name: mixed[], titles_before: mixed[], titles_after: mixed[], function: mixed[], twitter_url: mixed[], facebook_url: mixed[], www_page_url: mixed[], phone: string[], email: string[], description: string[]}
+     */
     public function rules(): array {
         return [
             'active'        => $this->reqBoolRule(),

@@ -9,6 +9,9 @@ use App\Http\Requests\Traits\HasSourceFields;
 class FileRequest extends BaseRequest {
     use HasSourceFields;
 
+    /**
+     * @return array{title: mixed[], slug: \Illuminate\Validation\Rules\Unique, attachment: string[]}
+     */
     public function rules(): array {
         return [
             'title'      => $this->reqStrRule(),

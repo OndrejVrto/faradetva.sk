@@ -36,6 +36,9 @@ class StatisticsGraph extends Component {
             : view('components.partials.statistics-graph.index');
     }
 
+    /**
+     * @return array{id: mixed, title: mixed, color: mixed, desription: mixed, type: mixed, name_x_axis: mixed, name_y_axis: mixed, labelGraph: mixed, dataGraph: mixed}
+     */
     private function mapOutput(Chart $chart): array {
         return [
             'id'          => $chart->id,

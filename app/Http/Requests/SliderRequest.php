@@ -9,6 +9,9 @@ class SliderRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 
+    /**
+     * @return array{active: mixed[], heading_1: mixed[], heading_2: mixed[], heading_3: mixed[]}
+     */
     public function rules(): array {
         return [
             'active'    => $this->reqBoolRule(),

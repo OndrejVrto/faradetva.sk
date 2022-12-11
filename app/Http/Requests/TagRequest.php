@@ -7,6 +7,9 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class TagRequest extends BaseRequest {
+    /**
+     * @return array{title: \App\Rules\SingleWord[]|string[], slug: \Illuminate\Validation\Rules\Unique[], description: string[]}
+     */
     public function rules(): array {
         return [
             'title' => [

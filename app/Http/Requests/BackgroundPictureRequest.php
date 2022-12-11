@@ -11,6 +11,9 @@ class BackgroundPictureRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 
+    /**
+     * @return array{title: mixed[], slug: \Illuminate\Validation\Rules\Unique}
+     */
     public function rules(): array {
         return [
             'title' => $this->reqStrRule(),

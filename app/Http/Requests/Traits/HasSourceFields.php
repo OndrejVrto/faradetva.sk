@@ -3,6 +3,9 @@
 namespace App\Http\Requests\Traits;
 
 trait HasSourceFields {
+    /**
+     * @return array{source_description: mixed, source_author: mixed, source_author_url: mixed, source_source: mixed, source_source_url: mixed, source_license: mixed, source_license_url: mixed}
+     */
     protected function sourceRules(): array {
         return [
             'source_description' => $this->reqStrRule(420),

@@ -8,6 +8,9 @@ use App\Rules\DateTimeAfterNow;
 use Illuminate\Validation\Rule;
 
 class NoticeRequest extends BaseRequest {
+    /**
+     * @return array{active: mixed[], title: mixed[], slug: \Illuminate\Validation\Rules\Unique, published_at: \App\Rules\DateTimeAfterNow[]|string[], unpublished_at: \App\Rules\DateTimeAfterNow[]|string[], notice_file: string[]}
+     */
     public function rules(): array {
         $modelName = $this->route() instanceof Route
                         ? Str::replace('-', '_', collect($this->route()->getController())->toArray()["\x00*\x00resource"])  // @phpstan-ignore-line
@@ -50,11 +53,11 @@ class NoticeRequest extends BaseRequest {
         ]);
 
         is_null($this->published_at) ?: $this->merge([
-            'published_at' => date('Y-m-d H:i:s', strtotime((string) $this->published_at))
+            'published_at' => date('Y-m-d H:i:s', strtotime((string) $this->published_at) ?: null)
         ]);
 
         is_null($this->unpublished_at) ?: $this->merge([
-            'unpublished_at' => date('Y-m-d H:i:s', strtotime((string) $this->unpublished_at))
+            'unpublished_at' => date('Y-m-d H:i:s', strtotime((string) $this->unpublished_at) ?: null)
         ]);
     }
 }

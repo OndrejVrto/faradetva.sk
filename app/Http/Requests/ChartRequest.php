@@ -8,6 +8,9 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
 class ChartRequest extends BaseRequest {
+    /**
+     * @return array{active: mixed[], title: mixed[], description: mixed[], slug: \Illuminate\Validation\Rules\Unique, name_x_axis: mixed[], name_y_axis: mixed[], type_chart: \Illuminate\Validation\Rules\Enum[]|string[], color: string[]}
+     */
     public function rules(): array {
         return [
             'active'      => $this->reqBoolRule(),

@@ -57,11 +57,11 @@ class NewsRequest extends BaseRequest {
         ]);
 
         is_null($this->published_at) ?: $this->merge([
-            'published_at' => date('Y-m-d H:i:s', strtotime((string) $this->published_at))
+            'published_at' => date('Y-m-d H:i:s', strtotime((string) $this->published_at) ?: null)
         ]);
 
         is_null($this->unpublished_at) ?: $this->merge([
-            'unpublished_at' => date('Y-m-d H:i:s', strtotime((string) $this->unpublished_at))
+            'unpublished_at' => date('Y-m-d H:i:s', strtotime((string) $this->unpublished_at) ?: null)
         ]);
     }
 }

@@ -6,6 +6,9 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class FaqRequest extends BaseRequest {
+    /**
+     * @return array{question: mixed[], slug: \Illuminate\Validation\Rules\Unique, answer: mixed[], order: string[]}
+     */
     public function rules(): array {
         return [
             'question' => $this->reqStrRule(),

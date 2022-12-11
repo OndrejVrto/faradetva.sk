@@ -40,6 +40,9 @@ class PhotoGallery extends Component {
         );
     }
 
+    /**
+     * @return array{title: mixed, slug: mixed, source_description: mixed, sourceArr: array{source_source: mixed, source_source_url: mixed, source_author: mixed, source_author_url: mixed, source_license: mixed, source_license_url: mixed}, picture?: array<int, array{href: mixed, title: mixed, srcset: mixed, responsivePicture: string}>&mixed[]}
+     */
     private function mapOutput(Gallery $album): array {
         $picture = [];
         foreach ($album->picture as $pic) {
