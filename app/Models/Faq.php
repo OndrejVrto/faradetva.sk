@@ -14,7 +14,7 @@ class Faq extends BaseModel {
         'order',
     ];
 
-    protected array $cast = [
+    protected $casts = [
         'order' => 'integer'
     ];
 
