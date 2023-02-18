@@ -26,7 +26,7 @@
                 <x-partials.picture-responsive titleSlug="sacr3-006-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Svätá Eucharistia je sviatosť, v ktorej Ježiš Kristus za nás dáva svoje telo a svoju krv – seba samého, aby sme sa s ním zjednotili vo svätom prijímaní a vytvárali spojenie s Kristovým telom – Cirkvou.
+                Svätá Eucharistia je sviatosť, v ktorej Ježiš Kristus za nás dáva svoje telo a svoju krv - seba samého, aby sme sa s ním zjednotili vo svätom prijímaní a vytvárali spojenie s Kristovým telom - Cirkvou.
             </x-slot:teaser>
         </x-partials.card-article>
 

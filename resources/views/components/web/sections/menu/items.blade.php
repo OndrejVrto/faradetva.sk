@@ -30,14 +30,14 @@
         <li>
             <a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a>
         </li>
-        {{-- <li>
+        <li>
             <a href="{{ secure_url('o-nas/sakralne-objekty') }}">Sakrálne objekty</a>
             <!-- Farský kostol -->
             <!-- Kláštorný kostol -->
             <!-- Kalvária, kaplnky -->
             <!-- Prícestné sochy -->
             <!-- Detvianske kríže -->
-        </li> --}}
+        </li>
         {{-- <li>
             <a href="{{ secure_url('o-nas/pastoracia') }}">Pastorácia</a>
             <!-- Farská rada -->
