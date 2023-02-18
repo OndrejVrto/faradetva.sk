@@ -106,13 +106,25 @@
         </x-web.page.text-segment>
     </x-web.page.subsection>
 
+    <x-web.page.subsection title="Božie muky">
+        <x-web.page.text-segment animation="fromright">
+            <p>
+                Božie muky sú drobné sakrálne objekty ľudovej architektúry vo forme dreveného alebo murovaného stĺpa s výklenkom pre sošku, alebo obraz. Najčastejšie znázorňovali pašiové výjavy Ježišovho utrpenia. Do výklenkov sa umiestňovali reliéfy, obrazy alebo sošky svätých. Takéto menšie prícestné kaplnky vznikali najmä ako pamätníky šťastných či naopak tragických udalostí v živote rodín alebo aj jednotlivcov. Boli to napríklad morové epidémie, uzdravenia z choroby, prežitie nehody, uctenie zomrelých, uzmierenie sporov a podobne.
+            </p>
+            <p>
+                Na území detvianskej farnosti sa nachádzajú viaceré Božie muky vo forme menších kaplniek alebo stĺpov. Jedna z najstarších sa nachádza na Sládkovičovej ulici. Malé kaplnky so sochou Sedembolestnej Panny Márie v častiach Piešť I. a Rakytné vznikli po tragických úmrtiach počas Druhej svetovej vojny. V novšom období boli vybudované malé murované kaplnky Panny Márie napríklad v časti Majerovo alebo na Krpeľnom vŕšku.
+            </p>
+        </x-web.page.text-segment>
+    </x-web.page.subsection>
+
     <x-web.page.information-sources title="Použitá literatúra:">
-        <li>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909. Rukopis.</li>
-        <li>BARTKOVÁ, Anna. Dejiny farnosti Detva. Diplomová práca, 2008.</li>
-        <li>Domov sociálnych služieb Detva stredisko DSS Piešť [online]. [cit. 20.03.2021]. Dostupné na internete: http://www.dsspiestdetva.sk/#o_nas</li>
-        <li>Kalvária v Detve [online]. [cit. 08.02.2021]. Dostupné na internete: https://www.detva.sk/?id_menu=85183</li>
-        <li>Úcta k Matke ustavičnej pomoci rastie a kvitne [online]. [cit. 20.03.2021]. Dostupné na internete: https://redemptoristi.sk/ucta-k-matke-ustavicnej-pomoci-rastie-a-kvitne/</li>
-        <li>Zariadenie pre seniorov [online]. [cit. 20.03.2021]. Dostupné na internete: https://www.dddetva.sk/sk</li>
+        <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva.</em> Diplomová práca, 2008.</li>
+        <li><em>Encyklopédia ľudovej kultúry Slovenska 1.</em> Bratislava: Veda, 1995. ISBN 80-224-0234-6.</li>
+        <li><em>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909.</em> Rukopis.</li>
+        <li><em>Domov sociálnych služieb Detva stredisko DSS Piešť</em> [online]. [cit. 20.03.2021]. Dostupné na internete: http://www.dsspiestdetva.sk/#o_nas</li>
+        <li><em>Kalvária v Detve</em> [online]. [cit. 08.02.2021]. Dostupné na internete: https://www.detva.sk/?id_menu=85183</li>
+        <li><em>Úcta k Matke ustavičnej pomoci rastie a kvitne</em> [online]. [cit. 20.03.2021]. Dostupné na internete: https://redemptoristi.sk/ucta-k-matke-ustavicnej-pomoci-rastie-a-kvitne/</li>
+        <li><em>Zariadenie pre seniorov</em> [online]. [cit. 20.03.2021]. Dostupné na internete: https://www.dddetva.sk/sk</li>
     </x-web.page.information-sources>
 
     </x-web.page.section>
