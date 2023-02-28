@@ -3,10 +3,11 @@
     'delay' => 1,
     'url'   => null,
     'img'   => null,
+    'class' => 'col-sm-6 col-lg-4',
     'buttonText' => 'Dozvedieť sa viac',
 ])
 
-<div class="col-sm-6 col-lg-4 mx-auto">
+<div class="mx-auto {{ $class }}">
     <div class="blog_item_cover frombottom wow" data-wow-delay="{{ $delay*0.4 }}s">
         <div class="blog_thumb">
             {!! $img !!}
