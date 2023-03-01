@@ -4,20 +4,6 @@
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" class="static-page pad_b_50">
 
-    <x-web.page.subsection title="Kaplnka Sedembolestnej Panny Márie - Kalvária">
-        <x-web.page.text-segment animation="fromright">
-            <p>
-                Na starom (dolnom) cintoríne bol 19. júna 1703 položený základný kameň Kaplnky sv. Jozefa a 19. marca 1704 ju miestny farár Juraj Majnó požehnal. Starý cintorín stál na konci mestečka a v roku 1718 bol cintorín pri kaplnke ohradený múrom. Počas pôsobenia farára Jána Štrbu (1829 - 1862) bola kaplnka pristavením zväčšená na menší kostolík. Taktiež veža bola o jedno poschodie zvýšená a prekrytá meďou. Patronát nad kostolíkom na cintoríne mali urbarialisti, neskôr okolo roku 1900 obec. Pretože sa oň obec málo starala, bol poškodený, a preto zatvorený. V jeho interiéri sa nachádzal kríž a 3 kamenné sochy. Pre havarijný stav kostolíka v roku 1909 zakázal v ňom biskup Wolfgang Radnai konať bohoslužby. Na návrh farára Antona Kúdelku dovolil postaviť krížovú cestu a novú kaplnku na vrchu kalvárie, ktorá stojí dodnes. Zo skál rozobratého Kostola sv. Jozefa a zo zvyšných skál pri stavbe kalvárie bol cintorín čiastočne ohradený novým múrom.
-            </p>
-            <p>
-                Po Veľkej noci v roku 1910 sa začalo so stavbou kalvárie na mieste, kde pôvodne stáli tri kríže a miestny ľud to už kalváriou aj nazýval. Zásluhou šikovných murárov a tesárov zo Seliec bola od apríla do septembra krížová cesta hotová. Skaly nalámali farníci v kameňolome   v „Rohoch“ a priviezli na vozoch. Stavba Kalvárie bola financovaná zo základiny Kostola sv. Jozefa, základiny cintorína, milodarov obetavých farníkov. Kalváriu 17. septembra 1910 slávnostne požehnal kňaz Rádu sv. Františka, bývalý detviansky kaplán Mansuetus Prikaszky.
-            </p>
-            <p>
-                Kalváriu tvorí 14 zastavení krížovej cesty a Kaplnka Sedembolestnej Panny Márie. Zastavenia sú malé murované hranolové stavby s obdĺžnikovým pôdorysom, odstupňovaným soklom, zastrešené sedlovou strieškou. Presklené niky, ukončené lomeným oblúkom vypĺňajú štukové polychrómované reliéfy výjavov krížovej cesty. Päť zo štrnástich zastavení stojí pozdĺž chodníka, ktorý vedie cez cintorín. Ostatné zastavenia pokračujú serpentínovito zalesneným malým kopcom až na jeho vrchol, kde stojí kaplnka.
-            </p>
-        </x-web.page.text-segment>
-    </x-web.page.subsection>
-
     <x-web.page.subsection>
         <x-web.page.text-segment animation="fromleft">
             <p>
@@ -122,7 +108,6 @@
         <li><em>Encyklopédia ľudovej kultúry Slovenska 1.</em> Bratislava: Veda, 1995. ISBN 80-224-0234-6.</li>
         <li><em>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909.</em> Rukopis.</li>
         <li><em>Domov sociálnych služieb Detva stredisko DSS Piešť</em> [online]. [cit. 20.03.2021]. Dostupné na internete: http://www.dsspiestdetva.sk/#o_nas</li>
-        <li><em>Kalvária v Detve</em> [online]. [cit. 08.02.2021]. Dostupné na internete: https://www.detva.sk/?id_menu=85183</li>
         <li><em>Úcta k Matke ustavičnej pomoci rastie a kvitne</em> [online]. [cit. 20.03.2021]. Dostupné na internete: https://redemptoristi.sk/ucta-k-matke-ustavicnej-pomoci-rastie-a-kvitne/</li>
         <li><em>Zariadenie pre seniorov</em> [online]. [cit. 20.03.2021]. Dostupné na internete: https://www.dddetva.sk/sk</li>
     </x-web.page.information-sources>
