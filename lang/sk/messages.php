@@ -25,4 +25,5 @@ return [
 
     'duchovny-zivot' => 'Duchovný život',
     'o-nas' => 'O nás',
+    'vyznamne-osobnosti' => 'Významné osobnosti',
 ];
