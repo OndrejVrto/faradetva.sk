@@ -25,6 +25,8 @@
         </x-web.page.text-segment>
     </x-web.page.subsection>
 
+    <x-partials.video-embed urlVideo="https://youtu.be/1zc75jtwSDU" :config="['width' => 400]" class="ratio ratio-4x3"/>
+
     <x-web.page.subsection title="Vznik Detvy">
         <x-web.page.text-segment animation="fromleft">
             <p>
