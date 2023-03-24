@@ -72,7 +72,7 @@
         <x-web.page.information-sources title="Použitá literatúra a pramene:">
             <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva</em>. Diplomová práca, 2008.</li>
             <li>
-                <em class="me-1">Chudobienec dostane novú strechu<</em>
+                <em class="me-1">Chudobienec dostane novú strechu</em>
                 [online]. [cit. 13.12.2022].
                 <a  class="link-template"
                     target="_blank"

@@ -9,8 +9,8 @@
 
                 <x-partials.picture titleSlug="bud-004" side="left" dimensionSource="medium" columns="3"/>
 
-                <h6 class="text-church-template">* 14.9.1898 Nemecká (okr. Brezno)</h6>
-                <h6 class="text-church-template">† 23.6.1994 Báč (okr. Dunajská Streda)</h6>
+                <h6 class="text-church-template">* <span class="ps-1 pe-2">14. 9. 1898 </span>Nemecká (okr. Brezno)</h6>
+                <h6 class="text-church-template">† <span class="ps-1 pe-2">23. 6. 1994 </span>Báč (okr. Dunajská Streda)</h6>
 
                 <x-partials.picture titleSlug="bud-001" side="right" dimensionSource="medium" columns="2"/>
 
@@ -46,7 +46,7 @@
                 <x-partials.picture titleSlug="bud-002" side="right" dimensionSource="medium" columns="6"/>
 
                 <p>
-                    Od 1. septembra 1930 bol Búda vymenovaný za gymnaziálneho profesora na Biskupskom gymnáziu v Banskej Bystrici, pri ktorom v tom čase existoval aj malý seminár. V tých rokoch zložil predpísané rigorózne skúšky na Teologickej fakulte Karlovej univerzity v Prahe a po úspešnej obhajobe dizertačnej práce Dejiny miešaných manželstiev na Slovensku, bol dňa 17. marca 1933 v pražskom Karolíne slávnostne promovaný za doktora posvätnej teológie. Biskup Blaha ho následne vymenoval za suplenta biblického štúdia na Vysokej škole teologickej v Kňazskom seminári sv. Karola Boromejského v Banskej Bystrici.
+                    Od 1. septembra 1930 bol Búda vymenovaný za gymnaziálneho profesora na Biskupskom gymnáziu v Banskej Bystrici, pri ktorom v tom čase existoval aj malý seminár. V tých rokoch zložil predpísané rigorózne skúšky na Teologickej fakulte Karlovej univerzity v Prahe a po úspešnej obhajobe dizertačnej práce <em>Dejiny miešaných manželstiev na Slovensku</em>, bol dňa 17. marca 1933 v pražskom Karolíne slávnostne promovaný za doktora posvätnej teológie. Biskup Blaha ho následne vymenoval za suplenta biblického štúdia na Vysokej škole teologickej v Kňazskom seminári sv. Karola Boromejského v Banskej Bystrici.
                 </p>
                 <p>
                     1. septembra 1934 Jozef Búda abdikoval zo svojho úradu farára v Radvani a bol vymenovaný za riadneho profesora biblika. Opustil farnosť a presťahoval sa do profesorského bytu v kňazskom seminári. Naďalej vyučoval aj na gymnáziu v Banskej Bystrici. Od roku 1936 bol diecéznym cenzorom a od roku 1938 prosynodálnym sudcom. V roku 1936 vznikla Cyrilometodská bohoslovecká fakulta Univerzity Komenského v Bratislave. Dr. Búda sa v Bratislave stal suplentom pre biblické jazyky - gréčtinu a hebrejčinu. Súbežne prednášal ešte aj v banskobystrickom seminári, ale v roku 1937 sa už presťahoval do Bratislavy a od roku 1938 prednášal biblické jazyky ako docent.

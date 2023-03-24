@@ -8,6 +8,8 @@
                 <div class="col-md-6 col-xs-12">
                     <div class="ch_about_thumb fromleft wow">
                         {{-- <img src="images/about/about-thumb2.jpg" alt="" class="img-fluid"> --}}
+                <x-partials.picture-responsive titleSlug="sacr1-004-menu" class="img-fluid w-100"/>
+
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
@@ -58,27 +60,29 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="SECTION: Významné osobnosti"  row="true" class="ch_ministry_section pad_t_50">
+    {{-- <x-web.page.section name="SECTION: Významné osobnosti"  row="true" class="ch_ministry_section pad_t_50">
 
         <x-web.page.section-header header="Významné osobnosti"/>
 
         <x-partials.page-card routeStaticPages="
-            o-nas.historia.anton-prokop,
-            o-nas.historia.imrich-durica,
-            o-nas.historia.jozef-zavodsky,
-            o-nas.historia.karol-anton-medvecky,
-            o-nas.historia.jan-strban,
-            o-nas.historia.jozef-buda
+            o-nas.vyznamne-osobnosti.anton-prokop,
+            o-nas.vyznamne-osobnosti.imrich-durica,
+            o-nas.vyznamne-osobnosti.jozef-zavodsky,
+            o-nas.vyznamne-osobnosti.karol-anton-medvecky,
+            o-nas.vyznamne-osobnosti.jan-strban,
+            o-nas.vyznamne-osobnosti.jozef-buda
         "/>
 
-    </x-web.page.section>
+    </x-web.page.section> --}}
 
     <x-web.page.section row="true" name="SECTION: Ďalšie" class="pad_t_50 pad_b_80">
 
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="blog_item_cover frombottom wow">
                 <div class="blog_thumb">
-                                        {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
+                    {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
+                <x-partials.picture-responsive titleSlug="sacr1-004-menu" class="img-fluid w-100"/>
+
                     <!-- overlay -->
                     <div class="blog_overlay">
                         <a href="blog-single.html" class="link_icon"><i class="fa-solid fa-link"></i></a>
@@ -100,7 +104,9 @@
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="blog_item_cover frombottom wow">
                 <div class="blog_thumb">
-                                        {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
+                    {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
+                <x-partials.picture-responsive titleSlug="sacr1-004-menu" class="img-fluid w-100"/>
+
                     <!-- overlay -->
                     <div class="blog_overlay">
                         <a href="blog-single.html" class="link_icon"><i class="fa-solid fa-link"></i></a>
@@ -124,6 +130,8 @@
                 <div class="blog_thumb">
                                         {{-- <img src="images/blog/blog_1.jpg" alt="" class="w-100"> --}}
                     <!-- overlay -->
+                <x-partials.picture-responsive titleSlug="sacr1-004-menu" class="img-fluid w-100"/>
+
                     <div class="blog_overlay">
                         <a href="blog-single.html" class="link_icon"><i class="fa-solid fa-link"></i></a>
                     </div>

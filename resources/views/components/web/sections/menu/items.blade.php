@@ -9,7 +9,7 @@
     {{-- <a href="{{ secure_url('o-nas') }}">O nás</a> --}}
     <a href="#" class="link-submenu">O nás</a>
     <ul class="sub-menu">
-        {{-- <li>
+        <li>
             <a href="{{ secure_url('o-nas/historia') }}">História</a>
             <!-- Dejiny farnosti -->
             <!-- Farári v Detve -->
@@ -19,14 +19,7 @@
             <!-- Štatistiky od r. 2000 -->
             <!-- Chudobienec -->
             <!-- Vianoce -->
-            <!-- Významné osobnosti -->
-                <!-- Anton Prokop -->
-                <!-- Imrich Ďurica -->
-                <!-- Jozef Závodský -->
-                <!-- Karol Anton Medvecký -->
-                <!-- Mons. Ján Štrbáň -->
-                <!-- prof. Jozef Búda -->
-        </li> --}}
+        </li>
         <li>
             <a href="{{ secure_url('o-nas/patron-farnosti') }}">Patrón farnosti</a>
         </li>
@@ -38,7 +31,16 @@
             <!-- Prícestné sochy -->
             <!-- Detvianske kríže -->
         </li>
-        {{-- <li>
+        <li>
+            <a href="{{ secure_url('o-nas/vyznamne-osobnosti') }}">Významné osobnosti</a>
+            <!-- Anton Prokop -->
+            <!-- Imrich Ďurica -->
+            <!-- Jozef Závodský -->
+            <!-- Karol Anton Medvecký -->
+            <!-- Mons. Ján Štrbáň -->
+            <!-- prof. Jozef Búda -->
+        </li>
+        <li>
             <a href="{{ secure_url('o-nas/pastoracia') }}">Pastorácia</a>
             <!-- Farská rada -->
             <!-- Lektori + Rozpisy -->
@@ -48,8 +50,8 @@
             <!-- Organisti, speváci -->
             <!-- Spevokoly, dychovka -->
             <!-- Vyučovanie náboženstva -->
-        </li> --}}
-        {{-- <li>
+        </li>
+        <li>
             <a href="{{ secure_url('spolocenstva') }}">Spoločenstvá</a>
             <!-- Františkánsky svetský rád -->
             <!-- Ružencové bratstvo -->
@@ -63,7 +65,7 @@
             <!-- Modlitby matiek -->
             <!-- Bárka -->
             <!-- Služobníci Ježišovho Veľkň. Srdca -->
-        </li> --}}
+        </li>
     </ul>
 </li>
 <li>

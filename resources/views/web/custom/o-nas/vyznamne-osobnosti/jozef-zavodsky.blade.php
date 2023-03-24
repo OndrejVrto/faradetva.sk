@@ -9,8 +9,8 @@
 
                 <x-partials.picture titleSlug="zav-003" side="left" dimensionSource="medium" columns="2"/>
 
-                <h6 class="text-church-template">* 30.1.1927  Sučany (okr. Martin)</h6>
-                <h6 class="text-church-template">† 17.2.1993  Handlová (okr. Prievidza)</h6>
+                <h6 class="text-church-template">* <span class="ps-1 pe-2">30. 1. 1927 </span>Sučany (okr. Martin)</h6>
+                <h6 class="text-church-template">† <span class="ps-1 pe-2">17. 2. 1993 </span>Handlová (okr. Prievidza)</h6>
 
                 <p>
                     Jozef Závodský sa narodil 30. januára 1927 v Sučanoch, rodičom Andrejovi a Márii rod. Hromadovej. V rokoch 1933 - 1938 navštevoval ľudovú školu v Sučanoch. Prvú triedu gymnázia absolvoval v Martine, odtiaľ v roku 1939 prestúpil na katolícke gymnázium do Kláštora pod Znievom. V roku 1944 pri ústupe nemeckých vojsk naším územím boli Nemci konfrontovaní v Sučanoch činnosťou slovenských partizánov. Pretože tam partizáni postrieľali diplomatickú delegáciu prechádzajúcu z Rumunska do Berlína, nemeckí vojaci zadržali približne 200 miestnych mužov. Obvinených od 16 do 60 rokov, so spolupráce s partizánmi, odviedli do Vrútok a následne koncom septembra odvliekli do zajateckých táborov v Nemecku. Medzi obvinenými bol tiež Jozef Závodský, ktorý tak medzi zajatcami v tábore strávil deväť mesiacov. Po oslobodení Američanmi sa 30. júna 1945 vrátil domov a v nasledujúcom školskom roku dokončil v Kláštore pod Znievom stredoškolské štúdium. Po maturite v roku 1946 smerovali jeho ďalšie kroky do Kňazského seminára sv. Karola Boromejského v Banskej Bystrici.

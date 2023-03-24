@@ -6,8 +6,8 @@
 
     <x-web.page.subsection>
         <x-web.page.text-segment animation="fromright">
-            <h6 class="text-church-template">* 8.6.1875  Dolná Lehota (okr. Dolný Kubín)</h6>
-            <h6 class="text-church-template">† 11.12.1937  Bojnice (okr. Prievidza)</h6>
+            <h6 class="text-church-template">* <span class="ps-1 pe-2">8. 6. 1875 </span>Dolná Lehota (okr. Dolný Kubín)</h6>
+            <h6 class="text-church-template">† <span class="ps-1 pe-2">11. 12. 1937 </span>Bojnice (okr. Prievidza)</h6>
             <p>
                 Narodil sa v Dolnej Lehote, dnešnej súčasti Oravského Podzámku, 8. júna 1875. Pochádzal z niekdajšej slávnej zemianskej rodiny z Medvedzia, ktorej dejiny siahajú do 13. storočia, keď od kráľa Ľudovíta z Anjou získali šľachtické práva. Leska a vplyv rodiny však storočiami vybledol a v 19. storočí jej príslušníci skôr len spomínali na svojich slávnych predkov. Okrem mamy Zuzany sa o výchovu chlapca staral hlavne starý otec Andrej, niekdajší pisár a archivár Oravského panstva. Malý Karol tak vyrastal v Oravskom Podzámku, kde bol vychovávaný v národnom duchu a hrdosti k národu. Tá sa v ňom utvrdzovala aj prostredníctvom vychovávateľa Štefana Franka, ktorý sa ho snažil strážiť pred silnou maďarizáciou, s ktorou sa ako žiak stretával už v ľudovej škole v Oravskom Podzámku. Neskôr navštevoval kráľovské katolícke gymnázium v Trstenej. Po troch rokoch postúpil na vyššie gymnaziálne štúdiá k piaristom do Ružomberka, kde sa zoznámil s Fedorom Houdekom a celou jeho národne uvedomelou rodinou.
             </p>
