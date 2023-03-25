@@ -1,6 +1,6 @@
 {!! $picture['responsivePicture'] !!}
 
-<x-partials.picture-label
+{{-- <x-partials.picture-label
     class="img-article img-article-{{ $descriptionSide }} bg-transparent"
     for="picr-{{ $picture['img-slug'] }}"
 >
@@ -9,7 +9,7 @@
     @else
         {{ $picture['source_description'] }}
     @endif
-</x-partials.picture-label>
+</x-partials.picture-label> --}}
 
 {{-- <x-partials.source-sentence
     class="d-none d-print-none"
