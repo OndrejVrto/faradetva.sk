@@ -35,7 +35,7 @@
             delay=2
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="pro-008-menu" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="pro-001-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Nábožný mladík a horlivý vlastenec. Za aktívny odpor voči okupujúcej armáde maďarských boľševikov, bol nimi popravený obesením na konári lipy pred kostolom v Detve.
@@ -48,7 +48,7 @@
             delay=3
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="str-008-menu" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="str-001-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Pápežský komorník, dlhoročný detviansky farár, obľúbený dušpastier, bývalý františkán a publicista. S horlivou túžbou po svätosti sa angažoval aj v sociálnej a kultúrnej oblasti.
@@ -109,7 +109,7 @@
             delay=1
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="bud-005-menu" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="bud-007-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Univerzitný profesor, teológ, prekladateľ Starého zákona, trpiteľ za vieru. Ako kaplán v Detve sa stal prvým správcom novozriadenej farnosti v Hriňovej, o ktorej vznik sa sám pričinil.
@@ -122,7 +122,7 @@
             delay=2
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="dur-007-menu" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="dur-009-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Honorárny kanonik, pedagóg, publicista, trpiteľ za vieru. Pochádzal z chudobnej maloroľníckej rodiny. Počas gymnaziálnych štúdií sa jeho rodičia presťahovali z Detvy do Hodejova.
