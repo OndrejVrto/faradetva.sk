@@ -29,7 +29,7 @@
             <div class="blog_desc pt-2">
                 <h3 class="fs-4">
                     <a class="link-template" href="{{ $pageCard['url'] }}">
-                        {{ $pageCard['title'] }}
+                        {{ $pageCard['header'] }}
                     </a>
                 </h3>
                 <div class="content pb-2 text-justify">
