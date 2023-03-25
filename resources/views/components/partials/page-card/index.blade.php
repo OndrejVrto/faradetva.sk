@@ -13,7 +13,7 @@
                 />
 
                 <x-partials.picture-label
-                    class="img-article img-article-right bg-transparent"
+                    class="d-none img-article img-article-right bg-transparent"
                     for="picpk-{{ $pageCard['id'] }}"
                 >
                     {{ $pageCard['source_description-crop'] }}
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="blog_desc pt-3">
+            <div class="blog_desc pt-2">
                 <h3 class="fs-4">
                     <a class="link-template" href="{{ $pageCard['url'] }}">
                         {{ $pageCard['title'] }}
