@@ -22,7 +22,7 @@
 
         <a href="{{ $url }}" class="read_m_link mt-auto">
             {{ $buttonText }}
-            <i class="ms-1 fas fa-long-arrow-alt-right"></i>
+            <i class="ms-1 fas fa-long-arrow-alt-right" aria-hidden="true"></i>
         </a>
 
     </div>
