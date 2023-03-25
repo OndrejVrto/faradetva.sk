@@ -2,7 +2,7 @@
 
     {{-- Duchovný život / Sviatosti --}}
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" row="true" class="pad_t_30 pad_b_30">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" row="true" class="pad_b_50">
 
         <x-partials.card-article
             title="Krst"

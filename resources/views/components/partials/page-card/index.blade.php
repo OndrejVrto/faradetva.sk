@@ -34,7 +34,7 @@
                     </a>
                 </h3>
 
-                <div class="content pb-2 text-justify">
+                <div class="content pb-3 text-justify">
                     {{ $pageCard['teaser'] }}
                 </div>
 

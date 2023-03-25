@@ -1,5 +1,4 @@
 @props([
-    // 'class' => 'col col-lg-11 col-xl-9',
     'class' => 'col-12 col-md-6',
 ])
 <x-web.layout.master :pageData="$pageData">
@@ -7,18 +6,19 @@
     {{-- O Nás / Sakrálne objekty --}}
         <!-- Farský kostol -->
         <!-- Kláštorný kostol -->
-        <!-- Kalvária, kaplnky -->
+        <!-- Kalvária -->
+        <!-- Kaplnky -->
         <!-- Prícestné sochy -->
         <!-- Detvianske kríže -->
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART 1 -" class="" row>
+    <x-web.page.section name="PAGE: ({{ $pageData->title }})" class="pad_b_50" row>
 
         <x-partials.card-article
             title="Farský kostol"
             url="{{ secure_url('o-nas/sakralne-objekty/farsky-kostol-sv-frantiska-z-assisi-v-detve') }}"
             delay=1
             class="{{ $class }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="fk-001-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -32,7 +32,7 @@
             url="{{ secure_url('o-nas/sakralne-objekty/klastorny-kostol-karmel') }}"
             delay=2
             class="{{ $class }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="kk-002-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -46,7 +46,7 @@
             url="{{ secure_url('o-nas/sakralne-objekty/kalvaria') }}"
             delay=1
             class="{{ $class }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="kalv-015-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -60,7 +60,7 @@
             url="{{ secure_url('o-nas/sakralne-objekty/kaplnky') }}"
             delay=2
             class="{{ $class }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="kapl-005-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -74,7 +74,7 @@
             url="{{ secure_url('o-nas/sakralne-objekty/pricestne-sochy') }}"
             delay=1
             class="{{ $class }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="soch-016-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -88,7 +88,7 @@
             url="{{ secure_url('o-nas/sakralne-objekty/detvianske-krize') }}"
             delay=2
             class="{{ $class }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="dkriz-kronika-574-menu" class="img-fluid w-100"/>
             </x-slot:img>

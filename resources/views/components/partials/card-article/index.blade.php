@@ -7,8 +7,8 @@
     'buttonText' => 'Dozvedieť sa viac',
 ])
 
-<div class="mx-auto {{ $class }}">
-    <div class="blog_item_cover frombottom wow" data-wow-delay="{{ $delay*0.4 }}s">
+<div class="mx-auto py-3 {{ $class }}">
+    <div class="blog_item_cover frombottom wow h-100 my-0 d-flex flex-column" data-wow-delay="{{ $delay*0.4 }}s">
         <div class="blog_thumb">
             {!! $img !!}
             <!-- overlay -->
@@ -19,22 +19,20 @@
             </div>
             <!-- overlay -->
         </div>
-        <div class="blog_desc pt-3">
+        <div class="blog_desc h-100 d-flex flex-column px-3 py-2">
             <h3 class="fs-4">
                 <a class="link-template" href="{{ $url }}">
                     {{ $title }}
                 </a>
             </h3>
-            <div class="content pb-2 text-justify">
+            <div class="content pb-3 text-justify">
                 {{ $teaser }}
             </div>
 
-            <div class="d-flex align-items-end justify-content-between">
-                <a href="{{ $url }}" class="read_m_link">
-                    {{ $buttonText }}
-                    <i class="fa-solid fa-long-arrow-alt-right" aria-hidden="true"></i>
-                </a>
-            </div>
+            <a href="{{ $url }}" class="read_m_link mt-auto">
+                {{ $buttonText }}
+                <i class="fa-solid fa-long-arrow-alt-right" aria-hidden="true"></i>
+            </a>
         </div>
     </div>
 </div>

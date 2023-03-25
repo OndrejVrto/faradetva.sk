@@ -2,7 +2,7 @@
 
     {{-- O nás / Významné osobnosti --}}
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART 1 -" row="true" class="pad_t_30 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" row="true" class="pad_t_10 pad_b_50">
 
         {{-- <x-partials.page-card descriptionCrop=3 routeStaticPages="
             o-nas.vyznamne-osobnosti.karol-anton-medvecky,
@@ -57,7 +57,7 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART 2 -" row="true" class="ch_event_section bg-alt-gray pad_t_80">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" row="true" class="ch_event_section bg-alt-gray pad_t_80">
 
         <x-partials.card-event
             title="Štefan Vlk"
@@ -101,7 +101,7 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART 3 -" row="true" class="pad_t_80 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III -" row="true" class="pad_t_50 pad_b_50">
 
         <x-partials.card-article
             title="Jozef Búda"
