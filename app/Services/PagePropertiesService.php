@@ -69,9 +69,9 @@ final class PagePropertiesService {
     }
 
     private static function getImageData(StaticPage $page): RepresentingImageData {
-        $media = $page->picture[0];
+        $media = $page->picture[0] ?? null;
 
-        if (isset($media)) {
+        if (null !== $media) {
             return new RepresentingImageData(
                 url:        $media->getUrl('representing'),
                 urlThumb:   $media->getUrl('representing-thumb'),
