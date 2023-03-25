@@ -10,7 +10,8 @@
             o-nas.vyznamne-osobnosti.jozef-zavodsky,
             o-nas.vyznamne-osobnosti.karol-anton-medvecky,
             o-nas.vyznamne-osobnosti.jan-strban,
-            o-nas.vyznamne-osobnosti.jozef-buda
+            o-nas.vyznamne-osobnosti.jozef-buda,
+            o-nas.vyznamne-osobnosti.stefan-vlk
         "/>
 
     </x-web.page.section>
