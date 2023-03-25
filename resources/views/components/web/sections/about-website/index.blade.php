@@ -7,7 +7,7 @@
 
     <x-web.page.section-header header="Spoznaj našu farnosť" />
 
-    <x-partials.page-card countPages=3 />
+    <x-partials.page-card countPages=6 />
 
     <div class="d-flex justify-content-center pad_t_30">
         <a href="{{ secure_url('prehlad-vsetkych-stranok') }}" class="link-template fs-5">

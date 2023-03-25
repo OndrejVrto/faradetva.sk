@@ -13,6 +13,7 @@ class StatisticsGraph extends Component {
     public function __construct(
         public array|string|null $names = null
     ) {
+
         $listOfGraphs = prepareInput($names);
 
         if ($listOfGraphs) {
@@ -22,6 +23,17 @@ class StatisticsGraph extends Component {
                 key: 'CHART_'.$cacheName,
                 callback: fn (): array => Chart::query()
                     ->whereIn('slug', $listOfGraphs)
+                    ->where('active', true)
+                    ->with('data')
+                    ->get()
+                    ->map(fn ($chart) => $this->mapOutput($chart))
+                    ->toArray()
+            );
+        } else {
+            $this->graphs = Cache::rememberForever(
+                key: 'CHART_ALL',
+                callback: fn (): array => Chart::query()
+                    ->where('active', true)
                     ->with('data')
                     ->get()
                     ->map(fn ($chart) => $this->mapOutput($chart))
