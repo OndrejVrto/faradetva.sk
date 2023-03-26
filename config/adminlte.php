@@ -377,7 +377,7 @@ return [
                     'can'  => 'day-ideas.index',
                 ],
         [
-            'header' => 'Stránky',
+            'header' => 'Mamuálny obsah',
             'can'  => [
                 'static-pages.index',
                 'galleries.index',
