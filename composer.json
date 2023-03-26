@@ -25,6 +25,7 @@
         "cohensive/oembed": "^0.16.0",
         "composer/semver": "^3.3",
         "diglactic/laravel-breadcrumbs": "^8.0",
+        "gajus/dindent": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "haruncpi/laravel-user-activity": "^1.0",
         "intervention/image": "^2.7",
@@ -92,8 +93,7 @@
             "app/Overrides/toastr/Toastr.php",
             "app/Overrides/spatie/SiteSearch.php",
 
-			"app/Http/Helpers/BeautifyHtml.php",
-			"app/Http/Helpers/Functions.php"
+            "app/Utils/Helpers.php"
 		]
     },
     "autoload-dev": {
