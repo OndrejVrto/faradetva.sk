@@ -21,7 +21,7 @@ Project: Church
 			this.Testimonial_Slider();
 			this.Responsive_Menu();
 			this.Dropdown_Menu();
-			this.Skill_Counter();
+			// this.Skill_Counter();
 			this.Wow_Animation();
 		},
 		/*-------------- Church Functions definition ---------------------------------------------------
