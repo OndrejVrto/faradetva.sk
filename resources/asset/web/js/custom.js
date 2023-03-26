@@ -91,6 +91,7 @@ Project: Church
 					autoplaySpeed: 2000,
 					smartSpeed: 1500,
 					responsiveClass: true,
+                    stageClass: 'owl-stage d-flex align-items-stretch',
 					responsive: {
 						0: {
 							items: 1,

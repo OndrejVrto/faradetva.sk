@@ -7,30 +7,30 @@
 
     <div class="testimonial_crousel owl-carousel owl-theme">
         @foreach ($testimonials as $testimonial)
-            <div class="item">
-                <div class="testimonial_box">
+            <div class="item h-100">
+                <div class="testimonial_box h-100 d-flex flex-column">
                     <div class="wh_bar">
                         <h3>{{ $testimonial['name'] }}</h3>
                         <h4>{{ $testimonial['function'] }}</h4>
                         </div>
                     <div class="bottom_bar">
                         <img src="{{ $testimonial['img-url'] }}"
-                            class="img-fluid"
+                            class="img-fluid mb-3"
                             alt="Fotografia svedka viery: {{ $testimonial['name'] }}, {{ $testimonial['function'] }}"
                             width="120"
                             height="120"
                         />
                     </div>
-                    <div class="test_paragraph">
+                    <div class="test_paragraph text-justify">
                         {!! $testimonial['description'] !!}
-                        @if (! empty($testimonial['url']))
-                            <p>
-                                <a href="{{ $testimonial['url'] }}" class=" link-template-light">
-                                    Celé svedectvo
-                                </a>
-                            </p>
-                        @endif
                     </div>
+                    @if (! empty($testimonial['url']))
+                        <p class="mt-auto">
+                            <a href="{{ $testimonial['url'] }}" class="link-template-light">
+                                Celé svedectvo
+                            </a>
+                        </p>
+                    @endif
                 </div>
             </div>
         @endforeach
