@@ -1,50 +1,36 @@
-@foreach ($pageCards as $pageCard)
+@foreach ($pageCards as $key => $pageCard)
 
-    <div class="col-sm-6 col-lg-4 mx-auto py-3">
-        <div class="blog_item_cover frombottom wow h-100 my-0 d-flex flex-column">
-            <div class="blog_thumb">
+    <x-partials.card-article
+        :title="$pageCard['header']"
+        :url="$pageCard['url']"
+        :delay="$key % 3 + 1"
+        :buttonText="$buttonText"
+        >
 
-                <img src="{{ $pageCard['img-url'] }}"
-                    id="picpk-{{ $pageCard['id'] }}"
-                    class="w-100 img-fluid"
-                    alt="{{ $pageCard['source_description'] }}"
-                    width="{{ $pageCard['img-width'] }}"
-                    height="{{ $pageCard['img-height'] }}"
-                />
+        <x-slot:img>
+            <img src="{{ $pageCard['img-url'] }}"
+                id="picr-{{ $pageCard['id'] }}"
+                class="w-100 img-fluid"
+                alt="{{ $pageCard['source_description'] }}"
+                width="{{ $pageCard['img-width'] }}"
+                height="{{ $pageCard['img-height'] }}"
+            />
 
-                <x-partials.picture-label
-                    class="d-none img-article img-article-right bg-transparent"
-                    for="picpk-{{ $pageCard['id'] }}"
-                >
+            <x-partials.picture-label
+                class="d-none img-article img-article-right bg-transparent"
+                for="picr-{{ $pageCard['id'] }}"
+            >
+                @if ( ! is_null($pageCard['source_description-crop']))
                     {{ $pageCard['source_description-crop'] }}
-                </x-partials.picture-label>
+                @else
+                    {{ $pageCard['source_description'] }}
+                @endif
+            </x-partials.picture-label>
+        </x-slot:img>
 
-                <div class="blog_overlay">
-                    <a href="{{ $pageCard['url'] }}" class="link_icon">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="blog_desc h-100 d-flex flex-column px-3 py-2">
-
-                <h3 class="fs-4">
-                    <a class="link-template" href="{{ $pageCard['url'] }}">
-                        {{ $pageCard['header'] }}
-                    </a>
-                </h3>
-
-                <div class="content pb-3 text-justify">
-                    {{ $pageCard['teaser'] }}
-                </div>
-
-                <a href="{{ $pageCard['url'] }}" class="read_m_link mt-auto">
-                    {{ $buttonText }}
-                    <i class="fa-solid fa-long-arrow-alt-right" aria-hidden="true"></i>
-                </a>
-
-            </div>
-        </div>
-    </div>
+        <x-slot:teaser>
+            {{ $pageCard['teaser'] }}
+        </x-slot:teaser>
+    </x-partials.card-article>
 
 @endforeach
