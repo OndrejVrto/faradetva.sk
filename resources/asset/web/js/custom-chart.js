@@ -1,4 +1,4 @@
-function generateGraph(id, labelGraph, dataGraph, title, color, type, desc, name_x_axis, name_y_axis) {
+function generateGraph(id, labelGraph, dataGraph, title, color, type, desc, name_x_axis, name_y_axis, aspectRatio) {
     const data = {
         labels: labelGraph,
         datasets: [{
@@ -18,6 +18,7 @@ function generateGraph(id, labelGraph, dataGraph, title, color, type, desc, name
         data,
         options: {
             responsive: true,
+            aspectRatio: aspectRatio,
             plugins: {
                 title: {
                     display: false,
