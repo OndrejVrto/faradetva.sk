@@ -14,6 +14,7 @@ class PictureResponsive extends Component {
 
     public function __construct(
         string $titleSlug,
+        public bool $description = false,
         public string|null $dimensionSource = 'full',
         public string|null $descriptionSide = 'right',
         public int|null $descriptionCrop = null,

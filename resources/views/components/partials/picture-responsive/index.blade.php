@@ -1,7 +1,10 @@
 {!! $picture['responsivePicture'] !!}
 
 <x-partials.picture-label
-    class="d-none img-article img-article-{{ $descriptionSide }} bg-transparent"
+    @class([
+        'd-none' => $description,
+        'img-article img-article-{{ $descriptionSide }} bg-transparent',
+    ])
     for="picr-{{ $picture['img-slug'] }}"
 >
     @if (!is_null($descriptionCrop))
@@ -11,9 +14,9 @@
     @endif
 </x-partials.picture-label>
 
-{{-- <x-partials.source-sentence
+<x-partials.source-sentence
     class="d-none d-print-none"
     :dimensionSource="$dimensionSource"
     :sourceArray="$picture['sourceArr']"
     for="picr-{{ $picture['img-slug'] }}"
-/> --}}
+/>
