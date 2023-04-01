@@ -2,6 +2,7 @@
 
 <x-partials.picture-label
     @class([
+        'd-none',  // Todo: skrývanie popisu na prepínač
         'd-none' => $description,
         'img-article img-article-{{ $descriptionSide }} bg-transparent',
     ])

@@ -1,4 +1,4 @@
-<div class="row mb-5">
+<div class="row mb-3">
 
     <div class="col-12 col-lg-4 order-1 order-lg-0 wow fromleft" data-wow-delay="{{ $delay*0.4 }}s">
         {{ $img }}
