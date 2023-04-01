@@ -2,10 +2,11 @@
 
     {{-- Kapláni v Detve --}}
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }})" class="static-page pad_b_50">
-
+    {{--   description="<br><br>" Zmaž BR v tomto riadku ak budeš potrebovať zmeniť zalomenie --}}
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I1 -" class="static-page pad_b_50">
         <div class="container text-center">
             <ul class="list-unstyled card-columns">
+
                 <x-partials.columns-list years="1898 - 1899" name="Karol František Majthán"/>
                 <x-partials.columns-list years="1898 - 1902" name="František Selecký"/>
                 <x-partials.columns-list years="1898 - 1899" name="Ján Uhrin"/>
@@ -39,7 +40,7 @@
                 <x-partials.columns-list years="1913 - 1914" name="Július Felix"/>
                 <x-partials.columns-list years="1914 - 1915" name="Vincent Puskailer" description="druhýkrát"/>
                 <x-partials.columns-list years="1914 - 1915" name="Jozef Janči"/>
-                <x-partials.columns-list years="1915 - 1916" name="Vavrinec Černy"/>
+                <x-partials.columns-list years="1915 - 1916" name="Vavrinec Černy"  description="<br>"/>
                 <x-partials.columns-list years="1915 - 1916" name="Štefan Ďurkovič"/>
                 <x-partials.columns-list years="1915 - 1918" name="Emil Dlhý"/>
                 <x-partials.columns-list years="1916 - 1918" name="Anton Šalát"/>
@@ -53,10 +54,21 @@
                 <x-partials.columns-list years="1920 - 1922" name="Alexander Vajcík" description="druhýkrát"/>
                 <x-partials.columns-list years="1921 - 1923" name="Vincent Tomeček"/>
                 <x-partials.columns-list years="1922 - 1924" name="Jozef Petruch"/>
-                <x-partials.columns-list years="1923"        name="Jozef Búda" description="<br><br>"/>    {{--  Zmaž BR v tomto riadku ak budeš potrebovať zmeniť zalomenie --}}
+                <x-partials.columns-list years="1923"        name="Jozef Búda"/>
                 <x-partials.columns-list years="1924 - 1926" name="Jozef Bundzel"/>
                 <x-partials.columns-list years="1925 - 1926" name="Peter Petic"/>
                 <x-partials.columns-list years="1926 - 1927" name="Jozef Búda" description="druhýkrát"/>
+
+            </ul>
+        </div>
+    </x-web.page.section>
+
+    <x-web.sections.background-picture titleSlug="kronika-020"/>
+
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
+        <div class="container text-center">
+            <ul class="list-unstyled card-columns">
+
                 <x-partials.columns-list years="1926 - 1928" name="Jakub Šefčík"/>
                 <x-partials.columns-list years="1929"        name="Anton Veselovský"/>
                 <x-partials.columns-list years="1929 - 1930" name="Anton Kmeť"/>
@@ -105,6 +117,17 @@
                 <x-partials.columns-list years="1966 - 1967" name="Ambróz Kubiš"/>
                 <x-partials.columns-list years="1966 - 1967" name="Jozef Laca"/>
                 <x-partials.columns-list years="1967 - 1969" name="Vladimír Macinka"/>
+
+            </ul>
+        </div>
+    </x-web.page.section>
+
+    <x-web.sections.background-picture titleSlug="kronika-697"/>
+
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III -" class="static-page pad_t_50 pad_b_50">
+        <div class="container text-center">
+            <ul class="list-unstyled card-columns">
+
                 <x-partials.columns-list years="1967 - 1973" name="Viktor Koštialik"/>
                 <x-partials.columns-list years="1969 - 1970" name="Imrich Vážan"/>
                 <x-partials.columns-list years="1970 - 1972" name="Ján Špiriak"/>
@@ -153,6 +176,7 @@
                 <x-partials.columns-list years="2017 - 2020" name="Juraj Ondruš"/>
                 <x-partials.columns-list years="2019 -"      name="Pavol Prieboj" description="výp. duchovný"/>
                 <x-partials.columns-list years="2020 -"      name="Marián Juhaniak"/>
+
             </ul>
         </div>
 
