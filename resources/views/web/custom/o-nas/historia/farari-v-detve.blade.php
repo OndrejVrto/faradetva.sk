@@ -2,54 +2,187 @@
 
     {{-- Farári v Detve --}}
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }})" class="static-page pad_b_50">
 
-    <x-web.page.subsection >
-        <x-web.page.text-segment animation="fromright">
-            <div class="ps-5 ps-md-0 col-lg-6 col-xl-5 m-auto">
-                <dl class="row">
-                    <dt class="col-sm-3">1644 - 1647</dt>    <dd class="col-sm-9">Michal Luczicz SJ</dd>
-                    <dt class="col-sm-3">1647 - 1656</dt>    <dd class="col-sm-9">Ján Gersich</dd>
-                    <dt class="col-sm-3">1656 - 1657</dt>    <dd class="col-sm-9">Štefan Kopcsányi</dd>
-                    <dt class="col-sm-3">1657 - 1681</dt>    <dd class="col-sm-9">Juraj Kolossy</dd>
-                    <dt class="col-sm-3">1681 - 1684</dt>    <dd class="col-sm-9">Juraj Lelkes</dd>
-                    <dt class="col-sm-3">1684 - 1688</dt>    <dd class="col-sm-9">Ján Kolossy</dd>
-                    <dt class="col-sm-3">1688 - 1694</dt>    <dd class="col-sm-9">Ján Szerdahelyi</dd>
-                    <dt class="col-sm-3">1694 - 1697</dt>    <dd class="col-sm-9">Adam Györy</dd>
-                    <dt class="col-sm-3">1698</dt>           <dd class="col-sm-9">Štefan Rankay</dd>
-                    <dt class="col-sm-3">1698 - 1723</dt>    <dd class="col-sm-9">Juraj Majnó</dd>
-                    <dt class="col-sm-3">1723 - 1748</dt>    <dd class="col-sm-9">Jozef Szentkereszty</dd>
-                    <dt class="col-sm-3">1748</dt>           <dd class="col-sm-9">Imrich Huszár</dd>
-                    <dt class="col-sm-3">1749 - 1759</dt>    <dd class="col-sm-9">Martin Jonász</dd>
-                    <dt class="col-sm-3">1759 - 1774</dt>    <dd class="col-sm-9">Imrich Mednyánszky</dd>
-                    <dt class="col-sm-3">1774 - 1784</dt>    <dd class="col-sm-9">Anton Okolitsányi</dd>
-                    <dt class="col-sm-3">1784 - 1789</dt>    <dd class="col-sm-9">František Xavér Demeter</dd>
-                    <dt class="col-sm-3">1790</dt>           <dd class="col-sm-9">Juraj Petyko - dočasne farský administrátor</dd>
-                    <dt class="col-sm-3">1790 - 1793</dt>    <dd class="col-sm-9">Juraj Spaczinsky</dd>
-                    <dt class="col-sm-3">1793 - 1810</dt>    <dd class="col-sm-9">Ján Dlholuczký</dd>
-                    <dt class="col-sm-3">1811 - 1823</dt>    <dd class="col-sm-9">Jozef Móczay</dd>
-                    <dt class="col-sm-3">1823 - 1826</dt>    <dd class="col-sm-9">Jozef Dvorszky - farský administrátor</dd>
-                    <dt class="col-sm-3">1826 - 1829</dt>    <dd class="col-sm-9">Štefan Tholt - farský administrátor</dd>
-                    <dt class="col-sm-3">1829 - 1862</dt>    <dd class="col-sm-9">Ján Štrba</dd>
-                    <dt class="col-sm-3">1862 - 1864</dt>    <dd class="col-sm-9">Ján Čapek - farský administrátor</dd>
-                    <dt class="col-sm-3">1864 - 1888</dt>    <dd class="col-sm-9">Jozef Troszt</dd>
-                    <dt class="col-sm-3">1888</dt>           <dd class="col-sm-9">Ján Matyaszovicz - dočasne farský administrátor</dd>
-                    <dt class="col-sm-3">1888 - 1907</dt>    <dd class="col-sm-9">Štefan Pitrof</dd>
-                    <dt class="col-sm-3">1907 - 1909</dt>    <dd class="col-sm-9">Ján Brezina - farský administrátor</dd>
-                    <dt class="col-sm-3">1909 - 1921</dt>    <dd class="col-sm-9">Anton Kúdelka</dd>
-                    <dt class="col-sm-3">1921 - 1952</dt>    <dd class="col-sm-9">Ján Štrbáň</dd>
-                    <dt class="col-sm-3">1953 - 1954</dt>    <dd class="col-sm-9">Ladislav Hromádka</dd>
-                    <dt class="col-sm-3">1954 - 1961</dt>    <dd class="col-sm-9">Ladislav Schrott</dd>
-                    <dt class="col-sm-3">1961 - 1980</dt>    <dd class="col-sm-9">Martin Láclavík</dd>
-                    <dt class="col-sm-3">1980 - 1993</dt>    <dd class="col-sm-9">Jozef Závodský</dd>
-                    <dt class="col-sm-3">1993</dt>           <dd class="col-sm-9">Pavol Párničan - dočasne farský administrátor</dd>
-                    <dt class="col-sm-3">1993 - 1995</dt>    <dd class="col-sm-9">Pavol Zemko</dd>
-                    <dt class="col-sm-3">1995 - 2002</dt>    <dd class="col-sm-9">Roman Furek</dd>
-                    <dt class="col-sm-3">2002 -</dt>         <dd class="col-sm-9">Ľuboš Sabol</dd>
-                </dl>
-            </div>
-        </x-web.page.text-segment>
-    </x-web.page.subsection>
+        {{-- <x-partials.columns-list name="Ignác Lucký" years="1902 - 1904" description="farský administrátor <br>v neprítomnosti farára"/> --}}
+
+        <div class="container text-center">
+            <ul class="list-unstyled card-columns">
+
+                <li>
+                    <dt class="text-church-secondary fs-6">1644 - 1647</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Michal Lucsics SJ</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1647 - 1656</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Gersich</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1656 - 1657</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Štefan Kopcsányi</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1657 - 1681</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Juraj Kolossy</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1681 - 1684</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Juraj Lelkes</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1684 - 1688</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Kolossy</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1688 - 1694</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Szerdahelyi</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1694 - 1697</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Adam Györy</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1698</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Štefan Rankay</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1698 - 1723</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Juraj Majnó</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1723 - 1748</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Jozef Szentkereszty</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1748</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Imrich Huszár</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1749 - 1759</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Martin Jonász</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1759 - 1774</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Imrich Mednyánszky</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1774 - 1784</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Anton Okolitsányi</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1784 - 1789</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">František Xavér Demeter</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1790</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Juraj Petyko</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1790 - 1793</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Juraj Spaczinsky</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1793 - 1810</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Dlholuczký</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1811 - 1823</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Jozef Móczay</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6"><em>1826 - 1827</em></dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Štefan Tholt</span>
+                        <br><em>farský administrátor <br>v neprítomnosti farára</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6"><em>1827 - 1828</em></dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Jozef Dvorszky</span>
+                        <br><em>farský administrátor <br>v neprítomnosti farára</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1829 - 1862</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Strba</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1862 - 1863</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Nepomucký Csapek</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1863 - 1864</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Štefan Csutkay</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1864 - 1888</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Jozef Troszt</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1888</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Matyaszovicz</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1888 - 1907</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Štefan Pitrof</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6"><em>1902 - 1904</em></dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ignác Lucký</span>
+                        <br><em>farský administrátor <br>v neprítomnosti farára</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1907 - 1909</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Brezina</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1909 - 1921</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Anton Kúdelka</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1921 - 1952</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ján Štrbáň</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1953 - 1954</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ladislav Hromádka</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1954 - 1961</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ladislav Schrott</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1961 - 1980</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Martin Láclavík</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1980 - 1993</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Jozef Závodský</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1993</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Pavol Párničan</span>
+                        <br><em>farský administrátor</em></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1993 - 1995</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Pavol Zemko</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">1995 - 2002</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Roman Furek</span></dd>
+                </li>
+                <li>
+                    <dt class="text-church-secondary fs-6">2002 -</dt>
+                    <dd class="mb-4"><span class="fw-bolder fs-5">Ľuboš Sabol</span></dd>
+                </li>
+            </ul>
+        </div>
 
     </x-web.page.section>
 </x-web.layout.master>
