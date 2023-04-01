@@ -143,7 +143,7 @@
                 ]"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="poch-011" class="img-fluid" description="false"/>
+                <x-partials.picture-responsive titleSlug="matrika-csapek" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
                 Pochovaný 26.10.1863 na	cintoríne v Detva - nezachované miesto.
@@ -167,7 +167,7 @@
                 ]"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="poch-011" class="img-fluid" description="false"/>
+                <x-partials.picture-responsive titleSlug="matrika-spacsinszki" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
                 Pochovaný 07.01.1793 na cintoríne v Detve - nezachované miesto.
@@ -190,7 +190,7 @@
                 ]"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="poch-011" class="img-fluid" description="false"/>
+                <x-partials.picture-responsive titleSlug="matrika-mednanszky" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
                 Pochovaný 03.02.1774 na cintoríne - Kaplnka sv. Jozefa (nezachované).
@@ -214,7 +214,7 @@
                 ]"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="poch-011" class="img-fluid" description="false"/>
+                <x-partials.picture-responsive titleSlug="matrika-jonasz" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
                 Pochovaný 08.12.1758 na cintoríne v Detve - nezachované miesto.
@@ -237,7 +237,7 @@
                 ]"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="poch-011" class="img-fluid" description="false"/>
+                <x-partials.picture-responsive titleSlug="huszar-matrika" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
                 Pochovaný 23.12.1748 na cintoríne  v Detve - nezachované miesto.
@@ -261,12 +261,26 @@
                 ]"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="poch-011" class="img-fluid" description="false"/>
+                <x-partials.picture-responsive titleSlug="matrika-szentkereszty" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
                 Pochovaný 15.04.1748 na cintoríne v Detve - nezachované miesto.
             </x-slot:note>
         </x-partials.biography>
+
+        <x-web.page.information-sources title="Použité pramene:" class="mb-4">
+            <li>Diecézny archív Banská Bystrica, fond Schematizmy.</li>
+            <li>Diecézny archív Banská Bystrica, fond Zosnulí kňazi.</li>
+            <li>Farský archív Detva, fond Matriky zomrelých Farnosti Detva.</li>
+            <li>
+                Matriky zomrelých Farnosti Detva. [online].
+                <a class="link-template"
+                    href="https://www.familysearch.org">
+                    Dostupné na internete
+                </a>
+            </li>
+            <li>ZAREVÚCKY, Anton. <em>Katalóg zosnulých kňazov Banskobystrickej diecézy od jej založenia r. 1776 do r. 1986.</em> Strojopis, 1987.</li>
+        </x-web.page.information-sources>
 
     </x-web.page.section>
 </x-web.layout.master>

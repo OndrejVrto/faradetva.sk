@@ -10,7 +10,7 @@
             url="{{ secure_url('o-nas/historia/dejiny-farnosti-detva') }}"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr6-003" class="img-fluid w-100" descriptionSide="left"/>
+                <x-partials.picture-responsive titleSlug="muzeum-040-menu" class="img-fluid w-100" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Podpoľanie je oblasť situovaná na južných a juhovýchodných svahoch najvyššieho sopečného pohoria na Slovensku - Poľany, územie na rozhraní medzi Slovenským rudohorím a Slovenským stredohorím. Roztratené osídlenie po svahoch nečinného vulkánu predstavuje špecifiká, ktoré výrazne ovplyvňovali život miestnych obyvateľov. Táto rozsiahla časť Zvolenskej kotliny dostala svoj rázovitý charakter vďaka kopaničiarskej kolonizácii 17. storočia.
@@ -78,7 +78,7 @@
             side="left"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr4-001-menu" descriptionSide="left"/>
+                <x-partials.picture-responsive titleSlug="chud-039-menu" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Katolícka cirkev v Detve mala výdavky nielen na kostol a faru, ale aj na sociálne ustanovizne, ktoré sa nachádzali v jej správe. Karol Anton Medvecký ich nazýva „ustanovizne kresťanskej lásky“. Medzi ne patril „špitál“, t. j. cirkevný chudobinec, resp. starobinec a o čosi neskôr postavený sirotinec. Farnosť v Detve plnila vďaka miestnemu chudobincu aj zdravotnícko-charitatívnu funkciu. Charitatívne zariadenie poskytovalo strechu nad hlavou a stravu pre najbiednejších v okolí už od prvej polovice 18. storočia.
@@ -94,7 +94,7 @@
             side="right"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr5-001-menu"/>
+                <x-partials.picture-responsive titleSlug="vian-035-menu"/>
             </x-slot:img>
             <x-slot:teaser>
                 Polnočnej svätej omše sa každoročne v Detve zúčastňuje množstvo veriacich nielen z detvianskej farnosti, ale aj zo širokého okolia. Spev počas polnočnej omše znie mohutne, v niektorých častiach svätej omše kostol doslova buráca a ľudia sa tešia z každej piesne. Vianočná polnočná svätá omša v Detve sa formovala na začiatku 20. storočia. Popretkávaná ľudovými koledami sa traduje už niekoľko desiatok rokov. Polnočná svätá omša v Detve je okrem duchovného aj umeleckým zážitkom pre milovníkov ľudovej kultúry.
@@ -110,7 +110,7 @@
             side="left"
             >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr4-001-menu" descriptionSide="left"/>
+                <x-partials.picture-responsive titleSlug="grafy-menu" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
                 Za najstarší druh štatistiky možno považovať sčítanie ľudu, ktoré má na našom území pôvod v stredoveku. Prvé moderné sčítanie ľudu v Uhorsku bolo v roku 1869. Skôr než boli v roku 1895 zavedené štátne matriky vedené na matričných úradoch, boli oficiálnymi, resp. úradnými matrikami cirkevné matriky. To čo platilo v minulosti, platí v podstate aj dnes, matriky sú úradné knihy zápisov o narodeniach, sobášoch a úmrtiach. Okrem týchto rímskokatolícke farnosti evidujú taktiež matriky birmovaných a prvoprijímajúcich.
