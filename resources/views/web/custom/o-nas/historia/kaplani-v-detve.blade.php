@@ -2,150 +2,159 @@
 
     {{-- Kapláni v Detve --}}
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }})" class="static-page pad_b_50">
 
-    <x-web.page.subsection >
-        <x-web.page.text-segment animation="fromright">
-
-            <div class="ps-5 ps-md-0 col-lg-6 col-xl-5 m-auto">
-                <dl class="row">
-                    <dt class="col-sm-3">1898 - 1899</dt>    <dd class="col-sm-9">Karol František Majthán</dd>
-                    <dt class="col-sm-3">1898 - 1902</dt>    <dd class="col-sm-9">František Selecký</dd>
-                    <dt class="col-sm-3">1898 - 1899</dt>    <dd class="col-sm-9">Ján Uhrin</dd>
-                    <dt class="col-sm-3">1899 - 1900</dt>    <dd class="col-sm-9">Ján Murgaš</dd>
-                    <dt class="col-sm-3">1899 - 1901</dt>    <dd class="col-sm-9">Karol Anton Medvecký</dd>
-                    <dt class="col-sm-3">1901 - 1902</dt>    <dd class="col-sm-9">Ignác Lucký - druhýkrát</dd>
-                    <dt class="col-sm-3">1902 - 1904</dt>    <dd class="col-sm-9">Jozef Formánek</dd>
-                    <dt class="col-sm-3">1902 - 1903</dt>    <dd class="col-sm-9">Karol Burka</dd>
-                    <dt class="col-sm-3">1903       </dt>    <dd class="col-sm-9">Silvester Jung</dd>
-                    <dt class="col-sm-3">1904 - 1905</dt>    <dd class="col-sm-9">Ján Uhrin - druhýkrát</dd>
-                    <dt class="col-sm-3">1904       </dt>    <dd class="col-sm-9">Silvester Jung - druhýkrát</dd>
-                    <dt class="col-sm-3">1904 - 1906</dt>    <dd class="col-sm-9">Eduard Majerský</dd>
-                    <dt class="col-sm-3">1905 - 1906</dt>    <dd class="col-sm-9">Gejza Kossányi</dd>
-                    <dt class="col-sm-3">1906 - 1907</dt>    <dd class="col-sm-9">Ignác Ficzel</dd>
-                    <dt class="col-sm-3">1906 - 1907</dt>    <dd class="col-sm-9">Ján Záhora</dd>
-                    <dt class="col-sm-3">1907 - 1909</dt>    <dd class="col-sm-9">Ján Kuchárik</dd>
-                    <dt class="col-sm-3">1907 - 1908</dt>    <dd class="col-sm-9">Ján Kalina</dd>
-                    <dt class="col-sm-3">1909 - 1910</dt>    <dd class="col-sm-9">František Šimoni</dd>
-                    <dt class="col-sm-3">1910 - 1911</dt>    <dd class="col-sm-9">Augustín Skalák</dd>
-                    <dt class="col-sm-3">1910 - 1911</dt>    <dd class="col-sm-9">Jozef Jekkel</dd>
-                    <dt class="col-sm-3">1911       </dt>    <dd class="col-sm-9">Štefan Čerei</dd>
-                    <dt class="col-sm-3">1911 - 1913</dt>    <dd class="col-sm-9">František Horáček</dd>
-                    <dt class="col-sm-3">1911 - 1913</dt>    <dd class="col-sm-9">Jozef Švehlík</dd>
-                    <dt class="col-sm-3">1912 - 1913</dt>    <dd class="col-sm-9">Ján Baránik</dd>
-                    <dt class="col-sm-3">1913       </dt>    <dd class="col-sm-9">Vincent Puskailer</dd>
-                    <dt class="col-sm-3">1913 - 1914</dt>    <dd class="col-sm-9">Július Felix</dd>
-                    <dt class="col-sm-3">1913 - 1914</dt>    <dd class="col-sm-9">Rudolf Málik</dd>
-                    <dt class="col-sm-3">1913 - 1915</dt>    <dd class="col-sm-9">Koloman Senček</dd>
-                    <dt class="col-sm-3">1914 - 1915</dt>    <dd class="col-sm-9">Vincent Puskailer - druhýkrát</dd>
-                    <dt class="col-sm-3">1915 - 1916</dt>    <dd class="col-sm-9">Vavrinec Černy</dd>
-                    <dt class="col-sm-3">1915 - 1916</dt>    <dd class="col-sm-9">Štefan Ďurkovič</dd>
-                    <dt class="col-sm-3">1916 - 1918</dt>    <dd class="col-sm-9">Anton Šalát</dd>
-                    <dt class="col-sm-3">1917 - 1919</dt>    <dd class="col-sm-9">Ján Ferjanec</dd>
-                    <dt class="col-sm-3">1918 - 1919</dt>    <dd class="col-sm-9">Peter Briška</dd>
-                    <dt class="col-sm-3">1918 - 1919</dt>    <dd class="col-sm-9">Alexander Vajcík</dd>
-                    <dt class="col-sm-3">1918 - 1920</dt>    <dd class="col-sm-9">František Horáček - druhýkrát</dd>
-                    <dt class="col-sm-3">1918 - 1921</dt>    <dd class="col-sm-9">Lukáš Petráš</dd>
-                    <dt class="col-sm-3">1919 - 1920</dt>    <dd class="col-sm-9">Emil Dlhý</dd>
-                    <dt class="col-sm-3">1920 - 1922</dt>    <dd class="col-sm-9">Alexander Vajcík - druhýkrát</dd>
-                    <dt class="col-sm-3">1921 - 1923</dt>    <dd class="col-sm-9">Vincent Tomeček</dd>
-                    <dt class="col-sm-3">1922 - 1924</dt>    <dd class="col-sm-9">Jozef Petruch</dd>
-                    <dt class="col-sm-3">1923       </dt>    <dd class="col-sm-9">Jozef Búda</dd>
-                    <dt class="col-sm-3">1924 - 1926</dt>    <dd class="col-sm-9">Jozef Bundzel</dd>
-                    <dt class="col-sm-3">1925 - 1926</dt>    <dd class="col-sm-9">Peter Petic</dd>
-                    <dt class="col-sm-3">1926 - 1927</dt>    <dd class="col-sm-9">Jozef Búda - druhýkrát</dd>
-                    <dt class="col-sm-3">1926 - 1928</dt>    <dd class="col-sm-9">Jakub Šefčík</dd>
-                    <dt class="col-sm-3">1929       </dt>    <dd class="col-sm-9">Anton Veselovský</dd>
-                    <dt class="col-sm-3">1929 - 1930</dt>    <dd class="col-sm-9">Anton Kmeť</dd>
-                    <dt class="col-sm-3">1930 - 1933</dt>    <dd class="col-sm-9">Anzelm Kapitán</dd>
-                    <dt class="col-sm-3">1930       </dt>    <dd class="col-sm-9">Pavol Majerčák</dd>
-                    <dt class="col-sm-3">1933       </dt>    <dd class="col-sm-9">Rudolf Lehotský</dd>
-                    <dt class="col-sm-3">1935       </dt>    <dd class="col-sm-9">Matej Zaťko</dd>
-                    <dt class="col-sm-3">1935 - 1936</dt>    <dd class="col-sm-9">Michal Minárik</dd>
-                    <dt class="col-sm-3">1936 - 1937</dt>    <dd class="col-sm-9">Emil Ondrík</dd>
-                    <dt class="col-sm-3">1937       </dt>    <dd class="col-sm-9">Ľudovít Bobrovský</dd>
-                    <dt class="col-sm-3">1937 - 1938</dt>    <dd class="col-sm-9">Michal Hukel</dd>
-                    <dt class="col-sm-3">1937 - 1938</dt>    <dd class="col-sm-9">Jozef Kliman</dd>
-                    <dt class="col-sm-3">1937 - 1939</dt>    <dd class="col-sm-9">Jozef Noga</dd>
-                    <dt class="col-sm-3">1938 - 1940</dt>    <dd class="col-sm-9">Pavol Lihotský</dd>
-                    <dt class="col-sm-3">1940 - 1941</dt>    <dd class="col-sm-9">Emil Ondrík - druhýkrát</dd>
-                    <dt class="col-sm-3">1941 - 1943</dt>    <dd class="col-sm-9">Emil Šišan</dd>
-                    <dt class="col-sm-3">1941 - 1944</dt>    <dd class="col-sm-9">Jozef Hrmo</dd>
-                    <dt class="col-sm-3">1943 - 1945</dt>    <dd class="col-sm-9">Anton Vačko</dd>
-                    <dt class="col-sm-3">1944 - 1945</dt>    <dd class="col-sm-9">Vojtech Zjara</dd>
-                    <dt class="col-sm-3">1945 - 1946</dt>    <dd class="col-sm-9">Imrich Mokroš</dd>
-                    <dt class="col-sm-3">1945 - 1947</dt>    <dd class="col-sm-9">Jozef Pekár</dd>
-                    <dt class="col-sm-3">1946 - 1948</dt>    <dd class="col-sm-9">Vincent Wahlandt</dd>
-                    <dt class="col-sm-3">1948       </dt>    <dd class="col-sm-9">Jozef Čeman</dd>
-                    <dt class="col-sm-3">1948 - 1949</dt>    <dd class="col-sm-9">Ladislav Hromádka</dd>
-                    <dt class="col-sm-3">1948 - 1951</dt>    <dd class="col-sm-9">Miroslav Marek</dd>
-                    <dt class="col-sm-3">1949 - 1953</dt>    <dd class="col-sm-9">Stanislav Majer</dd>
-                    <dt class="col-sm-3">1951 - 1953</dt>    <dd class="col-sm-9">Stanislav Galbavý</dd>
-                    <dt class="col-sm-3">1952 - 1953</dt>    <dd class="col-sm-9">Ľudovít Šimončík</dd>
-                    <dt class="col-sm-3">1954 - 1955</dt>    <dd class="col-sm-9">František Očenáš</dd>
-                    <dt class="col-sm-3">1954 - 1957</dt>    <dd class="col-sm-9">Jozef Čeman - druhýkrát</dd>
-                    <dt class="col-sm-3">1955 - 1957</dt>    <dd class="col-sm-9">Jozef Chmelo</dd>
-                    <dt class="col-sm-3">1957 - 1958</dt>    <dd class="col-sm-9">František Broniš</dd>
-                    <dt class="col-sm-3">1959 - 1960</dt>    <dd class="col-sm-9">Ignác Lenhardt</dd>
-                    <dt class="col-sm-3">1960 - 1962</dt>    <dd class="col-sm-9">Martin Čabák</dd>
-                    <dt class="col-sm-3">1962 - 1965</dt>    <dd class="col-sm-9">Jozef Macko</dd>
-                    <dt class="col-sm-3">1963       </dt>    <dd class="col-sm-9">Jaroslav Pecha</dd>
-                    <dt class="col-sm-3">1964 - 1966</dt>    <dd class="col-sm-9">Rudolf Hudec</dd>
-                    <dt class="col-sm-3">1965 - 1966</dt>    <dd class="col-sm-9">Pavol Kandera</dd>
-                    <dt class="col-sm-3">1966 - 1967</dt>    <dd class="col-sm-9">Jozef Laca</dd>
-                    <dt class="col-sm-3">1966 - 1967</dt>    <dd class="col-sm-9">Ambróz Kubiš</dd>
-                    <dt class="col-sm-3">1967 - 1973</dt>    <dd class="col-sm-9">Viktor Koštialik</dd>
-                    <dt class="col-sm-3">1970 - 1972</dt>    <dd class="col-sm-9">Ján Špiriak</dd>
-                    <dt class="col-sm-3">1972 - 1976</dt>    <dd class="col-sm-9">Anton Sojka</dd>
-                    <dt class="col-sm-3">1973 - 1978</dt>    <dd class="col-sm-9">Martin Mojžiš</dd>
-                    <dt class="col-sm-3">1976 - 1977</dt>    <dd class="col-sm-9">Pavol Kollár</dd>
-                    <dt class="col-sm-3">1977 - 1982</dt>    <dd class="col-sm-9">Jozef Hrtús</dd>
-                    <dt class="col-sm-3">1978 - 1980</dt>    <dd class="col-sm-9">Róbert Andrášik</dd>
-                    <dt class="col-sm-3">1981 - 1987</dt>    <dd class="col-sm-9">Ján Klimo</dd>
-                    <dt class="col-sm-3">1982 - 1983</dt>    <dd class="col-sm-9">Štefan Topor</dd>
-                    <dt class="col-sm-3">1984 - 1985</dt>    <dd class="col-sm-9">Pavol Párničan</dd>
-                    <dt class="col-sm-3">1985 - 1988</dt>    <dd class="col-sm-9">Vladimír Farkaš</dd>
-                    <dt class="col-sm-3">1988       </dt>    <dd class="col-sm-9">Róbert Bezák</dd>
-                    <dt class="col-sm-3">1988 - 1990</dt>    <dd class="col-sm-9">Anton Pavlásek</dd>
-                    <dt class="col-sm-3">1988 - 1990</dt>    <dd class="col-sm-9">Ľuboš Sabol</dd>
-                    <dt class="col-sm-3">1989 - 1990</dt>    <dd class="col-sm-9">Ladislav Jurčík</dd>
-                    <dt class="col-sm-3">1990 - 1991</dt>    <dd class="col-sm-9">Ján Krajčík</dd>
-                    <dt class="col-sm-3">1990       </dt>    <dd class="col-sm-9">Ján Kováč</dd>
-                    <dt class="col-sm-3">1990 - 1992</dt>    <dd class="col-sm-9">Marián Bublinec</dd>
-                    <dt class="col-sm-3">1991 - 1992</dt>    <dd class="col-sm-9">Ján Gál</dd>
-                    <dt class="col-sm-3">1992 - 1993</dt>    <dd class="col-sm-9">Jozef Kožuch</dd>
-                    <dt class="col-sm-3">1992 - 1993</dt>    <dd class="col-sm-9">Pavol Párničan - výp. duchovný</dd>
-                    <dt class="col-sm-3">1993 - 1994</dt>    <dd class="col-sm-9">Dušan Horváth</dd>
-                    <dt class="col-sm-3">1994 - 1996</dt>    <dd class="col-sm-9">Dominik Markoš</dd>
-                    <dt class="col-sm-3">1996 - 1997</dt>    <dd class="col-sm-9">Dušan Mesík</dd>
-                    <dt class="col-sm-3">1997 - 1998</dt>    <dd class="col-sm-9">Peter Marcinko</dd>
-                    <dt class="col-sm-3">1998       </dt>    <dd class="col-sm-9">Martin Mojžiš - druhýkrát</dd>
-                    <dt class="col-sm-3">1998 - 1999</dt>    <dd class="col-sm-9">Branislav Dado</dd>
-                    <dt class="col-sm-3">1999 - 2001</dt>    <dd class="col-sm-9">Ondrej Spišiak</dd>
-                    <dt class="col-sm-3">1999 - 2000</dt>    <dd class="col-sm-9">Ján Viglaš</dd>
-                    <dt class="col-sm-3">2000 - 2002</dt>    <dd class="col-sm-9">Jozef Petrík</dd>
-                    <dt class="col-sm-3">2001 - 2004</dt>    <dd class="col-sm-9">Peter Staroštík</dd>
-                    <dt class="col-sm-3">2002 - 2003</dt>    <dd class="col-sm-9">Marián Krajč</dd>
-                    <dt class="col-sm-3">2004 - 2005</dt>    <dd class="col-sm-9">Pavol Pečko</dd>
-                    <dt class="col-sm-3">2004 - 2008</dt>    <dd class="col-sm-9">Roman Stieranka</dd>
-                    <dt class="col-sm-3">2007 - 2010</dt>    <dd class="col-sm-9">Marek Hraňo</dd>
-                    <dt class="col-sm-3">2008 - 2009</dt>    <dd class="col-sm-9">Oliver Černák</dd>
-                    <dt class="col-sm-3">2009 - 2010</dt>    <dd class="col-sm-9">Michal Lajcha</dd>
-                    <dt class="col-sm-3">2010 - 2011</dt>    <dd class="col-sm-9">Peter Ondrík</dd>
-                    <dt class="col-sm-3">2010 - 2012</dt>    <dd class="col-sm-9">Zdeněk Zoltánfi</dd>
-                    <dt class="col-sm-3">2011 - 2014</dt>    <dd class="col-sm-9">Peter Baláž</dd>
-                    <dt class="col-sm-3">2012 - 2015</dt>    <dd class="col-sm-9">Vladimír Václavík</dd>
-                    <dt class="col-sm-3">2014 - 2017</dt>    <dd class="col-sm-9">František Veverka</dd>
-                    <dt class="col-sm-3">2015 - 2017</dt>    <dd class="col-sm-9">Dominik Jáger</dd>
-                    <dt class="col-sm-3">2017 - 2018</dt>    <dd class="col-sm-9">Pavol Lojan</dd>
-                    <dt class="col-sm-3">2017 - 2020</dt>    <dd class="col-sm-9">Juraj Ondruš</dd>
-                    <dt class="col-sm-3">2019 -     </dt>    <dd class="col-sm-9">Pavol Prieboj - výp. duchovný</dd>
-                    <dt class="col-sm-3">2020 -     </dt>    <dd class="col-sm-9">Marián Juhaniak</dd>
-                </dl>
-            </div>
-
-        </x-web.page.text-segment>
-    </x-web.page.subsection>
+        <div class="container text-center">
+            <ul class="list-unstyled card-columns">
+                <x-partials.columns-list years="1898 - 1899" name="Karol František Majthán"/>
+                <x-partials.columns-list years="1898 - 1902" name="František Selecký"/>
+                <x-partials.columns-list years="1898 - 1899" name="Ján Uhrin"/>
+                <x-partials.columns-list years="1899 - 1900" name="Ján Murgaš"/>
+                <x-partials.columns-list years="1899 - 1901" name="Karol Anton Medvecký"/>
+                <x-partials.columns-list years="1901 - 1902" name="Ignác Lucký" description="druhýkrát"/>
+                <x-partials.columns-list years="1902 - 1904" name="Jozef Formánek"/>
+                <x-partials.columns-list years="1902 - 1903" name="Karol Burka"/>
+                <x-partials.columns-list years="1903"        name="Silvester Jung"/>
+                <x-partials.columns-list years="1904 - 1905" name="Ján Uhrin" description="druhýkrát"/>
+                <x-partials.columns-list years="1904"        name="Silvester Jung" description="druhýkrát"/>
+                <x-partials.columns-list years="1904 - 1906" name="Eduard Majerský"/>
+                <x-partials.columns-list years="1905 - 1906" name="Gejza Kossányi"/>
+                <x-partials.columns-list years="1906 - 1907" name="Ignác Ficzel"/>
+                <x-partials.columns-list years="1906 - 1907" name="Ján Záhora"/>
+                <x-partials.columns-list years="1907 - 1909" name="Ján Kuchárik"/>
+                <x-partials.columns-list years="1907 - 1908" name="Ján Kalina"/>
+                <x-partials.columns-list years="1909 - 1910" name="František Šimoni"/>
+                <x-partials.columns-list years="1910 - 1911" name="Augustín Szkalák"/>
+                <x-partials.columns-list years="1910 - 1911" name="Jozef Jekkel"/>
+                <x-partials.columns-list years="???? - 1911" name="Ján Szirmai"/>
+                <x-partials.columns-list years="1911"        name="Štefan Čerei"/>
+                <x-partials.columns-list years="1911 - 1913" name="Jozef Svehlik"/>
+                <x-partials.columns-list years="1911 - 1912" name="Vincent Zvarik"/>
+                <x-partials.columns-list years="1911 - 1913" name="František Horáček"/>
+                <x-partials.columns-list years="1912 - 1914" name="Karol Burka"/>
+                <x-partials.columns-list years="1912 - 1913" name="Ján Baránik"/>
+                <x-partials.columns-list years="1913 - 1914" name="Rudolf Málik"/>
+                <x-partials.columns-list years="1913 - 1915" name="Koloman Senček"/>
+                <x-partials.columns-list years="1913"        name="Vincent Puskailer"/>
+                <x-partials.columns-list years="1913 - 1914" name="Július Felix"/>
+                <x-partials.columns-list years="1914 - 1915" name="Vincent Puskailer" description="druhýkrát"/>
+                <x-partials.columns-list years="1914 - 1915" name="Jozef Janči"/>
+                <x-partials.columns-list years="1915 - 1916" name="Vavrinec Černy"/>
+                <x-partials.columns-list years="1915 - 1916" name="Štefan Ďurkovič"/>
+                <x-partials.columns-list years="1915 - 1918" name="Emil Dlhý"/>
+                <x-partials.columns-list years="1916 - 1918" name="Anton Šalát"/>
+                <x-partials.columns-list years="1918"        name="Peter Briška"/>
+                <x-partials.columns-list years="1918 - 1921" name="Lukáš Petráš"/>
+                <x-partials.columns-list years="1918"        name="Štefan Večerek"/>
+                <x-partials.columns-list years="1918 - 1919" name="Alexander Vajcík"/>
+                <x-partials.columns-list years="1919"        name="František Horáček" description="druhýkrát"/>
+                <x-partials.columns-list years="1919 - 1920" name="Emil Dlhý" description="druhýkrát"/>
+                <x-partials.columns-list years="1919 - 1920" name="Ján Ferjanec"/>
+                <x-partials.columns-list years="1920 - 1922" name="Alexander Vajcík" description="druhýkrát"/>
+                <x-partials.columns-list years="1921 - 1923" name="Vincent Tomeček"/>
+                <x-partials.columns-list years="1922 - 1924" name="Jozef Petruch"/>
+                <x-partials.columns-list years="1923"        name="Jozef Búda" description="<br><br>"/>    {{--  Zmaž BR v tomto riadku ak budeš potrebovať zmeniť zalomenie --}}
+                <x-partials.columns-list years="1924 - 1926" name="Jozef Bundzel"/>
+                <x-partials.columns-list years="1925 - 1926" name="Peter Petic"/>
+                <x-partials.columns-list years="1926 - 1927" name="Jozef Búda" description="druhýkrát"/>
+                <x-partials.columns-list years="1926 - 1928" name="Jakub Šefčík"/>
+                <x-partials.columns-list years="1929"        name="Anton Veselovský"/>
+                <x-partials.columns-list years="1929 - 1930" name="Anton Kmeť"/>
+                <x-partials.columns-list years="1930"        name="Pavel Majerčák"/>
+                <x-partials.columns-list years="1930 - 1932" name="Anzelm Kapitán"/>
+                <x-partials.columns-list years="1933 - 1935" name="Rudolf Lehotský"/>
+                <x-partials.columns-list years="1935"        name="Matej Zaťko"/>
+                <x-partials.columns-list years="1935 - 1936" name="Michal Minárik"/>
+                <x-partials.columns-list years="1936 - 1937" name="Emil Ondrík"/>
+                <x-partials.columns-list years="1937"        name="Ľudovít Bobrovský"/>
+                <x-partials.columns-list years="1937"        name="Michal Hukel"/>
+                <x-partials.columns-list years="1937 - 1938" name="Jozef Kliman"/>
+                <x-partials.columns-list years="1937 - 1939" name="Jozef Noga"/>
+                <x-partials.columns-list years="1938 - 1940" name="Pavol Lihotský"/>
+                <x-partials.columns-list years="1939 - 1944" name="Jozef Ďurkovič"/>
+                <x-partials.columns-list years="1940 - 1941" name="Emil Ondrík" description="druhýkrát"/>
+                <x-partials.columns-list years="1941"        name="Jozef Hrmo"/>
+                <x-partials.columns-list years="1941 - 1943" name="Emil Šišan"/>
+                <x-partials.columns-list years="1943 - 1945" name="Anton Vačko"/>
+                <x-partials.columns-list years="1944 - 1945" name="Vojtech Zjara"/>
+                <x-partials.columns-list years="1945 - 1947" name="Jozef Pekár"/>
+                <x-partials.columns-list years="1945"        name="Jozafát Imrich Mokroš CCG"/>
+                <x-partials.columns-list years="1946 - 1948" name="Vincent Wahlandt"/>
+                <x-partials.columns-list years="1948"        name="Jozef Čeman"/>
+                <x-partials.columns-list years="1948 - 1949" name="Ladislav Hromádka"/>
+                <x-partials.columns-list years="1948 - 1951" name="Miroslav Marek"/>
+                <x-partials.columns-list years="1949 - 1953" name="Stanislav Majer"/>
+                <x-partials.columns-list years="1951 - 1953" name="Stanislav Galbavý SDB"/>
+                <x-partials.columns-list years="1953 - 1956" name="Jozef Čeman" description="druhýkrát"/>
+                <x-partials.columns-list years="1953 - 1954" name="Ľudovít Šimončík"/>
+                <x-partials.columns-list years="1954 - 1955" name="František Očenáš"/>
+                <x-partials.columns-list years="1955 - 1957" name="Štefan Dobrovodský"/>
+                <x-partials.columns-list years="1956 - 1957" name="Jozef Chmelo"/>
+                <x-partials.columns-list years="1957 - 1958" name="Alfonz František Broniš OFM"/>
+                <x-partials.columns-list years="1957 - 1958" name="Štefan Sámel"/>
+                <x-partials.columns-list years="1958"        name="Maurus Pavel Pataky OSB"/>
+                <x-partials.columns-list years="1958 - 1960" name="Jozef Krajči"/>
+                <x-partials.columns-list years="1959 - 1960" name="Ignác Lenhardt" description="výp. duchovný"/>
+                <x-partials.columns-list years="1960 - 1962" name="Martin Čabák"/>
+                <x-partials.columns-list years="1960 - 1962" name="Juraj Sloboda"/>
+                <x-partials.columns-list years="1962 - 1963" name="Vincent Wahlandt" description="druhýkrát"/>
+                <x-partials.columns-list years="1962 - 1964" name="Jozef Macko"/>
+                <x-partials.columns-list years="1963"        name="Jaroslav Pecha"/>
+                <x-partials.columns-list years="1964 - 1966" name="Rudolf Hudec"/>
+                <x-partials.columns-list years="1965 - 1966" name="Pavol Kandera"/>
+                <x-partials.columns-list years="1966 - 1967" name="Ambróz Kubiš"/>
+                <x-partials.columns-list years="1966 - 1967" name="Jozef Laca"/>
+                <x-partials.columns-list years="1967 - 1969" name="Vladimír Macinka"/>
+                <x-partials.columns-list years="1967 - 1973" name="Viktor Koštialik"/>
+                <x-partials.columns-list years="1969 - 1970" name="Imrich Vážan"/>
+                <x-partials.columns-list years="1970 - 1972" name="Ján Špiriak"/>
+                <x-partials.columns-list years="1972 - 1976" name="Anton Sojka"/>
+                <x-partials.columns-list years="1973 - 1978" name="Martin Mojžiš"/>
+                <x-partials.columns-list years="1976 - 1977" name="Pavol Kollár"/>
+                <x-partials.columns-list years="1977 - 1982" name="Jozef Hrtús"/>
+                <x-partials.columns-list years="1978 - 1980" name="Róbert Andrášik"/>
+                <x-partials.columns-list years="1981 - 1987" name="Ján Klimo"/>
+                <x-partials.columns-list years="1982 - 1983" name="Štefan Topor"/>
+                <x-partials.columns-list years="1984 - 1985" name="Pavol Párničan"/>
+                <x-partials.columns-list years="1985 - 1988" name="Vladimír Farkaš"/>
+                <x-partials.columns-list years="1988"        name="Róbert Bezák"/>
+                <x-partials.columns-list years="1988 - 1989" name="Anton Pavlásek"/>
+                <x-partials.columns-list years="1988 - 1990" name="Ľuboš Sabol"/>
+                <x-partials.columns-list years="1989 - 1990" name="Ladislav Jurčík"/>
+                <x-partials.columns-list years="1990"        name="Ján Kováč"/>
+                <x-partials.columns-list years="1990 - 1991" name="Ján Krajčík"/>
+                <x-partials.columns-list years="1990 - 1992" name="Marián Bublinec"/>
+                <x-partials.columns-list years="1991 - 1992" name="Ján Gál"/>
+                <x-partials.columns-list years="1992 - 1993" name="Jozef Kožuch"/>
+                <x-partials.columns-list years="1992 - 1993" name="Pavol Párničan" description="výp. duchovný"/>
+                <x-partials.columns-list years="1993 - 1994" name="Dušan Horváth"/>
+                <x-partials.columns-list years="1994 - 1996" name="Dominik Markoš"/>
+                <x-partials.columns-list years="1996 - 1997" name="Dušan Mesík"/>
+                <x-partials.columns-list years="1997 - 1998" name="Peter Marcinko"/>
+                <x-partials.columns-list years="1998"        name="Martin Mojžiš" description="dočasne druhýkrát"/>
+                <x-partials.columns-list years="1998 - 1999" name="Branislav Dado"/>
+                <x-partials.columns-list years="1999 - 2001" name="Ondrej Spišiak"/>
+                <x-partials.columns-list years="1999 - 2000" name="Ján Viglaš"/>
+                <x-partials.columns-list years="2000 - 2002" name="Jozef Petrík"/>
+                <x-partials.columns-list years="2001 - 2004" name="Peter Staroštík"/>
+                <x-partials.columns-list years="2002 - 2003" name="Marián Krajč"/>
+                <x-partials.columns-list years="2004 - 2005" name="Pavol Pečko"/>
+                <x-partials.columns-list years="2004 - 2008" name="Roman Stieranka"/>
+                <x-partials.columns-list years="2007 - 2010" name="Marek Hraňo"/>
+                <x-partials.columns-list years="2008 - 2009" name="Oliver Černák"/>
+                <x-partials.columns-list years="2009 - 2010" name="Michal Lajcha"/>
+                <x-partials.columns-list years="2010 - 2011" name="Peter Ondrík"/>
+                <x-partials.columns-list years="2010 - 2012" name="Zdeněk Zoltánfi"/>
+                <x-partials.columns-list years="2011 - 2014" name="Peter Baláž"/>
+                <x-partials.columns-list years="2012 - 2015" name="Vladimír Václavík"/>
+                <x-partials.columns-list years="2014 - 2017" name="František Veverka"/>
+                <x-partials.columns-list years="2015 - 2017" name="Dominik Jáger"/>
+                <x-partials.columns-list years="2017 - 2018" name="Pavol Lojan"/>
+                <x-partials.columns-list years="2017 - 2020" name="Juraj Ondruš"/>
+                <x-partials.columns-list years="2019 -"      name="Pavol Prieboj" description="výp. duchovný"/>
+                <x-partials.columns-list years="2020 -"      name="Marián Juhaniak"/>
+            </ul>
+        </div>
 
     </x-web.page.section>
 </x-web.layout.master>
