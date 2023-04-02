@@ -735,9 +735,11 @@
 
     {{-- Duchovné povolania --}}
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Muži - " class="static-page pad_b_50" data-no-index="true">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Muži - " class="static-page pad_b_30" data-no-index="true">
 
-        <div class="row" data-masonry='{"percentPosition": true }'>
+        <h2 class="text-center fw-bold text-church-template-blue">Kňazské a mužské rehoľné povolania z Detvy</h2>
+
+        <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$knazske_a_muzske_reholne_povolania_z_Detvy" />
         </div>
 
@@ -745,9 +747,11 @@
 
     <x-web.sections.background-picture titleSlug="dej-003"/>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Ženy - " class="static-page pad_t_50 pad_b_50" data-no-index="true">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Ženy - " class="static-page pad_t_50 pad_b_30" data-no-index="true">
 
-        <div class="row" data-masonry='{"percentPosition": true }'>
+        <h2 class="text-center fw-bold text-church-template-blue">Ženské rehoľné povolania z Detvy</h2>
+
+        <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$zenske_reholne_povolania_z_Detvy" />
         </div>
 

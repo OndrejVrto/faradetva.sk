@@ -6,14 +6,14 @@
 @foreach ($personList as $key => $person)
     @php
         if ((isset($person["pohlavie"]) && $person["pohlavie"] === "muzske")) {
-            $wordBorn = "narodený";
+            $wordBorn  = "narodený";
             $wordDeath = "zomrel";
-            $wordOrd = "ordinovaný";
+            $wordOrd   = "ordinovaný";
             $wordPlace = "pochovaný";
         } else {
-            $wordBorn = "narodená";
+            $wordBorn  = "narodená";
             $wordDeath = "zomrela";
-            $wordOrd = "ordinovaná";
+            $wordOrd   = "ordinovaná";
             $wordPlace = "pochovaná";
         }
     @endphp
@@ -29,9 +29,9 @@
 
             <div class="p-3">
 
-                <h2 class="fs-4 text-church-template-blue">
+                <h3 class="fs-4 text-church-template-blue">
                     {{ $person["meno_a_tituly"] }}
-                </h2>
+                </h3>
 
                 <div class="">
 
@@ -40,19 +40,19 @@
                     @endisset
 
                     @isset($person["clen_radu_nazov"])
-                        <div><em>{{ $person["clen_radu_nazov"] }}</em></div>
+                        <div><em class="text-primary">{{ $person["clen_radu_nazov"] }}</em></div>
                     @endisset
 
                     @isset($person["datum_obliecky_vstupu"])
-                        <div>{{ $person["datum_obliecky_vstupu"] }}</div>
+                        <div class="fw-bolder">{{ $person["datum_obliecky_vstupu"] }}</div>
                     @endisset
 
                     @isset($person["datum_prve_sluby"])
-                        <div>prvé sľuby {{ $person["datum_prve_sluby"] }}</div>
+                        <div>prvé sľuby <span class="fw-bolder">{{ $person["datum_prve_sluby"] }}</span></div>
                     @endisset
 
                     @isset($person["datum_dozivotne_sluby"])
-                        <div>doživotné sľuby {{ $person["datum_dozivotne_sluby"] }}</div>
+                        <div>doživotné sľuby <span class="fw-bolder">{{ $person["datum_dozivotne_sluby"] }}</span ></div>
                     @endisset
 
                     @if(isset($person["datum_narodenia"]) && isset($person["miesto_narodenia"]))
