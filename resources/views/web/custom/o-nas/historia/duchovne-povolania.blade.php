@@ -1,254 +1,697 @@
+@php
+
+$knazske_a_muzske_reholne_povolania_z_Detvy = [
+
+    [
+        "meno_a_tituly"         => "Andrej Biely",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "05.03.1692",
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Ján Krnáč",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "1682",
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "22.05.1716",
+        "miesto_umrtia"         => "Horná Ždaňa",
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Matej Czimra",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "20.04.1755",
+        "miesto_umrtia"         => "Žarnovica",
+        "miesto_pochovania"     => "Horné Hámre",
+    ],
+
+    [
+        "meno_a_tituly"         => "Matúš Michna",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "1693/1694",
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "14.02.1769",
+        "miesto_umrtia"         => "Očová",
+        "miesto_pochovania"     => "Očová",
+    ],
+
+    [
+        "meno_a_tituly"         => "Andrej Matussek SJ",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "člen Spoločnosti Ježišovej (jezuiti)",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "27.11.1703",
+        "miesto_narodenia"      => "Detva",
+        "datum_ordinovania"     => "1731",
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => "1753",
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Matej Hakkel",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "24.09.1730",
+        "miesto_narodenia"      => "Detva",
+        "datum_ordinovania"     => "1752",
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "06.12.1769",
+        "miesto_umrtia"         => "Veľká (Zvolenská) Slatina",
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Maurus Pavel Pataky OSB",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "člen Rádu svätého Benedikta (benediktíni)",
+        "datum_obliecky_vstupu" => "obliečka mníšskeho rúcha 06.08.1911",
+        "datum_prve_sluby"      => "25.05.1913",
+        "datum_dozivotne_sluby" => "28.05.1916",
+        "datum_narodenia"       => "05.04.1893",
+        "miesto_narodenia"      => "Detva",
+        "datum_ordinovania"     => "29.06.1916",
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "30.11.1965",
+        "miesto_umrtia"         => "Bratislava",
+        "miesto_pochovania"     => "Komárno",
+    ],
+
+    [
+        "meno_a_tituly"         => "Jozef Goljan",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "25.02.1904",
+        "miesto_narodenia"      => "Detva",
+        "datum_ordinovania"     => "28.01.1934",
+        "miesto_ordinovania"    => "Spišská Kapitula",
+        "datum_umrtia"          => "15.04.1941",
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => "Detva, dolný cintorín",
+    ],
+
+    [
+        "meno_a_tituly"         => "Longín Imrich Gáborík CCG",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "člen Kongregácie bratov tešiteľov z Getsemani",
+        "datum_obliecky_vstupu" => "vstup do kongregácie 02.02.1928",
+        "datum_prve_sluby"      => "02.03.1929",
+        "datum_dozivotne_sluby" => "28.08.1932",
+        "datum_narodenia"       => "13.08.1911",
+        "miesto_narodenia"      => "Detva-Kriváň",
+        "datum_ordinovania"     => "05.07.1935",
+        "miesto_ordinovania"    => "Brno, Česká republika",
+        "datum_umrtia"          => "05.09.1977",
+        "miesto_umrtia"         => "Chatham, Kanada",
+        "miesto_pochovania"     => "Chatham, Kanada-Ontário",
+    ],
+
+    [
+        "meno_a_tituly"         => "Michal Hukel",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "25.02.1912",
+        "miesto_narodenia"      => "Hriňová-Krivec II.",
+        "datum_ordinovania"     => "27.01.1935",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => "17.06.1991",
+        "miesto_umrtia"         => "Veľký Biel",
+        "miesto_pochovania"     => "Kriváň, cintorín",
+    ],
+
+    [
+        "meno_a_tituly"         => "Tomáš Imrich Ďurica OP",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "člen Rehole kazateľov (dominikáni)",
+        "datum_obliecky_vstupu" => "vstup do rehole v r. 1991",
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "07.10.1915",
+        "miesto_narodenia"      => "Detva",
+        "datum_ordinovania"     => "29.06.1939",
+        "miesto_ordinovania"    => "Bratislava",
+        "datum_umrtia"          => "12.09.1992",
+        "miesto_umrtia"         => "Dunajská Lužná",
+        "miesto_pochovania"     => "Dunajská Lužná, cintorín",
+    ],
+
+    [
+        "meno_a_tituly"         => "Emil Prokop SVD",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "člen Spoločnosti Božieho slova (verbisti)",
+        "datum_obliecky_vstupu" => "vstup do spoločnosti v r. 1941",
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "22.07.1922",
+        "miesto_narodenia"      => "Detva-Kriváň",
+        "datum_ordinovania"     => "05.07.1967",
+        "miesto_ordinovania"    => "Magdeburg, Nemecko",
+        "datum_umrtia"          => "29.10.2006",
+        "miesto_umrtia"         => "Nitra",
+        "miesto_pochovania"     => "Nitra",
+    ],
+
+    [
+        "meno_a_tituly"         => "Ján Buzák",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "17.06.1984",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Jozef Strapko",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "15.06.1986",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Martin Sebíň",
+        "obrazok"               => null,
+        "poznamka"              => "štúdium dokončil za farnosť Hriňová",
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "13.06.1987",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Pavel Vilhan",
+        "obrazok"               => null,
+        "poznamka"              => "štúdium dokončil za farnosť Kriváň",
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "31.07.1999",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Andrej Valent OCD",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "člen Rádu bosých karmelitánov",
+        "datum_obliecky_vstupu" => "vstup do rádu v r. 1998",
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => "10.09.2005",
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "13.05.2006",
+        "miesto_ordinovania"    => "Krakov, Poľsko",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Andrej Porubský",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "21.09.2008",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Pavel Cerovský",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "20.06.2009",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Peter Sekereš",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "20.06.2009",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Florián Štefan Kamenský OFM",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "člen Rádu menších bratov františkánov",
+        "datum_obliecky_vstupu" => "vstup do rádu v r. 2005",
+        "datum_prve_sluby"      => "11.08.2007",
+        "datum_dozivotne_sluby" => "13.09.2013",
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Peter Lupták",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => "09.06.2012",
+        "miesto_ordinovania"    => "Banská Bystrica",
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Jozef Golian",
+        "obrazok"               => null,
+        "poznamka"              => "ženatý trvalý diakon v Mníchovsko-Freisingskej arcidiecéze v Nemecku",
+        "clen_radu_nazov"       => null,
+        "datum_obliecky_vstupu" => "vysv. 06.10.2018  Mníchov, Nemecko",
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+];
+
+$zenske_reholne_povolania_z_Detvy = [
+    [
+        "meno_a_tituly"         => "Agáta Elena Kuricová CSC",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "18.04.1910",
+        "miesto_narodenia"      => "Detva",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "21.01.1996",
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => "Rajhrad, Česká republika",
+    ],
+
+    [
+        "meno_a_tituly"         => "Štefánia Elena Sekerešová CSC",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => "v r. 1933",
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "28.06.1910",
+        "miesto_narodenia"      => "Detva-Piešť",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "01.11.1986",
+        "miesto_umrtia"         => "Jiřetín pod Jedlovou, Česká republika",
+        "miesto_pochovania"     => "Jiřetín pod Jedlovou, Česká republika",
+    ],
+
+    [
+        "meno_a_tituly"         => "Alžbeta Elena Hulinová CSC",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => "v r. 1932",
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "28.03.1913",
+        "miesto_narodenia"      => "Detva-Piešť",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "12.01.2002",
+        "miesto_umrtia"         => "Bratislava",
+        "miesto_pochovania"     => "Bratislava-Vrakuňa",
+    ],
+
+    [
+        "meno_a_tituly"         => "Laurencia Emília Kuricová CSC",
+        "obrazok"               => null,
+        "poznamka"              => "rodná sestra tešiteľky Agáty Eleny Kuricovej",
+        "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "10.11.1913",
+        "miesto_narodenia"      => "Detva",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "1943",
+        "miesto_umrtia"         => "Rajhrad, Česká republika",
+        "miesto_pochovania"     => "Rajhrad, Česká republika",
+    ],
+
+    [
+        "meno_a_tituly"         => "Kristína Amália Gáboríková CSC",
+        "obrazok"               => null,
+        "poznamka"              => "rodná sestra rehoľného kňaza Longína Imricha Gáboríka",
+        "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
+        "datum_obliecky_vstupu" => "vstup do kongregácie 26.10.1934",
+        "datum_prve_sluby"      => "14.06.1937",
+        "datum_dozivotne_sluby" => "v r. 1943",
+        "datum_narodenia"       => "30.11.1918",
+        "miesto_narodenia"      => "Detva-Kriváň",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "08.04.2006",
+        "miesto_umrtia"         => "Bratislava",
+        "miesto_pochovania"     => "Bratislava-Vrakuňa",
+    ],
+
+    [
+        "meno_a_tituly"         => "Vincencia Mária Sekerešová CSC",
+        "obrazok"               => null,
+        "poznamka"              => "rodná sestra tešiteľky Štefánie Eleny Sekerešovej",
+        "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "14.12.1920",
+        "miesto_narodenia"      => "Detva-Piešť",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "04.11.2001",
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => "Rajhrad, Česká republika",
+    ],
+
+    [
+        "meno_a_tituly"         => "Ivana Mária Kulichová DKL",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Kongregácie Dcér kresťanskej lásky (vincentky)",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "19.10.1924",
+        "miesto_narodenia"      => "Detva-Skliarovo",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "07.11.1997",
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => "Močenok",
+    ],
+
+    [
+        "meno_a_tituly"         => "Klára Mária Luptáková S.Praem.",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Kongregácie sestier premonštrátok",
+        "datum_obliecky_vstupu" => "vstup do kongregácie 31.08.1946, obliečka rehoľného rúcha 15.08.1948",
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => "01.09.1957",
+        "datum_narodenia"       => "22.10.1925",
+        "miesto_narodenia"      => "Detva-Zlatno",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "21.10.2013",
+        "miesto_umrtia"         => "Vrbové",
+        "miesto_pochovania"     => "Vrbové",
+    ],
+
+    [
+        "meno_a_tituly"         => "Nonna Margita Budáčová DKL",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Kongregácie Dcér kresťanskej lásky (vincentky)",
+        "datum_obliecky_vstupu" => "vstup do kongregácie 09.06.1947",
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "10.02.1926",
+        "miesto_narodenia"      => "Detva-Piešť",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "1956",
+        "miesto_umrtia"         => "Jasov",
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Rufina Mária Fekiačová CSC",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "najskôr členka Kongregácie Dcér kresťanskej lásky (vincentky), neskôr členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => "08.09.1927",
+        "datum_ordinovania"     => "Detva",
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "26.06.2006",
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Bibiána Magdaléna Sekerešová DKL",
+        "obrazok"               => null,
+        "poznamka"              => "rodná sestra tešiteliek Štefánie Eleny a Vincencie Márie",
+        "clen_radu_nazov"       => "členka Kongregácie Dcér kresťanskej lásky (vincentky)",
+        "datum_obliecky_vstupu" => "vstup do kongregácie 06.09.1948",
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => "19.06.1930",
+        "datum_ordinovania"     => "Detva-Piešť",
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "07.10.2017",
+        "miesto_umrtia"         => "Mendryka, Česká republika",
+        "miesto_pochovania"     => "Svitavy, Česká republika",
+    ],
+
+    [
+        "meno_a_tituly"         => "Elena Fekiačová IKV",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Sekulárneho inštitútu Krista Veľkňaza",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => "09.10.1930",
+        "miesto_narodenia"      => "Čakanovce",
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => "26.11.2003",
+        "miesto_umrtia"         => "Zvolen",
+        "miesto_pochovania"     => "Detva",
+    ],
+
+    [
+        "meno_a_tituly"         => "Helena Stehlíková SCSC",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Kongregácie milosrdných sestier Svätého kríža",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Tarzícia Ľudmila Bagová SSpS.",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Misijnej kongregácie služobníc Ducha Svätého",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => "06.02.1994",
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Tabita Anna Chlebničanová OSF",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "členka Kongregácie školských sestier sv. Františka Assiského",
+        "datum_obliecky_vstupu" => "postulát 10.09.1994; noviciát 12.08.1995",
+        "datum_prve_sluby"      => "11.08.1997",
+        "datum_dozivotne_sluby" => "16.08.2003",
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Františka Kristína Cerovská S.Praem.",
+        "obrazok"               => null,
+        "poznamka"              => "rodná sestra kňaza Pavla Cerovského",
+        "clen_radu_nazov"       => "členka Kongregácie sestier premonštrátok",
+        "datum_obliecky_vstupu" => "vstup do kongregácie 04.01.2003, obliečka rehoľného rúcha 15.08.2003",
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => "13.08.2011",
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+
+    [
+        "meno_a_tituly"         => "Magdaléna Krnáčiková",
+        "obrazok"               => null,
+        "poznamka"              => null,
+        "clen_radu_nazov"       => "vo formácii pre vstup do Kongregácie sestier karmelitánok Dieťaťa Ježiša",
+        "datum_obliecky_vstupu" => null,
+        "datum_prve_sluby"      => null,
+        "datum_dozivotne_sluby" => null,
+        "datum_narodenia"       => null,
+        "miesto_narodenia"      => null,
+        "datum_ordinovania"     => null,
+        "miesto_ordinovania"    => null,
+        "datum_umrtia"          => null,
+        "miesto_umrtia"         => null,
+        "miesto_pochovania"     => null,
+    ],
+];
+
+@endphp
+
 <x-web.layout.master :pageData="$pageData">
 
     {{-- Duchovné povolania --}}
-
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" class="static-page pad_b_50">
 
-    <div class="row">
-        <div class="ps-5 ps-md-0 col-lg-9 col-xl-8 m-auto">
-
-            <x-web.page.subsection >
-                <x-web.page.text-segment animation="fromright">
-                    <h5 class="text-church-template">
-                        Tomáš Imrich Ďurica OP
-                    </h5>
-                    <dl class="row">
-                        <dt class="col-sm-3 col-lg-2">* 07.10.1915</dt>         <dd class="col-sm-9 col-lg-10">Detva</dd>
-                        <dt class="col-sm-3 col-lg-2">ord. 29.06.1939</dt>      <dd class="col-sm-9 col-lg-10">Bratislava</dd>
-                        <span class="h6 text-church-template-blue">člen Rehole kazateľov od r. 1991</span>
-                        <dt class="col-sm-3 col-lg-2">† 12.09.1992</dt>         <dd class="col-sm-9 col-lg-10">Dunajská Lužná</dd>
-                        <dt class="col-sm-3 col-lg-2">pochovaný</dt>            <dd class="col-sm-9 col-lg-10">Dunajská Lužná, cintorín</dd>
-                    </dl>
-                </x-web.page.text-segment>
-            </x-web.page.subsection>
-
-        </div>
-    </div>
-
-
-<div class="row pt-5">
-    <h4>Nájsť správny vzhľad a DOROBIŤ !</h4>
-
-    Andrej Biely
-    ord. 05.03.1692
-
-
-    Ján Krnáč
-    nar. 1682
-    zom. 22.05.1716
-
-
-    Matej Martin Czimra
-    zom. 20.04.1755
-    poch. Žarnovica
-
-
-    Andrej Matúšek SJ
-    nar. 1703
-    člen Spoločnosti Ježišovej
-    zom. 1757
-
-
-    Matúš Michna
-    zom. 16.02.1769
-
-
-    Matej Hakkel
-    ord. 1752
-    zom. 06.12.1769
-
-
-    Ján Golian
-    nar. 25.02.1904  Detva
-    ord. 28.01.1934  Spišská Kapitula
-    zom. 15.04.1941
-    poch. Detva, dolný cintorín
-
-
-    Longín Imrich Gáborík CCG
-    nar. 12.08.1911  Detva-Kriváň
-    člen Kongregácie bratov
-    tešiteľov z Getsemani od r. 1928
-    ord. 05.07.1935  Brno, ČR
-    zom. 05.09.1977  Chatham, Kanada
-    poch. Chatham, Kanada-Ontário
-
-
-
-
-
-    Michal Hukel
-    nar. 25.02.1912  Hriňová-Krivec
-    ord. 27.01.1939
-    zom. 17.06.1991  Veľký Biel
-    poch. Kriváň, cintorín
-
-
-    Tomáš Imrich Ďurica OP
-    nar. 07.10.1915  Detva
-    ord. 29.06.1939  Bratislava
-    člen Rehole kazateľov od r. 1991
-    zom. 12.09.1992  Dunajská Lužná
-    poch. Dunajská Lužná, cintorín
-
-
-    Emil Prokop SVD
-    nar. 22.07.1922  Detva-Kriváň
-    člen Spoločnosti Božieho slova od r. 1941
-    ord. 05.07.1967  Magdeburg, Nemecko
-    zom. 29.10.2006  Nitra
-    poch. Nitra
-
-
-    Ján Buzák
-    ord. 17.06.1984  Banská Bystrica
-
-
-    Jozef Strapko
-    ord. 15.06.1986  Banská Bystrica
-
-
-    Martin Sebíň
-    štúdium dokončil za farnosť Hriňová
-    ord. 13.06.1987  Banská Bystrica
-
-
-    Pavel Vilhan
-    štúdium dokončil za farnosť Kriváň
-    ord. 31.07.1999  Banská Bystrica
-
-
-    Andrej Valent OCD
-    člen Rádu bosých karmelitánov od r. 1998
-    ord. 13.05.2006  Krakov, Poľsko
-
-
-
-    Florián Štefan Kamenský OFM
-    člen Rádu menších bratov františkánov
-
-
-    Andrej Porubský
-    ord. 21.09.2008  Banská Bystrica
-
-
-    Pavel Cerovský
-    ord. 20.06.2009  Banská Bystrica
-
-
-    Peter Sekereš
-    ord. 20.06.2009  Banská Bystrica
-
-
-    Peter Lupták
-    ord. 09.06.2012  Banská Bystrica
-    Rehoľné sestry
-
-
-
-    Agáta Elena Kuricová CSC
-    nar. 18.04.1910  Detva-Chrapková
-    členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho
-    zom. 21.01.1996
-    poch. Rajhrad (ČR)
-
-
-    Alžbeta Helena Hulinová CSC
-    nar. 28.03.1913  Detva-Piešť
-    prvé sľuby v Kongregácii sestier Tešiteliek Božského Srdca Ježišovho v r. 1932
-    zom. 12.01.2002  Bratislava
-    poch. Bratislava-Vrakuňa
-
-
-    Štefánia Elena Sekerešová CSC
-    nar. 28.06.1910  Detva-Piešť
-    prvé sľuby v Kongregácii sestier Tešiteliek Božského Srdca Ježišovho v r. 1933
-    zom. 01.11.1986  Jiřetín pod Jedlovou (ČR)
-    poch. Jiřetín pod Jedlovou (ČR)
-
-
-    Laurencia Emília Kuricová CSC
-    nar. 11.11.1913  Detva-Chrapková
-    členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho
-    zom. 1943
-    poch. Rajhrad (ČR)
-
-
-    Kristína Amália Gáboríková CSC
-    nar. 30.11.1918  Detva-Kriváň
-    členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho od r. 1934
-    zom. 08.04.2006  Bratislava
-    poch. Bratislava-Vrakuňa
-
-
-    Vincencia Mária Sekerešová CSC
-    nar. 14.12.1920  Detva-Piešť
-    členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho
-    zom. 04.11.2001
-    poch. Rajhrad (ČR)
-
-    Ivana Mária Kulichová DKL
-    nar. 19.10.1924  Detva-Stavanisko
-    členka Kongregácie Dcér kresťanskej lásky od r. 1947
-    zom. 07.11.1997
-    poch. Močenok
-
-
-    Klára Katarína Luptáková S.Praem.
-    nar. 22.10.1925  Detva-Korytárky
-    členka Kongregácie sestier premonštrátok od r. 1946
-    zom. 21.10.2013  Vrbové
-    poch. Vrbové
-
-
-    Nonna Margita Budáčová DKL
-    nar. 10.02.1926  Detva-Piešť
-    členka Kongregácie Dcér kresťanskej lásky od r. 1947
-    zom. 1956  Jasov
-
-
-    Rufina Mária Fekiačová CSC
-    nar. 08.09.1927  Detva
-    najskôr členka Kongregácie Dcér kresťanskej lásky, neskôr členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho
-    zom. 26.06.2006
-
-
-    Bibiana Magdaléna Sekerešová DKL
-    nar. 19.06.1930  Detva-Piešť
-    členka Kongregácie Dcér kresťanskej lásky od r. 1948
-    zom. 07.10.2017  Mendryka (ČR)
-    poch. Svitavy (ČR)
-
-
-    Helena Fekiačová IKV
-    nar. 09.10.1930
-    členka Sekulárneho inštitútu Krista Veľkňaza
-    zom. 28.11.2003
-
-
-    Helena Stehlíková SCSC
-    členka Kongregácie milosrdných sestier Svätého kríža
-
-
-    Tarzícia Ľudmila Bagová SSpS.
-    členka Misijnej kongregácie služobníc Ducha Svätého
-
-
-    Tabita Anna Chlebničanová OSF
-    členka Kongregácie školských sestier sv. Františka Assiského od r. 1994
-
-
-    Františka Kristína Cerovská S.Praem.
-    členka Kongregácie sestier premonštrátok od r. 2003
-
-
-    Katarína Mária od Ježišovho milosrdného Srdca - Katarína Melichová OCD
-    členka Rádu bosých karmelitánok od r. 2015
-
-
-    Magdaléna Krnáčiková CSCDIJ
-    členka Kongregácie sestier karmelitánok Dieťaťa Ježiša od r. 2015
-</div>
-
     </x-web.page.section>
+
 </x-web.layout.master>
