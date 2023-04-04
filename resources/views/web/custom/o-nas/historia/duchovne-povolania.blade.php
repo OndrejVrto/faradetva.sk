@@ -9,7 +9,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Andrej Biely",
-            "obrazok"               => "muzeum-040-menu",
+            "obrazok"               => null,
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -45,7 +45,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Matej Czimra",
-            "obrazok"               => "str-008",
+            "obrazok"               => null,
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -135,7 +135,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Jozef Goljan",
-            "obrazok"               => null,
+            "obrazok"               => "kronika-572",
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -153,7 +153,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Longín Imrich Gáborík CCG",
-            "obrazok"               => null,
+            "obrazok"               => "longin-imrich-gaborik",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Kongregácie bratov tešiteľov z Getsemani",
             "datum_obliecky_vstupu" => "vstup do kongregácie 02.02.1928",
@@ -171,7 +171,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Michal Hukel",
-            "obrazok"               => "fk-057",
+            "obrazok"               => "michal-hukel",
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -189,7 +189,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Tomáš Imrich Ďurica OP",
-            "obrazok"               => null,
+            "obrazok"               => "tomas-imrich-durica",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Rehole kazateľov (dominikáni)",
             "datum_obliecky_vstupu" => "vstup do rehole v r. 1991",
@@ -225,7 +225,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Ján Buzák",
-            "obrazok"               => null,
+            "obrazok"               => "jan-buzak",
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -243,7 +243,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Jozef Strapko",
-            "obrazok"               => null,
+            "obrazok"               => "jozef-strapko",
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -261,7 +261,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Martin Sebíň",
-            "obrazok"               => null,
+            "obrazok"               => "martin-sebin",
             "poznamka"              => "štúdium dokončil za farnosť Hriňová",
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -279,7 +279,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Pavel Vilhan",
-            "obrazok"               => null,
+            "obrazok"               => "pavel-vilhan",
             "poznamka"              => "štúdium dokončil za farnosť Kriváň",
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -297,7 +297,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Andrej Valent OCD",
-            "obrazok"               => null,
+            "obrazok"               => "andrej-valent",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Rádu bosých karmelitánov",
             "datum_obliecky_vstupu" => "vstup do rádu v r. 1998",
@@ -315,7 +315,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Andrej Porubský",
-            "obrazok"               => null,
+            "obrazok"               => "andrej-porubsky",
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -333,7 +333,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Pavel Cerovský",
-            "obrazok"               => null,
+            "obrazok"               => "pavel-cerovsky",
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -351,7 +351,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Peter Sekereš",
-            "obrazok"               => null,
+            "obrazok"               => "peter-sekeres",
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -369,7 +369,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Florián Štefan Kamenský OFM",
-            "obrazok"               => null,
+            "obrazok"               => "florian-stefan-kamensky",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Rádu menších bratov františkánov",
             "datum_obliecky_vstupu" => "vstup do rádu v r. 2005",
@@ -387,7 +387,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Peter Lupták",
-            "obrazok"               => null,
+            "obrazok"               => "peter-luptak",
             "poznamka"              => null,
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => null,
@@ -405,7 +405,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Jozef Golian",
-            "obrazok"               => null,
+            "obrazok"               => "jozef-golian",
             "poznamka"              => "ženatý trvalý diakon v Mníchovsko-Freisingskej arcidiecéze v Nemecku",
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => "vysv. 06.10.2018  Mníchov, Nemecko",
@@ -425,7 +425,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Agáta Elena Kuricová CSC",
-            "obrazok"               => null,
+            "obrazok"               => "agata-elena-kuricova",
             "poznamka"              => null,
             "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
             "datum_obliecky_vstupu" => null,
@@ -443,7 +443,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Štefánia Elena Sekerešová CSC",
-            "obrazok"               => null,
+            "obrazok"               => "stefania-elena-sekeresova-csc",
             "poznamka"              => null,
             "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
             "datum_obliecky_vstupu" => null,
@@ -497,7 +497,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Kristína Amália Gáboríková CSC",
-            "obrazok"               => "soch-012",
+            "obrazok"               => "kristina-amalia-gaborikova",
             "poznamka"              => "rodná sestra rehoľného kňaza Longína Imricha Gáboríka",
             "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
             "datum_obliecky_vstupu" => "vstup do kongregácie 26.10.1934",
@@ -515,7 +515,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Vincencia Mária Sekerešová CSC",
-            "obrazok"               => null,
+            "obrazok"               => "vincencia-maria-sekeresova",
             "poznamka"              => "rodná sestra tešiteľky Štefánie Eleny Sekerešovej",
             "clen_radu_nazov"       => "členka Kongregácie sestier Tešiteliek Božského Srdca Ježišovho (tešiteľky)",
             "datum_obliecky_vstupu" => null,
@@ -551,7 +551,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Klára Mária Luptáková S.Praem.",
-            "obrazok"               => null,
+            "obrazok"               => "klara-maria-luptakova",
             "poznamka"              => null,
             "clen_radu_nazov"       => "členka Kongregácie sestier premonštrátok",
             "datum_obliecky_vstupu" => "vstup do kongregácie 31.08.1946, obliečka rehoľného rúcha 15.08.1948",
@@ -593,9 +593,9 @@
             "datum_obliecky_vstupu" => null,
             "datum_prve_sluby"      => null,
             "datum_dozivotne_sluby" => null,
-            "datum_narodenia"       => null,
-            "miesto_narodenia"      => "08.09.1927",
-            "datum_ordinovania"     => "Detva",
+            "datum_narodenia"       => "08.09.1927",
+            "miesto_narodenia"      => "Detva",
+            "datum_ordinovania"     => null,
             "miesto_ordinovania"    => null,
             "datum_umrtia"          => "26.06.2006",
             "miesto_umrtia"         => null,
@@ -605,15 +605,15 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Bibiána Magdaléna Sekerešová DKL",
-            "obrazok"               => null,
+            "obrazok"               => "bibiana-magdalena-sekeresova",
             "poznamka"              => "rodná sestra tešiteliek Štefánie Eleny a Vincencie Márie",
             "clen_radu_nazov"       => "členka Kongregácie Dcér kresťanskej lásky (vincentky)",
             "datum_obliecky_vstupu" => "vstup do kongregácie 06.09.1948",
             "datum_prve_sluby"      => null,
             "datum_dozivotne_sluby" => null,
-            "datum_narodenia"       => null,
-            "miesto_narodenia"      => "19.06.1930",
-            "datum_ordinovania"     => "Detva-Piešť",
+            "datum_narodenia"       => "19.06.1930",
+            "miesto_narodenia"      => "Detva-Piešť",
+            "datum_ordinovania"     => null,
             "miesto_ordinovania"    => null,
             "datum_umrtia"          => "07.10.2017",
             "miesto_umrtia"         => "Mendryka, Česká republika",
@@ -677,7 +677,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Tabita Anna Chlebničanová OSF",
-            "obrazok"               => null,
+            "obrazok"               => "tabita-anna-chlebnicanova",
             "poznamka"              => null,
             "clen_radu_nazov"       => "členka Kongregácie školských sestier sv. Františka Assiského",
             "datum_obliecky_vstupu" => "postulát 10.09.1994; noviciát 12.08.1995",
@@ -695,7 +695,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Františka Kristína Cerovská S.Praem.",
-            "obrazok"               => null,
+            "obrazok"               => "frantiska-kristina-cerovska",
             "poznamka"              => "rodná sestra kňaza Pavla Cerovského",
             "clen_radu_nazov"       => "členka Kongregácie sestier premonštrátok",
             "datum_obliecky_vstupu" => "vstup do kongregácie 04.01.2003, obliečka rehoľného rúcha 15.08.2003",
@@ -713,7 +713,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Magdaléna Krnáčiková",
-            "obrazok"               => null,
+            "obrazok"               => "magdalena-krnacikova",
             "poznamka"              => null,
             "clen_radu_nazov"       => "vo formácii pre vstup do Kongregácie sestier karmelitánok Dieťaťa Ježiša",
             "datum_obliecky_vstupu" => null,
@@ -745,7 +745,7 @@
 
     </x-web.page.section>
 
-    <x-web.sections.background-picture titleSlug="dej-003"/>
+    <x-web.sections.background-picture titleSlug="kronika-544"/>
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Ženy - " class="static-page pad_t_50 pad_b_30" data-no-index="true">
 
@@ -754,6 +754,40 @@
         <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$zenske_reholne_povolania_z_Detvy" />
         </div>
+
+        <x-web.page.information-sources title="Použitá literatúra a pramene:">
+            <li>Diecézny archív Banská Bystrica, fond Schematizmy.</li>
+            <li>Farský archív Detva, fond Matriky pokrstených Farnosti Detva.</li>
+            <li>Farský archív Detva, fond Matriky zomrelých Farnosti Detva.</li>
+            <li>
+                <span class="me-1">Matriky pokrstených Farnosti Detva.</span>
+                [online].
+                <a  class="link-template"
+                    target="_blank"
+                    href="https://www.familysearch.org/">
+                    Dostupné na internete
+                </a>
+            </li>
+            <li>
+                <span class="me-1">Matriky zomrelých farností Horná Ždaňa, Očová, Zvolenská Slatina, Žarnovica.</span>
+                [online]
+                <a  class="link-template"
+                    target="_blank"
+                    href="https://www.familysearch.org/">
+                    Dostupné na internete
+                </a>
+            </li>
+            <li>
+                Pataki Maurus Pál, OSB. In: <em class="me-1">Magyar katolikus lexikon.</em>
+                [online].
+                <a  class="link-template"
+                    target="_blank"
+                    href="http://lexikon.katolikus.hu/P/Pataki.html">
+                    Dostupné na internete
+                </a>
+            </li>
+            <li>PÁRNIČAN, Pavol. <em>Duchovné povolania z Dekanátu Detva.</em> Detva: Rímskokatolícka cirkev, Farnosť Detva, 2021. ISBN 978-80-570-3364-6.</li>
+        </x-web.page.information-sources>
 
     </x-web.page.section>
 </x-web.layout.master>

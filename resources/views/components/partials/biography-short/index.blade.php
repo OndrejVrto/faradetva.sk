@@ -23,7 +23,7 @@
 
             @isset($person["obrazok"])
                 <div class="">
-                    <x-partials.picture-responsive :titleSlug="$person['obrazok']" class="img-fluid" descriptionSide="left"/>
+                    <x-partials.picture-responsive :titleSlug="$person['obrazok']" class="img-fluid w-100" descriptionSide="left"/>
                 </div>
             @endisset
 
