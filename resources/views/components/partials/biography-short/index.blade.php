@@ -3,18 +3,18 @@
     'delay' => 1,
 ])
 
-@foreach ($personList as $key => $person)
+@foreach (array_reverse($personList) as $key => $person)
     @php
         if ((isset($person["pohlavie"]) && $person["pohlavie"] === "muzske")) {
-            $wordBorn  = "narodený";
-            $wordDeath = "zomrel";
+            $wordBorn  = "*";
+            $wordDeath = "†";
             $wordOrd   = "ordinovaný";
-            $wordPlace = "pochovaný";
+            $wordPlace = "miesto pochovania: ";
         } else {
-            $wordBorn  = "narodená";
-            $wordDeath = "zomrela";
+            $wordBorn  = "*";
+            $wordDeath = "†";
             $wordOrd   = "ordinovaná";
-            $wordPlace = "pochovaná";
+            $wordPlace = "miesto pochovania:";
         }
     @endphp
     <div class="col-md-6 col-lg-4 frombottom wow" data-wow-delay="{{ ($key % 3 + 1) * 0.4 }}s">
@@ -56,31 +56,31 @@
                     @endisset
 
                     @if(isset($person["datum_narodenia"]) && isset($person["miesto_narodenia"]))
-                        <div>{{ $wordBorn }} {{ $person["datum_narodenia"] }} v {{ $person["miesto_narodenia"] }}</div>
+                        <div>{{ $wordBorn }} {{ $person["datum_narodenia"] }} {{ $person["miesto_narodenia"] }}</div>
                     @elseif (isset($person["datum_narodenia"]))
                         <div>{{ $wordBorn }} {{ $person["datum_narodenia"] }}</div>
                     @elseif (isset($person["miesto_narodenia"]))
-                        <div>{{ $wordBorn }} v {{ $person["miesto_narodenia"] }}</div>
+                        <div>{{ $wordBorn }} {{ $person["miesto_narodenia"] }}</div>
                     @endif
 
                     @if(isset($person["datum_ordinovania"]) && isset($person["miesto_ordinovania"]))
-                        <div>{{ $wordOrd }} {{ $person["datum_ordinovania"] }} v {{ $person["miesto_ordinovania"] }}</div>
+                        <div class="text-primary">{{ $wordOrd }} {{ $person["datum_ordinovania"] }} v {{ $person["miesto_ordinovania"] }}</div>
                     @elseif (isset($person["datum_ordinovania"]))
-                        <div>{{ $wordOrd }} {{ $person["datum_ordinovania"] }}</div>
+                        <div class="text-primary">{{ $wordOrd }} {{ $person["datum_ordinovania"] }}</div>
                     @elseif (isset($person["miesto_ordinovania"]))
-                        <div>{{ $wordOrd }} v {{ $person["miesto_ordinovania"] }}</div>
+                        <div class="text-primary">{{ $wordOrd }} v {{ $person["miesto_ordinovania"] }}</div>
                     @endif
 
                     @if(isset($person["datum_umrtia"]) && isset($person["miesto_umrtia"]))
-                        <div>{{ $wordDeath }} {{ $person["datum_umrtia"] }} v {{ $person["miesto_umrtia"] }}</div>
+                        <div>{{ $wordDeath }} {{ $person["datum_umrtia"] }} {{ $person["miesto_umrtia"] }}</div>
                     @elseif (isset($person["datum_umrtia"]))
                         <div>{{ $wordDeath }} {{ $person["datum_umrtia"] }}</div>
                     @elseif (isset($person["miesto_umrtia"]))
-                        <div>{{ $wordDeath }} v {{ $person["miesto_umrtia"] }}</div>
+                        <div>{{ $wordDeath }} {{ $person["miesto_umrtia"] }}</div>
                     @endif
 
                     @isset($person["miesto_pochovania"])
-                        <div>{{ $wordPlace }} v {{ $person["miesto_pochovania"] }}</div>
+                        <div>{{ $wordPlace }} {{ $person["miesto_pochovania"] }}</div>
                     @endisset
                 </div>
             </div>

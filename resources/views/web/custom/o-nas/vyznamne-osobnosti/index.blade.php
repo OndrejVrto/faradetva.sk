@@ -35,7 +35,7 @@
             delay=2
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="pro-001-menu" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="pro-012-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Nábožný mladík a horlivý vlastenec. Za aktívny odpor voči okupujúcej armáde maďarských boľševikov, bol nimi popravený obesením na konári lipy pred kostolom v Detve.

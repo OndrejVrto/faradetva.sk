@@ -7,12 +7,12 @@
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromright">
 
-                <x-partials.picture titleSlug="pro-001" side="left" dimensionSource="medium" columns="2"/>
+                <x-partials.picture titleSlug="pro-012" side="left" dimensionSource="medium" columns="2"/>
 
                 <h6 class="text-church-template">* <span class="ps-1 pe-2">20. 6. 1894</span> Detva</h6>
                 <h6 class="text-church-template">† <span class="ps-1 pe-2">8. 6. 1919</span> Detva</h6>
 
-                <x-partials.picture titleSlug="pro-011" side="right" dimensionSource="medium" columns="3"/>
+                <x-partials.picture titleSlug="pro-014" side="right" dimensionSource="medium" columns="3"/>
 
                 <p>
                     Anton Prokop sa narodil 20. júna 1894, ako syn Emila a Júlie, rod. Hermanovej. Po skončení ľudovej školy v Detve, študoval na gymnáziu v Banskej Bystrici a po štvrtej triede gymnázia pokračoval na Obchodnej akadémii. Po jej ukončení sa zamestnal ako úradník v Hospodárskej banke v Trnave. Po čase prišiel k názoru, že svetský život nie je pre neho a pomýšľal vstúpiť do Spoločnosti Ježišovej - k jezuitom. Kvôli vojnovým nepokojom nebolo dovolené mladých mužov prijímať do kláštora. Žil zbožne a kláštorným spôsobom života sa usiloval žiť aspoň doma. V roku 1915 bol odvedený za vojaka, narukoval k pešiemu pluku v Lučenci, avšak pre krátkozrakosť nebol na bojovom fronte, pracoval ako úradník na železničných staniciach. Po skončení prvej svetovej vojny sa v roku 1918 vrátil domov do Detvy, kde pracoval ako kancelársky pomocník na notárskom úrade obce Detva.

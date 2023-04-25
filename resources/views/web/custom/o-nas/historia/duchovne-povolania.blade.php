@@ -207,7 +207,7 @@
         [
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Emil Prokop SVD",
-            "obrazok"               => null,
+            "obrazok"               => "emil-prokop",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Spoločnosti Božieho slova (verbisti)",
             "datum_obliecky_vstupu" => "vstup do spoločnosti v r. 1941",

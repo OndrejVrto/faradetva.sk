@@ -122,6 +122,14 @@
                 <p>
                     Zo súčasnej generácie miestnych výrobcov sú to najmä diela Jozefa Krnáča ml., Mikuláša Purdeka, Jána Môťovského, Štefana Melicha, Jozefa Ďuricu, Štefana Ľuptáka a ďalších. Reštaurovaniu krížov a výrobe malých stolových krížov a miniatúrnych príveskových krížikov, ktoré sú napodobeninami tradičných prícestných krížov, sa okrem iných výrazne venoval Milan Malček z Detvianskej umeleckej kolónie, o.z.
                 </p>
+
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <x-partials.video-embed urlVideo="https://youtu.be/hSy6Wdd5btA" class="ratio ratio-4x3"/>
+                    </div>
+                </div>
+            {{-- <x-partials.video-embed urlVideo="https://youtu.be/hSy6Wdd5btA" :config="['width' => 400]" class="ratio ratio-4x3"/> --}}
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
