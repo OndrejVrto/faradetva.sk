@@ -6,7 +6,7 @@
 
         <x-partials.page-card routeStaticPages="
             o-nas.pastoracia.akolyti,
-            o-nas.pastoracia.farska-rada,
+            o-nas.pastoracia.farske-rady,
             o-nas.pastoracia.kostolnici,
             o-nas.pastoracia.lektori,
             o-nas.pastoracia.ministranti,
