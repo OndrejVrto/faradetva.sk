@@ -25,6 +25,7 @@ class StaticPageController extends Controller {
             ->archive($request, 'pages')
             ->filterDeactivated($request)
             ->get();
+            // ->paginate(12);
 
         return view('admin.static-pages.index', compact('pages'));
     }

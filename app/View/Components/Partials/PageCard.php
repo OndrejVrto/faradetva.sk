@@ -82,40 +82,79 @@ class PageCard extends Component {
     }
 
     private function mapOutput(StaticPage $page): array {
-        $media = $page->picture[0];
-        return  [
-            'id'              => $page->id,
-            'author'          => $page->author_page,
-            'description'     => $page->description_page,
-            'header'          => $page->header,
-            'keywords'        => $page->keywords,
-            'slug'            => $page->slug,
-            'teaser'          => $page->teaser,
-            'title'           => $page->title,
-            'url'             => $page->full_url,
-            'wikipedia'       => $page->wikipedia,
+        $media = $page->picture[0] ?? null;
 
-            'img-title'              => $page->title,
-            'img-updated'            => $page->updated_at?->toAtomString(),
-            'img-width'              => '370',
-            'img-height'             => '248',
-            'img-url'                => $media?->getUrl('card'), // 'http://via.placeholder.com/370x248'
-            'img-mime'               => $media?->mime_type,
+        if (null !== $media) {
+            return  [
+                'id'              => $page->id,
+                'author'          => $page->author_page,
+                'description'     => $page->description_page,
+                'header'          => $page->header,
+                'keywords'        => $page->keywords,
+                'slug'            => $page->slug,
+                'teaser'          => $page->teaser,
+                'title'           => $page->title,
+                'url'             => $page->full_url,
+                'wikipedia'       => $page->wikipedia,
 
-            'img_thumbnail_url'      => $media?->getUrl('crop-thumb'),
-            'img_thumbnail_width'    => 100,
-            'img_thumbnail_height'   => 50,
+                'img-title'              => $page->title,
+                'img-updated'            => $page->updated_at?->toAtomString(),
+                'img-width'              => '370',
+                'img-height'             => '248',
+                'img-url'                => $media?->getUrl('card'), // 'http://via.placeholder.com/370x248'
+                'img-mime'               => $media?->mime_type,
 
-            'source_description'     => $page->source?->source_description,
-            'source_description-crop'=> $page->source?->source_description_crop,
-            'sourceArr' => [
-                'source_source'      => $page->source?->source_source,
-                'source_source_url'  => $page->source?->source_source_url,
-                'source_author'      => $page->source?->source_author,
-                'source_author_url'  => $page->source?->source_author_url,
-                'source_license'     => $page->source?->source_license,
-                'source_license_url' => $page->source?->source_license_url,
-            ],
-        ];
+                'img_thumbnail_url'      => $media?->getUrl('crop-thumb'),
+                'img_thumbnail_width'    => 100,
+                'img_thumbnail_height'   => 50,
+
+                'source_description'     => $page->source?->source_description,
+                'source_description-crop'=> $page->source?->source_description_crop,
+                'sourceArr' => [
+                    'source_source'      => $page->source?->source_source,
+                    'source_source_url'  => $page->source?->source_source_url,
+                    'source_author'      => $page->source?->source_author,
+                    'source_author_url'  => $page->source?->source_author_url,
+                    'source_license'     => $page->source?->source_license,
+                    'source_license_url' => $page->source?->source_license_url,
+                ],
+            ];
+        } else {
+            //TODO: zmazať po vývoji
+            return  [
+                'id'              => $page->id,
+                'author'          => $page->author_page,
+                'description'     => $page->description_page,
+                'header'          => $page->header,
+                'keywords'        => $page->keywords,
+                'slug'            => $page->slug,
+                'teaser'          => $page->teaser,
+                'title'           => $page->title,
+                'url'             => $page->full_url,
+                'wikipedia'       => $page->wikipedia,
+
+                'img-title'              => $page->title,
+                'img-updated'            => $page->updated_at?->toAtomString(),
+                'img-width'              => '370',
+                'img-height'             => '248',
+                'img-url'                => 'http://via.placeholder.com/370x248', // 'http://via.placeholder.com/370x248'
+                'img-mime'               => 'image/png',
+
+                'img_thumbnail_url'      => 'http://via.placeholder.com/100x50',
+                'img_thumbnail_width'    => 100,
+                'img_thumbnail_height'   => 50,
+
+                'source_description'     => 'example picture description',
+                'source_description-crop'=> 'example picture description',
+                'sourceArr' => [
+                    'source_source'      => 'example source',
+                    'source_source_url'  => 'http://source.example.com',
+                    'source_author'      => 'example author',
+                    'source_author_url'  => 'http://author.example.com',
+                    'source_license'     => 'example license',
+                    'source_license_url' => 'http://license.example.com'
+                ],
+            ];
+        }
     }
 }

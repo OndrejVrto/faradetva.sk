@@ -17,7 +17,7 @@ class BannerController extends Controller {
             ->latest('updated_at')
             ->withCount('staticPages')
             ->with('media', 'source', 'staticPages')
-            ->paginate(100);
+            ->paginate(8);
 
         return view('admin.banners.index', compact('banners'));
     }
@@ -25,7 +25,7 @@ class BannerController extends Controller {
     public function create(): View {
         $pages = StaticPage::query()
             ->select(['id','title','description_page'])
-            ->activated()
+            // ->activated()
             ->orderBy('title')
             ->get();
         $selectedPages = [];
@@ -56,7 +56,7 @@ class BannerController extends Controller {
         $banner->load('source');
         $pages = StaticPage::query()
             ->select(['id','title','description_page'])
-            ->activated()
+            // ->activated()
             ->orderBy('title')
             ->get();
         $selectedPages = $banner->staticPages->pluck('id')->unique()->toArray();

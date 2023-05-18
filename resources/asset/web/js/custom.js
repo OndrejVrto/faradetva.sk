@@ -21,7 +21,7 @@ Project: Church
 			this.Testimonial_Slider();
 			this.Responsive_Menu();
 			this.Dropdown_Menu();
-			this.Skill_Counter();
+			// this.Skill_Counter();
 			this.Wow_Animation();
 		},
 		/*-------------- Church Functions definition ---------------------------------------------------
@@ -91,6 +91,7 @@ Project: Church
 					autoplaySpeed: 2000,
 					smartSpeed: 1500,
 					responsiveClass: true,
+                    stageClass: 'owl-stage d-flex align-items-stretch',
 					responsive: {
 						0: {
 							items: 1,

@@ -1,5 +1,5 @@
 {{-- @dump($dataVideo) --}}
 
-<div {{ $attributes->merge(['class' => 'w-100 my-5']) }}>
+<div {{ $attributes->merge(['class' => 'mw-100 my-5']) }}>
     {!! $video !!}
 </div>

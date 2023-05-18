@@ -11,17 +11,42 @@ class StatisticsGraph extends Component {
     public array $graphs;
 
     public function __construct(
-        public array|string|null $names = null
+        public int|null $id = null,
+        public string|null $notId = "0",
+        public string|null $teaser = null,
+        public string|null $after = null,
+        public float|int|null $aspectRatio = 4,
     ) {
-        $listOfGraphs = prepareInput($names);
-
-        if ($listOfGraphs) {
+        if (null !== $id) {
+            $this->graphs = Cache::rememberForever(
+                key: 'CHART_'.$id,
+                callback: fn (): array => Chart::query()
+                    ->where('id', $id)
+                    ->where('active', true)
+                    ->with('data')
+                    ->get()
+                    ->map(fn ($chart) => $this->mapOutput($chart))
+                    ->toArray()
+            );
+        } elseif(null !== $notId) {
+            $listOfGraphs = prepareInput($notId);
             $cacheName = getCacheName($listOfGraphs);
 
             $this->graphs = Cache::rememberForever(
                 key: 'CHART_'.$cacheName,
                 callback: fn (): array => Chart::query()
-                    ->whereIn('slug', $listOfGraphs)
+                    ->whereNotIn('id', $listOfGraphs)
+                    ->where('active', true)
+                    ->with('data')
+                    ->get()
+                    ->map(fn ($chart) => $this->mapOutput($chart))
+                    ->toArray()
+            );
+        } else {
+            $this->graphs = Cache::rememberForever(
+                key: 'CHART_ALL',
+                callback: fn (): array => Chart::query()
+                    ->where('active', true)
                     ->with('data')
                     ->get()
                     ->map(fn ($chart) => $this->mapOutput($chart))

@@ -59,12 +59,12 @@ return [
         'providers' => [
             'YouTube' => [
                 'data' => [
-                    'width' => 560,
-                    'height' => 315,
+                    'width' => 400,
+                    'height' => 300,
                 ],
                 'html' => [
-                    'width' => 560,
-                    'height' => 315,
+                    'width' => 400,
+                    'height' => 300,
                 ]
             ],
         ]

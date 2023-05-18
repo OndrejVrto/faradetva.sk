@@ -13,6 +13,7 @@ class PhotoGallery extends Component {
 
     public function __construct(
         public string $titleSlug,
+        public bool $viewDescription = true,
         public string|null $dimensionSource = 'full',
     ) {
         $this->gallery = $this->getGallery($titleSlug);

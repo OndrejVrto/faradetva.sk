@@ -15,7 +15,7 @@ class BackgroundPictureController extends Controller {
         $backgroundPictures = BackgroundPicture::query()
             ->latest('updated_at')
             ->with('media', 'source')
-            ->paginate(8);
+            ->paginate(5);
 
         return view('admin.background-pictures.index', compact('backgroundPictures'));
     }
