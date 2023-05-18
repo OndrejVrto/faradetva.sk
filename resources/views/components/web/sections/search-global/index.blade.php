@@ -5,7 +5,9 @@
 
                 <div class="search_dialog">
                     <div class="model_content">
-                        <form id="search-form-all" action="{{ route('search.all') }}">
+                        <form id="search-form-all">
+                        {{-- Globálen vyhľadávanie nefunhuje kvôli hostingu --}}
+                        {{-- <form id="search-form-all" action="{{ route('search.all') }}"> --}}
                             @csrf
                             <div class="form_group">
                                 <input type="text" id="inputSearch" name="searchAll" class="search" placeholder="Hľadať ...">

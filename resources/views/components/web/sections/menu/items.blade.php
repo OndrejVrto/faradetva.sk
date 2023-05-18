@@ -114,12 +114,15 @@
     <!-- Kňazi  -->
 </li>
 
-<li class="search_icon">
-    <!-- Button trigger modal -->
-    <span data-bs-toggle="modal" data-bs-target="#modalSearch">
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </span>
-</li>
+@env(['local'])
+    {{-- Globálne vyhľadávanie nefunguje kvôli hostingu --}}
+    <li class="search_icon">
+        <!-- Button trigger modal -->
+        <span data-bs-toggle="modal" data-bs-target="#modalSearch">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+    </li>
+@endenv
 
 @env(['local'])
     @auth
