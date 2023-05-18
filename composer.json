@@ -21,7 +21,6 @@
     "require": {
         "php": "^8.1.2",
         "artesaos/seotools": "^0.22.0",
-        "awssat/laravel-visits": "^4.1",
         "cohensive/oembed": "^0.16.0",
         "composer/semver": "^3.3",
         "diglactic/laravel-breadcrumbs": "^8.0",
@@ -39,6 +38,7 @@
         "livewire/livewire": "^2.10",
         "meilisearch/meilisearch-php": "^0.24.2",
         "nanigans/single-table-inheritance": "~1.0",
+        "ondrej-vrto/laravel-visitors": "^0.3.2",
         "osiemsiedem/laravel-autolink": "^6.0",
         "spatie/crawler": "^7.1",
         "spatie/image": "^2.2",

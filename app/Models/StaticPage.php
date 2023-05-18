@@ -10,20 +10,23 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use OndrejVrto\Visitors\Contracts\Visitable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use OndrejVrto\Visitors\Traits\InteractsWithVisits;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class StaticPage extends BaseModel implements HasMedia {
+class StaticPage extends BaseModel implements HasMedia, Visitable {
     use Activable;
     use Restorable;
     use HasFactory;
     use SoftDeletes;
     use InteractsWithMedia;
+    use InteractsWithVisits;
 
     protected $table = 'static_pages';
 

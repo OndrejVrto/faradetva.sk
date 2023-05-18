@@ -13,8 +13,10 @@ use App\Services\PurifyAutolinkService;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Collection;
+use OndrejVrto\Visitors\Contracts\Visitable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
+use OndrejVrto\Visitors\Traits\InteractsWithVisits;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -22,13 +24,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class News extends BaseModel implements HasMedia, Feedable {
+class News extends BaseModel implements HasMedia, Feedable, Visitable {
     use Loggable;
     use Restorable;
     use HasFactory;
     use Publishable;
     use SoftDeletes;
     use InteractsWithMedia;
+    use InteractsWithVisits;
 
     protected $table = 'news';
 

@@ -32,7 +32,7 @@ class ArticleController extends Controller {
                 ->firstOrFail()
         );
 
-        visits($oneNews)->increment();
+        $oneNews->incrementVisit();
 
         $lastNews = Cache::rememberForever(
             key: 'NEWS_LAST',
