@@ -1,13 +1,17 @@
 @foreach ($graphs as $graph)
 
-    <div class="heading_section pad_t_50 pad_b_50 text-church-template-blue">
-        <h2>{{ $graph['title'] }}</h2>
+    <div class="pad_b_50 text-center">
+        <h2 class="text-church-template-blue">{{ $graph['title'] }}</h2>
         <canvas id="Chart-{{ $graph['id'] }}"></canvas>
+        <div class="ms-5 me-2 mt-4">
+            <p class="fw-bolder"><em>{{ $teaser }}</em></p>
+            <p>{{ $after }}</p>
+        </div>
     </div>
 
     @php
         $scripts[] = sprintf(
-            "generateGraph('Chart-%s', [%s], [%s], '%s', '%s', '%s', '%s', '%s', '%s');",
+            "generateGraph('Chart-%s', [%s], [%s], '%s', '%s', '%s', '%s', '%s', '%s', '%s');",
             $graph['id'],
             $graph['labelGraph'],
             $graph['dataGraph'],
@@ -16,7 +20,8 @@
             $graph['type'],
             $graph['desription'],
             $graph['name_x_axis'],
-            $graph['name_y_axis']
+            $graph['name_y_axis'],
+            $aspectRatio
         );
     @endphp
 

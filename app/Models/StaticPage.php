@@ -3,25 +3,30 @@
 namespace App\Models;
 
 use App\Enums\PageType;
+use App\Traits\Activable;
 use App\Traits\Restorable;
 use Illuminate\Http\Request;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use OndrejVrto\Visitors\Contracts\Visitable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use OndrejVrto\Visitors\Traits\InteractsWithVisits;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class StaticPage extends BaseModel implements HasMedia {
+class StaticPage extends BaseModel implements HasMedia, Visitable {
+    use Activable;
     use Restorable;
     use HasFactory;
     use SoftDeletes;
     use InteractsWithMedia;
+    use InteractsWithVisits;
 
     protected $table = 'static_pages';
 
@@ -54,14 +59,24 @@ class StaticPage extends BaseModel implements HasMedia {
     ];
 
     public function getFullUrlAttribute(): string {
-        return strval(url($this->url));
+        return (string) url($this->url);
     }
 
     public function scopeFilterDeactivated(Builder $query, Request $request): Builder {
         return $query
-            ->when($request->has('only-deactivated'), function ($query) {
-                $query->where('active', false);
+            ->when($request->has('only-deactivated'), function ($query): void {
+                $query->notActivated();
             });
+    }
+
+    public function scopeVirtual(Builder $query): Builder {
+        return $query
+            ->where('virtual', true);
+    }
+
+    public function scopeNotVirtual(Builder $query): Builder {
+        return $query
+            ->where('virtual', false);
     }
 
     public function files(): HasMany {

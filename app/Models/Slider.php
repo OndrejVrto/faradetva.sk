@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Activable;
 use App\Traits\Restorable;
 use Illuminate\Support\Str;
 use Spatie\Image\Manipulations;
@@ -15,6 +16,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Slider extends BaseModel implements HasMedia {
     use Loggable;
+    use Activable;
     use Restorable;
     use HasFactory;
     use SoftDeletes;

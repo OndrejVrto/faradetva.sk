@@ -10,6 +10,9 @@ use App\Http\Requests\Traits\HasCropPictureFields;
 class UserRequest extends BaseRequest {
     use HasCropPictureFields;
 
+    /**
+     * @return array{active: mixed[], name: mixed[], twitter_url: mixed[], facebook_url: mixed[], www_page_url: mixed[], slug: \Illuminate\Validation\Rules\Unique, nick: \Illuminate\Validation\Rules\Unique[]|string[], email: \Illuminate\Validation\Rules\Unique[]|string[], password: string[]|\Illuminate\Validation\Rules\Password[], can_be_impersonated: string[], role: string[], phone: string[]}
+     */
     public function rules(): array {
         return [
             'active'       => $this->reqBoolRule(),

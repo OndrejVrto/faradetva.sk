@@ -7,28 +7,20 @@ use Spatie\Health\Checks\Check;
 use Spatie\Health\Checks\Result;
 
 class SslCertificateValidCheck extends Check {
-    /**  @var array */
     protected array $certificateInfo;
 
-    /**  @var string */
     protected string $certificateExpiration;
 
-    /**  @var string */
     protected string $certificateDomain;
 
-    /**  @var array */
     protected array $certificateAdditionalDomains = [];
 
-    /**  @var int */
     protected int $certificateDaysUntilExpiration;
 
-    /**  @var string */
     public ?string $url = null;
 
-    /**  @var int */
     protected int $warningThreshold = 20;
 
-    /**  @var int */
     protected int $errorThreshold = 14;
 
     /**

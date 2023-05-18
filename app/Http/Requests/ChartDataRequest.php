@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 class ChartDataRequest extends BaseRequest {
+    /**
+     * @return array{key: string[], value: string[]}
+     */
     public function rules(): array {
         return [
             'key' => [

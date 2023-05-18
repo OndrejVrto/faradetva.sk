@@ -2,23 +2,8 @@
 
 use Spatie\Valuestore\Valuestore;
 
-if (!function_exists('random_color_part'))
-{
-    function random_color_part() {
-        return str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
-    }
-}
-
-if (!function_exists('random_hex_color'))
-{
-    function random_hex_color() {
-        return random_color_part() . random_color_part() . random_color_part();
-    }
-}
-
-if(!function_exists('customConfig'))
-{
-    function customConfig(string $filename = 'config', $key = null, $default = null): Valuestore|string|null {
+if (!function_exists('customConfig')) {
+    function customConfig(string $filename = 'config', mixed $key = null, mixed $default = null): Valuestore|string|null {
         try {
             $valueStore = Valuestore::make(
                 storage_path("app/value-store/$filename.json")
@@ -107,7 +92,7 @@ if (!function_exists('minifyHtml')) {
             // # strip whitespaces between = "'
             '/=\s+(\"|\')/' => "=$1"
         ];
-        return strval(preg_replace(array_keys($replace), array_values($replace), $html));
+        return (string) preg_replace(array_keys($replace), array_values($replace), $html);
     }
 }
 
@@ -123,6 +108,6 @@ if (!function_exists('formatBytes')) {
         $base = log($size) / log(1024);
         $suffixes = ['B', 'kB', 'MB', 'GB', 'TB'];
 
-        return strval($sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)]);
+        return $sign . round(1024 ** ($base - floor($base)), $precision) .' '. $suffixes[floor($base)];
     }
 }

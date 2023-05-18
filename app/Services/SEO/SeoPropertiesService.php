@@ -57,7 +57,7 @@ class SeoPropertiesService {
             ->uploadDate($pictureData['img-updated'])
             ->license(e($pictureData['sourceArr']['source_license_url']))
             ->acquireLicensePage(e($pictureData['sourceArr']['source_license_url']))
-            ->if(isset($pictureData['sourceArr']['source_author']) || isset($pictureData['sourceArr']['source_author_url']), function (ImageObject $schema) use ($pictureData) {
+            ->if(isset($pictureData['sourceArr']['source_author']) || isset($pictureData['sourceArr']['source_author_url']), function (ImageObject $schema) use ($pictureData): void {
                 $schema->author(
                     Schema::person()
                         ->name(e($pictureData['sourceArr']['source_author']))
@@ -91,7 +91,7 @@ class SeoPropertiesService {
         $JsonLD = Schema::imageGallery()
             ->name(e($album['title']))
             ->description(e($album['source_description']))
-            ->if(isset($album['sourceArr']['source_author']) || isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album) {
+            ->if(isset($album['sourceArr']['source_author']) || isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album): void {
                 $schema->author(
                     Schema::person()
                         ->name(e($album['sourceArr']['source_author']))
@@ -100,7 +100,7 @@ class SeoPropertiesService {
             })
             ->license(e($album['sourceArr']['source_license_url']))
             ->acquireLicensePage(e($album['sourceArr']['source_license_url']))
-            ->if(isset($album['sourceArr']['source_source_url']) || isset($album['sourceArr']['source_source']), function (ImageGallery $schema) use ($album) {
+            ->if(isset($album['sourceArr']['source_source_url']) || isset($album['sourceArr']['source_source']), function (ImageGallery $schema) use ($album): void {
                 $schema->copyrightHolder(
                     Schema::organization()
                         ->name(e($album['sourceArr']['source_source']))
@@ -129,13 +129,13 @@ class SeoPropertiesService {
                 ->honorificPrefix(e($priest['titles_before']))
                 ->honorificSuffix(e($priest['titles_after']))
                 ->nationality(Schema::country()->name('Slovak'))
-                ->if(isset($priest['facebook']) || isset($priest['twitter']), function ($schema) use ($priest) {
+                ->if(isset($priest['facebook']) || isset($priest['twitter']), function ($schema) use ($priest): void {
                     $schema->sameAs([
                         $priest['facebook'] ?? '',
                         $priest['twitter'] ?? '',
                     ]);
                 })
-                ->if(isset($priest['phone']), function ($schema) use ($priest) {
+                ->if(isset($priest['phone']), function ($schema) use ($priest): void {
                     $schema->telephone([
                         e($priest['phone']),
                         e($priest['phone_digits'])

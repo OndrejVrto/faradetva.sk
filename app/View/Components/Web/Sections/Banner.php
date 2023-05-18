@@ -47,8 +47,8 @@ class Banner extends Component {
         // Get all data Slider to Cache
         return Cache::rememberForever(
             key: 'PICTURE_BANNER_'.$oneBanner->slug,
-            callback: fn (): ?array => BannerModel::query()
-                ->whereSlug($oneBanner->slug)
+            callback: fn () => BannerModel::query()
+                ->where('slug', $oneBanner->slug)
                 ->with('media', 'source')
                 ->get()
                 ->map(fn ($banner) => $this->mapOutput($banner))

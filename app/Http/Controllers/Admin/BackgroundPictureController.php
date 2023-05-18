@@ -15,7 +15,7 @@ class BackgroundPictureController extends Controller {
         $backgroundPictures = BackgroundPicture::query()
             ->latest('updated_at')
             ->with('media', 'source')
-            ->paginate(8);
+            ->paginate(5);
 
         return view('admin.background-pictures.index', compact('backgroundPictures'));
     }
@@ -32,7 +32,7 @@ class BackgroundPictureController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($backgroundPicture, $request);
 
-        toastr()->success(strval(__('app.background-picture.store')));
+        toastr()->success(__('app.background-picture.store'));
         return to_route('background-pictures.index');
     }
 
@@ -57,7 +57,7 @@ class BackgroundPictureController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($backgroundPicture, $request);
 
-        toastr()->success(strval(__('app.background-picture.update')));
+        toastr()->success(__('app.background-picture.update'));
         return to_route('background-pictures.index');
     }
 
@@ -66,7 +66,7 @@ class BackgroundPictureController extends Controller {
         $backgroundPicture->delete();
         $backgroundPicture->clearMediaCollection($backgroundPicture->collectionName);
 
-        toastr()->success(strval(__('app.background-picture.delete')));
+        toastr()->success(__('app.background-picture.delete'));
         return to_route('background-pictures.index');
     }
 }

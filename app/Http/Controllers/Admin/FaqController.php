@@ -21,7 +21,11 @@ class FaqController extends Controller {
     }
 
     public function create(): View {
-        $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
+        $pages = StaticPage::query()
+            ->select(['id','title','description_page'])
+            ->activated()
+            ->orderBy('title')
+            ->get();
         $selectedPages = [];
 
         return view('admin.faqs.create', compact('pages', 'selectedPages'));
@@ -32,13 +36,17 @@ class FaqController extends Controller {
         $faq = Faq::create(Faq::sanitize($validated));
         $faq->staticPages()->syncWithoutDetaching($request->input('page'));
 
-        toastr()->success(strval(__('app.faq.store')));
+        toastr()->success(__('app.faq.store'));
         return to_route('faqs.index');
     }
 
     public function edit(Faq $faq): View {
         $faq->load('staticPages');
-        $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
+        $pages = StaticPage::query()
+            ->select(['id','title','description_page'])
+            ->activated()
+            ->orderBy('title')
+            ->get();
         $selectedPages = $faq->staticPages->pluck('id')->unique()->toArray();
 
         return view('admin.faqs.edit', compact('faq', 'pages', 'selectedPages'));
@@ -49,7 +57,7 @@ class FaqController extends Controller {
         $faq->update(Faq::sanitize($validated));
         $faq->staticPages()->sync($request->input('page'));
 
-        toastr()->success(strval(__('app.faq.update')));
+        toastr()->success(__('app.faq.update'));
         return to_route('faqs.index');
     }
 
@@ -57,7 +65,7 @@ class FaqController extends Controller {
         $faq->staticPages()->detach();
         $faq->delete();
 
-        toastr()->success(strval(__('app.faq.delete')));
+        toastr()->success(__('app.faq.delete'));
         return to_route('faqs.index');
     }
 }

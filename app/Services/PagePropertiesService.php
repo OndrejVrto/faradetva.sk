@@ -29,7 +29,7 @@ final class PagePropertiesService {
         }
 
         // counter of visits page
-        visits($page)->increment();
+        $page->incrementVisit();
 
         return self::getStaticPageData($page, null);
     }
@@ -69,13 +69,13 @@ final class PagePropertiesService {
     }
 
     private static function getImageData(StaticPage $page): RepresentingImageData {
-        $media = $page->picture[0];
+        $media = $page->picture[0] ?? null;
 
-        if (isset($media)) {
+        if (null !== $media) {
             return new RepresentingImageData(
                 url:        $media->getUrl('representing'),
                 urlThumb:   $media->getUrl('representing-thumb'),
-                fileName:   pathinfo(strval($media->file_name), PATHINFO_FILENAME),
+                fileName:   pathinfo((string) $media->file_name, PATHINFO_FILENAME),
                 mimeType:   $media->mime_type,
                 size:       $media->size,
                 width:      960,
@@ -121,7 +121,7 @@ final class PagePropertiesService {
         $image = new RepresentingImageData(
             url:        $newsMedia->getUrl('large'),
             urlThumb:   $newsMedia->getUrl('small'),
-            fileName:   pathinfo(strval($newsMedia->file_name), PATHINFO_FILENAME),
+            fileName:   pathinfo((string) $newsMedia->file_name, PATHINFO_FILENAME),
             mimeType:   $newsMedia->mime_type,
             size:       $newsMedia->size,
             width:      700,
@@ -170,16 +170,33 @@ final class PagePropertiesService {
             description:    e($news->teaser),
             contentPlain:   e($news->content_plain),
             wikipedia:      null,
-            dateExpires:    property_exists($news, 'unpublished_at') && $news->unpublished_at !== null
-                                ? Carbon::createFromFormat('d.m.Y G:i', $news->unpublished_at)
-                                : null,
+            dateExpires:    (new self)->handleDate(
+                                object        : $news,
+                                propertyOfData: "unpublished_at",
+                                defaultDate   : null,
+                            ),
             dateModified:   $news->updated_at,
-            datePublished:  property_exists($news, 'published_at') && $news->published_at !== null
-                                ? Carbon::createFromFormat('d.m.Y G:i', $news->published_at)
-                                : $news->created_at,
+            datePublished:  (new self)->handleDate(
+                                object        : $news,
+                                propertyOfData: "published_at",
+                                defaultDate   : $news->created_at,
+                            ),
             tags:   $news->tags->pluck('title')->implode(', '),
             author: $author,
             image:  $image,
         );
+    }
+
+    private function handleDate(object|string $object, string $propertyOfData , Carbon|null $defaultDate = null): ?Carbon {
+        if (!property_exists($object, $propertyOfData)
+            || $object->{$propertyOfData} === null
+            || $object->{$propertyOfData} === false
+        ) {
+            return $defaultDate;
+        }
+
+        $date = Carbon::createFromFormat('d.m.Y G:i', $object->{$propertyOfData});
+
+        return $date ?: $defaultDate;
     }
 }

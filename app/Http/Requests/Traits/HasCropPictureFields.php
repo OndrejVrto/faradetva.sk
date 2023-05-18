@@ -5,6 +5,9 @@ namespace App\Http\Requests\Traits;
 use App\Rules\IsBase64Encoded;
 
 trait HasCropPictureFields {
+    /**
+     * @return array{crop_output_file_name: string[], crop_output_base64: mixed[], crop_output_exact_dimensions: string[], crop_output_width: string[], crop_output_height: string[]}
+     */
     protected function cropPictureRules(): array {
         return [
             'crop_output_file_name' => [

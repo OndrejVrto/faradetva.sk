@@ -99,7 +99,7 @@
 
             <x-web.page.text-segment animation="fromright">
 
-                <x-partials.picture titleSlug="pohr-011" side="left" dimensionSource="full" columns="4" />
+                <x-partials.picture titleSlug="pohr-011" side="left" dimensionSource="full" columns="3" />
 
                 <p>
                     Cirkev naďalej uprednostňuje pochovávanie tiel zosnulých, pretože tým sa preukazuje väčšia úcta voči zosnulým; napriek tomu nie je kremácia zakázaná, okrem „prípadu, že by bola zvolená z dôvodov, ktoré odporujú kresťanskej náuke“. Ak nie sú dôvody protirečiace kresťanskej náuke, Cirkev po vyslúžení pohrebných obradov sprevádza toto rozhodnutie pre kremáciu s na to určenými liturgickými a pastoračnými pokynmi, pričom sa zvlášť stará o to, aby sa vyhlo akémukoľvek pohoršeniu alebo istej forme náboženskej ľahostajnosti.
@@ -122,6 +122,13 @@
                 <p>
                     V prípade, že bolo všeobecne známe želanie zosnulého dať sa spopolniť a popol rozptýliť v prírode z dôvodov protirečiacich kresťanskej viere, musí mu byť podľa normy práva odmietnutý pohreb.
                 </p>
+
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <x-partials.video-embed urlVideo="https://youtu.be/6Bt_FtUl5k0" class="ratio ratio-4x3"/>
+                    </div>
+                </div>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 

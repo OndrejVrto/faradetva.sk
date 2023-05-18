@@ -19,12 +19,12 @@ final class PageArticleData {
         public readonly string   $description,
         public readonly string   $contentPlain,
         public readonly ?string  $tags,
-        public readonly ?string  $wikipedia = null,
         public readonly ?Carbon  $dateExpires,
         public readonly Carbon   $dateModified,
         public readonly Carbon   $datePublished,
         public readonly AuthorArticleData $author,
         public readonly RepresentingImageData $image,
+        public readonly ?string  $wikipedia = null,
     ) {
     }
 }

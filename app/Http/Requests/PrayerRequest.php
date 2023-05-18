@@ -11,6 +11,9 @@ class PrayerRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 
+    /**
+     * @return array{active: mixed[], name: mixed[], title: mixed[], slug: \Illuminate\Validation\Rules\Unique, quote_row1: mixed[], quote_row2: mixed[], quote_author: mixed[], quote_link_url: string[], quote_link_text: string[]}
+     */
     public function rules(): array {
         return [
             'active'       => $this->reqBoolRule(),

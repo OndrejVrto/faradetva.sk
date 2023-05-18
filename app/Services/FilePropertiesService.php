@@ -29,6 +29,9 @@ class FilePropertiesService {
                 ->toArray();
     }
 
+    /**
+     * @return array{id: mixed, slug: mixed, title: mixed, source_description: mixed, mime_type: mixed, icon: string, file_url: string|null, file_name: mixed, file_extension: string, name: mixed, size: mixed, humanReadableSize: string, sourceArr: array{source_source: mixed, source_source_url: mixed, source_author: mixed, source_author_url: mixed, source_license: mixed, source_license_url: mixed}}
+     */
     public function getFileItemProperties(File $item): array {
         $fileMedia = $item->getFirstMedia($item->collectionName);
         return [

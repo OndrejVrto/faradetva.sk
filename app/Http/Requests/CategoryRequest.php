@@ -6,6 +6,9 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class CategoryRequest extends BaseRequest {
+    /**
+     * @return array{title: string[], slug: \Illuminate\Validation\Rules\Unique, description: mixed[]}
+     */
     public function rules(): array {
         return [
             'title' => [

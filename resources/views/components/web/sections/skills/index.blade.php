@@ -1,6 +1,6 @@
 @push('js')
         {{-- <script @nonce type="text/javascript" src="{{ asset('asset/frontend/js/plugins/counter/jquery.countTo.js', true) }}" crossorigin="anonymous"></script> --}}
-        <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js" crossorigin="anonymous"></script>
+        {{-- <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js" crossorigin="anonymous"></script> --}}
 @endpush
 
 <x-web.page.section

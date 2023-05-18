@@ -10,10 +10,6 @@ class GenerateSitemap extends Command {
 
     protected $description = 'Generate the sitemap.';
 
-    public function __construct() {
-        parent::__construct();
-    }
-
     public function handle(): void {
         dispatch((new GenerateSitemapJob()));
 

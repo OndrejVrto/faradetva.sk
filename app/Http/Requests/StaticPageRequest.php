@@ -13,6 +13,9 @@ class StaticPageRequest extends BaseRequest {
     use HasSourceFields;
     use HasCropPictureFields;
 
+    /**
+     * @return array{active: mixed[], virtual: mixed[], title: mixed[], slug: \Illuminate\Validation\Rules\Unique, url: mixed[], description_page: mixed[], keywords: mixed[], author_page: mixed[], header: mixed[], teaser: mixed[], wikipedia: mixed[], route_name: \Illuminate\Validation\Rules\Unique[]|string[], type_page: \Illuminate\Validation\Rules\Enum[]|string[]}
+     */
     public function rules(): array {
         return  [
             'active'           => $this->reqBoolRule(),

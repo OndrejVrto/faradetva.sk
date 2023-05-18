@@ -8,7 +8,6 @@ use Illuminate\Database\Seeder;
 
 class CategoriesSeeder extends Seeder {
     public function run(): void {
-
         // TODO: description
         $categories = [
             'Bez kategórie' => 'Všetko čo sa nevošlo do inej kategórie',

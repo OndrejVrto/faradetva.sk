@@ -6,7 +6,7 @@ use App\Observers\GlobalObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class ObserverServiceProvider extends ServiceProvider {
-    public function boot() {
+    public function boot(): void {
         $models = [
             \App\Models\BackgroundPicture::class,
             \App\Models\Banner::class,

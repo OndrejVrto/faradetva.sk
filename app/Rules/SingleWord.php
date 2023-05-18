@@ -9,11 +9,11 @@ class SingleWord implements Rule {
         //
     }
 
-    public function passes($attribute, $value) {
+    public function passes($attribute, $value): bool {
         return is_string($value) && ! preg_match('/\s/u', $value);
     }
 
-    public function message() {
+    public function message(): string {
         return 'Pole môže obsahovať len jediné slovo.';
     }
 }

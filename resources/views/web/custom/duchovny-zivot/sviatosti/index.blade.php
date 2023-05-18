@@ -2,7 +2,7 @@
 
     {{-- Duchovný život / Sviatosti --}}
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART 1 -" row="true" class="pad_t_30 pad_b_30">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" row="true" class="pad_b_50">
 
         <x-partials.card-article
             title="Krst"
@@ -26,7 +26,7 @@
                 <x-partials.picture-responsive titleSlug="sacr3-006-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Svätá Eucharistia je sviatosť, v ktorej Ježiš Kristus za nás dáva svoje telo a svoju krv – seba samého, aby sme sa s ním zjednotili vo svätom prijímaní a vytvárali spojenie s Kristovým telom – Cirkvou.
+                Svätá Eucharistia je sviatosť, v ktorej Ježiš Kristus za nás dáva svoje telo a svoju krv - seba samého, aby sme sa s ním zjednotili vo svätom prijímaní a vytvárali spojenie s Kristovým telom - Cirkvou.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -45,7 +45,7 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART 2 -" row="true" class="ch_event_section bg-alt-gray pad_t_80">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" row="true" class="ch_event_section bg-alt-gray pad_t_80">
 
         <x-partials.card-event
             title="Svätá spoveď"

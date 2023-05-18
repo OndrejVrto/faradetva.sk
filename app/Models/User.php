@@ -59,7 +59,7 @@ class User extends Authenticatable implements HasMedia {
         'deleted_at'          => 'datetime',
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName(): string {
         return 'slug';
     }
 

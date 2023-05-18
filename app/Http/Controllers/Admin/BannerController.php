@@ -17,13 +17,17 @@ class BannerController extends Controller {
             ->latest('updated_at')
             ->withCount('staticPages')
             ->with('media', 'source', 'staticPages')
-            ->paginate(100);
+            ->paginate(8);
 
         return view('admin.banners.index', compact('banners'));
     }
 
     public function create(): View {
-        $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
+        $pages = StaticPage::query()
+            ->select(['id','title','description_page'])
+            // ->activated()
+            ->orderBy('title')
+            ->get();
         $selectedPages = [];
 
         return view('admin.banners.create', compact('pages', 'selectedPages'));
@@ -38,7 +42,7 @@ class BannerController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($banner, $request);
 
-        toastr()->success(strval(__('app.banner.store')));
+        toastr()->success(__('app.banner.store'));
         return to_route('banners.index');
     }
 
@@ -50,7 +54,11 @@ class BannerController extends Controller {
 
     public function edit(Banner $banner): View {
         $banner->load('source');
-        $pages = StaticPage::select(['id','title','description_page'])->whereActive(1)->orderBy('title')->get();
+        $pages = StaticPage::query()
+            ->select(['id','title','description_page'])
+            // ->activated()
+            ->orderBy('title')
+            ->get();
         $selectedPages = $banner->staticPages->pluck('id')->unique()->toArray();
 
         return view('admin.banners.edit', compact('banner', 'pages', 'selectedPages'));
@@ -66,7 +74,7 @@ class BannerController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($banner, $request);
 
-        toastr()->success(strval(__('app.banner.update')));
+        toastr()->success(__('app.banner.update'));
         return to_route('banners.index');
     }
 
@@ -75,7 +83,7 @@ class BannerController extends Controller {
         $banner->delete();
         $banner->clearMediaCollection($banner->collectionName);
 
-        toastr()->success(strval(__('app.banner.delete')));
+        toastr()->success(__('app.banner.delete'));
         return to_route('banners.index');
     }
 }

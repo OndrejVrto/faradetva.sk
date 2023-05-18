@@ -111,13 +111,13 @@
                             @else
                                 <div class="w35 ml-1"></div>
                             @endif
-                            <a  href="{{ url($page->getFirstMediaUrl($page->collectionName) ?: '#') }}"
+                            {{-- <a  href="{{ url($page->getFirstMediaUrl($page->collectionName) ?: '#') }}"
                                 class="w35 ml-1 btn btn-outline-warning btn-sm btn-flat"
                                 title="Stiahnuť referenčný obrázok"
                                 download
                             >
                                 <i class="fa-solid fa-download"></i>
-                            </a>
+                            </a> --}}
                         </div>
                     </x-admin.table.td>
                     <x-admin.table.td-actions

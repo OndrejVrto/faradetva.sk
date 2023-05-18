@@ -18,11 +18,10 @@ class PageController extends Controller {
     private string $path = '';
 
     public function __invoke(string ...$param): iView|Factory {
-
         // create array of links
         $urls = collect($param)
                     ->whereNotNull()
-                    ->map(function ($node) {
+                    ->map(function ($node): array {
                         $this->path .= '/' . $node;
                         return [
                             'title' => $node,
@@ -34,7 +33,7 @@ class PageController extends Controller {
         $page = Cache::rememberForever(
             key: 'PAGE_'.Str::slug($lastUrl),
             callback: fn () => StaticPage::query()
-                ->whereUrl($lastUrl)
+                ->where('url', $lastUrl)
                 ->with('picture', 'source', 'banners', 'faqs')
                 ->firstOrFail()
         );
@@ -48,10 +47,10 @@ class PageController extends Controller {
             ->map(
                 fn ($node) => Cache::rememberForever(
                     key: 'PAGE_NODE_'.Str::slug($node['url']),
-                    callback: function () use ($node) {
+                    callback: function () use ($node): array {
                         $item = StaticPage::query()
                             ->select('url', 'title', 'active')
-                            ->whereUrl($node['url'])
+                            ->where('url', $node['url'])
                             ->first();
 
                         return [
@@ -82,7 +81,7 @@ class PageController extends Controller {
             ->setBreadcrumbSchemaGraph($pageChainBreadCrumb);
 
         // counter of visits page
-        visits($page)->increment();
+        $page->incrementVisit();
 
         return view($pageData->route, compact('pageData'));
     }

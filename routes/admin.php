@@ -31,7 +31,6 @@ Route::prefix('admin')->group(function () {
 
 
     Route::middleware(['auth', 'permission'])->group(function () {
-
         //!  Main routes
         Route::permanentRedirect('/', '/admin/dashboard');
 

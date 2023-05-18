@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 use App\Models\Faq as FaqModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use App\Services\PurifiAutolinkService;
+use App\Services\PurifyAutolinkService;
 use App\Services\SEO\SeoPropertiesService;
 
 class Faq extends Component {
@@ -31,8 +31,8 @@ class Faq extends Component {
                     ->map(fn (FaqModel $faq): array => [
                         'id'           => $faq->id,
                         'question'     => $faq->question,
-                        'answer-clean' => strval(Str::plainText($faq->answer)),
-                        'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
+                        'answer-clean' => (string) Str::plainText($faq->answer),
+                        'answer'       => (new PurifyAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                     ])
                     ->toArray()
             );

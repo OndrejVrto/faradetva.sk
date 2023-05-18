@@ -39,13 +39,13 @@ class CustomEloquentHealthResultStore implements ResultStore {
     /** @param Collection<int, Result> $checkResults */
     public function save(Collection $checkResults): void {
         $batch = Str::uuid();
-        $checkResults->each(function (Result $result) use ($batch) {
+        $checkResults->each(function (Result $result) use ($batch): void {
             (static::determineHistoryItemModel())::create([
                 'check_name' => $result->check->getName(),
                 'check_label' => $result->check->getLabel(),
                 'status' => $result->status,
                 'notification_message' => $result->notificationMessage,
-                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, strval($result->status)),
+                'short_summary' => $this->getTranslatadedShortSummary($result->shortSummary, (string) $result->status),
                 'meta' => $result->meta,
                 'batch' => $batch,
                 'ended_at' => $result->ended_at,
@@ -62,7 +62,7 @@ class CustomEloquentHealthResultStore implements ResultStore {
         $storedCheckResults = (static::determineHistoryItemModel())::query()
             ->where('batch', $latestItem->batch)
             ->get()
-            ->map(fn (HealthCheckResultHistoryItem $historyItem) => new StoredCheckResult(
+            ->map(fn (HealthCheckResultHistoryItem $historyItem): StoredCheckResult => new StoredCheckResult(
                 name: $historyItem->check_name,
                 label: $historyItem->check_label,
                 notificationMessage: $historyItem->notification_message,

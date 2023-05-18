@@ -15,7 +15,7 @@ class PictureController extends Controller {
         $pictures = Picture::query()
             ->latest('updated_at')
             ->with('mediaOne', 'source')
-            ->paginate(8);
+            ->paginate(30);
 
         return view('admin.pictures.index', compact('pictures'));
     }
@@ -32,7 +32,7 @@ class PictureController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($picture, $request);
 
-        toastr()->success(strval(__('app.picture.store')));
+        toastr()->success(__('app.picture.store'));
         return to_route('pictures.index');
     }
 
@@ -57,7 +57,7 @@ class PictureController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($picture, $request);
 
-        toastr()->success(strval(__('app.picture.update')));
+        toastr()->success(__('app.picture.update'));
         return to_route('pictures.index');
     }
 
@@ -66,7 +66,7 @@ class PictureController extends Controller {
         $picture->delete();
         $picture->clearMediaCollection($picture->collectionName);
 
-        toastr()->success(strval(__('app.picture.delete')));
+        toastr()->success(__('app.picture.delete'));
         return to_route('pictures.index');
     }
 }

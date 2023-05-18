@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Activable;
 use App\Traits\Restorable;
 use Illuminate\Support\Str;
 use Spatie\Image\Manipulations;
@@ -14,6 +15,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Priest extends BaseModel implements HasMedia {
     use Loggable;
+    use Activable;
     use Restorable;
     use HasFactory;
     use SoftDeletes;
@@ -47,11 +49,11 @@ class Priest extends BaseModel implements HasMedia {
     protected static function boot(): void {
         parent::boot();
 
-        static::creating(function ($priest) {
+        static::creating(function ($priest): void {
             $priest->slug = Str::slug($priest->getFullNameWithTitles());
         });
 
-        static::updating(function ($priest) {
+        static::updating(function ($priest): void {
             $priest->slug = Str::slug($priest->getFullNameWithTitles());
         });
     }
@@ -65,7 +67,7 @@ class Priest extends BaseModel implements HasMedia {
             return preg_replace(
                 pattern: ["/\+/", "/[^0-9]/"],
                 replacement: ["00", ""],
-                subject: $this->phone
+                subject: (string) $this->phone
             );
         }
         return null;

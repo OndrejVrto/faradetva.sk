@@ -75,9 +75,12 @@ class Picture extends Component {
     }
 
 
+    /**
+     * @return array{maxXXL: int, maxXL: int, maxLG: int, maxMD: int, maxSM: int}
+     */
     private function solveColumns(int $columns, int $maxColumns): array {
         return [
-            'maxXXL' => $this->cropValue($columns + 0, $maxColumns),
+            'maxXXL' => $this->cropValue($columns, $maxColumns),
             'maxXL'  => $this->cropValue($columns + 1, $maxColumns),
             'maxLG'  => $this->cropValue($columns + 2, $maxColumns),
             'maxMD'  => $this->cropValue($columns + 3, $maxColumns),
@@ -98,8 +101,8 @@ class Picture extends Component {
     private function getPicture(string $slug): ?array {
         return Cache::rememberForever(
             key: 'PICTURE_'.$slug,
-            callback: fn (): ?array => PictureModel::query()
-                ->whereSlug($slug)
+            callback: fn () => PictureModel::query()
+                ->where('slug', $slug)
                 ->with('mediaOne', 'source')
                 ->get()
                 ->map(fn ($img) => $this->mapOutput($img))
@@ -107,7 +110,7 @@ class Picture extends Component {
         );
     }
 
-    private function mapOutput(PictureModel $img): array {
+    private function mapOutput(\Illuminate\Database\Eloquent\Model $img): array {
         $colectionName = $img->mediaOne?->collection_name;
         $media = $img->getFirstMedia($colectionName);
 

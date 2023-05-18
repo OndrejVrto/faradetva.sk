@@ -13,6 +13,7 @@ class PhotoGallery extends Component {
 
     public function __construct(
         public string $titleSlug,
+        public bool $viewDescription = true,
         public string|null $dimensionSource = 'full',
     ) {
         $this->gallery = $this->getGallery($titleSlug);
@@ -31,8 +32,8 @@ class PhotoGallery extends Component {
     private function getGallery(string $slug): ?array {
         return Cache::rememberForever(
             key: 'GALLERY_'.$slug,
-            callback: fn (): ?array => Gallery::query()
-                ->whereSlug($slug)
+            callback: fn () => Gallery::query()
+                ->where('slug', $slug)
                 ->with('media', 'source')
                 ->get()
                 ->map(fn ($e) => $this->mapOutput($e))
@@ -40,6 +41,9 @@ class PhotoGallery extends Component {
         );
     }
 
+    /**
+     * @return array{title: mixed, slug: mixed, source_description: mixed, sourceArr: array{source_source: mixed, source_source_url: mixed, source_author: mixed, source_author_url: mixed, source_license: mixed, source_license_url: mixed}, picture?: array<int, array{href: mixed, title: mixed, srcset: mixed, responsivePicture: string}>&mixed[]}
+     */
     private function mapOutput(Gallery $album): array {
         $picture = [];
         foreach ($album->picture as $pic) {

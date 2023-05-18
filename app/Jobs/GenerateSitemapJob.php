@@ -30,7 +30,7 @@ class GenerateSitemapJob implements ShouldQueue {
                     ->setPriority(1.0)
             );
 
-        News::visible()->get()->each(function (News $news) use ($sitemap) {
+        News::visible()->get()->each(function (News $news) use ($sitemap): void {
             // articles olds as year
             if ($news->updated_at < now()->subYear()) {
                 $sitemap->add(
@@ -67,9 +67,9 @@ class GenerateSitemapJob implements ShouldQueue {
         });
 
         StaticPage::query()
-            ->whereActive(1)
-            ->whereVirtual(0)
-            ->each(function (StaticPage $page) use ($sitemap) {
+            ->activated()
+            ->notVirtual()
+            ->each(function (StaticPage $page) use ($sitemap): void {
                 if (Str::contains($page->slug, 'oznamy')) {
                     $sitemap->add(
                         Url::create("/{$page->url}")

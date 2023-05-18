@@ -14,12 +14,12 @@ class ChunkPermissionService {
     }
 
     private static function chunkByAlpha(EloquentCollection $collection): Collection {
-        return $collection->mapToGroups(fn ($item): array => self::isAlpha(strval($item->name[0]))
-                    ? [strtoupper(strval($item->name[0])) => $item]
+        return $collection->mapToGroups(fn ($item): array => self::isAlpha((string) $item->name[0])
+                    ? [strtoupper((string) $item->name[0]) => $item]
                     : ['#' => $item]);
     }
 
     private static function isAlpha(string $toCheck): bool {
-        return boolval(preg_match("/^[a-zA-Z]+$/", $toCheck));
+        return (bool) preg_match("/^[a-zA-Z]+$/", $toCheck);
     }
 }

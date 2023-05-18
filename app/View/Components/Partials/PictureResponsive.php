@@ -14,6 +14,7 @@ class PictureResponsive extends Component {
 
     public function __construct(
         string $titleSlug,
+        public bool $description = false,
         public string|null $dimensionSource = 'full',
         public string|null $descriptionSide = 'right',
         public int|null $descriptionCrop = null,
@@ -21,8 +22,8 @@ class PictureResponsive extends Component {
     ) {
         $this->picture = Cache::rememberForever(
             key: 'PICTURE_RESPONSIVE_'.$titleSlug,
-            callback: fn (): ?array => PictureModel::query()
-                ->whereSlug($titleSlug)
+            callback: fn () => PictureModel::query()
+                ->where('slug', $titleSlug)
                 ->with('mediaOne', 'source')
                 ->get()
                 ->map(fn ($img) => $this->mapOutput($img))

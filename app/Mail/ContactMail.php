@@ -14,14 +14,12 @@ class ContactMail extends Mailable implements ShouldQueue {
     /**
      * The number of times the job may be attempted.
      *
-     * @var int
      */
     public int $tries = 2;
 
     /**
      * The number of seconds to wait before retrying the job.
      *
-     * @var int
      */
     public int $backoff = 5;
 

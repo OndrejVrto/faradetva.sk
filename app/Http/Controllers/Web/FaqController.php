@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use App\Services\PagePropertiesService;
-use App\Services\PurifiAutolinkService;
+use App\Services\PurifyAutolinkService;
 use App\Services\SEO\SeoPropertiesService;
 use App\Services\SEO\PageSeoPropertiesService;
 
@@ -19,7 +19,7 @@ class FaqController extends Controller {
             callback: fn (): Collection => Faq::query()
                 ->with('staticPages')
                 ->get()
-                ->map(function ($faq) {
+                ->map(function ($faq): array {
                     $pages = [];
                     foreach ($faq->staticPages as $page) {
                         $pages[] = [
@@ -31,7 +31,7 @@ class FaqController extends Controller {
                         'id'           => $faq->id,
                         'question'     => $faq->question,
                         'answer-clean' => trim((string) preg_replace(["!\s+!", "/\r|\n/"], [' ', ' '], $faq->answer ?? '')),
-                        'answer'       => (new PurifiAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
+                        'answer'       => (new PurifyAutolinkService())->getCleanTextWithLinks($faq->answer, 'link-template-light'),
                         'pages'        => $pages,
                     ];
                 })

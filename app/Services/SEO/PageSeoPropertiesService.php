@@ -228,7 +228,7 @@ class PageSeoPropertiesService {
             ->height(Schema::quantitativeValue()->value($imageData->height))
             ->width(Schema::quantitativeValue()->value($imageData->width))
             ->uploadDate($imageData->updated_at)
-            ->if(isset($imageData->source->author) || isset($imageData->source->authorUrl), function (ImageObject $schema) use ($imageData) {
+            ->if(isset($imageData->source->author) || isset($imageData->source->authorUrl), function (ImageObject $schema) use ($imageData): void {
                 $schema->author(
                     Schema::person()
                         ->name($imageData->source->author)
@@ -237,7 +237,7 @@ class PageSeoPropertiesService {
             })
             ->license($imageData->source->licenseUrl)
             ->acquireLicensePage($imageData->source->licenseUrl)
-            ->if(isset($imageData->source->source) || isset($imageData->source->sourceUrl), function (ImageObject $schema) use ($imageData) {
+            ->if(isset($imageData->source->source) || isset($imageData->source->sourceUrl), function (ImageObject $schema) use ($imageData): void {
                 $schema->copyrightHolder(
                     Schema::organization()
                         ->name($imageData->source->source)

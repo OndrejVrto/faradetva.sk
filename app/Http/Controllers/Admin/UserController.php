@@ -7,6 +7,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Collection;
 use Spatie\Permission\Models\Role;
 use App\Services\MediaStoreService;
 use Illuminate\Contracts\View\View;
@@ -41,9 +42,9 @@ class UserController extends Controller {
 
         // store roles to user
         $role = collect([$request->input('role')])
-            ->filter(function ($value, $key) {
+            ->filter(function ($value, $key): bool {
                 return $value >= 2; // SuperAdmin remove
-            })->when($user->id == 1, function ($collection) {
+            })->when($user->id == 1, function ($collection): Collection {
                 return $collection->push(1); // SuperAdmin add
             })->toArray();
         $user->roles()->syncWithoutDetaching($role);
@@ -54,7 +55,7 @@ class UserController extends Controller {
 
         (new MediaStoreService())->handleCropPicture($user, $request, $validated['name']);
 
-        toastr()->success(strval(__('app.user.store', ['name'=> $user->name])));
+        toastr()->success(__('app.user.store', ['name'=> $user->name]));
         return to_route('users.index');
     }
 
@@ -66,7 +67,7 @@ class UserController extends Controller {
 
     public function edit(User $user): View|RedirectResponse {
         if ($user->id < 3 && auth()->id() !== 1) {
-            toastr()->error(strval(__('app.user.update-error', ['name'=> $user->name])));
+            toastr()->error(__('app.user.update-error', ['name'=> $user->name]));
             return to_route('users.index');
         }
         $roles = Role::where('id', '>', 1)->get();
@@ -88,18 +89,18 @@ class UserController extends Controller {
         // if user change self
         if ($user->id == auth()->id()) {
             $validated = Arr::except($validated, ['active']);
-            toastr()->warning(strval(strval(__('app.user.update-self'))));
+            toastr()->warning((string) __('app.user.update-self'));
         } else {
-            toastr()->success(strval(__('app.user.update', ['name'=> $user->name])));
+            toastr()->success(__('app.user.update', ['name'=> $user->name]));
         }
 
         $user->update($validated);
 
         // store roles to user
         $role = collect([$request->input('role')])
-            ->filter(function ($value, $key) {
+            ->filter(function ($value, $key): bool {
                 return $value >= 2; // SuperAdmin remove
-            })->when($user->id == 1, function ($collection) {
+            })->when($user->id == 1, function ($collection): Collection {
                 return $collection->push(1);  // SuperAdmin add
             })->toArray();
         $user->roles()->sync($role);
@@ -115,12 +116,12 @@ class UserController extends Controller {
 
     public function destroy(User $user): RedirectResponse {
         if ($user->id === 1 || $user->id === 2) {
-            toastr()->error(strval(__('app.user.delete-error', ['name'=> $user->name])));
+            toastr()->error(__('app.user.delete-error', ['name'=> $user->name]));
         } elseif ($user->id === auth()->id()) {
-            toastr()->error(strval(strval(__('app.user.delete-self'))));
+            toastr()->error(__('app.user.delete-self'));
         } else {
             $user->delete();
-            toastr()->success(strval(__('app.user.delete', ['name'=> $user->name])));
+            toastr()->success(__('app.user.delete', ['name'=> $user->name]));
         }
 
         return to_route('users.index');
@@ -132,7 +133,7 @@ class UserController extends Controller {
         $user->name = '*'.$user->name;
         $user->restore();
 
-        toastr()->success(strval(__('app.user.restore')));
+        toastr()->success(__('app.user.restore'));
         return to_route('users.edit', $user->slug);
     }
 
@@ -147,7 +148,7 @@ class UserController extends Controller {
         $user->clearMediaCollection($user->collectionName);
         $user->forceDelete();
 
-        toastr()->success(strval(__('app.user.force-delete')));
+        toastr()->success(__('app.user.force-delete'));
         return to_route('users.index', ['only-deleted' => 'true']);
     }
 }

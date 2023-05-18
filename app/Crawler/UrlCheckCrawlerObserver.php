@@ -50,7 +50,7 @@ class UrlCheckCrawlerObserver extends CrawlObserver {
             if (in_array($response->getHeader('Content-Type')[0], $mineTypes)) {
                 StaticPage::withoutEvents(function () use ($url) {
                     $pageExistinDB = StaticPage::query()
-                        ->whereUrl(substr($url->getPath(), 1))
+                        ->where('url', substr($url->getPath(), 1))
                         ->first();
 
                     if ($pageExistinDB) {

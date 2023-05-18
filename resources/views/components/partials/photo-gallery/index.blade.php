@@ -1,10 +1,12 @@
 <!-- GALLERY Start ({{ $gallery['title'] }}) -->
     <div {{ $attributes->merge(['class' => 'row ch_about_desc w-100']) }}>
-        <h3 class="fromright wow" data-wow-delay="0.4s">{{ $gallery['title'] }}</h3>
+        @if ($viewDescription)
+            <h3 class="fromright wow" data-wow-delay="0.4s">{{ $gallery['title'] }}</h3>
 
-        @isset($gallery['source_description'])
-            <h5>{{ $gallery['source_description'] }}</h5>
-        @endisset
+            @isset($gallery['source_description'])
+                <h5>{{ $gallery['source_description'] }}</h5>
+            @endisset
+        @endif
 
         <div class="gallery mx-3 w-100" id="alb-{{ $gallery['slug'] }}">
             @forelse ($gallery['picture'] as $picture )

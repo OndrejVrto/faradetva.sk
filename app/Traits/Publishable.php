@@ -5,6 +5,8 @@ namespace App\Traits;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Publishable {
+    use Activable;
+
     public function scopePublished(Builder $query): Builder {
         return $query
                     ->where('published_at', '<=', now())
@@ -19,7 +21,7 @@ trait Publishable {
 
     public function scopeVisible(Builder $query): Builder {
         return $query
-                    ->where('active', 1)
+                    ->activated()
                     ->published()
                     ->unpublished()
                     ->latest();
@@ -32,10 +34,10 @@ trait Publishable {
     }
 
     public function getPublishedAtAttribute(?string $value): string|false|null {
-        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
+        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value) ?: null);
     }
 
     public function getUnpublishedAtAttribute(?string $value): string|false|null {
-        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value));
+        return is_null($value) ? null : date('d.m.Y G:i', strtotime($value) ?: null);
     }
 }
