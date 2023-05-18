@@ -53,7 +53,7 @@
             <!-- Spevokoly, dychovka -->
             <!-- Vyučovanie náboženstva -->
         </li>
-        <li>
+        {{-- <li>
             <a href="{{ secure_url('spolocenstva') }}">Spoločenstvá</a>
             <!-- Františkánsky svetský rád -->
             <!-- Ružencové bratstvo -->
@@ -67,7 +67,7 @@
             <!-- Modlitby matiek -->
             <!-- Bárka -->
             <!-- Služobníci Ježišovho Veľkň. Srdca -->
-        </li>
+        </li> --}}
     </ul>
 </li>
 
@@ -101,9 +101,9 @@
             <!-- Modlitba  -->
             <!-- Etiketa v kostole  -->
         </li>
-        <li>
+        {{-- <li>
             <a href="{{ secure_url('duchovny-zivot/svate-omse') }}">Sväté omše</a>
-        </li>
+        </li> --}}
     </ul>
 </li>
 

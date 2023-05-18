@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Spatie\Valuestore\Valuestore;
 
 if (!function_exists('customConfig')) {
-    function customConfig(string $filename = 'config', mixed $key = null, mixed $default = null): Valuestore|string|null {
+    function customConfig(string $filename = 'config', mixed $key = null, mixed $default = null): mixed {
         try {
             $valueStore = Valuestore::make(
                 storage_path("app/value-store/$filename.json")
