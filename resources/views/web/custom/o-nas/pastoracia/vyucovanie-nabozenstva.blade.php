@@ -5,7 +5,10 @@
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromright">
+
+                <x-partials.picture titleSlug="nbv-001" side="left" dimensionSource="medium" columns="4" />
+
                 <p>
                     V dnešnej pluralistickej a sekularizovanej spoločnosti, ktorá naznačuje, že nepotrebuje nijaké náboženstvo, je veľmi dôležité poukázať na potrebu náboženského pôsobenia v nej. Nábožnosť (religiozita) človeka je schopnosť zachytiť a spoznať existenciu Najvyššej bytosti, ktorá riadi celý svet. Je to pripravenosť človeka prežívať sám seba, svojich blížnych a svet, premýšľať vo vzťahu ku skutočnosti Boha a správať sa primeraným spôsobom. Náboženská pedagogika spolu s náboženskou psychológiou sa snažia poukázať na to, že religiozita človeka je celkový viacrozmerný jav, ktorý zahŕňa citovú zložku, poznávaciu zložku a zložku správania človeka. Preto je vyučovanie náboženstva alebo náboženská výchova ako výchovno-vzdelávací predmet na školách taká potrebná.
                 </p>
@@ -16,17 +19,23 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Náboženská výchova v školách sa zameriava na dosiahnutie týchto cieľov:">
-                <x-web.page.text-segment>
-                <ul>
-                    <li>kultivácia osobnosti žiakov, ktorá má byť pomocou tohto vyučovacieho predmetu vytváraná a formovaná</li>
-                    <li>rozvíjať schopnosť orientácie v kresťanských hodnotách</li>
-                    <li>rozvíjať systém postojov a názorov k jednotlivým cirkevným sektám a iným náboženstvám a k prírode z pohľadu veriaceho človeka</li>
-                    <li>osvojiť si nevyhnutné starozákonné a novozákonné biblické poznatky</li>
-                    <li>pozitívne formovať osobnosť žiaka prostredníctvom rôznych udalostí, cirkevných slávností, výročí osobností a pod.</li>
-                    <li>podnecovať aktivizáciu, dynamizáciu a integráciu rozumových, emocionálnych a vôľových vlastností žiaka a orientovať ho na duchovné hodnoty, a to najpodstatnejšie</li>
-                    <li>vzbudiť neformálny záujem o Božie slovo, modlitbu, vôbec o duchovné hodnoty a aktívny kresťanský život Cirkvi</li>
-                    <li>orientácia absolventa školy vo farnosti, národe, vo vlasti a vôbec vo svete</li>
+
+            <x-partials.picture titleSlug="nbv-005" side="right" dimensionSource="medium" columns="3" />
+
+            <x-web.page.text-segment>
+                <ul class="ps-3">
+                    <li class="mb-2">kultivácia osobnosti žiakov, ktorá má byť pomocou tohto vyučovacieho predmetu vytváraná a formovaná</li>
+                    <li class="mb-2">rozvíjať schopnosť orientácie v kresťanských hodnotách</li>
+                    <li class="mb-2">rozvíjať systém postojov a názorov k jednotlivým cirkevným sektám a iným náboženstvám a k prírode z pohľadu veriaceho človeka</li>
+                    <li class="mb-2">osvojiť si nevyhnutné starozákonné a novozákonné biblické poznatky</li>
+                    <li class="mb-2">pozitívne formovať osobnosť žiaka prostredníctvom rôznych udalostí, cirkevných slávností, výročí osobností a pod.</li>
+                    <li class="mb-2">podnecovať aktivizáciu, dynamizáciu a integráciu rozumových, emocionálnych a vôľových vlastností žiaka a orientovať ho na duchovné hodnoty, a to najpodstatnejšie</li>
+                    <li class="mb-2">vzbudiť neformálny záujem o Božie slovo, modlitbu, vôbec o duchovné hodnoty a aktívny kresťanský život Cirkvi</li>
+                    <li class="mb-2">orientácia absolventa školy vo farnosti, národe, vo vlasti a vôbec vo svete</li>
                 </ul>
+
+                <x-partials.picture titleSlug="nbv-006" side="left" dimensionSource="medium" columns="4" />
+
                 <p>
                     Náboženská výchova má na zreteli, aby si veriaci boli stále viac vedomí prijatého daru viery. Pritom je potrebné dosiahnuť určité ciele v znalostiach, zručnostiach, vzoroch konania. V náboženskej výchove ide vždy na jednej strane o učenie a nácvik a súčasne o náboženskú tvorivosť. Je veľmi potrebné, aby školské vyučovanie náboženstva figurovalo ako školský predmet s tými istými požiadavkami systematickosti a prísnosti, ako je to pri ostatných predmetoch. Má predkladať kresťanské posolstvo a kresťanskú udalosť s tou istou hĺbkou a serióznosťou, s akou iné disciplíny predkladajú svoje poznatky.
                 </p>
@@ -36,8 +45,17 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
+    </x-web.page.section>
+
+    <x-web.sections.background-picture titleSlug="nbv-002"/>
+
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II. -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection title="Povinnosti rodičov" animation="fromleft">
-                <x-web.page.text-segment animation="fromleft">
+            <x-web.page.text-segment animation="fromleft">
+
+                <x-partials.picture titleSlug="nbv-010" side="right" dimensionSource="medium" columns="6" />
+
                 <p>
                     Výchovná úloha rodičov je taká dôležitá, že ak chýba, ťažko ju možno nahradiť. Rodičia sú prví zodpovední za výchovu svojich detí. Rodina je vhodným miestom na výchovu k čnostiam a prirodzeným prostredím na uvedenie ľudskej osoby do solidarity a do spoločenských zodpovedností. Milosťou sviatosti manželstva rodičia dostali zodpovednosť a výsadu evanjelizovať svoje deti. Už od prvých rokov života ich majú uvádzať do tajomstiev viery, lebo sú svojim deťom prvými hlásateľmi evanjelia.
                 </p>
@@ -51,10 +69,10 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>KOSTELANSKÝ, Alojz. Aktivizačné a tvorivé metódy vo vyučovaní náboženskej výchovy. Ružomberok: Pedagogická fakulta Katolíckej univerzity v Ružomberku, 2008. ISBN 978-80-8084-383-0.</li>
-            <li>VALOVIČ, Eugen. Náčrt katechetiky I. Bratislava: Dobrá kniha, 1999. ISBN 80-7141-281-3.</li>
-            <li>Katechizmus Katolíckej cirkvi. 3. vydanie. Trnava: Spolok sv. Vojtecha, 2002. ISBN 80-7162-370-9.</li>
-            <li>Všeobecné direktórium pre katechizáciu. Trnava: Spolok sv. Vojtecha, 1999. ISBN 80-7162-264-8.</li>
+            <li>KOSTELANSKÝ, Alojz. <em>Aktivizačné a tvorivé metódy vo vyučovaní náboženskej výchovy.</em> Ružomberok: Pedagogická fakulta Katolíckej univerzity v Ružomberku, 2008. ISBN 978-80-8084-383-0.</li>
+            <li>VALOVIČ, Eugen. <em>Náčrt katechetiky I.</em> Bratislava: Dobrá kniha, 1999. ISBN 80-7141-281-3.</li>
+            <li><em>Katechizmus Katolíckej cirkvi.</em> 3. vydanie. Trnava: Spolok sv. Vojtecha, 2002. ISBN 80-7162-370-9.</li>
+            <li><em>Všeobecné direktórium pre katechizáciu.</em> Trnava: Spolok sv. Vojtecha, 1999. ISBN 80-7162-264-8.</li>
         </x-web.page.information-sources>
 
     </x-web.page.section>
