@@ -42,7 +42,7 @@
             url="{{ secure_url('o-nas/historia/kaplani-v-detve') }}"
             >
             <x-slot:teaser>
-                Kapláni, ktorí pôsobili v Detve od začiatku 20. storočia podnes
+                Kapláni, ktorí pôsobili v Detve od začiatku 20. storočia
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -53,7 +53,7 @@
             url="{{ secure_url('o-nas/historia/duchovne-povolania') }}"
             >
             <x-slot:teaser>
-                Kňazi, rehoľníci a rehoľníčky pochádzajúci z detvianskej farnosti
+                Kňazi, rehoľníci a rehoľníčky pochádzajúci z farnosti
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -64,7 +64,7 @@
             url="{{ secure_url('o-nas/historia/knazi-pochovany-v-detve') }}"
             >
             <x-slot:teaser>
-                Na cintoríne v Detve sú pochovaní štyria rímskokatolícki kňazi
+                Kňazi pochovaní na detvianskom cintoríne
             </x-slot:teaser>
         </x-partials.card-bubble>
 
