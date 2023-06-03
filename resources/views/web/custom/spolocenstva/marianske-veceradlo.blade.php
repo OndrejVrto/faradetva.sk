@@ -7,7 +7,7 @@
     <x-web.page.subsection >
         <x-web.page.text-segment animation="fromright">
             <p>
-                Mariánske večeradlá modlitby a&nbsp;bratskej lásky vzišli z&nbsp;Mariánskeho kňazského hnutia, ktoré v&nbsp;roku 1972 založil taliansky kňaz Stefano Gobbi. Mariánske kňazské hnutie i&nbsp;večeradlo charakterizujú tri záväzky: 1. zasvätenie Nepoškvrnenému srdcu Panny Márie, 2. jednota s&nbsp;pápežom a&nbsp;s Cirkvou s&nbsp;ním zjednotenou, 3. vedenie veriacich k&nbsp;životu oddanosti Panne Márii. Večeradlo je predovšetkým stretnutím modlitby, a&nbsp;preto je jeho charakteristikou modlitba posvätného ruženca. Ruženec je reťaz lásky a&nbsp;záchrany, ktorou môžeme ovplyvniť mnohé udalosti doby, v&nbsp;ktorej žijeme.
+                Mariánske večeradlá modlitby a&nbsp;bratskej lásky vzišli z&nbsp;Mariánskeho kňazského hnutia, ktoré v&nbsp;roku 1972 založil taliansky kňaz Stefano Gobbi. Mariánske kňazské hnutie i&nbsp;večeradlo charakterizujú tri záväzky: 1. zasvätenie Nepoškvrnenému srdcu Panny Márie, 2. jednota s&nbsp;pápežom a&nbsp;s&nbsp;Cirkvou s&nbsp;ním zjednotenou, 3. vedenie veriacich k&nbsp;životu oddanosti Panne Márii. Večeradlo je predovšetkým stretnutím modlitby, a&nbsp;preto je jeho charakteristikou modlitba posvätného ruženca. Ruženec je reťaz lásky a&nbsp;záchrany, ktorou môžeme ovplyvniť mnohé udalosti doby, v&nbsp;ktorej žijeme.
             </p>
         </x-web.page.text-segment>
     </x-web.page.subsection>

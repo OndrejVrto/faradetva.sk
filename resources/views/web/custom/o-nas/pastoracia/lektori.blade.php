@@ -73,7 +73,7 @@
                     </li>
                         <ul>
                             <li>
-                                1. čítanie - po skončení Modlitby dňa, po slovách kňaza: „... a&nbsp;s tebou žije a&nbsp;kraľuje v&nbsp;jednote Ducha Svätého po všetky veky vekov. Amen.“
+                                1. čítanie - po skončení Modlitby dňa, po slovách kňaza: „... a&nbsp;s&nbsp;tebou žije a&nbsp;kraľuje v&nbsp;jednote Ducha Svätého po všetky veky vekov. Amen.“
                             </li>
                             <li>
                                 2. čítanie - po poslednom zopakovaní responzória Žalmu

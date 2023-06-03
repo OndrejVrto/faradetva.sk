@@ -45,7 +45,7 @@
                 </p>
 
                 <p>
-                    Spolu so Štrbáňom sa intenzívne angažoval v&nbsp;sociálnej i&nbsp;kultúrnej sfére organista Martin Valent. Medzi ich významné počiny v&nbsp;oblasti hudobného folklóru patrí zbieranie vianočných ľudových piesní a&nbsp;ich publikovanie v&nbsp;malej brožúre. Keďže v&nbsp;tom čase ešte neexistoval Jednotný katolícky spevník, v&nbsp;každom regióne a&nbsp;v každej farnosti sa pri bohoslužbách spievalo v&nbsp;rôznych obmenách. Rechtor Valent v&nbsp;spolupráci s&nbsp;farárom Štrbáňom takto pozbierali ľudové spevy prispôsobené podpolianskemu folklóru, a&nbsp;tým dali základ vzniku Detvianskej vianočnej omše, ktorú si veriaci veľmi obľúbili.
+                    Spolu so Štrbáňom sa intenzívne angažoval v&nbsp;sociálnej i&nbsp;kultúrnej sfére organista Martin Valent. Medzi ich významné počiny v&nbsp;oblasti hudobného folklóru patrí zbieranie vianočných ľudových piesní a&nbsp;ich publikovanie v&nbsp;malej brožúre. Keďže v&nbsp;tom čase ešte neexistoval Jednotný katolícky spevník, v&nbsp;každom regióne a&nbsp;v&nbsp;každej farnosti sa pri bohoslužbách spievalo v&nbsp;rôznych obmenách. Rechtor Valent v&nbsp;spolupráci s&nbsp;farárom Štrbáňom takto pozbierali ľudové spevy prispôsobené podpolianskemu folklóru, a&nbsp;tým dali základ vzniku Detvianskej vianočnej omše, ktorú si veriaci veľmi obľúbili.
                 </p>
 
             </x-web.page.text-segment>

@@ -33,7 +33,7 @@
                 <li>Deti môjho ruženca sa budú tešiť veľkej sláve v&nbsp;nebi.</li>
                 <li>Čo budeš žiadať prostredníctvom ruženca, to dosiahneš.</li>
                 <li>Tým, ktorí budú šíriť môj ruženec, sľubujem pomoc vo všetkých ich potrebách.</li>
-                <li>Dosiahla som od svojho Syna, že všetci členovia Ružencového bratstva budú mať svojich orodovníkov v&nbsp;živote a&nbsp;v smrti, celý nebeský dvor.</li>
+                <li>Dosiahla som od svojho Syna, že všetci členovia Ružencového bratstva budú mať svojich orodovníkov v&nbsp;živote a&nbsp;v&nbsp;smrti, celý nebeský dvor.</li>
                 <li>Tí, ktorí sa zbožne modlia môj ruženec, sú moje milované deti, bratia a&nbsp;sestry Ježiša Krista.</li>
                 <li>Zasvätenie sa môjmu ružencu je zvláštne znamenie predurčenia.</li>
             </ol>
@@ -43,7 +43,7 @@
     <x-web.page.subsection>
         <x-web.page.text-segment animation="fromright">
             <p>
-                Ružencové bratstvo je združenie duchovne zjednotených veriacich formovaných dominikánskou spiritualitou, ktorí si osobitným spôsobom uctievajú Pannu Máriu a&nbsp;modlitbou posvätného ruženca vyprosujú potrebné dobrá pre seba, Cirkev a&nbsp;svet. Cieľom každého člena ružencového bratstva je zároveň snaha o&nbsp;neustály pokrok v&nbsp;láske k&nbsp;Bohu a&nbsp;ľuďom, o&nbsp;neustále premieňanie modlitby na konkrétne skutky. Ružencové bratstvá sú organizované skupiny veriacich, ktoré svojou činnosťou sledujú spoločný cieľ - šírenie dobra cez osobné sebaposväcovanie, cez prehlbovanie viery jednotlivých členov, cez prehlbovanie ich lásky k&nbsp;Bohu a&nbsp;k ľuďom okolo nich.
+                Ružencové bratstvo je združenie duchovne zjednotených veriacich formovaných dominikánskou spiritualitou, ktorí si osobitným spôsobom uctievajú Pannu Máriu a&nbsp;modlitbou posvätného ruženca vyprosujú potrebné dobrá pre seba, Cirkev a&nbsp;svet. Cieľom každého člena ružencového bratstva je zároveň snaha o&nbsp;neustály pokrok v&nbsp;láske k&nbsp;Bohu a&nbsp;ľuďom, o&nbsp;neustále premieňanie modlitby na konkrétne skutky. Ružencové bratstvá sú organizované skupiny veriacich, ktoré svojou činnosťou sledujú spoločný cieľ - šírenie dobra cez osobné sebaposväcovanie, cez prehlbovanie viery jednotlivých členov, cez prehlbovanie ich lásky k&nbsp;Bohu a&nbsp;k&nbsp;ľuďom okolo nich.
             </p>
             <p>
                 Členmi ružencového bratstva sa veriaci stávajú na základe slobodného rozhodnutia, keďže tým sa zaväzujú prijať na seba všetky povinnosti a&nbsp;práva vyplývajúce z&nbsp;členstva. Členom ružencového bratstva môže byť pokrstený katolík, ktorý má minimálne 9 rokov (výnimka je možná), ktorý sa slobodne rozhodne, že na seba vezme práva a&nbsp;povinnosti vyplývajúce z&nbsp;členstva v&nbsp;ružencovom bratstve a&nbsp;pri vstupe do bratstva si vyberie jednu z&nbsp;foriem modlitby posvätného ruženca a&nbsp;stane sa tak členom Živého, Svätého alebo Večného ruženca. Záväzky, ktoré člen na seba prevezme vstupom do ruženca, sú jeho osobnými záväzkami, to znamená, že ich musí plniť sám, nemôže tieto záväzky za neho plniť iná osoba.
@@ -71,7 +71,7 @@
                 Duchovné sprevádzanie členov ružencových bratstiev na Slovensku je zverené provinčnému promótorovi pre ruženec. Jemu je zverená služba zakladať ružencové bratstvá, koordinovať ružencový apoštolát a&nbsp;navštevovať jednotlivé bratstvá vo farnostiach na území Slovenska. Promótora pre ruženec vymenuje provinciál Rehole dominikánov a&nbsp;vymenovanie podlieha schváleniu generálnej kúrie dominikánov v&nbsp;Ríme. V&nbsp;lete 2017 sa provinčným promótorom pre ruženec na Slovensku stal brat Alan Ján Dely OP.
             </p>
             <p>
-                V&nbsp;našej farnosti jestvuje dlhodobá tradícia ružencového bratstva. V&nbsp;roku 2003 sa uskutočnila reorganizácia miestnych bratstiev, ktorých dovtedajšia činnosť sa 27. apríla 2003 ukončila a&nbsp;začala sa registrácia nových spoločenstiev. Každá ruža (spoločenstvo - bratstvo Živého ruženca) môže mať 20 členov, ktorí majú bydlisko vo farnosti. V&nbsp;roku 2003 bolo zaregistrovaných 53 ružencových bratstiev (53 ruží) a&nbsp;z tohto počtu zostalo v&nbsp;roku 2022 aktívnych 46 ruží. Jednotlivé ruže sa postupne v&nbsp;priebehu kalendárneho roka striedajú v&nbsp;upratovaní farského kostola, raz do týždňa v&nbsp;sobotu.
+                V&nbsp;našej farnosti jestvuje dlhodobá tradícia ružencového bratstva. V&nbsp;roku 2003 sa uskutočnila reorganizácia miestnych bratstiev, ktorých dovtedajšia činnosť sa 27. apríla 2003 ukončila a&nbsp;začala sa registrácia nových spoločenstiev. Každá ruža (spoločenstvo - bratstvo Živého ruženca) môže mať 20 členov, ktorí majú bydlisko vo farnosti. V&nbsp;roku 2003 bolo zaregistrovaných 53 ružencových bratstiev (53 ruží) a&nbsp;z&nbsp;tohto počtu zostalo v&nbsp;roku 2022 aktívnych 46 ruží. Jednotlivé ruže sa postupne v&nbsp;priebehu kalendárneho roka striedajú v&nbsp;upratovaní farského kostola, raz do týždňa v&nbsp;sobotu.
             </p>
 
         </x-web.page.text-segment>

@@ -13,7 +13,7 @@
                     Aby Božie volanie zaznievalo po celom svete, poslal Kristus apoštolov, ktorých si vyvolil, a&nbsp;dal im príkaz ohlasovať evanjelium: „Choďte teda, učte všetky národy a&nbsp;krstite ich v&nbsp;mene Otca i&nbsp;Syna i&nbsp;Ducha Svätého a&nbsp;naučte ich zachovávať všetko, čo som vám prikázal. a&nbsp;hľa, ja som s&nbsp;vami po všetky dni až do skončenia sveta“ (Mt 28,19-20). Apoštoli sa na základe tohto poslania „rozišli a&nbsp;všade kázali. Pán im pomáhal a&nbsp;ich slová potvrdzoval znameniami, ktoré ich sprevádzali“ (Mk 16,20).
                 </p>
                 <p>
-                    Aj tých, čo s&nbsp;Božou pomocou prijali Kristovo volanie a&nbsp;slobodne naň odpovedali, pobádala Kristova láska ohlasovať dobrú zvesť po celom svete. Tento poklad prijatý od apoštolov ich nástupcovia verne zachovali. Všetci veriaci v&nbsp;Krista sú povolaní, aby ho odovzdávali z&nbsp;pokolenia na pokolenia, čiže aby ohlasovali vieru, žili ju v&nbsp;bratskom spoločenstve a&nbsp;slávili ju v&nbsp;liturgii a&nbsp;v modlitbe.
+                    Aj tých, čo s&nbsp;Božou pomocou prijali Kristovo volanie a&nbsp;slobodne naň odpovedali, pobádala Kristova láska ohlasovať dobrú zvesť po celom svete. Tento poklad prijatý od apoštolov ich nástupcovia verne zachovali. Všetci veriaci v&nbsp;Krista sú povolaní, aby ho odovzdávali z&nbsp;pokolenia na pokolenia, čiže aby ohlasovali vieru, žili ju v&nbsp;bratskom spoločenstve a&nbsp;slávili ju v&nbsp;liturgii a&nbsp;v&nbsp;modlitbe.
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>
@@ -56,7 +56,7 @@
                     Boh sa z&nbsp;lásky zjavil a&nbsp;daroval človekovi. Tak dáva definitívnu a&nbsp;prehojnú odpoveď na otázky, ktoré si kladie človek o&nbsp;zmysle a&nbsp;cieli svojho života. Boh sa zjavil človekovi tak, že mu činmi a&nbsp;slovami postupne dával poznať tajomstvo seba samého. Okrem svedectva, ktoré Boh vydáva o&nbsp;sebe vo stvorených veciach, on sám sa zjavil našim prarodičom. Hovoril k&nbsp;nim a&nbsp;po páde im prisľúbil spásu a&nbsp;ponúkol im svoju zmluvu.
                 </p>
                 <p>
-                    Boh si vyvolil Abraháma a&nbsp;uzavrel s&nbsp;ním a&nbsp;s jeho potomstvom zmluvu. Z&nbsp;neho utvoril svoj ľud, ktorému prostredníctvom Mojžiša zjavil svoj Zákon. Skrze prorokov ho pripravil na prijatie spásy určenej celému ľudstvu. Boh sa naplno zjavil, keď poslal svojho Syna Ježiša Krista, v&nbsp;ktorom uzavrel svoju zmluvu naveky. Syn je Otcovo definitívne Slovo, takže po ňom už nebude iné Zjavenie.
+                    Boh si vyvolil Abraháma a&nbsp;uzavrel s&nbsp;ním a&nbsp;s&nbsp;jeho potomstvom zmluvu. Z&nbsp;neho utvoril svoj ľud, ktorému prostredníctvom Mojžiša zjavil svoj Zákon. Skrze prorokov ho pripravil na prijatie spásy určenej celému ľudstvu. Boh sa naplno zjavil, keď poslal svojho Syna Ježiša Krista, v&nbsp;ktorom uzavrel svoju zmluvu naveky. Syn je Otcovo definitívne Slovo, takže po ňom už nebude iné Zjavenie.
                 </p>
                 <p>
                     Čo Ježiš Kristus zveril apoštolom, oni, inšpirovaní Duchom Svätým, svojím kázaním a&nbsp;písomne odovzdali všetkým pokoleniam až do Kristovho slávneho návratu. Posvätná Tradícia a&nbsp;Sväté písmo tvoria jeden posvätný poklad Božieho slova, v&nbsp;ktorom putujúca Cirkev ako v&nbsp;zrkadle kontempluje Boha, prameň celého svojho bohatstva. Cirkev vo svojom učení, živote a&nbsp;kulte zachováva a&nbsp;všetkým pokoleniam odovzdáva všetko, čím sama je a&nbsp;všetko, čo verí.
@@ -70,13 +70,13 @@
                 <x-partials.picture titleSlug="viera-005" side="right" dimensionSource="medium" columns="2" />
 
                 <p>
-                    Viera je osobné primknutie sa celého človeka k&nbsp;Bohu, ktorý sa zjavuje. Zahŕňa v&nbsp;sebe súhlas rozumu a&nbsp;vôle so zjavením, ktoré Boh dal o&nbsp;sebe činmi a&nbsp;slovami. „Veriť“ má teda dvojaký vzťah: k&nbsp;osobe a&nbsp;k pravde; k&nbsp;pravde pre dôveru k&nbsp;osobe, ktorá tú pravdu dosviedča. V&nbsp;nikoho iného nemáme veriť, iba v&nbsp;Boha, Otca, Syna a&nbsp;Ducha Svätého.
+                    Viera je osobné primknutie sa celého človeka k&nbsp;Bohu, ktorý sa zjavuje. Zahŕňa v&nbsp;sebe súhlas rozumu a&nbsp;vôle so zjavením, ktoré Boh dal o&nbsp;sebe činmi a&nbsp;slovami. „Veriť“ má teda dvojaký vzťah: k&nbsp;osobe a&nbsp;k&nbsp;pravde; k&nbsp;pravde pre dôveru k&nbsp;osobe, ktorá tú pravdu dosviedča. V&nbsp;nikoho iného nemáme veriť, iba v&nbsp;Boha, Otca, Syna a&nbsp;Ducha Svätého.
                 </p>
                 <p>
                     Viera je nadprirodzený Boží dar. Aby človek veril, potrebuje vnútornú pomoc Ducha Svätého. „Veriť“ je vedomý a&nbsp;slobodný ľudský úkon, ktorý zodpovedá dôstojnosti ľudskej osoby. Viera Cirkvi predchádza, rodí, udržiava a&nbsp;živí našu vieru. Cirkev je matka všetkých veriacich. „Nemôže mať Boha za Otca, kto nemá Cirkev za matku.“ (sv. Cyprián Kartáginský)
                 </p>
                 <p>
-                    Nik nemôže veriť sám, tak ako nik nemôže sám žiť. Nik si nedal vieru sám, tak ako si nik sám nedal život. Veriaci prijal vieru od iných a&nbsp;má ju zasa odovzdať iným. Naša láska k&nbsp;Ježišovi a&nbsp;k ľuďom nás pobáda hovoriť o&nbsp;našej viere iným. Každý veriaci je akoby ohnivkom vo veľkej reťazi veriacich. Vieru, „ktorú sme prijali od Cirkvi, si chránime a&nbsp;ona ako vzácny poklad v&nbsp;peknej nádobe pôsobením Božieho Ducha stále mladne a&nbsp;omladzuje aj nádobu, ktorá ju obsahuje“ (sv. Irenej Lyonský).
+                    Nik nemôže veriť sám, tak ako nik nemôže sám žiť. Nik si nedal vieru sám, tak ako si nik sám nedal život. Veriaci prijal vieru od iných a&nbsp;má ju zasa odovzdať iným. Naša láska k&nbsp;Ježišovi a&nbsp;k&nbsp;ľuďom nás pobáda hovoriť o&nbsp;našej viere iným. Každý veriaci je akoby ohnivkom vo veľkej reťazi veriacich. Vieru, „ktorú sme prijali od Cirkvi, si chránime a&nbsp;ona ako vzácny poklad v&nbsp;peknej nádobe pôsobením Božieho Ducha stále mladne a&nbsp;omladzuje aj nádobu, ktorá ju obsahuje“ (sv. Irenej Lyonský).
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>

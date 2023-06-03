@@ -23,7 +23,7 @@
         </x-web.page.text-segment>
         <x-web.page.text-segment animation="fromright">
             <p>
-                Katolícka charizmatická obnova sa usiluje prispieť k&nbsp;obráteniu, spáse a&nbsp;posväcovaniu všetkých ľudí a&nbsp;k ich zjednoteniu v&nbsp;účinnom spoločenstve Božieho ľudu. Kladie dôraz na: poznanie Boha ako milujúceho a&nbsp;odpúšťajúceho Otca, nadviazanie osobného vzťahu s&nbsp;Ježišom, potrebu posilňovať v&nbsp;sebe prítomnosť Ducha Svätého, dôležitosť Svätého písma, sviatostí, bohoslužby, modlitby, modlitby chvál, dôležitosť chariziem alebo darov Ducha Svätého pre službu Cirkvi, potrebu budovať spoločenstvo, poslanie ohlasovať evanjelium a&nbsp;vydávať svedectvo.
+                Katolícka charizmatická obnova sa usiluje prispieť k&nbsp;obráteniu, spáse a&nbsp;posväcovaniu všetkých ľudí a&nbsp;k&nbsp;ich zjednoteniu v&nbsp;účinnom spoločenstve Božieho ľudu. Kladie dôraz na: poznanie Boha ako milujúceho a&nbsp;odpúšťajúceho Otca, nadviazanie osobného vzťahu s&nbsp;Ježišom, potrebu posilňovať v&nbsp;sebe prítomnosť Ducha Svätého, dôležitosť Svätého písma, sviatostí, bohoslužby, modlitby, modlitby chvál, dôležitosť chariziem alebo darov Ducha Svätého pre službu Cirkvi, potrebu budovať spoločenstvo, poslanie ohlasovať evanjelium a&nbsp;vydávať svedectvo.
             </p>
         </x-web.page.text-segment>
     </x-web.page.subsection>

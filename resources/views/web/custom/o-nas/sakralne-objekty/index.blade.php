@@ -65,7 +65,7 @@
                 <x-partials.picture-responsive titleSlug="kapl-005-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Na území detvianskej farnosti sa nachádza niekoľko rôznych kaplniek. Väčšie kaplnky sa nachádzajú v&nbsp;lokalitách Piešť I. - u&nbsp;Slobodov a&nbsp;u Svoreňov, na Sliackej Poľane a&nbsp;v Krnom. V&nbsp;Domove dôchodcov je zriadená ekumenická kaplnka a&nbsp;v Domove sociálnych služieb v&nbsp;stredisku Piešť menšia meditačná kaplnka. Vo farnosti sú aj viaceré Božie muky vo forme menších kaplniek alebo stĺpov. Jedna z&nbsp;najstarších sa nachádza na Sládkovičovej ulici.
+                Na území detvianskej farnosti sa nachádza niekoľko rôznych kaplniek. Väčšie kaplnky sa nachádzajú v&nbsp;lokalitách Piešť I. - u&nbsp;Slobodov a&nbsp;u&nbsp;Svoreňov, na Sliackej Poľane a&nbsp;v&nbsp;Krnom. V&nbsp;Domove dôchodcov je zriadená ekumenická kaplnka a&nbsp;v&nbsp;Domove sociálnych služieb v&nbsp;stredisku Piešť menšia meditačná kaplnka. Vo farnosti sú aj viaceré Božie muky vo forme menších kaplniek alebo stĺpov. Jedna z&nbsp;najstarších sa nachádza na Sládkovičovej ulici.
             </x-slot:teaser>
         </x-partials.card-article>
 

@@ -33,7 +33,7 @@
                     Pri pohrebe svojich bratov a&nbsp;sestier majú kresťania vyjadriť svoju pevnú nádej na večný život. Zároveň však majú dbať na zmýšľanie svojich súčasníkov a&nbsp;na smútočné zvyky svojej krajiny. Čo by však odporovalo evanjeliu, nech sa usilujú zmeniť, aby sa pri kresťanskom pohrebe prejavovala veľkonočná viera a&nbsp;skutočný duch evanjelia. Zaiste treba odmietnuť prázdnu, vonkajšiu honosnosť pohrebu, patrí sa však preukazovať úctu telám zomrelých veriacich, veď boli chrámom Ducha Svätého.
                 </p>
                 <p>
-                    Prv než zomrelého uložia do hrobu, majú sa zhromaždiť aspoň príbuzní a&nbsp;- ak je možné - aj ostatní veriaci, aby si pri bohoslužbe slova vypočuli slová útechy, ktorú dáva viera, aby sa zúčastnili na eucharistickej obete a&nbsp;napokon, aby sa rozlúčili so zomrelým. Obrad posledného rozlúčenia so zomrelým sa nemá chápať ako nejaké očisťovanie zomrelého - to sa deje skôr prostredníctvom eucharistickej obety - ale má to byť posledné rozlúčenie, pri ktorom kresťanské spoločenstvo pozdravuje jedného zo svojich členov prv, než sa jeho telo odnesie a&nbsp;pochová.
+                    Prv než zomrelého uložia do hrobu, majú sa zhromaždiť aspoň príbuzní a&nbsp;-&nbsp;ak je možné - aj ostatní veriaci, aby si pri bohoslužbe slova vypočuli slová útechy, ktorú dáva viera, aby sa zúčastnili na eucharistickej obete a&nbsp;napokon, aby sa rozlúčili so zomrelým. Obrad posledného rozlúčenia so zomrelým sa nemá chápať ako nejaké očisťovanie zomrelého - to sa deje skôr prostredníctvom eucharistickej obety - ale má to byť posledné rozlúčenie, pri ktorom kresťanské spoločenstvo pozdravuje jedného zo svojich členov prv, než sa jeho telo odnesie a&nbsp;pochová.
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>
@@ -59,7 +59,7 @@
                 </p>
 
                 <p>
-                    Nasledujúc najstaršiu kresťanskú tradíciu Cirkev neúnavne odporúča, aby boli telá zosnulých pochované na cintoríne alebo na inom posvätnom mieste. Pri pamiatke na Pánovu smrť, pochovanie do hrobu a&nbsp;vzkriesenie, teda tajomstvo, vo svetle ktorého sa vyjavuje kresťanský zmysel smrti, je pochovanie tela tou najvhodnejšou formou na vyjadrenie viery a&nbsp;nádeje vo vzkriesenie tela. Cirkev, ktorá ako matka sprevádza kresťana počas jeho pozemskej púte, v&nbsp;Kristovi obetuje Otcovi dieťa jeho milosti a&nbsp;s nádejou, že ho vzkriesi v&nbsp;sláve, ukladá jeho telesné pozostatky do zeme.
+                    Nasledujúc najstaršiu kresťanskú tradíciu Cirkev neúnavne odporúča, aby boli telá zosnulých pochované na cintoríne alebo na inom posvätnom mieste. Pri pamiatke na Pánovu smrť, pochovanie do hrobu a&nbsp;vzkriesenie, teda tajomstvo, vo svetle ktorého sa vyjavuje kresťanský zmysel smrti, je pochovanie tela tou najvhodnejšou formou na vyjadrenie viery a&nbsp;nádeje vo vzkriesenie tela. Cirkev, ktorá ako matka sprevádza kresťana počas jeho pozemskej púte, v&nbsp;Kristovi obetuje Otcovi dieťa jeho milosti a&nbsp;s&nbsp;nádejou, že ho vzkriesi v&nbsp;sláve, ukladá jeho telesné pozostatky do zeme.
                 </p>
 
             </x-web.page.text-segment>

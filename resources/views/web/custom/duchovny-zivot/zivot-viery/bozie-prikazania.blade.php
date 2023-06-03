@@ -10,7 +10,7 @@
                 <x-partials.picture titleSlug="bpr-001" side="left" dimensionSource="medium" columns="1" dimensionSource="off"/>
 
                 <p>
-                    Dar Desatora bol daný v&nbsp;rámci zmluvy, ktorú Boh uzavrel so svojím ľudom. Božie prikázania nadobúdajú svoj pravý význam v&nbsp;tejto zmluve a&nbsp;prostredníctvom nej. Tradícia Cirkvi verná Svätému písmu a&nbsp;v zhode s&nbsp;Ježišovým príkladom priznala Dekalógu prvoradú dôležitosť a&nbsp;význam.
+                    Dar Desatora bol daný v&nbsp;rámci zmluvy, ktorú Boh uzavrel so svojím ľudom. Božie prikázania nadobúdajú svoj pravý význam v&nbsp;tejto zmluve a&nbsp;prostredníctvom nej. Tradícia Cirkvi verná Svätému písmu a&nbsp;v&nbsp;zhode s&nbsp;Ježišovým príkladom priznala Dekalógu prvoradú dôležitosť a&nbsp;význam.
                 </p>
 
                 <x-partials.picture titleSlug="bpr-006" side="right" dimensionSource="medium" columns="4" />
@@ -58,7 +58,7 @@
                     Sobotu, ktorá predstavovala zavŕšenie prvého stvorenia, nahradila nedeľa pripomínajúca nové stvorenie, ktoré sa začalo Kristovým zmŕtvychvstaním. Cirkev slávi deň Kristovho zmŕtvychvstania v&nbsp;ôsmy deň, ktorý sa právom volá deň Pána alebo nedeľa.
                 </p>
                 <p>
-                    Nedeľa sa má v&nbsp;celej Cirkvi zachovávať ako prvotný prikázaný sviatok. V&nbsp;nedeľu a&nbsp;v iné prikázané sviatky sú veriaci povinní zúčastniť sa na svätej omši. Veriaci sa majú okrem toho zdržiavať takých prác a&nbsp;činností, ktoré sú na prekážku kultu, ktorý sa má preukazovať Bohu, radosti vlastnej dňu Pána alebo potrebnému zotaveniu ducha i&nbsp;tela.
+                    Nedeľa sa má v&nbsp;celej Cirkvi zachovávať ako prvotný prikázaný sviatok. V&nbsp;nedeľu a&nbsp;v&nbsp;iné prikázané sviatky sú veriaci povinní zúčastniť sa na svätej omši. Veriaci sa majú okrem toho zdržiavať takých prác a&nbsp;činností, ktoré sú na prekážku kultu, ktorý sa má preukazovať Bohu, radosti vlastnej dňu Pána alebo potrebnému zotaveniu ducha i&nbsp;tela.
                 </p>
                 <p>
                     Ustanovenie nedele prispieva k&nbsp;tomu, aby všetci mali aj dostatočný odpočinok a&nbsp;voľný čas na pestovanie rodinného, kultúrneho, spoločenského a&nbsp;náboženského života. Každý kresťan sa má vyhýbať tomu, aby bez potreby ukladal iným to, čo by im prekážalo zachovať deň Pána.
@@ -102,7 +102,7 @@
                     Dieťa má už od svojho počatia právo na život. Priamy potrat, to znamená chcený ako cieľ alebo ako prostriedok, je hanebný čin, ktorý závažne protirečí morálnemu zákonu. Tento zločin proti ľudskému životu stíha Cirkev kánonickým trestom exkomunikácie. Keďže s&nbsp;ľudským embryom sa má už od jeho počatia zaobchádzať ako s&nbsp;osobou, treba ho chrániť v&nbsp;jeho neporušiteľnosti, liečiť ho a&nbsp;uzdraviť, pokiaľ je to možné, ako každú inú ľudskú bytosť.
                 </p>
                 <p>
-                    Úmyselná eutanázia je vraždou, nech by boli akékoľvek jej formy a&nbsp;dôvody. Je v&nbsp;závažnom rozpore s&nbsp;dôstojnosťou ľudskej osoby a&nbsp;s úctou k&nbsp;živému Bohu, jej Stvoriteľovi. Samovražda závažne protirečí spravodlivosti, nádeji a&nbsp;láske. Piate prikázanie ju zakazuje.
+                    Úmyselná eutanázia je vraždou, nech by boli akékoľvek jej formy a&nbsp;dôvody. Je v&nbsp;závažnom rozpore s&nbsp;dôstojnosťou ľudskej osoby a&nbsp;s&nbsp;úctou k&nbsp;živému Bohu, jej Stvoriteľovi. Samovražda závažne protirečí spravodlivosti, nádeji a&nbsp;láske. Piate prikázanie ju zakazuje.
                 </p>
                 <p>
                     Musíme urobiť všetko, čo je rozumne možné, aby sa vyhlo vojne, a&nbsp;to pre zlo a&nbsp;nespravodlivosť, ktoré každá vojna so sebou prináša. Cirkev i&nbsp;ľudský rozum potvrdzujú, že počas ozbrojených konfliktov zostáva stále platný morálny zákon. Akcie, ktoré sa vedome a&nbsp;dobrovoľne podnikajú proti právu národov a&nbsp;jeho všeobecným zásadám, sú zločinmi.
@@ -142,7 +142,7 @@
                     Morálny zákon zakazuje činy, ktoré z&nbsp;obchodných alebo totalitných dôvodov vedú k&nbsp;zotročovaniu ľudí, k&nbsp;ich kupovaniu, predávaniu a&nbsp;výmene, akoby boli tovarom. Nadvládu, ktorú Stvoriteľ dal človekovi nad nerastnými, rastlinnými a&nbsp;živočíšnymi zdrojmi sveta, nemožno oddeľovať od rešpektovania morálnych záväzkov, vrátane záväzkov voči budúcim generáciám.
                 </p>
                 <p>
-                    Človek sám je pôvodcom, stredom a&nbsp;cieľom celého ekonomického a&nbsp;sociálneho života. Rozhodujúcim bodom sociálnej otázky je, aby sa dobrá, ktoré Boh stvoril pre všetkých, skutočne dostali ku všetkým podľa spravodlivosti a&nbsp;s prispením lásky. Základná hodnota práce závisí od samého človeka, ktorý je jej pôvodcom i&nbsp;cieľom. Prácou má človek účasť na diele stvorenia. Práca spojená s&nbsp;Kristom môže byť vykupiteľská.
+                    Človek sám je pôvodcom, stredom a&nbsp;cieľom celého ekonomického a&nbsp;sociálneho života. Rozhodujúcim bodom sociálnej otázky je, aby sa dobrá, ktoré Boh stvoril pre všetkých, skutočne dostali ku všetkým podľa spravodlivosti a&nbsp;s&nbsp;prispením lásky. Základná hodnota práce závisí od samého človeka, ktorý je jej pôvodcom i&nbsp;cieľom. Prácou má človek účasť na diele stvorenia. Práca spojená s&nbsp;Kristom môže byť vykupiteľská.
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>

@@ -10,7 +10,7 @@
                 <x-partials.picture titleSlug="modl-021"  side="left" columns="2" />
 
                 <p>
-                    Modlitba je povznesenie duše k&nbsp;Bohu. Keď sa človek modlí, vstupuje do živého vzťahu s&nbsp;Bohom. Modlitba je veľkou bránou k&nbsp;viere. Ten, kto sa modlí, nežije už viac zo seba, pre seba a&nbsp;z vlastných síl. Vie, že jestvuje Boh, s&nbsp;ktorým sa môže rozprávať a&nbsp;čoraz viac sa mu zverovať. Už teraz hľadá kontakt s&nbsp;tým, s&nbsp;ktorým sa jedného dňa stretne z&nbsp;tváre do tváre. Preto k&nbsp;životu kresťana patrí každodenná modlitba. Modlitbe sa však nemožno naučiť tak ako nejakej technike. Modlitba je totiž dar, ktorý človek dostáva práve tým, že sa modlí.
+                    Modlitba je povznesenie duše k&nbsp;Bohu. Keď sa človek modlí, vstupuje do živého vzťahu s&nbsp;Bohom. Modlitba je veľkou bránou k&nbsp;viere. Ten, kto sa modlí, nežije už viac zo seba, pre seba a&nbsp;z&nbsp;vlastných síl. Vie, že jestvuje Boh, s&nbsp;ktorým sa môže rozprávať a&nbsp;čoraz viac sa mu zverovať. Už teraz hľadá kontakt s&nbsp;tým, s&nbsp;ktorým sa jedného dňa stretne z&nbsp;tváre do tváre. Preto k&nbsp;životu kresťana patrí každodenná modlitba. Modlitbe sa však nemožno naučiť tak ako nejakej technike. Modlitba je totiž dar, ktorý človek dostáva práve tým, že sa modlí.
                 </p>
 
                 <x-partials.picture titleSlug="modl-005" side="right" columns="3" />
@@ -54,7 +54,7 @@
                 </div>
 
                 <p>
-                    Velebenie je odpoveď človeka na Božie dary. Pretože Boh nám dáva požehnanie, srdce človeka môže zasa velebiť toho, kto je zdrojom každého požehnania. Jeho dobrota, blízkosť, zľutovanie - to všetko znamená požehnanie. Každý kresťan by mal prosiť o&nbsp;Božie požehnanie pre seba i&nbsp;pre druhých ľudí. Rodičia môžu požehnať svoje deti znamením kríža na čele. Ľudia, ktorí sa majú radi, sa môžu vzájomne žehnať. Okrem toho kňaz z&nbsp;moci svojho úradu žehná vyslovene v&nbsp;Ježišovom mene a&nbsp;z poverenia Cirkvi. Jeho prosba o&nbsp;požehnanie nadobúda zvláštnu účinnosť mocou kňazskej vysviacky a&nbsp;mocou modlitby celej Cirkvi.
+                    Velebenie je odpoveď človeka na Božie dary. Pretože Boh nám dáva požehnanie, srdce človeka môže zasa velebiť toho, kto je zdrojom každého požehnania. Jeho dobrota, blízkosť, zľutovanie - to všetko znamená požehnanie. Každý kresťan by mal prosiť o&nbsp;Božie požehnanie pre seba i&nbsp;pre druhých ľudí. Rodičia môžu požehnať svoje deti znamením kríža na čele. Ľudia, ktorí sa majú radi, sa môžu vzájomne žehnať. Okrem toho kňaz z&nbsp;moci svojho úradu žehná vyslovene v&nbsp;Ježišovom mene a&nbsp;z&nbsp;poverenia Cirkvi. Jeho prosba o&nbsp;požehnanie nadobúda zvláštnu účinnosť mocou kňazskej vysviacky a&nbsp;mocou modlitby celej Cirkvi.
                 </p>
 
                 <x-partials.picture titleSlug="modl-014" side="left" columns="3" />
@@ -139,7 +139,7 @@
                 </p>
                 <x-partials.picture titleSlug="modl-010" side="left" columns="3" />
                 <p>
-                    Modlitba je osobným vzťahom, prechádza od „ja“ k&nbsp;„ty“, od zamerania sa na seba k&nbsp;radikálnej otvorenosti. Ten, kto sa naozaj modlí, zistí, že Boh hovorí a&nbsp;že často hovorí inak, akoby sme si to želali alebo očakávali. Tí, ktorí majú hlbšie skúsenosti s&nbsp;modlitbou, dosvedčujú, že človek je po skončení modlitby často iný, než aký bol na jej začiatku. Naše očakávania sa niekedy naplnia: smutný nájde útechu, skleslý dostane novú silu. Môže sa však stať aj to, že človek by rád zabudol na ťažkosti a&nbsp;upadne ešte do väčšej úzkosti; chcel by mať na chvíľu pokoj, a&nbsp;dostane úlohu. Skutočné stretnutie s&nbsp;Bohom v&nbsp;modlitbe môže rozmetať naše predstavy o&nbsp;Bohu i&nbsp;o modlitbe.
+                    Modlitba je osobným vzťahom, prechádza od „ja“ k&nbsp;„ty“, od zamerania sa na seba k&nbsp;radikálnej otvorenosti. Ten, kto sa naozaj modlí, zistí, že Boh hovorí a&nbsp;že často hovorí inak, akoby sme si to želali alebo očakávali. Tí, ktorí majú hlbšie skúsenosti s&nbsp;modlitbou, dosvedčujú, že človek je po skončení modlitby často iný, než aký bol na jej začiatku. Naše očakávania sa niekedy naplnia: smutný nájde útechu, skleslý dostane novú silu. Môže sa však stať aj to, že človek by rád zabudol na ťažkosti a&nbsp;upadne ešte do väčšej úzkosti; chcel by mať na chvíľu pokoj, a&nbsp;dostane úlohu. Skutočné stretnutie s&nbsp;Bohom v&nbsp;modlitbe môže rozmetať naše predstavy o&nbsp;Bohu i&nbsp;o&nbsp;modlitbe.
                 </p>
                 <p>
                     Modlitba nehľadá povrchný úspech, ale Božiu vôľu a&nbsp;blízkosť. Práve v&nbsp;zdanlivom mlčaní Boha spočíva pozvanie k&nbsp;ďalšiemu kroku - k&nbsp;bezvýhradnej odovzdanosti, k&nbsp;bezhraničnej viere, k&nbsp;nekonečnému očakávaniu. Ten, kto sa modlí, musí ponechať Bohu úplnú slobodu, aby prehovoril, kedy bude chcieť, aby splnil, čo bude chcieť a&nbsp;aby sa daroval, ako bude chcieť. Boha nemožno odbiť niekoľkými slovami ráno alebo večer. Náš život sa musí stať modlitbou a&nbsp;naša modlitba sa musí stať životom. Životný príbeh každého kresťana je aj príbehom modlitby, je to jediný dlhodobý pokus o&nbsp;čoraz hlbšiu jednotu s&nbsp;Bohom. Modlitba je životne dôležitá, preto modlitbu a&nbsp;život nemožno od seba oddeliť.

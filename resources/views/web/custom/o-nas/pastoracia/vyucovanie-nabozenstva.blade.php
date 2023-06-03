@@ -26,7 +26,7 @@
                 <ul class="ps-3">
                     <li class="mb-2">kultivácia osobnosti žiakov, ktorá má byť pomocou tohto vyučovacieho predmetu vytváraná a&nbsp;formovaná</li>
                     <li class="mb-2">rozvíjať schopnosť orientácie v&nbsp;kresťanských hodnotách</li>
-                    <li class="mb-2">rozvíjať systém postojov a&nbsp;názorov k&nbsp;jednotlivým cirkevným sektám a&nbsp;iným náboženstvám a&nbsp;k prírode z&nbsp;pohľadu veriaceho človeka</li>
+                    <li class="mb-2">rozvíjať systém postojov a&nbsp;názorov k&nbsp;jednotlivým cirkevným sektám a&nbsp;iným náboženstvám a&nbsp;k&nbsp;prírode z&nbsp;pohľadu veriaceho človeka</li>
                     <li class="mb-2">osvojiť si nevyhnutné starozákonné a&nbsp;novozákonné biblické poznatky</li>
                     <li class="mb-2">pozitívne formovať osobnosť žiaka prostredníctvom rôznych udalostí, cirkevných slávností, výročí osobností a&nbsp;pod.</li>
                     <li class="mb-2">podnecovať aktivizáciu, dynamizáciu a&nbsp;integráciu rozumových, emocionálnych a&nbsp;vôľových vlastností žiaka a&nbsp;orientovať ho na duchovné hodnoty, a&nbsp;to najpodstatnejšie</li>

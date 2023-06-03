@@ -6,18 +6,20 @@
 
         <x-partials.page-card routeStaticPages="
             {{-- spolocenstva.index, --}}
-            spolocenstva.spolocenstvo-barka,
+
             spolocenstva.frantiskansky-svetstky-rad,
+            {{-- Spoločenstvo Najsvätejšieho Srdca Ježišovho --}}
+            spolocenstva.ruzencove-bratstvo,
+            spolocenstva.saleziansky-spolupracovnici,
             spolocenstva.hnutie-krestanskych-rodin,
             spolocenstva.katolicka-charizmaticka-obnova,
             spolocenstva.marianske-veceradlo,
             spolocenstva.modlitby-matiek,
-            spolocenstva.rad-bosych-karmelitanok,
-            spolocenstva.ruzencove-bratstvo,
-            spolocenstva.saleziansky-spolupracovnici,
-            spolocenstva.sluzobnici-jezisovho-velknazskeho-srdca,
-            spolocenstva.svetsky-rad-bosych-karmelitanov,
+            spolocenstva.spolocenstvo-barka,
             spolocenstva.zdruzenie-faustinum,
+            spolocenstva.rad-bosych-karmelitanok,
+            spolocenstva.svetsky-rad-bosych-karmelitanov,
+            spolocenstva.sluzobnici-jezisovho-velknazskeho-srdca,
         " />
 
     </x-web.page.section>

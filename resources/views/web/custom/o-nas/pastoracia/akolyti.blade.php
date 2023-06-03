@@ -12,7 +12,7 @@
 
             <x-web.page.text-segment animation="fromleft">
                 <p>
-                    Akolyta je mimoriadny vysluhovateľ svätého prijímania, ktorý je biskupom ustanovený pomáhať kňazom a&nbsp;diakonom pri liturgických úkonoch, najmä pri slávení svätej omše. Pomenovanie akolyta pochádza z&nbsp;gréckeho prostredia a&nbsp;v historickej praxi bol akolytát až do roku 1972 jedným z&nbsp;nižších svätení kňazstva. V&nbsp;prvých dvoch storočiach kvôli prenasledovaniam kresťanov a&nbsp;z nedostatku kňazov bolo bežné, že si veriaci laici sami sebe podávali sväté prijímanie. Môžeme dedukovať, že bolo pravdepodobne univerzálnym zvykom laikov nosiť Eucharistiu do vlastných domov. Akolytát sa pravdepodobne vyvinul z&nbsp;diakonskej služby, ktorú mal akolyta sprevádzať svojou službou najmä pri liturgii a&nbsp;tiež pri prinášaní Eucharistie tým, ktorí sa liturgie nemohli zúčastniť.
+                    Akolyta je mimoriadny vysluhovateľ svätého prijímania, ktorý je biskupom ustanovený pomáhať kňazom a&nbsp;diakonom pri liturgických úkonoch, najmä pri slávení svätej omše. Pomenovanie akolyta pochádza z&nbsp;gréckeho prostredia a&nbsp;v&nbsp;historickej praxi bol akolytát až do roku 1972 jedným z&nbsp;nižších svätení kňazstva. V&nbsp;prvých dvoch storočiach kvôli prenasledovaniam kresťanov a&nbsp;z&nbsp;nedostatku kňazov bolo bežné, že si veriaci laici sami sebe podávali sväté prijímanie. Môžeme dedukovať, že bolo pravdepodobne univerzálnym zvykom laikov nosiť Eucharistiu do vlastných domov. Akolytát sa pravdepodobne vyvinul z&nbsp;diakonskej služby, ktorú mal akolyta sprevádzať svojou službou najmä pri liturgii a&nbsp;tiež pri prinášaní Eucharistie tým, ktorí sa liturgie nemohli zúčastniť.
                 </p>
 
                 <p>

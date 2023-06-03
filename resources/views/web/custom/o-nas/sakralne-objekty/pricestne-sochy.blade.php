@@ -49,7 +49,7 @@
                 <x-partials.picture titleSlug="soch-002" side="right" dimensionSource="medium" columns="2" />
 
                 <p>
-                    Začiatkom 18. storočia, v&nbsp;ťažkých časoch rekatolizácie, sa medzi jezuitmi a&nbsp;ich protivníkmi (jansenistami) uskutočňovali výmeny názorov, z&nbsp;čoho vznikla kampaň proti rádu Spoločnosti Ježišovej, často založená na ohováraní. Ján Nepomucký sa tak stal patrónom proti ohováraniu a&nbsp;vzorom múdrosti a&nbsp;svedomitosti v&nbsp;reči i&nbsp;v mlčaní. V&nbsp;ľudovej polohe sa stal i&nbsp;ochrancom mostov, úrody, ochrancom proti živelným pohromám a&nbsp;chorobám dobytka. Môžeme ho považovať za „dobové“, silne frekventované patrocínium barokového obdobia, spojené s&nbsp;väčšími i&nbsp;menšími sakrálnymi objektmi. S&nbsp;počtom 170 výskytov sa patrocínium sv. Jána Nepomuckého nachádza na šiestom mieste v&nbsp;poradí zachovaných patrocínií na Slovensku.
+                    Začiatkom 18. storočia, v&nbsp;ťažkých časoch rekatolizácie, sa medzi jezuitmi a&nbsp;ich protivníkmi (jansenistami) uskutočňovali výmeny názorov, z&nbsp;čoho vznikla kampaň proti rádu Spoločnosti Ježišovej, často založená na ohováraní. Ján Nepomucký sa tak stal patrónom proti ohováraniu a&nbsp;vzorom múdrosti a&nbsp;svedomitosti v&nbsp;reči i&nbsp;v&nbsp;mlčaní. V&nbsp;ľudovej polohe sa stal i&nbsp;ochrancom mostov, úrody, ochrancom proti živelným pohromám a&nbsp;chorobám dobytka. Môžeme ho považovať za „dobové“, silne frekventované patrocínium barokového obdobia, spojené s&nbsp;väčšími i&nbsp;menšími sakrálnymi objektmi. S&nbsp;počtom 170 výskytov sa patrocínium sv. Jána Nepomuckého nachádza na šiestom mieste v&nbsp;poradí zachovaných patrocínií na Slovensku.
                 </p>
 
                 <x-partials.picture titleSlug="soch-022" side="left" dimensionSource="medium" columns="2" />
@@ -88,7 +88,7 @@
                 <x-partials.picture titleSlug="soch-020" side="right" dimensionSource="medium" columns="4" />
 
                 <p>
-                    Keďže Detva bola postihovaná častými požiarmi, niet divu, že miestny ľud chcel mať v&nbsp;mestečku práve sochu sv. Floriána ako ochrancu pred ohňom. Ničivé požiare vypukli v&nbsp;rokoch 1695, 1711, 1729, 1756, 1776 a&nbsp;1799. Pokračovali i&nbsp;v nasledujúcom storočí v&nbsp;r. 1821, 1824 a&nbsp;1828.
+                    Keďže Detva bola postihovaná častými požiarmi, niet divu, že miestny ľud chcel mať v&nbsp;mestečku práve sochu sv. Floriána ako ochrancu pred ohňom. Ničivé požiare vypukli v&nbsp;rokoch 1695, 1711, 1729, 1756, 1776 a&nbsp;1799. Pokračovali i&nbsp;v&nbsp;nasledujúcom storočí v&nbsp;r. 1821, 1824 a&nbsp;1828.
                     Najničivejší požiar, ktorý pohltil 108 domov, bol v&nbsp;roku 1833. Patrocínium svätého Floriána sa počas baroka viazalo v&nbsp;prevažnej miere na malé objekty, ktoré boli umiestnené vo voľnej prírode alebo pri cestách a&nbsp;mali ľudový ráz. Ani najmenšie sakrálne pamiatky však nie sú bezvýznamné, pretože v&nbsp;určitom zmysle komunikujú svoju dobu a&nbsp;pre postavenie každej z&nbsp;nich vždy jestvoval nejaký dôvod.
                 </p>
             </x-web.page.text-segment>

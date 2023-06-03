@@ -34,7 +34,7 @@
                 </p>
 
                 <p>
-                    Slniečka sa stretávajú na nácvikoch v&nbsp;pastoračnej miestnosti farského úradu - v&nbsp;Kláre, vždy v&nbsp;sobotu o&nbsp;15.00 hod. a&nbsp;v nedeľu pred svätou omšou o&nbsp;8.00 hod. Veľmi radi uvítajú aj nových členov.
+                    Slniečka sa stretávajú na nácvikoch v&nbsp;pastoračnej miestnosti farského úradu - v&nbsp;Kláre, vždy v&nbsp;sobotu o&nbsp;15.00 hod. a&nbsp;v&nbsp;nedeľu pred svätou omšou o&nbsp;8.00 hod. Veľmi radi uvítajú aj nových členov.
                 </p>
 
                 <a href="https://www.facebook.com/groups/1427727460859304">Facebook zboru.</a>

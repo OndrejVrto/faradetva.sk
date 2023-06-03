@@ -48,19 +48,19 @@
                     Všetci sme povolaní k&nbsp;spáse, lebo Ježiš Kristus za každého človeka zomrel na kríži. Zvlášť miništrant sa má usilovať žiť v&nbsp;stave posväcujúcej milosti, aby jeho duša bola čistá, a&nbsp;to najmä vtedy, keď slúži pri Pánovom oltári. Je tak blízko k&nbsp;Božím milostiam a&nbsp;darom, že ho Ježiš obdarúva mimoriadnymi milosťami a&nbsp;povoláva k&nbsp;svätosti.
                 </p>
                 <p>
-                    Miništrant má byť úplne a&nbsp;bezvýhradne oddaný svojej vznešenej a&nbsp;svätej službe pri oltári. Jeho oddanosť spočíva vo viere a&nbsp;v láske. Milovať Pána Boha znamená aj dávať príklad v&nbsp;každodennom živote v&nbsp;otázkach viery a&nbsp;mravov ostatným chlapcom a&nbsp;byť im príkladom. Miništrant má byť čistý v&nbsp;myšlienkach, slovách i&nbsp;v skutkoch. Svoje poslanie má plniť upravený a&nbsp;čistý na duši i&nbsp;na tele.
+                    Miništrant má byť úplne a&nbsp;bezvýhradne oddaný svojej vznešenej a&nbsp;svätej službe pri oltári. Jeho oddanosť spočíva vo viere a&nbsp;v&nbsp;láske. Milovať Pána Boha znamená aj dávať príklad v&nbsp;každodennom živote v&nbsp;otázkach viery a&nbsp;mravov ostatným chlapcom a&nbsp;byť im príkladom. Miništrant má byť čistý v&nbsp;myšlienkach, slovách i&nbsp;v&nbsp;skutkoch. Svoje poslanie má plniť upravený a&nbsp;čistý na duši i&nbsp;na tele.
                 </p>
 
                 <x-partials.picture titleSlug="mini-007" side="left" dimensionSource="medium" columns="2" />
 
                 <p>
-                    Miništrant často prichádza k&nbsp;Bohu, ktorý ho potešuje, dodáva mu silu byť zbožným a&nbsp;svätým. Mal by pravidelne pristupovať k&nbsp;sviatostiam, najmä k&nbsp;sviatosti zmierenia a&nbsp;k svätému prijímaniu a&nbsp;denne sa modliť. Zbožnosť miništranta nemožno merať podľa množstva a&nbsp;dĺžky modlitieb, ale podľa jeho živej a&nbsp;radostnej praktickej viery.
+                    Miništrant často prichádza k&nbsp;Bohu, ktorý ho potešuje, dodáva mu silu byť zbožným a&nbsp;svätým. Mal by pravidelne pristupovať k&nbsp;sviatostiam, najmä k&nbsp;sviatosti zmierenia a&nbsp;k&nbsp;svätému prijímaniu a&nbsp;denne sa modliť. Zbožnosť miništranta nemožno merať podľa množstva a&nbsp;dĺžky modlitieb, ale podľa jeho živej a&nbsp;radostnej praktickej viery.
                 </p>
                 <p>
                     Usilovnosť miništranta spočíva v&nbsp;oddanej službe pri Pánovom oltári. Miništrant si má svoje povinnosti plniť presne. Na liturgické obrady má prichádzať v&nbsp;predstihu, aby mal čas na pokojnú a&nbsp;dôslednú prípravu. Mal by dobre poznať liturgické knihy, rúcha, nádoby a&nbsp;všetko, čo je spojené s&nbsp;miništrantskou službou.
                 </p>
                 <p>
-                    Miništrant má byť vzorný v&nbsp;službe i&nbsp;v mravoch. Pre veriacich je vzorom v&nbsp;kostole, najmä pri slávení svätej omše, ale aj pri iných liturgických obradoch. Má byť vzorom v&nbsp;správaní sa v&nbsp;škole i&nbsp;doma. Dobrý miništrant je radosťou rodiny i&nbsp;celého farského spoločenstva.
+                    Miništrant má byť vzorný v&nbsp;službe i&nbsp;v&nbsp;mravoch. Pre veriacich je vzorom v&nbsp;kostole, najmä pri slávení svätej omše, ale aj pri iných liturgických obradoch. Má byť vzorom v&nbsp;správaní sa v&nbsp;škole i&nbsp;doma. Dobrý miništrant je radosťou rodiny i&nbsp;celého farského spoločenstva.
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>
@@ -74,7 +74,7 @@
                     Ako v&nbsp;mnohých iných farnostiach našej diecézy, tak aj v&nbsp;Detve za posledné roky výrazne klesol počet miništrantov. Napriek tomu sa zatiaľ vďaka Bohu stále nájdu chlapci, ktorí sú ešte odhodlaní slúžiť pri Pánovom oltári. Naša farnosť počas letných prázdnin organizuje každoročne pre miništrantov niekoľkodňový pobyt na chate, kde majú mladší chlapci pod vedením starších miništrantov vytvorený program, ktorý je pestrý na hry, zábavu, výlety, ale aj na modlitbu, sväté omše a&nbsp;osvojenie si vedomostných i&nbsp;praktických úloh miništranta.
                 </p>
                 <p>
-                    Chlapcov v&nbsp;školskom i&nbsp;predškolskom veku srdečne pozývame do miništrantskej služby. Pre každého chlapca je miništrovanie určitým vyznamenaním. K&nbsp;dôstojnému a&nbsp;krajšiemu sláveniu liturgie potrebujeme aj v&nbsp;našej farnosti mladých chlapcov - miništrantov, ktorí so živou vierou a&nbsp;s nezištnou láskou môžu pomáhať kňazom pri svätých omšiach a&nbsp;rôznych iných liturgických obradoch.
+                    Chlapcov v&nbsp;školskom i&nbsp;predškolskom veku srdečne pozývame do miništrantskej služby. Pre každého chlapca je miništrovanie určitým vyznamenaním. K&nbsp;dôstojnému a&nbsp;krajšiemu sláveniu liturgie potrebujeme aj v&nbsp;našej farnosti mladých chlapcov - miništrantov, ktorí so živou vierou a&nbsp;s&nbsp;nezištnou láskou môžu pomáhať kňazom pri svätých omšiach a&nbsp;rôznych iných liturgických obradoch.
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>

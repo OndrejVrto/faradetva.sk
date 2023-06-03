@@ -10,7 +10,7 @@
                 <x-partials.picture titleSlug="sacr2-003" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
-                    Birmovanie je sviatosť, ktorá dovršuje krst a&nbsp;v ktorej dostávame dary Ducha Svätého. Kto sa v&nbsp;slobode rozhodne žiť ako Božie dieťa a&nbsp;kto požiada o&nbsp;Ducha Svätého prostredníctvom vkladania rúk a&nbsp;pomazania krizmou, dostane silu svedčiť o&nbsp;Božej láske slovom i&nbsp;skutkom. Stáva sa tak plnohodnotným a&nbsp;zodpovedným členom Katolíckej cirkvi.
+                    Birmovanie je sviatosť, ktorá dovršuje krst a&nbsp;v&nbsp;ktorej dostávame dary Ducha Svätého. Kto sa v&nbsp;slobode rozhodne žiť ako Božie dieťa a&nbsp;kto požiada o&nbsp;Ducha Svätého prostredníctvom vkladania rúk a&nbsp;pomazania krizmou, dostane silu svedčiť o&nbsp;Božej láske slovom i&nbsp;skutkom. Stáva sa tak plnohodnotným a&nbsp;zodpovedným členom Katolíckej cirkvi.
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
@@ -26,7 +26,7 @@
                 </h3>
 
                 <p>
-                    Pri birmovaní je do duše pokrsteného kresťana vtlačená nezmazateľná pečať, ktorú možno prijať len raz a&nbsp;ktorá pôsobí vzrast krstnej milosti. Dar Ducha Svätého je sila zhora, v&nbsp;ktorej birmovanec vlastným životom vydáva vierohodné svedectvo milosti svojho krstu a&nbsp;stáva sa Kristovým „svedkom“. Prijať birmovanie znamená uzavrieť s&nbsp;Bohom „zmluvu“. Birmovanec hovorí: Áno, verím v&nbsp;teba, môj Bože, daj mi svojho Ducha Svätého, aby som ti celkom patril, aby som sa nikdy od teba nevzdialil a&nbsp;aby som ti vo svojom živote vydával svedectvo telom i&nbsp;dušou, slovom i&nbsp;skutkom, v&nbsp;dobrých i&nbsp;zlých dňoch. a&nbsp;Boh odpovie: Áno, aj ja v&nbsp;teba verím, dieťa moje - a&nbsp;dám ti svojho Ducha, dám ti seba samého. Budem ti celkom patriť. Nikdy sa od teba neodvrátim - ani v&nbsp;tomto, ani vo večnom živote. Budem prítomný v&nbsp;tvojom tele a&nbsp;v tvojej duši, v&nbsp;tvojich slovách i&nbsp;skutkoch. Aj keby si na mňa zabudol, ja tu predsa budem - v&nbsp;dobrom i&nbsp;zlom.
+                    Pri birmovaní je do duše pokrsteného kresťana vtlačená nezmazateľná pečať, ktorú možno prijať len raz a&nbsp;ktorá pôsobí vzrast krstnej milosti. Dar Ducha Svätého je sila zhora, v&nbsp;ktorej birmovanec vlastným životom vydáva vierohodné svedectvo milosti svojho krstu a&nbsp;stáva sa Kristovým „svedkom“. Prijať birmovanie znamená uzavrieť s&nbsp;Bohom „zmluvu“. Birmovanec hovorí: Áno, verím v&nbsp;teba, môj Bože, daj mi svojho Ducha Svätého, aby som ti celkom patril, aby som sa nikdy od teba nevzdialil a&nbsp;aby som ti vo svojom živote vydával svedectvo telom i&nbsp;dušou, slovom i&nbsp;skutkom, v&nbsp;dobrých i&nbsp;zlých dňoch. a&nbsp;Boh odpovie: Áno, aj ja v&nbsp;teba verím, dieťa moje - a&nbsp;dám ti svojho Ducha, dám ti seba samého. Budem ti celkom patriť. Nikdy sa od teba neodvrátim - ani v&nbsp;tomto, ani vo večnom živote. Budem prítomný v&nbsp;tvojom tele a&nbsp;v&nbsp;tvojej duši, v&nbsp;tvojich slovách i&nbsp;skutkoch. Aj keby si na mňa zabudol, ja tu predsa budem - v&nbsp;dobrom i&nbsp;zlom.
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>
@@ -46,7 +46,7 @@
                 <x-partials.picture titleSlug="sacr2-009" side="left" dimensionSource="medium" columns="5" />
 
                 <p>
-                    (Mladý) kresťan, ktorý sa pripravuje na birmovanie - v&nbsp;našich končinách zvyčajne žiak strednej školy, sa nachádza v&nbsp;jednej z&nbsp;najdôležitejších etáp svojho života. Preto sa usiluje, aby uchopil vieru srdcom i&nbsp;rozumom; sám za seba i&nbsp;spoločne s&nbsp;druhými prosí o&nbsp;Ducha Svätého; zmieri sa sám so sebou, s&nbsp;ľuďmi vo svojom okolí a&nbsp;s Bohom vo sviatosti zmierenia, ktorá ho privedie bližšie k&nbsp;Bohu aj v&nbsp;prípade, že sa nedopustil žiadneho smrteľného hriechu.
+                    (Mladý) kresťan, ktorý sa pripravuje na birmovanie - v&nbsp;našich končinách zvyčajne žiak strednej školy, sa nachádza v&nbsp;jednej z&nbsp;najdôležitejších etáp svojho života. Preto sa usiluje, aby uchopil vieru srdcom i&nbsp;rozumom; sám za seba i&nbsp;spoločne s&nbsp;druhými prosí o&nbsp;Ducha Svätého; zmieri sa sám so sebou, s&nbsp;ľuďmi vo svojom okolí a&nbsp;s&nbsp;Bohom vo sviatosti zmierenia, ktorá ho privedie bližšie k&nbsp;Bohu aj v&nbsp;prípade, že sa nedopustil žiadneho smrteľného hriechu.
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">

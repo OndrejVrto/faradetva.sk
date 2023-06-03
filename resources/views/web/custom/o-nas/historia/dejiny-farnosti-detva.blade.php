@@ -120,7 +120,7 @@
                 </p>
 
                 <p>
-                    Politické riadenie bezplatnou zmluvou nasťahovalo do budovy chudobinca sídlo Miestneho národného výboru (MNV) a&nbsp;z izieb charitatívnej inštitúcie urobilo veľkú spoločenskú sálu. Ako zaslúžená a&nbsp;dlho očakávaná odmena po náročnom období detvianskeho cirkevného života počas komunizmu, prišli duchovné povolania detvianskych rodákov. Niekoľkí rehoľníci a&nbsp;najmä diecézni kňazi predstavovali ovocie, po ktorom cirkev na Podpoľaní túžila.
+                    Politické riadenie bezplatnou zmluvou nasťahovalo do budovy chudobinca sídlo Miestneho národného výboru (MNV) a&nbsp;z&nbsp;izieb charitatívnej inštitúcie urobilo veľkú spoločenskú sálu. Ako zaslúžená a&nbsp;dlho očakávaná odmena po náročnom období detvianskeho cirkevného života počas komunizmu, prišli duchovné povolania detvianskych rodákov. Niekoľkí rehoľníci a&nbsp;najmä diecézni kňazi predstavovali ovocie, po ktorom cirkev na Podpoľaní túžila.
                 </p>
             </x-web.page.text-segment>
         </x-web.page.subsection>
@@ -137,17 +137,17 @@
                 <x-partials.picture titleSlug="dej-028" side="right" columns="5" />
 
                 <p>
-                    Po roku 1989 boli postupne vo farnosti postavené tri nové kostoly. V&nbsp;roku 1992 sa začalo s&nbsp;výstavbou kostola v&nbsp;Kriváni a&nbsp;v roku 1994 v&nbsp;Korytárkach. Po dokončení Kostola sv. Cyrila a&nbsp;Metoda v&nbsp;Kriváni bola v&nbsp;roku 1995 z&nbsp;Detvy vyčlenená nová farnosť Kriváň, s&nbsp;filiálkou Korytárky, kde bol Kostol Panny Márie Karmelskej dostavaný v&nbsp;roku 1998.
+                    Po roku 1989 boli postupne vo farnosti postavené tri nové kostoly. V&nbsp;roku 1992 sa začalo s&nbsp;výstavbou kostola v&nbsp;Kriváni a&nbsp;v&nbsp;roku 1994 v&nbsp;Korytárkach. Po dokončení Kostola sv. Cyrila a&nbsp;Metoda v&nbsp;Kriváni bola v&nbsp;roku 1995 z&nbsp;Detvy vyčlenená nová farnosť Kriváň, s&nbsp;filiálkou Korytárky, kde bol Kostol Panny Márie Karmelskej dostavaný v&nbsp;roku 1998.
                 </p>
 
                 <p>
-                    V&nbsp;jubilejnom roku 2000 sa začalo s&nbsp;výstavbou Kostola Svätej rodiny v&nbsp;Stožku, ktorý bol dokončený v&nbsp;roku 2002 a&nbsp;o rok neskôr tu bola zriadená aj nová farnosť. V&nbsp;spolupráci s&nbsp;vedením mesta bola v&nbsp;roku 2001 dokončená úprava okolia farského kostola, položená dlažba, inštalované nové svietidlá a&nbsp;lavičky, čím sa obnovilo centrum starej časti mesta, s&nbsp;dominantou Kostola sv. Františka Assiského. V&nbsp;rozsiahlom priestore farskej z&nbsp;farskej záhrady bol v&nbsp;rokoch 2004 - 2005 vybudovaný športový areál, pozostávajúci z&nbsp;trávnatého i&nbsp;asfaltového ihriska.
+                    V&nbsp;jubilejnom roku 2000 sa začalo s&nbsp;výstavbou Kostola Svätej rodiny v&nbsp;Stožku, ktorý bol dokončený v&nbsp;roku 2002 a&nbsp;o&nbsp;rok neskôr tu bola zriadená aj nová farnosť. V&nbsp;spolupráci s&nbsp;vedením mesta bola v&nbsp;roku 2001 dokončená úprava okolia farského kostola, položená dlažba, inštalované nové svietidlá a&nbsp;lavičky, čím sa obnovilo centrum starej časti mesta, s&nbsp;dominantou Kostola sv. Františka Assiského. V&nbsp;rozsiahlom priestore farskej z&nbsp;farskej záhrady bol v&nbsp;rokoch 2004 - 2005 vybudovaný športový areál, pozostávajúci z&nbsp;trávnatého i&nbsp;asfaltového ihriska.
                 </p>
 
                 <x-partials.picture titleSlug="dejf-107" side="left" columns="4" />
 
                 <p>
-                    28. júla 2007 biskup Rudolf Baláž požehnal v&nbsp;Detve novopostavený kláštor bosých karmelitánok, ktoré sa snažia o&nbsp;apoštolát modlitby a&nbsp;obety svojím skrytým životom vo veľkej samote a&nbsp;v úplnom odlúčení od sveta. Kláštor Božieho milosrdenstva a&nbsp;Kráľovnej Karmelu sa v&nbsp;roku 2007 stal domovom prvých jedenástich mníšok, ktoré zložili sľub, že do konca svojho života zostanú v&nbsp;Detve.
+                    28. júla 2007 biskup Rudolf Baláž požehnal v&nbsp;Detve novopostavený kláštor bosých karmelitánok, ktoré sa snažia o&nbsp;apoštolát modlitby a&nbsp;obety svojím skrytým životom vo veľkej samote a&nbsp;v&nbsp;úplnom odlúčení od sveta. Kláštor Božieho milosrdenstva a&nbsp;Kráľovnej Karmelu sa v&nbsp;roku 2007 stal domovom prvých jedenástich mníšok, ktoré zložili sľub, že do konca svojho života zostanú v&nbsp;Detve.
                 </p>
 
                 <x-partials.picture titleSlug="dejf-116" side="right" columns="2" />

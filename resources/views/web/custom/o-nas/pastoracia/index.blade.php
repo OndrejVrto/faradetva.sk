@@ -51,7 +51,7 @@
                 <x-partials.picture-responsive titleSlug="akol-014-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Akolyta je mimoriadny vysluhovateľ svätého prijímania, ktorý je biskupom ustanovený pomáhať kňazom a&nbsp;diakonom pri liturgických úkonoch, najmä pri slávení svätej omše. V&nbsp;prvých dvoch storočiach kvôli prenasledovaniam kresťanov a&nbsp;z nedostatku kňazov bolo bežné, že si veriaci laici sami sebe podávali sväté prijímanie.
+                Akolyta je mimoriadny vysluhovateľ svätého prijímania, ktorý je biskupom ustanovený pomáhať kňazom a&nbsp;diakonom pri liturgických úkonoch, najmä pri slávení svätej omše. V&nbsp;prvých dvoch storočiach kvôli prenasledovaniam kresťanov a&nbsp;z&nbsp;nedostatku kňazov bolo bežné, že si veriaci laici sami sebe podávali sväté prijímanie.
             </x-slot:teaser>
         </x-partials.card-article>
 

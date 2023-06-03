@@ -10,7 +10,7 @@
                 <x-partials.picture titleSlug="min-001" side="right" dimensionSource="medium" columns="5" />
 
                 <p>
-                    Niektoré služby určené pre náležité slávenie bohoslužby a&nbsp;pre pomoc Božiemu ľudu v&nbsp;jeho potrebách ustanovila Cirkev už v&nbsp;najstarších dobách. Tieto služby, ktoré sa zverovali veriacim, aby ich vykonávali pri liturgii a&nbsp;v charitatívnej činnosti, sa prispôsobovali rozličným okolnostiam. Tieto úlohy sa spravidla udeľovali osobitným obradom. Veriaci tak získal Božie požehnanie a&nbsp;bol zaradený do vyčlenenej skupiny, čiže mal osobitné postavenie, aby mohol vykonávať nejaký cirkevný úrad.
+                    Niektoré služby určené pre náležité slávenie bohoslužby a&nbsp;pre pomoc Božiemu ľudu v&nbsp;jeho potrebách ustanovila Cirkev už v&nbsp;najstarších dobách. Tieto služby, ktoré sa zverovali veriacim, aby ich vykonávali pri liturgii a&nbsp;v&nbsp;charitatívnej činnosti, sa prispôsobovali rozličným okolnostiam. Tieto úlohy sa spravidla udeľovali osobitným obradom. Veriaci tak získal Božie požehnanie a&nbsp;bol zaradený do vyčlenenej skupiny, čiže mal osobitné postavenie, aby mohol vykonávať nejaký cirkevný úrad.
                 </p>
                 <p>
                     Niektoré z&nbsp;týchto úradov, užšie spojené s&nbsp;liturgickou činnosťou, sa postupne stali službami, ktoré predchádzali prijatiu sviatostného svätenia. V&nbsp;latinskej cirkvi to boli ostiariát, lektorát, exorcitát a&nbsp;akolytát a&nbsp;nazývali sa nižšími sväteniami - vzhľadom k&nbsp;subdiakonátu, diakonátu a&nbsp;kňazstvu, ktoré boli označované ako vyššie svätenia. Tieto nižšie svätenia boli všeobecne - aj keď nie všade - vyhradzované tým, ktorí cez ne smerovali ku kňazstvu.
@@ -43,7 +43,7 @@
 
                 <x-partials.picture titleSlug="min-007" side="right" dimensionSource="medium" columns="4" />
                 <p>
-                    V&nbsp;súčasnej liturgii má dôležitú úlohu taktiež lektor, ktorý číta čítania zo Starého zákona a&nbsp;z apoštolských listov. Lektori majú podiel na hlásaní Božieho slova, ktorému zhromaždený ľud naslúcha. Lektor je členom liturgického zhromaždenia, a&nbsp;preto by po celú liturgiu mal byť prítomný v&nbsp;lodi kostola, odtiaľ potom pristupuje k&nbsp;ambone - k&nbsp;miestu, ktoré je vyhradené len k&nbsp;prednesu Božieho slova.
+                    V&nbsp;súčasnej liturgii má dôležitú úlohu taktiež lektor, ktorý číta čítania zo Starého zákona a&nbsp;z&nbsp;apoštolských listov. Lektori majú podiel na hlásaní Božieho slova, ktorému zhromaždený ľud naslúcha. Lektor je členom liturgického zhromaždenia, a&nbsp;preto by po celú liturgiu mal byť prítomný v&nbsp;lodi kostola, odtiaľ potom pristupuje k&nbsp;ambone - k&nbsp;miestu, ktoré je vyhradené len k&nbsp;prednesu Božieho slova.
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">

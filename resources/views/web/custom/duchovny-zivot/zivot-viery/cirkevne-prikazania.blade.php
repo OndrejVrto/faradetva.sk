@@ -7,7 +7,7 @@
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
                 <p>
-                    Učiteľský úrad pastierov Cirkvi sa v&nbsp;morálnej oblasti zvyčajne vykonáva katechézou a&nbsp;kázaním na základe Desatora, ktoré vyjadruje zásady mravného života platné pre všetkých ľudí. Cirkevné prikázania sa nachádzajú v&nbsp;tejto línii mravného života, ktorý je úzko spätý s&nbsp;liturgickým životom a&nbsp;ním sa živí. Záväzný ráz týchto pozitívnych zákonov vynesený pastorálnou autoritou Cirkvi má za cieľ zabezpečiť veriacim naozaj potrebné minimum ducha modlitby, morálneho úsilia a&nbsp;rastu v&nbsp;láske k&nbsp;Bohu a&nbsp;k blížnemu.
+                    Učiteľský úrad pastierov Cirkvi sa v&nbsp;morálnej oblasti zvyčajne vykonáva katechézou a&nbsp;kázaním na základe Desatora, ktoré vyjadruje zásady mravného života platné pre všetkých ľudí. Cirkevné prikázania sa nachádzajú v&nbsp;tejto línii mravného života, ktorý je úzko spätý s&nbsp;liturgickým životom a&nbsp;ním sa živí. Záväzný ráz týchto pozitívnych zákonov vynesený pastorálnou autoritou Cirkvi má za cieľ zabezpečiť veriacim naozaj potrebné minimum ducha modlitby, morálneho úsilia a&nbsp;rastu v&nbsp;láske k&nbsp;Bohu a&nbsp;k&nbsp;blížnemu.
                 </p>
                 <p>
                     Päť cirkevných prikázaní nám chce svojimi minimálnymi požiadavkami pripomínať, že nemožno byť kresťanom bez morálneho úsilia, bez konkrétnej účasti na sviatostnom živote Cirkvi a&nbsp;bez solidárneho spojenia s&nbsp;ňou. Tieto prikázania sú záväzné pre každého kresťana katolíka.
@@ -15,7 +15,7 @@
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-        <x-web.page.subsection title="I. V&nbsp;nedeľu a&nbsp;v prikázaný sviatok sa zúčastniť celej svätej omše">
+        <x-web.page.subsection title="I. V&nbsp;nedeľu a&nbsp;v&nbsp;prikázaný sviatok sa zúčastniť celej svätej omše">
             <x-web.page.text-segment>
 
                 <x-partials.picture titleSlug="cpr-001" side="right" dimensionSource="full" columns="5" />
@@ -44,7 +44,7 @@
         <x-web.page.subsection title="II. Zachovávať prikázané dni pokánia" animation="fromleft">
             <x-web.page.text-segment animation="fromleft">
                 <p>
-                    Konať skutky kajúcnosti každý piatok a&nbsp;na Popolcovú stredu zabezpečuje obdobia askézy a&nbsp;pokánia, ktoré nás pripravujú na liturgické sviatky a&nbsp;prispieva k&nbsp;tomu, že získavame nadvládu nad svojimi pudmi a&nbsp;slobodu srdca. Pokánie sa prejavuje veľmi rozmanitými formami, najmä pôstom, modlitbou a&nbsp;almužnou. Tieto a&nbsp;mnohé iné formy pokánia môže kresťan praktizovať v&nbsp;každodennom živote, najmä v&nbsp;Pôstnom období a&nbsp;v piatky, dni kajúcnosti.
+                    Konať skutky kajúcnosti každý piatok a&nbsp;na Popolcovú stredu zabezpečuje obdobia askézy a&nbsp;pokánia, ktoré nás pripravujú na liturgické sviatky a&nbsp;prispieva k&nbsp;tomu, že získavame nadvládu nad svojimi pudmi a&nbsp;slobodu srdca. Pokánie sa prejavuje veľmi rozmanitými formami, najmä pôstom, modlitbou a&nbsp;almužnou. Tieto a&nbsp;mnohé iné formy pokánia môže kresťan praktizovať v&nbsp;každodennom živote, najmä v&nbsp;Pôstnom období a&nbsp;v&nbsp;piatky, dni kajúcnosti.
                 </p>
                 <p>
                     Všetky piatky v&nbsp;roku sú dňami pokánia. Veriaci majú povinnosť konať niektorý z&nbsp;týchto druhov pokánia:
@@ -77,7 +77,7 @@
                     Tretie prikázanie na jednej strane zabezpečuje prípravu na Eucharistiu prijatím sviatosti zmierenia, ktorou pokračuje dielo obrátenia a&nbsp;odpustenia začaté v&nbsp;krste, a&nbsp;na druhej strane zaručuje minimum prijatia Pánovho tela a&nbsp;krvi v&nbsp;súvislosti s&nbsp;veľkonočnými sviatkami, ktoré sú počiatkom a&nbsp;stredom kresťanskej liturgie.
                 </p>
                 <p>
-                    Každý veriaci, keď dosiahol vek usudzovania, je povinný vyspovedať sa zo svojich ťažkých hriechov aspoň raz do roka a&nbsp;v každom prípade prv, ako pristúpi k&nbsp;svätému prijímaniu. Hoci spoveď zo všedných hriechov nie je striktne potrebná, Cirkev ju veľmi odporúča, lebo ona nám pomáha formovať si správne svedomie, bojovať proti nezriadeným náklonnostiam, nechať sa liečiť Kristom a&nbsp;robiť pokroky v&nbsp;živote podľa Ducha Svätého.
+                    Každý veriaci, keď dosiahol vek usudzovania, je povinný vyspovedať sa zo svojich ťažkých hriechov aspoň raz do roka a&nbsp;v&nbsp;každom prípade prv, ako pristúpi k&nbsp;svätému prijímaniu. Hoci spoveď zo všedných hriechov nie je striktne potrebná, Cirkev ju veľmi odporúča, lebo ona nám pomáha formovať si správne svedomie, bojovať proti nezriadeným náklonnostiam, nechať sa liečiť Kristom a&nbsp;robiť pokroky v&nbsp;živote podľa Ducha Svätého.
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">

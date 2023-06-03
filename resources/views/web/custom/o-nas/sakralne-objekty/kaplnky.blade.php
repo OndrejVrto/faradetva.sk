@@ -60,7 +60,7 @@
                 <x-partials.picture titleSlug="krn-003" side="right" dimensionSource="medium" columns="5" />
 
                 <p>
-                    Na Slovensko sa táto úcta dostala prostredníctvom českých redemptoristov po roku 1921, keď sa usadili v&nbsp;Podolínci a&nbsp;v Kostolnej-Záriečí. Ikona Matky ustavičnej pomoci sa nachádza vo všetkých rehoľných kostoloch redemptoristov. S&nbsp;touto úctou je spojená aj tzv. ustavičná novéna, ktorú sa veriaci modlia v&nbsp;stredu alebo v&nbsp;sobotu. Počas novény odznievajú poďakovania a&nbsp;prosby, ktoré ľudia Matke ustavičnej pomoci napíšu. Redemptoristi vedú k&nbsp;tejto úcte, pretože Panna Mária nám chce ustavične a&nbsp;účinne pomáhať.
+                    Na Slovensko sa táto úcta dostala prostredníctvom českých redemptoristov po roku 1921, keď sa usadili v&nbsp;Podolínci a&nbsp;v&nbsp;Kostolnej-Záriečí. Ikona Matky ustavičnej pomoci sa nachádza vo všetkých rehoľných kostoloch redemptoristov. S&nbsp;touto úctou je spojená aj tzv. ustavičná novéna, ktorú sa veriaci modlia v&nbsp;stredu alebo v&nbsp;sobotu. Počas novény odznievajú poďakovania a&nbsp;prosby, ktoré ľudia Matke ustavičnej pomoci napíšu. Redemptoristi vedú k&nbsp;tejto úcte, pretože Panna Mária nám chce ustavične a&nbsp;účinne pomáhať.
                 </p>
                 <p>
                     Napriek tomu, že Mária je najväčšou postavou obrazu, nie je jeho centrom. V&nbsp;geometrickom strede ikony sa stretajú ruky Márie a&nbsp;Ježiša. Ježišove malé ruky, ktorými sa drží pravej ruky Matky, symbolizujú hlavné posolstvo ikony: Ježiš aj v&nbsp;nebi vkladá do rúk Márie všetky milosti, aby nám ich rozdeľovala. Redemptoristi na celom svete slávia sviatok Panny Márie, Matky ustavičnej pomoci, 27. júna.
@@ -78,7 +78,7 @@
                 <x-partials.picture titleSlug="dd-002" side="left" dimensionSource="medium" columns="4" />
 
                 <p>
-                    V&nbsp;roku 2002 bol na Štúrovej ulici v&nbsp;Detve zriadený Domov dôchodcov, za účelom poskytovania služieb sociálnej starostlivosti celoročnou formou pobytu. Prvých obyvateľov domova prijali 8. júla 2002. Kapacita zariadenia je 48 miest. Budova domova má päť podlaží a&nbsp;v suterénnych priestoroch sa nachádza aj ekumenická kaplnka.
+                    V&nbsp;roku 2002 bol na Štúrovej ulici v&nbsp;Detve zriadený Domov dôchodcov, za účelom poskytovania služieb sociálnej starostlivosti celoročnou formou pobytu. Prvých obyvateľov domova prijali 8. júla 2002. Kapacita zariadenia je 48 miest. Budova domova má päť podlaží a&nbsp;v&nbsp;suterénnych priestoroch sa nachádza aj ekumenická kaplnka.
                 </p>
                 <p>
                     Do kaplnky bola nainštalovaná drevená krížová cesta, ktorú zhotovil Ing. Jozef Kováč z&nbsp;Partizánskeho. V&nbsp;kaplnke sa pravidelne slávia sväté omše k&nbsp;prvému piatku mesiaca.

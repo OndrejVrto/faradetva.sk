@@ -10,7 +10,7 @@
                 <x-partials.picture titleSlug="org-001" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
-                    Organista sprevádza liturgické spevy hrou na organe a&nbsp;v rámci liturgie môže v&nbsp;hre uplatniť aj vhodné diela organovej tvorby. Služba organistu spočíva v&nbsp;hudobnom sprievode tých častí bohoslužby, ktoré sú určené k&nbsp;spevu, a&nbsp;predovšetkým k&nbsp;sprevádzaniu spevu ľudu. Popri technickej stránke hry na organe by organisti mali byť oboznámení s&nbsp;liturgiou Cirkvi a&nbsp;uvedomovať si, že sú súčasťou liturgického zhromaždenia. Organista musí komunikovať s&nbsp;kňazom, ktorý celebruje svätú omšu, zároveň dbať na adekvátny výber piesní podľa jednotlivých liturgických slávení a&nbsp;môže viesť taktiež žalmistov, spevákov či spevácky zbor.
+                    Organista sprevádza liturgické spevy hrou na organe a&nbsp;v&nbsp;rámci liturgie môže v&nbsp;hre uplatniť aj vhodné diela organovej tvorby. Služba organistu spočíva v&nbsp;hudobnom sprievode tých častí bohoslužby, ktoré sú určené k&nbsp;spevu, a&nbsp;predovšetkým k&nbsp;sprevádzaniu spevu ľudu. Popri technickej stránke hry na organe by organisti mali byť oboznámení s&nbsp;liturgiou Cirkvi a&nbsp;uvedomovať si, že sú súčasťou liturgického zhromaždenia. Organista musí komunikovať s&nbsp;kňazom, ktorý celebruje svätú omšu, zároveň dbať na adekvátny výber piesní podľa jednotlivých liturgických slávení a&nbsp;môže viesť taktiež žalmistov, spevákov či spevácky zbor.
                 </p>
 
                 <x-partials.picture titleSlug="org-008" side="right" dimensionSource="medium" columns="3" />

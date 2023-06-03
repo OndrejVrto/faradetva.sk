@@ -15,7 +15,7 @@
                 <x-partials.picture titleSlug="bud-001" side="right" dimensionSource="medium" columns="2"/>
 
                 <p>
-                    Jozef Búda sa narodil v&nbsp;horehronskej dedine Nemecká 14. septembra 1898. Základnú školu navštevoval v&nbsp;rodnej obci, ďalej pokračoval na gymnáziu v&nbsp;Banskej Bystrici, ktoré ukončil maturitou v&nbsp;roku 1916. Teologické štúdia začal v&nbsp;Banskej Bystrici a&nbsp;pokračoval v&nbsp;Olomouci a&nbsp;Prahe, kde bol napokon 9. júla 1922 vysvätený za kňaza. Ako kaplán začal pôsobiť v&nbsp;Detvianskej Hute, v&nbsp;roku 1923 bol kaplánom v&nbsp;Detve, ale v&nbsp;tom istom roku sa stal chórovým kaplánom Sídelnej kapituly v&nbsp;Banskej Bystrici. Od roku 1924 plnil úlohu notára diecéznej kúrie vo Svätom Kríži nad Hronom, kým nebol o&nbsp;rok neskôr preložený za kaplána do Krupiny a&nbsp;v roku 1926 sa opäť stal kaplánom v&nbsp;Detve.
+                    Jozef Búda sa narodil v&nbsp;horehronskej dedine Nemecká 14. septembra 1898. Základnú školu navštevoval v&nbsp;rodnej obci, ďalej pokračoval na gymnáziu v&nbsp;Banskej Bystrici, ktoré ukončil maturitou v&nbsp;roku 1916. Teologické štúdia začal v&nbsp;Banskej Bystrici a&nbsp;pokračoval v&nbsp;Olomouci a&nbsp;Prahe, kde bol napokon 9. júla 1922 vysvätený za kňaza. Ako kaplán začal pôsobiť v&nbsp;Detvianskej Hute, v&nbsp;roku 1923 bol kaplánom v&nbsp;Detve, ale v&nbsp;tom istom roku sa stal chórovým kaplánom Sídelnej kapituly v&nbsp;Banskej Bystrici. Od roku 1924 plnil úlohu notára diecéznej kúrie vo Svätom Kríži nad Hronom, kým nebol o&nbsp;rok neskôr preložený za kaplána do Krupiny a&nbsp;v&nbsp;roku 1926 sa opäť stal kaplánom v&nbsp;Detve.
                 </p>
 
                 <p>
@@ -34,7 +34,7 @@
                 </p>
 
                 <p>
-                    V&nbsp;Hriňovej nepobudol dlho. Jeho nadanie a&nbsp;nadobudnuté skúsenosti bolo treba zužitkovať inde. V&nbsp;ukrutnej zime na prelome rokov 1928 - 1929 vážne ochorel a&nbsp;v obave, že pre nedostatok kňazov nebude mať pri sebe kaplána, požiadal biskupa Mariána Blahu o&nbsp;preloženie na miesto, kde by to jeho ochabnuté pľúca vydržali. K&nbsp;1. marcu 1929 dostal dispozíciu na uprázdnenú faru v&nbsp;Radvani pri Banskej Bystrici.
+                    V&nbsp;Hriňovej nepobudol dlho. Jeho nadanie a&nbsp;nadobudnuté skúsenosti bolo treba zužitkovať inde. V&nbsp;ukrutnej zime na prelome rokov 1928 - 1929 vážne ochorel a&nbsp;v&nbsp;obave, že pre nedostatok kňazov nebude mať pri sebe kaplána, požiadal biskupa Mariána Blahu o&nbsp;preloženie na miesto, kde by to jeho ochabnuté pľúca vydržali. K&nbsp;1. marcu 1929 dostal dispozíciu na uprázdnenú faru v&nbsp;Radvani pri Banskej Bystrici.
                 </p>
             </x-web.page.text-segment>
 
@@ -65,7 +65,7 @@
                 <x-partials.picture titleSlug="bud-005" side="right" dimensionSource="medium" columns="3"/>
 
                 <p>
-                    V&nbsp;roku 1939 ho vymenovali za mimoriadneho a&nbsp;v roku 1942 za riadneho univerzitného profesora biblického štúdia Starého zákona. V&nbsp;rokoch 1942 - 1945 viedol kurz gréckeho jazyka a&nbsp;grécky seminár aj na Filozofickej fakulte Slovenskej univerzity. V&nbsp;40. rokoch 20. storočia bol ako univerzitný profesor ustanovený z&nbsp;poverenia Slovenského biskupského zboru za prvého kazateľa pre vysokoškolskú mládež v&nbsp;jezuitskom kostole v&nbsp;Bratislave.
+                    V&nbsp;roku 1939 ho vymenovali za mimoriadneho a&nbsp;v&nbsp;roku 1942 za riadneho univerzitného profesora biblického štúdia Starého zákona. V&nbsp;rokoch 1942 - 1945 viedol kurz gréckeho jazyka a&nbsp;grécky seminár aj na Filozofickej fakulte Slovenskej univerzity. V&nbsp;40. rokoch 20. storočia bol ako univerzitný profesor ustanovený z&nbsp;poverenia Slovenského biskupského zboru za prvého kazateľa pre vysokoškolskú mládež v&nbsp;jezuitskom kostole v&nbsp;Bratislave.
                 </p>
             </x-web.page.text-segment>
 
@@ -79,7 +79,7 @@
                 </p>
 
                 <p>
-                    Jeho plodné vedecko-pedagogické pôsobenie bolo prerušené administratívnym zásahom komunistického režimu. Obdobie od 28. februára 1950, po domovej prehliadke a&nbsp;po vzatí do väzby, až do 18. apríla 1954 prežil v&nbsp;rozličných väzniciach po celom Československu, z&nbsp;toho vyše šesť mesiacov bez súdu. Vyšetrovaciu väzbu strávil v&nbsp;Bratislave, Mučeníkoch, Nových Zámkoch, Podolínci a&nbsp;v Prešove. Odsúdený bol 9. júna 1952 na stratu slobody na štyri roky, prepad celého majetku a&nbsp;stratu čestných občianskych práv, pretože neschvaľoval proces s&nbsp;tzv. vlastizradnými biskupmi a&nbsp;neoznámil úmysel Dr. Mitošinku a&nbsp;spoločníkov utiecť za hranice. Vo väzení bol v&nbsp;Leopoldove, Ilave a&nbsp;na Mírove. Po návrate z&nbsp;väzenia sa mohol zamestnať len civilne, nemohol účinkovať ako kňaz a&nbsp;profesor, lebo nedostal štátny súhlas. Do roku 1961 pracoval v&nbsp;Laboratórnych potrebách v&nbsp;Bratislave a&nbsp;potom ako brigádnik v&nbsp;Zberných surovinách na Miletičovej ulici. Od roku 1963 účinkoval ako duchovný správca rehoľných sestier v&nbsp;českom Zvíkovci.
+                    Jeho plodné vedecko-pedagogické pôsobenie bolo prerušené administratívnym zásahom komunistického režimu. Obdobie od 28. februára 1950, po domovej prehliadke a&nbsp;po vzatí do väzby, až do 18. apríla 1954 prežil v&nbsp;rozličných väzniciach po celom Československu, z&nbsp;toho vyše šesť mesiacov bez súdu. Vyšetrovaciu väzbu strávil v&nbsp;Bratislave, Mučeníkoch, Nových Zámkoch, Podolínci a&nbsp;v&nbsp;Prešove. Odsúdený bol 9. júna 1952 na stratu slobody na štyri roky, prepad celého majetku a&nbsp;stratu čestných občianskych práv, pretože neschvaľoval proces s&nbsp;tzv. vlastizradnými biskupmi a&nbsp;neoznámil úmysel Dr. Mitošinku a&nbsp;spoločníkov utiecť za hranice. Vo väzení bol v&nbsp;Leopoldove, Ilave a&nbsp;na Mírove. Po návrate z&nbsp;väzenia sa mohol zamestnať len civilne, nemohol účinkovať ako kňaz a&nbsp;profesor, lebo nedostal štátny súhlas. Do roku 1961 pracoval v&nbsp;Laboratórnych potrebách v&nbsp;Bratislave a&nbsp;potom ako brigádnik v&nbsp;Zberných surovinách na Miletičovej ulici. Od roku 1963 účinkoval ako duchovný správca rehoľných sestier v&nbsp;českom Zvíkovci.
                 </p>
             </x-web.page.text-segment>
 

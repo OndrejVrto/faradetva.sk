@@ -22,7 +22,7 @@
             </x-slot:teaser>
 
             <x-slot:after>
-                K&nbsp;prvej svätej spovedi a&nbsp;k prvému svätému prijímaniu u&nbsp;nás pristupujú zvyčajne žiaci tretieho ročníka základnej školy. Žiaľ, nie všetci rodičia, ktorí svoje dieťa priviedli na krst, ho neskôr v&nbsp;škole prihlásia na náboženskú výchovu a&nbsp;nie všetci vytvoria vo svojich rodinách také podmienky, aby ich deti pristupovali aj k&nbsp;ďalším sviatostiam, čiže, aby mohli ďalej rásť vo viere, v&nbsp;ktorej boli pokrstené.
+                K&nbsp;prvej svätej spovedi a&nbsp;k&nbsp;prvému svätému prijímaniu u&nbsp;nás pristupujú zvyčajne žiaci tretieho ročníka základnej školy. Žiaľ, nie všetci rodičia, ktorí svoje dieťa priviedli na krst, ho neskôr v&nbsp;škole prihlásia na náboženskú výchovu a&nbsp;nie všetci vytvoria vo svojich rodinách také podmienky, aby ich deti pristupovali aj k&nbsp;ďalším sviatostiam, čiže, aby mohli ďalej rásť vo viere, v&nbsp;ktorej boli pokrstené.
             </x-slot:after>
         </x-partials.statistics-graph>
 

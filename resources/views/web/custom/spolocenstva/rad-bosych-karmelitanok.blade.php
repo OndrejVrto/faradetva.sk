@@ -10,12 +10,12 @@
                 Začiatky karmelitánskeho rádu siahajú do Svätej zeme, až k&nbsp;prorokovi Eliášovi, ktorý v&nbsp;samote hory Karmel hľadal Boha. Stal sa tak vzorom pustovníckeho života. Jeho slová: „Žije Pán, v&nbsp;ktorého službe stojím“ (1Kr 17,1) sú vzorom života v&nbsp;Božej prítomnosti, ktorý sa stal základným prvkom karmelitánskej spirituality.
             </p>
             <p>
-                V&nbsp;11. - 12. storočí sa usídlili na hore Karmel pustovníci, ktorí si zvolili za matku a&nbsp;patrónku Pannu Máriu. Tajomstvo jej života a&nbsp;spojenia s&nbsp;Kristom rád prijal za svoj ideál. V&nbsp;13. storočí museli mnísi kvôli silnejúcim útokom moslimov opustiť Svätú zem a&nbsp;presťahovali sa do Európy. V&nbsp;16. storočí dvaja veľkí španielski mystici - sv. Terézia od Ježiša (z Avily) a&nbsp;sv. Ján od Kríža - reformovali Karmel. Bol to návrat k&nbsp;prvotnej charizme: k&nbsp;ideálu pustovníckeho života, k&nbsp;mlčaniu, k&nbsp;úplnému zdržiavaniu sa mäsa, k&nbsp;skrytému životu v&nbsp;klauzúre, k&nbsp;pravidelnej vnútornej modlitbe a&nbsp;k modlitbe v&nbsp;chóre, ako aj k&nbsp;prvkom komunitného života. Obidvaja vo svojich spisoch odovzdali dôležitú náuku o&nbsp;hlbšom spoločenstve s&nbsp;Bohom a&nbsp;ceste vnútornej modlitby.
+                V&nbsp;11. - 12. storočí sa usídlili na hore Karmel pustovníci, ktorí si zvolili za matku a&nbsp;patrónku Pannu Máriu. Tajomstvo jej života a&nbsp;spojenia s&nbsp;Kristom rád prijal za svoj ideál. V&nbsp;13. storočí museli mnísi kvôli silnejúcim útokom moslimov opustiť Svätú zem a&nbsp;presťahovali sa do Európy. V&nbsp;16. storočí dvaja veľkí španielski mystici - sv. Terézia od Ježiša (z Avily) a&nbsp;sv. Ján od Kríža - reformovali Karmel. Bol to návrat k&nbsp;prvotnej charizme: k&nbsp;ideálu pustovníckeho života, k&nbsp;mlčaniu, k&nbsp;úplnému zdržiavaniu sa mäsa, k&nbsp;skrytému životu v&nbsp;klauzúre, k&nbsp;pravidelnej vnútornej modlitbe a&nbsp;k&nbsp;modlitbe v&nbsp;chóre, ako aj k&nbsp;prvkom komunitného života. Obidvaja vo svojich spisoch odovzdali dôležitú náuku o&nbsp;hlbšom spoločenstve s&nbsp;Bohom a&nbsp;ceste vnútornej modlitby.
             </p>
         </x-web.page.text-segment>
         <x-web.page.text-segment animation="fromleft">
             <p>
-                Svätá Terézia zvolila pre sestry čisto kontemplatívnu formu života, ktorej srdcom je dôverné priateľstvo s&nbsp;Kristom, osobný vzťah s&nbsp;Bohom. „Naše povolanie má byť zamerané úplne na počúvanie Božieho slova, hľadanie vzácnej perly Božieho kráľovstva, vo veľkej samote a&nbsp;v úplnom odlúčení od sveta.“ (Konštitúcie bosých karmelitánok)
+                Svätá Terézia zvolila pre sestry čisto kontemplatívnu formu života, ktorej srdcom je dôverné priateľstvo s&nbsp;Kristom, osobný vzťah s&nbsp;Bohom. „Naše povolanie má byť zamerané úplne na počúvanie Božieho slova, hľadanie vzácnej perly Božieho kráľovstva, vo veľkej samote a&nbsp;v&nbsp;úplnom odlúčení od sveta.“ (Konštitúcie bosých karmelitánok)
             </p>
             <p>
                 Život karmelitánok je životom tichým a&nbsp;celkom obráteným k&nbsp;Bohu. Pre toto neustále, láskyplné obracanie sa k&nbsp;Bohu je potrebná na jednej strane atmosféra ticha, uzobrania a&nbsp;utiahnutosti, na druhej strane radostný, rodinný život v&nbsp;spoločenstve. K&nbsp;tomu má byť pomocou jednoduchá svojráznosť karmelitánskeho spôsobu života.
@@ -29,7 +29,7 @@
                 <li>slávenie Eucharistie</li>
                 <li>2 hodiny vnútornej modlitby</li>
                 <li>spoločná Liturgia hodín v&nbsp;chóre</li>
-                <li>práca v&nbsp;dielňach, v&nbsp;domácnosti a&nbsp;v záhrade</li>
+                <li>práca v&nbsp;dielňach, v&nbsp;domácnosti a&nbsp;v&nbsp;záhrade</li>
                 <li>prísna klauzúra</li>
                 <li>jednoduchosť v&nbsp;zariadení celého kláštora</li>
                 <li>mlčanie a&nbsp;samota počas dňa</li>
@@ -41,7 +41,7 @@
     <x-web.page.subsection title="Modlitba - srdce karmelitánskeho života">
         <x-web.page.text-segment animation="fromleft">
             <p>
-                Apoštolát, ktorému sa majú venovať bosé karmelitánky, je výlučne apoštolát modlitby a&nbsp;obety. „Povolanie bosých karmelitánok je darom Ducha Svätého, skrze ktorého sú povolané k&nbsp;„tajomnému spojeniu s&nbsp;Bohom“, v&nbsp;priateľstve s&nbsp;Kristom a&nbsp;v dôvernosti s&nbsp;Preblahoslavenou Pannou Máriu, v&nbsp;živote, v&nbsp;ktorom sa modlitba a&nbsp;obeta spájajú s&nbsp;veľkou láskou k&nbsp;Cirkvi. Preto silou svojho povolania sú karmelitánky pozvané ku kontemplácii v&nbsp;modlitbe aj v&nbsp;živote. Tento záväzok neustálej modlitby oživuje viera, nádej a&nbsp;nadovšetko Božia láska, takže s&nbsp;čistým srdcom môžu dosiahnuť plnosť života v&nbsp;Kristovi a&nbsp;pripraviť sa na prijatie čoraz hojnejších darov Ducha. Tereziánska charizma vyžaduje, aby sa modlitba, zasvätenie a&nbsp;celý život bosých karmelitánok orientovali na spásu duší.“ (Konštitúcie bosých karmelitánok)
+                Apoštolát, ktorému sa majú venovať bosé karmelitánky, je výlučne apoštolát modlitby a&nbsp;obety. „Povolanie bosých karmelitánok je darom Ducha Svätého, skrze ktorého sú povolané k&nbsp;„tajomnému spojeniu s&nbsp;Bohom“, v&nbsp;priateľstve s&nbsp;Kristom a&nbsp;v&nbsp;dôvernosti s&nbsp;Preblahoslavenou Pannou Máriu, v&nbsp;živote, v&nbsp;ktorom sa modlitba a&nbsp;obeta spájajú s&nbsp;veľkou láskou k&nbsp;Cirkvi. Preto silou svojho povolania sú karmelitánky pozvané ku kontemplácii v&nbsp;modlitbe aj v&nbsp;živote. Tento záväzok neustálej modlitby oživuje viera, nádej a&nbsp;nadovšetko Božia láska, takže s&nbsp;čistým srdcom môžu dosiahnuť plnosť života v&nbsp;Kristovi a&nbsp;pripraviť sa na prijatie čoraz hojnejších darov Ducha. Tereziánska charizma vyžaduje, aby sa modlitba, zasvätenie a&nbsp;celý život bosých karmelitánok orientovali na spásu duší.“ (Konštitúcie bosých karmelitánok)
             </p>
             <p>
                 Skrytým životom modlitby majú sestry slúžiť rozvoju Božieho kráľovstva: Adoráciou, chválou a&nbsp;vďakyvzdaním Bohu príhovorom za Cirkev, za celý svet a&nbsp;za všetkých, ktorí to potrebujú v&nbsp;starostiach aj v&nbsp;radostiach. Modlitbou za mnohých, ktorí sa nemodlia a&nbsp;nemajú vieru. Svedectvom o&nbsp;existencii živého Boha, ktorý býva uprostred nás.

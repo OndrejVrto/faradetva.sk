@@ -81,7 +81,7 @@
                 <x-partials.picture-responsive titleSlug="chud-039-menu" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
-                Katolícka cirkev v&nbsp;Detve mala výdavky nielen na kostol a&nbsp;faru, ale aj na sociálne ustanovizne, ktoré sa nachádzali v&nbsp;jej správe. Karol Anton Medvecký ich nazýva <em>„ustanovizne kresťanskej lásky“</em>. Medzi ne patril „špitál“, t. j. cirkevný chudobinec, resp. starobinec a&nbsp;o čosi neskôr postavený sirotinec.
+                Katolícka cirkev v&nbsp;Detve mala výdavky nielen na kostol a&nbsp;faru, ale aj na sociálne ustanovizne, ktoré sa nachádzali v&nbsp;jej správe. Karol Anton Medvecký ich nazýva <em>„ustanovizne kresťanskej lásky“</em>. Medzi ne patril „špitál“, t. j. cirkevný chudobinec, resp. starobinec a&nbsp;o&nbsp;čosi neskôr postavený sirotinec.
                 <span class="d-none d-xl-inline">
                     Farnosť v&nbsp;Detve plnila vďaka miestnemu chudobincu aj zdravotnícko-charitatívnu funkciu. Charitatívne zariadenie poskytovalo strechu nad hlavou a&nbsp;stravu pre najbiednejších v&nbsp;okolí už od prvej polovice 18. storočia.
                 </span>

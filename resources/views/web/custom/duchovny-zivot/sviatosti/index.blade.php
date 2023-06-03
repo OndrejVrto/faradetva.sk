@@ -18,6 +18,19 @@
         </x-partials.card-article>
 
         <x-partials.card-article
+            title="Birmovanie"
+            url="{{ secure_url('duchovny-zivot/sviatosti/birmovanie') }}"
+            delay=3
+        >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="sacr2-002-menu" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Birmovanie je sviatosť, ktorá dovršuje krst a&nbsp;v&nbsp;ktorej dostávame dary Ducha Svätého. Pobirmovaný dostane silu svedčiť o&nbsp;Božej láske životom. Stáva sa plnohodnotným a&nbsp;zodpovedným členom Cirkvi.
+            </x-slot:teaser>
+        </x-partials.card-article>
+
+        <x-partials.card-article
             title="Eucharistia"
             url="{{ secure_url('duchovny-zivot/sviatosti/eucharistia') }}"
             delay=2
@@ -27,19 +40,6 @@
             </x-slot:img>
             <x-slot:teaser>
                 Svätá Eucharistia je sviatosť, v&nbsp;ktorej Ježiš Kristus za nás dáva svoje telo a&nbsp;svoju krv - seba samého, aby sme sa s&nbsp;ním zjednotili vo svätom prijímaní a&nbsp;vytvárali spojenie s&nbsp;Kristovým telom - Cirkvou.
-            </x-slot:teaser>
-        </x-partials.card-article>
-
-        <x-partials.card-article
-            title="Birmovanie"
-            url="{{ secure_url('duchovny-zivot/sviatosti/birmovanie') }}"
-            delay=3
-        >
-            <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr2-002-menu" class="img-fluid w-100"/>
-            </x-slot:img>
-            <x-slot:teaser>
-                Birmovanie je sviatosť, ktorá dovršuje krst a&nbsp;v ktorej dostávame dary Ducha Svätého. Pobirmovaný dostane silu svedčiť o&nbsp;Božej láske slovom i&nbsp;skutkom. Stáva sa plnohodnotným a&nbsp;zodpovedným členom Cirkvi.
             </x-slot:teaser>
         </x-partials.card-article>
 

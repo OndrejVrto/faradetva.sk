@@ -12,7 +12,7 @@
         </x-web.page.text-segment>
         <x-web.page.text-segment animation="fromleft">
             <p>
-                Členovia svetského rádu sa vyznačujú citlivosťou na prejavy Božej lásky, poslušnosťou voči Cirkvi, láskou k&nbsp;rozjímavej modlitbe. Ich povolaním je život v&nbsp;Božej prítomnosti, pestovanie kontemplatívnej modlitby, modlitby za kňazov a&nbsp;kňazské povolania, za Cirkev na Slovensku, neustále prežívanie dôverného spojenia s&nbsp;Pannou Máriou - Kráľovnou Karmelu. V&nbsp;živote karmelitána Panna Mária slúži predovšetkým ako príklad vernosti v&nbsp;počúvaní Pána a&nbsp;v službe Pánovi. Toto vnútorné zapojenie do intenzívneho mariánskeho života sa má prejaviť aj navonok vo forme každodenných zvláštnych skutkov ku cti Najsvätejšej Panny, ako aj nosením karmelitánskeho škapuliara.
+                Členovia svetského rádu sa vyznačujú citlivosťou na prejavy Božej lásky, poslušnosťou voči Cirkvi, láskou k&nbsp;rozjímavej modlitbe. Ich povolaním je život v&nbsp;Božej prítomnosti, pestovanie kontemplatívnej modlitby, modlitby za kňazov a&nbsp;kňazské povolania, za Cirkev na Slovensku, neustále prežívanie dôverného spojenia s&nbsp;Pannou Máriou - Kráľovnou Karmelu. V&nbsp;živote karmelitána Panna Mária slúži predovšetkým ako príklad vernosti v&nbsp;počúvaní Pána a&nbsp;v&nbsp;službe Pánovi. Toto vnútorné zapojenie do intenzívneho mariánskeho života sa má prejaviť aj navonok vo forme každodenných zvláštnych skutkov ku cti Najsvätejšej Panny, ako aj nosením karmelitánskeho škapuliara.
             </p>
         </x-web.page.text-segment>
     </x-web.page.subsection>
@@ -25,7 +25,7 @@
         </x-web.page.text-segment>
         <x-web.page.text-segment animation="fromleft">
             <p>
-                Členovia svetského rádu sú povolaní žiť vo vernosti Ježišovi Kristovi pod ochranou Preblahoslavenej Panny Márie z&nbsp;hory Karmel, v&nbsp;biblickej tradícii proroka Eliáša. Inšpirovaní učením svätej Terézie od Ježiša a&nbsp;svätého Jána od Kríža sa usilujú prehlbovať svoj kresťanský záväzok prijatý vo sviatosti krstu. Svetskí karmelitáni sú spolu s&nbsp;rehoľníkmi a&nbsp;mníškami synmi a&nbsp;dcérami Preblahoslavenej Panny Márie z&nbsp;hory Karmel a&nbsp;svätej Terézie Veľkej. Z&nbsp;tohto dôvodu majú účasť na tej istej charizme ako rehoľníci, každý podľa svojho osobitného stavu života. Je to jedna rodina, ktorá sa zúčastňuje na tých istých duchovných dobrách, s&nbsp;tým istým povolaním k&nbsp;svätosti a&nbsp;s tým istým apoštolským poslaním. Svetskí členovia prispievajú do rádu dobrami vlastnými pre ich svetský stav života.
+                Členovia svetského rádu sú povolaní žiť vo vernosti Ježišovi Kristovi pod ochranou Preblahoslavenej Panny Márie z&nbsp;hory Karmel, v&nbsp;biblickej tradícii proroka Eliáša. Inšpirovaní učením svätej Terézie od Ježiša a&nbsp;svätého Jána od Kríža sa usilujú prehlbovať svoj kresťanský záväzok prijatý vo sviatosti krstu. Svetskí karmelitáni sú spolu s&nbsp;rehoľníkmi a&nbsp;mníškami synmi a&nbsp;dcérami Preblahoslavenej Panny Márie z&nbsp;hory Karmel a&nbsp;svätej Terézie Veľkej. Z&nbsp;tohto dôvodu majú účasť na tej istej charizme ako rehoľníci, každý podľa svojho osobitného stavu života. Je to jedna rodina, ktorá sa zúčastňuje na tých istých duchovných dobrách, s&nbsp;tým istým povolaním k&nbsp;svätosti a&nbsp;s&nbsp;tým istým apoštolským poslaním. Svetskí členovia prispievajú do rádu dobrami vlastnými pre ich svetský stav života.
             </p>
         </x-web.page.text-segment>
     </x-web.page.subsection>
@@ -43,7 +43,7 @@
         </x-web.page.text-segment>
         <x-web.page.text-segment animation="fromright">
             <p>
-                Dňa 18. júna 2017 bolo toto spoločenstvo v&nbsp;Detve (Svätej Terézie od Dieťaťa Ježiša a&nbsp;Svätej Tváre) slávnostne erigované - oficiálne založené. Od roku 2020 je jeho asistentom karmelitán Stanislav Miernik, farár v&nbsp;Starých Horách. Spoločenstvo svetského rádu sa v&nbsp;detvianskom kláštore bosých karmelitánok stretáva približne dvakrát do mesiaca na formačných stretnutiach a&nbsp;jedenkrát do mesiaca absolvujú členovia spoločne duchovnú obnovu so svojím asistentom. Svetský rád bosých karmelitánov v&nbsp;Detve má aktuálne 18 členov, z&nbsp;toho 12 členov s&nbsp;doživotnými a&nbsp;3 s&nbsp;dočasnými prísľubmi, 1 v&nbsp;noviciáte a&nbsp;2 sympatizantov (r. 2021).
+                Dňa 18. júna 2017 bolo toto spoločenstvo v&nbsp;Detve (Svätej Terézie od Dieťaťa Ježiša a&nbsp;Svätej Tváre) slávnostne erigované - oficiálne založené. Od roku 2020 je jeho asistentom karmelitán Stanislav Miernik, farár v&nbsp;Starých Horách. Spoločenstvo svetského rádu sa v&nbsp;detvianskom kláštore bosých karmelitánok stretáva približne dvakrát do mesiaca na formačných stretnutiach a&nbsp;jedenkrát do mesiaca absolvujú členovia spoločne duchovnú obnovu so svojím asistentom. Svetský rád bosých karmelitánov v&nbsp;Detve má aktuálne 18 členov, z&nbsp;toho 12 členov s&nbsp;doživotnými a&nbsp;3&nbsp;s&nbsp;dočasnými prísľubmi, 1 v&nbsp;noviciáte a&nbsp;2&nbsp;sympatizantov (r. 2021).
             </p>
         </x-web.page.text-segment>
     </x-web.page.subsection>

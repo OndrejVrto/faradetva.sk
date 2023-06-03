@@ -16,7 +16,7 @@
                 Pod pobožnosťami chápeme rozličné vonkajšie prejavy (napr. v&nbsp;textoch modlitieb a&nbsp;piesní, alebo iné).
                 <span class="d-none d-xl-inline me-2">
                     Tieto oživené vnútorným postojom viery prejavujú zvláštny dôraz vzťahu veriaceho k&nbsp;božským osobám
-                    , alebo k&nbsp;Panne Márii v&nbsp;jej privilégiách milosti a&nbsp;v tituloch, ktoré ich vyjadrujú.
+                    , alebo k&nbsp;Panne Márii v&nbsp;jej privilégiách milosti a&nbsp;v&nbsp;tituloch, ktoré ich vyjadrujú.
                     Prípadne k&nbsp;svätým, pre ich pripodobnenie sa Kristovi, alebo pre úlohu, ktorú zohrali v&nbsp;Cirkvi.
                 </span>
                 Rozličné kultové prejavy súkromného alebo komunitného charakteru označujeme výrazom „ľudová zbožnosť“.
@@ -73,7 +73,7 @@
             </x-slot:img>
             <x-slot:teaser>
                 Niektoré služby určené pre náležité slávenie bohoslužby a&nbsp;pre pomoc Božiemu ľudu v&nbsp;jeho potrebách ustanovila Cirkev už v&nbsp;najstarších dobách.
-                Tieto služby, ktoré sa zverovali veriacim, aby ich vykonávali pri liturgii a&nbsp;v charitatívnej činnosti, sa prispôsobovali rozličným okolnostiam.
+                Tieto služby, ktoré sa zverovali veriacim, aby ich vykonávali pri liturgii a&nbsp;v&nbsp;charitatívnej činnosti, sa prispôsobovali rozličným okolnostiam.
                 <span class="d-none d-xl-inline">
                     Tieto úlohy sa spravidla udeľovali osobitným obradom.
                     Veriaci tak získal Božie požehnanie a&nbsp;bol zaradený do vyčlenenej skupiny, čiže mal osobitné postavenie, aby mohol vykonávať nejaký úrad.

@@ -68,7 +68,7 @@
                 </p>
 
                 <p>
-                    Pri maľovaní kostola, najmä stropu interiéru, pomáhal aj verbista Emil Prokop. Vytvoril tri stropné olejomaľby: <em>Nanebovzatie Panny Márie vo svätyni</em>, <em>Pán Ježiš v&nbsp;Getsemanskej záhrade</em> a&nbsp;<em>Posledná večera</em> v&nbsp;lodi kostola. V&nbsp;rámci výmaľby kostola boli prečistené tri oltárne obrazy a&nbsp;v roku 1990 boli okolo nich osadené nové vyrezávané a&nbsp;pozlátené rámy, ktoré zhotovil majster Ondrej Marko z&nbsp;Hriňovej.
+                    Pri maľovaní kostola, najmä stropu interiéru, pomáhal aj verbista Emil Prokop. Vytvoril tri stropné olejomaľby: <em>Nanebovzatie Panny Márie vo svätyni</em>, <em>Pán Ježiš v&nbsp;Getsemanskej záhrade</em> a&nbsp;<em>Posledná večera</em> v&nbsp;lodi kostola. V&nbsp;rámci výmaľby kostola boli prečistené tri oltárne obrazy a&nbsp;v&nbsp;roku 1990 boli okolo nich osadené nové vyrezávané a&nbsp;pozlátené rámy, ktoré zhotovil majster Ondrej Marko z&nbsp;Hriňovej.
                 </p>
 
                 <p>

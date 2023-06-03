@@ -18,7 +18,7 @@
                 Aby to uskutočnil, poslal v&nbsp;plnosti času svojho Syna ako Vykupiteľa a&nbsp;Spasiteľa.
                 <span class="d-none d-xl-inline">
                     V&nbsp;ňom a&nbsp;skrze neho volá ľudí, aby sa v&nbsp;Duchu Svätom stali jeho adoptovanými deťmi, a&nbsp;teda aj dedičmi jeho blaženého života.
-                    Všetci veriaci v&nbsp;Krista sú povolaní, aby ho odovzdávali z&nbsp;pokolenia na pokolenia, čiže aby ohlasovali vieru, žili ju v&nbsp;bratskom spoločenstve a&nbsp;slávili ju v&nbsp;liturgii a&nbsp;v modlitbe.
+                    Všetci veriaci v&nbsp;Krista sú povolaní, aby ho odovzdávali z&nbsp;pokolenia na pokolenia, čiže aby ohlasovali vieru, žili ju v&nbsp;bratskom spoločenstve a&nbsp;slávili ju v&nbsp;liturgii a&nbsp;v&nbsp;modlitbe.
                 </span>
             </x-slot:teaser>
         </x-partials.card-about>
@@ -80,7 +80,7 @@
             </x-slot:img>
             <x-slot:teaser>
                 Modlitba je povznesenie duše k&nbsp;Bohu. Keď sa človek modlí, vstupuje do živého vzťahu s&nbsp;Bohom.
-                Modlitba je veľkou bránou k&nbsp;viere. Ten, kto sa modlí, nežije už viac zo seba, pre seba a&nbsp;z vlastných síl.
+                Modlitba je veľkou bránou k&nbsp;viere. Ten, kto sa modlí, nežije už viac zo seba, pre seba a&nbsp;z&nbsp;vlastných síl.
                 Vie, že jestvuje Boh, s&nbsp;ktorým sa môže rozprávať a&nbsp;čoraz viac sa mu zverovať.
                 <span class="d-none d-xl-inline">
                     Už teraz hľadá kontakt s&nbsp;tým, s&nbsp;ktorým sa jedného dňa stretne z&nbsp;tváre do tváre. Preto k&nbsp;životu kresťana patrí každodenná modlitba. Modlitbe sa však nemožno naučiť tak ako nejakej technike. Modlitba je totiž dar, ktorý človek dostáva práve tým, že sa modlí, pretože nás napĺňa nekonečná túžba po Bohu.

@@ -63,7 +63,7 @@
                 </h3>
 
                 <p>
-                    Biskupskou vysviackou sa udeľuje plnosť sviatosti posvätného stavu. Po vysvätení sa biskup stáva právoplatným nástupcom apoštolov a&nbsp;vstupuje do biskupského zboru. Od okamihu svojho vysvätenia je zodpovedný za celú Cirkev spolu s&nbsp;ostatnými biskupmi a&nbsp;s pápežom.
+                    Biskupskou vysviackou sa udeľuje plnosť sviatosti posvätného stavu. Po vysvätení sa biskup stáva právoplatným nástupcom apoštolov a&nbsp;vstupuje do biskupského zboru. Od okamihu svojho vysvätenia je zodpovedný za celú Cirkev spolu s&nbsp;ostatnými biskupmi a&nbsp;s&nbsp;pápežom.
                 </p>
 
                 <x-partials.picture titleSlug="sacr6-006" side="left" dimensionSource="medium" columns="3" />

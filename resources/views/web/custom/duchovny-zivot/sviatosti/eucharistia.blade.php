@@ -29,7 +29,7 @@
                 <x-partials.picture titleSlug="sacr3-006" side="left" dimensionSource="medium" columns="5" />
 
                 <p>
-                    Každá svätá omša (Eucharistia) pozostáva z&nbsp;dvoch hlavných častí - z&nbsp;bohoslužby slova a&nbsp;zo slávenia Eucharistie v&nbsp;užšom zmysle slova. V&nbsp;bohoslužbe slova počúvame čítania zo Starého a&nbsp;Nového zákona a&nbsp;z evanjelia. Okrem toho je tu priestor na homíliu a&nbsp;na spoločné prosby. V&nbsp;nadväzujúcej eucharistickej bohoslužbe sa prinášajú dary chleba a&nbsp;vína, ktoré sa následne premieňajú a&nbsp;podávajú sa veriacim vo svätom prijímaní.
+                    Každá svätá omša (Eucharistia) pozostáva z&nbsp;dvoch hlavných častí - z&nbsp;bohoslužby slova a&nbsp;zo slávenia Eucharistie v&nbsp;užšom zmysle slova. V&nbsp;bohoslužbe slova počúvame čítania zo Starého a&nbsp;Nového zákona a&nbsp;z&nbsp;evanjelia. Okrem toho je tu priestor na homíliu a&nbsp;na spoločné prosby. V&nbsp;nadväzujúcej eucharistickej bohoslužbe sa prinášajú dary chleba a&nbsp;vína, ktoré sa následne premieňajú a&nbsp;podávajú sa veriacim vo svätom prijímaní.
                 </p>
 
                 <h3 class="mt-5 wow fromright" data-wow-delay="0.4s">
@@ -81,7 +81,7 @@
                 <x-partials.picture titleSlug="sacr3-003" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
-                    Každú nedeľu a&nbsp;v prikázané sviatky je kresťan katolík povinný zúčastniť sa na svätej omši. Kto však skutočne vyhľadáva Ježišovo priateľstvo, nasleduje Ježišovo osobné pozvanie na hostinu, kedykoľvek má možnosť. „Povinnosť“ svätiť nedeľu je pre skutočného kresťana pojmom rovnako nevhodným, ako by bolo pre zamilovaného „povinnosť bozkávať sa“. Nikto nemôže žiť v&nbsp;skutočne živom vzťahu s&nbsp;Ježišom, ak nezájde tam, kde na nás čaká Pán. Preto je svätá omša pre kresťana oddávna „srdcom nedele“ a&nbsp;najdôležitejším bodom týždenného programu.
+                    Každú nedeľu a&nbsp;v&nbsp;prikázané sviatky je kresťan katolík povinný zúčastniť sa na svätej omši. Kto však skutočne vyhľadáva Ježišovo priateľstvo, nasleduje Ježišovo osobné pozvanie na hostinu, kedykoľvek má možnosť. „Povinnosť“ svätiť nedeľu je pre skutočného kresťana pojmom rovnako nevhodným, ako by bolo pre zamilovaného „povinnosť bozkávať sa“. Nikto nemôže žiť v&nbsp;skutočne živom vzťahu s&nbsp;Ježišom, ak nezájde tam, kde na nás čaká Pán. Preto je svätá omša pre kresťana oddávna „srdcom nedele“ a&nbsp;najdôležitejším bodom týždenného programu.
                 </p>
 
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
