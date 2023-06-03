@@ -126,7 +126,7 @@
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III. -" class="static-page pad_t_50 pad_b_50">
 
-        <x-web.page.subsection title="Rozpisy lektorov">
+        <x-web.page.subsection title="Rozpisy lektorov" id="rozpis">
             <x-web.sections.notice typeNotice="Lecturer" />
         </x-web.page.subsection>
 
