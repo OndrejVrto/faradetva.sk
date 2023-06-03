@@ -3,13 +3,13 @@
 ])
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- O&nbsp;Nás / Sakrálne objekty --}}
-        <!-- Farský kostol -->
-        <!-- Kláštorný kostol -->
-        <!-- Kalvária -->
-        <!-- Kaplnky -->
-        <!-- Prícestné sochy -->
-        <!-- Detvianske kríže -->
+    {{-- O Nás / Sakrálne objekty --}}
+        {{-- Farský kostol --}}
+        {{-- Kláštorný kostol --}}
+        {{-- Kalvária --}}
+        {{-- Kaplnky --}}
+        {{-- Prícestné sochy --}}
+        {{-- Detvianske kríže --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }})" class="pad_b_50" row>
 

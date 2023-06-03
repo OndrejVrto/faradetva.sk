@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- Kňazi pochovaný v&nbsp;Detve --}}
+    {{-- Kňazi pochovaný v Detve --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I. -" class="static-page">
 

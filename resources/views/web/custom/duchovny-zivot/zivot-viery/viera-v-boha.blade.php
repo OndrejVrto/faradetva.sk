@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- Viera v&nbsp;Boha --}}
+    {{-- Viera v Boha --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 

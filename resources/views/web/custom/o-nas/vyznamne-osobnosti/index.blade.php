@@ -1,20 +1,8 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- O&nbsp;nás / Významné osobnosti --}}
+    {{-- O nás / Významné osobnosti --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" row="true" class="pad_t_10 pad_b_50">
-
-        {{-- <x-partials.page-card descriptionCrop=3 routeStaticPages="
-            o-nas.vyznamne-osobnosti.karol-anton-medvecky,
-            o-nas.vyznamne-osobnosti.anton-prokop,
-            o-nas.vyznamne-osobnosti.jan-strban,
-
-            o-nas.vyznamne-osobnosti.stefan-vlk,
-
-            o-nas.vyznamne-osobnosti.jozef-buda,
-            o-nas.vyznamne-osobnosti.imrich-durica,
-            o-nas.vyznamne-osobnosti.jozef-zavodsky,
-        "/> --}}
 
         <x-partials.card-article
             title="Karol Anton Medvecký"
@@ -79,25 +67,6 @@
                 </span>
             </x-slot:teaser>
         </x-partials.card-event>
-
-        {{-- <x-partials.card-event
-            title="Pomazanie chorých"
-            url="{{ secure_url('duchovny-zivot/sviatosti/pomazanie-chorych') }}"
-            side="right"
-        >
-            <x-slot:img>
-                <x-partials.picture-responsive titleSlug="sacr5-001-menu"/>
-            </x-slot:img>
-            <x-slot:teaser>
-                Túto sviatosť môže prijať každý pokrstený, ktorý sa nachádza v&nbsp;kritickom zdravotnom stave alebo situácii ohrozujúcej život.
-                Sviatosť pomazania chorých môžeme prijať v&nbsp;živote viackrát.
-                Preto má zmysel požiadať o&nbsp;túto sviatosť aj v&nbsp;mladom veku, ak má človek podstúpiť ťažkú operáciu.
-                <span class="d-none d-xl-inline">
-                    Mnohí kresťania v&nbsp;takejto situácii spájajú sviatosť pomazania chorých so sviatosťou zmierenia, spolu so svätým prijímaním; v&nbsp;každom prípade chcú predstúpiť pred Boha s&nbsp;čistým svedomím.
-                    Podstatou obradu slávenia tejto sviatosti je modlitba kňaza spojená s&nbsp;pomazaním čela a&nbsp;rúk posväteným olejom.
-                </span>
-            </x-slot:teaser>
-        </x-partials.card-event> --}}
 
     </x-web.page.section>
 

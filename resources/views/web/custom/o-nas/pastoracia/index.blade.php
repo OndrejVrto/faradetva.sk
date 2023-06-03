@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- O&nbsp;Nás / Pastorácia --}}
+    {{-- O Nás / Pastorácia --}}
         {{-- akolyti --}}
         {{-- farske-rady --}}
         {{-- kostolnici --}}

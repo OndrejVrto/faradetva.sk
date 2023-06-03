@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- Kalvária a&nbsp;kaplnky --}}
+    {{-- Kalvária a kaplnky --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) -" class="static-page pad_b_50">
 

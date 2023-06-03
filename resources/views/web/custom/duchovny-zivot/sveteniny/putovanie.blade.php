@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- Putovanie a&nbsp;púte --}}
+    {{-- Putovanie a púte --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_30">
 

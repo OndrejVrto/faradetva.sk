@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- Etiketa platí aj v&nbsp;kostole --}}
+    {{-- Etiketa platí aj v kostole --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
