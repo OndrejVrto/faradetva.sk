@@ -25,7 +25,7 @@
 
                 <x-partials.picture titleSlug="sln-003" side="left" dimensionSource="medium" columns="4" />
 
-                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
+                <h3 class="pt-2 wow fromright" data-wow-delay="0.4s">
                     Detský spevácky zbor Slniečka
                 </h3>
 
@@ -48,7 +48,7 @@
 
                 <x-partials.picture titleSlug="hos-010" side="left" dimensionSource="medium" columns="4" />
 
-                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
+                <h3 class="pt-2 wow fromright" data-wow-delay="0.4s">
                     Mládežnícky spevácky zbor Hosanna
                 </h3>
 
@@ -73,7 +73,7 @@
 
                 <x-partials.picture titleSlug="dych-006" side="left" dimensionSource="medium" columns="4" />
 
-                <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">
+                <h3 class="pt-2 wow fromright" data-wow-delay="0.4s">
                     Cirkevná dychová hudba
                 </h3>
 
