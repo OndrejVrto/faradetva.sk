@@ -38,7 +38,7 @@
             <div class="ch_about_desc w-100 h-100 d-flex flex-column align-items-start wow {{ $side === 'right' ? 'fromleft' : 'fromright' }}">
                 <h3>
                     <a href="{{ $url }}" class="link-template">
-                        {{ $title }}
+                        {!! $title !!}
                     </a>
                 </h3>
                 @isset($meta)

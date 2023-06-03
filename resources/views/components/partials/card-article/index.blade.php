@@ -22,7 +22,7 @@
         <div class="blog_desc h-100 d-flex flex-column px-3 py-2">
             <h3 class="fs-4">
                 <a class="link-template" href="{{ $url }}">
-                    {{ $title }}
+                    {!! $title !!}
                 </a>
             </h3>
             <div class="content pb-3 text-justify">

@@ -65,7 +65,7 @@
             </x-partials.card-about>
 
             @if (!$loop->last)
-                <hr class="bg-alt-gray mt-2 mb-5">
+                <hr class="border border-primary border-1 mt-2 mb-5">
             @endif
         @endforeach
 
