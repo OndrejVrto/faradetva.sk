@@ -111,7 +111,10 @@
             </x-slot:teaser>
         </x-partials.card-about>
 
+        <hr class="border border-primary border-1 mb-0">
+
         <x-partials.card-about
+            class="mt-5"
             title="Manželstvo"
             side="right"
             url="{{ secure_url('duchovny-zivot/sviatosti/manzelstvo') }}"
