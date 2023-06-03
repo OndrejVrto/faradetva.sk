@@ -5,13 +5,13 @@
     <x-web.page.section name="NOTICE" class="static-page pad_b_30">
         <p>
             Zatiaľ túto stránku nepotrebujeme pretože časy konania svätých omší sa zverejňujú
-            v <a href="{{ secure_url('duchovny-zivot/sviatosti') }}">oznamoch</a> na každý týždeň.
+           v&nbsp;<a href="{{ secure_url('duchovny-zivot/sviatosti') }}">oznamoch</a> na každý týždeň.
         </p>
         <p>
-            Oznamy pre akolytov sa zverejňujú v rámci <a href="{{ secure_url('o-nas/pastoracia/akolyti') }}">podstránky</a> o akolytoch.
+            Oznamy pre akolytov sa zverejňujú v&nbsp;rámci <a href="{{ secure_url('o-nas/pastoracia/akolyti') }}">podstránky</a> o&nbsp;akolytoch.
         </p>
         <p>
-            Oznamy pre lektorov sa zverejňujú v rámci <a href="{{ secure_url('o-nas/pastoracia/lektori') }}">podstránky</a> o lektoroch.
+            Oznamy pre lektorov sa zverejňujú v&nbsp;rámci <a href="{{ secure_url('o-nas/pastoracia/lektori') }}">podstránky</a> o&nbsp;lektoroch.
         </p>
 
         <x-web.page.subsection title="Farské oznamy">

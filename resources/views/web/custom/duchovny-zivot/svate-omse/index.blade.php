@@ -6,7 +6,7 @@
 
         <p>
             Zatiaľ túto stránku nepotrebujeme pretože časy konania svätých omší sa zverejňujú
-            v <a href="{{ secure_url('duchovny-zivot/sviatosti') }}">oznamoch</a> na každý týždeň.
+           v&nbsp;<a href="{{ secure_url('duchovny-zivot/sviatosti') }}">oznamoch</a> na každý týždeň.
         </p>
 
     </x-web.page.section>

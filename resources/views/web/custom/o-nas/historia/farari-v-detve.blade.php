@@ -46,7 +46,7 @@
 
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- Farári v Detve --}}
+    {{-- Farári v&nbsp;Detve --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }})" class="static-page pad_b_50">
         <x-partials.columns-list :list="$farari_1" />

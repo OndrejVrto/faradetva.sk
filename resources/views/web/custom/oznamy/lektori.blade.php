@@ -6,7 +6,7 @@
 
         <p>
             Zatiaľ túto stránku nepotrebujeme.
-            Oznamy pre lektorov sa zverejňujú v rámci <a href="{{ secure_url('o-nas/pastoracia/lektori') }}">podstránky</a> o lektoroch.
+            Oznamy pre lektorov sa zverejňujú v&nbsp;rámci <a href="{{ secure_url('o-nas/pastoracia/lektori') }}">podstránky</a> o&nbsp;lektoroch.
         </p>
 
         <x-web.page.subsection title="Rozpisy lektorov">

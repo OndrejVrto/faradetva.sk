@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- O Nás --}}
+    {{-- O&nbsp;Nás --}}
         {{-- historia --}}
         {{-- patron-farnosti.svaty-frantisek-assisi --}}
         {{-- sakralne-objekty --}}
@@ -32,7 +32,7 @@
                 <x-partials.picture-responsive titleSlug="kronika-001-menu" descriptionSide="left"/>
             </x-slot:img>
             <x-slot:teaser>
-                Vznik Detvy, vývoj rímskokatolíckej farnosti, farári a kapláni pôsobiaci v Detve, duchovné povolania z farnosti, významné osobnosti cirkevného života, sociálna starostlivosť a tradície, štatistiky farnosti od roku 2000.
+                Vznik Detvy, vývoj rímskokatolíckej farnosti, farári a&nbsp;kapláni pôsobiaci v&nbsp;Detve, duchovné povolania z&nbsp;farnosti, významné osobnosti cirkevného života, sociálna starostlivosť a&nbsp;tradície, štatistiky farnosti od roku 2000.
                 <span class="d-none d-xl-inline me-2">
 
                 </span>
@@ -40,7 +40,7 @@
         </x-partials.card-event>
 
         <x-partials.card-event
-            title="Svätý František z Assisi"
+            title="Svätý František z&nbsp;Assisi"
             url="{{ secure_url('o-nas/patron-farnosti') }}"
             side="left"
             >
@@ -48,8 +48,8 @@
                 <x-partials.picture-responsive titleSlug="patr-015-menu"/>
             </x-slot:img>
             <x-slot:teaser>
-                Svätý František z Assisi, vlastným menom Giovanni Battista Bernardone je zakladateľom rehole františkánov.
-                Žil na prelome 12. a 13. storočia. Za svätého bol vyhlásený v roku 1228. Jeho sviatok sa slávi 4. októbra.
+                Svätý František z&nbsp;Assisi, vlastným menom Giovanni Battista Bernardone je zakladateľom rehole františkánov.
+                Žil na prelome 12. a&nbsp;13. storočia. Za svätého bol vyhlásený v&nbsp;roku 1228. Jeho sviatok sa slávi 4. októbra.
                 <span class="d-none d-xl-inline">
 
                 </span>
@@ -82,7 +82,7 @@
                 <x-partials.picture-responsive titleSlug="str-019-menu"/>
             </x-slot:img>
             <x-slot:teaser>
-                Významné osobnosti cirkevného i kultúrneho života Detvy: Karol A. Medvecký, Anton Prokop, Ján Štrbáň, Jozef Búda, Štefan Vlk, Imrich Ďurica, Jozef Závodský.
+                Významné osobnosti cirkevného i&nbsp;kultúrneho života Detvy: Karol A. Medvecký, Anton Prokop, Ján Štrbáň, Jozef Búda, Štefan Vlk, Imrich Ďurica, Jozef Závodský.
                 <span class="d-none d-xl-inline">
 
                 </span>

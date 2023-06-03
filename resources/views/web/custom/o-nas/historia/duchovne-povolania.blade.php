@@ -155,7 +155,7 @@
             "meno_a_tituly"         => "Longín Imrich Gáborík CCG",
             "obrazok"               => "longin-imrich-gaborik",
             "poznamka"              => null,
-            "clen_radu_nazov"       => "člen Kongregácie bratov tešiteľov z Getsemani",
+            "clen_radu_nazov"       => "člen Kongregácie bratov tešiteľov z&nbsp;Getsemani",
             "datum_obliecky_vstupu" => "vstup do kongregácie 02.02.1928",
             "datum_prve_sluby"      => "02.03.1929",
             "datum_dozivotne_sluby" => "28.08.1932",
@@ -192,7 +192,7 @@
             "obrazok"               => "tomas-imrich-durica",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Rehole kazateľov (dominikáni)",
-            "datum_obliecky_vstupu" => "vstup do rehole v r. 1991",
+            "datum_obliecky_vstupu" => "vstup do rehole v&nbsp;r. 1991",
             "datum_prve_sluby"      => null,
             "datum_dozivotne_sluby" => null,
             "datum_narodenia"       => "07.10.1915",
@@ -210,7 +210,7 @@
             "obrazok"               => "emil-prokop",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Spoločnosti Božieho slova (verbisti)",
-            "datum_obliecky_vstupu" => "vstup do spoločnosti v r. 1941",
+            "datum_obliecky_vstupu" => "vstup do spoločnosti v&nbsp;r. 1941",
             "datum_prve_sluby"      => null,
             "datum_dozivotne_sluby" => null,
             "datum_narodenia"       => "22.07.1922",
@@ -300,7 +300,7 @@
             "obrazok"               => "andrej-valent",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Rádu bosých karmelitánov",
-            "datum_obliecky_vstupu" => "vstup do rádu v r. 1998",
+            "datum_obliecky_vstupu" => "vstup do rádu v&nbsp;r. 1998",
             "datum_prve_sluby"      => null,
             "datum_dozivotne_sluby" => "10.09.2005",
             "datum_narodenia"       => null,
@@ -372,7 +372,7 @@
             "obrazok"               => "florian-stefan-kamensky",
             "poznamka"              => null,
             "clen_radu_nazov"       => "člen Rádu menších bratov františkánov",
-            "datum_obliecky_vstupu" => "vstup do rádu v r. 2005",
+            "datum_obliecky_vstupu" => "vstup do rádu v&nbsp;r. 2005",
             "datum_prve_sluby"      => "11.08.2007",
             "datum_dozivotne_sluby" => "13.09.2013",
             "datum_narodenia"       => null,
@@ -406,7 +406,7 @@
             "pohlavie"              => "muzske",
             "meno_a_tituly"         => "Jozef Golian",
             "obrazok"               => "jozef-golian",
-            "poznamka"              => "ženatý trvalý diakon v Mníchovsko-Freisingskej arcidiecéze v Nemecku",
+            "poznamka"              => "ženatý trvalý diakon v&nbsp;Mníchovsko-Freisingskej arcidiecéze v&nbsp;Nemecku",
             "clen_radu_nazov"       => null,
             "datum_obliecky_vstupu" => "vysv. 06.10.2018  Mníchov, Nemecko",
             "datum_prve_sluby"      => null,
@@ -606,7 +606,7 @@
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Bibiána Magdaléna Sekerešová DKL",
             "obrazok"               => "bibiana-magdalena-sekeresova",
-            "poznamka"              => "rodná sestra tešiteliek Štefánie Eleny a Vincencie Márie",
+            "poznamka"              => "rodná sestra tešiteliek Štefánie Eleny a&nbsp;Vincencie Márie",
             "clen_radu_nazov"       => "členka Kongregácie Dcér kresťanskej lásky (vincentky)",
             "datum_obliecky_vstupu" => "vstup do kongregácie 06.09.1948",
             "datum_prve_sluby"      => null,
@@ -737,7 +737,7 @@
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Muži - " class="static-page pad_b_30" data-no-index="true">
 
-        <h2 class="text-center fw-bold text-church-template-blue">Kňazské a mužské rehoľné povolania z Detvy</h2>
+        <h2 class="text-center fw-bold text-church-template-blue">Kňazské a&nbsp;mužské rehoľné povolania z&nbsp;Detvy</h2>
 
         <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$knazske_a_muzske_reholne_povolania_z_Detvy" />
@@ -749,13 +749,13 @@
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Ženy - " class="static-page pad_t_50 pad_b_30" data-no-index="true">
 
-        <h2 class="text-center fw-bold text-church-template-blue">Ženské rehoľné povolania z Detvy</h2>
+        <h2 class="text-center fw-bold text-church-template-blue">Ženské rehoľné povolania z&nbsp;Detvy</h2>
 
         <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$zenske_reholne_povolania_z_Detvy" />
         </div>
 
-        <x-web.page.information-sources title="Použitá literatúra a pramene:">
+        <x-web.page.information-sources title="Použitá literatúra a&nbsp;pramene:">
             <li>Diecézny archív Banská Bystrica, fond Schematizmy.</li>
             <li>Farský archív Detva, fond Matriky pokrstených Farnosti Detva.</li>
             <li>Farský archív Detva, fond Matriky zomrelých Farnosti Detva.</li>
@@ -786,7 +786,7 @@
                     Dostupné na internete
                 </a>
             </li>
-            <li>PÁRNIČAN, Pavol. <em>Duchovné povolania z Dekanátu Detva.</em> Detva: Rímskokatolícka cirkev, Farnosť Detva, 2021. ISBN 978-80-570-3364-6.</li>
+            <li>PÁRNIČAN, Pavol. <em>Duchovné povolania z&nbsp;Dekanátu Detva.</em> Detva: Rímskokatolícka cirkev, Farnosť Detva, 2021. ISBN 978-80-570-3364-6.</li>
         </x-web.page.information-sources>
 
     </x-web.page.section>

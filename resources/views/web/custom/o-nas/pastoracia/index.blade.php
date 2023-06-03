@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- O Nás / Pastorácia --}}
+    {{-- O&nbsp;Nás / Pastorácia --}}
         {{-- akolyti --}}
         {{-- farske-rady --}}
         {{-- kostolnici --}}
@@ -37,7 +37,7 @@
                 <x-partials.picture-responsive titleSlug="lekt-009-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Lektor je ten, kto číta v liturgii Božie slovo. Prostredníctvom prednesu, čítania sa Božie slovo stáva živým a oslovujúcim všetkých členov liturgického zhromaždenia. Už v 3. storočí boli lektori ustanovení biskupom nato, aby čítali Božie slovo v rámci liturgických slávení. Všade, kde chýba lektor, sú určení laici na prednášanie liturgických čítaní.
+                Lektor je ten, kto číta v&nbsp;liturgii Božie slovo. Prostredníctvom prednesu, čítania sa Božie slovo stáva živým a&nbsp;oslovujúcim všetkých členov liturgického zhromaždenia. Už v&nbsp;3. storočí boli lektori ustanovení biskupom nato, aby čítali Božie slovo v&nbsp;rámci liturgických slávení. Všade, kde chýba lektor, sú určení laici na prednášanie liturgických čítaní.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -51,7 +51,7 @@
                 <x-partials.picture-responsive titleSlug="akol-014-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Akolyta je mimoriadny vysluhovateľ svätého prijímania, ktorý je biskupom ustanovený pomáhať kňazom a diakonom pri liturgických úkonoch, najmä pri slávení svätej omše. V prvých dvoch storočiach kvôli prenasledovaniam kresťanov a z nedostatku kňazov bolo bežné, že si veriaci laici sami sebe podávali sväté prijímanie.
+                Akolyta je mimoriadny vysluhovateľ svätého prijímania, ktorý je biskupom ustanovený pomáhať kňazom a&nbsp;diakonom pri liturgických úkonoch, najmä pri slávení svätej omše. V&nbsp;prvých dvoch storočiach kvôli prenasledovaniam kresťanov a&nbsp;z nedostatku kňazov bolo bežné, že si veriaci laici sami sebe podávali sväté prijímanie.
             </x-slot:teaser>
         </x-partials.card-article>
 

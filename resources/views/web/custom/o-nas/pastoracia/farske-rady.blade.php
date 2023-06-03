@@ -10,10 +10,10 @@
             <x-partials.picture titleSlug="far-00x" side="right" dimensionSource="medium" columns="4"/>
 
             <p>
-                Farská ekonomická rada je poradný orgán farára, ktorého úlohou je podľa noriem kánonického práva pomáhať farárovi v správe majetkov farnosti a v hľadaní prostriedkov potrebných na vykonávanie kultu, pastoračných činností a dobročinnosti najmä voči chudobným. Farár farnosti predsedá farskej ekonomickej rade. Farár je štatutárnym zástupcom farnosti vo všetkých právnych záležitostiach podľa noriem práva a v duchu Cirkvi. Konečné rozhodnutia v ekonomicko-právnych záležitostiach farnosti prináležia jedine farárovi pri zachovaní noriem práva.
+                Farská ekonomická rada je poradný orgán farára, ktorého úlohou je podľa noriem kánonického práva pomáhať farárovi v&nbsp;správe majetkov farnosti a&nbsp;v hľadaní prostriedkov potrebných na vykonávanie kultu, pastoračných činností a&nbsp;dobročinnosti najmä voči chudobným. Farár farnosti predsedá farskej ekonomickej rade. Farár je štatutárnym zástupcom farnosti vo všetkých právnych záležitostiach podľa noriem práva a&nbsp;v duchu Cirkvi. Konečné rozhodnutia v&nbsp;ekonomicko-právnych záležitostiach farnosti prináležia jedine farárovi pri zachovaní noriem práva.
             </p>
             <p>
-                V každej farnosti je ustanovenie farskej ekonomickej rady povinné, ustanovuje sa na päťročné obdobie. Členov farskej ekonomickej rady slobodne vymenuje farár spomedzi veriacich laikov, ktorí sa vyznačujú náležitými znalosťami a skúsenosťami v ekonomicko-právnej oblasti, morálnou bezúhonnosťou a schopnosťou posudzovať ekonomické záležitosti v duchu Cirkvi. Členstvo a činnosť vo farskej ekonomickej rade je bezplatné.
+                V&nbsp;každej farnosti je ustanovenie farskej ekonomickej rady povinné, ustanovuje sa na päťročné obdobie. Členov farskej ekonomickej rady slobodne vymenuje farár spomedzi veriacich laikov, ktorí sa vyznačujú náležitými znalosťami a&nbsp;skúsenosťami v&nbsp;ekonomicko-právnej oblasti, morálnou bezúhonnosťou a&nbsp;schopnosťou posudzovať ekonomické záležitosti v&nbsp;duchu Cirkvi. Členstvo a&nbsp;činnosť vo farskej ekonomickej rade je bezplatné.
             </p>
             <h6 class="h6 text-church-template">
                 Zvolení členovia farskej ekonomickej rady od roku 2020
@@ -35,20 +35,20 @@
             <x-partials.picture titleSlug="far-006" side="right" dimensionSource="medium" columns="3"/>
 
             <p>
-                Farská pastoračná rada je poradným a pracovným orgánom farára, ktorá s ním spolupracuje pri vytváraní živého spoločenstva veriacich vo farnosti. Každá farnosť má právo si zriadiť vlastnú farskú pastoračnú radu, ktorá sa má na základe poznania situácie vo farnosti podieľať na vytváraní a realizácii pastoračného programu.
+                Farská pastoračná rada je poradným a&nbsp;pracovným orgánom farára, ktorá s&nbsp;ním spolupracuje pri vytváraní živého spoločenstva veriacich vo farnosti. Každá farnosť má právo si zriadiť vlastnú farskú pastoračnú radu, ktorá sa má na základe poznania situácie vo farnosti podieľať na vytváraní a&nbsp;realizácii pastoračného programu.
             </p>
 
             <p>
-                K úlohám farskej pastoračnej rady zvlášť patrí podporovať a napomáhať uskutočňovanie pastoračných plánov, ktoré určí diecézny biskup; dôstojne sláviť liturgiu; inkulturáciu evanjelia; podporovať teologickú vzdelávaciu činnosť vo farnosti; spoločnými úlohami a akciami posilňovať vedomie farského spoločenstva; charitatívnu činnosť; odporúčať zamestnanie osôb farskému úradu a riešiť ich prípadné pracovno-právne problémy; spoluprácu s organizáciami a združeniami, tak cirkevnými, ako aj občianskymi; riešiť iné problémy farského života ako to požaduje farár.
+                K&nbsp;úlohám farskej pastoračnej rady zvlášť patrí podporovať a&nbsp;napomáhať uskutočňovanie pastoračných plánov, ktoré určí diecézny biskup; dôstojne sláviť liturgiu; inkulturáciu evanjelia; podporovať teologickú vzdelávaciu činnosť vo farnosti; spoločnými úlohami a&nbsp;akciami posilňovať vedomie farského spoločenstva; charitatívnu činnosť; odporúčať zamestnanie osôb farskému úradu a&nbsp;riešiť ich prípadné pracovno-právne problémy; spoluprácu s&nbsp;organizáciami a&nbsp;združeniami, tak cirkevnými, ako aj občianskymi; riešiť iné problémy farského života ako to požaduje farár.
             </p>
 
             <x-partials.picture titleSlug="far-009" side="left" dimensionSource="medium" columns="3"/>
 
             <p>
-                Na dosiahnutie týchto cieľov si farská pastoračná rada vytvára podľa pomerov vo farnosti potrebné štruktúry v rôznych sekciách, ako napríklad: v oblasti liturgie napomáhať všetkým v úlohách poverených pri liturgii; napomáhať pri inkulturácii evanjelia, pri uskutočňovaní pastoračných plánov a vzdelávacích programov, v starostlivosti o rozširovanie katolíckej tlače, fungovanie farskej knižnice, v napomáhaní organizovania katechéz pre deti, mládež ako aj dospelých; organizovanie potrebných prác vo farnosti; mať duchovnú i hmotnú starostlivosť o núdznych a chorých.
+                Na dosiahnutie týchto cieľov si farská pastoračná rada vytvára podľa pomerov vo farnosti potrebné štruktúry v&nbsp;rôznych sekciách, ako napríklad: v&nbsp;oblasti liturgie napomáhať všetkým v&nbsp;úlohách poverených pri liturgii; napomáhať pri inkulturácii evanjelia, pri uskutočňovaní pastoračných plánov a&nbsp;vzdelávacích programov, v&nbsp;starostlivosti o&nbsp;rozširovanie katolíckej tlače, fungovanie farskej knižnice, v&nbsp;napomáhaní organizovania katechéz pre deti, mládež ako aj dospelých; organizovanie potrebných prác vo farnosti; mať duchovnú i&nbsp;hmotnú starostlivosť o&nbsp;núdznych a&nbsp;chorých.
             </p>
             <p>
-                Predsedom farskej pastoračnej rady je vždy farár. Členmi sú aj ostatní činní kňazi vo farnosti na základe vymenovania diecézneho biskupa. Právo voliť do tejto rady má každý rímskokatolík, ktorý dosiahol 16. rok života a patrí do farnosti. Právo byť zvolený má každý rímskokatolík po dosiahnutí 18. roku života, ktorý patrí do farnosti, a je ochotný plniť úlohy vyplývajúce z členstva vo farskej pastoračnej rade, ktorá je ustanovená na dobu piatich kalendárnych rokov.
+                Predsedom farskej pastoračnej rady je vždy farár. Členmi sú aj ostatní činní kňazi vo farnosti na základe vymenovania diecézneho biskupa. Právo voliť do tejto rady má každý rímskokatolík, ktorý dosiahol 16. rok života a&nbsp;patrí do farnosti. Právo byť zvolený má každý rímskokatolík po dosiahnutí 18. roku života, ktorý patrí do farnosti, a&nbsp;je ochotný plniť úlohy vyplývajúce z&nbsp;členstva vo farskej pastoračnej rade, ktorá je ustanovená na dobu piatich kalendárnych rokov.
             </p>
             <div class="float-start ml-5">
                 <h6 class="h6 text-church-template">
@@ -87,7 +87,7 @@
             <em>Štatút Farskej pastoračnej rady.</em> Banskobystrická diecéza. Biskupstvo Banská Bystrica, 2001.
         </li>
         <li>
-            <em>Štatút farských ekonomických rád v Banskobystrickej diecéze.</em> Biskupstvo Banská Bystrica, 2014.
+            <em>Štatút farských ekonomických rád v&nbsp;Banskobystrickej diecéze.</em> Biskupstvo Banská Bystrica, 2014.
         </li>
     </x-web.page.information-sources>
 

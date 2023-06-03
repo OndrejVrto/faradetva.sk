@@ -7,7 +7,7 @@
     <x-web.page.subsection >
         <x-web.page.text-segment animation="fromright">
             <p>
-                Hnutie kresťanských rodín na Slovensku je dobrovoľná laická kresťanská organizácia určená pre veriacich kresťanských manželov, rodičov a ich rodiny, ktoré nechcú byť izolované, ale spolu s inými veriacimi manželmi a rodinami sa snažia vo svojich rodinách vytvárať stabilný a harmonický život na princípoch kresťanskej lásky, slobody, jednoty a služby.
+                Hnutie kresťanských rodín na Slovensku je dobrovoľná laická kresťanská organizácia určená pre veriacich kresťanských manželov, rodičov a&nbsp;ich rodiny, ktoré nechcú byť izolované, ale spolu s&nbsp;inými veriacimi manželmi a&nbsp;rodinami sa snažia vo svojich rodinách vytvárať stabilný a&nbsp;harmonický život na princípoch kresťanskej lásky, slobody, jednoty a&nbsp;služby.
             </p>
         </x-web.page.text-segment>
     </x-web.page.subsection>
@@ -15,16 +15,16 @@
     <x-web.page.subsection>
         <x-web.page.text-segment animation="fromleft">
             <p>
-                Hnutie kresťanských rodín bolo na Slovensku založené v roku 1969 na báze malých rodinných spoločenstiev, ktorých vznik bol iniciovaný po celom Slovensku. Hnutie pracovalo tri desaťročia v ilegalite pod duchovným vedením vtedajšieho tajného biskupa Jána Chrizostoma Korca a v spolupráci s kňazmi z pastorácie i mnohými tajnými rehoľnými kňazmi. Projektantmi myšlienky malých rodinných spoločenstiev a jej konkrétnymi realizátormi najmä medzi mládežou a študentmi boli dve významné osobnosti náboženského života u nás - RNDr. Vladimír Jukl a MUDr. Silvester Krčméry.
+                Hnutie kresťanských rodín bolo na Slovensku založené v&nbsp;roku 1969 na báze malých rodinných spoločenstiev, ktorých vznik bol iniciovaný po celom Slovensku. Hnutie pracovalo tri desaťročia v&nbsp;ilegalite pod duchovným vedením vtedajšieho tajného biskupa Jána Chrizostoma Korca a&nbsp;v spolupráci s&nbsp;kňazmi z&nbsp;pastorácie i&nbsp;mnohými tajnými rehoľnými kňazmi. Projektantmi myšlienky malých rodinných spoločenstiev a&nbsp;jej konkrétnymi realizátormi najmä medzi mládežou a&nbsp;študentmi boli dve významné osobnosti náboženského života u&nbsp;nás - RNDr. Vladimír Jukl a&nbsp;MUDr. Silvester Krčméry.
             </p>
             <p>
-                Spiritualita Hnutia kresťanských rodín na Slovensku bola schválená 29. októbra 1993. Je charakterizovaná prevenciou a rozvojom harmonického života rodín na princípoch kresťanskej viery, rodinnej lásky, zodpovednej slobody, služby a jednoty s Katolíckou cirkvou. Východiskami spirituality sú: Sväté písmo, učenie Cirkvi, aktuálne skutočnosti dnešného sveta. Hnutie pracuje na Slovensku s 13 500 rodinami a má 65 000 členov. Jeho súčasným čestným predsedom je doc. Vladimír Ďurikovič.
+                Spiritualita Hnutia kresťanských rodín na Slovensku bola schválená 29. októbra 1993. Je charakterizovaná prevenciou a&nbsp;rozvojom harmonického života rodín na princípoch kresťanskej viery, rodinnej lásky, zodpovednej slobody, služby a&nbsp;jednoty s&nbsp;Katolíckou cirkvou. Východiskami spirituality sú: Sväté písmo, učenie Cirkvi, aktuálne skutočnosti dnešného sveta. Hnutie pracuje na Slovensku s&nbsp;13 500 rodinami a&nbsp;má 65 000 členov. Jeho súčasným čestným predsedom je doc. Vladimír Ďurikovič.
 
             </p>
         </x-web.page.text-segment>
         <x-web.page.text-segment animation="fromright">
             <p>
-                V rámci našej farnosti je v Hnutí kresťanských rodín zapojených niekoľko menších rodinných spoločenstiev, ktoré sa vo vlastnej réžii pravidelne schádzajú na spoločných stretnutiach a snažia sa byť aktívne zapojení do aktivít celého farského spoločenstva.
+                V&nbsp;rámci našej farnosti je v&nbsp;Hnutí kresťanských rodín zapojených niekoľko menších rodinných spoločenstiev, ktoré sa vo vlastnej réžii pravidelne schádzajú na spoločných stretnutiach a&nbsp;snažia sa byť aktívne zapojení do aktivít celého farského spoločenstva.
             </p>
         </x-web.page.text-segment>
     </x-web.page.subsection>
