@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-sm-6 col-lg-4 col-xl-5">
+                    <div class="col-sm-7 col-lg-4 col-xl-5">
                         <div class="widget widget_text">
                             <div class="text_widget">
                                 <div class="ftr_logo d-flex justify-content-start">
@@ -23,20 +23,25 @@
                                 <x-partials.day-idea />
 
                                 <h2 class="widget-title mt-4">Dôležité odkazy</h2>
-                                <ul class="mb-4">
-                                    <li><a class="link-template-gray" href="{{ secure_url('kontakty') }}">Kontakty</a></li>
-                                    <li><a class="link-template-gray" href="{{ secure_url('farske-oznamy') }}">Sväté omše</a></li>
-                                    <li><a class="link-template-gray" href="{{ secure_url('prehlad-vsetkych-stranok') }}">Všetky stránky</a></li>
-                                    <li><a class="link-template-gray" href="{{ secure_url('o-nas/pastoracia/lektori#rozpis') }}">Rozpis lektorov</a></li>
-                                    <li><a class="link-template-gray" href="{{ secure_url('o-nas/pastoracia/akolyti#rozpis') }}">Rozpis akolytov</a></li>
-                                    <li><a class="link-template-gray" href="{{ route('faq') }}">Otázky a odpovede</a></li>
-                                    <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="https://gdpr.kbs.sk">Ochrana osobných údajov</a></li>
+                                <ul class="mb-4 row">
+                                    <div class="col-5">
+                                        <li><a class="link-template-gray" href="{{ secure_url('kontakty') }}">Kontakty</a></li>
+                                        <li><a class="link-template-gray" href="{{ secure_url('farske-oznamy') }}">Sväté omše</a></li>
+                                        <li><a class="link-template-gray" href="{{ secure_url('prehlad-vsetkych-stranok') }}">Všetky stránky</a></li>
+                                        <li><a class="link-template-gray" href="{{ secure_url('o-nas/pastoracia/lektori#rozpis') }}">Rozpis lektorov</a></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li><a class="link-template-gray" href="{{ secure_url('o-nas/pastoracia/akolyti#rozpis') }}">Rozpis akolytov</a></li>
+                                        <li><a class="link-template-gray" href="{{ route('faq') }}">Otázky a odpovede</a></li>
+                                        <li><a class="link-template-gray" href="{{ secure_url('duchovny-zivot/sviatosti/manzelstvo#rozpis') }}">Predmanželská príprava</a></li>
+                                        <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="https://gdpr.kbs.sk">Ochrana osobných údajov</a></li>
+                                    </div>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-5 col-lg-4 col-xl-3">
                         <div class="widget widget_social">
                             <h2 class="widget-title">Sväté omše</h2>
                             <div class="h5 text-white"><strong>Pondelok - Piatok</strong></div>

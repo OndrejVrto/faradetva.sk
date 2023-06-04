@@ -121,4 +121,14 @@
         </x-web.page.information-sources>
 
     </x-web.page.section>
+
+    <x-web.sections.background-picture titleSlug="kronika-086 "/>
+
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III. -" class="static-page pad_t_50 pad_b_50">
+
+        <x-web.page.subsection id="rozpis">
+            <x-web.sections.notice typeNotice="marriage" />
+        </x-web.page.subsection>
+
+    </x-web.page.section>
 </x-web.layout.master>

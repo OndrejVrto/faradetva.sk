@@ -3,7 +3,6 @@
 use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Route;
 use Lab404\Impersonate\Controllers\ImpersonateController;
-use App\Http\Controllers\Admin\NoticeLecturerController;
 use Haruncpi\LaravelUserActivity\Controllers\ActivityController;
 
 use App\Http\Controllers\Admin\{
@@ -12,7 +11,8 @@ use App\Http\Controllers\Admin\{
     PrayerController, PriestController, SliderController, DayIdeaController,
     GalleryController, PictureController, CategoryController, ChartDataController,
     DashboardController, PermissionController, StaticPageController, TestimonialController,
-    NoticeChurchController, NoticeAcolyteController, BackgroundPictureController,
+    NoticeChurchController, NoticeAcolyteController, NoticeLecturerController, NoticeMarriageController,
+    BackgroundPictureController,
 };
 
 Route::prefix('admin')->group(function () {
@@ -62,6 +62,7 @@ Route::prefix('admin')->group(function () {
             'notice-church'   => NoticeChurchController::class,
             'notice-acolyte'  => NoticeAcolyteController::class,
             'notice-lecturer' => NoticeLecturerController::class,
+            'notice-marriage' => NoticeMarriageController::class,
         ];
         //!  Supplementing resource routes with restore and force delete methods
         foreach ($softDeleteMethodes as $name => $class) {
@@ -107,6 +108,7 @@ Route::prefix('admin')->group(function () {
                 'notice-church'   => NoticeChurchController::class,
                 'notice-acolyte'  => NoticeAcolyteController::class,
                 'notice-lecturer' => NoticeLecturerController::class,
+                'notice-marriage' => NoticeMarriageController::class,
             ], ['except' => 'show']);
         });
     });

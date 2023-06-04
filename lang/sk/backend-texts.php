@@ -233,6 +233,17 @@ return [
         'create-button'      => 'Pridať farský oznam',
     ],
 
+    'notice-marriage' => [
+        'title'              => 'Predmanželská príprava',
+        'description'        => 'Pridávanie roapisu predmanželskej prípravy v pdf',
+        'description_create' => 'Tu môžete pridať pdf súbor s rozpisom predmanželskej prípravy',
+        'description_edit'   => 'Tu môžete upraviť údaje v rozpise predmanželskej prípravy',
+        'header'             => 'Predmanželská príprava',
+        'header_create'      => 'Nový rozpis predmanželskej prípravy',
+        'header_edit'        => 'Úprava rozpisu predmanželskej prípravy',
+        'create-button'      => 'Pridať rozpis alebo iné informácie pre snúbencov',
+    ],
+
     'faqs' => [
         'title'              => 'Otázky a odpovede',
         'description'        => 'Najčastejšie otázky a odpovede pre rôzne statické stránky',
