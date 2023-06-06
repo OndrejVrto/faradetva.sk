@@ -659,7 +659,7 @@
         [
             "pohlavie"              => "zenske",
             "meno_a_tituly"         => "Tarzícia Ľudmila Bagová SSpS.",
-            "obrazok"               => null,
+            "obrazok"               => "tarzicia-ludmila-bagova",
             "poznamka"              => null,
             "clen_radu_nazov"       => "členka Misijnej kongregácie služobníc Ducha Svätého",
             "datum_obliecky_vstupu" => null,

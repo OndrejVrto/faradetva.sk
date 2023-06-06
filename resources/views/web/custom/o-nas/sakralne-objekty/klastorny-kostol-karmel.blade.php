@@ -11,7 +11,7 @@
                 <x-partials.picture titleSlug="klk-008" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
-                    V&nbsp;roku 2004 sa v&nbsp;mestskej časti Dolinky začalo s&nbsp;výstavbou kláštora pre kontemplatívne sestry z&nbsp;Rádu bosých karmelitánok Preblahoslavenej Panny Márie z&nbsp;Hory Karmel. Stavbu kláštora spolu s&nbsp;kostolom projektoval Ing. arch. Marián Sitarčík. Hoci väčšia časť kláštora je klauzurovaná, čiže verejnosti neprístupná, kláštorný kostol je možné navštíviť a&nbsp;denne sa v&nbsp;ňom slávia sväté omše za účasti veriacich farnosti. Celý kláštorný komplex bol požehnaný a&nbsp;kostol konsekrovaný biskupom Rudolfom Balážom 28. júla 2007.
+                    V&nbsp;roku 2004 sa v&nbsp;mestskej časti Dolinky začalo s&nbsp;výstavbou kláštora pre kontemplatívne sestry z&nbsp;<a href="{{ secure_url('spolocenstva/rad-bosych-karmelitanok') }}">Rádu bosých karmelitánok Preblahoslavenej Panny Márie</a> z&nbsp;Hory Karmel. Stavbu kláštora spolu s&nbsp;kostolom projektoval Ing. arch. Marián Sitarčík. Hoci väčšia časť kláštora je klauzurovaná, čiže verejnosti neprístupná, kláštorný kostol je možné navštíviť a&nbsp;denne sa v&nbsp;ňom slávia sväté omše za účasti veriacich farnosti. Celý kláštorný komplex bol požehnaný a&nbsp;kostol konsekrovaný biskupom Rudolfom Balážom 28. júla 2007.
                 </p>
 
                 <p>
