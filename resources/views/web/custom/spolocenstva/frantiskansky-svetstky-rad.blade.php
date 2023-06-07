@@ -13,9 +13,11 @@
                 <p>
                     Františkánsky svetský rád (Ordo Franciscanus Saecularis) je jedným z&nbsp;najstarších existujúcich laických náboženských hnutí v&nbsp;Katolíckej cirkvi. Vznikol začiatkom 13.&nbsp;storočia. Zakladateľom rádu je sv. František z&nbsp;Assisi.
                 </p>
+
                 <p>
                     Názov samotného hnutia sa postupom času menil. Spočiatku sa jeho členovia nazývali <em>Bratia a&nbsp;sestry kajúceho rádu sv. Františka</em>, neskôr sa hnutie začalo označovať ako <em>Tretí rád sv. Františka</em>. V&nbsp;roku 1978 sa spolu s&nbsp;prijatím novej regule schválenej sv. Pavlom VI. upravilo aj pomenovanie bratského spoločenstva, ktoré sa dnes nazýva <em>Františkánsky svetský rád</em>.
                 </p>
+
                 <p>
                     Členovia Františkánskeho svetského rádu sa sľubom zaväzujú žiť podľa evanjelia Ježiša Krista spôsobom sv. Františka z&nbsp;Assisi v&nbsp;ich laickom stave. OFS&nbsp;je otvorený pre veriacich každého stavu - slobodných, manželov, vdovcov, ale i&nbsp;svetských duchovných.
                     Spiritualitu príslušníkov OFS&nbsp;charakterizujú svetské podmienky a&nbsp;život v&nbsp;bratskom spoločenstve. Príznačná je aktívna prítomnosť nielen v&nbsp;Cirkvi, ale aj vo svete.
@@ -26,9 +28,11 @@
                 <p>
                     Svetskí františkáni majú byť kvasom prostredí, v&nbsp;ktorých žijú a&nbsp;to svedectvom bratskej lásky a&nbsp;jasným kresťanským postojom.
                 </p>
+
                 <p>
                     Karol Anton Medvecký vo svojej monografii Detva uvádza, že v&nbsp;roku 1730 bolo v&nbsp;Detve znovuzriadené Bratstvo sv. Františka Assiského, ľudovo označované ako bratstvo „kordigerov“ alebo „pásikárov“. Názov je odvodený od opaskov - povrazov, z&nbsp;talianskeho slova corda - povraz, ktorými sa členovia prepásavali podľa príkladu sv. Františka na pamiatku Kristovho spútania.
                 </p>
+
                 <p>
                     Predpokladá sa, že pri vzniku Detvy a&nbsp;jej začiatkoch bratia františkáni, ktorí zabezpečovali duchovnú starostlivosť prvých obyvateľov, založili tu v&nbsp;17. storočí aj prvé Bratstvo sv. Františka.
                 </p>
