@@ -89,25 +89,9 @@
         </x-partials.card-event>
 
         <x-partials.card-event
-            title="Vianoce v&nbsp;Detve"
-            url="{{ secure_url('o-nas/historia/vianoce-v-detve') }}"
-            side="right"
-            >
-            <x-slot:img>
-                <x-partials.picture-responsive titleSlug="vian-035-menu"/>
-            </x-slot:img>
-            <x-slot:teaser>
-                Polnočnej svätej omše sa každoročne v&nbsp;Detve zúčastňuje množstvo veriacich nielen z&nbsp;detvianskej farnosti, ale aj zo širokého okolia. Spev počas polnočnej omše znie mohutne, v&nbsp;niektorých častiach svätej omše kostol doslova buráca a&nbsp;ľudia sa tešia z&nbsp;každej piesne.
-                <span class="d-none d-xl-inline">
-                    Vianočná polnočná svätá omša v&nbsp;Detve sa formovala na začiatku 20. storočia. Popretkávaná ľudovými koledami sa traduje už niekoľko desiatok rokov. Polnočná svätá omša v&nbsp;Detve je okrem  duchovného aj umeleckým zážitkom pre milovníkov ľudovej kultúry.
-                </span>
-            </x-slot:teaser>
-        </x-partials.card-event>
-
-        <x-partials.card-event
             title="Štatistiky farnosti"
             url="{{ secure_url('o-nas/historia/statistiky') }}"
-            side="left"
+            side="right"
             >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="grafy-menu" descriptionSide="left"/>
@@ -122,5 +106,42 @@
 
     </x-web.page.section>
 
-</x-web.layout.master>
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART IV -" row="true" class="pad_t_50 pad_b_80">
 
+        <x-partials.card-article
+            title="Vianoce v&nbsp;Detve"
+            url="{{ secure_url('o-nas/historia/vianoce-v-detve') }}"
+            class="col-12 col-md-6"
+            delay=2
+            >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="vian-035-menu2" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Polnočnej svätej omše sa každoročne v&nbsp;Detve zúčastňuje množstvo veriacich nielen z&nbsp;detvianskej farnosti, ale aj zo širokého okolia. Spev počas polnočnej omše znie mohutne, v&nbsp;niektorých častiach svätej omše kostol doslova buráca a&nbsp;ľudia sa tešia z&nbsp;každej piesne.
+                <span class="d-none d-xl-inline">
+                    Vianočná polnočná svätá omša v&nbsp;Detve sa formovala na začiatku 20. storočia. Popretkávaná ľudovými koledami sa traduje už niekoľko desiatok rokov. Polnočná svätá omša v&nbsp;Detve je okrem  duchovného aj umeleckým zážitkom pre milovníkov ľudovej kultúry.
+                </span>
+            </x-slot:teaser>
+        </x-partials.card-article>
+
+        <x-partials.card-article
+            title="Slávnosť Božieho tela"
+            url="{{ secure_url('o-nas/historia/slavnost-najsvatejsieho-kristovho-tela-a-krvi') }}"
+            class="col-12 col-md-6"
+            delay=1
+            >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="ktk-001-menu" class="img-fluid w-100"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Medzi eucharistickými procesiami má osobitný význam a&nbsp;dôležitosť v&nbsp;pastoračnom živote farnosti alebo mesta procesia, ktorá sa koná každý rok na slávnosť Kristovho tela a&nbsp;krvi. Sviatok Božího ťela je cirkevne prikázaným sviatkom a&nbsp;slávi sa vo štvrtok po slávnosti Najsvätejšej Trojice.
+                <span class="d-none d-xl-inline">
+                    Súčasťou bohoslužieb býva v&nbsp;Detve od nepamäti procesia sprevádzaná dychovou hudbou. Na štyroch miestach v&nbsp;uliciach mesta okolo kostola urobili miestne ženy zelené oltáriky - koľibki, pri ktorých sa udeľovalo eucharistické požehnanie.
+                </span>
+            </x-slot:teaser>
+        </x-partials.card-article>
+
+    </x-web.page.section>
+
+</x-web.layout.master>
