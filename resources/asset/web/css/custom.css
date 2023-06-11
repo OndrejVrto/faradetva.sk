@@ -199,3 +199,12 @@
     line-height: 1.5;
     text-align: justify;
 }
+
+
+.h-20 {
+    height: 5rem /* 80px */;
+}
+
+.h-7rem {
+    height: 7rem /* 100px */;
+}

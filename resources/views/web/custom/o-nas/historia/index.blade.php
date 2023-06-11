@@ -26,10 +26,12 @@
 
         <x-partials.card-bubble
             title="Farári"
-            icon="fa-solid fa-users"
             delay=1
             url="{{ secure_url('o-nas/historia/farari-v-detve') }}"
             >
+            <x-slot:icon>
+                <i class="fa-solid fa-users"></i>
+            </x-slot:icon>
             <x-slot:teaser>
                 Správcovia detvianskej farnosti od jej založenia v&nbsp;roku 1644
             </x-slot:teaser>
@@ -37,10 +39,12 @@
 
         <x-partials.card-bubble
             title="Kapláni"
-            icon="fa-solid fa-people-carry"
             delay=2
             url="{{ secure_url('o-nas/historia/kaplani-v-detve') }}"
             >
+            <x-slot:icon>
+                <i class="fa-solid fa-people-carry"></i>
+            </x-slot:icon>
             <x-slot:teaser>
                 Kapláni, ktorí pôsobili v&nbsp;Detve od začiatku 20. storočia
             </x-slot:teaser>
@@ -48,10 +52,12 @@
 
         <x-partials.card-bubble
             title="Povolania"
-            icon="fa-solid fa-praying-hands"
             delay=3
             url="{{ secure_url('o-nas/historia/duchovne-povolania') }}"
             >
+            <x-slot:icon>
+                <i class="fa-solid fa-praying-hands"></i>
+            </x-slot:icon>
             <x-slot:teaser>
                 Kňazi, rehoľníci a&nbsp;rehoľníčky pochádzajúci z&nbsp;farnosti
             </x-slot:teaser>
@@ -59,10 +65,12 @@
 
         <x-partials.card-bubble
             title="Spomíname"
-            icon="fa-solid fa-heartbeat"
             delay=4
             url="{{ secure_url('o-nas/historia/knazi-pochovany-v-detve') }}"
             >
+            <x-slot:icon>
+                <i class="fa-solid fa-heartbeat"></i>
+            </x-slot:icon>
             <x-slot:teaser>
                 Kňazi pochovaní na detvianskom cintoríne
             </x-slot:teaser>

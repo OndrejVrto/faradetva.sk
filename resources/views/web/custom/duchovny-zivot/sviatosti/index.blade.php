@@ -20,7 +20,7 @@
         <x-partials.card-article
             title="Birmovanie"
             url="{{ secure_url('duchovny-zivot/sviatosti/birmovanie') }}"
-            delay=3
+            delay=2
         >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr2-002-menu" class="img-fluid w-100"/>
@@ -33,7 +33,7 @@
         <x-partials.card-article
             title="Eucharistia"
             url="{{ secure_url('duchovny-zivot/sviatosti/eucharistia') }}"
-            delay=2
+            delay=3
         >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr3-006-menu" class="img-fluid w-100"/>
