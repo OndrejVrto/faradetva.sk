@@ -1,13 +1,15 @@
 Obsah stránky:
-  ☐ rozpis predmanželskej prípravy v kontaktoch som zmazal. V kontaktnom formulári to nebolo správne. Kde to dať? Urobiť k tomu administráciu?
-  ☐ nahodiť všetky obrázky do stránok "O-nás"
+  ✔ rozpis predmanželskej prípravy v kontaktoch som zmazal. V kontaktnom formulári to nebolo správne. Kde to dať? Urobiť k tomu administráciu?
+  ✔ nahodiť všetky obrázky a texty do stránok "O-nás"
   ☐ nahodiť chýbajúce texty pre spoločenstvá
   ☐ prepísať kategórie článkov a tagy a pridať ich do existujúcich správ.
-  ☐ vytvoriť komponent pre výsečové grafy s napevno pridanými údajmi
+  ☐ vytvoriť komponent pre výsečové grafy s napevno pridanými údajmi. údaje v xls - vierovyznania
   ☐ Title, description a základné META pre chybové stránky.
   ☐ stránka "všetky albumy" ?
   ☐ stránka "všetky obrázky na stránke zobrazené ako mega album" ?
-
+  ☐ v správach prerobiť masonry layout na klasické stĺpce s rovnakou výškou
+  ☐ checkbox v správach pre prioritu zobrazenia.  "Zobraziť na začiatku?"
+  ☐ v etiketa aj v cirkevne prikazania máme rovnaký obrázok s rukami a peniazmi. a je aj v menu
   ☐ @future facebook prepojenie - počet likes FB stránky farnosti
   ☐ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET. Ak samozrejme rozchodíme MeiliSearch
 
@@ -100,7 +102,8 @@ Administrátorské rozhranie:
   Iné:
     ☐ Prerobit starý Toastr na PHPFlasher https://php-flasher.io
     ☐ dorobiť administráciu subscribers
-    ☐ dorobiť administráciu predmanželskej prípravy
+    ☐ dorobiť napojenie subscribers na maily
+    ✔ dorobiť administráciu predmanželskej prípravy
     ☐ upratať lang
     ☐ implement failed job monitor (https://github.com/spatie/laravel-failed-job-monitor)
     ☐ implementovať Spatie Laravel Backup
@@ -195,3 +198,4 @@ Otázky na Tomáša:
 
 
 Archive:
+
