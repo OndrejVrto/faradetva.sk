@@ -13,6 +13,11 @@
     background: #ff83833f !important;
 }
 
+.table-row-prioritized {
+    background: #ffee0469 !important;
+    border-bottom: dotted 1px #495057;
+}
+
 .hoverDiv:hover {
     background: #ffe1b9;
 }

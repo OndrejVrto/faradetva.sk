@@ -24,6 +24,7 @@ trait Publishable {
                     ->activated()
                     ->published()
                     ->unpublished()
+                    ->orderByDesc('prioritized')
                     ->latest();
     }
 
