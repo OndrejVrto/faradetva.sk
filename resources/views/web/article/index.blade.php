@@ -67,7 +67,7 @@
                 @else
                         <!-- ARTICLE {{ $oneNews->id }} Start -->
                         <div class="col-sm-6 col-lg-4 pb-4">
-                            <div class="blog_item_cover frombottom wow h-100 d-flex flex-column" data-wow-delay="0.4s">
+                            <div class="blog_item_cover frombottom wow h-100 d-flex flex-column" data-wow-delay="{{ ((($loop->index - 1) % 3) + 1) * 0.4 }}s">
                                 <div class="blog_thumb">
                                     <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionName, 'small') }}"
                                         class="w-100"
