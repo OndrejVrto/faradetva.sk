@@ -33,17 +33,18 @@ class Slider extends Component {
             ->activated()
             ->inRandomOrder()
             ->limit(3)
-            ->get();
+            ->get()
+            ->pluck('id');
 
         foreach ($randomSliders as $oneSlider) {
             $slider[] = Cache::rememberForever(
-                key: 'PICTURE_SLIDER_'.$oneSlider->id,
-                callback: fn () => SliderModel::query()
-                    ->find($oneSlider->id)
-                    ->with('media', 'source')
-                    ->get()
-                    ->map(fn ($slider) => $this->mapOutput($slider))
-                    ->first()
+                key: 'PICTURE_SLIDER_'.$oneSlider,
+                callback: fn () => $this->mapOutput(
+                    SliderModel::query()
+                        ->where('id', $oneSlider)
+                        ->with('media', 'source')
+                        ->first()
+                )
             );
         }
 

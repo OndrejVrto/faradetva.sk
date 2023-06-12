@@ -73,6 +73,7 @@ class News extends BaseModel implements HasMedia, Feedable, Visitable {
 
     public function scopeNewsComplete(Builder $query): Builder {
         return $query
+                    ->orderByDesc('prioritized')
                     ->visible()
                     ->with('media', 'user', 'category', 'source');
     }
