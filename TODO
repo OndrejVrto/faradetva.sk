@@ -1,18 +1,19 @@
 Obsah stránky:
-  ✔ rozpis predmanželskej prípravy v kontaktoch som zmazal. V kontaktnom formulári to nebolo správne. Kde to dať? Urobiť k tomu administráciu?
-  ✔ nahodiť všetky obrázky a texty do stránok "O-nás"
-  ☐ nahodiť chýbajúce texty pre spoločenstvá
+  ☐ @low nahodiť chýbajúce texty pre spoločenstvá
   ☐ prepísať kategórie článkov a tagy a pridať ich do existujúcich správ.
-  ☐ vytvoriť komponent pre výsečové grafy s napevno pridanými údajmi. údaje v xls - vierovyznania
   ☐ Title, description a základné META pre chybové stránky.
   ☐ stránka "všetky albumy" ?
+  ☐ komponent pre čítadlo na hlavnej stránke. Počítadlo návštevnosti.
   ☐ stránka "všetky obrázky na stránke zobrazené ako mega album" ?
   ☐ v správach prerobiť masonry layout na klasické stĺpce s rovnakou výškou
-  ☐ checkbox v správach pre prioritu zobrazenia.  "Zobraziť na začiatku?"
-  ☐ v etiketa aj v cirkevne prikazania máme rovnaký obrázok s rukami a peniazmi. a je aj v menu
+  ☐ @high v etiketa aj v cirkevne prikazania máme rovnaký obrázok s rukami a peniazmi. a je aj v menu
   ☐ @future facebook prepojenie - počet likes FB stránky farnosti
   ☐ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET. Ak samozrejme rozchodíme MeiliSearch
 
+  ✔ nahodiť všetky obrázky a texty do stránok "O-nás"
+  ✔ rozpis predmanželskej prípravy v kontaktoch som zmazal. V kontaktnom formulári to nebolo správne. Kde to dať? Urobiť k tomu administráciu?
+  ✔ vytvoriť komponent pre výsečové grafy s napevno pridanými údajmi. údaje v xls - vierovyznania
+  ✔ checkbox v správach pre prioritu zobrazenia.  "Zobraziť na začiatku?"
   ✔ vypnúť ulice v mate google
   ✔ komponent ako sekcia v kontaktoch -> facebook karta farnosti v iframe.
   ✔ prepísať h5 v testimonials na h3
@@ -69,6 +70,7 @@ Administrátorské rozhranie:
 
   Dashboard:
     ☐ štatistika a rôzne grafy (počet a zoznam subscriberov)
+    ☐ grafy visitors
     ☐ cache pre feedy
     ☐ @future pridať kartu s informáciou o posledných prihlásých uživateľoch
     ☐ @future pridať kartu s informáciou o posledných zmenách na stránke
@@ -104,15 +106,17 @@ Administrátorské rozhranie:
     ☐ dorobiť administráciu subscribers
     ☐ dorobiť napojenie subscribers na maily
     ✔ dorobiť administráciu predmanželskej prípravy
+    ☐ @critical keď je v názve súboru obrázka diakritika, tak zlyhá uložnei súboru -> mediaservice
+    ☐ @critical keď existuje obrázok (rovnaký slug), tak sa na frontende neobjaví chybová správa. Iba biela obrazovka
     ☐ upratať lang
     ☐ implement failed job monitor (https://github.com/spatie/laravel-failed-job-monitor)
     ☐ implementovať Spatie Laravel Backup
-    ☐ implementovať balíček Laravisit na články/userov ? (https://www.youtube.com/watch?v=6JBkDGqnc2w&ab_channel=LaravelDaily)
     ☐ @future Datatable pre všetky backend tabuľky (LiveWire Datatable alebo iný)
     ☐ @future implementovať knižnicu "custom Avatar JS" pre Userov
     ☐ @future vyhľadávanie v administrácii - implementovať Laravel Scout
     ☐ @future automatické zverejnenie článku na FaceBooku po zverejnení na stránke
 
+    ✘ implementovať balíček Laravisit na články/userov ? (https://www.youtube.com/watch?v=6JBkDGqnc2w&ab_channel=LaravelDaily) Mám Vlastný package.
     ✔ opraviť Show formulár a metódy pre všetky typy obrázkov
     ✔ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
     ✘ response cache hlavnej stránky v inom časovaní ako ostatok
