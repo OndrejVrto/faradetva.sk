@@ -65,18 +65,63 @@
 
         <div class="col-12 col-lg-6">
             <!-- scitanie-obyvatelov-detvy -->
-            <x-partials.statistics-graph id=6 aspectRatio=2/>
+            <x-partials.statistics-graph id=6 aspectRatio=2 >
+                <x-slot:teaser>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quae aperiam excepturi! Fugiat neque voluptate, nam nihil eligendi fuga nulla odio officiis, reiciendis pariatur impedit ipsum beatae ex iusto sequi.
+                </x-slot:teaser>
+
+                <x-slot:after>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatibus. Et deserunt omnis eius incidunt quos facilis sunt labore repudiandae consectetur similique laborum, sapiente quae ipsam. Quod dolores in cum?
+                </x-slot:after>
+            </x-partials.statistics-graph>
         </div>
         <div class="col-12 col-lg-6">
             <!-- rimsko-katolici-v-detve -->
-            <x-partials.statistics-graph id=7 aspectRatio=2/>
+            <x-partials.statistics-graph id=7 aspectRatio=2 >
+                <x-slot:teaser>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quae aperiam excepturi! Fugiat neque voluptate, nam nihil eligendi fuga nulla odio officiis, reiciendis pariatur impedit ipsum beatae ex iusto sequi.
+                </x-slot:teaser>
+
+                <x-slot:after>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatibus. Et deserunt omnis eius incidunt quos facilis sunt labore repudiandae consectetur similique laborum, sapiente quae ipsam. Quod dolores in cum?
+                </x-slot:after>
+            </x-partials.statistics-graph>
+        </div>
+
+    </x-web.page.section>
+
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - II." row class="static-page">
+
+        <div class="col-12 col-lg-6">
+            <!-- Náboženské vyznania podľa sčítania r. 2011 -->
+            <x-partials.statistics-graph id=8 >
+                <x-slot:teaser>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quae aperiam excepturi! Fugiat neque voluptate, nam nihil eligendi fuga nulla odio officiis, reiciendis pariatur impedit ipsum beatae ex iusto sequi.
+                </x-slot:teaser>
+
+                <x-slot:after>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatibus. Et deserunt omnis eius incidunt quos facilis sunt labore repudiandae consectetur similique laborum, sapiente quae ipsam. Quod dolores in cum?
+                </x-slot:after>
+            </x-partials.statistics-graph>
+        </div>
+        <div class="col-12 col-lg-6">
+            <!-- Náboženské vyznania podľa sčítania r. 2022  -->
+            <x-partials.statistics-graph id=9>
+                <x-slot:teaser>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quae aperiam excepturi! Fugiat neque voluptate, nam nihil eligendi fuga nulla odio officiis, reiciendis pariatur impedit ipsum beatae ex iusto sequi.
+                </x-slot:teaser>
+
+                <x-slot:after>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatibus. Et deserunt omnis eius incidunt quos facilis sunt labore repudiandae consectetur similique laborum, sapiente quae ipsam. Quod dolores in cum?
+                </x-slot:after>
+            </x-partials.statistics-graph>
         </div>
 
     </x-web.page.section>
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) - III." class="static-page">
 
-        <x-partials.statistics-graph notId="1,2,3,4,5,6,7"/>
+        <x-partials.statistics-graph notId="1,2,3,4,5,6,7,8,9"/>
 
     </x-web.page.section>
 </x-web.layout.master>

@@ -16,6 +16,7 @@ return new class () extends Migration {
 
             $table->string('key');
             $table->float('value', $precision = 8, $scale = 2);
+            $table->string('color', 10)->nullable()->default(null);
 
             $table->timestamps();
         });

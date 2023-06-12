@@ -1,6 +1,6 @@
 @php
     $controlerName = 'charts.data';
-    $columns = 5;
+    $columns = 8;
     $uploadFiles = 'false';
     $linkActionCreate = route('charts.data.index', $chart->slug);
     $linkBack = route('charts.data.store', $chart->slug);
@@ -53,5 +53,22 @@
             </div>
         </x-slot>
     </x-adminlte-input>
+
+    @if ($chart->type_chart === \App\Enums\ChartType::DOUGHNUT)
+        <x-adminlte-input
+            name="color"
+            type="color"
+            label="Farba výseče grafu"
+            enableOldSupport="true"
+            required
+            value="{{ $chart->color ?? '#ff7b33' }}"
+            >
+            <x-slot:prependSlot>
+                <div class="input-group-text bg-gradient-orange">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+            </x-slot>
+        </x-adminlte-input>
+    @endif
 
 </x-admin.form>
