@@ -13,7 +13,7 @@
                 <x-partials.picture-responsive titleSlug="ofs-006-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Františkánsky svetký rád vznikol začiatkom 13. storočia, jeho zakladateľom je sv. František z Assisi. Členovia rádu sa sľubom zaväzujú žiť podľa evanjelia Ježiša Krista spôsobom sv. Františka v ich laickom stave.
+                Františkánsky svetký rád vznikol začiatkom 13.&nbsp;storočia, jeho zakladateľom je sv.&nbsp;František z&nbsp;Assisi. Členovia rádu sa sľubom zaväzujú žiť podľa evanjelia Ježiša Krista spôsobom sv.&nbsp;Františka v&nbsp;ich laickom stave.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -26,7 +26,7 @@
                 <x-partials.picture-responsive titleSlug="sb-006-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Členovia spoločenstva Bárka sú ochotní pomáhať modlitbami a finančne konkrétnym bohoslovcom pri ich štúdiu a príprave na kňazské povolanie. Podpora spoločenstva sa rozšírila aj pre pomoc kňazom, ktorí pokračujú v teologickom štúdiu v zahraničí.
+                Členovia spoločenstva Bárka sú ochotní pomáhať modlitbami a&nbsp;finančne konkrétnym bohoslovcom pri ich štúdiu a&nbsp;príprave na kňazské povolanie. Podpora spoločenstva sa rozšírila aj pre pomoc kňazom, ktorí pokračujú v&nbsp;teologickom štúdiu v&nbsp;zahraničí.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -39,7 +39,7 @@
                 <x-partials.picture-responsive titleSlug="rbk-003-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Život karmelitánok je životom tichým a celkom obráteným k Bohu. Pre toto neustále, láskyplné obracanie sa k Bohu je potrebná na jednej strane atmosféra ticha, uzobrania a utiahnutosti, na druhej strane radostný, rodinný život v spoločenstve.
+                Život karmelitánok je životom tichým a&nbsp;celkom obráteným k&nbsp;Bohu. Pre toto neustále, láskyplné obracanie sa k&nbsp;Bohu je potrebná na jednej strane atmosféra ticha, uzobrania a utiahnutosti, na druhej strane radostný, rodinný život v&nbsp;spoločenstve.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -57,7 +57,7 @@
                 <x-partials.picture-responsive dimensionSource="off" titleSlug="rbr-001" class="img-fluid w-auto h-7rem mx-auto"/>
             </x-slot:icon>
             <x-slot:teaser>
-                Ružencové bratstvo je združenie duchovne zjednotených veriacich, ktorí si osobitným spôsobom uctievajú Pannu Máriu.
+                Korene vzniku ružencových bratstiev siahajú hlboko do minulosti, prakticky už do prvej polovice 13.&nbsp;storočia.
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -71,7 +71,7 @@
                 <x-partials.picture-responsive dimensionSource="off" titleSlug="logo-fatimskej-panny-marie" class="img-fluid w-auto h-7rem mx-auto"/>
             </x-slot:icon>
             <x-slot:teaser>
-                hnutie i večeradlo charakterizujú tri záväzky
+                Mariánske večeradlá modlitby a bratskej lásky vzišli z&nbsp;Mariánskeho kňazského hnutia, založeného v&nbsp;roku 1972.
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -85,7 +85,7 @@
                 <x-partials.picture-responsive dimensionSource="off" titleSlug="mm-001" class="img-fluid w-auto h-7rem mx-auto"/>
             </x-slot:icon>
             <x-slot:teaser>
-                Hnutie Modlitby matiek vzniklo v r. 1995 na katolíckej charizmatickej konferencii v Anglicku.
+                Hnutie Modlitby matiek vzniklo v&nbsp;auguste 1995 na katolíckej charizmatickej konferencii „Nový úsvit“ v&nbsp;Anglicku.
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -99,7 +99,7 @@
                 <x-partials.picture-responsive dimensionSource="off" titleSlug="logo-faustinum" class="img-fluid w-auto h-7rem mx-auto"/>
             </x-slot:icon>
             <x-slot:teaser>
-                vychádza z charizmy sv. Faustíny, jej duchovnosti a apoštolskej činnosti.
+                Združenie apoštolov Božieho milosrdenstva spája dobrovoľníkov a&nbsp;členov zo 100 krajín všetkých kontinentov.
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -113,7 +113,7 @@
                 <x-partials.picture-responsive dimensionSource="off" titleSlug="logo-hnutia-krestanskych-rodin" class="img-fluid w-auto h-7rem mx-auto"/>
             </x-slot:icon>
             <x-slot:teaser>
-                Dobrovoľná laická kresťanská organizácia určená pre veriacich kresťanských manželov.
+                Hnutie kresťanských rodín bolo na Slovensku založené v&nbsp;roku 1969 na báze malých rodinných spoločenstiev.
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -127,7 +127,7 @@
                 <x-partials.picture-responsive dimensionSource="off" titleSlug="logo-zdruzenia-salezianskych-spolupracovnikov" class="img-fluid w-auto h-7rem mx-auto"/>
             </x-slot:icon>
             <x-slot:teaser>
-                sa zapájajú do apoštolátu saleziánskej rodiny podľa svojich darov a možností.
+                Združenie saleziánskych spolupracovníkov vzniklo na Slovensku v roku 1980. Prvým strediskom bol Zvolen.
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -141,7 +141,7 @@
                 <x-partials.picture-responsive dimensionSource="off" titleSlug="kcho-001" class="img-fluid w-auto h-7rem mx-auto"/>
             </x-slot:icon>
             <x-slot:teaser>
-                Je „hnutie“ Ducha Svätého v celej Cirkvi.
+                Katolícka charizmatická obnova nie je hnutie medzi hnutiami, je „hnutie“ Ducha Svätého v&nbsp;celej Cirkvi.
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -155,7 +155,7 @@
                 <x-partials.picture-responsive dimensionSource="off" titleSlug="erb-radu-bosych-karmelitanov" class="img-fluid w-auto h-7rem mx-auto"/>
             </x-slot:icon>
             <x-slot:teaser>
-                Spoločenstvo veriacich, ktorí sa zaväzujú usilovať sa o evanjeliovú dokonalosť vo svete.
+                Členovia svetského rádu sú povolaní žiť vo vernosti Ježišovi Kristovi pod ochranou Karmelskej Panny Márie.
             </x-slot:teaser>
         </x-partials.card-bubble>
 
@@ -173,7 +173,7 @@
                 <x-partials.picture-responsive titleSlug="bsr-002-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Členovia spoločenstva sa usilujú sláviť sviatok Najsvätejšieho Srdca Ježišovho zvláštnou pobožnosťou a prijímaním sviatostí. Na prvý piatok mesiaca sa zúčastňujú svätej omše a prijímajú sväté prijímanie.
+                Členovia spoločenstva sa usilujú sláviť sviatok Najsvätejšieho Srdca Ježišovho zvláštnou pobožnosťou a&nbsp;prijímaním sviatostí. Na prvý piatok mesiaca sa zúčastňujú svätej omše a&nbsp;prijímajú sväté prijímanie.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -187,7 +187,7 @@
                 <x-partials.picture-responsive titleSlug="sjvs-005-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Najhlbšou modlitbou Služobníkov Ježišovho Veľkňazského Srdca je odovzdanie všetkého, čo prichádza, Božiemu Srdcu ako obetu za kňazov s tým, že o všetko ostatné, na čom im záleží, sa bude starať Pán.
+                Najhlbšou modlitbou Služobníkov Ježišovho Veľkňazského Srdca je odovzdanie všetkého, čo prichádza, Božiemu Srdcu ako obetu za kňazov s&nbsp;tým, že o&nbsp;všetko ostatné, na čom im záleží, sa bude starať Pán.
             </x-slot:teaser>
         </x-partials.card-article>
 
