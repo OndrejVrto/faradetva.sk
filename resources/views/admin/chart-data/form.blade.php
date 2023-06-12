@@ -61,7 +61,7 @@
             label="Farba výseče grafu"
             enableOldSupport="true"
             required
-            value="{{ $chart->color ?? '#ff7b33' }}"
+            value="{{ $data->color ?? '#ff7b33' }}"
             >
             <x-slot:prependSlot>
                 <div class="input-group-text bg-gradient-orange">

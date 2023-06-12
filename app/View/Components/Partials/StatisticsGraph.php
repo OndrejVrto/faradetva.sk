@@ -76,7 +76,7 @@ class StatisticsGraph extends Component {
             'name_y_axis' => $chart->name_y_axis,
             'dataGraph'   => $chart->data->pluck('value')->implode(','),
             'labelGraph'  => $chart->data->pluck('key')->map(fn($i) => '"'.$i.'"')->implode(','),
-            'dataColor'   => $chart->data->pluck('color')->map(fn($i) => '"'.$i.'"')->implode(','),
+            'dataColor'   => $chart->data->pluck('color')->map(fn($i) => '"'.$i.'99"')->implode(','),
         ];
     }
 }
