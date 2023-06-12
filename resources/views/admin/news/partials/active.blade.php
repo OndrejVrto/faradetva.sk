@@ -8,7 +8,7 @@
                 class="custom-control-input"
                 id="customSwitch3"
                 value="1"
-                {{ (( $news->active ?? (old('active') === "0" ? 0 : 1) ) OR old('active', 0) === 1) ? 'checked' : '' }}
+                @checked($news->active ?? old('active', true))
             >
             <label class="custom-control-label" for="customSwitch3">Zobrazovať na stránke</label>
     </div>
@@ -24,7 +24,7 @@
                 class="custom-control-input"
                 id="customSwitch4"
                 value="1"
-                {{ (( $news->prioritized ?? (old('prioritized') === "0" ? 0 : 1) ) OR old('prioritized', 0) === 1) ? 'checked' : '' }}
+                @checked($news->prioritized ?? old('prioritized', false))
             >
             <label class="custom-control-label" for="customSwitch4">Prioritná správa</label>
     </div>
