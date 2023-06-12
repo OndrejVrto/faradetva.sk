@@ -3,9 +3,10 @@
     'url' => '#',
     'delay' => 1,
     'buttonText' => 'Čítať ďalej',
+    'classColumns' => 'col-12 col-sm-6 col-lg-3 mb-4',
 ])
 
-<div class="col-12 col-sm-6 col-lg-3 mb-4">
+<div class="{{ $classColumns }}">
     <a href="{{ $url }}">
         <div {{ $attributes->merge(['class' => 'about_box_inner mb-0 rotate wow h-100 d-flex flex-column']) }} data-wow-delay="{{ $delay*0.3 }}s">
             {!! $icon !!}
