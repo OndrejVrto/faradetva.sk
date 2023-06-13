@@ -1,8 +1,15 @@
 Obsah stránky:
-  ☐ @low nahodiť chýbajúce texty pre spoločenstvá
+  ☐ aktuálne oznamy z produkcie pred nahratim na server
+  ☐ prerobiiť v CSS veľkosť slider textov responzívne cez rem hodnoty a nie cez px. Pri zoome to blbne
+  ☐ zmeniť heslá
+  ☐ otočiť fotku KA Medevecký
+  ☐ doplniť fotoalbumy do stránok: detvianske kríže, farský kostol a vianoce
+  ☐ sekcia "náhodný obráok dňa" ??
+  ☐ ešte raz sa opýtať či netreba špeciálnu stránku s rozpismy sv. omší
+  ☐ nájsť obrázok ruky s almužnou
   ☐ prepísať kategórie článkov a tagy a pridať ich do existujúcich správ.
   ☐ Title, description a základné META pre chybové stránky.
-  ☐ stránka "všetky albumy" ?
+  ☐ stránka "všetky albumy" alebo "všetky obrázky" ?
   ☐ komponent pre čítadlo na hlavnej stránke. Počítadlo návštevnosti.
   ☐ stránka "všetky obrázky na stránke zobrazené ako mega album" ?
   ☐ v správach prerobiť masonry layout na klasické stĺpce s rovnakou výškou
@@ -10,6 +17,10 @@ Obsah stránky:
   ☐ @future facebook prepojenie - počet likes FB stránky farnosti
   ☐ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET. Ak samozrejme rozchodíme MeiliSearch
 
+  ✔ doplniť texty so Menu "O nás"
+  ✔ @low priorita správy defaultne disabled
+  ✔ @high slider ide len jeden odrázok
+  ✔ @low nahodiť chýbajúce texty pre spoločenstvá
   ✔ nahodiť všetky obrázky a texty do stránok "O-nás"
   ✔ rozpis predmanželskej prípravy v kontaktoch som zmazal. V kontaktnom formulári to nebolo správne. Kde to dať? Urobiť k tomu administráciu?
   ✔ vytvoriť komponent pre výsečové grafy s napevno pridanými údajmi. údaje v xls - vierovyznania
@@ -104,6 +115,7 @@ Administrátorské rozhranie:
   Iné:
     ☐ Prerobit starý Toastr na PHPFlasher https://php-flasher.io
     ☐ dorobiť administráciu subscribers
+    ☐ pri návrate späť v administrácii ostať na stránke/page kde som bol pôvodne a nie na prvej stránke
     ☐ dorobiť napojenie subscribers na maily
     ✔ dorobiť administráciu predmanželskej prípravy
     ☐ @critical keď je v názve súboru obrázka diakritika, tak zlyhá uložnei súboru -> mediaservice
