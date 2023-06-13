@@ -52,6 +52,7 @@
             <em class="me-1">MÁJEKOVÁ, Ľubica. Stručné dejiny združenia saleziánov spolupracovníkov na Slovensku</em>
             [online]. <br> Bratislava: [s.n.], 2008. [cit. 24.01.2022].
             <a class="link-template"
+                target="_blank"
                 href="https://www.ascslovakia.sk/files/55cae762683b71c5e7e3c6ba1ba64226.pdf">
                 Dostupné na internete
             </a>

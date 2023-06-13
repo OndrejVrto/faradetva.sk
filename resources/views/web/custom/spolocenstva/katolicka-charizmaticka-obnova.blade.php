@@ -56,6 +56,7 @@
             <em class="me-1">Katolícka charizmatická obnova Slovenska</em>
             [online]. [cit. 12.04.2022].
             <a class="link-template"
+                target="_blank"
                 href="https://www.kbs.sk/obsah/sekcia/h/rehole-a-spolocenstva/p/hnutia-a-spolocenstva/c/katolicka-charizmaticka-obnova-slovenska">
                 Dostupné na internete
             </a>
@@ -64,6 +65,7 @@
             <em class="me-1">Obnova v&nbsp;Duchu Svätom</em>
             [online]. [cit. 12.04.2022].
             <a class="link-template"
+                target="_blank"
                 href="http://www.kcho.sk/obnova.php">
                 Dostupné na internete
             </a>

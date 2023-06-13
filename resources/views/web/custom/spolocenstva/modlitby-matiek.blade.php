@@ -69,6 +69,7 @@
                 <em class="me-1">Modlitby matiek</em>
                 [online]. [cit. 03.03.2022].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.kbs.sk/obsah/sekcia/h/rehole-a-spolocenstva/p/hnutia-a-spolocenstva/c/modlitby-matiek">
                     Dostupné na internete
                 </a>
@@ -77,6 +78,7 @@
                 <em class="me-1">Modlitby matiek z&nbsp;komunity Útecha. Spiritualita</em>
                 [online]. [cit. 12.04.2022].
                 <a class="link-template"
+                    target="_blank"
                     href="https://modlitbymatiek.sk/spiritualita">
                     Dostupné na internete
                 </a>

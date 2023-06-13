@@ -92,6 +92,7 @@
                 <em class="me-1">Apoštolský list motu proprio Antiquum ministerium</em>
                 [online]. [cit. 02.02.2022].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.kbs.sk/obsah/sekcia/h/dokumenty-a-vyhlasenia/p/dokumenty-papezov/c/apostolsky-list-antiquum-ministerium">
                     Dostupné na internete
                 </a>
@@ -100,6 +101,7 @@
                 <em class="me-1">Apoštolský list motu proprio Spiritus Domini</em>
                 [online]. [cit. 01.02.2022].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.kbs.sk/obsah/sekcia/h/dokumenty-a-vyhlasenia/p/dokumenty-papezov/c/motu-proprio-spiritus-domini">
                     Dostupné na internete
                 </a>
@@ -108,6 +110,7 @@
                 <em class="me-1">Pápež František ustanovil prístup k&nbsp;lektorátu a&nbsp;akolytátu i&nbsp;pre ženy</em>
                 [online]. [cit. 01.02.2022].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.vaticannews.va/sk/papez/news/2021-01/frantisek-ustanovil-pristup-k-lektoratu-a-akolytatu-i-pre-zeny.html">
                     Dostupné na internete
                 </a>
@@ -116,6 +119,7 @@
                 <em class="me-1">Pápež František zriadil laické ministérium katechétu listom Antiquum ministerium</em>
                 [online]. [cit. 02.02.2022].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.vaticannews.va/sk/papez/news/2021-05/papez-frantisek-zriadil-laicke-ministerium-katechetu.html">
                     Dostupné na internete
                 </a>

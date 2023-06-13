@@ -143,6 +143,7 @@
                 <em class="me-1">Čo je ružencové bratstvo</em>
                 [online]. [cit. 09.08.2021].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.dmc.sk/ruzencove-bratstvo/co-je-ruzencove-bratstvo/">
                     Dostupné na internete
                 </a>

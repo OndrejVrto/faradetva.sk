@@ -69,6 +69,7 @@
                 <em class="me-1">Margita Mária Alacoque, rehoľníčka, mystička</em>
                 [online]. [cit. 15.03.2023].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.zivotopisysvatych.sk/margita-alacoque/">
                     Dostupné na internete
                 </a>

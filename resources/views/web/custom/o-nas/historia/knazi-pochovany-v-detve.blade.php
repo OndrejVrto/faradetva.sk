@@ -275,6 +275,7 @@
             <li>
                 Matriky zomrelých Farnosti Detva. [online].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.familysearch.org">
                     Dostupné na internete
                 </a>

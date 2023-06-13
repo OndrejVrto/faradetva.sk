@@ -40,6 +40,7 @@
             <em class="me-1">Hnutie kresťanských rodín na Slovensku</em>
             [online]. [cit. 12.04.2022].
             <a class="link-template"
+                target="_blank"
                 href="https://www.hkrsr.sk">
                 Dostupné na internete
             </a>
@@ -48,6 +49,7 @@
             <em class="me-1">Hnutie kresťanských rodín na Slovensku (HKR)</em>
             [online]. [cit. 12.04.2022].
             <a class="link-template"
+                target="_blank"
                 href="https://www.kbs.sk/obsah/sekcia/h/rehole-a-spolocenstva/p/hnutia-a-spolocenstva/c/hnutie-krestanskych-rodin-na-slovensku-hkr">
                 Dostupné na internete
             </a>

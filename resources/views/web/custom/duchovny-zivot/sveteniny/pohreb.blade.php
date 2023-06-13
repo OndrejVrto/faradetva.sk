@@ -140,6 +140,7 @@
                 <em class="me-1">Inštrukcia „Ad resurgendum cum Christo“ ohľadom pochovávania zomrelých a&nbsp;uchovávania popola v&nbsp;prípade kremácie.</em>
                 [online]. [cit. 26.01.2022].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.kbs.sk/obsah/sekcia/h/dokumenty-a-vyhlasenia/p/dokumenty-vatikanskych-uradov/c/instrukcia-ad-resurgendum-cum-christo">
                     Dostupné na internete
                 </a>

@@ -162,6 +162,7 @@
             <li>
                 <em>
                     <a class="link-template"
+                        target="_blank"
                         href="https://bosikarmelitani.sk/detva"
                         target="_blank">
                         Bosé karmelitánky v Detve

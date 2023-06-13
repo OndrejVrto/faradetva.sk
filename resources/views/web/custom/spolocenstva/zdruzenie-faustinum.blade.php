@@ -52,6 +52,7 @@
                 <em class="me-1">Združenie Faustínum</em>
                 [online]. [cit. 24.01.2022].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.faustinum.pl/sk/zdruzenie-faustinum/">
                     Dostupné na internete
                 </a>
