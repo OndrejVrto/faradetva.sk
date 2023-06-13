@@ -71,7 +71,7 @@
 
         <div class="d-flex justify-content-center">
             <a href="{{ route('article.all') }}" class="link-template fs-5">
-                Všetky články
+                Ďalšie články ...
             </a>
         </div>
 
