@@ -1,22 +1,25 @@
 Obsah stránky:
+  ☐ stránka "O autoroch a knihe" kde bude príhovor, info o autoroch (krátky životopis a kontakt), kontakty na aktuálnych správcov obsahu, info o knihe s informáciou ako si ju kúpiť.
+  ☐ sekcia "náhodný obrázok dňa" kde sa zobrazí jeden náhodný obrázok aj s popismi. Každú hodinu iný. Máme ich na stránke nahratých viac ako 600.
+  ☐ stránka "všetky albumy" alebo "všetky obrázky" alebo "všetky banery" zobrazené ako mega album?
+  ☐ stránka pre farskú knižnicu
+
+  ☐ @critical zmeniť heslá
+  ☐ pripraviť krátku prezentáciu pre odovzdanie stránky.
   ☐ aktuálne oznamy z produkcie pred nahratim na server
-  ☐ prerobiiť v CSS veľkosť slider textov responzívne cez rem hodnoty a nie cez px. Pri zoome to blbne
-  ☐ zmeniť heslá
-  ☐ otočiť fotku KA Medevecký
+
   ☐ doplniť fotoalbumy do stránok: detvianske kríže, farský kostol a vianoce
-  ☐ sekcia "náhodný obráok dňa" ??
-  ☐ ešte raz sa opýtať či netreba špeciálnu stránku s rozpismy sv. omší
-  ☐ nájsť obrázok ruky s almužnou
   ☐ prepísať kategórie článkov a tagy a pridať ich do existujúcich správ.
   ☐ Title, description a základné META pre chybové stránky.
-  ☐ stránka "všetky albumy" alebo "všetky obrázky" ?
   ☐ komponent pre čítadlo na hlavnej stránke. Počítadlo návštevnosti.
-  ☐ stránka "všetky obrázky na stránke zobrazené ako mega album" ?
-  ☐ v správach prerobiť masonry layout na klasické stĺpce s rovnakou výškou
-  ☐ @high v etiketa aj v cirkevne prikazania máme rovnaký obrázok s rukami a peniazmi. a je aj v menu
   ☐ @future facebook prepojenie - počet likes FB stránky farnosti
   ☐ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET. Ak samozrejme rozchodíme MeiliSearch
 
+  ✘ prerobiiť v CSS veľkosť slider textov responzívne cez rem hodnoty a nie cez px. Pri zoome to blbne. Bude to blbnúť, lebo to neviem urobiť.
+  ✔ otočiť fotku KA Medevecký
+  ✔ v správach prerobiť masonry layout na klasické stĺpce s rovnakou výškou
+  ✔ @high v etiketa aj v cirkevne prikazania máme rovnaký obrázok s rukami a peniazmi. a je aj v menu
+  ✔ nájsť obrázok ruky s almužnou
   ✔ doplniť texty so Menu "O nás"
   ✔ @low priorita správy defaultne disabled
   ✔ @high slider ide len jeden odrázok
@@ -29,7 +32,6 @@ Obsah stránky:
   ✔ komponent ako sekcia v kontaktoch -> facebook karta farnosti v iframe.
   ✔ prepísať h5 v testimonials na h3
   ✔ zrušiť preload písiem v header links pre Http2
-  ✔ @critical zmeniť heslá
   ✔ pridať sekciu o kostole do oznamov a kontaktov
   ✔ prečistiť obsah vyhľadávania MeiliSearch. Nech tam sú zaindexované len dôležité časti stránky a len podstatné stránky
   ✔ upraviť vzhľad vyhľadávania
@@ -113,6 +115,8 @@ Administrátorské rozhranie:
 
 
   Iné:
+    ☐ @critical pint + phpstan
+    ☐ prerobiť ValueStore
     ☐ Prerobit starý Toastr na PHPFlasher https://php-flasher.io
     ☐ dorobiť administráciu subscribers
     ☐ pri návrate späť v administrácii ostať na stránke/page kde som bol pôvodne a nie na prvej stránke
