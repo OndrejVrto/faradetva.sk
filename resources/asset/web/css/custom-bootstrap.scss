@@ -1,5 +1,8 @@
 // Custom.scss
 // Option B: Include parts of Bootstrap
+@import "./node_modules/bootstrap/scss/mixins/banner";
+@include bsBanner("");
+
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "./node_modules/bootstrap/scss/functions";
@@ -14,6 +17,7 @@ $link-decoration    : none;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/variables-dark";
 
 // 4. Include any default map overrides here
 $custom-colors: (
