@@ -1,6 +1,6 @@
 <x-web.page.section
     name="NOTICE"
-    class="pad_b_50"
+    {{ $attributes->merge(['class' => 'pad_b_50']) }}
 >
     @forelse ($notices as $notice)
 
@@ -43,7 +43,7 @@
         @endphp
 
     @empty
-        <div class="mt-5 mx-5">
+        <div class="mb-5 mx-5">
             <h3>
                 Aktuálne nieje zverejnený žiadny oznam.
             </h3>
