@@ -59,7 +59,7 @@
             delay=3
         >
             <x-slot:img>
-                <x-partials.picture-responsive titleSlug="cpr-005-menu" class="img-fluid w-100"/>
+                <x-partials.picture-responsive titleSlug="etik-013-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
                 Päť cirkevných prikázaní svojimi minimálnymi požiadavkami pripomína, že nemožno byť kresťanom bez morálneho úsilia, bez konkrétnej účasti na sviatostnom živote Cirkvi a&nbsp;bez solidárneho spojenia s&nbsp;ňou.
