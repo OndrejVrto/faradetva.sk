@@ -1,6 +1,7 @@
 @props([
-    'trashed' => null
+    'trashed' => false,
+    'prioritized' => false,
 ])
-<tr @if($trashed) class="table-row-trashed" @endif {{ $attributes }}>
+<tr {{ $attributes->class(['table-row-trashed' => $trashed, 'table-row-prioritized' => $prioritized]) }}>
     {{ $slot }}
 </tr>

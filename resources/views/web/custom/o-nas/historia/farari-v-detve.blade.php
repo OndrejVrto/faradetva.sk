@@ -40,6 +40,7 @@
         ["years" => "1993 - 1995"          ,"name" => "Pavol Zemko"],
         ["years" => "1995 - 2002"          ,"name" => "Roman Furek"],
         ["years" => "2002 -"               ,"name" => "Ľuboš Sabol"],
+        ["years" => " "               ,"name" => " ", "description" => " "],  // multi column problem in Chrome
     ];
 @endphp
 

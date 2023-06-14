@@ -102,7 +102,7 @@ class UserController extends Controller {
                 return $value >= 2; // SuperAdmin remove
             })->when($user->id == 1, function ($collection): Collection {
                 return $collection->push(1);  // SuperAdmin add
-            })->toArray();
+            })->flatten()->toArray();
         $user->roles()->sync($role);
 
         // store permissions to user

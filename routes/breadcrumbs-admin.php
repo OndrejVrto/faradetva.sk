@@ -79,6 +79,7 @@ Breadcrumbs::resource('static-pages', 'Statické stránky');
 Breadcrumbs::resource('notice-acolyte', 'Rozpisy akolytov');
 Breadcrumbs::resource('notice-lecturer', 'Rozpisy lektorov');
 Breadcrumbs::resource('background-pictures', 'Obrázky pozadia');
+Breadcrumbs::resource('notice-marriage', 'Rozpisy predmanželskej prípravy');
 
 // Home > Blog > [Category]
 // Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {

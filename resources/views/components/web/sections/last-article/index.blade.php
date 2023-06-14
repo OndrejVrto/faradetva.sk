@@ -65,13 +65,13 @@
             </x-partials.card-about>
 
             @if (!$loop->last)
-                <hr class="bg-alt-gray mt-2 mb-5">
+                <hr class="border border-primary border-1 mt-2 mb-5">
             @endif
         @endforeach
 
         <div class="d-flex justify-content-center">
             <a href="{{ route('article.all') }}" class="link-template fs-5">
-                Všetky články
+                Ďalšie články ...
             </a>
         </div>
 

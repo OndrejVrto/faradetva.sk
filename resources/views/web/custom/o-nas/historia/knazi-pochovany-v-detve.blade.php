@@ -78,9 +78,9 @@
             deathCity="Detva"
             :datesCV="
                 [
-                    ['kurziva' => false ,'roky' => '1874 - 1877', 'posobisko' => 'študijný prefekt kňazského seminára v Banskej Bystrici'],
-                    ['kurziva' => true  ,'roky' => '1875',        'posobisko' => 'profesor teológie v kňazskom seminári'],
-                    ['kurziva' => false ,'roky' => '1877 - 1888', 'posobisko' => 'špirituál kňazského seminára v Banskej Bystrici'],
+                    ['kurziva' => false ,'roky' => '1874 - 1877', 'posobisko' => 'študijný prefekt kňazského seminára v&nbsp;Banskej Bystrici'],
+                    ['kurziva' => true  ,'roky' => '1875',        'posobisko' => 'profesor teológie v&nbsp;kňazskom seminári'],
+                    ['kurziva' => false ,'roky' => '1877 - 1888', 'posobisko' => 'špirituál kňazského seminára v&nbsp;Banskej Bystrici'],
                     ['kurziva' => true  ,'roky' => '1884',        'posobisko' => 'asesor (člen cirkevného súdu)'],
                     ['kurziva' => false ,'roky' => '1888 - 1907', 'posobisko' => 'farár Detva'],
                 ]"
@@ -104,7 +104,7 @@
             deathCity="Detva"
             :datesCV="
                 [
-                    ['kurziva' => false ,'roky' => '1840 - 1841', 'posobisko' => 'prebendant Sídelnej kapituly v Banskej Bystrici'],
+                    ['kurziva' => false ,'roky' => '1840 - 1841', 'posobisko' => 'prebendant Sídelnej kapituly v&nbsp;Banskej Bystrici'],
                     ['kurziva' => false ,'roky' => '1841 - 1849', 'posobisko' => 'kaplán Detva, Veľká (Zvolenská) Slatina, Nemecké (Nitrianske) Pravno, Kremnické Bane, Handlová, Staré Hory, Nová Baňa'],
                     ['kurziva' => false ,'roky' => '1849 - 1864', 'posobisko' => 'farár Očová'],
                     ['kurziva' => true  ,'roky' => '1857 - 1886', 'posobisko' => 'dekan zvolenského dekanátu'],
@@ -137,7 +137,7 @@
             deathCity="Detva"
             :datesCV="
                 [
-                    ['kurziva' => false ,'roky' => '1842 - 1860', 'posobisko' => 'prebendant Sídelnej kapituly v Banskej Bystrici, kaplán Nová Baňa, Nemecké (Nitrianske) Pravno, Kunešov, Tužina, Trubín, Veľká (Zvolenská) Slatina'],
+                    ['kurziva' => false ,'roky' => '1842 - 1860', 'posobisko' => 'prebendant Sídelnej kapituly v&nbsp;Banskej Bystrici, kaplán Nová Baňa, Nemecké (Nitrianske) Pravno, Kunešov, Tužina, Trubín, Veľká (Zvolenská) Slatina'],
                     ['kurziva' => false ,'roky' => '1860 - 1862', 'posobisko' => 'farár Veľká (Zvolenská) Slatina'],
                     ['kurziva' => false ,'roky' => '1862 - 1863', 'posobisko' => 'farár Detva'],
                 ]"
@@ -146,7 +146,7 @@
                 <x-partials.picture-responsive titleSlug="matrika-csapek" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
-                Pochovaný 26.10.1863 na	cintoríne v Detva - nezachované miesto.
+                Pochovaný 26.10.1863 na	cintoríne v&nbsp;Detva - nezachované miesto.
             </x-slot:note>
         </x-partials.biography>
 
@@ -161,7 +161,7 @@
             deathCity="Detva"
             :datesCV="
                 [
-                    ['kurziva' => false ,'roky' => '1767 - 1769', 'posobisko' => 'prebendant Kolegiátnej kapituly v Bratislave'],
+                    ['kurziva' => false ,'roky' => '1767 - 1769', 'posobisko' => 'prebendant Kolegiátnej kapituly v&nbsp;Bratislave'],
                     ['kurziva' => false ,'roky' => '1769 - 1790', 'posobisko' => 'farár Veľká (Zvolenská) Slatina'],
                     ['kurziva' => false ,'roky' => '1790 - 1793', 'posobisko' => 'farár Detva'],
                 ]"
@@ -170,7 +170,7 @@
                 <x-partials.picture-responsive titleSlug="matrika-spacsinszki" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
-                Pochovaný 07.01.1793 na cintoríne v Detve - nezachované miesto.
+                Pochovaný 07.01.1793 na cintoríne v&nbsp;Detve - nezachované miesto.
             </x-slot:note>
         </x-partials.biography>
 
@@ -217,7 +217,7 @@
                 <x-partials.picture-responsive titleSlug="matrika-jonasz" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
-                Pochovaný 08.12.1758 na cintoríne v Detve - nezachované miesto.
+                Pochovaný 08.12.1758 na cintoríne v&nbsp;Detve - nezachované miesto.
             </x-slot:note>
         </x-partials.biography>
 
@@ -240,7 +240,7 @@
                 <x-partials.picture-responsive titleSlug="huszar-matrika" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
-                Pochovaný 23.12.1748 na cintoríne  v Detve - nezachované miesto.
+                Pochovaný 23.12.1748 na cintoríne v&nbsp;Detve - nezachované miesto.
             </x-slot:note>
         </x-partials.biography>
 
@@ -256,7 +256,7 @@
             :datesCV="
                 [
                     ['kurziva' => false ,'roky' => '1715 - 1718', 'posobisko' => 'farár Pusté Úľany'],
-                    ['kurziva' => false ,'roky' => '1718 - 1723', 'posobisko' => 'farár Hájniky (Sliač) a Sielnica'],
+                    ['kurziva' => false ,'roky' => '1718 - 1723', 'posobisko' => 'farár Hájniky (Sliač) a&nbsp;Sielnica'],
                     ['kurziva' => false ,'roky' => '1723 - 1748', 'posobisko' => 'farár Detva'],
                 ]"
             >
@@ -264,7 +264,7 @@
                 <x-partials.picture-responsive titleSlug="matrika-szentkereszty" class="img-fluid" description="false"/>
             </x-slot:img>
             <x-slot:note>
-                Pochovaný 15.04.1748 na cintoríne v Detve - nezachované miesto.
+                Pochovaný 15.04.1748 na cintoríne v&nbsp;Detve - nezachované miesto.
             </x-slot:note>
         </x-partials.biography>
 
@@ -275,6 +275,7 @@
             <li>
                 Matriky zomrelých Farnosti Detva. [online].
                 <a class="link-template"
+                    target="_blank"
                     href="https://www.familysearch.org">
                     Dostupné na internete
                 </a>

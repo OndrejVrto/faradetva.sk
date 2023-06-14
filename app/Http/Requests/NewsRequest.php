@@ -15,6 +15,7 @@ class NewsRequest extends BaseRequest {
     public function rules(): array {
         return [
             'active' => $this->reqBoolRule(),
+            'prioritized' => $this->reqBoolRule(),
             'title'  => $this->reqStrRule(110),  //Google schema markup:  ... Headlines should not exceed 110 characters. ...
             'teaser' => $this->nullStrRule(500),
             'slug'   => Rule::unique('news', 'slug')->ignore($this->news)->withoutTrashed(),

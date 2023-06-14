@@ -117,6 +117,13 @@ class RoleSeeder extends Seeder {
                 'notice-lecturer.store',
                 'notice-lecturer.update',
 
+                'notice-marriage.create',
+                'notice-marriage.destroy',
+                'notice-marriage.edit',
+                'notice-marriage.index',
+                'notice-marriage.store',
+                'notice-marriage.update',
+
                 'pictures.create',
                 'pictures.destroy',
                 'pictures.edit',

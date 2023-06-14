@@ -273,6 +273,13 @@ return [
                     'icon'  => 'fas fa-book-open',
                     'can'  => 'notice-lecturer.index',
                 ],
+                [
+                    'text'  => 'Predmanželská príprava',
+                    'icon_color'  => 'yellow',
+                    'route' => 'notice-marriage.index',
+                    'icon'  => 'fas fa-ring',
+                    'can'  => 'notice-marriage.index',
+                ],
         [
             'header' => 'Sekcie',
             'can'  => [

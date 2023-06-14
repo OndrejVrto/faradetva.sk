@@ -101,9 +101,9 @@
             <!-- Modlitba  -->
             <!-- Etiketa v kostole  -->
         </li>
-        <li>
+        {{-- <li>
             <a href="{{ secure_url('duchovny-zivot/svate-omse') }}">Sväté omše</a>
-        </li>
+        </li> --}}
     </ul>
 </li>
 

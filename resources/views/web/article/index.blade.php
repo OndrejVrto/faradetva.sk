@@ -1,6 +1,6 @@
-@push('js')
+{{-- @push('js')
     <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" crossorigin="anonymous"></script>
-@endpush
+@endpush --}}
 
 <x-web.layout.master>
 
@@ -62,11 +62,12 @@
                         </div>
                     </div>
 
-                    <div class="row" data-masonry='{"percentPosition": true }'>
+                    {{-- <div class="row" data-masonry='{"percentPosition": true }'> --}}
+                    <div class="row">
                 @else
                         <!-- ARTICLE {{ $oneNews->id }} Start -->
-                        <div class=" col-sm-6 col-lg-4">
-                            <div class="blog_item_cover">
+                        <div class="col-sm-6 col-lg-4 pb-4">
+                            <div class="blog_item_cover frombottom wow h-100 d-flex flex-column" data-wow-delay="{{ ((($loop->index - 1) % 3) + 1) * 0.4 }}s">
                                 <div class="blog_thumb">
                                     <img src="{{ $oneNews->getFirstMediaUrl($oneNews->collectionName, 'small') }}"
                                         class="w-100"
@@ -85,7 +86,7 @@
                                     </x-partials.picture-label>
                                 </div>
 
-                                <div class="blog_desc">
+                                <div class="blog_desc h-100 d-flex flex-column px-3 py-2">
                                     <div class="blog_info d-flex flex-wrap justify-content-around mt-2">
                                         <a href="{{ route('article.author', $oneNews->user->slug) }}">
                                             <i class="fa-regular fa-user" aria-hidden="true"></i>
@@ -108,7 +109,7 @@
                                         {!! $oneNews->clean_teaser !!}
                                     </div>
 
-                                    <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-end justify-content-between mt-auto">
                                             <a href="{{ route('article.show', $oneNews->slug) }}" class="read_m_link">
                                                 Čítať viac
                                                 <i class="fa-solid fa-long-arrow-alt-right" aria-hidden="true"></i>

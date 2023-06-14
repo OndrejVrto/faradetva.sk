@@ -41,6 +41,7 @@ class News extends BaseModel implements HasMedia, Feedable, Visitable {
 
     protected $fillable = [
         'active',
+        'prioritized',
         'user_id',
         'published_at',
         'unpublished_at',
@@ -56,6 +57,7 @@ class News extends BaseModel implements HasMedia, Feedable, Visitable {
     protected $casts = [
         'active' => 'boolean',
         'notified' => 'boolean',
+        'prioritized' => 'boolean',
         'count_words' => 'integer',
         'deleted_at' => 'datetime',
         'content_plain' => 'string',
@@ -71,6 +73,7 @@ class News extends BaseModel implements HasMedia, Feedable, Visitable {
 
     public function scopeNewsComplete(Builder $query): Builder {
         return $query
+                    ->orderByDesc('prioritized')
                     ->visible()
                     ->with('media', 'user', 'category', 'source');
     }

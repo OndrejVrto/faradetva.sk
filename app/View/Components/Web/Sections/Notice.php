@@ -15,9 +15,10 @@ class Notice extends Component {
     private const NAMESPACE = '\\App\\Models\\';
 
     private const TYPE = [
-        'church'  => 'NoticeChurch',
-        'acolyta' => 'NoticeAcolyte',
-        'lector'  => 'NoticeLecturer'
+        'church'   => 'NoticeChurch',
+        'acolyta'  => 'NoticeAcolyte',
+        'lector'   => 'NoticeLecturer',
+        'marriage' => 'NoticeMarriage',
     ];
 
     public function __construct(

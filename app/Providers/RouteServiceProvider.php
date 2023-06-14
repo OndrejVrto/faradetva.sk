@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
-use App\Models\NoticeChurch;
 use Illuminate\Http\Request;
+use App\Models\NoticeChurch;
 use App\Models\NoticeAcolyte;
 use App\Models\NoticeLecturer;
+use App\Models\NoticeMarriage;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -66,6 +67,7 @@ class RouteServiceProvider extends ServiceProvider {
         Route::bind('notice-church', fn ($val) => NoticeChurch::whereSlug($val)->firstOrFail());
         Route::bind('notice-acolyte', fn ($val) => NoticeAcolyte::whereSlug($val)->firstOrFail());
         Route::bind('notice-lecturer', fn ($val) => NoticeLecturer::whereSlug($val)->firstOrFail());
+        Route::bind('notice-marriage', fn ($val) => NoticeMarriage::whereSlug($val)->firstOrFail());
     }
 
     /**

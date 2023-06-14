@@ -1,21 +1,37 @@
 Obsah stránky:
-  ☐ rozpis predmanželskej prípravy v kontaktoch som zmazal. V kontaktnom formulári to nebolo správne. Kde to dať? Urobiť k tomu administráciu?
-  ☐ nahodiť všetky obrázky do stránok "O-nás"
-  ☐ nahodiť chýbajúce texty pre spoločenstvá
-  ☐ prepísať kategórie článkov a tagy a pridať ich do existujúcich správ.
-  ☐ vytvoriť komponent pre výsečové grafy s napevno pridanými údajmi
-  ☐ Title, description a základné META pre chybové stránky.
-  ☐ stránka "všetky albumy" ?
-  ☐ stránka "všetky obrázky na stránke zobrazené ako mega album" ?
+  ☐ stránka "O autoroch a knihe" kde bude príhovor, info o autoroch (krátky životopis a kontakt), kontakty na aktuálnych správcov obsahu, info o knihe s informáciou ako si ju kúpiť.
+  ☐ sekcia "náhodný obrázok dňa" kde sa zobrazí jeden náhodný obrázok aj s popismi. Každú hodinu iný. Máme ich na stránke nahratých viac ako 600.
+  ☐ stránka "všetky albumy" alebo "všetky obrázky" alebo "všetky banery" zobrazené ako mega album?
+  ☐ stránka pre farskú knižnicu
 
+  ☐ @critical zmeniť heslá
+  ☐ pripraviť krátku prezentáciu pre odovzdanie stránky.
+  ☐ aktuálne oznamy z produkcie pred nahratim na server
+
+  ☐ doplniť fotoalbumy do stránok: detvianske kríže, farský kostol a vianoce
+  ☐ prepísať kategórie článkov a tagy a pridať ich do existujúcich správ.
+  ☐ Title, description a základné META pre chybové stránky.
+  ☐ komponent pre čítadlo na hlavnej stránke. Počítadlo návštevnosti.
   ☐ @future facebook prepojenie - počet likes FB stránky farnosti
   ☐ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET. Ak samozrejme rozchodíme MeiliSearch
 
+  ✘ prerobiiť v CSS veľkosť slider textov responzívne cez rem hodnoty a nie cez px. Pri zoome to blbne. Bude to blbnúť, lebo to neviem urobiť.
+  ✔ otočiť fotku KA Medevecký
+  ✔ v správach prerobiť masonry layout na klasické stĺpce s rovnakou výškou
+  ✔ @high v etiketa aj v cirkevne prikazania máme rovnaký obrázok s rukami a peniazmi. a je aj v menu
+  ✔ nájsť obrázok ruky s almužnou
+  ✔ doplniť texty so Menu "O nás"
+  ✔ @low priorita správy defaultne disabled
+  ✔ @high slider ide len jeden odrázok
+  ✔ @low nahodiť chýbajúce texty pre spoločenstvá
+  ✔ nahodiť všetky obrázky a texty do stránok "O-nás"
+  ✔ rozpis predmanželskej prípravy v kontaktoch som zmazal. V kontaktnom formulári to nebolo správne. Kde to dať? Urobiť k tomu administráciu?
+  ✔ vytvoriť komponent pre výsečové grafy s napevno pridanými údajmi. údaje v xls - vierovyznania
+  ✔ checkbox v správach pre prioritu zobrazenia.  "Zobraziť na začiatku?"
   ✔ vypnúť ulice v mate google
   ✔ komponent ako sekcia v kontaktoch -> facebook karta farnosti v iframe.
   ✔ prepísať h5 v testimonials na h3
   ✔ zrušiť preload písiem v header links pre Http2
-  ✔ @critical zmeniť heslá
   ✔ pridať sekciu o kostole do oznamov a kontaktov
   ✔ prečistiť obsah vyhľadávania MeiliSearch. Nech tam sú zaindexované len dôležité časti stránky a len podstatné stránky
   ✔ upraviť vzhľad vyhľadávania
@@ -67,6 +83,7 @@ Administrátorské rozhranie:
 
   Dashboard:
     ☐ štatistika a rôzne grafy (počet a zoznam subscriberov)
+    ☐ grafy visitors
     ☐ cache pre feedy
     ☐ @future pridať kartu s informáciou o posledných prihlásých uživateľoch
     ☐ @future pridať kartu s informáciou o posledných zmenách na stránke
@@ -98,18 +115,24 @@ Administrátorské rozhranie:
 
 
   Iné:
+    ☐ @critical pint + phpstan
+    ☐ prerobiť ValueStore
     ☐ Prerobit starý Toastr na PHPFlasher https://php-flasher.io
     ☐ dorobiť administráciu subscribers
-    ☐ dorobiť administráciu predmanželskej prípravy
+    ☐ pri návrate späť v administrácii ostať na stránke/page kde som bol pôvodne a nie na prvej stránke
+    ☐ dorobiť napojenie subscribers na maily
+    ✔ dorobiť administráciu predmanželskej prípravy
+    ☐ @critical keď je v názve súboru obrázka diakritika, tak zlyhá uložnei súboru -> mediaservice
+    ☐ @critical keď existuje obrázok (rovnaký slug), tak sa na frontende neobjaví chybová správa. Iba biela obrazovka
     ☐ upratať lang
     ☐ implement failed job monitor (https://github.com/spatie/laravel-failed-job-monitor)
     ☐ implementovať Spatie Laravel Backup
-    ☐ implementovať balíček Laravisit na články/userov ? (https://www.youtube.com/watch?v=6JBkDGqnc2w&ab_channel=LaravelDaily)
     ☐ @future Datatable pre všetky backend tabuľky (LiveWire Datatable alebo iný)
     ☐ @future implementovať knižnicu "custom Avatar JS" pre Userov
     ☐ @future vyhľadávanie v administrácii - implementovať Laravel Scout
     ☐ @future automatické zverejnenie článku na FaceBooku po zverejnení na stránke
 
+    ✘ implementovať balíček Laravisit na články/userov ? (https://www.youtube.com/watch?v=6JBkDGqnc2w&ab_channel=LaravelDaily) Mám Vlastný package.
     ✔ opraviť Show formulár a metódy pre všetky typy obrázkov
     ✔ vyriešiť deployment celej aplikácie http://www.youtube.com/results?search_query=deploy+laravel+app
     ✘ response cache hlavnej stránky v inom časovaní ako ostatok
@@ -195,3 +218,4 @@ Otázky na Tomáša:
 
 
 Archive:
+

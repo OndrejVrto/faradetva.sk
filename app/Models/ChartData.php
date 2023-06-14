@@ -16,6 +16,7 @@ class ChartData extends BaseModel {
         'chart_id',
         'key',
         'value',
+        'color',
     ];
 
     public function getRouteKeyName(): string {

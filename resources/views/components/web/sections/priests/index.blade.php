@@ -3,11 +3,11 @@
     {{-- row="true" --}}
     class="ch_pasters_section pad_t_50 pad_b_50"
 >
-    <x-web.page.section-header header="Naši kňazi" />
+    <x-web.page.section-header header="Naši kňazi" class="mb-0" />
 
-    <div class="row pad_t_50 pad_b_30">
+    <div class="row pad_b_30">
         @foreach ($priests as $priest)
-            <div class="col-xl-4 col-md-6 col-12">
+            <div class="col-xl-4 col-md-6 col-12 mar_t_100">
                 <div class="ministry_box pastor_box flipinY wow h-100 my-0 d-flex flex-column pb-2">
                     <div class="ministry_thumb">
                         <img src="{{ $priest['img-url'] }}"

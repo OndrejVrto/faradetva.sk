@@ -133,6 +133,13 @@ return [
         'update-error'  => 'Zlyhala úprava oznamu!',
         'delete' => 'Farské oznamy boli odstránené!',
     ],
+    'notice-marriage'   => [
+        'store'  => 'Rozpis predmanželskej prípravy bol pridaný!',
+        'store-error'  => 'Zlyhalo pridanie rozpisu predmanželskej prípravy!',
+        'update' => 'Rozpis predmanželskej prípravy bol upravený.',
+        'update-error'  => 'Zlyhal úprava rozpisu predmanželskej prípravy!',
+        'delete' => 'Rozpis predmanželskej prípravy bol odstránený!',
+    ],
     'prayer'   => [
         'store'  => 'Modlitba bola pridaná!',
         'update' => 'Modlitba bola upravená.',

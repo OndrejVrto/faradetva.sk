@@ -18,6 +18,7 @@
         <x-slot:table_header>
             {{-- <x-admin.table.th width="1%">#</x-admin.table.th> --}}
             <x-admin.table.th-check-active/>
+            <x-admin.table.th-check-active>Prioritná správa</x-admin.table.th-check-active>
 
             <x-admin.table.th width="11%" class="d-none d-md-table-cell text-center">Fotka</x-admin.table.th>
             <x-admin.table.th width="20%" class="d-none d-lg-table-cell">Autor</x-admin.table.th>
@@ -30,10 +31,11 @@
 
         <x-slot:table_body>
             @foreach($allNews as $news)
-                <x-admin.table.tr trashed="{{ $news->trashed() }}">
+                <x-admin.table.tr :trashed="$news->trashed()" :prioritized="$news->prioritized">
 
                     {{-- <x-admin.table.td>{{$news->id}}</x-admin.table.td> --}}
                     <x-admin.table.td-check-active check="{{$news->active}}" check_false_title="Článok je skrytý"/>
+                    <x-admin.table.td-check-active class="text-center" check="{{$news->prioritized}}" check_false_title="Článok má prioritu"/>
 
                     <x-admin.table.td class="d-none d-md-table-cell text-center">
                         <img src="{{ $news->getFirstMediaUrl($news->collectionName, 'crop-thumb') ?: "http://via.placeholder.com/170x92" }}"

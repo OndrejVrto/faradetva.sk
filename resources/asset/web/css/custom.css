@@ -185,9 +185,9 @@
     height: 400px;
 }
 
-.ch_source em {
+/* .ch_source em {
     margin-right: 0.5rem;
-}
+} */
 
 #contentArticle img {
     max-width: 100%;
@@ -198,4 +198,13 @@
     margin-top: 10px;
     line-height: 1.5;
     text-align: justify;
+}
+
+
+.h-20 {
+    height: 5rem /* 80px */;
+}
+
+.h-7rem {
+    height: 7rem /* 100px */;
 }

@@ -27,7 +27,7 @@
         >
             <h3>
                 <a href="{{ $url }}" class="link-template">
-                    {{ $title }}
+                    {!! $title !!}
                 </a>
             </h3>
             <p class="text-justify">

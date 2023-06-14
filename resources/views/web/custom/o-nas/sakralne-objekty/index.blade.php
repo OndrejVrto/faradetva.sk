@@ -4,12 +4,12 @@
 <x-web.layout.master :pageData="$pageData">
 
     {{-- O Nás / Sakrálne objekty --}}
-        <!-- Farský kostol -->
-        <!-- Kláštorný kostol -->
-        <!-- Kalvária -->
-        <!-- Kaplnky -->
-        <!-- Prícestné sochy -->
-        <!-- Detvianske kríže -->
+        {{-- Farský kostol --}}
+        {{-- Kláštorný kostol --}}
+        {{-- Kalvária --}}
+        {{-- Kaplnky --}}
+        {{-- Prícestné sochy --}}
+        {{-- Detvianske kríže --}}
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }})" class="pad_b_50" row>
 
@@ -23,7 +23,7 @@
                 <x-partials.picture-responsive titleSlug="fk-001-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Prvý a pôvodný renesančný kostol zasvätený sv. Františkovi bol v centre Detve postavený už v roku 1664. Hoci bol pomerne veľký, pre rýchly populačný prírastok obyvateľstva, početným veriacim nestačil. Preto ho zbúrali a na jeho mieste v roku 1803 - 1806 postavili nový, väčší, dnešný kostol v klasicistickom štýle. Až po skompletizovaní celkového vybavenia interiéru bol kostol konsekrovaný v roku 1823. Zo starého kostola sa prevzala len veža, ktorú neskôr nadstavili.
+                Prvý a&nbsp;pôvodný renesančný kostol zasvätený sv. Františkovi bol v&nbsp;centre Detve postavený už v&nbsp;roku 1664. Hoci bol pomerne veľký, pre rýchly populačný prírastok obyvateľstva, početným veriacim nestačil. Preto ho zbúrali a&nbsp;na jeho mieste v&nbsp;roku 1803 - 1806 postavili nový, väčší, dnešný kostol v&nbsp;klasicistickom štýle. Až po skompletizovaní celkového vybavenia interiéru bol kostol konsekrovaný v&nbsp;roku 1823. Zo starého kostola sa prevzala len veža, ktorú neskôr nadstavili.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -37,7 +37,7 @@
                 <x-partials.picture-responsive titleSlug="kk-002-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                V roku 2004 sa v mestskej časti Dolinky začalo s výstavbou kláštora pre kontemplatívne sestry z Rádu bosých karmelitánok. Hoci väčšia časť kláštora je verejnosti neprístupná, kláštorný kostol je možné navštíviť a denne sa v ňom slávia sväté omše za účasti veriacich farnosti. Celý kláštorný komplex s kostolom bol požehnaný v roku 2007. Na stenu presbytéria kostola bola v roku 2018 nainštalovaná mozaika s koncepciou patrocínia kostola.
+                V&nbsp;roku 2004 sa v&nbsp;mestskej časti Dolinky začalo s&nbsp;výstavbou kláštora pre kontemplatívne sestry z&nbsp;Rádu bosých karmelitánok. Hoci väčšia časť kláštora je verejnosti neprístupná, kláštorný kostol je možné navštíviť a&nbsp;denne sa v&nbsp;ňom slávia sväté omše za účasti veriacich farnosti. Celý kláštorný komplex s&nbsp;kostolom bol požehnaný v&nbsp;roku 2007. Na stenu presbytéria kostola bola v&nbsp;roku 2018 nainštalovaná mozaika s&nbsp;koncepciou patrocínia kostola.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -51,7 +51,7 @@
                 <x-partials.picture-responsive titleSlug="kalv-015-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                V roku 1704 bola na starom (dolnom) cintoríne v Detve postavená Kaplnka sv. Jozefa, ktorá bola v 19. storočí zväčšená na menší kostolík. Ten sa pre havarijný stav musel zbúrať a namiesto neho bola na cintoríne v roku 1910 vybudovaná Kalvária. Tú tvorí 14 zastavení krížovej cesty a Kaplnka Sedembolestnej Panny Márie. Pri príležitosti 100. výročia vybudovania kalvárie sa zrealizovala jej kompletná rekonštrukcia a nanovo ju požehnal biskup Rudolf Baláž.
+                V&nbsp;roku 1704 bola na starom (dolnom) cintoríne v&nbsp;Detve postavená Kaplnka sv. Jozefa, ktorá bola v&nbsp;19. storočí zväčšená na menší kostolík. Ten sa pre havarijný stav musel zbúrať a&nbsp;namiesto neho bola na cintoríne v&nbsp;roku 1910 vybudovaná Kalvária. Tú tvorí 14 zastavení krížovej cesty a&nbsp;Kaplnka Sedembolestnej Panny Márie. Pri príležitosti 100. výročia vybudovania kalvárie sa zrealizovala jej kompletná rekonštrukcia a&nbsp;nanovo ju požehnal biskup Rudolf Baláž.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -65,7 +65,7 @@
                 <x-partials.picture-responsive titleSlug="kapl-005-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Na území detvianskej farnosti sa nachádza niekoľko rôznych kaplniek. Väčšie kaplnky sa nachádzajú v lokalitách Piešť I. - u Slobodov a u Svoreňov, na Sliackej Poľane a v Krnom. V Domove dôchodcov je zriadená ekumenická kaplnka a v Domove sociálnych služieb v stredisku Piešť menšia meditačná kaplnka. Vo farnosti sú aj viaceré Božie muky vo forme menších kaplniek alebo stĺpov. Jedna z najstarších sa nachádza na Sládkovičovej ulici.
+                Na území detvianskej farnosti sa nachádza niekoľko rôznych kaplniek. Väčšie kaplnky sa nachádzajú v&nbsp;lokalitách Piešť I. - u&nbsp;Slobodov a&nbsp;u&nbsp;Svoreňov, na Sliackej Poľane a&nbsp;v&nbsp;Krnom. V&nbsp;Domove dôchodcov je zriadená ekumenická kaplnka a&nbsp;v&nbsp;Domove sociálnych služieb v&nbsp;stredisku Piešť menšia meditačná kaplnka. Vo farnosti sú aj viaceré Božie muky vo forme menších kaplniek alebo stĺpov. Jedna z&nbsp;najstarších sa nachádza na Sládkovičovej ulici.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -79,7 +79,7 @@
                 <x-partials.picture-responsive titleSlug="soch-016-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                K obľúbeným a zľudoveným svätcom 18. storočia patrili sv. Ján Nepomucký so sv. Floriánom. Boli uctievaní ako pomocníci v každodennom živote a ako patróni proti živelným pohromám. V Uhorsku sa ich kult šíril hlavne počas protireformácie a dostal sa aj do Detvy. Dodnes sa tu zachovala kamenná socha sv. Jána Nepomuckého z roku 1768 a neskorobaroková kamenná, polychrómovaná socha sv. Floriána z 2. pol. 18. storočia.
+                K&nbsp;obľúbeným a&nbsp;zľudoveným svätcom 18. storočia patrili sv. Ján Nepomucký so sv. Floriánom. Boli uctievaní ako pomocníci v&nbsp;každodennom živote a&nbsp;ako patróni proti živelným pohromám. V&nbsp;Uhorsku sa ich kult šíril hlavne počas protireformácie a&nbsp;dostal sa aj do Detvy. Dodnes sa tu zachovala kamenná socha sv. Jána Nepomuckého z&nbsp;roku 1768 a&nbsp;neskorobaroková kamenná, polychrómovaná socha sv. Floriána z&nbsp;2. pol. 18. storočia.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -93,7 +93,7 @@
                 <x-partials.picture-responsive titleSlug="dkriz-kronika-574-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Umelecké cítenie detvianskych ľudí sa dostalo do sveta najmä prostredníctvom pestrých výšiviek a bohato vyrezávaných krížov. Z typologického hľadiska ľudovej umeleckej výroby vyrezávaných krížov v Detve ide jednak o náhrobné kríže, jednak o veľké ústredné a prícestné kríže. V 18. storočí sa v Detve a okolí odrazil vývoj umeleckej úrovne drevených krížov v súvise s barokovým dekorativizmom, označujúc ho termínom zľudovený barok.
+                Umelecké cítenie detvianskych ľudí sa dostalo do sveta najmä prostredníctvom pestrých výšiviek a&nbsp;bohato vyrezávaných krížov. Z&nbsp;typologického hľadiska ľudovej umeleckej výroby vyrezávaných krížov v&nbsp;Detve ide jednak o&nbsp;náhrobné kríže, jednak o&nbsp;veľké ústredné a&nbsp;prícestné kríže. V&nbsp;18. storočí sa v&nbsp;Detve a&nbsp;okolí odrazil vývoj umeleckej úrovne drevených krížov v&nbsp;súvise s&nbsp;barokovým dekorativizmom, označujúc ho termínom zľudovený barok.
             </x-slot:teaser>
         </x-partials.card-article>
 

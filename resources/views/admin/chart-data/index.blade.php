@@ -10,7 +10,7 @@
 
 @section('content')
     <x-admin.table
-        columns="6"
+        columns="8"
         controlerName="charts.data"
         createLink="{{ route('charts.data.create', $chart) }}"
         linkBack="{{ route('charts.index') }}"

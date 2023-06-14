@@ -32,7 +32,8 @@ class Notice extends BaseModel implements HasMedia, Feedable {
     protected static array $singleTableSubclasses = [
         NoticeAcolyte::class,
         NoticeChurch::class,
-        NoticeLecturer::class
+        NoticeLecturer::class,
+        NoticeMarriage::class
     ];
 
     protected static bool $throwInvalidAttributeExceptions = true;

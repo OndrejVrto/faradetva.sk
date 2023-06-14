@@ -66,6 +66,7 @@ class StatisticsGraph extends Component {
      */
     private function mapOutput(Chart $chart): array {
         return [
+            'chartType'   => $chart->type_chart,
             'id'          => $chart->id,
             'title'       => $chart->title,
             'color'       => $chart->color,
@@ -73,8 +74,9 @@ class StatisticsGraph extends Component {
             'type'        => $chart->type_chart->type(),
             'name_x_axis' => $chart->name_x_axis,
             'name_y_axis' => $chart->name_y_axis,
-            'labelGraph'  => $chart->data->pluck('key')->implode(','),
             'dataGraph'   => $chart->data->pluck('value')->implode(','),
+            'labelGraph'  => $chart->data->pluck('key')->map(fn($i) => '"'.$i.'"')->implode(','),
+            'dataColor'   => $chart->data->pluck('color')->map(fn($i) => '"'.$i.'99"')->implode(','),
         ];
     }
 }

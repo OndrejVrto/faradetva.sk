@@ -91,7 +91,7 @@
         ["years" => "1957 - 1958", "name" => "Štefan Sámel"],
         ["years" => "1958"       , "name" => "Maurus Pavel Pataky OSB"],
         ["years" => "1958 - 1960", "name" => "Jozef Krajči"],
-        ["years" => "1959 - 1960", "name" => "Ignác Lenhardt", "description" => "výp. duchovný"],
+        ["years" => "1959 - 1960", "name" => "Ignác Lenhardt", "description" => "výpomocný duchovný"],
         ["years" => "1960 - 1962", "name" => "Martin Čabák"],
         ["years" => "1960 - 1962", "name" => "Juraj Sloboda"],
         ["years" => "1962 - 1963", "name" => "Vincent Wahlandt", "description" => "druhýkrát"],
@@ -126,7 +126,7 @@
         ["years" => "1990 - 1992", "name" => "Marián Bublinec"],
         ["years" => "1991 - 1992", "name" => "Ján Gál"],
         ["years" => "1992 - 1993", "name" => "Jozef Kožuch"],
-        ["years" => "1992 - 1993", "name" => "Pavol Párničan", "description" => "výp. duchovný"],
+        ["years" => "1992 - 1993", "name" => "Pavol Párničan", "description" => "výpomocný duchovný"],
         ["years" => "1993 - 1994", "name" => "Dušan Horváth"],
         ["years" => "1994 - 1996", "name" => "Dominik Markoš"],
         ["years" => "1996 - 1997", "name" => "Dušan Mesík"],
@@ -151,8 +151,8 @@
         ["years" => "2015 - 2017", "name" => "Dominik Jáger"],
         ["years" => "2017 - 2018", "name" => "Pavol Lojan"],
         ["years" => "2017 - 2020", "name" => "Juraj Ondruš"],
-        ["years" => "2019 -"     , "name" => "Pavol Prieboj", "description" => "výp. duchovný"],
-        ["years" => "2020 -"     , "name" => "Marián Juhaniak"],
+        ["years" => "2019 -"     , "name" => "Pavol Prieboj", "description" => "výpomocný duchovný"],
+        ["years" => "2020 - 2023", "name" => "Marián Juhaniak"],
     ];
 @endphp
 

@@ -35,7 +35,7 @@
     <div {{ $attributes->merge(['class' => 'row mb-3 ch_about_desc']) }}>
         @isset($title)
             <h3 class="mt-2 wow {{ in_array($animation, $ANIMATION_TYPE) ? $animation : 'fromright' }}" data-wow-delay="0.4s">
-                {{ $title }}
+                {!! $title !!}
                 @isset($icon)<i class="{{ $icon }}"></i>@endisset
             </h3>
         @endisset

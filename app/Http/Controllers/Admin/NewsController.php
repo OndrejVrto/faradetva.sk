@@ -21,6 +21,7 @@ use Spatie\MediaLibrary\Support\MediaStream;
 class NewsController extends Controller {
     public function index(Request $request): View {
         $allNews = News::query()
+            ->orderByDesc('prioritized')
             ->latest()
             ->withCount('document')
             ->with('user', 'media')

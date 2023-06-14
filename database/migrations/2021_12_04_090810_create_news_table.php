@@ -26,6 +26,7 @@ return new class () extends Migration {
             $table->fulltext(['title', 'teaser', 'content_plain']);
 
             $table->boolean('active')->default(1);
+            $table->boolean('prioritized')->default(0);
             $table->timestamp('published_at')->nullable()->default(null);
             $table->timestamp('unpublished_at')->nullable()->default(null);
             $table->boolean('notified')->default(0);

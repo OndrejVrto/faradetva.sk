@@ -22,6 +22,7 @@ mix.babel(['resources/asset/web/js/custom.js',
 mix.babel('resources/asset/web/js/custom-gallery.js',    'public/asset/app-gallery.js');
 mix.babel('resources/asset/web/js/custom-google-map.js', 'public/asset/app-google-map.js');
 mix.babel('resources/asset/web/js/custom-chart.js',      'public/asset/app-chart.js');
+mix.babel('resources/asset/web/js/custom-chart-doughnut.js',      'public/asset/app-chart-doughnut.js');
 mix.babel('resources/asset/web/js/custom-pdf.js',        'public/asset/app-pdf.js');
 
 mix.sass('resources/asset/web/css/custom-bootstrap.scss', 'public/asset/app-bootstrap.css');
