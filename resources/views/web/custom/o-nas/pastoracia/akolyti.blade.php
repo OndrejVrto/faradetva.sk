@@ -73,11 +73,6 @@
 
     <x-web.sections.background-picture titleSlug="akol-013"/>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II. -" class="static-page pad_t_50 pad_b_50">
+    <x-web.sections.notice typeNotice="Acolyte" id="rozpis" class="pad_t_50"/>
 
-        <x-web.page.subsection title="Rozpisy akolytov" id="rozpis">
-            <x-web.sections.notice typeNotice="Acolyte" />
-        </x-web.page.subsection>
-
-    </x-web.page.section>
 </x-web.layout.master>
