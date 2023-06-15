@@ -7,7 +7,7 @@
                 <div class="item">
                     <div class="slider_bg slider-img-{{ $slider['id'] }}" id="slid-{{ $slider['id'] }}">
                         <div class="black_overlay">
-                            <div class="container">
+                            <div class="container-fluid">
                                 <div class="slider_captions">
                                     <h1 class="heading_1">{{ $slider['heading_row_1'] }}</h1>
                                     <h1 class="heading_2">{{ $slider['heading_row_2'] }}</h1>
