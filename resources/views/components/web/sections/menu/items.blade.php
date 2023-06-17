@@ -43,17 +43,6 @@
             <!-- Jozef Závodský -->
         </li>
         <li>
-            <a href="{{ secure_url('o-nas/pastoracia') }}">Pastorácia</a>
-            <!-- Farská rada -->
-            <!-- Lektori + Rozpisy -->
-            <!-- Akolyti  + Rozpisy -->
-            <!-- Miništranti -->
-            <!-- Kostolníci -->
-            <!-- Organisti, speváci -->
-            <!-- Spevokoly, dychovka -->
-            <!-- Vyučovanie náboženstva -->
-        </li>
-        <li>
             <a href="{{ secure_url('spolocenstva') }}">Spoločenstvá</a>
             <!-- Františkánsky svetský rád -->
             <!-- Ružencové bratstvo -->
@@ -67,6 +56,17 @@
             <!-- Modlitby matiek -->
             <!-- Bárka -->
             <!-- Služobníci Ježišovho Veľkň. Srdca -->
+        </li>
+        <li>
+            <a href="{{ secure_url('o-nas/pastoracia') }}">Pastorácia</a>
+            <!-- Farská rada -->
+            <!-- Lektori + Rozpisy -->
+            <!-- Akolyti  + Rozpisy -->
+            <!-- Miništranti -->
+            <!-- Kostolníci -->
+            <!-- Organisti, speváci -->
+            <!-- Spevokoly, dychovka -->
+            <!-- Vyučovanie náboženstva -->
         </li>
     </ul>
 </li>

@@ -67,11 +67,11 @@
             <!-- scitanie-obyvatelov-detvy -->
             <x-partials.statistics-graph id=6 aspectRatio=2 >
                 <x-slot:teaser>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quae aperiam excepturi! Fugiat neque voluptate, nam nihil eligendi fuga nulla odio officiis, reiciendis pariatur impedit ipsum beatae ex iusto sequi.
+                    Sčítanie obyvateľstva je štatistické zisťovanie osobných, sociálnych a&nbsp;ekonomických údajov osôb, v&nbsp;súčasnosti organizované obyčajne raz za 10 rokov.
                 </x-slot:teaser>
 
                 <x-slot:after>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatibus. Et deserunt omnis eius incidunt quos facilis sunt labore repudiandae consectetur similique laborum, sapiente quae ipsam. Quod dolores in cum?
+                    Prvé sčítanie samostatného Slovenska sa konalo v&nbsp;roku 2001, ktoré zabezpečil v&nbsp;plnom rozsahu Štatistický úrad Slovenskej republiky, ktorý všetky ďalšie sčítania od toho roku vykonáva.
                 </x-slot:after>
             </x-partials.statistics-graph>
         </div>
@@ -79,11 +79,11 @@
             <!-- rimsko-katolici-v-detve -->
             <x-partials.statistics-graph id=7 aspectRatio=2 >
                 <x-slot:teaser>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quae aperiam excepturi! Fugiat neque voluptate, nam nihil eligendi fuga nulla odio officiis, reiciendis pariatur impedit ipsum beatae ex iusto sequi.
+                    Rímskokatolícka cirkev je najväčšia kresťanská cirkev na Slovensku. Katolícka cirkev je na území dnešného Slovenska preukázateľne prítomná od 9.&nbsp;storočia.
                 </x-slot:teaser>
 
                 <x-slot:after>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatibus. Et deserunt omnis eius incidunt quos facilis sunt labore repudiandae consectetur similique laborum, sapiente quae ipsam. Quod dolores in cum?
+                    Prevažujúcim náboženstvom v&nbsp;Banskobystrickom kraji je rímskokatolícke. V&nbsp;rozmedzí od 65 do 70 percent sa počet rímskokatolíkov pohybuje v&nbsp;okresoch Krupina, Žarnovica a&nbsp;Detva.
                 </x-slot:after>
             </x-partials.statistics-graph>
         </div>
@@ -95,26 +95,14 @@
         <div class="col-12 col-lg-6">
             <!-- Náboženské vyznania podľa sčítania r. 2011 -->
             <x-partials.statistics-graph id=8 >
-                <x-slot:teaser>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quae aperiam excepturi! Fugiat neque voluptate, nam nihil eligendi fuga nulla odio officiis, reiciendis pariatur impedit ipsum beatae ex iusto sequi.
-                </x-slot:teaser>
-
                 <x-slot:after>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatibus. Et deserunt omnis eius incidunt quos facilis sunt labore repudiandae consectetur similique laborum, sapiente quae ipsam. Quod dolores in cum?
+                    Pozn: Klepnutím na legendu je možné skryť niektoré položky.
                 </x-slot:after>
             </x-partials.statistics-graph>
         </div>
         <div class="col-12 col-lg-6">
             <!-- Náboženské vyznania podľa sčítania r. 2022  -->
-            <x-partials.statistics-graph id=9>
-                <x-slot:teaser>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quae aperiam excepturi! Fugiat neque voluptate, nam nihil eligendi fuga nulla odio officiis, reiciendis pariatur impedit ipsum beatae ex iusto sequi.
-                </x-slot:teaser>
-
-                <x-slot:after>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatibus. Et deserunt omnis eius incidunt quos facilis sunt labore repudiandae consectetur similique laborum, sapiente quae ipsam. Quod dolores in cum?
-                </x-slot:after>
-            </x-partials.statistics-graph>
+            <x-partials.statistics-graph id=9 />
         </div>
 
     </x-web.page.section>

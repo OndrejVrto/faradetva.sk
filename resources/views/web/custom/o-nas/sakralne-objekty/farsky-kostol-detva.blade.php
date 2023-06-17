@@ -11,7 +11,7 @@
                 <x-partials.picture titleSlug="fk-064" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
-                    Prvý a&nbsp;pôvodný renesančný kostol zasvätený sv. Františkovi Serafínskemu (Assiskému) bol v&nbsp;Detve postavený už v&nbsp;roku 1664. Hoci bol pomerne veľký, svojmu účelu slúžil len 150 rokov. Pre rýchly populačný prírastok obyvateľstva, už koncom 18. storočia početným veriacim nestačil. Preto ho zbúrali a&nbsp;na jeho mieste v&nbsp;rokoch 1803 - 1806 postavili nový, väčší, dodnes zachovaný kostol v&nbsp;klasicistickom štýle.
+                    Prvý a&nbsp;pôvodný renesančný kostol zasvätený sv. Františkovi Serafínskemu (Assiskému) bol v&nbsp;Detvy postavený už v&nbsp;roku 1664. Hoci bol pomerne veľký, svojmu účelu slúžil len 150 rokov. Pre rýchly populačný prírastok obyvateľstva, už koncom 18. storočia početným veriacim nestačil. Preto ho zbúrali a&nbsp;na jeho mieste v&nbsp;rokoch 1803 - 1806 postavili nový, väčší, dodnes zachovaný kostol v&nbsp;klasicistickom štýle.
                 </p>
 
                 <p>

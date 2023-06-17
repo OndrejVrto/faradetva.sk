@@ -106,11 +106,13 @@
                     Neodmysliteľnou súčasťou sviatkov, aj vzhľadom na vierovyznanie obyvateľstva, bola účasť na bohoslužbách. Do kostola v&nbsp;Detve prichádzali ľudia nielen z&nbsp;Detvy, jej lazov a&nbsp;osád, ale aj z&nbsp;okolitých obcí: Stožka, Kriváňa, Korytárok a&nbsp;susedných osád Hriňovej.
                 </p>
 
-                <div class="row">
-                    <div class="col-md-8 mx-auto">
-                        <x-partials.video-embed urlVideo="https://youtu.be/vmkGmjVg6o0" class="ratio ratio-4x3"/>
-                    </div>
-                </div>
+                <x-partials.video-embed
+                    urlVideo="https://youtu.be/vmkGmjVg6o0"
+                    :config="[
+                        'width' => 600,
+                        'class' => 'd-block mx-auto'
+                    ]"
+                />
 
             </x-web.page.text-segment>
         </x-web.page.subsection>

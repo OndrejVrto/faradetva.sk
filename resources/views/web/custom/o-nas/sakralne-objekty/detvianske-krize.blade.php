@@ -76,7 +76,7 @@
                         V&nbsp;Kostolnej dal nový drevený kríž zhotoviť Štefan Gonda - Spižiak. Bol posvätený 25. mája 1910 za účasti procesie, ktorá išla z&nbsp;kostola až do Kostolnej.
                     </li>
                     <li>
-                        Pod tureckým vŕškom v&nbsp;Piešti bol postavený nový drevený kríž, ktorý bol posvätený pri procesii 27. júla 1913.
+                        Pod Tureckým vŕškom v&nbsp;Piešti bol postavený nový drevený kríž, ktorý bol posvätený pri procesii 27. júla 1913.
                     </li>
                     <li>
                         Farár Ján Štrbáň v&nbsp;roku 1934 požehnal tri kríže. Jeden 15. augusta pri chotári Podkriváň u&nbsp;Dančov, dva 16. septembra pri detvianskom kostole, z&nbsp;ktorých postavený poniže kostola darovala pani Antónia Vagačová a&nbsp;kríž povyše kostola bol zadovážený z&nbsp;milodarov.
@@ -120,15 +120,16 @@
                     Detvianske náhrobné i&nbsp;prícestné kríže sú chránenou kultúrnou pamiatkou. V&nbsp;auguste 2017 sa rozhodlo o&nbsp;ich zápise do Reprezentatívneho zoznamu nehmotného kultúrneho dedičstva Slovenska. Roztrúsené po Slovensku zviditeľňujú Detvu a&nbsp;tie, ktoré sú ojedinele umiestnené po Európe (napr. pred Slovenským ústavom sv. Cyrila a&nbsp;Metoda v&nbsp;Ríme) zviditeľňujú celé Slovensko. Kríže, ktoré sa do súčasnosti zachovali na detvianskom cintoríne, ako aj prícestné kríže, sú dielami jednak už nežijúcich ľudových majstrov Jozefa Fekiača-Šumného, Jána Fekiača, Štefana Melicha-Klima, Štefana Stehlíka, Mikuláša Sekereša, Jozefa Krnáča-Stolára, Jozefa Krnáča-Boriaka, ale aj neznámych výrobcov.
                 </p>
                 <p>
-                    Zo súčasnej generácie miestnych výrobcov sú to najmä diela Jozefa Krnáča ml., Mikuláša Purdeka, Jána Môťovského, Štefana Melicha, Jozefa Ďuricu, Štefana Ľuptáka a&nbsp;ďalších. Reštaurovaniu krížov a&nbsp;výrobe malých stolových krížov a&nbsp;miniatúrnych príveskových krížikov, ktoré sú napodobeninami tradičných prícestných krížov, sa okrem iných výrazne venoval Milan Malček z&nbsp;Detvianskej umeleckej kolónie, o.z.
+                    Zo súčasnej generácie miestnych výrobcov sú to najmä diela Jozefa Krnáča ml., Mikuláša Purdeka, Jána Môťovského, Štefana Melicha, Jozefa Ďuricu, Štefana Ľuptáka, Juraja Krnáča a&nbsp;ďalších. Reštaurovaniu krížov a&nbsp;výrobe malých stolových krížov a&nbsp;miniatúrnych príveskových krížikov, ktoré sú napodobeninami tradičných prícestných krížov, sa okrem iných výrazne venoval Milan Malček z&nbsp;Detvianskej umeleckej kolónie, o.z.
                 </p>
 
-                <div class="row">
-                    <div class="col-md-6 mx-auto">
-                        <x-partials.video-embed urlVideo="https://youtu.be/hSy6Wdd5btA" class="ratio ratio-4x3"/>
-                    </div>
-                </div>
-            {{-- <x-partials.video-embed urlVideo="https://youtu.be/hSy6Wdd5btA" :config="['width' => 400]" class="ratio ratio-4x3"/> --}}
+                <x-partials.video-embed
+                    urlVideo="https://youtu.be/hSy6Wdd5btA"
+                    :config="[
+                        'width' => 600,
+                        'class' => 'd-block mx-auto'
+                    ]"
+                />
 
             </x-web.page.text-segment>
         </x-web.page.subsection>

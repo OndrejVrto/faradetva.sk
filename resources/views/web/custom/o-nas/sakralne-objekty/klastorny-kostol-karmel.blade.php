@@ -21,8 +21,7 @@
                 <x-partials.picture titleSlug="klk-012" side="left" dimensionSource="medium" columns="2" />
 
                 <p>
-                    V&nbsp;roku 2018 bola na stenu presbytéria kostola nainštalovaná mozaika, poskladaná z&nbsp;množstva kamienkov rôzneho druhu, veľkosti, tvaru a&nbsp;farby. Autorom mozaiky je gréckokatolícky kňaz a&nbsp;redemptorista Kamil Dráb, umeleckým menom Don Camillo, ktorý je žiakom celosvetovo známeho umelca, jezuitu Marka Rupnika. Celá koncepcia mozaiky vychádza z&nbsp;patrocínia kostola. Hlavnou postavou celého priestoru je Ježiš Kristus zo zjavenia sv. Faustíne, v&nbsp;ikonografickom zobrazení. Mozaiku 10. septembra 2018 požehnal diecézny biskup Mons. Marián Chovanec.
-
+                    V&nbsp;roku 2018 bola na stenu presbytéria kostola nainštalovaná mozaika, poskladaná z&nbsp;množstva kamienkov rôzneho druhu, veľkosti, tvaru a&nbsp;farby. Autorom mozaiky je gréckokatolícky kňaz a&nbsp;redemptorista Kamil Dráb, umeleckým menom Don Camillo, ktorý je žiakom celosvetovo známej <a href="https://www.centroaletti.com/" target="_blank">dielne Centrum Aletti v&nbsp;Ríme</a>. Celá koncepcia mozaiky vychádza z&nbsp;patrocínia kostola. Hlavnou postavou celého priestoru je Ježiš Kristus zo zjavenia sv. Faustíne, v&nbsp;ikonografickom zobrazení. Mozaiku 10. septembra 2018 požehnal diecézny biskup Mons. Marián Chovanec.
                 </p>
 
                 <x-partials.picture titleSlug="klk-015" side="right" dimensionSource="medium" columns="2" />
@@ -46,15 +45,23 @@
                 <p>
                     Po Kristovej pravici stojí Panna Mária - Kráľovná Karmelu. Na rukách drží dieťa Ježiša a&nbsp;s&nbsp;vrúcnou láskou ho túli k&nbsp;sebe, akoby ho chcela chrániť pred temnotami, ktoré sú navôkol. Zatiaľ čo malý Ježiš má - podobne ako veľký - prenikavý milosrdný pohľad, Panna Mária má zatvorené oči. Nie žeby spala. Je to Panna započúvaná do Slova. Slovo nosí v&nbsp;sebe a&nbsp;nesie ho pred sebou; nespí, ale vo svojom srdci o&nbsp;ňom premýšľa. Ježiško ponúka škapuliar - znak zmluvy a&nbsp;vzájomného spoločenstva medzi Pannou Máriou a&nbsp;veriacimi. Škapuliar pripomína ustavičnú ochranu a&nbsp;nežnú Máriinu prítomnosť počas našej životnej púte, ale aj vo chvíli prechodu do plnosti večnej slávy.
                 </p>
+
                 <p>
                     Celá mozaika je v&nbsp;pravom rohu za svätostánkom ukončená výrazným „stĺpom“, ktorý ostro kontrastuje s&nbsp;bielou stenou navôkol. Svätostánok takto vystupuje do popredia a&nbsp;celý kút akoby signalizoval: Tu je ten Prameň milosrdenstva, tu, v&nbsp;Eucharistii, prebýva živý Ten, ktorého obraz, poskladaný z&nbsp;kamienkov, obdivujeme a&nbsp;„o ktorom písal Mojžiš a&nbsp;Proroci“ (Jn 1,45).
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li><em>Mozaika v&nbsp;kaplnke karmelitánskeho kláštora v&nbsp;Detve.</em> Bosé karmelitánky, 2019.</li>
-            <li>NEPŠINSKÝ, Vojtech. <em>Boh prítomný medzi ľuďmi. Desaťročie nových kostolov a&nbsp;kaplniek v&nbsp;Banskobystrickej diecéze.</em> Badín: Kňazský seminár sv. Františka Xaverského, 2016. ISBN 978-80-88937-74-6.</li>
+            <li>
+                <em>Mozaika v&nbsp;kaplnke karmelitánskeho kláštora v&nbsp;Detve.</em> Bosé karmelitánky, 2019.
+            </li>
+            <li>
+                NEPŠINSKÝ, Vojtech.
+                <em>Boh prítomný medzi ľuďmi. Desaťročie nových kostolov a&nbsp;kaplniek v&nbsp;Banskobystrickej diecéze.</em>
+                Badín: Kňazský seminár sv. Františka Xaverského, 2016. ISBN 978-80-88937-74-6.
+            </li>
         </x-web.page.information-sources>
 
     </x-web.page.section>

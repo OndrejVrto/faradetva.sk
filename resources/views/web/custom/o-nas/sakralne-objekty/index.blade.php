@@ -23,7 +23,7 @@
                 <x-partials.picture-responsive titleSlug="fk-001-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Prvý a&nbsp;pôvodný renesančný kostol zasvätený sv. Františkovi bol v&nbsp;centre Detve postavený už v&nbsp;roku 1664. Hoci bol pomerne veľký, pre rýchly populačný prírastok obyvateľstva, početným veriacim nestačil. Preto ho zbúrali a&nbsp;na jeho mieste v&nbsp;roku 1803 - 1806 postavili nový, väčší, dnešný kostol v&nbsp;klasicistickom štýle. Až po skompletizovaní celkového vybavenia interiéru bol kostol konsekrovaný v&nbsp;roku 1823. Zo starého kostola sa prevzala len veža, ktorú neskôr nadstavili.
+                Prvý a&nbsp;pôvodný renesančný kostol zasvätený sv. Františkovi bol v&nbsp;centre Detvy postavený už v&nbsp;roku 1664. Hoci bol pomerne veľký, pre rýchly populačný prírastok obyvateľstva, početným veriacim nestačil. Preto ho zbúrali a&nbsp;na jeho mieste v&nbsp;rokoch 1803 - 1806 postavili nový, väčší, dnešný kostol v&nbsp;klasicistickom štýle. Až po skompletizovaní celkového vybavenia interiéru bol kostol konsekrovaný v&nbsp;roku 1823. Zo starého kostola sa prevzala len veža, ktorú neskôr nadstavili.
             </x-slot:teaser>
         </x-partials.card-article>
 

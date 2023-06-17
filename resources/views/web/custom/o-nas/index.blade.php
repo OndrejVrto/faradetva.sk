@@ -97,9 +97,26 @@
         </x-partials.card-event>
 
         <x-partials.card-event
+            title="Spoločenstvá"
+            url="{{ secure_url('spolocenstva') }}"
+            side="right"
+            >
+            <x-slot:img>
+                <x-partials.picture-responsive titleSlug="ocds-001-menu" descriptionSide="left"/>
+            </x-slot:img>
+            <x-slot:teaser>
+                Farnosť je určité spoločenstvo spoločenstiev veriacich, natrvalo ustanovené v&nbsp;partikulárnej cirkvi pod starostlivosťou vlastného pastiera - farára.
+                Farnosť cez svoje spoločenstvá uvádza kresťanský ľud do riadneho liturgického života a&nbsp;zhromažďuje ho na nedeľné slávenia; vyučuje Kristovo učenie; praktizuje Pánovu lásku v&nbsp;dobrých a&nbsp;bratských skutkoch.
+                <span class="d-none d-xl-inline me-2">
+                    Vo farnosti v&nbsp;Detve pôsobí viacero aktívnych spoločenstiev: Františkánsky svetský rád, Spoločenstvo Najsvätejšieho Srdca Ježišovho, Ružencové bratstvo, Združenie saleziánskych spolupracovníkov, Hnutie kresťanských rodín, Katolícka charizmatická obnova, Mariánske večeradlo, Modlitby matiek, Spoločenstvo Bárka, Združenie Faustínum, Rád bosých karmelitánok, Svetský rád bosých karmelitánov, Služobníci Ježišovho Veľkňazského Srdca.
+                </span>
+            </x-slot:teaser>
+        </x-partials.card-event>
+
+        <x-partials.card-event
             title="Pastorácia vo farnosti"
             url="{{ secure_url('o-nas/pastoracia') }}"
-            side="right"
+            side="left"
             >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="far-002-menu" descriptionSide="left"/>
@@ -116,25 +133,6 @@
                 </span>
             </x-slot:teaser>
         </x-partials.card-event>
-
-        <x-partials.card-event
-            title="Spoločenstvá"
-            url="{{ secure_url('o-nas/spolocenstva') }}"
-            side="left"
-            >
-            <x-slot:img>
-                <x-partials.picture-responsive titleSlug="ocds-001-menu" descriptionSide="left"/>
-            </x-slot:img>
-            <x-slot:teaser>
-                Farnosť je určité spoločenstvo spoločenstiev veriacich, natrvalo ustanovené v&nbsp;partikulárnej cirkvi pod starostlivosťou vlastného pastiera - farára.
-                Farnosť cez svoje spoločenstvá uvádza kresťanský ľud do riadneho liturgického života a&nbsp;zhromažďuje ho na nedeľné slávenia; vyučuje Kristovo učenie; praktizuje Pánovu lásku v&nbsp;dobrých a&nbsp;bratských skutkoch.
-                <span class="d-none d-xl-inline me-2">
-                    Vo farnosti v&nbsp;Detve pôsobí viacero aktívnych spoločenstiev: Františkánsky svetský rád, Spoločenstvo Najsvätejšieho Srdca Ježišovho, Ružencové bratstvo, Združenie saleziánskych spolupracovníkov, Hnutie kresťanských rodín, Katolícka charizmatická obnova, Mariánske večeradlo, Modlitby matiek, Spoločenstvo Bárka, Združenie Faustínum, Rád bosých karmelitánok, Svetský rád bosých karmelitánov, Služobníci Ježišovho Veľkňazského Srdca.
-                </span>
-            </x-slot:teaser>
-        </x-partials.card-event>
-
-
 
     </x-web.page.section>
 </x-web.layout.master>

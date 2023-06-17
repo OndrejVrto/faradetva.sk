@@ -73,7 +73,7 @@ function generateGraph(id, labelGraph, dataGraph, title, color, type, desc, name
         }
     };
 
-    const chart = new Chart(
+    new Chart(
         document.getElementById(id),
         config
     );

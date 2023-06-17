@@ -51,7 +51,7 @@
                 </blockquote>
 
                 <x-partials.video-embed
-                    urlVideo="https://www.youtube.com/watch?v=W4UE2y4APAE"
+                    urlVideo="https://youtu.be/W4UE2y4APAE"
                     :config="[
                         'width' => 600,
                         'class' => 'd-block mx-auto'

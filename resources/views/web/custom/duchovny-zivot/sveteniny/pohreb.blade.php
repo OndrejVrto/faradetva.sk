@@ -13,6 +13,7 @@
                 <p>
                     Cirkev sa modlí a&nbsp;verí: „Očakávam vzkriesenie mŕtvych a&nbsp;život budúceho veku.“ Pohrebné obrady sú posvätným úkonom, pri ktorom Cirkev zveruje Bohu svojich bratov a&nbsp;sestry vo viere, vyznáva svoju vieru a&nbsp;uznáva Božie pôsobenie v&nbsp;živote človeka.
                 </p>
+
                 <p>
                     Utrpenie, smrť a&nbsp;zmŕtvychvstanie Ježiša Krista sú vzorom života kresťana. Obradmi, ktoré sprevádzajú rozlúčku so zosnulými, spoločenstvo veriacich slávi nielen spásu, ktorú pre nás získal Kristus, ale nás aj zjednocuje s&nbsp;príbuznými, priateľmi a&nbsp;známymi, s&nbsp;ktorými zosnulí bratia a&nbsp;sestry prežívali časť svojho života, práce, vzťahov, citov a&nbsp;viery v&nbsp;Boha.
                 </p>
@@ -32,9 +33,11 @@
                 <p>
                     Pri pohrebe svojich bratov a&nbsp;sestier majú kresťania vyjadriť svoju pevnú nádej na večný život. Zároveň však majú dbať na zmýšľanie svojich súčasníkov a&nbsp;na smútočné zvyky svojej krajiny. Čo by však odporovalo evanjeliu, nech sa usilujú zmeniť, aby sa pri kresťanskom pohrebe prejavovala veľkonočná viera a&nbsp;skutočný duch evanjelia. Zaiste treba odmietnuť prázdnu, vonkajšiu honosnosť pohrebu, patrí sa však preukazovať úctu telám zomrelých veriacich, veď boli chrámom Ducha Svätého.
                 </p>
+
                 <p>
                     Prv než zomrelého uložia do hrobu, majú sa zhromaždiť aspoň príbuzní a&nbsp;-&nbsp;ak je možné - aj ostatní veriaci, aby si pri bohoslužbe slova vypočuli slová útechy, ktorú dáva viera, aby sa zúčastnili na eucharistickej obete a&nbsp;napokon, aby sa rozlúčili so zomrelým. Obrad posledného rozlúčenia so zomrelým sa nemá chápať ako nejaké očisťovanie zomrelého - to sa deje skôr prostredníctvom eucharistickej obety - ale má to byť posledné rozlúčenie, pri ktorom kresťanské spoločenstvo pozdravuje jedného zo svojich členov prv, než sa jeho telo odnesie a&nbsp;pochová.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -79,14 +82,14 @@
                 <p>
                     Keď Cirkev pochováva telá zosnulých, potvrdzuje tým vieru vo vzkriesenie tela a&nbsp;chce zdôrazniť vysokú dôstojnosť ľudského tela ako integrálnej súčasti ľudskej osoby, s&nbsp;ktorou má telo spoločnú históriu. Preto nie sú prípustné také postoje a&nbsp;obrady, ktoré by zahŕňali mylné predstavy o&nbsp;smrti, považovanej či už za definitívne zničenie osoby, za moment splynutia s&nbsp;matkou prírodou alebo s&nbsp;vesmírom, alebo za istú etapu v&nbsp;procese reinkarnácie či definitívne oslobodenie z&nbsp;„väzenia“ tela.
                 </p>
+
                 <p>
                     Pochovávanie na cintorínoch alebo iných posvätných miestach navyše primerane zodpovedá úcte a&nbsp;náležitému rešpektu voči telám zosnulých veriacich, ktorí sa prostredníctvom krstu stali chrámom Ducha Svätého. Cirkev považuje pochovávanie mŕtvych aj za skutok telesného milosrdenstva. Pochovávanie tiel zosnulých veriacich na cintorínoch alebo iných posvätných miestach podporuje spomínanie a&nbsp;modlenie sa za zosnulých zo strany ich rodinných príslušníkov i&nbsp;celého kresťanského spoločenstva, a&nbsp;tiež uctievanie mučeníkov a&nbsp;svätých.
                 </p>
+
                 <p>
                     Pochovávaním tiel na cintorínoch, v&nbsp;kostoloch a&nbsp;na pozemkoch k&nbsp;nim prináležiacich, uchovávala kresťanská tradícia spoločenstvo medzi živými a&nbsp;zosnulými a&nbsp;stavala sa proti tendencii utajovať smrť a&nbsp;jej význam pre kresťanov, či považovať ju za privátnu udalosť.
                 </p>
-
-                {{-- <x-partials.picture titleSlug="pohr-008" side="left" dimensionSource="full" columns="3" /> --}}
 
                 <p>
                     Tam, kde sa z&nbsp;hygienických, ekonomických alebo sociálnych dôvodov rozhodne pre kremáciu, ak toto rozhodnutie nie je proti výslovnému alebo oprávnene predpokladanému želaniu zosnulého veriaceho, nevidí Cirkev doktrinálne dôvody, aby sa takejto praxi bránilo, pretože kremácia tela sa nedotýka duše a&nbsp;nebráni Božej všemohúcnosti, aby vzkriesila telo, a&nbsp;teda neobsahuje objektívne popieranie kresťanskej náuky o&nbsp;nesmrteľnosti duše a&nbsp;vzkriesení tela.
@@ -109,25 +112,25 @@
                     Kedykoľvek sa z&nbsp;legitímnych dôvodov rozhodne pre spopolnenie mŕtveho tela, popol zosnulého musí byť uchovávaný podľa predpisu na posvätnom mieste, teda na cintoríne - alebo v&nbsp;istých prípadoch v&nbsp;kostole - alebo na mieste určenom kompetentnou cirkevnou autoritou. Už od počiatku si kresťania želali, aby ich zosnulí boli zahrnutí do modlitieb a&nbsp;spomienok kresťanského spoločenstva. Ich hroby sa stali miestami modlitby, spomienky a&nbsp;zamyslenia. Zosnulí veriaci sú súčasťou Cirkvi, ktorá verí v&nbsp;spoločenstvo „tých, ktorí putujú na tejto zemi;  tých, čo sa po skončení života očisťujú, i&nbsp;tých, čo požívajú nebeskú blaženosť, a&nbsp;všetci spolu tvoria jednu Cirkev“.
                 </p>
 
-                {{-- <x-partials.picture titleSlug="pohr-009" side="right" dimensionSource="full" columns="3" /> --}}
-
                 <p>
                     Uchovávanie popola na posvätnom mieste môže prispieť k&nbsp;zmenšeniu rizika, že sa zosnulí vytratia z&nbsp;modlitieb a&nbsp;spomienok svojich príbuzných a&nbsp;kresťanského spoločenstva. Bráni to tiež zabúdaniu a&nbsp;nedostatku úcty - čo sa môže stať najmä vtedy, ak sa prvá generácia pominie - ale aj neprístojným praktikám či poverčivosti. Z&nbsp;vyššie uvedených dôvodov sa nedovoľuje uchovávať popol v&nbsp;domácnosti. Popol sa nesmie rozdeliť medzi rôznych členov rodiny a&nbsp;musí byť vždy zaistená náležitá úcta a&nbsp;primerané podmienky uchovávania.
                 </p>
 
-
                 <p>
                     Aby sa vyhlo akémukoľvek dvojznačnému panteizmu, naturalizmu alebo nihilizmu, nedovoľuje sa rozsypať popol do vzduchu, zeme alebo vody, či iným spôsobom, ani premeniť popol na upomienkové predmety, kusy bižutérie alebo iné predmety. V&nbsp;súvislosti s&nbsp;takýmto konaním totiž nemožno uznať, že rozhodnutie pre kremáciu bolo motivované hygienickými, sociálnymi či ekonomickými dôvodmi.
                 </p>
+
                 <p>
                     V&nbsp;prípade, že bolo všeobecne známe želanie zosnulého dať sa spopolniť a&nbsp;popol rozptýliť v&nbsp;prírode z&nbsp;dôvodov protirečiacich kresťanskej viere, musí mu byť podľa normy práva odmietnutý pohreb.
                 </p>
 
-                <div class="row">
-                    <div class="col-md-6 mx-auto">
-                        <x-partials.video-embed urlVideo="https://youtu.be/6Bt_FtUl5k0" class="ratio ratio-4x3"/>
-                    </div>
-                </div>
+                <x-partials.video-embed
+                    urlVideo="https://youtu.be/6Bt_FtUl5k0"
+                    :config="[
+                        'width' => 600,
+                        'class' => 'd-block mx-auto'
+                    ]"
+                />
 
             </x-web.page.text-segment>
         </x-web.page.subsection>

@@ -26,7 +26,7 @@
                     </div>
                     @if (! empty($testimonial['url']))
                         <p class="mt-auto">
-                            <a href="{{ $testimonial['url'] }}" class="link-template-light">
+                            <a href="{{ $testimonial['url'] }}" class="link-template-light" target="_blank">
                                 Celé svedectvo
                             </a>
                         </p>

@@ -37,7 +37,7 @@
                     Slniečka sa stretávajú na nácvikoch v&nbsp;pastoračnej miestnosti farského úradu - v&nbsp;Kláre, vždy v&nbsp;sobotu o&nbsp;15.00 hod. a&nbsp;v&nbsp;nedeľu pred svätou omšou o&nbsp;8.00 hod. Veľmi radi uvítajú aj nových členov.
                 </p>
 
-                <a href="https://www.facebook.com/groups/1427727460859304">Facebook zboru.</a>
+                <a target="_blank" href="https://www.facebook.com/groups/1427727460859304">Facebook zboru.</a>
 
             </x-web.page.text-segment>
         </x-web.page.subsection>
@@ -62,7 +62,7 @@
                     Počet členov zboru a&nbsp;kapely sa v&nbsp;rámci školského roka mení, keďže väčšina členov študuje na stredných a&nbsp;vysokých školách po celom Slovensku. Dvere pre každého nového člena sú však vždy otvorené.
                 </p>
 
-                <a href="https://www.facebook.com/hosannadetva">Facebook zboru.</a>
+                <a target="_blank" href="https://www.facebook.com/hosannadetva">Facebook zboru.</a>
 
             </x-web.page.text-segment>
         </x-web.page.subsection>

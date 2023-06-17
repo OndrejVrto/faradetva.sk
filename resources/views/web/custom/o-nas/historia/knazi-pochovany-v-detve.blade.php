@@ -43,7 +43,7 @@
 
         <x-partials.biography
             delay=1
-            title="Jozef Golian"
+            title="Jozef Goljan"
             birthDate="25. 2. 1904"
             birthCity="Detva"
             ordDate="28. 1. 1934"

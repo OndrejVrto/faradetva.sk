@@ -105,7 +105,13 @@
                     Po roku 1848 sa tu začali usádzať Židia, ktorí sa vypracovali na veľkopriemyselníkov a&nbsp;hlavne obchodníkov a&nbsp;krčmárov. Obchod v&nbsp;mestečku reprezentovali štyria kresťanskí a&nbsp;traja židovskí obchodníci. Nadmieru však boli rozšírené kresťanské i&nbsp;židovské krčmy. V&nbsp;Detve ich bolo sedem, v&nbsp;Kriváni dve, v&nbsp;Hriňovej štyri a&nbsp;na lazoch deväť. Súpis židov z&nbsp;roku 1942 spomína 50 občanov tohto vierovyznania v&nbsp;Detve. Židovská komunita mala v&nbsp;obci neďaleko kostola postavenú aj vlastnú synagógu.
                 </p>
 
-                <x-partials.video-embed urlVideo="https://youtu.be/1zc75jtwSDU" :config="['width' => 400]" class="ratio ratio-4x3"/>
+                <x-partials.video-embed
+                    urlVideo="https://youtu.be/1zc75jtwSDU"
+                    :config="[
+                        'width' => 600,
+                        'class' => 'd-block mx-auto'
+                    ]"
+                />
 
                 <x-partials.picture titleSlug="dej-011" side="right" columns="2" />
 
