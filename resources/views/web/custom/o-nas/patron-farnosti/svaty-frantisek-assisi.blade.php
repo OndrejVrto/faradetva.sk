@@ -47,6 +47,7 @@
 
             </x-web.page.text-segment>
         </x-web.page.subsection>
+
     </x-web.page.section>
 
     <x-web.sections.background-picture titleSlug="patr-023"/>
@@ -209,33 +210,25 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>
-                <em class="me-1">František z&nbsp;Assisi, diakon, zakladateľ rehole františkánov</em>
-                [online]. [cit. 26.02.2021].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://www.zivotopisysvatych.sk/frantisek-z-assisi/">
-                    Dostupné na internete
-                </a>
-            </li>
-            <li>
-                <em class="me-1">Náš patrón svätý František z&nbsp;Assisi</em>
-                [online]. [cit. 26.02.2021].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://rkcvtjuh.sk/frantisek/">
-                    Dostupné na internete
-                </a>
-            </li>
-            <li>
-                <em class="me-1">Profil sv. Františka z&nbsp;Assisi</em>
-                [online]. [cit. 26.02.2021].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://kapucini.sk/kto-sme/sv-frantisek/profil/">
-                    Dostupné na internete
-                </a>
-            </li>
+
+            <x-web.page.source-link
+                date="26.02.2021"
+                href="https://www.zivotopisysvatych.sk/frantisek-z-assisi/">
+                    František z&nbsp;Assisi, diakon, zakladateľ rehole františkánov
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                date="26.02.2021"
+                href="https://rkcvtjuh.sk/frantisek/">
+                    Náš patrón svätý František z&nbsp;Assisi
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                date="26.02.2021"
+                href="https://kapucini.sk/kto-sme/sv-frantisek/profil/">
+                    Profil sv. Františka z&nbsp;Assisi
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

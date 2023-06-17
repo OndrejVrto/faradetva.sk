@@ -65,24 +65,19 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použité pramene:">
-            <li>
-                <em class="me-1">Modlitby matiek</em>
-                [online]. [cit. 03.03.2022].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://www.kbs.sk/obsah/sekcia/h/rehole-a-spolocenstva/p/hnutia-a-spolocenstva/c/modlitby-matiek">
-                    Dostupné na internete
-                </a>
-            </li>
-            <li>
-                <em class="me-1">Modlitby matiek z&nbsp;komunity Útecha. Spiritualita</em>
-                [online]. [cit. 12.04.2022].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://modlitbymatiek.sk/spiritualita">
-                    Dostupné na internete
-                </a>
-            </li>
+
+            <x-web.page.source-link
+                date="03.03.2022"
+                href="https://www.kbs.sk/obsah/sekcia/h/rehole-a-spolocenstva/p/hnutia-a-spolocenstva/c/modlitby-matiek">
+                    Modlitby matiek
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                date="12.04.2022"
+                href="https://modlitbymatiek.sk/spiritualita">
+                    Modlitby matiek z&nbsp;komunity Útecha. Spiritualita
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

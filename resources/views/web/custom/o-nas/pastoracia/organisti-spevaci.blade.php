@@ -56,21 +56,30 @@
                 <p>
                     V&nbsp;našej farnosti v&nbsp;súčasnosti plnia úlohu organistu viacerí, ktorí sa podľa svojich pracovných možností usilujú o&nbsp;zabezpečenie organovej hudby počas bohoslužieb ako cez týždeň, tak zvlášť počas nedieľ a&nbsp;sviatočných dní. Služba organistu je veľmi potrebná pre uľahčenie a&nbsp;podnietenie spevu spoločenstva a&nbsp;pre hudobné dopĺňanie spevu k&nbsp;väčšej bohatosti a&nbsp;umeleckej účinnosti. Hru na organe je okrem sebavzdelávania možné študovať na základných umeleckých školách, konzervatóriách i&nbsp;na Vysokej škole múzických umení.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra a&nbsp;pramene:">
-            <li>CABAN, Peter. <em>Liturgika. Princípy a&nbsp;teológia liturgie.</em> Trnava: Spolok sv. Vojtecha, 2010. ISBN 978-80-7162-803-3.</li>
-            <li>KOPEČEK, Pavel. <em>Fundamentální liturgika. Křesťanské slavení: teologie, historie a&nbsp;pastorace.</em> Olomouc: Univerzita Palackého v&nbsp;Olomouci, 2020. ISBN 978-80-244-5906-6.</li>
+
             <li>
-                <em class="me-1">Vianočná polnočná omša v&nbsp;Detve</em>
-                [online]. [cit. 19.03.2021].
-                <a  class="link-template"
-                    target="_blank"
-                    href="https://www.youtube.com/watch?v=vmkGmjVg6o0">
-                    Dostupné na internete
-                </a>
+                CABAN, Peter.
+                <em>Liturgika. Princípy a&nbsp;teológia liturgie.</em>
+                Trnava: Spolok sv. Vojtecha, 2010. ISBN 978-80-7162-803-3.
             </li>
+
+            <li>
+                KOPEČEK, Pavel.
+                <em>Fundamentální liturgika. Křesťanské slavení: teologie, historie a&nbsp;pastorace.</em>
+                Olomouc: Univerzita Palackého v&nbsp;Olomouci, 2020. ISBN 978-80-244-5906-6.
+            </li>
+
+            <x-web.page.source-link
+                date="19.03.2021"
+                href="https://youtu.be/vmkGmjVg6o0">
+                    Vianočná polnočná omša v&nbsp;Detve
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

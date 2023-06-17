@@ -5,10 +5,10 @@
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection>
-
-            <x-partials.picture titleSlug="dejf-059" side="left" columns="5" />
-
             <x-web.page.text-segment animation="fromright">
+
+                <x-partials.picture titleSlug="dejf-059" side="left" columns="5" />
+
                 <p>
                     Podpoľanie je oblasť situovaná na južných a&nbsp;juhovýchodných svahoch najvyššieho sopečného pohoria na Slovensku - Poľany, územie na rozhraní medzi Slovenským rudohorím a&nbsp;Slovenským stredohorím. Roztratené osídlenie po svahoch nečinného vulkánu predstavuje špecifiká, ktoré výrazne ovplyvňovali život miestnych obyvateľov. Táto rozsiahla časť Zvolenskej kotliny dostala svoj rázovitý charakter vďaka kopaničiarskej kolonizácii 17. storočia. Do oblasti Podpoľania patrili už stredoveké sídla Očová a&nbsp;Zvolenská Slatina so sídlom hradného panstva v&nbsp;dedine Vígľaš a&nbsp;na severovýchodnej strane Poľany obce Hrochoť a&nbsp;Čerín.
                 </p>
@@ -20,11 +20,9 @@
                 </p>
 
             </x-web.page.text-segment>
-
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Vznik Detvy">
-
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="dejf-014" side="left" columns="4" />
@@ -41,6 +39,7 @@
                 <p>
                     Povolaním členov Spoločnosti Ježišovej (jezuitov) z&nbsp;Banskej Bystrice v&nbsp;prvej polovici 17. storočia sa rod Csákyovcov snažil o&nbsp;vytvorenie katolíckej oblasti na Podpoľaní, ktorá mala byť akousi protiváhou voči susedným evanjelickým oblastiam. Stála jezuitská misia, ktorú riadil Michal Lucsics, spravovala novozaloženú farnosť v&nbsp;dedine. V&nbsp;roku 1638 František Péchy daroval v&nbsp;Detve kúriu s&nbsp;pozemkami pre potreby fary. V&nbsp;darovanej budove bolo zriadené sídlo farnosti a&nbsp;až do postavenia kostola v&nbsp;nej bola aj provizórna kaplnka. Pôvodná drevená budova bola prestavaná na budovu z&nbsp;trvalých stavebných materiálov až v&nbsp;roku 1763.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -94,7 +93,6 @@
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="dej-008" side="left" columns="4" />
-
                 <x-partials.picture titleSlug="dejf-067" side="right" columns="1" />
 
                 <p>
@@ -128,6 +126,7 @@
                 <p>
                     Politické riadenie bezplatnou zmluvou nasťahovalo do budovy chudobinca sídlo Miestneho národného výboru (MNV) a&nbsp;z&nbsp;izieb charitatívnej inštitúcie urobilo veľkú spoločenskú sálu. Ako zaslúžená a&nbsp;dlho očakávaná odmena po náročnom období detvianskeho cirkevného života počas komunizmu, prišli duchovné povolania detvianskych rodákov. Niekoľkí rehoľníci a&nbsp;najmä diecézni kňazi predstavovali ovocie, po ktorom cirkev na Podpoľaní túžila.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -170,21 +169,46 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra a&nbsp;pramene:">
-            <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva.</em> Diplomová práca, 2008.</li>
-            <li>ĎURKOVÁ, Mária. Najstaršie dejiny Detvy. In: Anna Ostrihoňová. ed. <em>Detva. Monografia mesta.</em> Detva: mesto Detva, 2018. ISBN 978-80-9730011-2-5.</li>
-            <li>GOLIAN, Ján. Náboženský život. In: Anna Ostrihoňová. ed. <em>Detva. Monografia mesta.</em> Detva: mesto Detva, 2018. ISBN 978-80-9730011-2-5.</li>
-            <li>GOLIAN, Ján. <em>Život ľudu detvianskýho. Historicko-demografická a&nbsp;kultúrna sonda do každodenného života na Podpoľaní v&nbsp;dlhom 19. storočí.</em> Ružomberok: Society for Human Studies, 2019. ISBN 978-80-972913-4-1.</li>
-            <li>ZAREVÚCKY, Anton.<em> Katalóg farností a&nbsp;kostolov Banskobystrického biskupstva.</em> Strojopis, 1976.</li>
-            <li><em>Schematismus historicus Dioecesis Neosoliensis pro anno saeculari MDCCCLXXVI.</em> Neosolii: Philippi Machold, 1876.</li>
             <li>
-                <em class="me-1">Sestry bosé karmelitánky pôsobia v&nbsp;Detve desať rokov</em>
-                [online]. [cit. 05.02.2021].
-                <a  class="link-template"
-                    target="_blank"
-                    href="ttps://www.detva.sk/?program=51&">
-                    Dostupné na internete
-                </a>
+                BARTKOVÁ, Anna.
+                <em>Dejiny farnosti Detva.</em>
+                Diplomová práca, 2008.
             </li>
+
+            <li>
+                ĎURKOVÁ, Mária. Najstaršie dejiny Detvy. In: Anna Ostrihoňová. ed.
+                <em>Detva. Monografia mesta.</em>
+                Detva: mesto Detva, 2018. ISBN 978-80-9730011-2-5.
+            </li>
+
+            <li>
+                GOLIAN, Ján. Náboženský život. In: Anna Ostrihoňová. ed.
+                <em>Detva. Monografia mesta.</em>
+                Detva: mesto Detva, 2018. ISBN 978-80-9730011-2-5.
+            </li>
+
+            <li>
+                GOLIAN, Ján.
+                <em>Život ľudu detvianskýho. Historicko-demografická a&nbsp;kultúrna sonda do každodenného života na Podpoľaní v&nbsp;dlhom 19. storočí.</em>
+                Ružomberok: Society for Human Studies, 2019. ISBN 978-80-972913-4-1.
+            </li>
+
+            <li>
+                ZAREVÚCKY, Anton.
+                <em>Katalóg farností a&nbsp;kostolov Banskobystrického biskupstva.</em>
+                Strojopis, 1976.
+            </li>
+
+            <li>
+                <em>Schematismus historicus Dioecesis Neosoliensis pro anno saeculari MDCCCLXXVI.</em>
+                Neosolii: Philippi Machold, 1876.
+            </li>
+
+            <x-web.page.source-link
+                date="05.02.2021"
+                href="https://www.detva.sk/?program=51&">
+                    Sestry bosé karmelitánky pôsobia v&nbsp;Detve desať rokov
+            </x-web.page.source-link>
         </x-web.page.information-sources>
 
     </x-web.page.section>

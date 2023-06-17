@@ -269,18 +269,30 @@
         </x-partials.biography>
 
         <x-web.page.information-sources title="Použité pramene:" class="mb-4">
-            <li>Diecézny archív Banská Bystrica, fond Schematizmy.</li>
-            <li>Diecézny archív Banská Bystrica, fond Zosnulí kňazi.</li>
-            <li>Farský archív Detva, fond Matriky zomrelých Farnosti Detva.</li>
+
             <li>
-                Matriky zomrelých Farnosti Detva. [online].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://www.familysearch.org">
-                    Dostupné na internete
-                </a>
+                Diecézny archív Banská Bystrica, fond Schematizmy.
             </li>
-            <li>ZAREVÚCKY, Anton. <em>Katalóg zosnulých kňazov Banskobystrickej diecézy od jej založenia r. 1776 do r. 1986.</em> Strojopis, 1987.</li>
+
+            <li>
+                Diecézny archív Banská Bystrica, fond Zosnulí kňazi.
+            </li>
+
+            <li>
+                Farský archív Detva, fond Matriky zomrelých Farnosti Detva.
+            </li>
+
+            <x-web.page.source-link
+                href="https://www.familysearch.org">
+                    Matriky zomrelých Farnosti Detva.
+            </x-web.page.source-link>
+
+            <li>
+                ZAREVÚCKY, Anton.
+                <em>Katalóg zosnulých kňazov Banskobystrickej diecézy od jej založenia r. 1776 do r. 1986.</em>
+                Strojopis, 1987.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

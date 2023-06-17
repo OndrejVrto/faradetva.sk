@@ -20,6 +20,7 @@
 
             </x-web.page.text-segment>
             <x-web.page.text-segment animation="fromleft">
+
                 <p>
                     V&nbsp;roku 1919 vstúpilo na územie Československej republiky vojsko maďarských boľševikov. Pod heslom šírenia proletárskej revolúcie sa snažili nastoliť socialistický režim podľa sovietskeho vzoru. V&nbsp;pozadí tejto vojenskej akcie bol posledný zúfalý pokus podmaniť si Slovensko a&nbsp;zachovať integritu Uhorska. Vojsko sa dostalo do okolia Zvolena a&nbsp;boľševická horda Bélu Kuna vnikla aj do Detvy. Obyvatelia si ukrývali kone, vozy a&nbsp;iný majetok do stodôl do slamy, aby im to vojsko nezrekvirovalo.
                 </p>
@@ -37,6 +38,7 @@
                 <p>
                     </em>Po tomto stretnutí ho šiel Markus udať boľševickým pohlavárom. Tí ho 8. júna na Turíčnu nedeľu včasráno prišli zatknúť. Odviedli ho do Vagačovho domu, zavreli ho do pivnice a&nbsp;potom vyšetrovali. Jeho matka mohla byť prítomná. Obžalobcom bol Markus Löwy a&nbsp;obžaloba znela: <em>„Búril Detvanov proti vám, štval aj proti Židom, je nebezpečný antisemitista.“</em> Bol vynesený rozsudok smrti obesením: <em>„Vyvesiť tohto rebela na vhodné miesto, aby Detvanci, až prídu z&nbsp;lazov do kostola videli, že s&nbsp;nepriateľmi nežartujeme.“</em>
                 </p>
+
             </x-web.page.text-segment>
             <x-web.page.text-segment animation="fromright">
 
@@ -49,26 +51,36 @@
                 <x-partials.picture titleSlug="pro-009" side="right" dimensionSource="medium" columns="2"/>
 
                 <p>
-                    Na miesto tragédie sa v&nbsp;roku 1930 prišiel pokloniť aj prezident Tomáš Garrigue Masaryk. Na pamiatku tejto tragickej udalosti bola pripevnená tabuľa na lipu, kde Prokopa popravili. Počas komunizmu bola táto tabuľa strhnutá a&nbsp;hodená do potoka. Granátom bol zničený aj jeho náhrobok na cintoríne. Hrob, ktorý sa nachádza oproti prvému zastaveniu krížovej cesty, bol neskôr opravený a&nbsp;na náhrobnom kameni je nápis: <em>„Anton Prokop, obeta boľševickej divokosti a&nbsp;martýr slovenskej slobody.“</em>
+                    Na miesto tragédie sa v&nbsp;roku 1930 prišiel pokloniť aj prezident Tomáš Garrigue Masaryk. Na pamiatku tejto tragickej udalosti bola pripevnená tabuľa na lipu, kde Prokopa popravili. Počas komunizmu bola táto tabuľa strhnutá a&nbsp;hodená do potoka. Granátom bol zničený aj jeho náhrobok na cintoríne. Hrob, ktorý sa nachádza oproti prvému zastaveniu krížovej cesty, bol neskôr opravený a&nbsp;na náhrobnom kameni je nápis:
+                    <cite>
+                        „Anton Prokop, obeta boľševickej divokosti a&nbsp;martýr slovenskej slobody.“
+                    </cite>
                 </p>
 
                 <p>
-                    Tragické miesto popravy dnes pripomína pamätná tabuľa, ktorá je umiestnená na skale pod lipou, kde sa Prokopova poprava uskutočnila. Na tabuli je nápis: <em>„ K&nbsp;večnej pamiatke hrdinovi Antonovi Prokopovi, ktorý za slobodu slovenskej vlasti dňa 8. júna 1919 na tomto mieste zákerníckou boľševickou rukou usmrtený bol.“</em>
+                    Tragické miesto popravy dnes pripomína pamätná tabuľa, ktorá je umiestnená na skale pod lipou, kde sa Prokopova poprava uskutočnila. Na tabuli je nápis:
+                    <cite>
+                        „ K&nbsp;večnej pamiatke hrdinovi Antonovi Prokopovi, ktorý za slobodu slovenskej vlasti dňa 8. júna 1919 na tomto mieste zákerníckou boľševickou rukou usmrtený bol.“
+                    </cite>
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva</em>. Diplomová práca, 2008.</li>
+
             <li>
-                <em class="me-1">Kronika rodu Prokopovcov</em>
-                [online]. [cit. 01.03.2021].
-                <a  class="link-template"
-                    target="_blank"
-                    href="https://www.obeckrivan.sk/e_download.php?file=data/editor/60sk_1.pdf&original=Kronika%20rodu%20Prokopovcov.pdf">
-                    Dostupné na internete
-                </a>
+                BARTKOVÁ, Anna.
+                <em>Dejiny farnosti Detva.</em>
+                Diplomová práca, 2008.
             </li>
+
+            <x-web.page.source-link
+                date="01.03.2021"
+                href="https://www.obeckrivan.sk/e_download.php?file=data/editor/60sk_1.pdf&original=Kronika%20rodu%20Prokopovcov.pdf">
+                    Kronika rodu Prokopovcov
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

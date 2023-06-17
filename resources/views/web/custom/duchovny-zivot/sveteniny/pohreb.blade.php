@@ -5,7 +5,6 @@
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
 
         <x-web.page.subsection >
-
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="pohr-002" side="left" dimensionSource="full" columns="3" />
@@ -42,7 +41,6 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Pochovávanie a&nbsp;uchovávanie popola v&nbsp;prípade kremácie">
-
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="pohr-006" side="right" dimensionSource="full" columns="4" />
@@ -67,6 +65,7 @@
 
             </x-web.page.text-segment>
         </x-web.page.subsection>
+
     </x-web.page.section>
 
     <x-web.sections.background-picture titleSlug="pohr-013"/>
@@ -74,7 +73,6 @@
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_b_50">
 
         <x-web.page.subsection class="pt-5">
-
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="pohr-007" side="right" dimensionSource="full" columns="2" />
@@ -99,7 +97,6 @@
         </x-web.page.subsection>
 
         <x-web.page.subsection >
-
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="pohr-011" side="left" dimensionSource="full" columns="3" />
@@ -137,17 +134,16 @@
 
         <x-web.page.information-sources title="Použitá literatúra:">
             <li>
-                <em>Pohrebné obrady.</em> Trnava: Spolok sv. Vojtecha, 2008. ISBN 978-80-7162-710-4.
+                <em>Pohrebné obrady.</em>
+                Trnava: Spolok sv. Vojtecha, 2008. ISBN 978-80-7162-710-4.
             </li>
-            <li>
-                <em class="me-1">Inštrukcia „Ad resurgendum cum Christo“ ohľadom pochovávania zomrelých a&nbsp;uchovávania popola v&nbsp;prípade kremácie.</em>
-                [online]. [cit. 26.01.2022].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://www.kbs.sk/obsah/sekcia/h/dokumenty-a-vyhlasenia/p/dokumenty-vatikanskych-uradov/c/instrukcia-ad-resurgendum-cum-christo">
-                    Dostupné na internete
-                </a>
-            </li>
+
+            <x-web.page.source-link
+                date="26.01.2022"
+                href="https://www.kbs.sk/obsah/sekcia/h/dokumenty-a-vyhlasenia/p/dokumenty-vatikanskych-uradov/c/instrukcia-ad-resurgendum-cum-christo">
+                    Inštrukcia „Ad resurgendum cum Christo“ ohľadom pochovávania zomrelých a&nbsp;uchovávania popola v&nbsp;prípade kremácie.
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

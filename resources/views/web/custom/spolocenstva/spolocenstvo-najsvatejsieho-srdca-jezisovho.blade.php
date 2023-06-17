@@ -63,17 +63,22 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použité pramene:">
-            <li>Diecézny archív Banská Bystrica, fond Farské archívy.</li>
-            <li><em>Stanovy Spoločenstva Najsvätejšieho Srdca Ježišovho v&nbsp;Litave.</em> Biskupstvo Banská Bystrica, 2016.</li>
+
             <li>
-                <em class="me-1">Margita Mária Alacoque, rehoľníčka, mystička</em>
-                [online]. [cit. 15.03.2023].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://www.zivotopisysvatych.sk/margita-alacoque/">
-                    Dostupné na internete
-                </a>
+                Diecézny archív Banská Bystrica, fond Farské archívy.
             </li>
+
+            <li>
+                <em>Stanovy Spoločenstva Najsvätejšieho Srdca Ježišovho v&nbsp;Litave.</em>
+                Biskupstvo Banská Bystrica, 2016.
+            </li>
+
+            <x-web.page.source-link
+                date="15.03.2023"
+                href="https://www.zivotopisysvatych.sk/margita-alacoque/">
+                    Margita Mária Alacoque, rehoľníčka, mystička
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

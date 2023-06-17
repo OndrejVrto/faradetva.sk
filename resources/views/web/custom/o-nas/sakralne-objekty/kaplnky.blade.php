@@ -75,11 +75,13 @@
 
             </x-web.page.text-segment>
         </x-web.page.subsection>
+
     </x-web.page.section>
 
     <x-web.sections.background-picture titleSlug="krn-011"/>
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection title="Ekumenická kaplnka - Domov dôchodcov Detva">
             <x-web.page.text-segment animation="fromleft">
 
@@ -135,14 +137,42 @@
 
         </x-web.page.subsection>
 
-
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva.</em> Diplomová práca, 2008.</li>
-            <li><em>Encyklopédia ľudovej kultúry Slovenska 1.</em> Bratislava: Veda, 1995. ISBN 80-224-0234-6.</li>
-            <li><em>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909.</em> Rukopis.</li>
-            <li><em>Domov sociálnych služieb Detva stredisko DS S&nbsp;Piešť</em> [online]. [cit. 20.03.2021]. Dostupné na internete: http://www.dsspiestdetva.sk/#o_nas</li>
-            <li><em>Úcta k&nbsp;Matke ustavičnej pomoci rastie a&nbsp;kvitne</em> [online]. [cit. 20.03.2021]. Dostupné na internete: https://redemptoristi.sk/ucta-k-matke-ustavicnej-pomoci-rastie-a-kvitne/</li>
-            <li><em>Zariadenie pre seniorov</em> [online]. [cit. 20.03.2021]. Dostupné na internete: https://www.dddetva.sk/sk</li>
+
+            <li>
+                BARTKOVÁ, Anna.
+                <em>Dejiny farnosti Detva.</em>
+                Diplomová práca, 2008.
+            </li>
+
+            <li>
+                <em>Encyklopédia ľudovej kultúry Slovenska 1.</em>
+                Bratislava: Veda, 1995. ISBN 80-224-0234-6.
+            </li>
+
+            <li>
+                <em>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909.</em>
+                Rukopis.
+            </li>
+
+            <x-web.page.source-link
+                date="20.03.2021"
+                href="http://www.dsspiestdetva.sk/#o_nas">
+                    Domov sociálnych služieb Detva stredisko DS S&nbsp;Piešť
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                date="20.03.2021"
+                href="https://redemptoristi.sk/ucta-k-matke-ustavicnej-pomoci-rastie-a-kvitne/">
+                    Úcta k&nbsp;Matke ustavičnej pomoci rastie a&nbsp;kvitne
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                date="20.03.2021"
+                href="https://www.dddetva.sk/sk">
+                    Zariadenie pre seniorov
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

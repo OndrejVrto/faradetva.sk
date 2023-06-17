@@ -756,37 +756,41 @@
         </div>
 
         <x-web.page.information-sources title="Použitá literatúra a&nbsp;pramene:">
-            <li>Diecézny archív Banská Bystrica, fond Schematizmy.</li>
-            <li>Farský archív Detva, fond Matriky pokrstených Farnosti Detva.</li>
-            <li>Farský archív Detva, fond Matriky zomrelých Farnosti Detva.</li>
+
             <li>
-                <span class="me-1">Matriky pokrstených Farnosti Detva.</span>
-                [online].
-                <a  class="link-template"
-                    target="_blank"
-                    href="https://www.familysearch.org/">
-                    Dostupné na internete
-                </a>
+                Diecézny archív Banská Bystrica, fond Schematizmy.
             </li>
+
             <li>
-                <span class="me-1">Matriky zomrelých farností Horná Ždaňa, Očová, Zvolenská Slatina, Žarnovica.</span>
-                [online]
-                <a  class="link-template"
-                    target="_blank"
-                    href="https://www.familysearch.org/">
-                    Dostupné na internete
-                </a>
+                Farský archív Detva, fond Matriky pokrstených Farnosti Detva.
             </li>
+
             <li>
-                Pataki Maurus Pál, OSB. In: <em class="me-1">Magyar katolikus lexikon.</em>
-                [online].
-                <a  class="link-template"
-                    target="_blank"
-                    href="http://lexikon.katolikus.hu/P/Pataki.html">
-                    Dostupné na internete
-                </a>
+                Farský archív Detva, fond Matriky zomrelých Farnosti Detva.
             </li>
-            <li>PÁRNIČAN, Pavol. <em>Duchovné povolania z&nbsp;Dekanátu Detva.</em> Detva: Rímskokatolícka cirkev, Farnosť Detva, 2021. ISBN 978-80-570-3364-6.</li>
+
+            <x-web.page.source-link
+                href="https://www.familysearch.org/">
+                    Matriky pokrstených Farnosti Detva.
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                href="https://www.familysearch.org/">
+                    Matriky zomrelých farností Horná Ždaňa, Očová, Zvolenská Slatina, Žarnovica.
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                name="Pataki Maurus Pál, OSB. In:"
+                href="http://lexikon.katolikus.hu/P/Pataki.html">
+                    Magyar katolikus lexikon.
+            </x-web.page.source-link>
+
+            <li>
+                PÁRNIČAN, Pavol.
+                <em>Duchovné povolania z&nbsp;Dekanátu Detva.</em>
+                Detva: Rímskokatolícka cirkev, Farnosť Detva, 2021. ISBN 978-80-570-3364-6.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>
