@@ -38,6 +38,7 @@
                 <p>
                     Kto by mal ochotu vypomáhať modlitbami aj financiami bohoslovcom, ktorých je stále menej, ako aj kňazom, ktorí sa zdokonaľujú vo svojom povolaní na štúdiách v&nbsp;zahraničí, môže členov spoločenstva kedykoľvek kontaktovať. Prihlásiť sa je možné u&nbsp;niektorého z&nbsp;kňazov farnosti alebo u&nbsp;kostolníčok, oni záujemcov skontaktujú s&nbsp;členmi Spoločenstva Bárka.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection >
 
@@ -62,9 +63,12 @@
         </x-web.page.subsection >
 
         <x-web.page.information-sources title="Zdroj:">
+
             <li>
                 <em>Mária Budáčová</em>
             </li>
+
         </x-web.page.information-sources>
+
     </x-web.page.section>
 </x-web.layout.master>

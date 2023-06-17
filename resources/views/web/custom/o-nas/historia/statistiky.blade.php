@@ -75,6 +75,7 @@
                 </x-slot:after>
             </x-partials.statistics-graph>
         </div>
+
         <div class="col-12 col-lg-6">
             <!-- rimsko-katolici-v-detve -->
             <x-partials.statistics-graph id=7 aspectRatio=2 >
@@ -90,7 +91,7 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - II." row class="static-page">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - III." row class="static-page">
 
         <div class="col-12 col-lg-6">
             <!-- Náboženské vyznania podľa sčítania r. 2011 -->
@@ -100,6 +101,7 @@
                 </x-slot:after>
             </x-partials.statistics-graph>
         </div>
+
         <div class="col-12 col-lg-6">
             <!-- Náboženské vyznania podľa sčítania r. 2022  -->
             <x-partials.statistics-graph id=9 />
@@ -107,9 +109,10 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - III." class="static-page">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) - IV." class="static-page">
 
         <x-partials.statistics-graph notId="1,2,3,4,5,6,7,8,9"/>
 
     </x-web.page.section>
+
 </x-web.layout.master>

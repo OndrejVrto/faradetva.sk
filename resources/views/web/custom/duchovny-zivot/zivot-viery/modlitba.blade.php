@@ -95,7 +95,6 @@
         <x-web.page.subsection title="Pramene modlitby" animation="fromleft">
             <x-web.page.text-segment animation="fromleft">
 
-                {{-- <x-partials.picture titleSlug="modl-007" side="left" columns="2" /> --}}
                 <x-partials.picture titleSlug="modl-016" side="left" columns="2" />
 
                 <p>
@@ -160,10 +159,12 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
                 <em>Youcat po slovensky. Katechizmus Katolíckej cirkvi pre mladých.</em>
                 Bratislava: Karmelitánske nakladateľstvo, 2011. ISBN 978-80-89231-99-7.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

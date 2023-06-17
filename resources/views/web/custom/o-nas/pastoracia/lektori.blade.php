@@ -12,6 +12,7 @@
                 <p>
                     Lektor je ten, kto číta v&nbsp;liturgii Božie slovo. Prostredníctvom prednesu, čítania sa Božie slovo stáva živým a&nbsp;oslovujúcim všetkých členov liturgického zhromaždenia. Už v&nbsp;3. storočí boli lektori ustanovení biskupom nato, aby čítali Božie slovo v&nbsp;rámci liturgických slávení, ba dokonca prednášali aj samotné evanjelium. Až v&nbsp;4. storočí dochádza k&nbsp;zmene: čítanie evanjelia je rezervované diakonovi alebo presbyterovi, tak je to dodnes. Služba lektora od 10. storočia postupne zanikla, pretože texty čítaní boli latinské a&nbsp;úloha lektora dostávala skôr formálny charakter. Služba lektora bola potom až do 20. storočia vnímaná len ako predstupeň pre prijatie kňazstva.
                 </p>
+
             </x-web.page.text-segment>
             <x-web.page.text-segment animation="fromleft">
 
@@ -32,6 +33,7 @@
                 <p>
                     V&nbsp;našej farnosti je do lektorskej služby zapojených približne tridsať čitateľov Božieho slova, ktorí sa podľa vopred pripraveného rozpisu aktívne zapájajú každý deň do slávenia svätých omší čítaním Božieho slova a&nbsp;prednášaním spoločných modlitieb veriacich (prosieb).
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -43,12 +45,12 @@
 
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
+
                 <h6 class="text-church-template">
                     Zásady a&nbsp;odporúčania pre lektorov vo farnosti Detva
                 </h6>
 
                 <ol class="list-of-rules">
-
                     <li>
                         Čítanie, ktoré sa má predniesť vo svätej omši, je vhodné prečítať si už doma, avšak treba prísť do sakristie kostola pozrieť si čítanie dňa alebo prosby, aby bolo jasné, čo sa má čítať a&nbsp;aj kde sa to v&nbsp;knihe nachádza. Napr. pri prosbách je potrebné odsledovať, aby sa prosby určené na deň slávnosti nečítali cez vigíliu a&nbsp;pod.
                     </li>
@@ -61,7 +63,6 @@
                     <li>
                         Je potrebné dbať o&nbsp;vhodnosť oblečenia pri zúčastnení sa slávenia Eucharistie, zvlášť pokiaľ ide o&nbsp;službu lektora. Nevhodné sú krátke nohavice, tričká na ramienka a&nbsp;pod. V&nbsp;dni, keď sú slávnosti, prikázané sviatky, nevynímajúc nedele, môžeme aj svojím oblečením dať najavo, aký má pre nás v&nbsp;Cirkvi ten konkrétny deň význam.
                     </li>
-
                     <li>
                         Počas lektorskej služby sedieť v&nbsp;kostole na pravej strane vpredu (strana, na ktorej sa nachádza ambona - miesto, odkiaľ sa prednáša Božie slovo), v&nbsp;predných laviciach vyhradených a&nbsp;označených pre lektorov. Z&nbsp;týchto miest počas príchodu do svätyne k&nbsp;ambone nie je žiadne ukláňanie sa k&nbsp;oltáru.
                     </li>
@@ -106,18 +107,25 @@
                     <li>
                         Pri akýchkoľvek nejasnostiach ohľadom liturgie sa treba v&nbsp;prvom rade obrátiť na kňaza, ktorý má celebrovať danú svätú omšu. Smerodajné informácie o&nbsp;liturgii príslušného dňa sa nachádzajú aj v&nbsp;Direktóriu.
                     </li>
-
                 </ol>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
-                CABAN, Peter. Liturgika. <em>Princípy a&nbsp;teológia liturgie.</em> Trnava: Spolok sv. Vojtecha, 2010. ISBN 978-80-7162-803-3.
+                CABAN, Peter. Liturgika.
+                <em>Princípy a&nbsp;teológia liturgie.</em>
+                Trnava: Spolok sv. Vojtecha, 2010. ISBN 978-80-7162-803-3.
             </li>
+
             <li>
-                TYROL, Anton. <em>Služba lektora. Manuál pre duchovnú a&nbsp;odbornú formáciu.</em> Svit: Katolícke biblické dielo, 2010. ISBN 978-80-89120-26-0.
+                TYROL, Anton.
+                <em>Služba lektora. Manuál pre duchovnú a&nbsp;odbornú formáciu.</em>
+                Svit: Katolícke biblické dielo, 2010. ISBN 978-80-89120-26-0.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

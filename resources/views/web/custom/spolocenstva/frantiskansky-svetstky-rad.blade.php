@@ -59,7 +59,6 @@
                     Tretí rád sv. Františka bol v&nbsp;Detve opäť obnovený až v&nbsp;roku 1924 zásluhou farára Jána Štrbáňa, bývalého františkána. Spoločenstvo viedol sám Štrbáň, ktorý bol jeho členom a&nbsp;zároveň riaditeľom. V&nbsp;rozmedzí rokov 1924 - 1953 sa pridalo k&nbsp;františkánskym terciárom v&nbsp;Detve 391 osôb. Posledným zapísaným členom v&nbsp;roku 1953 bol „apoštol Podpoľania“, pán Štefan Vlk.
                 </p>
 
-
                 <p>
                     Po Nežnej revolúcii a&nbsp;následnej náboženskej slobode začalo päť <em>terciárok</em> navštevovať bratstvo Františkánskeho svetského rádu v&nbsp;Lučenci. Po niekoľkých rokoch bolo 11. marca 2006 duchovným asistentom pátrom Jakubom Martausom OFM založené v&nbsp;Detve dočasné <em>Bratstvo sv. Anežky Českej</em>.
                 </p>
@@ -82,12 +81,15 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Zdroj a použitý prameň:">
+
             <li>
                 <em>Zita Schmidtová OFS</em>
             </li>
+
             <li>
                 Diecézny archív Banská Bystrica, fond Farské archívy.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

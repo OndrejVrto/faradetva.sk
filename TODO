@@ -6,15 +6,16 @@ Obsah stránky:
 
   ☐ @critical zmeniť heslá
   ☐ pripraviť krátku prezentáciu pre odovzdanie stránky.
-  ☐ aktuálne oznamy z produkcie pred nahratim na server
 
   ☐ doplniť fotoalbumy do stránok: detvianske kríže, farský kostol a vianoce
   ☐ prepísať kategórie článkov a tagy a pridať ich do existujúcich správ.
   ☐ Title, description a základné META pre chybové stránky.
   ☐ komponent pre čítadlo na hlavnej stránke. Počítadlo návštevnosti.
   ☐ @future facebook prepojenie - počet likes FB stránky farnosti
+  ☐ vyhľadávanie na stránke prerobiť z úložiaska mailisearch do DB a následne v ňom vyhľadávať cez Scout
   ☐ @future vyhľadávanie na celej stránke cez AJAX alebo Liveware a nie klasický GET. Ak samozrejme rozchodíme MeiliSearch
 
+  ✔ aktuálne oznamy z produkcie pred nahratim na server
   ✘ prerobiiť v CSS veľkosť slider textov responzívne cez rem hodnoty a nie cez px. Pri zoome to blbne. Bude to blbnúť, lebo to neviem urobiť.
   ✔ otočiť fotku KA Medevecký
   ✔ v správach prerobiť masonry layout na klasické stĺpce s rovnakou výškou

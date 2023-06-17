@@ -133,6 +133,7 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
                 <em>Pohrebné obrady.</em>
                 Trnava: Spolok sv. Vojtecha, 2008. ISBN 978-80-7162-710-4.

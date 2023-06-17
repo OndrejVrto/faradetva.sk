@@ -27,7 +27,6 @@
                 </p>
 
             </x-web.page.text-segment>
-
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="asc-009" side="left" dimensionSource="medium" columns="4" />

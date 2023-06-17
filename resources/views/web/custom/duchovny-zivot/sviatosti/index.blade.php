@@ -8,7 +8,7 @@
             title="Krst"
             url="{{ secure_url('duchovny-zivot/sviatosti/krst') }}"
             delay=1
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr1-004-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -21,7 +21,7 @@
             title="Birmovanie"
             url="{{ secure_url('duchovny-zivot/sviatosti/birmovanie') }}"
             delay=2
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr2-002-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -34,7 +34,7 @@
             title="Eucharistia"
             url="{{ secure_url('duchovny-zivot/sviatosti/eucharistia') }}"
             delay=3
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr3-006-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -51,7 +51,7 @@
             title="Svätá spoveď"
             url="{{ secure_url('duchovny-zivot/sviatosti/spoved') }}"
             side="left"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr4-001-menu" descriptionSide="left"/>
             </x-slot:img>
@@ -72,7 +72,7 @@
             title="Pomazanie chorých"
             url="{{ secure_url('duchovny-zivot/sviatosti/pomazanie-chorych') }}"
             side="right"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr5-001-menu"/>
             </x-slot:img>
@@ -89,13 +89,13 @@
 
     </x-web.page.section>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART 3 -" class="pad_t_80">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III -" class="pad_t_80">
 
         <x-partials.card-about
             title="Posvätný stav"
             side="left"
             url="{{ secure_url('duchovny-zivot/sviatosti/posvatny-stav') }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr6-003" class="img-fluid w-100" descriptionSide="left"/>
             </x-slot:img>
@@ -118,7 +118,7 @@
             title="Manželstvo"
             side="right"
             url="{{ secure_url('duchovny-zivot/sviatosti/manzelstvo') }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="sacr7-003-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -128,9 +128,10 @@
                 <span class="d-none d-xl-inline me-2">
                     Manželstvo sa môže uzavrieť iba vtedy, ak jestvuje manželský konsenzus, to znamená, že muž a&nbsp;žena chcú vstúpiť do manželstva slobodne, bez strachu alebo nátlaku a&nbsp;keď im v&nbsp;tom nebránia nijaké prirodzené alebo cirkevné záväzky (napr. už existujúce manželstvo alebo sľub celibátu).
                 </span>
-               K&nbsp;sviatostnému manželstvu nevyhnutne patria prvky: slobodný súhlas, dobrovoľné prijatie celoživotného výlučného zväzku, otvorenosť na prijatie potomstva.
+                K&nbsp;sviatostnému manželstvu nevyhnutne patria prvky: slobodný súhlas, dobrovoľné prijatie celoživotného výlučného zväzku, otvorenosť na prijatie potomstva.
             </x-slot:teaser>
         </x-partials.card-about>
 
     </x-web.page.section>
+
 </x-web.layout.master>

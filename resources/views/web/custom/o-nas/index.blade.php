@@ -1,6 +1,6 @@
 <x-web.layout.master :pageData="$pageData">
 
-    {{-- O&nbsp;nás --}}
+    {{-- O nás --}}
         {{-- História --}}
         {{-- Patrón farnosti --}}
         {{-- Sakrálne objekty --}}

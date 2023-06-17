@@ -160,7 +160,7 @@
 
     {{-- Kapláni v Detve --}}
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I1 -" class="static-page pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I -" class="static-page pad_b_50">
         <x-partials.columns-list :list="$kaplani_1" />
     </x-web.page.section>
 
@@ -175,4 +175,5 @@
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III -" class="static-page pad_t_50 pad_b_50">
         <x-partials.columns-list :list="$kaplani_3" />
     </x-web.page.section>
+
 </x-web.layout.master>

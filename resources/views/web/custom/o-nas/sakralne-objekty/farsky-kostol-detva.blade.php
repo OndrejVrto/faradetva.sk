@@ -23,6 +23,7 @@
                 <p>
                     Kostol má pôdorys v&nbsp;tvare kríža, pričom oltár smeruje na východ a&nbsp;veža na západ. Dĺžka kostola je 40 m a&nbsp;šírka v&nbsp;priečnej lodi je 19 m. Svätyňa je štvorcová s&nbsp;výrazným víťazným oblúkom. Presbytérium, s&nbsp;rovným uzáverom, má po oboch stranách sakristie a&nbsp;na poschodí oratórium s&nbsp;emporou. Pred svätyňou je priečna loď. Nad priestorom pozdĺžnej a&nbsp;priečnej lode je plytká kupola. Vzadu je murovaný organový chór s&nbsp;emporou okolo troch strán. Empora zvykla v&nbsp;kostoloch bývať iba na západnej strane. V&nbsp;detvianskom kostole bola vybudovaná z&nbsp;troch strán, pravdepodobne pre veľký počet veriacich v&nbsp;kostole. Priestory kostola sú zaklenuté pruskými klenbami. Pruské klenby sa stavali v&nbsp;období prechodu od baroka ku klasicizmu. Boli plochejšie, neboli ostré a&nbsp;strmé, ale vytvárali priestor na výzdobu, ktorá robila dojem veľkosti a&nbsp;výšky. Na nárožiach sa nachádzajú piliere ozdobené iónskymi a&nbsp;korintskými prvkami, pretože klasicizmus sa v&nbsp;ornamentike vrátil k&nbsp;antike.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -40,9 +41,11 @@
                 <p>
                     Počas druhej svetovej vojny bol kostol poškodený granátom, ktorý padol do železných okien v&nbsp;sakristii, pričom boli zničené všetky omšové rúcha. Kostol bol čiastočne opravený až v&nbsp;roku 1949. Arcidekan Martin Láclavík po svojom príchode v&nbsp;roku 1961 našiel kostol v&nbsp;zúboženom ošarpanom stave a&nbsp;bez peňazí. Hneď začal s&nbsp;vybavovaním potrebných povolení pre jeho opravu. Urobila sa nová elektroinštalácia a&nbsp;nové ozvučenie. Po viac než 50 rokoch sa dal kostol v&nbsp;roku 1962 znovu vymaľovať. Maľbu realizoval František Buday z&nbsp;Bratislavy. Zároveň majster rezbár Michal Rýdzi, taktiež z&nbsp;Bratislavy, pozlátil oltáre a&nbsp;kazateľnicu. Staré, takmer 150-ročné lavice boli úplne napadnuté črvotočom. Nové lavice z&nbsp;červeného smreka urobil v&nbsp;roku 1974 majster Jozef Krnáč, stolár z&nbsp;Detvy.
                 </p>
+
                 <p>
                     V&nbsp;roku 1978 si kostol vyžadoval opäť generálnu opravu. Eternit na streche už bol na mnohých miestach poškodený, takže do kostola zatekalo. Strechu prekryli medeným plechom. Prácu uskutočnil miestny majster Vincent Chamula so svojou skupinou. Poškodená bola i&nbsp;vonkajšia fasáda kostola, ktorý nanovo omietol majster Halaj z&nbsp;Kriváňa. Celá oprava si vyžiadala takmer milión československých korún. V&nbsp;Historii domus arcidekan Láclavík vyzdvihol pracovitosť i&nbsp;štedrosť svojich farníkov: <em>„ S&nbsp;úhradou som nemal žiadne starosti. Ľudia ochotne dávali milodary a&nbsp;pomáhali pri prácach bez toho, žeby som bol musel pýtať peniaze.“</em>
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -51,8 +54,8 @@
     <x-web.sections.background-picture titleSlug="belko-005"/>
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II. -" class="static-page pad_t_50 pad_b_50">
-        <x-web.page.subsection>
 
+        <x-web.page.subsection>
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="fk-018" side="left" dimensionSource="medium" columns="4" />
@@ -76,7 +79,6 @@
                 </p>
 
             </x-web.page.text-segment>
-
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="belko-035" side="right" dimensionSource="medium" columns="4" />
@@ -101,11 +103,13 @@
 
             </x-web.page.text-segment>
         </x-web.page.subsection>
+
     </x-web.page.section>
 
     <x-web.sections.background-picture titleSlug="belko-008"/>
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III. -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
 
@@ -130,6 +134,7 @@
                 <p>
                     Kostolné zvony počas prvej svetovej vojny postihli dve rekvirácie. V&nbsp;roku 1916 vzali na vojenské ciele tri menšie zvony, pričom jeden bol z&nbsp;kalvárie. V&nbsp;roku 1917 zobrali z&nbsp;kostolnej veže ďalšie tri zvony. Keď 686 kg ťažký medián odliaty v&nbsp;roku 1911 zhodili z&nbsp;veže, vôbec nepraskol, dokonca rozbil skalu pri vchode kostola. Druhý zvon, na ktorý bili hodiny, vážil 121 kg a&nbsp;tretí umieráčik 22 kg. Farár Anton Kúdelka dal následne preniesť z&nbsp;Piešťa 60 kg zvon namiesto umieráčika. Zvony na lazoch neuviedol do výkazu a&nbsp;najväčší zvon podľa vlastných slov zachránil „iba fígľom“. Svojím odvážnym počínaním mohol podľa vojenských zákonov zaplatiť aj životom.
                 </p>
+
             </x-web.page.text-segment>
             <x-web.page.text-segment animation="fromright">
 
@@ -146,14 +151,35 @@
                 <p>
                     V&nbsp;roku 2020 sa pristúpilo k&nbsp;zásadnému riešeniu dlhodobo veľkého problému s&nbsp;vlhkosťou múrov, do ktorých prenikala zemná vlhkosť. Múry kostola majú v&nbsp;základoch hrúbku od jedného do dvoch metrov. Pracovníci detvianskeho družstva List obili z&nbsp;múrov omietku a&nbsp;po pôdoryse celého kostola zo strany exteriéru i&nbsp;interiéru vykonali dvojradovú tlakovú injektáž živice. Ide o&nbsp;vysokoviskózny materiál, ktorý preniká do všetkých mikropórov múru a&nbsp;vytvorí súvislú novú vrstvu izolácie. Na odkrytých múroch bolo vidieť, že už pri samotnej výstavbe kostola sa použili rôzne druhy kameňa a&nbsp;nie každý bol pre takúto stavbu vhodný. Vo vnútri kostola boli v&nbsp;minulosti urobené betónové sokle, ktoré boli natreté olejovou farbou a&nbsp;takto múry už vôbec nemohli „dýchať“ a&nbsp;vlhli. Vlhkosť navyše sprevádzal vysoký podiel soli. Injektáže boli prvou etapou projektu. Po trojročnom schnutí a&nbsp;odstránení vyzrážanej soli z&nbsp;múrov bude teraz nasledovať celková sanácia vonkajších a&nbsp;čiastočne aj vnútorných omietok kostola.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra a&nbsp;pramene:">
-                <li><em>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909.</em> Rukopis.</li>
-                <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva</em>. Diplomová práca, 2008.</li>
-                <li>CÍBIK, Adam. <em>Umelecká výzdoba interiéru Kostola sv. Františka Serafínskeho v&nbsp;Detve.</em> Bakalárska práca, 2012.</li>
-                <li>ZAREVÚCKY, Anton. <em>Katalóg farností a&nbsp;kostolov Banskobystrického biskupstva.</em> Strojopis, 1976.</li>
+
+            <li>
+                <em>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909.</em>
+                Rukopis.
+            </li>
+
+            <li>
+                BARTKOVÁ, Anna.
+                <em>Dejiny farnosti Detva.</em>
+                Diplomová práca, 2008.
+            </li>
+
+            <li>
+                CÍBIK, Adam.
+                <em>Umelecká výzdoba interiéru Kostola sv. Františka Serafínskeho v&nbsp;Detve.</em>
+                Bakalárska práca, 2012.
+            </li>
+
+            <li>
+                ZAREVÚCKY, Anton.
+                <em>Katalóg farností a&nbsp;kostolov Banskobystrického biskupstva.</em>
+                Strojopis, 1976.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

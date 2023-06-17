@@ -39,7 +39,6 @@
                 </p>
 
             </x-web.page.text-segment>
-
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="kronika-099" side="right" dimensionSource="medium" columns="4" />

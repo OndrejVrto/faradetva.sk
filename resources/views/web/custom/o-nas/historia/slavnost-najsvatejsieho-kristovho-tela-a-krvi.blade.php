@@ -55,15 +55,24 @@
         <x-partials.photo-gallery titleSlug="bozie-telo" dimensionSource="medium"/>
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
-                <em>Sväté prijímanie a&nbsp;kult eucharistického tajomstva mimo omše.</em> Trnava: Spolok sv. Vojtecha, 2011. ISBN 978-80-7162-881-1.
+                <em>Sväté prijímanie a&nbsp;kult eucharistického tajomstva mimo omše.</em>
+                Trnava: Spolok sv. Vojtecha, 2011. ISBN 978-80-7162-881-1.
             </li>
+
             <li>
-                ACUTIS, Carlo. <em>Eucharistické zázraky vo svete.</em> Bratislava: studio LUX, 2017. ISBN 978-80-968615-5-2.
+                ACUTIS, Carlo.
+                <em>Eucharistické zázraky vo svete.</em>
+                Bratislava: studio LUX, 2017. ISBN 978-80-968615-5-2.
             </li>
+
             <li>
-                OSTRIHOŇOVÁ, Anna. Kalendárne obyčaje a&nbsp;obyčaje životného cyklu. In: Anna Ostrihoňová. ed. <em>Detva. Monografia mesta.</em> Detva: Mesto Detva, 2018. ISBN 978-80-9730011-2-5.
+                OSTRIHOŇOVÁ, Anna. Kalendárne obyčaje a&nbsp;obyčaje životného cyklu. In: Anna Ostrihoňová. ed.
+                <em>Detva. Monografia mesta.</em>
+                Detva: Mesto Detva, 2018. ISBN 978-80-9730011-2-5.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

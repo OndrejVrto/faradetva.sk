@@ -170,7 +170,7 @@
 
     <x-web.sections.background-picture titleSlug="patr-001"/>
 
-    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART I V&nbsp;-" class="static-page pad_t_50 pad_b_50">
+    <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART IV -" class="static-page pad_t_50 pad_b_50">
 
         <x-web.page.subsection title="Dianie po smrti">
             <x-web.page.text-segment animation="fromleft">

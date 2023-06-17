@@ -1,9 +1,7 @@
 @push('js')
     <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" crossorigin="anonymous"></script>
 @endpush
-
 @php
-
     $knazske_a_muzske_reholne_povolania_z_Detvy = [
 
         [
@@ -737,7 +735,9 @@
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Muži - " class="static-page pad_b_30" data-no-index="true">
 
-        <h2 class="text-center fw-bold text-church-template-blue">Kňazské a&nbsp;mužské rehoľné povolania z&nbsp;Detvy</h2>
+        <h2 class="text-center fw-bold text-church-template-blue">
+            Kňazské a&nbsp;mužské rehoľné povolania z&nbsp;Detvy
+        </h2>
 
         <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$knazske_a_muzske_reholne_povolania_z_Detvy" />
@@ -749,7 +749,9 @@
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Ženy - " class="static-page pad_t_50 pad_b_30" data-no-index="true">
 
-        <h2 class="text-center fw-bold text-church-template-blue">Ženské rehoľné povolania z&nbsp;Detvy</h2>
+        <h2 class="text-center fw-bold text-church-template-blue">
+            Ženské rehoľné povolania z&nbsp;Detvy
+        </h2>
 
         <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$zenske_reholne_povolania_z_Detvy" />
@@ -794,4 +796,5 @@
         </x-web.page.information-sources>
 
     </x-web.page.section>
+
 </x-web.layout.master>

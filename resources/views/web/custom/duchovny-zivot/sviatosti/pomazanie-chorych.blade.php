@@ -6,9 +6,11 @@
 
         <x-web.page.subsection title="Prečo Ježiš prejavoval taký veľký záujem o&nbsp;chorých?">
             <x-web.page.text-segment animation="fromright">
+
                 <p>
                     Ježiš prišiel, aby nám zjavil Božiu lásku. Prinášal ju predovšetkým tam, kde sa človek cíti mimoriadne ohrozený: v&nbsp;chorobe. Boh chce, aby sme boli zdraví na tele aj na duchu, aby sme mu verili a&nbsp;aby sme dokázali rozpoznať prichádzajúce Božie kráľovstvo. Niekedy nám až vážna choroba ukáže, čo potrebujeme - či už zdraví alebo chorí - najviac zo všetkého: Boha. Život máme iba v&nbsp;ňom. Preto majú chorí a&nbsp;hriešnici mimoriadny zmysel pre to, čo je v&nbsp;živote podstatné. V&nbsp;Starom zákone človek často prijímal chorobu ako ťažkú skúšku, proti ktorej sa buď mohol búriť, alebo v&nbsp;nej mohol spoznať Boží rukopis. V&nbsp;Novom zákone chorí vyhľadávali Ježišovu blízkosť; snažili sa ho „dotknúť, lebo vychádzala z&nbsp;neho sila a&nbsp;uzdravovala všetkých“ (Lk 6,19).
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -28,6 +30,7 @@
                 <p>
                     Podstatou obradu pri slávení tejto sviatosti je modlitba kňaza spojená s&nbsp;pomazaním čela a&nbsp;rúk chorého posväteným olejom. Vysluhovateľmi sviatosti chorých sú iba biskupi a&nbsp;kňazi. Ježiš Kristus mocou ich vysvätenia koná prostredníctvom nich.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -59,29 +62,17 @@
                 <p>
                     Viatikum („pokrm na cestu“) je Eucharistia, ktorú prijíma ten, kto o&nbsp;krátky čas opustí pozemský život a&nbsp;prejde do večného života. Málokedy je sväté prijímanie také životne dôležité ako v&nbsp;okamihu, keď človek dovršuje svoj pozemský život.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
-
-        {{-- <x-web.page.subsection>
-            <hr class="text-church-template">
-        </x-web.page.subsection>
-
-        <x-web.page.subsection title="Čo znamená byť zaopatrený sviatosťami a&nbsp;ako je k&nbsp;tomu možné prísť?">
-            <x-web.page.text-segment animation="fromleft">
-                <p>
-                    Tí, ktorí sú vopred posilnení sviatostným pomazaním, svätou spoveďou a&nbsp;svätým prijímaním, sú týmito sviatosťami zaopatrení v&nbsp;hodine smrti a&nbsp;ich odchod k&nbsp;svojmu Pánovi a&nbsp;Stvoriteľovi je sviatostne posilnený, v&nbsp;mnohých prípadoch aj uľahčený, pretože zomierajúci nadobúda Boží pokoj, je zmierený s&nbsp;Bohom aj so svojimi príbuznými a&nbsp;môže vo väčšom pokoji opustiť tento svet.
-                </p>
-                <p>
-                    Sviatosť pomazania chorých vysluhujeme chorým a&nbsp;umierajúcim kedykoľvek na požiadanie. U&nbsp;tých, ktorí sú v&nbsp;pokročilom veku a&nbsp;majú vážne zdravotné komplikácie, nie je dobré odkladať túto sviatosť len na poslednú chvíľu. Pomazanie chorých je možné prijať jedenkrát v&nbsp;roku alebo aj viackrát, vždy po vážnom zhoršení zdravotného stavu.
-                </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection> --}}
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
                 <em>Youcat po slovensky. Katechizmus Katolíckej cirkvi pre mladých.</em>
                 Bratislava: Karmelitánske nakladateľstvo, 2011. ISBN 978-80-89231-99-7.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

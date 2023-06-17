@@ -63,9 +63,12 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Zdroj:">
+
             <li>
                 <em>Informačný leták Služobníkov Ježišovho Veľkňazského Srdca</em>
             </li>
+
         </x-web.page.information-sources>
+
     </x-web.page.section>
 </x-web.layout.master>

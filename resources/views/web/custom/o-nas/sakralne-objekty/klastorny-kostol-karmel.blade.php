@@ -29,13 +29,16 @@
                 <p>
                     Pri pohľade na mozaiku vidíme stojaceho Krista s&nbsp;oslávenými ranami svojho umučenia, z&nbsp;jeho prebodnutého srdca tryská krv a&nbsp;voda. Tieto výrazné lúče Božieho milosrdenstva prenikajú celý priestor, vrátane dekoračného pozadia. Celá postava Pána Ježiša je akoby zahalená do oblúkovitých lúčov, symbolizujúcich jeho božstvo. Pod nohami Pána Ježiša je za oltárom zámerne trochu skrytý nápis <em>Dôverujem Ti</em>. Vpravo od postavy Ježiša je šesť slov, ktoré ho vľúdne a&nbsp;popritom spoľahlivo charakterizujú. Vychádzajú z&nbsp;neho ako žiara, ktorá osvecuje celý svet, a&nbsp;pomáhajú pozerajúcemu sa na Slovo - Ježiša pochopiť ho a&nbsp;nechať sa uchopiť jeho vlastnosťami: <em>Ľútostivý, Milostivý, Zhovievavý, Veľmi milosrdný, Pravdivý, Odpúšťajúci</em>.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
+
     </x-web.page.section>
 
     <x-web.sections.background-picture titleSlug="klk-018"/>
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromright">
 
@@ -54,14 +57,18 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
-                <em>Mozaika v&nbsp;kaplnke karmelitánskeho kláštora v&nbsp;Detve.</em> Bosé karmelitánky, 2019.
+                <em>Mozaika v&nbsp;kaplnke karmelitánskeho kláštora v&nbsp;Detve.</em>
+                Bosé karmelitánky, 2019.
             </li>
+
             <li>
                 NEPŠINSKÝ, Vojtech.
                 <em>Boh prítomný medzi ľuďmi. Desaťročie nových kostolov a&nbsp;kaplniek v&nbsp;Banskobystrickej diecéze.</em>
                 Badín: Kňazský seminár sv. Františka Xaverského, 2016. ISBN 978-80-88937-74-6.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>
