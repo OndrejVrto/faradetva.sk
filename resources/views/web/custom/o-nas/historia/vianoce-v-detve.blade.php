@@ -112,9 +112,10 @@
                 <x-partials.video-embed
                     urlVideo="https://youtu.be/vmkGmjVg6o0"
                     :config="[
-                        'width' => 600,
-                        'class' => 'd-block mx-auto'
+                        // 'width' => 600,
+                        'class' => 'd-block mx-auto col-7'
                     ]"
+                    class="ratio ratio-4x3"
                 />
 
             </x-web.page.text-segment>
