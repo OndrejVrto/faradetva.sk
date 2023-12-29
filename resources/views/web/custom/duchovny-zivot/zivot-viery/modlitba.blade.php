@@ -33,7 +33,7 @@
                 </figure>
 
                 <p>
-                    Mnohí ľudia, ktorí prosili Ježiša počas jeho pozemského života o&nbsp;uzdravenie, boli vypočutí. Ježiš, ktorý vstal z&nbsp;mŕtvych, žije, počúva naše prosby a&nbsp;predkladá ich Otcovi. Ježiš počas svojho pozemského života vykonal mnoho znamení a&nbsp;zázrakov. Chromí, malomocní a&nbsp;slepí neprosili Ježiša nadarmo o&nbsp;pomoc. Mnohí kresťania by mohli rozprávať, ako volali k&nbsp;Bohu a&nbsp;ako Boh konkrétnym spôsobom vstúpil do ich života. a&nbsp;koľko modlitieb bolo vypočutých na príhovor svätcov! Boh však nie je nejaký automat. Spôsob, ako chce vypočuť naše prosby, musíme ponechať na neho.
+                    Mnohí ľudia, ktorí prosili Ježiša počas jeho pozemského života o&nbsp;uzdravenie, boli vypočutí. Ježiš, ktorý vstal z&nbsp;mŕtvych, žije, počúva naše prosby a&nbsp;predkladá ich Otcovi. Ježiš počas svojho pozemského života vykonal mnoho znamení a&nbsp;zázrakov. Chromí, malomocní a&nbsp;slepí neprosili Ježiša nadarmo o&nbsp;pomoc. Mnohí kresťania by mohli rozprávať, ako volali k&nbsp;Bohu a&nbsp;ako Boh konkrétnym spôsobom vstúpil do ich života. A&nbsp;koľko modlitieb bolo vypočutých na príhovor svätcov! Boh však nie je nejaký automat. Spôsob, ako chce vypočuť naše prosby, musíme ponechať na neho.
                 </p>
 
             </x-web.page.text-segment>
@@ -62,11 +62,11 @@
                 <x-partials.picture titleSlug="modl-014" side="left" columns="3" />
 
                 <p>
-                    Každý človek, ktorý si uvedomuje, že je Božím stvorením, pokorne uznáva Boha, svojho Stvoriteľa a&nbsp;klania sa mu. V&nbsp;postoji klaňania (adorácia) však neuctieva iba Božiu veľkosť, všemohúcnosť a&nbsp;svätosť, ale skláňa sa aj pred Božou láskou, ktorá spôsobila, že sa v&nbsp;Ježišovi Kristovi Boh stal človekom. Ten, kto sa skutočne klania Bohu, padá pred ním na kolená alebo sa pred ním vrhá na zem. Vyjadruje tak pravdivosť vzťahu medzi Bohom a&nbsp;človekom: Boh je veľký, my sme malí. a&nbsp;pritom človek nie je nikdy väčší ako vtedy, keď v&nbsp;slobodnej odovzdanosti padá na kolená pred Bohom. Človek, ktorý hľadá Boha a&nbsp;začína sa modliť, môže takýmto spôsobom nájsť k&nbsp;nemu cestu.
+                    Každý človek, ktorý si uvedomuje, že je Božím stvorením, pokorne uznáva Boha, svojho Stvoriteľa a&nbsp;klania sa mu. V&nbsp;postoji klaňania (adorácia) však neuctieva iba Božiu veľkosť, všemohúcnosť a&nbsp;svätosť, ale skláňa sa aj pred Božou láskou, ktorá spôsobila, že sa v&nbsp;Ježišovi Kristovi Boh stal človekom. Ten, kto sa skutočne klania Bohu, padá pred ním na kolená alebo sa pred ním vrhá na zem. Vyjadruje tak pravdivosť vzťahu medzi Bohom a&nbsp;človekom: Boh je veľký, my sme malí. A&nbsp;pritom človek nie je nikdy väčší ako vtedy, keď v&nbsp;slobodnej odovzdanosti padá na kolená pred Bohom. Človek, ktorý hľadá Boha a&nbsp;začína sa modliť, môže takýmto spôsobom nájsť k&nbsp;nemu cestu.
                 </p>
 
                 <p>
-                    Boh, ktorý nás pozná do hĺbky duše, vie, čo potrebujeme. a&nbsp;predsa si praje, aby sme ho prosili, aby sme sa na neho obracali vo svojich potrebách, aby sme na neho volali a&nbsp;utiekali sa k&nbsp;nemu, aby sme sa mu vyžalovali, vzývali ho a&nbsp;dokonca s&nbsp;ním zápasili. Boh nepotrebuje naše prosby, aby nám pomáhal. To, že ho máme prosiť, je pre naše dobro. Ten, kto neprosí a&nbsp;nechce prosiť, uzatvára sa do seba. Len človek, ktorý prosí, sa otvára a&nbsp;obracia sa na Pôvodcu všetkého dobra. Ten, kto prosí, vracia sa domov k&nbsp;Bohu. Preto prosebná modlitba uvádza človeka do správneho vzťahu k&nbsp;Bohu, ktorý rešpektuje našu slobodu.
+                    Boh, ktorý nás pozná do hĺbky duše, vie, čo potrebujeme. A&nbsp;predsa si praje, aby sme ho prosili, aby sme sa na neho obracali vo svojich potrebách, aby sme na neho volali a&nbsp;utiekali sa k&nbsp;nemu, aby sme sa mu vyžalovali, vzývali ho a&nbsp;dokonca s&nbsp;ním zápasili. Boh nepotrebuje naše prosby, aby nám pomáhal. To, že ho máme prosiť, je pre naše dobro. Ten, kto neprosí a&nbsp;nechce prosiť, uzatvára sa do seba. Len človek, ktorý prosí, sa otvára a&nbsp;obracia sa na Pôvodcu všetkého dobra. Ten, kto prosí, vracia sa domov k&nbsp;Bohu. Preto prosebná modlitba uvádza človeka do správneho vzťahu k&nbsp;Bohu, ktorý rešpektuje našu slobodu.
                 </p>
 
                 <x-partials.picture titleSlug="modl-004" side="right" columns="2" />
@@ -134,7 +134,7 @@
                 <x-partials.picture titleSlug="modl-006" side="left" columns="2" />
 
                 <p>
-                    Modlitba je v&nbsp;prvom rade pozdvihnutie srdca k&nbsp;Bohu. a&nbsp;predsa aj Ježiš učil modliť sa slovami. V&nbsp;modlitbe Otče náš nám zanechal dokonalú ústnu modlitbu ako svoj odkaz, aby sme vedeli, ako sa máme modliť. Pri modlitbe sa nemáme iba oddávať zbožným myšlienkam. Mali by sme vysloviť všetko, čo máme na srdci a&nbsp;predniesť to Bohu ako nárek, prosbu, chválu a&nbsp;vďaku. Často práve veľké ústne modlitby - Žalmy a&nbsp;hymny zo Svätého písma, Otče náš, Zdravas' Mária, Sláva Otcu - poukazujú na skutočný obsah modlitby a&nbsp;vedú nás k&nbsp;slobodnej vnútornej modlitbe.
+                    Modlitba je v&nbsp;prvom rade pozdvihnutie srdca k&nbsp;Bohu. A&nbsp;predsa aj Ježiš učil modliť sa slovami. V&nbsp;modlitbe Otče náš nám zanechal dokonalú ústnu modlitbu ako svoj odkaz, aby sme vedeli, ako sa máme modliť. Pri modlitbe sa nemáme iba oddávať zbožným myšlienkam. Mali by sme vysloviť všetko, čo máme na srdci a&nbsp;predniesť to Bohu ako nárek, prosbu, chválu a&nbsp;vďaku. Často práve veľké ústne modlitby - Žalmy a&nbsp;hymny zo Svätého písma, Otče náš, Zdravas' Mária, Sláva Otcu - poukazujú na skutočný obsah modlitby a&nbsp;vedú nás k&nbsp;slobodnej vnútornej modlitbe.
                 </p>
 
                 <p>

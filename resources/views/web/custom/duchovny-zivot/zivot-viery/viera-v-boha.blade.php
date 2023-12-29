@@ -12,7 +12,7 @@
                 </p>
 
                 <p>
-                    Aby Božie volanie zaznievalo po celom svete, poslal Kristus apoštolov, ktorých si vyvolil, a&nbsp;dal im príkaz ohlasovať evanjelium: „Choďte teda, učte všetky národy a&nbsp;krstite ich v&nbsp;mene Otca i&nbsp;Syna i&nbsp;Ducha Svätého a&nbsp;naučte ich zachovávať všetko, čo som vám prikázal. a&nbsp;hľa, ja som s&nbsp;vami po všetky dni až do skončenia sveta“ (Mt 28,19-20). Apoštoli sa na základe tohto poslania „rozišli a&nbsp;všade kázali. Pán im pomáhal a&nbsp;ich slová potvrdzoval znameniami, ktoré ich sprevádzali“ (Mk 16,20).
+                    Aby Božie volanie zaznievalo po celom svete, poslal Kristus apoštolov, ktorých si vyvolil, a&nbsp;dal im príkaz ohlasovať evanjelium: „Choďte teda, učte všetky národy a&nbsp;krstite ich v&nbsp;mene Otca i&nbsp;Syna i&nbsp;Ducha Svätého a&nbsp;naučte ich zachovávať všetko, čo som vám prikázal. A&nbsp;hľa, ja som s&nbsp;vami po všetky dni až do skončenia sveta“ (Mt 28,19-20). Apoštoli sa na základe tohto poslania „rozišli a&nbsp;všade kázali. Pán im pomáhal a&nbsp;ich slová potvrdzoval znameniami, ktoré ich sprevádzali“ (Mk 16,20).
                 </p>
 
                 <p>

@@ -28,7 +28,7 @@
                 <x-partials.picture titleSlug="pro-003" side="right" dimensionSource="medium" columns="5"/>
 
                 <p>
-                    Anton bol horlivým vlastencom. Asi vo štvrtok pred Turícami usporiadal spolu s&nbsp;kaplánom Alexandrom Vajcíkom pred kostolom schôdzu a&nbsp;vyzýval ľudí, aby sa vlastnými zbraňami, kosami a&nbsp;cepmi, vzopreli Maďarom. Na ukončenie zhromaždenia nechal Anton zaspievať slovenskú hymnu „Hej, Slováci.“ Trúsili sa reči, že za toto sa im budú boľševici chcieť pomstiť. a&nbsp;tak im obom v&nbsp;piatok odporúčal vedúci notár Alexander Engelman a&nbsp;farár Anton Kúdelka, aby čím skôr odišli. Kaplán Vajcík ušiel na koni do hôr a&nbsp;Anton hoci sľúbil, že odíde, neurobil tak.
+                    Anton bol horlivým vlastencom. Asi vo štvrtok pred Turícami usporiadal spolu s&nbsp;kaplánom Alexandrom Vajcíkom pred kostolom schôdzu a&nbsp;vyzýval ľudí, aby sa vlastnými zbraňami, kosami a&nbsp;cepmi, vzopreli Maďarom. Na ukončenie zhromaždenia nechal Anton zaspievať slovenskú hymnu „Hej, Slováci.“ Trúsili sa reči, že za toto sa im budú boľševici chcieť pomstiť. A&nbsp;tak im obom v&nbsp;piatok odporúčal vedúci notár Alexander Engelman a&nbsp;farár Anton Kúdelka, aby čím skôr odišli. Kaplán Vajcík ušiel na koni do hôr a&nbsp;Anton hoci sľúbil, že odíde, neurobil tak.
                 </p>
 
                 <p>

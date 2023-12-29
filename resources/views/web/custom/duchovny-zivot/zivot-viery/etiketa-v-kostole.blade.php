@@ -135,7 +135,7 @@
                 <x-partials.picture titleSlug="etik-014" side="right" columns="2" />
 
                 <p>
-                    Každý veriaci by mal prispievať milodarmi podľa svojich možností. Keď si niekto môže dovoliť dať na kostol sto eur, vďaka Bohu, že mu Pán požehnal túto možnosť. Mali by sme ale pamätať, že každý náš milodar by mal predstavovať nezištné konanie v&nbsp;prospech iného a&nbsp;na úkor seba. Bohu je milšie, keď dá niekto aj posledný cent, ako keď dá niekto tisíc eur, ktoré mu vôbec nebudú chýbať. Ak nemáme peniaze - a&nbsp;čo je dôležitejšie - ani dobrý úmysel, radšej neprispejme ničím. Keď však zazrieme, koľko peňazí niekto vhodil do zvončeka, nesmieme sa tým zaoberať, nemôžeme posudzovať. Nikdy nevieme, prečo ten človek hodil málo alebo veľa. a&nbsp;čo je vlastne málo alebo veľa?
+                    Každý veriaci by mal prispievať milodarmi podľa svojich možností. Keď si niekto môže dovoliť dať na kostol sto eur, vďaka Bohu, že mu Pán požehnal túto možnosť. Mali by sme ale pamätať, že každý náš milodar by mal predstavovať nezištné konanie v&nbsp;prospech iného a&nbsp;na úkor seba. Bohu je milšie, keď dá niekto aj posledný cent, ako keď dá niekto tisíc eur, ktoré mu vôbec nebudú chýbať. Ak nemáme peniaze - a&nbsp;čo je dôležitejšie - ani dobrý úmysel, radšej neprispejme ničím. Keď však zazrieme, koľko peňazí niekto vhodil do zvončeka, nesmieme sa tým zaoberať, nemôžeme posudzovať. Nikdy nevieme, prečo ten človek hodil málo alebo veľa. A&nbsp;čo je vlastne málo alebo veľa?
                 </p>
 
                 <p>

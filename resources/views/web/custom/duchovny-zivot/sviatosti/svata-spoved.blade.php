@@ -28,7 +28,7 @@
                 </h3>
 
                 <p>
-                    Je to predovšetkým Božia milosť, ktorá pohne srdcom človeka. Z&nbsp;pohľadu na osobný hriech potom vyrastá túžba polepšiť sa. Hovoríme tomu ľútosť. Dospejeme k&nbsp;nej tak, že si uvedomíme rozpor medzi Božou láskou a&nbsp;svojím hriechom. Vtedy nás naplní bolesť nad našimi hriechmi; dáme si predsavzatie, že zmeníme svoj život a&nbsp;všetku svoju nádej vložíme do Božej pomoci. Realita hriechu sa však často potláča. Mnohí sa dokonca domnievajú, že pocity hriechu by sa mali spracovávať čisto psychologicky. Avšak čím väčšmi sa približujeme k&nbsp;Bohu, ktorý je svetlo, tým jasnejšie vystupujú na povrch naše tienisté stránky. Boh však nie je svetlo, ktoré spaľuje, ale svetlo, ktoré uzdravuje. a&nbsp;preto nás ľútosť pobáda k&nbsp;tomu, aby sme vstúpili do svetla, v&nbsp;ktorom úplne vyzdravieme.
+                    Je to predovšetkým Božia milosť, ktorá pohne srdcom človeka. Z&nbsp;pohľadu na osobný hriech potom vyrastá túžba polepšiť sa. Hovoríme tomu ľútosť. Dospejeme k&nbsp;nej tak, že si uvedomíme rozpor medzi Božou láskou a&nbsp;svojím hriechom. Vtedy nás naplní bolesť nad našimi hriechmi; dáme si predsavzatie, že zmeníme svoj život a&nbsp;všetku svoju nádej vložíme do Božej pomoci. Realita hriechu sa však často potláča. Mnohí sa dokonca domnievajú, že pocity hriechu by sa mali spracovávať čisto psychologicky. Avšak čím väčšmi sa približujeme k&nbsp;Bohu, ktorý je svetlo, tým jasnejšie vystupujú na povrch naše tienisté stránky. Boh však nie je svetlo, ktoré spaľuje, ale svetlo, ktoré uzdravuje. A&nbsp;preto nás ľútosť pobáda k&nbsp;tomu, aby sme vstúpili do svetla, v&nbsp;ktorom úplne vyzdravieme.
                 </p>
 
             </x-web.page.text-segment>

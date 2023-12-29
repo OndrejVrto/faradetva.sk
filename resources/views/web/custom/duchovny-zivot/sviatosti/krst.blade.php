@@ -16,7 +16,7 @@
                 <h3 class="mt-2 wow fromright" data-wow-delay="0.4s">Ako sa udeľuje krst</h3>
 
                 <p>
-                    Klasická forma krstu prebieha tak, že ten, kto prijíma krst, sa tri razy ponorí do krstnej vody. Väčšinou sa však tomu, kto prijíma krst, tri razy leje voda na hlavu, pričom ten, kto udeľuje krst, hovorí: „(Meno), ja ťa krstím v&nbsp;mene Otca i&nbsp;Syna i&nbsp;Ducha Svätého.“ Voda symbolizuje očistenie a&nbsp;nový život. Túto skutočnosť vyjadroval už Jánov krst pokánia. Krst, ktorý sa udeľuje v&nbsp;„mene Otca i&nbsp;Syna i&nbsp;Ducha Svätého“ vodou, je viac ako znakom obrátenia a&nbsp;pokánia. Je to nový život v&nbsp;Kristovi. a&nbsp;preto ešte nasleduje pomazanie olejom, oblečenie bieleho rúcha a&nbsp;zapálenie krstnej sviece.
+                    Klasická forma krstu prebieha tak, že ten, kto prijíma krst, sa tri razy ponorí do krstnej vody. Väčšinou sa však tomu, kto prijíma krst, tri razy leje voda na hlavu, pričom ten, kto udeľuje krst, hovorí: „(Meno), ja ťa krstím v&nbsp;mene Otca i&nbsp;Syna i&nbsp;Ducha Svätého.“ Voda symbolizuje očistenie a&nbsp;nový život. Túto skutočnosť vyjadroval už Jánov krst pokánia. Krst, ktorý sa udeľuje v&nbsp;„mene Otca i&nbsp;Syna i&nbsp;Ducha Svätého“ vodou, je viac ako znakom obrátenia a&nbsp;pokánia. Je to nový život v&nbsp;Kristovi. A&nbsp;preto ešte nasleduje pomazanie olejom, oblečenie bieleho rúcha a&nbsp;zapálenie krstnej sviece.
                 </p>
 
             </x-web.page.text-segment>

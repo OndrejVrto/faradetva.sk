@@ -40,7 +40,7 @@
                 </p>
 
                 <p>
-                    Saleziánski spolupracovníci sa zapájajú do apoštolátu saleziánskej rodiny podľa svojich darov a&nbsp;možností. Niektorí viac v&nbsp;skrytosti (modlitbou či obetou utrpenia), iní napríklad verejne pôsobia v&nbsp;rozličných oblastiach - kultúrnych, spoločenských, ekonomických či politických. a&nbsp;to všetko saleziánskym spôsobom, ktorý je charakteristický radosťou, láskavosťou, rodinným duchom a&nbsp;láskou k&nbsp;mladým.
+                    Saleziánski spolupracovníci sa zapájajú do apoštolátu saleziánskej rodiny podľa svojich darov a&nbsp;možností. Niektorí viac v&nbsp;skrytosti (modlitbou či obetou utrpenia), iní napríklad verejne pôsobia v&nbsp;rozličných oblastiach - kultúrnych, spoločenských, ekonomických či politických. A&nbsp;to všetko saleziánskym spôsobom, ktorý je charakteristický radosťou, láskavosťou, rodinným duchom a&nbsp;láskou k&nbsp;mladým.
                 </p>
 
             </x-web.page.text-segment>

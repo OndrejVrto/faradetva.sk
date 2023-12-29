@@ -46,7 +46,7 @@
                 <x-partials.picture titleSlug="sacr5-003" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
-                    Sviatosť chorých udeľuje útechu, pokoj a&nbsp;silu a&nbsp;chorého v&nbsp;jeho utrpení spája hlbokým putom s&nbsp;Kristom. U&nbsp;mnohých táto sviatosť vedie k&nbsp;telesnému uzdraveniu. a&nbsp;ak si Boh chce niekoho povolať k&nbsp;sebe, dáva mu v&nbsp;tejto sviatosti silu ku všetkým telesným i&nbsp;duševným zápasom na jeho poslednej ceste. Ak sa chorý nemohol vyspovedať, sviatosť chorých spôsobuje aj odpustenie hriechov.
+                    Sviatosť chorých udeľuje útechu, pokoj a&nbsp;silu a&nbsp;chorého v&nbsp;jeho utrpení spája hlbokým putom s&nbsp;Kristom. U&nbsp;mnohých táto sviatosť vedie k&nbsp;telesnému uzdraveniu. A&nbsp;ak si Boh chce niekoho povolať k&nbsp;sebe, dáva mu v&nbsp;tejto sviatosti silu ku všetkým telesným i&nbsp;duševným zápasom na jeho poslednej ceste. Ak sa chorý nemohol vyspovedať, sviatosť chorých spôsobuje aj odpustenie hriechov.
                 </p>
 
                 <x-partials.picture titleSlug="sacr5-001" side="right" dimensionSource="medium" columns="3"/>

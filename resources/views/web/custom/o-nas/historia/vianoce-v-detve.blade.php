@@ -80,7 +80,7 @@
                 <x-partials.picture titleSlug="vian-009" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
-                    Nemalú funkciu v&nbsp;uchovávaní kolied zohrávajú miestne detské folklórne kolektívy. Vďaka ich práci aj súčasné deti poznajú vianočné detvianske ľudové piesne. a&nbsp;tak môžeme na polnočnej svätej omši pozorovať spoločný spev viacerých generácií. Detí, mládežníkov, dospelých i&nbsp;veriacich najstaršej generácie, čo je v&nbsp;súčasnosti až jedinečné.
+                    Nemalú funkciu v&nbsp;uchovávaní kolied zohrávajú miestne detské folklórne kolektívy. Vďaka ich práci aj súčasné deti poznajú vianočné detvianske ľudové piesne. A&nbsp;tak môžeme na polnočnej svätej omši pozorovať spoločný spev viacerých generácií. Detí, mládežníkov, dospelých i&nbsp;veriacich najstaršej generácie, čo je v&nbsp;súčasnosti až jedinečné.
                 </p>
 
                 <p>
