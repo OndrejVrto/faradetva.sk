@@ -13,7 +13,7 @@
                 <x-partials.picture-responsive titleSlug="med-018-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Titulárny prepošt, múzejník, etnograf, historik, publicista a&nbsp;najznámejší kňaz, ktorý doposiaľ pôsobil v&nbsp;Detve. Signatár Martinskej deklarácie a&nbsp;autor prvej slovenskej monografie Detvy.
+                Titulárny prepošt, múzejník, etnograf, historik, publicista a&nbsp;najznámejší kňaz, ktorý doposiaľ pôsobil v&nbsp;Detve. Signatár Martinskej deklarácie a&nbsp;autor monografie Detvy.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -81,7 +81,7 @@
                 <x-partials.picture-responsive titleSlug="bud-007-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Univerzitný profesor, teológ, prekladateľ Starého zákona, trpiteľ za vieru. Ako kaplán v&nbsp;Detve sa stal prvým správcom novozriadenej farnosti v&nbsp;Hriňovej, o&nbsp;ktorej vznik sa sám pričinil.
+                Univerzitný profesor, teológ, prekladateľ Starého zákona, trpiteľ za vieru. Ako kaplán v&nbsp;Detve sa stal prvým správcom novozriadenej farnosti v&nbsp;Hriňovej.
             </x-slot:teaser>
         </x-partials.card-article>
 
@@ -94,7 +94,7 @@
                 <x-partials.picture-responsive titleSlug="dur-009-menu" class="img-fluid w-100"/>
             </x-slot:img>
             <x-slot:teaser>
-                Honorárny kanonik, pedagóg, publicista, trpiteľ za vieru. Pochádzal z&nbsp;chudobnej maloroľníckej rodiny. Počas gymnaziálnych štúdií sa jeho rodičia presťahovali z&nbsp;Detvy do Hodejova.
+                Honorárny kanonik, pedagóg, publicista, trpiteľ za vieru. Pochádzal z&nbsp;chudobnej rodiny. Počas gymnaziálnych štúdií sa jeho rodičia presťahovali z&nbsp;Detvy do Hodejova.
             </x-slot:teaser>
         </x-partials.card-article>
 

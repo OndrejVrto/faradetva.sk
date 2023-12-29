@@ -8,7 +8,7 @@
             title="Viera v&nbsp;Boha"
             side="left"
             url="{{ secure_url('duchovny-zivot/zivot-viery/viera-v-boha') }}"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="viera-001-menu" class="img-fluid w-100" descriptionSide="left"/>
             </x-slot:img>
@@ -31,7 +31,7 @@
             title="Sväté písmo"
             url="{{ secure_url('duchovny-zivot/zivot-viery/svate-pismo') }}"
             delay=1
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="svp-007-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -44,7 +44,7 @@
             title="Božie prikázania"
             url="{{ secure_url('duchovny-zivot/zivot-viery/bozie-prikazania') }}"
             delay=2
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="bpr-006-menu" class="img-fluid w-100" descriptionCrop="4"/>
             </x-slot:img>
@@ -57,7 +57,7 @@
             title="Cirkevné prikázania"
             url="{{ secure_url('duchovny-zivot/zivot-viery/cirkevne-prikazania') }}"
             delay=3
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="etik-013-menu" class="img-fluid w-100"/>
             </x-slot:img>
@@ -74,7 +74,7 @@
             title="Modlitba"
             url="{{ secure_url('duchovny-zivot/zivot-viery/modlitba') }}"
             side="left"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="modl-001-menu"/>
             </x-slot:img>
@@ -92,7 +92,7 @@
             title="Etiketa v&nbsp;kostole"
             url="{{ secure_url('duchovny-zivot/zivot-viery/etiketa-v-kostole') }}"
             side="right"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="etik-001-menu"/>
             </x-slot:img>

@@ -1,9 +1,7 @@
 @push('js')
     <script @nonce type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" crossorigin="anonymous"></script>
 @endpush
-
 @php
-
     $knazske_a_muzske_reholne_povolania_z_Detvy = [
 
         [
@@ -737,7 +735,9 @@
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Muži - " class="static-page pad_b_30" data-no-index="true">
 
-        <h2 class="text-center fw-bold text-church-template-blue">Kňazské a&nbsp;mužské rehoľné povolania z&nbsp;Detvy</h2>
+        <h2 class="text-center fw-bold text-church-template-blue">
+            Kňazské a&nbsp;mužské rehoľné povolania z&nbsp;Detvy
+        </h2>
 
         <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$knazske_a_muzske_reholne_povolania_z_Detvy" />
@@ -749,45 +749,52 @@
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) - Ženy - " class="static-page pad_t_50 pad_b_30" data-no-index="true">
 
-        <h2 class="text-center fw-bold text-church-template-blue">Ženské rehoľné povolania z&nbsp;Detvy</h2>
+        <h2 class="text-center fw-bold text-church-template-blue">
+            Ženské rehoľné povolania z&nbsp;Detvy
+        </h2>
 
         <div class="row pad_t_30" data-masonry='{"percentPosition": true }'>
             <x-partials.biography-short :personList="$zenske_reholne_povolania_z_Detvy" />
         </div>
 
         <x-web.page.information-sources title="Použitá literatúra a&nbsp;pramene:">
-            <li>Diecézny archív Banská Bystrica, fond Schematizmy.</li>
-            <li>Farský archív Detva, fond Matriky pokrstených Farnosti Detva.</li>
-            <li>Farský archív Detva, fond Matriky zomrelých Farnosti Detva.</li>
+
             <li>
-                <span class="me-1">Matriky pokrstených Farnosti Detva.</span>
-                [online].
-                <a  class="link-template"
-                    target="_blank"
-                    href="https://www.familysearch.org/">
-                    Dostupné na internete
-                </a>
+                Diecézny archív Banská Bystrica, fond Schematizmy.
             </li>
+
             <li>
-                <span class="me-1">Matriky zomrelých farností Horná Ždaňa, Očová, Zvolenská Slatina, Žarnovica.</span>
-                [online]
-                <a  class="link-template"
-                    target="_blank"
-                    href="https://www.familysearch.org/">
-                    Dostupné na internete
-                </a>
+                Farský archív Detva, fond Matriky pokrstených Farnosti Detva.
             </li>
+
             <li>
-                Pataki Maurus Pál, OSB. In: <em class="me-1">Magyar katolikus lexikon.</em>
-                [online].
-                <a  class="link-template"
-                    target="_blank"
-                    href="http://lexikon.katolikus.hu/P/Pataki.html">
-                    Dostupné na internete
-                </a>
+                Farský archív Detva, fond Matriky zomrelých Farnosti Detva.
             </li>
-            <li>PÁRNIČAN, Pavol. <em>Duchovné povolania z&nbsp;Dekanátu Detva.</em> Detva: Rímskokatolícka cirkev, Farnosť Detva, 2021. ISBN 978-80-570-3364-6.</li>
+
+            <x-web.page.source-link
+                href="https://www.familysearch.org/">
+                    Matriky pokrstených Farnosti Detva.
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                href="https://www.familysearch.org/">
+                    Matriky zomrelých farností Horná Ždaňa, Očová, Zvolenská Slatina, Žarnovica.
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                name="Pataki Maurus Pál, OSB. In:"
+                href="http://lexikon.katolikus.hu/P/Pataki.html">
+                    Magyar katolikus lexikon.
+            </x-web.page.source-link>
+
+            <li>
+                PÁRNIČAN, Pavol.
+                <em>Duchovné povolania z&nbsp;Dekanátu Detva.</em>
+                Detva: Rímskokatolícka cirkev, Farnosť Detva, 2021. ISBN 978-80-570-3364-6.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>
+
 </x-web.layout.master>

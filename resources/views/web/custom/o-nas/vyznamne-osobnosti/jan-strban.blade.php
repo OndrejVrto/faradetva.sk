@@ -17,16 +17,18 @@
                 <p>
                     Ján Štrbáň sa narodil 25. júna 1878 v&nbsp;Trstenej rodičom Martinovi a&nbsp;Márii rod. Barnasovej. Vo svojom rodisku absolvoval ľudovú školu a&nbsp;začal gymnaziálne štúdium. V&nbsp;roku 1893 vstúpil do noviciátu k&nbsp;františkánom do Beckova. Od roku 1894 pokračoval v&nbsp;rehoľnej formácii v&nbsp;Kremnici, kde študoval filozofiu, následne v&nbsp;roku 1896 začal teologické štúdiá u&nbsp;františkánov v&nbsp;Skalici. S&nbsp;úmyslom stať sa diecéznym kňazom odišiel v&nbsp;roku 1898 od františkánov a&nbsp;posledné tri ročníky teológie dokončil v&nbsp;Kňazskom seminári sv. Karola Boromejského v&nbsp;Banskej Bystrici. Kňazskú vysviacku prijal z&nbsp;rúk biskupa Karola Rimelyho 1. júla 1901 vo Svätom Kríži nad Hronom.
                 </p>
+
             </x-web.page.text-segment>
             <x-web.page.text-segment animation="fromleft">
+
                 <p>
                     Na prvé kaplánske miesto nastúpil do Trubína, v&nbsp;roku 1902 bol kaplánom v&nbsp;Čiernom Balogu, potom v&nbsp;Španej Doline, kde sa následne stal aj dočasným administrátorom farnosti. V&nbsp;roku 1903 bol ustanovený za administrátora farnosti Horný Kamenec (dnešný Kamenec pod Vtáčnikom), ale v&nbsp;tom istom roku bol preložený za kaplána do Zvolenskej Slatiny. Od roku 1908 bol administrátorom farnosti Jastrabá, avšak po štyroch mesiacoch bol preložený za kaplána do Bojníc. Následne bol ešte v&nbsp;roku 1908 vymenovaný za farského administrátora Horných Opatoviec, dnes už zaniknutej obce pri Žiari nad Hronom. Pomery v&nbsp;Opatovciach boli v&nbsp;tom čase veľmi zlé a&nbsp;nábožensko-mravný život úbohý. Kostol a&nbsp;fara boli úplne v&nbsp;dezolátnom stave.
-
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-            <x-web.page.subsection>
+        <x-web.page.subsection>
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="str-007" side="left" dimensionSource="medium" columns="6"/>
@@ -38,6 +40,7 @@
                 <p>
                     Pod dojmom dosiahnutých úspechov v&nbsp;Horných Opatovciach hľadala cirkevná vrchnosť pre Jána Štrbáňa širšie pole pôsobnosti a&nbsp;požiadala ho o&nbsp;prevzatie duchovnej správy rozsiahlej Detvy. Ján Štrbáň spočiatku váhal, ale na prosby biskupa Mariána Blahu sa podvolil odísť z&nbsp;Horných Opatoviec, kde sa ako staviteľ kostola hlboko zapísal v&nbsp;srdciach ľudí. Obec Horné Opatovce úradným rozhodnutím totalitnej vlády ČSSR, v&nbsp;roku 1969 oficiálne zanikla z&nbsp;dôvodu špecifických príčin, na následky neekologickej výroby hliníka od roku 1953 v&nbsp;Závode SNP, ktorý bol vybudovaný v&nbsp;katastri obce. Po zaniknutej obci, ktorá mala pred vysťahovaním viac ako 1200 obyvateľov a&nbsp;viac než 200 rodinných domov, zostala dodnes len jediná zachovalá pamiatka, Kostol sv. Vavrinca, ktorý bol postavený hlavne pričinením Štrbáňa.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -60,6 +63,7 @@
                 <p>
                     Rok 1938 prežila Detva oslavami 300-ročnej pamiatky založenia mesta. Slávnostnú svätú omšu celebroval 17. júla na námestí pred kostolom biskup Marián Blaha. Kázeň predniesol detviansky dekan, predseda jubilejného výboru, Ján Štrbáň. Zachoval sa z&nbsp;nej ohlas v&nbsp;dobovej tlači: <em>„...vari by sa aj bil za svojich farníkov, tak ich ľúbi. Je máločo dojímavejšie ako to, ako lipnú k&nbsp;sebe Detvania a&nbsp;ich duchovný pastier. Svedectvo, ktoré vystavil o&nbsp;nábožnom, dobrom ľude detvianskom, je veľmi krásna a&nbsp;zriedkavá vec. Krásna vec, keď kňaz môže zavolať do sveta: Na svoj ľud som hrdý!“</em>. Hlavným bodom slávností bola popoludní národopisná slávnosť na kalvárii. Zúčastnilo sa jej asi desaťtisíc ľudí, ktorí mali možnosť sledovať zvyky detvianskeho ľudu od kolísky až po hrob.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -81,16 +85,46 @@
                 <p>
                     Po nástupe komunistami dosadeného Jána Decheta za kapitulného vikára v&nbsp;roku 1950 a&nbsp;zmene pomerov v&nbsp;diecéze, sa najskôr v&nbsp;roku 1951 zriekol dekanského úradu a&nbsp;v&nbsp;závere roka 1952 mu bol Krajským národným výborom v&nbsp;Banskej Bystrici odňatý štátny súhlas vo verejnej duchovnej správe. Totalitný Slovenský úrad pre veci cirkevné ho v&nbsp;spolupráci s&nbsp;kapitulným vikárom násilne preložil za správcu fary do Bacúrova od roku 1953. Hoci k&nbsp;1. januáru 1959 odišiel do dôchodku, bol Dechetom nútený zostať bývať v&nbsp;Bacúrove aj naďalej, dokonca bez poberania platu alebo akejkoľvek odmeny. Keď však cítil, že veľmi slabne, prišiel v&nbsp;roku 1960 dožiť do svojho dlhoročného pôsobiska na Podpoľaní, kde aj 11. decembra 1960 ako 82-ročný zomrel v&nbsp;60. roku kňazstva. Pochovaný bol arcidekanom Jozefom Hudecom 13. decembra 1960 za účasti 40 kňazov, na detvianskom cintoríne, pri druhom zastavení krížovej cesty.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra a&nbsp;pramene:">
-            <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva</em>. Diplomová práca, 2008.</li>
-            <li>BALÁŽ, Zoltán Gorazd, KLIMAN, Andrej. eds. Z&nbsp;dejín Rímskokatolíckej cirkvi v&nbsp;Horných Opatovciach. In: BENČOVÁ, Dagmar, SKLENKA, Vladimír. eds. <em>Horné Opatovce. Monografia obce.</em> Banská Bystrica: Polygrafia Gutenberg s.r.o., pre Občianske združenie Horné Opatovce, 2012.</li>
-            <li>GOLIAN, Ján. Náboženský život. In: Anna Ostrihoňová. ed. <em>Detva. Monografia mesta.</em> Detva: mesto Detva, 2018. ISBN 978-80-9730011-2-5.</li>
-            <li>KLIMAN, Andrej, SKLENKA, Vladimír. eds. Cirkevná architektúra v&nbsp;Horných Opatovciach. In: BENČOVÁ, Dagmar, SKLENKA, Vladimír. eds. <em>Horné Opatovce. Monografia obce.</em> Banská Bystrica: Polygrafia Gutenberg s.r.o., pre Občianske združenie Horné Opatovce, 2012.</li>
-            <li>LETZ, Ján. Štrbáň Ján. In: PAŠTEKA, Július. ed. <em>Lexikón katolíckych kňazských osobností Slovenska.</em> Bratislava: LÚČ, 2000. ISBN 80-7114-300-6.</li>
-            <li>Diecézny archív Banská Bystrica, f. Zosnulí kňazi.</li>
+
+            <li>
+                BARTKOVÁ, Anna.
+                <em>Dejiny farnosti Detva.</em>
+                Diplomová práca, 2008.
+            </li>
+
+            <li>
+                BALÁŽ, Zoltán Gorazd, KLIMAN, Andrej. eds. Z&nbsp;dejín Rímskokatolíckej cirkvi v&nbsp;Horných Opatovciach. In: BENČOVÁ, Dagmar, SKLENKA, Vladimír. eds.
+                <em>Horné Opatovce. Monografia obce.</em>
+                Banská Bystrica: Polygrafia Gutenberg s.r.o., pre Občianske združenie Horné Opatovce, 2012.
+            </li>
+
+            <li>
+                GOLIAN, Ján. Náboženský život. In: Anna Ostrihoňová. ed.
+                <em>Detva. Monografia mesta.</em>
+                Detva: mesto Detva, 2018. ISBN 978-80-9730011-2-5.
+            </li>
+
+            <li>
+                KLIMAN, Andrej, SKLENKA, Vladimír. eds. Cirkevná architektúra v&nbsp;Horných Opatovciach. In: BENČOVÁ, Dagmar, SKLENKA, Vladimír. eds.
+                <em>Horné Opatovce. Monografia obce.</em>
+                Banská Bystrica: Polygrafia Gutenberg s.r.o., pre Občianske združenie Horné Opatovce, 2012.
+            </li>
+
+            <li>
+                LETZ, Ján. Štrbáň Ján. In: PAŠTEKA, Július. ed.
+                <em>Lexikón katolíckych kňazských osobností Slovenska.</em>
+                Bratislava: LÚČ, 2000. ISBN 80-7114-300-6.
+            </li>
+
+            <li>
+                Diecézny archív Banská Bystrica, f. Zosnulí kňazi.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

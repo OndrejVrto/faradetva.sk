@@ -13,9 +13,11 @@
                 <p>
                     Vianočné obdobie patrilo k&nbsp;tým častiam roka, ktoré boli na Podpoľaní mimoriadne bohaté na kalendárne obyčaje. Počas Štedrého dňa (24. decembra) sa dodržiaval prísny pôst. Ženy v&nbsp;tento deň rešpektovali zákaz chodiť po domoch, naproti tomu mladí muži a&nbsp;najmä malí chlapci boli v&nbsp;dome vítaní. Príprave chleba a&nbsp;vianočného pečiva sa venovala zvýšená pozornosť. Dobre vykysnuté cesto a&nbsp;vydarené pečivo totiž symbolizovalo hojnosť a&nbsp;prosperitu po celý rok. Cesnak, oblátku a&nbsp;trochu z&nbsp;jedál, ktoré sa pripravovali na štedrovečerný stôl, dostávali i&nbsp;domáce zvieratá a&nbsp;hydina.
                 </p>
+
                 <p>
                     Na začiatku 20. storočia bol znakom Vianoc aj v&nbsp;Detve vianočný stromček. Jedlička sa zdobila na Štedrý deň, nikdy nie skôr. Vešali sa na ňu jabĺčka, oriešky, slamené alebo papierové reťaze, ak bolo, aj kocka cukru sa zabalila do pozlátka alebo len kúsok drievka. Ozdobený stromček doniesol do izby gazda alebo iný mužský člen rodiny pred večerou. Zavinšoval a&nbsp;zavesil ho na hradu alebo postavil do kúta alebo k&nbsp;stene medzi okná. Stromček bol v&nbsp;izbe do Nového roka, neskôr do Troch kráľov a&nbsp;niekedy aj dlhšie.
                 </p>
+
                 <p>
                     Obradný charakter večere sa odrážal aj v&nbsp;požiadavke, aby k&nbsp;spoločnému stolu zasadli a&nbsp;pri tejto príležitosti sa stretli všetci členovia rodiny. Účinok sa ešte umocňoval obradným umývaním vodou, ktorú doniesol z&nbsp;potoka najmladší člen rodiny pred večerou, keď o&nbsp;18.00 hod. zazvonili zvony. Na štedrovečerný stôl sa malo dostať zo všetkého, čo sa v&nbsp;hospodárstve urodilo, či už v&nbsp;podobe jedál alebo samotných plodín. Pod obrus sa dávali konope a&nbsp;iné zbožie, chlieb, nesmeli chýbať peniaze, aby nechýbali po celý rok. Večera sa začínala spoločnou modlitbou. Počas večere sa museli dodržiavať úkony, ktoré mali zabezpečiť súdržnosť, zdravie, prosperitu rodiny a&nbsp;hospodárstva. Od stola nemohol nikto odísť. Reťaz, ktorou bol stôl omotaný, symbolizovala puto, aby rodina držala pevne spolu. Symbolický charakter ochrany mala svätená voda a&nbsp;aj cesnak namočený v&nbsp;mede, ktorým matka pred večerou urobila každému na čelo symbol kríža.
                 </p>
@@ -31,11 +33,12 @@
                 <p>
                     Štedrovečerné jedlá sa do polovice 20. storočia takmer nemenili a&nbsp;zachovali si pôstny charakter. Boli to predovšetkým: oblátky s&nbsp;cesnakom a&nbsp;medom, opekance s&nbsp;makom, kapustová polievka s&nbsp;hríbmi, chlieb a&nbsp;koláče z&nbsp;kysnutého cesta. Jedávalo sa zo spoločnej misky, čo symbolizovalo súdržnosť rodiny. Pripíjalo sa <em>hriatym</em> bez tuku, okrem toho sa pripravil nápoj z&nbsp;varených sušených hrušiek. Večera sa zakončila modlitbou a&nbsp;poďakovaním za konzumované dary. Omrviny a&nbsp;zvyšky zo štedrovečerného stola sa odkladali a&nbsp;používali pri domácom liečení ľudí aj dobytka.
                 </p>
+
                 <p>
                     Večer sa chodilo po spievaní a&nbsp;vinšovaní. Osobitnú pozornosť si zasluhuje pochôdzkové chodenie s&nbsp;betlehemom, ktoré je v&nbsp;Detve, ale aj v&nbsp;Hriňovej a&nbsp;Detvianskej Hute dodnes súčasťou živej neprerušenej tradície. <em>Betľehemci začínali na Štedrí deň po večeri a&nbsp;šeci sa zišli na pounočnej. Kubovia ostaľi pret kostolom... Chodievali Dolňickí, Horňickí, Laštekári, Skliarovčaňia, Kostolňaňia, Piešťanci.</em> Predvádzali ľudovú vianočnú hru s&nbsp;témou narodenia Ježiška. Počet betlehemcov nebýval všade rovnaký. Hlavné postavy hry sú: <em>Kresťan (anjel)</em>, bača a&nbsp;pastieri - valasi: <em>Fedor, Stacho, Ivan, Bača - Kubo - Starý</em>. Kubo chodil inkognito v&nbsp;maske z&nbsp;ovčej kožušiny. Dôležitou rekvizitou bol figurálny <em>betľehemček</em> a&nbsp;<em>štrngalá</em> (kyjaky). Betlehemcov v&nbsp;rodinách netrpezlivo očakávali, za pochôdzku ich pohostili a&nbsp;odmenili peniazmi.
                 </p>
-            </x-web.page.text-segment>
 
+            </x-web.page.text-segment>
             <x-web.page.text-segment animation="fromleft">
 
                 <x-partials.picture titleSlug="kronika-099" side="right" dimensionSource="medium" columns="4" />
@@ -77,7 +80,7 @@
                 <x-partials.picture titleSlug="vian-009" side="left" dimensionSource="medium" columns="3" />
 
                 <p>
-                    Nemalú funkciu v&nbsp;uchovávaní kolied zohrávajú miestne detské folklórne kolektívy. Vďaka ich práci aj súčasné deti poznajú vianočné detvianske ľudové piesne. a&nbsp;tak môžeme na polnočnej svätej omši pozorovať spoločný spev viacerých generácií. Detí, mládežníkov, dospelých i&nbsp;veriacich najstaršej generácie, čo je v&nbsp;súčasnosti až jedinečné.
+                    Nemalú funkciu v&nbsp;uchovávaní kolied zohrávajú miestne detské folklórne kolektívy. Vďaka ich práci aj súčasné deti poznajú vianočné detvianske ľudové piesne. A&nbsp;tak môžeme na polnočnej svätej omši pozorovať spoločný spev viacerých generácií. Detí, mládežníkov, dospelých i&nbsp;veriacich najstaršej generácie, čo je v&nbsp;súčasnosti až jedinečné.
                 </p>
 
                 <p>
@@ -106,29 +109,32 @@
                     Neodmysliteľnou súčasťou sviatkov, aj vzhľadom na vierovyznanie obyvateľstva, bola účasť na bohoslužbách. Do kostola v&nbsp;Detve prichádzali ľudia nielen z&nbsp;Detvy, jej lazov a&nbsp;osád, ale aj z&nbsp;okolitých obcí: Stožka, Kriváňa, Korytárok a&nbsp;susedných osád Hriňovej.
                 </p>
 
-                <div class="row">
-                    <div class="col-md-8 mx-auto">
-                        <x-partials.video-embed urlVideo="https://youtu.be/vmkGmjVg6o0" class="ratio ratio-4x3"/>
-                    </div>
-                </div>
+                <x-partials.video-embed
+                    urlVideo="https://youtu.be/vmkGmjVg6o0"
+                    :config="[
+                        // 'width' => 600,
+                        'class' => 'd-block mx-auto col-7'
+                    ]"
+                    class="ratio ratio-4x3"
+                />
 
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
                 OSTRIHOŇOVÁ, Anna. Tradičná kultúra a&nbsp;jej premeny. In: Anna Ostrihoňová. ed.
-                <em>Detva. Monografia mesta.</em> Detva: mesto Detva, 2018. ISBN 978-80-9730011-2-5.
+                <em>Detva. Monografia mesta.</em>
+                Detva: mesto Detva, 2018. ISBN 978-80-9730011-2-5.
             </li>
-            <li>
-                <em class="me-1">Vianočná polnočná omša v&nbsp;Detve</em>
-                [online]. [cit. 19.03.2021].
-                <a  class="link-template"
-                    target="_blank"
-                    href="https://www.youtube.com/watch?v=vmkGmjVg6o0">
-                    Dostupné na internete
-                </a>
-            </li>
+
+            <x-web.page.source-link
+                date="19.03.2021"
+                href="https://youtu.be/vmkGmjVg6o0">
+                    Vianočná polnočná omša v&nbsp;Detve
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

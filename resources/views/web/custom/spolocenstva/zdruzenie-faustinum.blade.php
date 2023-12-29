@@ -48,15 +48,13 @@
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitý prameň:">
-            <li>
-                <em class="me-1">Združenie Faustínum</em>
-                [online]. [cit. 24.01.2022].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://www.faustinum.pl/sk/zdruzenie-faustinum/">
-                    Dostupné na internete
-                </a>
-            </li>
+
+            <x-web.page.source-link
+                date="24.01.2022"
+                href="https://www.faustinum.pl/sk/zdruzenie-faustinum/">
+                    Združenie Faustínum
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

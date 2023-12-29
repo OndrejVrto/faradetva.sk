@@ -38,6 +38,7 @@
                 <p>
                     Keď niekto príde neskôr na svätú omšu a&nbsp;chce si sadnúť, ale voľné miesto je len v&nbsp;prvej lavici, mal by dbať o&nbsp;to, aby nerušil ostatných, ktorí prišli včas. Treba sa snažiť ísť potom krajom, nie stredom kostola, ani rýchlo, ani pomaly, ak ženám klopkajú opätky, mali by sa snažiť ísť po špičkách. Každý by sa však mal usilovať stihnúť začiatok svätej omše, aj keď nie vždy je to z&nbsp;rozličných príčin možné.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -58,6 +59,7 @@
                 <p>
                     Elementárna slušnosť káže vypnúť si pred vstupom do kostola mobilný telefón. Často sa však stáva, že počas svätej omše niekomu telefón zazvoní, ba dokonca niekto v&nbsp;kostole aj telefonuje. Môže sa to prihodiť, s&nbsp;tým treba počítať, sme jednoducho ľudia, sme omylní. Aj pri zvonení cudzích mobilných telefónov však ide v&nbsp;prvom rade o&nbsp;našu osobnú koncentráciu na svätú omšu. No prijať hovor alebo posielať SM S&nbsp;správy v&nbsp;kostole je neslušné!
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -69,6 +71,7 @@
 
         <x-web.page.subsection title="Na čo by sme mali dávať pozor?">
             <x-web.page.text-segment>
+
                 <p>
                     Keď v&nbsp;kostole zbadáme známeho, ktorý je od nás ďaleko a&nbsp;chceme ho pozdraviť, stačí ho skontaktovať očami, pousmiať sa, kývnuť hlavou. Keď sa s&nbsp;ním chceme rozprávať, môžeme ho počkať po svätej omši a&nbsp;vonku si pohovoriť. V&nbsp;kostole nie. Kostol nie je kaviareň.
                 </p>
@@ -102,6 +105,7 @@
                 <p>
                     Nie je správne, keď kňaz aj s&nbsp;miništrantami po svätej omši odchádzajú, a&nbsp;hoci sú ešte stále pri oltári, ľudia sa postavia a&nbsp;idú preč. Pripomína to záver divadelného predstavenia, keď niektorí diváci utekajú do šatne po kabáty. Kam sa náhlia? Nedokážu vychutnať doznievanie povznášajúcich pocitov? Podľa etikety najskôr odchádza kňaz s&nbsp;miništrantami a&nbsp;až po nich veriaci.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -131,20 +135,23 @@
                 <x-partials.picture titleSlug="etik-014" side="right" columns="2" />
 
                 <p>
-                    Každý veriaci by mal prispievať milodarmi podľa svojich možností. Keď si niekto môže dovoliť dať na kostol sto eur, vďaka Bohu, že mu Pán požehnal túto možnosť. Mali by sme ale pamätať, že každý náš milodar by mal predstavovať nezištné konanie v&nbsp;prospech iného a&nbsp;na úkor seba. Bohu je milšie, keď dá niekto aj posledný cent, ako keď dá niekto tisíc eur, ktoré mu vôbec nebudú chýbať. Ak nemáme peniaze - a&nbsp;čo je dôležitejšie - ani dobrý úmysel, radšej neprispejme ničím. Keď však zazrieme, koľko peňazí niekto vhodil do zvončeka, nesmieme sa tým zaoberať, nemôžeme posudzovať. Nikdy nevieme, prečo ten človek hodil málo alebo veľa. a&nbsp;čo je vlastne málo alebo veľa?
+                    Každý veriaci by mal prispievať milodarmi podľa svojich možností. Keď si niekto môže dovoliť dať na kostol sto eur, vďaka Bohu, že mu Pán požehnal túto možnosť. Mali by sme ale pamätať, že každý náš milodar by mal predstavovať nezištné konanie v&nbsp;prospech iného a&nbsp;na úkor seba. Bohu je milšie, keď dá niekto aj posledný cent, ako keď dá niekto tisíc eur, ktoré mu vôbec nebudú chýbať. Ak nemáme peniaze - a&nbsp;čo je dôležitejšie - ani dobrý úmysel, radšej neprispejme ničím. Keď však zazrieme, koľko peňazí niekto vhodil do zvončeka, nesmieme sa tým zaoberať, nemôžeme posudzovať. Nikdy nevieme, prečo ten človek hodil málo alebo veľa. A&nbsp;čo je vlastne málo alebo veľa?
                 </p>
 
                 <p>
                     Fotograf alebo kameraman, ktorý fotografuje alebo nakrúca záznam z&nbsp;prvého svätého prijímania, birmovania, zo svadby, z&nbsp;krstu či pohrebu, by sa mal správať tak, aby nerušil ostatných veriacich. Dobrý fotograf alebo kameraman je ten, koho takmer nevidíme, akoby tam ani nebol. Aj v&nbsp;kostole existuje istá zóna, do ktorej už fotograf a&nbsp;kameraman nemôže vstúpiť, a&nbsp;to by mal rešpektovať. Okrem toho by sa mal slušne obliecť a&nbsp;obuť si neklopkajúce topánky.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
                 <em>Spoločenská etiketa platí aj v&nbsp;kostole.</em>
                 Príloha Katolíckych novín, 2011.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

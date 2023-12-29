@@ -5,4 +5,5 @@
         <x-partials.page-card />
 
     </x-web.page.section>
+
 </x-web.layout.master>

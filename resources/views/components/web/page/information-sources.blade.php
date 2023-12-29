@@ -1,7 +1,7 @@
 @props([
     'title' => null,
     'animation' => null,
-    'class' => 'pt-5',
+    'class' => 'pt-2 pt-md-4',
 ])
 @php
     $ANIMATION_TYPE = [
@@ -31,10 +31,10 @@
     ]
 @endphp
 
-<div class="section ch_source d-print-block text-muted ps-5 {{ $class }}">
+<div class="section ch_source d-print-block text-muted ps-md-5 {{ $class }}">
     @isset($title)
         <h5 class="wow {{ in_array($animation, $ANIMATION_TYPE) ? $animation : 'fromright' }}" data-wow-delay="0.2s">
-            {{ $title }}
+            {!! $title !!}
         </h5>
     @endisset
     <ul {{ $attributes }}>

@@ -8,7 +8,7 @@
             title="Pobožnosti"
             url="{{ secure_url('duchovny-zivot/sveteniny/poboznosti') }}"
             side="left"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="pob-018-menu" descriptionSide="left"/>
             </x-slot:img>
@@ -28,7 +28,7 @@
             title="Požehnania"
             url="{{ secure_url('duchovny-zivot/sveteniny/pozehnania') }}"
             side="right"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="poz-003-menu"/>
             </x-slot:img>
@@ -48,7 +48,7 @@
             title="Putovanie"
             url="{{ secure_url('duchovny-zivot/sveteniny/putovanie') }}"
             side="left"
-        >
+            >
             <x-slot:img>
                 {{-- <x-partials.picture-responsive titleSlug="put-001-menu"/> --}}
                 <x-partials.picture-responsive titleSlug="put-010-menu" descriptionSide="left"/>
@@ -67,7 +67,7 @@
             title="Ministériá"
             url="{{ secure_url('duchovny-zivot/sveteniny/ministeria') }}"
             side="right"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="min-009-menu"/>
             </x-slot:img>
@@ -86,7 +86,7 @@
             title="Pohreb"
             url="{{ secure_url('duchovny-zivot/sveteniny/pohreb') }}"
             side="left"
-        >
+            >
             <x-slot:img>
                 <x-partials.picture-responsive titleSlug="dkriz-011-menu" descriptionSide="left"/>
             </x-slot:img>

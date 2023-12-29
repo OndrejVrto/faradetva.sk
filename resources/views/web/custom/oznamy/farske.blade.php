@@ -1,6 +1,7 @@
 <x-web.layout.master :pageData="$pageData">
 
     {{-- Farské oznamy --}}
+
     <x-web.sections.notice typeNotice="Church" />
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" row="true" class="bg-alt-gray pad_t_80 pad_b_50">
@@ -60,6 +61,5 @@
     <div class="section bg-alt-gray">
         <x-web.sections.about-website />
     </div>
-
 
 </x-web.layout.master>

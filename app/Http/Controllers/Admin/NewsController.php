@@ -24,6 +24,7 @@ class NewsController extends Controller {
             ->orderByDesc('prioritized')
             ->latest()
             ->withCount('document')
+            ->withCount('album')
             ->with('user', 'media')
             ->archive($request, 'news')
             ->paginate(8)
@@ -37,8 +38,9 @@ class NewsController extends Controller {
         $tags = Tag::all();
         $selectedTags = [];
         $documents = null;
+        $pictures = null;
 
-        return view('admin.news.create', compact('documents', 'categories', 'tags', 'selectedTags'));
+        return view('admin.news.create', compact('documents', 'pictures', 'categories', 'tags', 'selectedTags'));
     }
 
     public function storeMedia(Request $request): JsonResponse {
@@ -51,6 +53,31 @@ class NewsController extends Controller {
         if ($request->hasFile('doc')) {
             /** @var \Illuminate\Http\UploadedFile $file  */
             $file = $request->file('doc');
+            // sanitize filename
+            $name = (new FilenameSanitize())($file->getClientOriginalName());
+
+            $file->move($path, $name);
+
+            return response()->json([
+                'name'          => $name,
+                'original_name' => $file->getClientOriginalName(),
+            ]);
+        } else {
+            // no file
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
+    }
+
+    public function storeAlbum(Request $request): JsonResponse {
+        $path = storage_path('tmp/uploads');
+
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        if ($request->hasFile('album-picture')) {
+            /** @var \Illuminate\Http\UploadedFile $file  */
+            $file = $request->file('album-picture');
             // sanitize filename
             $name = (new FilenameSanitize())($file->getClientOriginalName());
 
@@ -81,6 +108,12 @@ class NewsController extends Controller {
                 ->toMediaCollection($news->collectionDocument);
         }
 
+        foreach ($request->input('picture', []) as $picture) {
+            $news
+                ->addMedia(storage_path('tmp/uploads/' . $picture))
+                ->toMediaCollection($news->collectionAlbum);
+        }
+
         toastr()->success(__('app.news.store'));
         return to_route('news.index');
     }
@@ -89,12 +122,13 @@ class NewsController extends Controller {
         $this->authorize('view', $news);
 
         $news->load('media', 'tags');
+        $pictures = $news->getMedia($news->collectionAlbum);
         $documents = $news->getMedia($news->collectionDocument);
         $categories = Category::all();
         $tags = Tag::all();
         $selectedTags = $news->tags->pluck('id')->unique()->toArray();
 
-        return view('admin.news.edit', compact('news', 'documents', 'categories', 'tags', 'selectedTags'));
+        return view('admin.news.edit', compact('news', 'documents', 'pictures', 'categories', 'tags', 'selectedTags'));
     }
 
     public function update(NewsRequest $request, News $news): RedirectResponse {
@@ -107,20 +141,38 @@ class NewsController extends Controller {
         (new MediaStoreService())->handleCropPicture($news, $request);
 
         if ((is_countable($news->document) ? count($news->document) : 0) > 0) {
-            foreach ($news->document as $media) {
-                if (!in_array($media->file_name, $request->input('document', []))) {
-                    $media->delete();
+            foreach ($news->document as $oldDocument) {
+                if (!in_array($oldDocument->file_name, $request->input('document', []))) {
+                    $oldDocument->delete();
                 }
             }
         }
 
-        $media = $news->document->pluck('file_name')->toArray();
+        $oldDocument = $news->document->pluck('file_name')->toArray();
 
         foreach ($request->input('document', []) as $file) {
-            if ((is_countable($media) ? count($media) : 0) === 0 || !in_array($file, $media)) {
+            if ((is_countable($oldDocument) ? count($oldDocument) : 0) === 0 || !in_array($file, $oldDocument)) {
                 $news
                     ->addMedia(storage_path('tmp/uploads/' . $file))
                     ->toMediaCollection($news->collectionDocument);
+            }
+        }
+
+        if ((is_countable($news->album) ? count($news->album) : 0) > 0) {
+            foreach ($news->album as $oldAlbumImage) {
+                if (!in_array($oldAlbumImage->file_name, $request->input('picture', []))) {
+                    $oldAlbumImage->delete();
+                }
+            }
+        }
+
+        $oldAlbumImage = $news->album->pluck('file_name')->toArray();
+
+        foreach ($request->input('picture', []) as $picture) {
+            if ((is_countable($oldAlbumImage) ? count($oldAlbumImage) : 0) === 0 || !in_array($picture, $oldAlbumImage)) {
+                $news
+                    ->addMedia(storage_path('tmp/uploads/' . $picture))
+                    ->toMediaCollection($news->collectionAlbum);
             }
         }
 
@@ -132,6 +184,12 @@ class NewsController extends Controller {
         $downloads = $news->getMedia($news->collectionDocument);
 
         return MediaStream::create('Prilohy_'.$news->slug.'.zip')->addMedia($downloads);
+    }
+
+    public function downloadAlbum(News $news): MediaStream {
+        $downloads = $news->getMedia($news->collectionAlbum);
+
+        return MediaStream::create('Album_'.$news->slug.'.zip')->addMedia($downloads);
     }
 
     public function destroy(News $news): RedirectResponse {
@@ -156,6 +214,7 @@ class NewsController extends Controller {
         $news = News::onlyTrashed()->findOrFail($id);
         $news->tags()->detach($news->id);
         $news->clearMediaCollection($news->collectionName);
+        $news->clearMediaCollection($news->collectionAlbum);
         $news->clearMediaCollection($news->collectionDocument);
         $news->forceDelete();
 

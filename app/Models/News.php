@@ -39,6 +39,8 @@ class News extends BaseModel implements HasMedia, Feedable, Visitable {
 
     public string $collectionDocument = 'attachment';
 
+    public string $collectionAlbum = 'album';
+
     protected $fillable = [
         'active',
         'prioritized',
@@ -137,6 +139,10 @@ class News extends BaseModel implements HasMedia, Feedable, Visitable {
         return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionDocument);
     }
 
+    public function album(): MorphMany {
+        return $this->morphMany(Media::class, 'model')->where('collection_name', $this->collectionAlbum);
+    }
+
     public function source(): MorphOne {
         return $this->morphOne(Source::class, 'sourceable');
     }
@@ -174,6 +180,20 @@ class News extends BaseModel implements HasMedia, Feedable, Visitable {
                 ->quality(60);
             $this->addMediaConversion('crop-thumb')
                 ->fit(Manipulations::FIT_CROP, 140, 80)
+                ->sharpen(2)
+                ->quality(60);
+        } elseif ($media?->collection_name == $this->collectionAlbum) {
+            $this->addMediaConversion('orginal')
+                ->fit(Manipulations::FIT_MAX, 1280, 960)
+                ->sharpen(2)
+                ->quality(60)
+                ->withResponsiveImages();
+            $this->addMediaConversion('thumb')
+                ->height(200)
+                ->sharpen(2)
+                ->quality(60);
+            $this->addMediaConversion('crop-thumb')
+                ->fit(Manipulations::FIT_CROP, 100, 100)
                 ->sharpen(2)
                 ->quality(60);
         }

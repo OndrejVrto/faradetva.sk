@@ -6,6 +6,7 @@
 
         <x-web.page.subsection >
             <x-web.page.text-segment animation="fromright">
+
                 <p>
                     K&nbsp;obľúbeným a&nbsp;zľudoveným svätcom 18. storočia patrili svätý Ján Nepomucký so svätým Floriánom. Boli uctievaní ako pomocníci v&nbsp;každodennom živote a&nbsp;ako patróni proti živelným pohromám. V&nbsp;Uhorsku sa ich kult šíril hlavne počas protireformácie a&nbsp;dostal sa aj do Detvy. Detvania na znak úcty k&nbsp;obidvom svätcom postavali kamenné sochy.
                 </p>
@@ -21,6 +22,7 @@
                 <p>
                     Nástupom kráľa Václava IV. sa veľmi dobré vzťahy medzi cisárskym dvorom a&nbsp;arcibiskupstvom zmenili k&nbsp;oveľa horšiemu. Kráľ sa rád oddával poľovačkám a&nbsp;zábavám, bol veľmi zlostný a&nbsp;hnevlivý. Potom ako mu nevyšiel zálusk na benediktínske opátstvo v&nbsp;Kladruboch v&nbsp;západných Čechách, jeho hnev sa obrátil proti celej Cirkvi v&nbsp;Čechách. Zajal Jána a&nbsp;dvoch ďalších arcibiskupových spolupracovníkov. Arcibiskupa nezajal len kvôli tomu, že ho ochránili jeho zbrojnoši. Ostatných dvoch neskôr prepustil, ale Jána dal natiahnuť na škripec, dal ho páliť a&nbsp;mučiť aj iným spôsobom a&nbsp;nakoniec ho v&nbsp;noci dal odvliecť a&nbsp;zhodiť z&nbsp;pražského mosta do rieky Vltavy. Stalo sa to 20. marca 1393. Po niekoľkých dňoch našli Jánovo telo rybári, údajne podľa piatich svetiel (hviezd) okolo jeho hlavy. Bol pochovaný v&nbsp;Kostole Svätého kríža, neskôr ho preniesli do Chrámu sv. Víta.
                 </p>
+
             </x-web.page.text-segment>
             <x-web.page.text-segment animation="fromright">
 
@@ -34,6 +36,7 @@
                 <p>
                     Po najobľúbenejšom kulte Panny Márie sa počas baroka veľmi rýchlo z&nbsp;Českého kráľovstva rozšíril po celej Habsburskej ríši aj kult sv. Jána Nepomuckého. Tento, dovtedy takmer neznámy mučeník sa stal symbolom monarchistickej jednoty. Katolícka habsburská dynastia počas rekatolizácie jeho kult vedome propagovala a&nbsp;na jeho šírení sa podieľala vysoká šľachta. Kult bol prijatý najprv vo Viedni a&nbsp;do Uhorska sa dostal koncom 17. storočia, t. j. tristo rokov po jeho mučeníckej smrti a&nbsp;štyridsať rokov pred jeho kanonizáciou. Na Slovensku sa stal tento český svätec veľmi rýchlo obľúbený. Jeho prvá socha stála na Primaciálnom námestí v&nbsp;Bratislave. Zo šľachtických rodov najaktívnejším podporovateľom Nepomuckého kultu boli Pálffiovci. Medzi ďalších patril okrem iných i&nbsp;rod Esterháziovcov, ktorí boli vlastníkmi vígľašského panstva a&nbsp;podporovali jeho šírenie.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -57,13 +60,16 @@
                 <p>
                     Ján Nepomucký sa zobrazuje ako kňaz so štólou (úzky pás látky cez plecia), má biret na hlave, palmu, knihu a&nbsp;kríž v&nbsp;ruke, prst priložený na ústach ako symbol spovedného tajomstva (nemusí byť z&nbsp;toho všetko zobrazené). Niekedy je okolo jeho hlavy svätožiara z&nbsp;piatich hviezd, ktoré podľa legendy odhalili vo Vltave jeho telo. Jeho sochy často stáli na konci dediny, pretože bol považovaný za strážcu pred rozširovaním klebiet o&nbsp;dedine, chránil jej dobrú povesť podľa príslovia, čo sa v&nbsp;dedine stane, má v&nbsp;nej aj zostať. Túto úlohu snáď mohla plniť aj jeho socha pri Dolnom mlyne.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
+
     </x-web.page.section>
 
     <x-web.sections.background-picture titleSlug="soch-004"/>
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART II -" class="static-page pad_t_50 pad_b_50">
+
         <x-web.page.subsection title="Sv. Florián">
             <x-web.page.text-segment animation="fromright">
 
@@ -91,13 +97,30 @@
                     Keďže Detva bola postihovaná častými požiarmi, niet divu, že miestny ľud chcel mať v&nbsp;mestečku práve sochu sv. Floriána ako ochrancu pred ohňom. Ničivé požiare vypukli v&nbsp;rokoch 1695, 1711, 1729, 1756, 1776 a&nbsp;1799. Pokračovali i&nbsp;v&nbsp;nasledujúcom storočí v&nbsp;r. 1821, 1824 a&nbsp;1828.
                     Najničivejší požiar, ktorý pohltil 108 domov, bol v&nbsp;roku 1833. Patrocínium svätého Floriána sa počas baroka viazalo v&nbsp;prevažnej miere na malé objekty, ktoré boli umiestnené vo voľnej prírode alebo pri cestách a&nbsp;mali ľudový ráz. Ani najmenšie sakrálne pamiatky však nie sú bezvýznamné, pretože v&nbsp;určitom zmysle komunikujú svoju dobu a&nbsp;pre postavenie každej z&nbsp;nich vždy jestvoval nejaký dôvod.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva</em>. Diplomová práca, 2008.</li>
-            <li><em>Florián, mučeník</em> [online]. [cit. 18.03.2021]. Dostupné na internete: https://www.zivotopisysvatych.sk/florian/</li>
-            <li><em>Ján Nepomucký, kňaz, mučeník</em> [online]. [cit. 18.03.2021]. Dostupné na internete: https://www.zivotopisysvatych.sk/jan-nepomucky/</li>
+
+            <li>
+                BARTKOVÁ, Anna.
+                <em>Dejiny farnosti Detva.</em>
+                Diplomová práca, 2008.
+            </li>
+
+            <x-web.page.source-link
+                date="18.03.2021"
+                href="https://www.zivotopisysvatych.sk/florian/">
+                    Florián, mučeník
+            </x-web.page.source-link>
+
+            <x-web.page.source-link
+                date="18.03.2021"
+                href="https://www.zivotopisysvatych.sk/jan-nepomucky/">
+                    Ján Nepomucký, kňaz, mučeník
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

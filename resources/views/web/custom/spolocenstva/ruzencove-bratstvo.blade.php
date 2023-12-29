@@ -26,12 +26,14 @@
                 <p>
                     Ako bývalý dominikán z&nbsp;moci svojho úradu poveril bratov dominikánov, aby na večné časy rozširovali modlitbu ruženca. Medzi laikmi v&nbsp;šírení ružencovej modlitby obzvlášť vynikal laický dominikán bl. Bartolomej Longo (1841 - 1926), ktorého pápež sv. Ján Pavol II. nazval „apoštol ruženca“.
                 </p>
+
                 <p>
                     Panna Mária, Kráľovná posvätného ruženca, dala bl. Alanovi de la Roche pätnásť prísľubov pre tých, ktorí sa budú zbožne modliť jej ruženec. Povedala mu:
                     <cite>
                         „(...) nesmierne veľa kníh by bolo treba napísať, aby v&nbsp;nich boli zaznamenané všetky zázraky môjho posvätného ruženca.“
                     </cite>
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -57,6 +59,7 @@
                     <li class="mb-2">Tí, ktorí sa zbožne modlia môj ruženec, sú moje milované deti, bratia a&nbsp;sestry Ježiša Krista.</li>
                     <li class="mb-2">Zasvätenie sa môjmu ružencu je zvláštne znamenie predurčenia.</li>
                 </ol>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -92,6 +95,7 @@
                 <p>
                     <strong>Člen <em>Živého ruženca</em></strong> je povinný modliť sa každý deň jeden desiatok posvätného ruženca na úmysel za obrátenie hriešnikov a&nbsp;za živých i&nbsp;zosnulých členov Ružencového bratstva, za Rehoľu dominikánov, za svoju farnosť a&nbsp;za svojich duchovných pastierov (biskupov a&nbsp;kňazov). Je povinný raz za mesiac sa zísť na spoločnom stretnutí - modlitbe, po ktorom sa uskutoční výmena tajomstiev.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -133,21 +137,22 @@
 
 
         <x-web.page.information-sources title="Použité pramene:">
+
             <li>
                 Diecézny archív Banská Bystrica, fond Farské archívy.
             </li>
+
             <li>
-                <em>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909</em>. Rukopis.
+                <em>Historia Domus Parochiae Gyetvaensis. História farnosti Detva od roku 1909.</em>
+                Rukopis.
             </li>
-            <li>
-                <em class="me-1">Čo je ružencové bratstvo</em>
-                [online]. [cit. 09.08.2021].
-                <a class="link-template"
-                    target="_blank"
-                    href="https://www.dmc.sk/ruzencove-bratstvo/co-je-ruzencove-bratstvo/">
-                    Dostupné na internete
-                </a>
-            </li>
+
+            <x-web.page.source-link
+                date="09.08.2021"
+                href="https://www.dmc.sk/ruzencove-bratstvo/co-je-ruzencove-bratstvo/">
+                    Čo je ružencové bratstvo
+            </x-web.page.source-link>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

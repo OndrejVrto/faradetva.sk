@@ -51,4 +51,5 @@
     <x-web.page.section name="PAGE: ({{ $pageData->title }})" class="static-page pad_b_50">
         <x-partials.columns-list :list="$farari_1" />
     </x-web.page.section>
+
 </x-web.layout.master>

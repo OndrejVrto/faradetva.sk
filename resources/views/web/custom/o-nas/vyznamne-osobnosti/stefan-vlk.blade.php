@@ -62,7 +62,6 @@
                     Štefan Vlk pri rozhovoroch s&nbsp;ľuďmi veľmi často používal slovo „kresťanská dokonalosť“. Toto slovo bolo mottom celého jeho života. Sám seba pokladal za naničhodníka, ale vždy pripomenul s&nbsp;úsmevom, že sa už polepší a&nbsp;bude sa snažiť o&nbsp;dokonalosť. Vo voľných chvíľach, najmä počas zimných večerov, čítal životopisy svätých a&nbsp;podľa ich vzorov sa snažil usmerňovať svoj život. Odhodlal sa na púť do Lúrd a&nbsp;do Ríma, ktorú absolvoval celú na bicykli, len s&nbsp;pár korunami, spoliehajúc sa na Božiu prozreteľnosť. Po návrate z&nbsp;púte sa ešte hlbšie zameral na život v&nbsp;modlitbe, v&nbsp;odriekaní a&nbsp;pôste, v&nbsp;skutkoch kajúcnosti, ale aj v&nbsp;práci. Horlivo pomáhal v&nbsp;domácnosti, na poli, v&nbsp;záhrade, v&nbsp;kostole. S&nbsp;každou prácou si vedel poradiť, rozumel sa do elektriky, ovládal stolárske práce. Robil stoly, stoličky, kreslá. Ľuďom vyrábal pilinové kachle a&nbsp;sporáky, zriadil si aj kováčsku dielničku. Vedel murovať, omietať, klásť obkladačky, opravovať hodinky a&nbsp;všetko možné.
                 </p>
 
-
                 <p>
                     V&nbsp;kostole pomáhal pán Vlk kostolníkovi, chodil tam zavčasu ráno i&nbsp;cez noc modliť sa, pretože kostolník mu dôveroval, prenechal mu rezervné kľúče. Keď prišla druhá svetová vojna, musel Štefan Vlk narukovať a&nbsp;po potlačení Slovenského národného povstania sa dostal do zajatia v&nbsp;Nemecku. Odtiaľ sa vrátil v&nbsp;pomerne dobrom stave, ale o&nbsp;chvíľach strávených vo vojne sa nezmieňoval. Bol veľkým odporcom strieľania do ľudí. Od roku 1945 sa začal viac venovať službe v&nbsp;kostole. Táto práca ho nesmierne tešila, lebo to bola priama služba Pánu Bohu. Po smrti brata Martina Fekiača išiel vypomáhať vdove po nebohom pri prácach na poli a&nbsp;pri statku. V&nbsp;50. rokoch 20. storočia však totalitná moc násilne odoberala roľníkom polia, lúky a&nbsp;dobytok do družstva, preto pán Vlk odišiel pomáhať inej vdove, ktorá mala veľmi ťažko chorého syna. Vo dvore bývali ďalšie štyri rodiny, i&nbsp;tým pomáhal ako mohol. Pretože u&nbsp;nich nebolo miesto na spanie a&nbsp;nachádzali sa v&nbsp;blízkosti kostola, rozhodol sa ubytovať pod vežou kostola.
                 </p>
@@ -72,19 +71,21 @@
                 <p>
                     V&nbsp;roku 1953 sa pre starobu vzdal kostolníctva starý pán Ostrihoň, a&nbsp;tak bol na jeho miesto vymenovaný pán Vlk. Pod zvonmi v&nbsp;kostolnej veži bol voľný priestor, kde si zriadil dielňu a&nbsp;upravil malú izbičku v&nbsp;šírke 1,5 metra a&nbsp;dĺžke 2 metrov, ktorú mu ohrievala iba 60 wattová žiarovka a&nbsp;mal tam len poličky a&nbsp;lavicu. Spával posediačky na stoličke alebo na lavici, prípadne prekľačal na kľakátku, v&nbsp;ktorom mal zospodu nabité klince. V&nbsp;dielni ľuďom opravoval modlitebné knižky, vyrábal ružence, náboženské sošky, zo sadry modeloval sošky Panny Márie, ktoré aj sám maľoval. Na veľké drevené poľné kríže s&nbsp;detvianskymi ľudovými motívmi vyrábal korpusy Pána Ježiša a&nbsp;starostlivo sa o&nbsp;ne staral, podľa potreby ich premaľovával. Ak videl poškodený kríž nad niektorým hrobom na cintoríne, sám ho opravil. Nečakal, aby ho o&nbsp;to niekto požiadal a&nbsp;odmenu dúfal len vo večnosti. Ráno vstával medzi treťou a&nbsp;štvrtou hodinou, išiel do kostola a&nbsp;modlil sa. Okolo piatej hodiny otvoril dvere kostola a&nbsp;o&nbsp;5.30 hod. zvonil na svätú omšu, ktorá sa začínala o&nbsp;6.00 hod. Ako kostolník nielenže pripravil veci na svätú omšu, ale často na nej aj miništroval.
                 </p>
+
                 <p>
                     Cez týždeň bývali dopoludnia pravidelne pohreby. Pol hodinu pred pohrebom pán Vlk zvonil, potom rýchlo zbehol z&nbsp;veže, pripravil všetko k&nbsp;pohrebnej svätej omši, pri ktorej miništroval a&nbsp;po jej skončení opäť zvonil na všetkých zvonoch, až pokiaľ nevyšiel pohrebný sprievod na cintorín, čo trvalo približne 20 minút. V&nbsp;kostolnej veži sú tri veľké zvony, ktoré sa ťahali ručne. Na zvonoch sa jednotlivo zvonilo ráno a&nbsp;na obed, každý večer na Anjel Pána a&nbsp;keď niekto zomrel. Pán Vlk si na veži vyrobil rôzne drevené páky a&nbsp;prevody, takže mu zvonilo toľko zvonov, koľko potreboval. Keď zvonil pohrebnému sprievodu na troch zvonoch, jedným povrazom ťahal rukou dva najväčšie zvony, menší zvon ťahal nohou a&nbsp;na druhú nohu sa opieral. Druhou rukou zvonil na umieračiku, nie však jednoducho, ale dokonca do valčíkového rytmu. Keď potreboval prestať zvoniť, prestavil jednu páku, ktorá bola zároveň brzdou a&nbsp;všetky zvony odrazu prestali zvoniť. Keď niekto umrel, pohreb býval na tretí deň a&nbsp;zomrelému sa dovtedy zvonilo každý deň o&nbsp;10.00 a&nbsp;16.00 hod., podobne ako dnes.
                 </p>
-            </x-web.page.text-segment>
 
+            </x-web.page.text-segment>
         </x-web.page.subsection>
+
     </x-web.page.section>
 
     <x-web.sections.background-picture titleSlug="vlk-015"/>
 
     <x-web.page.section name="PAGE: ({{ $pageData->title }}) PART III -" class="static-page pad_t_50 pad_b_50">
-        <x-web.page.subsection>
 
+        <x-web.page.subsection>
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="vlk-003" side="right" dimensionSource="medium" columns="6"/>
@@ -121,11 +122,18 @@
                     V&nbsp;deň smrti, 9. mája 1975, pán Vlk ráno zvonil na Anjel Pána, miništroval pri svätej omši a&nbsp;pristúpil k&nbsp;svätému prijímaniu. Dopoludnia sa bol modliť u&nbsp;ťažko chorej, ktorá už nemohla prísť do kostola. Po obedňajšom odzvonení si pripravil potrebné veci vo svojej dielničke na opravu kríža pri ceste smerom na Dúbravy. Na toto miesto sa vybral na motorke, ale už sa tam nedostal, pretože v&nbsp;miestnej časti Kostolná dostal počas jazdy infarkt. Smrť ho zastihla nečakane, ale dobre pripraveného. Jeho pohreb sa konal v&nbsp;nedeľu 11. mája popoludní za účasti veľkého množstva ľudí nielen z&nbsp;Detvy. Pohrebnú kázeň predniesol arcidekan Láclavík, ktorý vysoko hodnotil jeho tuzemský život, jeho zásluhy a&nbsp;význam pre detviansku farnosť i&nbsp;pre celé Podpoľanie. Štefan Vlk je pochovaný na detvianskom cintoríne a&nbsp;dodnes ostáva v&nbsp;pamäti ako ľudovo obľúbená osobnosť, s&nbsp;mnohými zásluhami a&nbsp;v&nbsp;povesti svätosti.
 
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>VALENT, František. <em>Nezlomený diablom. Životopis slovenského katolíckeho laika Štefana Vlka.</em> Zvolen: JAS, 1998. ISBN 80-88795-58-3.</li>
+
+            <li>
+                VALENT, František.
+                <em>Nezlomený diablom. Životopis slovenského katolíckeho laika Štefana Vlka.</em>
+                Zvolen: JAS, 1998. ISBN 80-88795-58-3.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

@@ -20,6 +20,7 @@
                 <p>
                     Slávenie Eucharistie je jadrom kresťanského spoločenstva. Práve v&nbsp;nej sa Cirkev stáva Cirkvou. Cirkvou nie sme preto, že prispievame do kostolnej zbierky, že si navzájom dobre rozumieme alebo že nás osud zavial do určitého spoločenstva, ale preto, že v&nbsp;Eucharistii prijímame Kristovo telo a&nbsp;stávame sa jeho tajomným telom.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -39,6 +40,7 @@
                 <p>
                     Každému sláveniu Eucharistie neviditeľne predsedá sám Ježiš Kristus. Biskup alebo kňaz ho zastupuje. Cirkev verí, že celebrant stojí pri oltári in persona Christi Capitis (lat. = v&nbsp;osobe Krista Hlavy). Znamená to, že kňaz nielenže koná z&nbsp;Ježišovho poverenia, ale na základe sviatosti kňazstva koná cez neho sám Kristus ako hlava Cirkvi.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -66,6 +68,7 @@
                 <p>
                     Pretože Boh je skutočne prítomný v&nbsp;konsekrovanej podobe chleba a&nbsp;vína, musíme mať tieto posvätné dary vo veľkej úcte a&nbsp;klaňať sa v&nbsp;nich nášmu Najsvätejšiemu Pánovi a&nbsp;Vykupiteľovi. Ak po skončení svätej omše zostanú ešte konsekrované hostie, uchovávajú sa v&nbsp;posvätných nádobách vo svätostánku. Pretože je v&nbsp;ňom prítomný „Najsvätejší“, je svätostánok tým najčestnejším miestom každého kostola. Pred každým svätostánkom si pokľakneme. Kto naozaj nasleduje Ježiša Krista, dozaista ho spoznáva v&nbsp;tých najúbohejších a&nbsp;slúži mu v&nbsp;nich. Nájde si však tiež čas na tichú adoráciu pred svätostánkom, aby tu vyznal sviatostnému Pánovi svoju lásku.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -99,11 +102,11 @@
                 <p>
                     Každé sväté prijímanie ma hlbšie spája s&nbsp;Ježišom Kristom, robí ma živým článkom Kristovho tela, obnovuje vo mne milosti, ktoré som dostal pri krste a&nbsp;birmovaní a&nbsp;posilňuje ma v&nbsp;boji proti hriechu.
                 </p>
+
             </x-web.page.text-segment>
-
         </x-web.page.subsection>
-        <x-web.page.subsection title="Môže sa Eucharistia podávať aj nekatolíckym kresťanom?">
 
+        <x-web.page.subsection title="Môže sa Eucharistia podávať aj nekatolíckym kresťanom?">
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="sacr3-009" side="left" dimensionSource="medium" columns="3" />
@@ -111,32 +114,17 @@
                 <p>
                     Sväté prijímanie je vyjadrením jednoty Kristovho tela. Do Katolíckej cirkvi patrí ten, kto je v&nbsp;nej pokrstený, kto vyznáva jej vieru a&nbsp;kto s&nbsp;ňou žije v&nbsp;jednote. Došlo by k&nbsp;rozporu, keby Cirkev pozývala na sväté prijímanie ľudí, ktorí sa (zatiaľ) nepodieľajú na jej viere a&nbsp;živote. Utrpela by tak vierohodnosť znaku Eucharistie. Jednotliví pravoslávni kresťania môžu za vhodných okolností požiadať cirkevnú vrchnosť o&nbsp;podanie svätého prijímania pri katolíckej bohoslužbe, pretože vyznávajú eucharistickú vieru Katolíckej cirkvi, i&nbsp;keď ich spoločenstvo ešte nežije v&nbsp;plnej jednote s&nbsp;Katolíckou cirkvou. Členovia iných kresťanských vyznaní môžu v&nbsp;jednotlivých prípadoch pristúpiť k&nbsp;svätému prijímaniu vtedy, keď sa ocitnú v&nbsp;stave ohrozenia alebo núdze a&nbsp;keď dotyčný preukáže plnú vieru vo sviatostnú prítomnosť Pána Ježiša v&nbsp;Eucharistii.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
-
-        {{-- <x-web.page.subsection>
-            <hr class="text-church-template">
-        </x-web.page.subsection>
-
-        <x-web.page.subsection title="Kedy môžem po prvýkrát prijať Eucharistiu?">
-            <x-web.page.text-segment animation="fromleft">
-                <p>
-                    Už pokrstené deti, ktoré dokážu vnímať rozdiel medzi obyčajným chlebom a&nbsp;eucharistickým chlebom (svätým prijímaním), môžu po prvýkrát pristúpiť k&nbsp;Eucharistii, avšak len po náležitej príprave.
-                </p>
-                <p>
-                    V&nbsp;našich končinách je zaužívaná prax, že k&nbsp;1. svätému prijímaniu a&nbsp;deň predtým k&nbsp;1. svätej spovedi môžu pristúpiť najskôr tretiaci základných škôl. Tí sa k&nbsp;prijatiu týchto sviatostí pripravujú na hodinách náboženskej výchovy a&nbsp;účasťou na nedeľných svätých omšiach.
-                </p>
-                <p>
-                    Dospelí pokrstení, ktorí neprijali ďalšie iniciačné sviatosti, môžu sa prihlásiť na našom farskom úrade a&nbsp;po niekoľkomesačnej individuálnej príprave budú môcť, v&nbsp;určenom čase podľa dohody, prvýkrát pristúpiť k&nbsp;svätej spovedi a&nbsp;svätému prijímaniu vo svätej omši.
-                </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection> --}}
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
                 <em>Youcat po slovensky. Katechizmus Katolíckej cirkvi pre mladých.</em>
                 Bratislava: Karmelitánske nakladateľstvo, 2011. ISBN 978-80-89231-99-7.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

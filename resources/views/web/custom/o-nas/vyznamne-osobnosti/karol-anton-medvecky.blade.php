@@ -31,6 +31,7 @@
                 <p>
                     Karol Anton Medvecký bol biskupom Karolom Rimelym vysvätený za kňaza 3. júla 1899 vo Svätom Kríži nad Hronom. Vo svojich pamätiach uviedol, že jediné miesto kam si neželal, aby jeho kroky smerovali, bola detvianska farnosť na úpätí sopečného masívu Poľany. Zhodou okolností sa tam naozaj aj dostal. Aj napriek istým príkoriam zo strany maďarónskeho farára Štefana Pitrofa sa Medveckého obavy nepotvrdili. Naopak, na dnešnom strednom Slovensku zažil niekoľko najkrajších rokov svojho kaplánskeho pôsobenia, zaľúbil si jeho prírodu i&nbsp;ľud, čo zúročil v&nbsp;monografii <em>Detva</em>.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -56,7 +57,6 @@
                     Množstvo materiálu inšpirovalo Medveckého natoľko, že sa postupne začal venovať aj štúdiu miestnych dejín, čo nakoniec chcel spojiť do uceleného knižného diela. O&nbsp;monografii sa v&nbsp;mnohom radil a&nbsp;konzultoval so svojím „povzbudzovateľom“ Andrejom Kmeťom. Spracoval Podpoľanie z&nbsp;hľadiska archeológie, dejín, ľudovej kultúry, architektúry a&nbsp;literatúry. Kúpil i&nbsp;dobovú technickú novinku - fonograf, na nahrávanie ľudových piesní a&nbsp;svojich respondentov si fotil na Kmeťov fotoaparát. Dielo nakoniec po peripetiách vyšlo v&nbsp;roku 1905 a&nbsp;vtedajší 30-ročný nemajetný kaplán ho musel vydať na vlastné náklady. Kniha <em>Detva</em> sa stala prvou monografiou o&nbsp;slovenskej obci a&nbsp;na dlhé roky ukazovala trend v&nbsp;bádaní a&nbsp;písaní podobných diel. Mala nesmierny úspech a&nbsp;svojím prínosom na národopisnej scéne preslávila nielen Detvu, ale aj jej autora.
                 </p>
 
-
                 <p>
                     Detviansky kaplán však okrem napísania monografie pomohol svojmu prvému pôsobisku aj v&nbsp;inej oblasti. Počas výkonu svojho poslania a&nbsp;spoznávania detvianskych lazov chcel vydať novú edíciu Sládkovičovej skladby <em>Detvan</em>, ktorá mala vyjsť s&nbsp;ilustráciami podpolianskej krajiny a&nbsp;jej obyvateľstva. Detvana síce nevydal, ale na ilustrovanie krajiny pozval do Detvy maliara Jaroslava Augustu. Tomu sa kraj natoľko zapáčil, že cez nasledujúce letné prázdniny pozval svojich ďalších kolegov. O&nbsp;Detve vznikli dve úspešné výstavy obrazov a&nbsp;neskôr gro tejto skupiny podobne maľovalo výjavy oravskej a&nbsp;liptovskej prírody. Za ich tvorbu so slovenskými motívmi možno vďačiť práve Medveckému, ktorý ich ako prvý pozval k&nbsp;spoznávaniu tuzemskej prírody.
                 </p>
@@ -76,6 +76,7 @@
                 <p>
                     Po skončení prvej svetovej vojny sa zo zabudnutého farára stal elitný politik. V&nbsp;roku 1917 bol po Jozefovi Gregorovi Tajovskom vymenovaný na uvoľnený post tajomníka Slovenskej národnej rady. Medvecký sa v&nbsp;roku 1918 stal zapisovateľom Deklarácie slovenského národa a&nbsp;pochopiteľne aj jej signatárom. Po vzniku Československej republiky bol referentom pre katolícke a&nbsp;cirkevné záležitosti na Ministerstve s&nbsp;plnou mocou pre správu Slovenska, vedené Vavrom Šrobárom.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -89,7 +90,6 @@
             <x-web.page.text-segment animation="fromright">
 
                 <x-partials.picture titleSlug="med-008" side="right" dimensionSource="medium" columns="3"/>
-
                 <x-partials.picture titleSlug="med-007" side="left" dimensionSource="medium" columns="2"/>
 
                 <p>
@@ -106,7 +106,6 @@
                     Od roku 1931 zastával Medvecký úlohu nitrianskeho archidiakona. Zodpovedal za časť diecézy a&nbsp;do jeho kompetencií spadala starostlivosť o&nbsp;miestne cirkevné školstvo. Od roku 1933 dokonca zastával funkciu bojnického starostu. Jeho koníčkom bola história a&nbsp;cestovanie. Precestoval väčšinu európskych krajín. Zachránil pred vydaním nacistom nemeckého kňaza prof. Dr. Riedermattera, ktorý ušiel pred terorom do Československa. Skrýval sa u&nbsp;neho a&nbsp;keď hrozilo jeho vydanie nacistom, dopomohol mu k&nbsp;úteku do Francúzska.
                 </p>
 
-
                 <p>
                     Jeho súčasníci ho charakterizovali, že bol vysoký, plnoštíhlej postavy, počerný, výraznej tváre, na ktorej jazva na líci robila dojem prísnosti. Taký aj bol, ale spravodlivý. Voči kaplánom bol nedostupný, voči veriacim spravodlivý, pedantný dušpastier, dobrý spovedník, povinnosti si konal presne. Jeho celoživotný osud sa pohyboval na národnej báze. Od mladosti bol aktívny člen a&nbsp;funkcionár Muzeálnej slovenskej spoločnosti. V&nbsp;oblasti historiografie sa venoval biografistike, regionálnym dejinám, archeológii, cirkevnej histórii, ale najmä problematike zániku Uhorska a&nbsp;vzniku samostatného československého štátu. Aktivizoval sa v&nbsp;Československej strane lidovej, od roku 1925 bol podpredsedom jej Slovenského výkonného výboru a&nbsp;redaktorom jej tlačového orgánu <em>Ľudová politika</em>. Podporoval politiku Dr. Martina Mičuru. Mal široké známosti medzi politickými a&nbsp;kultúrnymi osobnosťami svojho veku.
                 </p>
@@ -120,14 +119,36 @@
                 <p>
                     17. júna 1995 prijala Mestská knižnica v&nbsp;Detve do svojho pomenovania meno Medveckého, od ktorého narodenia v&nbsp;tom roku uplynulo 120 rokov. Mestské zastupiteľstvo v&nbsp;Detve však schválilo od 1. januára 2008 zlúčenie Domu kultúry Andreja Sládkoviča, Podpolianskeho múzea a&nbsp;Knižnice K. A. Medveckého do Kultúrneho centra Andreja Sládkoviča v&nbsp;Detve a&nbsp;knižnica tak stratila svoju samostatnosť. Karol Anton Medvecký je vlastne stále najznámejším kňazom, ktorý doposiaľ pôsobil v&nbsp;Detve.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>BARTKOVÁ, Anna. <em>Dejiny farnosti Detva</em>. Diplomová práca, 2008.</li>
-            <li>GOLIAN, Ján. Karol Anton Medvecký. Pútnik národného života. In: GOLIAN, Ján, MOLDA, Rastislav, ŠKANDÍK, René, VALKO, Roland. eds. <em>(ne)známe príbehy. Osem zabudnutých osobností 19. a&nbsp;20. storočia.</em> Society for Human studies, 2017.</li>
-            <li>PARENIČKA, Pavol. Medvecký Karol Anton. In: PAŠTEKA, Július. ed. <em>Lexikón katolíckych kňazských osobností Slovenska.</em> Bratislava: LÚČ, 2000. ISBN 80-7114-300-6.</li>
-            <li>ZAREVÚCKY, Anton. <em>Katalóg zosnulých kňazov Banskobystrickej diecézy od jej založenia r. 1776 do r. 1986.</em> Strojopis, 1987.</li>
+
+            <li>
+                BARTKOVÁ, Anna.
+                <em>Dejiny farnosti Detva.</em>
+                Diplomová práca, 2008.
+            </li>
+
+            <li>
+                GOLIAN, Ján. Karol Anton Medvecký. Pútnik národného života. In: GOLIAN, Ján, MOLDA, Rastislav, ŠKANDÍK, René, VALKO, Roland. eds.
+                <em>(ne)známe príbehy. Osem zabudnutých osobností 19. a&nbsp;20. storočia.</em>
+                Society for Human studies, 2017.
+            </li>
+
+            <li>
+                PARENIČKA, Pavol. Medvecký Karol Anton. In: PAŠTEKA, Július. ed.
+                <em>Lexikón katolíckych kňazských osobností Slovenska.</em>
+                Bratislava: LÚČ, 2000. ISBN 80-7114-300-6.
+            </li>
+
+            <li>
+                ZAREVÚCKY, Anton.
+                <em>Katalóg zosnulých kňazov Banskobystrickej diecézy od jej založenia r. 1776 do r. 1986.</em>
+                Strojopis, 1987.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

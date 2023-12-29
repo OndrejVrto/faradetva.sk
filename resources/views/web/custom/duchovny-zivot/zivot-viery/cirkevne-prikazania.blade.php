@@ -6,12 +6,15 @@
 
         <x-web.page.subsection>
             <x-web.page.text-segment animation="fromleft">
+
                 <p>
                     Učiteľský úrad pastierov Cirkvi sa v&nbsp;morálnej oblasti zvyčajne vykonáva katechézou a&nbsp;kázaním na základe Desatora, ktoré vyjadruje zásady mravného života platné pre všetkých ľudí. Cirkevné prikázania sa nachádzajú v&nbsp;tejto línii mravného života, ktorý je úzko spätý s&nbsp;liturgickým životom a&nbsp;ním sa živí. Záväzný ráz týchto pozitívnych zákonov vynesený pastorálnou autoritou Cirkvi má za cieľ zabezpečiť veriacim naozaj potrebné minimum ducha modlitby, morálneho úsilia a&nbsp;rastu v&nbsp;láske k&nbsp;Bohu a&nbsp;k&nbsp;blížnemu.
                 </p>
+
                 <p>
                     Päť cirkevných prikázaní nám chce svojimi minimálnymi požiadavkami pripomínať, že nemožno byť kresťanom bez morálneho úsilia, bez konkrétnej účasti na sviatostnom živote Cirkvi a&nbsp;bez solidárneho spojenia s&nbsp;ňou. Tieto prikázania sú záväzné pre každého kresťana katolíka.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -38,14 +41,17 @@
                             <li>Všetkých svätých (1.11.)</li>
                         </ul>
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.subsection title="II. Zachovávať prikázané dni pokánia" animation="fromleft">
             <x-web.page.text-segment animation="fromleft">
+
                 <p>
                     Konať skutky kajúcnosti každý piatok a&nbsp;na Popolcovú stredu zabezpečuje obdobia askézy a&nbsp;pokánia, ktoré nás pripravujú na liturgické sviatky a&nbsp;prispieva k&nbsp;tomu, že získavame nadvládu nad svojimi pudmi a&nbsp;slobodu srdca. Pokánie sa prejavuje veľmi rozmanitými formami, najmä pôstom, modlitbou a&nbsp;almužnou. Tieto a&nbsp;mnohé iné formy pokánia môže kresťan praktizovať v&nbsp;každodennom živote, najmä v&nbsp;Pôstnom období a&nbsp;v&nbsp;piatky, dni kajúcnosti.
                 </p>
+
                 <p>
                     Všetky piatky v&nbsp;roku sú dňami pokánia. Veriaci majú povinnosť konať niektorý z&nbsp;týchto druhov pokánia:
                         <ol>
@@ -56,9 +62,11 @@
                             <li>vykonať sebazápor (napr. zrieknuť sa televízie, fajčenia, alkoholu a&nbsp;pod.)</li>
                         </ol>
                 </p>
+
                 <p>
                     Popolcová streda a&nbsp;Veľký piatok sú dni prísneho pôstu, t. j. v&nbsp;tento deň je zdržiavanie sa mäsitého pokrmu a&nbsp;len raz za deň je možné dosýta sa najesť. Tento pôst viaže od 18. do 60. roku života. Veriacich od 14. do 18. roku a&nbsp;veriacich nad 60 rokov viaže iba zdržiavanie sa mäsitých pokrmov. Deti do 14. roku života neviaže žiaden pôst, avšak v&nbsp;kresťanskej výchove treba deti viesť k&nbsp;pôstu. Chorých a&nbsp;prípadne fyzicky ťažko pracujúcich neviaže zdržiavanie sa od jedla. V&nbsp;tieto dva dni sa zdržiavanie mäsitých pokrmov nedá nahradiť iným skutkom pokánia.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -76,6 +84,7 @@
                 <p>
                     Tretie prikázanie na jednej strane zabezpečuje prípravu na Eucharistiu prijatím sviatosti zmierenia, ktorou pokračuje dielo obrátenia a&nbsp;odpustenia začaté v&nbsp;krste, a&nbsp;na druhej strane zaručuje minimum prijatia Pánovho tela a&nbsp;krvi v&nbsp;súvislosti s&nbsp;veľkonočnými sviatkami, ktoré sú počiatkom a&nbsp;stredom kresťanskej liturgie.
                 </p>
+
                 <p>
                     Každý veriaci, keď dosiahol vek usudzovania, je povinný vyspovedať sa zo svojich ťažkých hriechov aspoň raz do roka a&nbsp;v&nbsp;každom prípade prv, ako pristúpi k&nbsp;svätému prijímaniu. Hoci spoveď zo všedných hriechov nie je striktne potrebná, Cirkev ju veľmi odporúča, lebo ona nám pomáha formovať si správne svedomie, bojovať proti nezriadeným náklonnostiam, nechať sa liečiť Kristom a&nbsp;robiť pokroky v&nbsp;živote podľa Ducha Svätého.
                 </p>
@@ -89,12 +98,15 @@
                 <p>
                     Sviatosť manželstva je znakom spojenia Krista a&nbsp;Cirkvi. Dáva manželom milosť milovať sa láskou, akou Kristus miloval svoju Cirkev; takto milosť sviatosti zdokonaľuje ľudskú lásku manželov, posilňuje ich nerozlučiteľnú jednotu a&nbsp;posväcuje ich na ceste do večného života. Manželstvo sa zakladá na súhlase manželov, t. j. na vôli vzájomne a&nbsp;definitívne sa darovať s&nbsp;cieľom žiť podľa zmluvy vernej a&nbsp;plodnej lásky.
                 </p>
+
                 <p>
                     Pretože manželstvo zaraďuje manželov do verejného životného stavu v&nbsp;Cirkvi, je potrebné, aby jeho slávenie bolo verejné, v&nbsp;rámci liturgického slávenia farnosti, pred miestnym farárom, alebo pred kňazom či diakonom, ktorého správca farnosti delegoval, ako aj pred dvoma svedkami a&nbsp;zhromaždením veriacich. Manželstvá sa majú sláviť vo farnosti, v&nbsp;ktorej jedna z&nbsp;uzavierajúcich stránok má trvalé alebo prechodné bydlisko, alebo sa tam zdržiava.
                 </p>
+
                 <p>
                     Manželstvo, ktoré pokrstený katolík uzatvorí len pred civilnými úradmi, je pred Bohom a&nbsp;Cirkvou neplatné. Zároveň mu takýto (civilný) manželský zväzok nedovoľuje pristupovať k&nbsp;sviatostiam Cirkvi.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -106,15 +118,24 @@
                 <p>
                     Katolícka cirkev môže na základe vrodeného práva nezávisle od občianskej moci nadobúdať, vlastniť, spravovať a&nbsp;scudzovať časné majetky na dosahovanie cieľov, ktoré sú jej vlastné. Vlastnými cieľmi sú najmä: usporadúvať božský kult, starať sa o&nbsp;slušné materiálne zabezpečenie kléru a&nbsp;iných služobníkov, vykonávať diela posvätného apoštolátu a&nbsp;dobročinnej lásky najmä voči chudobným.
                 </p>
+
                 <p>
                     Piate cirkevné prikázanie ustanovuje, že všetci veriaci, či už klerici alebo laici, majú účasť na správe cirkevných majetkov a&nbsp;sú povinní prispievať, každý podľa svojich možností, na hmotné potreby Cirkvi.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Použitá literatúra:">
-            <li>Katechizmus Katolíckej cirkvi. 6. vydanie. Trnava: Spolok sv. Vojtecha, 2009. ISBN 80-7162-776-0.</li>
-            <li>Kódex kánonického práva. Latinsko-slovenské vydanie. Bratislava: Konferencia biskupov Slovenska, 1996. ISBN 80-7162-061-0.</li>
+
+            <li>
+                Katechizmus Katolíckej cirkvi. 6. vydanie. Trnava: Spolok sv. Vojtecha, 2009. ISBN 80-7162-776-0.
+            </li>
+
+            <li>
+                Kódex kánonického práva. Latinsko-slovenské vydanie. Bratislava: Konferencia biskupov Slovenska, 1996. ISBN 80-7162-061-0.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

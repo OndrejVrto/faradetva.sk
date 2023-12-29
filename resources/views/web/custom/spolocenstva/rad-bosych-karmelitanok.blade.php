@@ -22,14 +22,18 @@
                 <p>
                     V&nbsp;16. storočí dvaja veľkí španielski mystici - sv. Terézia od Ježiša (z Avily) a&nbsp;sv. Ján od Kríža - reformovali Karmel. Bol to návrat k&nbsp;prvotnej charizme: k&nbsp;ideálu pustovníckeho života, k&nbsp;mlčaniu, k&nbsp;úplnému zdržiavaniu sa mäsa, k&nbsp;skrytému životu v&nbsp;klauzúre, k&nbsp;pravidelnej vnútornej modlitbe a&nbsp;k&nbsp;modlitbe v&nbsp;chóre, ako aj k&nbsp;prvkom komunitného života. Obidvaja vo svojich spisoch odovzdali dôležitú náuku o&nbsp;hlbšom spoločenstve s&nbsp;Bohom a&nbsp;ceste vnútornej modlitby.
                 </p>
+
             </x-web.page.text-segment>
             <x-web.page.text-segment animation="fromleft">
+
                 <p>
                     Svätá Terézia zvolila pre sestry čisto kontemplatívnu formu života, ktorej srdcom je dôverné priateľstvo s&nbsp;Kristom, osobný vzťah s&nbsp;Bohom. <em>„Naše povolanie má byť zamerané úplne na počúvanie Božieho slova, hľadanie vzácnej perly Božieho kráľovstva, vo veľkej samote a&nbsp;v&nbsp;úplnom odlúčení od sveta.“</em> (Konštitúcie bosých karmelitánok)
                 </p>
+
                 <p>
                     Život karmelitánok je životom tichým a&nbsp;celkom obráteným k&nbsp;Bohu. Pre toto neustále, láskyplné obracanie sa k&nbsp;Bohu je potrebná na jednej strane atmosféra ticha, uzobrania a&nbsp;utiahnutosti, na druhej strane radostný, rodinný život v&nbsp;spoločenstve. K&nbsp;tomu má byť pomocou jednoduchá svojráznosť karmelitánskeho spôsobu života.
                 </p>
+
             </x-web.page.text-segment>
 
             <h3 class="pt-2 wow fromright" data-wow-delay="0.4s">
@@ -37,6 +41,7 @@
             </h3>
 
             <x-web.page.text-segment animation="fromright">
+
                 <ul class="lh-lg">
                     <li>slávenie Eucharistie</li>
                     <li>2 hodiny vnútornej modlitby</li>
@@ -47,6 +52,7 @@
                     <li>mlčanie a&nbsp;samota počas dňa</li>
                     <li>2 hodiny spoločnej rekreácie (po obede a&nbsp;po večeri), čas kedy sa sestry môžu spontánne a&nbsp;srdečne porozprávať.</li>
                 </ul>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -78,6 +84,7 @@
                 <p>
                     <em>„Chcela by som, aby nikto nebol zatratený. Sestry moje, spoločne so mnou proste Boha o&nbsp;túto milosť. On vás zhromaždil kvôli tomu: toto je vaše povolanie, toto je vaša úloha a&nbsp;vaša túžba, kvôli tomu máte prelievať slzy a&nbsp;za toto sa modliť.“</em> (sv. Terézia od Ježiša)
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -93,20 +100,25 @@
                 <p>
                     <em>Dobrovoľná voľba života klauzúry, ktorá nesie so sebou radikálne vonkajšie odpútanie sa s&nbsp;cieľom dosiahnuť vnútorné odpútanie, ako aj život v&nbsp;mlčaní a&nbsp;samote..., sú veľkou pomocou pri získavaní slobody ducha v&nbsp;radostnej skúsenosti bratstva v&nbsp;Kristovi, samy s&nbsp;Ním samým.</em> (Konštitúcie bosých karmelitánok)
                 </p>
+
                 <p>
                     Dobrovoľné sa oddelenie od sveta, aby sestry mohli celý život obetovať tomu, ktorý sa pre nás „uzatvoril“, stal sa väzňom našich oltárov. Klauzúra sestry nerobí cudzími pre svet a&nbsp;jeho bolesti. Ona je preto, aby umožnila slobodu ducha a&nbsp;oslobodila ho nielen od vecí sveta, ale predovšetkým od egoizmu - seba samých. Preto toto uzavretie má očisťovať a&nbsp;pripravuje na prijatie a&nbsp;objatie všetkých veľkých vecí Cirkvi a&nbsp;bolestí ľudstva...
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.subsection title="Samota a&nbsp;mlčanie">
             <x-web.page.text-segment animation="fromright">
+
                 <p>
                     V&nbsp;Karmeli je zharmonizovaný život pustovnícky so životom spoločným. V&nbsp;kaplnke, na modlitbách, v&nbsp;jedálni, na rekreáciách, čiže vo chvíľach spoločných sú všetky sestry spolu. Zvyšok dňa prebieha v&nbsp;tichu a&nbsp;samote. Aj pri práci sa každá sestra snaží byť duchom s&nbsp;Pánom a&nbsp;tvoriť s&nbsp;Ním spoločenstvo.
                 </p>
+
                 <p>
                     Vonkajšie ticho, ktoré panuje na chodbách, v&nbsp;jedálni, v&nbsp;chóre, ľahko preniká do duše a&nbsp;dvíha ju k&nbsp;tomu, ktorý neustále vo večnom mlčaní vydáva svoje Slovo, ktoré je Jeho Synom. V&nbsp;mlčaní sa formuje hĺbka a&nbsp;sila duše.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -136,6 +148,7 @@
                 <p>
                     V&nbsp;roku 1861 bolo v&nbsp;Detve na podnet farára Jána Štrbu založené Mariánske bratstvo svätého škapuliara. Stanovy tohto bratstva, ktorého hlavným cieľom bolo vykorenenie neduhov miestneho obyvateľstva a&nbsp;posilnenie mravnosti mládeže, schválil biskup Štefan Moyses. Od založenia škapuliarskeho bratstva bolo do roku 1924 zaevidovaných v&nbsp;Detve viac než 1&nbsp;500 členov. Po roku 2007 na túto tradíciu nepriamo nadväzuje dnešná možnosť prijatia škapuliara priamo v&nbsp;kláštore sestier bosých karmelitánok v&nbsp;Detve.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -155,23 +168,21 @@
                 <p>
                     28. júla 2007 banskobystrický biskup Mons. Rudolf Baláž slávnostne požehnal <a href="{{ secure_url('o-nas/sakralne-objekty/klastorny-kostol-karmel') }}">Kláštor Božieho milosrdenstva a&nbsp;Kráľovnej Karmelu v&nbsp;Detve</a>. Nový kláštor prišlo založiť 10 sestier z&nbsp;Košíc. V&nbsp;súčasnosti žije v&nbsp;kláštore 9 sestier s&nbsp;doživotnými sľubmi, ďalšie sú v&nbsp;procese formácie a&nbsp;rozlišovania povolania (r. 2022).
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
         <x-web.page.information-sources title="Zdroj:">
-            <li>
-                <em>
-                    <a class="link-template"
-                        target="_blank"
-                        href="https://bosikarmelitani.sk/detva"
-                        target="_blank">
-                        Bosé karmelitánky v Detve
-                    </a>
-                </em>
-            </li>
+
+            <x-web.page.source-link
+                href="https://bosikarmelitani.sk/detva">
+                    Bosé karmelitánky v Detve
+            </x-web.page.source-link>
+
             <li>
                 Diecézny archív Banská Bystrica, fond Farské archívy.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

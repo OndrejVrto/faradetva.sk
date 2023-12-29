@@ -34,12 +34,17 @@
                 <p>
                     V&nbsp;našej farnosti aktuálne pôsobia dve kostolníčky, ktoré sa striedajú v&nbsp;službe nielen vo farskom kostole, ale aj pri pohreboch so svätou omšou v&nbsp;dome smútku na cintoríne, prípadne pri iných liturgických sláveniach. V&nbsp;kláštornom kostole plnia úlohu kostolníčok dve bosé karmelitánky - mníšky určené pre komunikáciu kláštora s&nbsp;verejnosťou.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
-
         <x-web.page.information-sources title="Použitý prameň:">
-            <li><em>Directorium 1989.</em> Trnava: Spolok sv. Vojtecha, 1988.</li>
+
+            <li>
+                <em>Directorium 1989.</em>
+                Trnava: Spolok sv. Vojtecha, 1988.
+            </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

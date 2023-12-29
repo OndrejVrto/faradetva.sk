@@ -28,6 +28,7 @@
                 <p>
                     Za diakona, kňaza a&nbsp;biskupa môže byť platne vysvätený muž, ktorý prijal katolícku vieru, bol v&nbsp;nej pokrstený a&nbsp;pobirmovaný a&nbsp;je Cirkvou povolaný na tento úrad.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -39,6 +40,7 @@
                 <p>
                     Diakon je ustanovený pre osobitnú službu Cirkvi. Zastupuje totiž Krista, ktorý „neprišiel dať sa obsluhovať, ale slúžiť a&nbsp;položiť svoj život ako výkupné za mnohých“ (Mt 20,28). V&nbsp;liturgii diakonskej vysviacky sa hovorí: „Posilnený darom Ducha Svätého bude pomáhať biskupovi a&nbsp;jeho kňazom v&nbsp;službe slova, oltára a&nbsp;charity. Stane sa služobníkom všetkých.“ Prvotným vzorom diakona je svätý mučeník Štefan, ktorý bol medzi prvými siedmimi diakonmi, ktorých ustanovili apoštoli, keď sa v&nbsp;službe prvotnej cirkvi v&nbsp;Jeruzaleme cítili preťažení množstvom charitatívnych úloh. Neskôr sa diakonská služba stala na dlhé storočia len nižším stupňom na ceste ku kňazstvu. Dnes sú opäť do tejto služby povolaní jednak tí, ktorí žijú v&nbsp;celibáte, ako aj ženatí muži. Takto chápaná diakonská služba nanovo zdôrazňuje služobný charakter Cirkvi. Zároveň poskytuje kňazom pomoc v&nbsp;duchu prvotnej Cirkvi tým, že diakon prijíma predovšetkým pastoračné a&nbsp;sociálne úlohy v&nbsp;Cirkvi. Aj diakonská vysviacka vtláča celoživotnú a&nbsp;nezrušiteľnú pečať.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
 
@@ -51,7 +53,6 @@
         <x-web.page.subsection title="Účinok kňazskej vysviacky">
             <x-web.page.text-segment animation="fromright">
 
-                {{-- <x-partials.picture titleSlug="sacr6-001" side="right" dimensionSource="medium" columns="3" /> --}}
                 <x-partials.picture titleSlug="sacr6-008" side="right" dimensionSource="medium" columns="3" />
 
                 <p>
@@ -79,27 +80,17 @@
                 <p>
                     Každý kresťan je povolaný k&nbsp;všeobecnému kňazstvu, aby v&nbsp;Božom mene pôsobil vo svete a&nbsp;prinášal mu Božie požehnanie a&nbsp;milosť. Pri Poslednej večeri a&nbsp;pri rozoslaní apoštolov dal však Ježiš niektorým posvätnú moc na službu veriacim. Preto len títo vysvätení kňazi zastupujú Ježiša, Pastiera svojho ľudu a&nbsp;Hlavu svojho tela - Cirkvi. Všetci by sme mali nanovo objaviť Boží dar pre Cirkev, ktorým je vysvätený kňaz, ktorý medzi nami zastupuje samého Pána.
                 </p>
+
             </x-web.page.text-segment>
         </x-web.page.subsection>
-
-        {{--
-        <x-web.page.subsection>
-            <hr class="text-church-template">
-        </x-web.page.subsection>
-
-        <x-web.page.subsection title="Ako sa niekto môže stať kňazom?">
-            <x-web.page.text-segment animation="fromleft">
-                <p>
-                    Mladý muž, ktorý by v&nbsp;sebe cítil povolanie ku kňazstvu, môže sa cez svojho farára prihlásiť na štúdium teológie a&nbsp;prípravu na kňazstvo v&nbsp;Banskobystrickej diecéze, v&nbsp;Kňazskom seminári sv. Gorazda v&nbsp;Nitre. Medzi podmienky prijatia adeptov na kňazstvo patrí okrem iného najmä mravný a&nbsp;bezúhonný život kresťana, dobrý zdravotný stav pre výkon povolania a&nbsp;stredoškolské vzdelanie s&nbsp;maturitou. Bližšie informácie na stránke seminára: www.ksnr.sk
-                </p>
-            </x-web.page.text-segment>
-        </x-web.page.subsection> --}}
 
         <x-web.page.information-sources title="Použitá literatúra:">
+
             <li>
                 <em>Youcat po slovensky. Katechizmus Katolíckej cirkvi pre mladých.</em>
                 Bratislava: Karmelitánske nakladateľstvo, 2011. ISBN 978-80-89231-99-7.
             </li>
+
         </x-web.page.information-sources>
 
     </x-web.page.section>

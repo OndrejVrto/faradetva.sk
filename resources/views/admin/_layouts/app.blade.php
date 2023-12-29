@@ -6,7 +6,7 @@
 
 @section('footer')
     <div class="small">
-        Aplikáciu naprogramoval <a href="https://ondrejvrto.eu" target="_blank" class="text-bold text-warning mx-2">Ing. Ondrej VRŤO</a> v roku pána 2022.
+        Aplikáciu naprogramoval <a href="https://ondrejvrto.eu" target="_blank" class="text-bold text-warning mx-2">Ing. Ondrej VRŤO</a> v roku pána 2022-2023.
     </div>
 @stop
 

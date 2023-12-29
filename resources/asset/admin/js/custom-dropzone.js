@@ -1,8 +1,8 @@
-function initDropZone(url, token, files, propName, paramName, acceptedFiles) {
+function initDropZone(id, url, token, files, propName, paramName, acceptedFiles) {
 
     let uploadedDocumentMap = {}
 
-    Dropzone.options.documentDropzone = {
+    const options  = {
         url,
         paramName,
         acceptedFiles,
@@ -15,16 +15,16 @@ function initDropZone(url, token, files, propName, paramName, acceptedFiles) {
         headers: {
             'X-CSRF-TOKEN': token
         },
-        dictDefaultMessage: "Sem vlož súbory pre upload",
-        dictFallbackMessage: "Váš prehliadač nepodporuje vkladanie súborov preťahovaním.",
-        dictFallbackText: "Na nahranie súborov použite záložný formulár nižšie.",
-        dictInvalidFileType: "Súbory tohto typu nemôžete nahrať.",
+        dictDefaultMessage          : "Sem vlož súbory pre upload",
+        dictFallbackMessage         : "Váš prehliadač nepodporuje vkladanie súborov preťahovaním.",
+        dictFallbackText            : "Na nahranie súborov použite záložný formulár nižšie.",
+        dictInvalidFileType         : "Súbory tohto typu nemôžete nahrať.",
         dictCancelUploadConfirmation: "Naozaj chcete zrušiť toto nahrávanie?",
-        dictRemoveFile: "Odstrániť súbor",
-        dictMaxFilesExceeded: "Nemôžete nahrať žiadne ďalšie súbory.",
-        dictCancelUpload: "Zrušiť nahrávanie",
-        dictFileTooBig: "Súbor je príliš veľký ({{filesize}}MiB). Maximálna veľkosť: {{maxFilesize}}MiB.",
-        dictResponseError: "Server odpovedal kódom {{statusCode}}.",
+        dictRemoveFile              : "Odstrániť súbor",
+        dictMaxFilesExceeded        : "Nemôžete nahrať žiadne ďalšie súbory.",
+        dictCancelUpload            : "Zrušiť nahrávanie",
+        dictFileTooBig              : "Súbor je príliš veľký ({{filesize}}MiB). Maximálna veľkosť: {{maxFilesize}}MiB.",
+        dictResponseError           : "Server odpovedal kódom {{statusCode}}.",
 
         success: function (file, response) {
             $('form').append(`<input type="hidden" name="${propName}[]" value="${response.name}">`)
@@ -53,4 +53,5 @@ function initDropZone(url, token, files, propName, paramName, acceptedFiles) {
         }
     }
 
+    new Dropzone(id ,options);
 }
