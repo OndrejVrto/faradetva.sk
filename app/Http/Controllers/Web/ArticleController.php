@@ -66,6 +66,18 @@ class ArticleController extends Controller {
             callback: fn () => (new FilePropertiesService())->allNewsAttachmentData($oneNews)
         );
 
+        $gallery = Cache::rememberForever(
+            key: 'GALLERY_'.Str::slug($slug),
+            callback: fn () => collect($oneNews->getMedia($oneNews->collectionAlbum))
+                ->map(fn ($pic) => [
+                    'href' => $pic->getUrl(),
+                    'title' => $pic->name,
+                    'srcset' => $pic->getSrcset('orginal'),
+                    'responsivePicture' => (string) $pic->img('thumb'),
+                ])
+                ->toArray()
+        );
+
         $breadCrumb = Breadcrumbs::render('article.show', true, $oneNews)->render();
 
         $pageData = PagePropertiesService::getArticlePageData($oneNews);
@@ -84,7 +96,7 @@ class ArticleController extends Controller {
                 ]
             ]);
 
-        return view('web.article.show', compact('oneNews', 'attachments', 'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
+        return view('web.article.show', compact('oneNews', 'attachments', 'gallery' ,'lastNews', 'allCategories', 'allTags', 'breadCrumb'));
     }
 
     public function indexAll(): View {

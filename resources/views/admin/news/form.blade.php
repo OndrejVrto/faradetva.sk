@@ -21,32 +21,34 @@
     createdInfo="{{ $createdInfo }}" updatedInfo="{{ $updatedInfo }}"
 >
 
-    <input type="hidden" name="timezone" id="timezone">
-
     <div class="form-row">
-        @include('admin.news.partials.active')
-    </div>
+        <div class="col-xl-5 order-xl-2">
+            <input type="hidden" name="timezone" id="timezone">
 
-    <div class="form-row">
-        <div class="col-xl-6">
+            <div class="form-row justify-center items-center pl-4 mt-4">
+                @include('admin.news.partials.active')
+            </div>
+
             @include('admin.news.partials.title')
-        </div>
-        <div class="col-md-6 col-xl-3">
-            @include('admin.news.partials.published_at')
-        </div>
-        <div class="col-md-6 col-xl-3">
-            @include('admin.news.partials.unpublished_at')
-        </div>
-    </div>
 
-    <div class="form-row">
-        <div class="col-xl-4 order-xl-2">
-            @include('admin.news.partials.teaser')
+
             @include('admin.news.partials.category_id')
             @include('admin.news.partials.tags')
-            @include('admin.news.partials.dropzone_attachment')
+            @include('admin.news.partials.teaser')
+
+            <div class="form-row">
+                <div class="col-md-6">
+                    @include('admin.news.partials.published_at')
+                </div>
+                <div class="col-md-6">
+                    @include('admin.news.partials.unpublished_at')
+                </div>
+            </div>
+
+            @include('admin.news.partials.dropzones')
         </div>
-        <div class="col-xl-8 order-xl-1">
+
+        <div class="col-xl-7 order-xl-1">
             @include('admin.news.partials.content')
         </div>
     </div>

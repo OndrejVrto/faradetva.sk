@@ -19,6 +19,7 @@
 
     <script @nonce>
         initDropZone(
+            '#document-dropzone',
             "{{ route('galleries.storeMedia') }}",
             "{{ csrf_token() }}",
             {!! json_encode($pictures) !!},

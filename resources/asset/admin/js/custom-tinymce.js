@@ -25,7 +25,7 @@ var editor_config = {
     toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | link image media",
     toolbar_mode: 'floating',
 
-    height: 500,
+    height: 950,
     image_caption: true,
 
     file_picker_callback : function(callback, value, meta) {

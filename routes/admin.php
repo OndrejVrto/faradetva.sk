@@ -26,7 +26,9 @@ Route::prefix('admin')->group(function () {
     });
     Route::controller(NewsController::class)->name('news.')->group(function () {
         Route::post('news/media', 'storeMedia')->name('storeMedia');
+        Route::post('news/album', 'storeAlbum')->name('storeAlbum');
         Route::get('news/{news}/download', 'download')->name('download');
+        Route::get('news/{news}/download-album', 'downloadAlbum')->name('downloadAlbum');
     });
 
 

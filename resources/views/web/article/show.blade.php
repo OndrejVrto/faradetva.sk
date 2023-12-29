@@ -13,12 +13,14 @@
 
                 @include('web.article.partials.article-picture')
 
-                <div class="blog_desc ps-0">
+                <div class="blog_desc ps-0 pe-md-0">
                     @include('web.article.partials.article-info')
 
                     @include('web.article.partials.article-content')
 
                     @include('web.article.partials.article-attachments')
+
+                    @include('web.article.partials.article-album')
 
                     @include('web.article.partials.article-tags-and-socialite')
                 </div>

@@ -21,11 +21,14 @@
             <x-admin.table.th-check-active>Prioritná správa</x-admin.table.th-check-active>
 
             <x-admin.table.th width="11%" class="d-none d-md-table-cell text-center">Fotka</x-admin.table.th>
-            <x-admin.table.th width="20%" class="d-none d-lg-table-cell">Autor</x-admin.table.th>
-            <x-admin.table.th width="20%" class="d-none d-xl-table-cell">Zverejnenie</x-admin.table.th>
+            <x-admin.table.th width="15%" class="d-none d-lg-table-cell">Autor</x-admin.table.th>
+            <x-admin.table.th width="15%" class="d-none d-xl-table-cell">Zverejnenie</x-admin.table.th>
             <x-admin.table.th>Názov článku</x-admin.table.th>
             {{-- <x-admin.table.th>Obsah článku (skrátený)</x-admin.table.th> --}}
-            <x-admin.table.th width="5%" class="text-center d-none d-md-table-cell">Príloh</x-admin.table.th>
+            <x-admin.table.th width="5%" class="text-center d-none d-md-table-cell">
+                Príloh<br>
+                Obrázkov
+            </x-admin.table.th>
             <x-admin.table.th-actions />
         </x-slot>
 
@@ -67,6 +70,9 @@
                         @if( $news->document_count != 0 )
                             <span class="badge bg-orange px-2 py-1">{{ $news->document_count }}</span>
                         @endif
+                        @if( $news->album_count != 0 )
+                            <span class="badge bg-purple px-2 py-1">{{ $news->album_count }}</span>
+                        @endif
                     </x-admin.table.td>
 
                     <x-admin.table.td class="text-left">
@@ -93,6 +99,14 @@
                                 <a  href="{{ route('news.download', $news->slug) }}"
                                     class="w35 ml-1 btn btn-outline-secondary btn-sm btn-flat"
                                     title="Stiahnuť všetky prílohy (zip)"
+                                >
+                                    <i class="fa-solid fa-download"></i>
+                                </a>
+                            @endif
+                            @if ($news->album_count > 0)
+                                <a  href="{{ route('news.downloadAlbum', $news->slug) }}"
+                                    class="w35 ml-1 btn btn-outline-secondary btn-sm btn-flat"
+                                    title="Stiahnuť album (zip)"
                                 >
                                     <i class="fa-solid fa-download"></i>
                                 </a>
