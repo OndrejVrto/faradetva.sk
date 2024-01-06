@@ -10,7 +10,7 @@
 
     <div class="form-group">
         <span class="input_icon @error('name') border-end-0 border-danger @enderror"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></span>
-        <input wire:model.lazy="name" class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="Celé meno" value="{{ old('name') }}">
+        <input wire:model.lazy="name" class="form-control @error('name') is-invalid @enderror" type="text" name="name" autocomplete="name" placeholder="Celé meno" value="{{ old('name') }}">
         @error('name')
             <span class="invalid-feedback d-block" role="alert">
                 <strong>{{ $errors->first('name') }}</strong>
@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
         <span class="input_icon @error('email') border-end-0 border-danger @enderror"><i class="fa-solid fa-at" aria-hidden="true"></i></span>
-        <input wire:model.lazy="email" class="form-control @error('email') is-invalid @enderror" type="text" name="email" placeholder="Váš E-mail" value="{{ old('email') }}">
+        <input wire:model.lazy="email" class="form-control @error('email') is-invalid @enderror" type="text" name="email" autocomplete="email" placeholder="Váš E-mail" value="{{ old('email') }}">
         @error('email')
             <span class="invalid-feedback d-block" role="alert">
                 <strong>{{ $errors->first('email') }}</strong>
@@ -28,7 +28,7 @@
     </div>
     <div class="form-group">
         <span class="input_icon @error('contact') border-end-0 border-danger @enderror"><i class="fa-solid fa-phone-alt" aria-hidden="true"></i></span>
-        <input wire:model.lazy="contact" class="form-control @error('contact') is-invalid @enderror" type="text" name="contact" placeholder="Kontaktné číslo" value="{{ old('contact') }}">
+        <input wire:model.lazy="contact" class="form-control @error('contact') is-invalid @enderror" type="text" name="contact" autocomplete="tel" placeholder="Kontaktné číslo" value="{{ old('contact') }}">
         @error('contact')
             <span class="invalid-feedback d-block" role="alert">
                 <strong>{{ $errors->first('contact') }}</strong>
@@ -37,7 +37,7 @@
     </div>
     <div class="form-group">
         <span class="input_icon @error('address') border-end-0 border-danger @enderror"><i class="fa-solid fa-map-marker-alt" aria-hidden="true"></i></span>
-        <input wire:model.lazy="address" class="form-control @error('address') is-invalid @enderror" type="text" name="address" placeholder="Vaša adresa" value="{{ old('address') }}">
+        <input wire:model.lazy="address" class="form-control @error('address') is-invalid @enderror" type="text" name="address" autocomplete="address-line1" placeholder="Vaša adresa" value="{{ old('address') }}">
         @error('address')
             <span class="invalid-feedback d-block" role="alert">
                 <strong>{{ $errors->first('address') }}</strong>
@@ -45,7 +45,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <textarea wire:model.lazy="message" class="form-control @error('message') is-invalid @enderror" name="message" placeholder="Vaša správa">{{ old('message') }}</textarea>
+        <textarea wire:model.lazy="message" class="form-control @error('message') is-invalid @enderror" name="message" autocomplete="off" placeholder="Vaša správa">{{ old('message') }}</textarea>
         @error('message')
             <span class="invalid-feedback d-block" role="alert">
                 <strong>{{ $errors->first('message') }}</strong>
