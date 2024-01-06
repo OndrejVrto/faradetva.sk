@@ -22,9 +22,9 @@
         <div class="blog_item_cover">
 
             @isset($person["obrazok"])
-                <div class="">
+                <figure class="">
                     <x-partials.picture-responsive :titleSlug="$person['obrazok']" class="img-fluid w-100" descriptionSide="left"/>
-                </div>
+                </figure>
             @endisset
 
             <div class="p-3">

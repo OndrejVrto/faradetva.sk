@@ -16,7 +16,7 @@
                 'order-2' => $side === 'right',
             ])
         >
-            <div @class([
+            <figure @class([
                     'ch_about_thumb',
                     'wow',
                     'd-flex',
@@ -26,7 +26,7 @@
                 ])
             >
                 {!! $img !!}
-            </div>
+            </figure>
 
         </div>
 

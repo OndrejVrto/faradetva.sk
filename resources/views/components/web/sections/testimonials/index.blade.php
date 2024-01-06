@@ -13,14 +13,14 @@
                         <h3>{{ $testimonial['name'] }}</h3>
                         <h4>{{ $testimonial['function'] }}</h4>
                         </div>
-                    <div class="bottom_bar">
+                    <figure class="bottom_bar">
                         <img src="{{ $testimonial['img-url'] }}"
                             class="img-fluid mb-3"
                             alt="Fotografia svedka viery: {{ $testimonial['name'] }}, {{ $testimonial['function'] }}"
                             width="120"
                             height="120"
                         />
-                    </div>
+                    </figure>
                     <div class="test_paragraph text-justify">
                         {!! $testimonial['description'] !!}
                     </div>

@@ -12,13 +12,13 @@
         ])
     >
 
-        <div @class([
+        <figure @class([
                 'event_thumb',
                 'order-2' => $side === 'right',
             ])
         >
             {!! $img !!}
-        </div>
+        </figure>
 
         <div @class([
                 'event_desc',

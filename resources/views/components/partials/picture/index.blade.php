@@ -14,7 +14,7 @@
     $class[] = 'wow '.$animation;
 @endphp
 
-<div {{ $attributes->merge(['class' => implode(' ', $class)]) }}
+<figure {{ $attributes->merge(['class' => implode(' ', $class)]) }}
     @if ($dimensionSource === 'off') title="{{ $picture['source_description'] }}"@endif
 >
 
@@ -36,4 +36,4 @@
 
     {!! $picture['responsivePicture'] !!}
 
-</div>
+</figure>

@@ -1,4 +1,4 @@
-<label {{ $attributes->merge(['class' => 'source']) }}>
+<figcaption {{ $attributes->merge(['class' => 'source']) }}>
     {{ $slot }}
-</label>
+</figcaption>
 

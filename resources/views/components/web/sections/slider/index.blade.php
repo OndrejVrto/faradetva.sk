@@ -17,7 +17,7 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-between mt-1">
+                    <figure class="d-flex justify-content-between mt-1">
                         <x-partials.picture-label
                             class="ms-3 text-church-template-blue"
                             for="slid-{{ $slider['id'] }}"
@@ -32,7 +32,7 @@
                             title="{{ $slider['source_description'] }}"
                             for="slid-{{ $slider['id'] }}"
                         />
-                    </div>
+                    </figure>
                 </div>
                 <!-- SLIDER-ITEM-{{ $slider['id'] }} end -->
 
