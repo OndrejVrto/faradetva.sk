@@ -1,8 +1,8 @@
 <div class="row mb-3">
 
-    <div class="col-12 col-lg-4 order-1 order-lg-0 wow fromleft" data-wow-delay="{{ $delay*0.4 }}s">
+    <figure class="col-12 col-lg-4 order-1 order-lg-0 wow fromleft" data-wow-delay="{{ $delay*0.4 }}s">
         {{ $img }}
-    </div>
+    </figure>
 
     <div class="blog_desc col-12 col-lg-8 order-0 order-lg-1 wow fromright" data-wow-delay="{{ $delay*0.4 }}s">
 

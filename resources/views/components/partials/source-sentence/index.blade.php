@@ -1,5 +1,5 @@
 @if(!$source == null OR !$author == null OR !$license == null OR !$dimensionSource == "off")
-    <label rel="license" {{ $attributes->merge(['class' => 'source']) }}>
+    <figcaption rel="license" {{ $attributes->merge(['class' => 'source']) }}>
         @if($dimensionSource == "small" OR $dimensionSource == "medium" OR $dimensionSource == "full")
             @isset($source)
                 zdroj:
@@ -38,7 +38,7 @@
                 @endisset
             @endisset
         @endif
-    </label>
+    </figcaption>
 @else
     <!-- !!! SOURCE does not exist !!! -->
 @endif

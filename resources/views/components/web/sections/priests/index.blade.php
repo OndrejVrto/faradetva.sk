@@ -9,14 +9,14 @@
         @foreach ($priests as $priest)
             <div class="col-xl-4 col-md-6 col-12 mar_t_100">
                 <div class="ministry_box pastor_box flipinY wow h-100 my-0 d-flex flex-column pb-2">
-                    <div class="ministry_thumb">
+                    <figure class="ministry_thumb">
                         <img src="{{ $priest['img-url'] }}"
                             class="img-fluid"
                             alt="Fotografia: {{ $priest['full_name_titles'] }}, {{ $priest['function'] }}"
                             height="{{ $priest['img-height'] }}"
                             width="{{ $priest['img-width'] }}"
                         />
-                    </div>
+                    </figure>
                     <div class="ministry_desc h-100 d-flex flex-column">
                         <h4>{{ $priest['full_name_titles'] }}</h4>
                         <h5>{{ $priest['function'] }}</h5>

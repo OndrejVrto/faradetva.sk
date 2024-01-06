@@ -1,4 +1,4 @@
-<div class="blog_thumb">
+<figure class="blog_thumb">
 
     {!! $oneNews->getFirstMedia($oneNews->collectionName)->img('large', [
             'class' => 'w-100 img-fluid',
@@ -34,4 +34,4 @@
         />
     </div>
 
-</div>
+</figure>
