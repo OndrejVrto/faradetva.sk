@@ -67,7 +67,7 @@
             Sobášne
         </h5>
         <p class="fromright wow" data-wow-delay="1.4s">
-            Pondelok o 18.30 h. podľa <a href="#" class="read_m_link" target="_blank" rel="noopener noreferrer">rozpisu.</a>
+            Pondelok o 18.30 h. podľa <a href="#" class="read_m_link" target="_blank" rel="external noopener noreferrer">rozpisu.</a>
         </p>
         <h5 class="fromright wow" data-wow-delay="1.6s">
             Krstné
