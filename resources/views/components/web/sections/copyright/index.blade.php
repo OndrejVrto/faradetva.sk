@@ -6,7 +6,7 @@
                     <div class="copyright_text h-100 d-flex align-items-center justify-content-center justify-content-lg-start">
                         <p>
                             Copyright © 2022-{{ now()->year }}, Všetky práva vyhradené <a href="{{ secure_url('kontakty') }}">Farnosť Detva</a>.
-                            <span class="ms-2">Created by <a href="https://ondrejvrto.eu/" target="_blank">Ondrej Vrťo</a>.</span>
+                            <span class="ms-2">Created by <a href="https://ondrejvrto.eu/" target="_blank" rel="external noopener noreferrer author">Ondrej Vrťo</a>.</span>
                         </p>
                     </div>
                 </div>

@@ -34,7 +34,7 @@
                                         <li><a class="link-template-gray" href="{{ secure_url('o-nas/pastoracia/akolyti#rozpis') }}">Rozpis akolytov</a></li>
                                         <li><a class="link-template-gray" href="{{ route('faq') }}">Otázky a odpovede</a></li>
                                         <li><a class="link-template-gray" href="{{ secure_url('duchovny-zivot/sviatosti/manzelstvo#rozpis') }}">Príprava snúbencov</a></li>
-                                        <li><a target="_blank" rel="noopener noreferrer" class="link-template-gray" href="https://gdpr.kbs.sk">Ochrana osobných údajov</a></li>
+                                        <li><a target="_blank" rel="external noopener noreferrer" class="link-template-gray" href="https://gdpr.kbs.sk">Ochrana osobných údajov</a></li>
                                     </div>
                                 </ul>
                             </div>

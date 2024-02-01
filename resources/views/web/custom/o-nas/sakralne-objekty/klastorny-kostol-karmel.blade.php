@@ -21,7 +21,7 @@
                 <x-partials.picture titleSlug="klk-012" side="left" dimensionSource="medium" columns="2" />
 
                 <p>
-                    V&nbsp;roku 2018 bola na stenu presbytéria kostola nainštalovaná mozaika, poskladaná z&nbsp;množstva kamienkov rôzneho druhu, veľkosti, tvaru a&nbsp;farby. Autorom mozaiky je gréckokatolícky kňaz a&nbsp;redemptorista Kamil Dráb, umeleckým menom Don Camillo, ktorý je žiakom celosvetovo známej <a href="https://www.centroaletti.com/" target="_blank">dielne Centrum Aletti v&nbsp;Ríme</a>. Celá koncepcia mozaiky vychádza z&nbsp;patrocínia kostola. Hlavnou postavou celého priestoru je Ježiš Kristus zo zjavenia sv. Faustíne, v&nbsp;ikonografickom zobrazení. Mozaiku 10. septembra 2018 požehnal diecézny biskup Mons. Marián Chovanec.
+                    V&nbsp;roku 2018 bola na stenu presbytéria kostola nainštalovaná mozaika, poskladaná z&nbsp;množstva kamienkov rôzneho druhu, veľkosti, tvaru a&nbsp;farby. Autorom mozaiky je gréckokatolícky kňaz a&nbsp;redemptorista Kamil Dráb, umeleckým menom Don Camillo, ktorý je žiakom celosvetovo známej <a href="https://www.centroaletti.com/" target="_blank" rel="external noopener noreferrer">dielne Centrum Aletti v&nbsp;Ríme</a>. Celá koncepcia mozaiky vychádza z&nbsp;patrocínia kostola. Hlavnou postavou celého priestoru je Ježiš Kristus zo zjavenia sv. Faustíne, v&nbsp;ikonografickom zobrazení. Mozaiku 10. septembra 2018 požehnal diecézny biskup Mons. Marián Chovanec.
                 </p>
 
                 <x-partials.picture titleSlug="klk-015" side="right" dimensionSource="medium" columns="2" />

@@ -18,6 +18,7 @@
     @endisset
     <a class="link-template"
         target="_blank"
+        rel="external noopener noreferrer"
         href="{!! $href !!}">
         Dostupné na internete
     </a>

@@ -19,7 +19,7 @@
 
     <div class="blog_desc h-100 d-flex flex-column px-3 py-2">
         <div class="blog_info d-flex flex-wrap justify-content-around mt-2">
-            <a href="{{ route('article.author', $oneNews->user->slug) }}">
+            <a href="{{ route('article.author', $oneNews->user->slug) }}" rel="author">
                 <i class="fa-regular fa-user" aria-hidden="true"></i>
                 {{ $oneNews->user->name }}
             </a>

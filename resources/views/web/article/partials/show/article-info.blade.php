@@ -1,7 +1,7 @@
 <div class="d-flex align-items-end flex-wrap justify-content-center flex-lg-nowrap justify-content-lg-between mb-3" data-no-index>
     <div class="blog_info">
         <span>
-            <a href="{{ route('article.author', $oneNews->user->slug) }}">
+            <a href="{{ route('article.author', $oneNews->user->slug) }}" rel="author">
                 <i class="fa-regular fa-user" aria-hidden="true"></i>{{ $oneNews->user->name }}
             </a>
         </span>

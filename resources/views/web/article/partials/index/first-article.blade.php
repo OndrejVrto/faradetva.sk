@@ -29,7 +29,7 @@
 
     <x-slot:meta>
         <span>
-            <a href="{{ route('article.author', $oneNews->user->slug) }}">
+            <a href="{{ route('article.author', $oneNews->user->slug) }}" rel="author">
                 <i class="fa-regular fa-user" aria-hidden="true"></i>
                 {{ $oneNews->user->name }}
             </a>

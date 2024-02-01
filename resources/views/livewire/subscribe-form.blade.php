@@ -13,7 +13,7 @@
 
             <div class="row">
                 <div class="col-lg-4 form-group">
-                    <input wire:model.lazy="name" type="text" name="name" placeholder="Vaše celé meno" value="{{ old('name') }}">
+                    <input id="liveware-register-name" wire:model.lazy="name" type="text" name="name" autocomplete="name" placeholder="Vaše celé meno" value="{{ old('name') }}">
                     @error('name')
                         <span class="text-church-template-blue d-block mt-1 ms-4" role="alert">
                             <strong>{{ $errors->first('name') }}</strong>
@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="col-lg-5 mt-3 mt-lg-0 form-group">
-                    <input wire:model.lazy="email" type="text" name="email" placeholder="Váš E-mail" value="{{ old('name') }}">
+                    <input id="liveware-register-email" wire:model.lazy="email" type="text" name="email" autocomplete="email" placeholder="Váš E-mail" value="{{ old('name') }}">
                     @error('email')
                         <span class="text-church-template-blue d-block mt-1 ms-4" role="alert">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -61,7 +61,7 @@
                     <strong>{{ $errors->first('name') }}</strong>
                 </span>
             @enderror
-            <input wire:model.lazy="name" type="text" name="name" placeholder="Vaše celé meno" value="{{ old('name') }}">
+            <input id="liveware-register-name" wire:model.lazy="name" type="text" name="name" autocomplete="name" placeholder="Vaše celé meno" value="{{ old('name') }}">
         </div>
 
         <div class="form-group">
@@ -70,7 +70,7 @@
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @enderror
-            <input wire:model.lazy="email" type="text" name="email" placeholder="Váš E-mail" value="{{ old('name') }}">
+            <input id="liveware-register-email" wire:model.lazy="email" type="text" name="email" autocomplete="email" placeholder="Váš E-mail" value="{{ old('name') }}">
         </div>
 
         <button type="submit" class="news_btn read_btn">
