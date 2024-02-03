@@ -49,6 +49,7 @@ class SeoPropertiesService {
             ->name(e($pictureData['img-title']))
             ->identifier(e($pictureData['img-url']))
             ->url(e($pictureData['img-url']))
+            ->creditText(e($pictureData['sourceArr']['source_license']))
             ->description(e($pictureData['source_description']))
             ->alternateName(e($pictureData['source_description']))
             ->width($pictureData['img-width'])
@@ -62,7 +63,18 @@ class SeoPropertiesService {
                     Schema::person()
                         ->name(e($pictureData['sourceArr']['source_author']))
                         ->sameAs(e($pictureData['sourceArr']['source_author_url']))
+                )->creator(
+                    Schema::person()
+                        ->name(e($pictureData['sourceArr']['source_author']))
+                        ->sameAs(e($pictureData['sourceArr']['source_author_url']))
                 );
+            })
+            ->if(isset($pictureData['sourceArr']['source_source_url']) || isset($pictureData['sourceArr']['source_source']), function (ImageObject $schema) use ($pictureData): void {
+                $schema->copyrightHolder(
+                    Schema::organization()
+                        ->name(e($pictureData['sourceArr']['source_source']))
+                        ->url(e($pictureData['sourceArr']['source_source_url']))
+                )->copyrightNotice(e($pictureData['sourceArr']['source_source']));
             })
             ->thumbnail(
                 Schema::imageObject()
@@ -91,8 +103,13 @@ class SeoPropertiesService {
         $JsonLD = Schema::imageGallery()
             ->name(e($album['title']))
             ->description(e($album['source_description']))
+            ->creditText(e($album['sourceArr']['source_license']))
             ->if(isset($album['sourceArr']['source_author']) || isset($album['sourceArr']['author_url']), function (imageGallery $schema) use ($album): void {
                 $schema->author(
+                    Schema::person()
+                        ->name(e($album['sourceArr']['source_author']))
+                        ->sameAs(e($album['sourceArr']['source_author_url']))
+                )->creator(
                     Schema::person()
                         ->name(e($album['sourceArr']['source_author']))
                         ->sameAs(e($album['sourceArr']['source_author_url']))
@@ -105,7 +122,7 @@ class SeoPropertiesService {
                     Schema::organization()
                         ->name(e($album['sourceArr']['source_source']))
                         ->url(e($album['sourceArr']['source_source_url']))
-                );
+                )->copyrightNotice(e($album['sourceArr']['source_source']));
             })
             ->associatedMedia($pictures)
             ->toArray();
