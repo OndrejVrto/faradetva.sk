@@ -56,8 +56,9 @@ class PageCard extends Component {
             key: 'PAGE_CARD_ALL',
             callback: fn (): array => StaticPage::query()
                 ->activated()
-                ->orderByDesc('virtual')
-                ->orderBy('url')
+                ->inRandomOrder()
+                // ->orderByDesc('virtual')
+                // ->orderBy('url')
                 ->with('picture', 'source')
                 ->get()
                 ->map(fn ($page) => $this->mapOutput($page))
