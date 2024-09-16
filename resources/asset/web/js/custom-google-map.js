@@ -24,10 +24,11 @@ function initMap(){
         scrollwheel: false,
         /* disableDefaultUI: true, */
         // mapTypeControl: false,
+        mapId: '5413a432823a7cc9',
         mapTypeId  : google.maps.MapTypeId.SATELLITE  /* roadmap, satellite, hybrid and terrain */
     };
     var map=new google.maps.Map(document.getElementById("contact_map"),mapProperties);
-    map.setOptions({styles: styles['hide']});
+    // map.setOptions({styles: styles['hide']});
 
     /* marker Fara */
     var marker=new google.maps.Marker({
