@@ -46,7 +46,6 @@
                 <ol class="row ps-4">
                     <div class="col">
                         <h6 class="text-church-template">Akolyti vo farnosti Detva</h6>
-                        <li>Milan Porubský</li>
                         <li>Vladimír Kučera</li>
                         <li>Jozef Murín</li>
                         <li>Ján Fekiač</li>
@@ -59,6 +58,8 @@
                         <li>Martin Ostrihoň</li>
                         <li>Ľubomír Fekiač</li>
                         <li>Milan Slámka</li>
+                        <li>Peter Bystriansky</li>
+                        <li>Maroš Žiak</li>
                     </div>
                 </ol>
 
