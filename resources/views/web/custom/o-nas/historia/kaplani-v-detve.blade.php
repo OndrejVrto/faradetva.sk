@@ -153,6 +153,7 @@
         ["years" => "2017 - 2020", "name" => "Juraj Ondruš"],
         ["years" => "2019 -"     , "name" => "Pavol Prieboj", "description" => "výpomocný duchovný"],
         ["years" => "2020 - 2023", "name" => "Marián Juhaniak"],
+        ["years" => "2023 -", "name" => "Adam Murko"],
     ];
 @endphp
 

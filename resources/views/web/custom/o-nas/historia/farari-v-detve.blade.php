@@ -39,7 +39,8 @@
         ["years" => "1993"                 ,"name" => "Pavol Párničan"    ,"description" => "farský administrátor"],
         ["years" => "1993 - 1995"          ,"name" => "Pavol Zemko"],
         ["years" => "1995 - 2002"          ,"name" => "Roman Furek"],
-        ["years" => "2002 -"               ,"name" => "Ľuboš Sabol"],
+        ["years" => "2002 - 2025"          ,"name" => "Ľuboš Sabol"],
+        ["years" => "2025 -"               ,"name" => "Karol Vozár"],
         ["years" => " "               ,"name" => " ", "description" => " "],  // multi column problem in Chrome
     ];
 @endphp
