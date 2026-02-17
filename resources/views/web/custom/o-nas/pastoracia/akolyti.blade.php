@@ -60,6 +60,8 @@
                         <li>Milan Slámka</li>
                         <li>Peter Bystriansky</li>
                         <li>Maroš Žiak</li>
+                        <li>Tomáš Ostrihoň</li>
+                        <li>Miroslav Haršányi</li>
                     </div>
                 </ol>
 
